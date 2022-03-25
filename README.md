@@ -1,2 +1,2 @@
-# complexity-verification-project
-This repository hosts code, data, etc. of our project: Measuring code complexity via ease of verification
+# Measuring code complexity via ease of verification
+This repo contains code, data, results, etc. of our project.
