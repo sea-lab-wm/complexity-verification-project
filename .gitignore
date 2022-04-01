@@ -154,3 +154,6 @@ gradle-app.setting
 
 # Ignore Gradle build output directory
 build
+
+#Ignore VSCode generated configurations
+.vscode
