@@ -1,6 +1,6 @@
 package edu.wm.kobifeldman.fMRI_Study_Classes;
 
-//import org.checkerframework.checker.nullness.qual.*;
+import org.checkerframework.checker.nullness.qual.*;
 
 public class ArrayAverage {
     public static void main() {

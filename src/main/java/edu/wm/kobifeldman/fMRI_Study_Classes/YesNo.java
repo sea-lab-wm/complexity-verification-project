@@ -1,6 +1,6 @@
 package edu.wm.kobifeldman.fMRI_Study_Classes;
 
-//import org.checkerframework.checker.nullness.qual.*;
+import org.checkerframework.checker.nullness.qual.*;
 
 public class YesNo {
     public static void main() {
@@ -8,7 +8,7 @@ public class YesNo {
         System.out.print(compute(input));
     }
 
-    static Boolean compute(String input) {
+    static @Nullable Boolean compute(String input) {
         input = input.toLowerCase();
 
         if (input.contentEquals("n")) {
