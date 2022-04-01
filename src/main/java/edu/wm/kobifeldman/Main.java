@@ -19,6 +19,20 @@ public class Main {
 
         ArrayAverage.main();
         ContainsSubstring.main();
+        CountVowels.main();
+        DumbSort.main();
+        GreatestCommonDivisor.main();
+        hIndex.main();
+        isHurricane.main();
+        isPalindrome.main();
+        lengthOfLastWord.main();
+        RecursiveBinaryToDecimal.main();
+        RecursiveCrossSum.main();
+        RecursiveFactorial.main();
+        RecursiveFibonacciVariant.main();
+        RecursivePower.main();
+        SampleForTraining.main();
+        SquareRoot.main();
         YesNo.main();
     }
 }
