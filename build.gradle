@@ -7,6 +7,25 @@
 
 plugins {
     id 'java'
+    id 'org.checkerframework' version '0.6.9'
+}
+
+repositories {
+    //Used to resolve dependencies
+    mavenCentral()
+}
+
+apply plugin: 'org.checkerframework'
+
+dependencies {
+    implementation 'org.checkerframework:checker-qual:3.21.3'
+}
+
+checkerFramework {
+    //List all checkers in use here
+    checkers = [
+        'org.checkerframework.checker.nullness.NullnessChecker'
+    ]
 }
 
 jar {
