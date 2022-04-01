@@ -1,7 +1,6 @@
 package edu.wm.kobifeldman;
 
 import edu.wm.kobifeldman.fMRI_Study_Classes.*;
-import org.checkerframework.checker.nullness.qual.*;
 
 public class Main {
     public static void main(String[] args) {
