@@ -24,7 +24,12 @@ dependencies {
 checkerFramework {
     //List all checkers in use here
     checkers = [
-        'org.checkerframework.checker.nullness.NullnessChecker'
+        'org.checkerframework.checker.nullness.NullnessChecker',
+        'org.checkerframework.checker.interning.InterningChecker'
+    ]
+
+    extraJavacArgs = [
+        '-Awarns'
     ]
 }
 
