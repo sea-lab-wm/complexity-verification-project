@@ -8,7 +8,7 @@ public class YesNo {
         System.out.print(compute(input));
     }
 
-    static @Nullable Boolean compute(String input) {
+    static Boolean compute(String input) {
         input = input.toLowerCase();
 
         if (input.contentEquals("n")) {
