@@ -25,7 +25,16 @@ checkerFramework {
     //List all checkers in use here
     checkers = [
         'org.checkerframework.checker.nullness.NullnessChecker',
-        'org.checkerframework.checker.interning.InterningChecker'
+        'org.checkerframework.checker.interning.InterningChecker',
+        'org.checkerframework.checker.calledmethods.CalledMethodsChecker',
+        'org.checkerframework.checker.resourceleak.ResourceLeakChecker',
+        'org.checkerframework.checker.index.IndexChecker',
+        'org.checkerframework.checker.signature.SignatureChecker',
+        'org.checkerframework.common.value.ValueChecker',
+        'org.checkerframework.common.aliasing.AliasingChecker',
+        'org.checkerframework.checker.optional.OptionalChecker',
+        'org.checkerframework.checker.regex.RegexChecker',
+        'org.checkerframework.checker.formatter.FormatterChecker'
     ]
 
     extraJavacArgs = [
