@@ -38,7 +38,10 @@ checkerFramework {
     ]
 
     extraJavacArgs = [
-        '-Awarns'          //Converts the checker framework errors to warnings
+        '-Awarns'        //Converts the checker framework errors to warnings
+        //'-Anomsgtext'
+        //'-Ashowchecks'
+        //'-Adetailedmsgtext'
     ]
 }
 
