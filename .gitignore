@@ -157,3 +157,6 @@ build
 
 #Ignore VSCode generated configurations
 .vscode
+
+#Ignore Python Virtual Environment Directory
+complexity_verification_project_venv
