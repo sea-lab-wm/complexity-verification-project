@@ -19,6 +19,7 @@ apply plugin: 'org.checkerframework'
 
 dependencies {
     implementation 'org.checkerframework:checker-qual:3.21.3'
+    //implementation files('dependencies/CryptoAnalysis-2.7.1-SNAPSHOT-jar-with-dependencies.jar')
 }
 
 checkerFramework {
