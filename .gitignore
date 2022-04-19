@@ -160,3 +160,9 @@ build
 
 #Ignore Python Virtual Environment Directory
 complexity_verification_project_venv
+
+#Ignore CogniCrypt Testing Stuff
+CryptoAnalysis
+
+#Do not ignore CogniCrypt build
+!CogniCrypt/*
