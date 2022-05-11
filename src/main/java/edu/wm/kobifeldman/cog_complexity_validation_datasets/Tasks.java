@@ -1,5 +1,7 @@
 package edu.wm.kobifeldman.cog_complexity_validation_datasets;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import javax.script.Bindings;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
@@ -23,19 +25,19 @@ public class Tasks {
 
     private static final String RETURN = "";
     private static final int IRETURN = 0;
-    private static final Object BUTTON_IMAGE = null;
-    private static final Object BUTTON_ROLLOVER_IMAGE = null;
+    private static final @Nullable Object BUTTON_IMAGE = null;
+    private static final @Nullable Object BUTTON_ROLLOVER_IMAGE = null;
     private static final int EQ = 0;
     private static final int NE = 1;
     private static final int COLUMNS = 0;
     private static final int DEFAULT_WIDTH = 1;
     private static final int DEFAULT_HEIGHT = 2;
-    private static final Locale CONSTRUCTOR_ERROR_FORMAT = null;
+    private static final @Nullable Locale CONSTRUCTOR_ERROR_FORMAT = null;
     private static final int ACC_PUBLIC = 0;
-    private static final Object MESSAGE_COUNT = null;
+    private static final @Nullable Object MESSAGE_COUNT = null;
     private static final int DATABASE_CLOSING = 0;
     private static final int DATABASE_ONLINE = 1;
-    private static final Object CHANNELLIST = null;
+    private static final @Nullable Object CHANNELLIST = null;
     private static final boolean COLUMN = false;
     private static final boolean VALUE = false;
     private static final boolean FUNCTION = false;
@@ -53,7 +55,7 @@ public class Tasks {
     private static int[] jjbitVec0;
     private static int[] jjbitVec1;
     private int fParameterSetNumber;
-    private Object fParameters = null;
+    private @Nullable Object fParameters = null;
     private int constType;
     private ConstraintCore core = new ConstraintCore();
     private HsqlName constName = new HsqlName();
@@ -70,11 +72,11 @@ public class Tasks {
     private GranteeManager granteeManager;
     private Ftest fTest;
     private Method fMethod;
-    private Parent parent;
+    private @Nullable Parent parent;
     private InGameController inGameController;
-    private Object clas;
+    private @Nullable Object clas;
     private String value;
-    private Object asClass;
+    private @Nullable Object asClass;
     private BtPanel btPanel;
     private Object cancel;
     private Object ok;
@@ -110,8 +112,8 @@ public class Tasks {
     private int mYear;
     private int mMonth;
     private int fContextLength;
-    private String fExpected;
-    private String fActual;
+    private @Nullable String fExpected;
+    private @Nullable String fActual;
     private Object cs;
     private Object object;
     private Object name;
@@ -125,7 +127,7 @@ public class Tasks {
     private Ns t;
     private int jj_ntk;
     private ArrayList mChildNodes;
-    private Object mMarker;
+    private @Nullable Object mMarker;
     private Interval next;
     private int mNumber;
     private Object mName;
@@ -140,7 +142,7 @@ public class Tasks {
     private Klass klass;
     private SuiteMethod suiteMethod;
     private Test suite;
-    private Object missionChip;
+    private @Nullable Object missionChip;
     private boolean expertMission;
     private Object color;
     private MissionChip expertMissionChips;
@@ -181,7 +183,7 @@ public class Tasks {
     private int[] a;
     private int[] coltypes;
     private int[] b;
-    private Vector importedPackages;
+    private @Nullable Vector importedPackages;
     private String cmpDataServiceId;
     private Tasks cmp;
     private ConstraintCore mainCols;
@@ -225,7 +227,7 @@ public class Tasks {
     }
 
     // Snippet s2
-    public static Object s2() {
+    public static @Nullable Object s2() {
         if (actionList.size() == 1) {
             ActionMenu menu = actionList.get(0);
 
@@ -328,7 +330,7 @@ public class Tasks {
     /**
      * Returns a vector containing the URI (type + path) for all the databases.
      */
-    public static Vector getDatabaseURIs() {
+    public static @Nullable Vector getDatabaseURIs() {
 
         Vector v = new Vector();
         Iterator it = databaseIDMap.values().iterator();
@@ -379,7 +381,7 @@ public class Tasks {
      * @param expected expected value
 	 * @param actual actual value
 	 */
-    static public void assertEquals(String message, Object expected, Object actual) {
+    static public void assertEquals(String message, @Nullable Object expected, @Nullable Object actual) {
         if (expected == null && actual == null)
             return;
         if (expected != null && isEquals(expected, actual))
@@ -434,7 +436,7 @@ public class Tasks {
     /**
      * Do not use. Testing purposes only.
      */
-    public Result runMain(String... args) {
+    public @Nullable Result runMain(String... args) {
         System.out.println("JUnit version " + Version.id());
         List<Class<?>> classes = new ArrayList<Class<?>>();
         List<Failure> missingClasses = new ArrayList<Failure>();
@@ -477,7 +479,7 @@ public class Tasks {
      * Returns the PluginPanel
      * @return Panel
      */
-    public JPanel createSettingsPanel() {
+    public @Nullable JPanel createSettingsPanel() {
         mPanel = new CapturePluginPanel(mOwner, mCloneData);
         mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
         mPanel.setSelectedTab(mCurrentPanel);
@@ -535,7 +537,7 @@ public class Tasks {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width - dim.width) / 2;
         int y = (screen.height - dim.height) / 2;
-        return null; // Added to allow compilation
+        return new Point(x, y); // Added to allow compilation, modified the edit to remove null
     } // Added to allow compilation
 
     // Snippet s28
@@ -612,7 +614,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s34
-    public Object s34() {
+    public @Nullable Object s34() {
         int statement = 0; // added to allow compilation
         switch (statement) { // Added switch case beginning to allow compilation
             case CompiledStatement.DELETE:
@@ -644,7 +646,7 @@ public class Tasks {
     }
 
     // Snippet s36
-    public Object s36() {
+    public @Nullable Object s36() {
         Class clas = object.getClass();
         Field field = Reflect.resolveJavaField(
                 clas, name, false/*onlyStatic*/);
@@ -693,7 +695,7 @@ public class Tasks {
      * @param element The element (root element in a DOM-parsed XML tree) that
      *            holds all the information.
      */
-    private Element deliverGift(Element element) {
+    private @Nullable Element deliverGift(Element element) {
         Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
 
         Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
@@ -951,7 +953,7 @@ public class Tasks {
         for (Method method : testMethods)
             spec.addChild(methodDescription(method));
 
-        return null; // Added to allow compilation
+        return spec; // Added to allow compilation, modified to remove unneeded null
     } // Added to allow compilation
 
     // Snippet s64
@@ -996,7 +998,7 @@ public class Tasks {
         }
 
         builder.append(Integer.toString(number));
-        return null; // Added to allow compilation
+        return builder.toString(); // Added to allow compilation, modified to avoid confusing null
     } // Added to allow compilation
 
     // Snippet s68
@@ -1048,7 +1050,7 @@ public class Tasks {
             super(message);
         }
 
-        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+        public @Nullable Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 
             JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
@@ -1063,7 +1065,7 @@ public class Tasks {
     }
 
     // Snippet s73
-    public String compact(String message) {
+    public @Nullable String compact(String message) {
         if (fExpected == null || fActual == null || areStringsEqual())
             return Assert.format(message, fExpected, fActual);
 
@@ -1181,7 +1183,7 @@ public class Tasks {
         return false; // Added to allow compilation
     } // Added to allow compilation
 
-    private String getCountry() {
+    private @Nullable String getCountry() {
         return null;
     }
 
@@ -1251,11 +1253,11 @@ public class Tasks {
         if (fMessage != null)
             builder.append(fMessage);
         builder.append("arrays first differed at element ");
-        return null; // Added to allow compilation
+        return builder.toString(); // Added to allow compilation, modified to avoid null
     } // Added to allow compilation
 
     // Snippet s89
-    String getStateString() {
+    @Nullable String getStateString() {
 
         int state = getState();
 
@@ -1312,7 +1314,7 @@ public class Tasks {
         } finally {
             // Added to allow compilation
         }
-        return null; // Added to allow compilation
+        return list.toArray(new ElgatoChannel[0]); // Added to allow compilation, modified to avoid null
     } // Added to allow compilation
 
     // Snippet s93
@@ -1363,7 +1365,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s97
-    public ActionMenu getButtonAction() {
+    public @Nullable ActionMenu getButtonAction() {
         AbstractAction action = new AbstractAction() {
 
             public void actionPerformed(ActionEvent evt) {
@@ -1423,7 +1425,7 @@ public class Tasks {
 
     }
 
-    private PrintWriter getWriter() {
+    private @Nullable PrintWriter getWriter() {
         return null;
     }
 
@@ -1467,7 +1469,7 @@ public class Tasks {
             return 0;
         }
 
-        public Object toArray(ProgramReceiveTarget[] programReceiveTargets) {
+        public @Nullable Object toArray(ProgramReceiveTarget[] programReceiveTargets) {
             return null;
         }
     }
@@ -1495,11 +1497,11 @@ public class Tasks {
             return false;
         }
 
-        public Object getStrictJava() {
+        public @Nullable Object getStrictJava() {
             return null;
         }
 
-        public This getGlobal(Interpreter declaringInterpreter) {
+        public @Nullable This getGlobal(Interpreter declaringInterpreter) {
             return null;
         }
     }
@@ -1512,15 +1514,15 @@ public class Tasks {
         return false;
     }
 
-    private ConnectController getConnectController() {
+    private @Nullable ConnectController getConnectController() {
         return null;
     }
 
-    private String computeCommonSuffix() {
+    private @Nullable String computeCommonSuffix() {
         return null;
     }
 
-    private String computeCommonPrefix() {
+    private @Nullable String computeCommonPrefix() {
         return null;
     }
 
@@ -1557,7 +1559,7 @@ public class Tasks {
     }
 
     private class Method {
-        public Object getModifiers() {
+        public @Nullable Object getModifiers() {
             return null;
         }
 
@@ -1570,7 +1572,7 @@ public class Tasks {
     }
 
     private static class Description {
-        public static Description createSuiteDescription(Object name) {
+        public static @Nullable Description createSuiteDescription(Object name) {
             return null;
         }
 
@@ -1586,7 +1588,7 @@ public class Tasks {
     }
 
     private static class BshClassManager {
-        public static BshClassManager createClassManager(Tasks tasks) {
+        public static @Nullable BshClassManager createClassManager(Tasks tasks) {
             return null;
         }
     }
@@ -1598,17 +1600,17 @@ public class Tasks {
     }
 
     private class In {
-        public Object readObject() {
+        public @Nullable Object readObject() {
             return null;
         }
 
-        public String readInt() {
+        public @Nullable String readInt() {
             return null;
         }
     }
 
     private static class Version {
-        public static String id() {
+        public static @Nullable String id() {
             return null;
         }
     }
@@ -1648,7 +1650,7 @@ public class Tasks {
     }
 
     private static class Borders {
-        public static Object createEmptyBorder(Object dluy5, Object dlux5, Object dluy51, Object dlux51) {
+        public static @Nullable Object createEmptyBorder(Object dluy5, Object dlux5, Object dluy51, Object dlux51) {
             return null;
         }
     }
@@ -1664,7 +1666,7 @@ public class Tasks {
     }
 
     private class PathNode {
-        public Tile getTile() {
+        public @Nullable Tile getTile() {
             return null;
         }
 
@@ -1674,11 +1676,11 @@ public class Tasks {
     }
 
     private static class Unit {
-        public static Object getXMLElementTagName() {
+        public static @Nullable Object getXMLElementTagName() {
             return null;
         }
 
-        public Object getFreeColGameObject(Object id) {
+        public @Nullable Object getFreeColGameObject(Object id) {
             return null;
         }
 
@@ -1686,13 +1688,13 @@ public class Tasks {
 
         }
 
-        public BtPanel createHelpTextArea(Object msg) {
+        public @Nullable BtPanel createHelpTextArea(Object msg) {
             return null;
         }
     }
 
     private class Tile {
-        public Settlement getSettlement() {
+        public @Nullable Settlement getSettlement() {
             return null;
         }
 
@@ -1706,7 +1708,7 @@ public class Tasks {
     }
 
     private class Settlement {
-        public Object getOwner() {
+        public @Nullable Object getOwner() {
             return null;
         }
     }
@@ -1730,7 +1732,7 @@ public class Tasks {
     }
 
     private class Runner {
-        public Object getDescription() {
+        public @Nullable Object getDescription() {
             return null;
         }
     }
@@ -1739,23 +1741,23 @@ public class Tasks {
     }
 
     private class FreeColClient {
-        public FreeColClient getActionManager() {
+        public @Nullable FreeColClient getActionManager() {
             return null;
         }
 
-        public Object getFreeColAction(Object id) {
+        public @Nullable Object getFreeColAction(Object id) {
             return null;
         }
 
-        public FreeColClient getImageLibrary() {
+        public @Nullable FreeColClient getImageLibrary() {
             return null;
         }
 
-        public Object getUnitButtonImageIcon(int unitButtonDisband, int i) {
+        public @Nullable Object getUnitButtonImageIcon(int unitButtonDisband, int i) {
             return null;
         }
 
-        public FreeColClient getCanvas() {
+        public @Nullable FreeColClient getCanvas() {
             return null;
         }
 
@@ -1763,15 +1765,15 @@ public class Tasks {
 
         }
 
-        public InGameInputHandler getInGameInputHandler() {
+        public @Nullable InGameInputHandler getInGameInputHandler() {
             return null;
         }
 
-        public AbstractTranslet getClient() {
+        public @Nullable AbstractTranslet getClient() {
             return null;
         }
 
-        public Game getGame() {
+        public @Nullable Game getGame() {
             return null;
         }
     }
@@ -1793,15 +1795,15 @@ public class Tasks {
 
 
 
-    private Object executeCallStatement(Object cs) {
+    private @Nullable Object executeCallStatement(Object cs) {
         return null;
     }
 
-    private Object executeDDLStatement(Object cs) {
+    private @Nullable Object executeDDLStatement(Object cs) {
         return null;
     }
 
-    private Object executeDeleteStatement(Object cs) {
+    private @Nullable Object executeDeleteStatement(Object cs) {
         return null;
     }
 
@@ -1818,13 +1820,13 @@ public class Tasks {
     }
 
     private static class Reflect {
-        public static Field resolveJavaField(Class clas, Object name, boolean b) {
+        public static @Nullable Field resolveJavaField(Class clas, Object name, boolean b) {
             return null;
         }
     }
 
     private class Field {
-        public Object getType() {
+        public @Nullable Object getType() {
             return null;
         }
     }
@@ -1845,11 +1847,11 @@ public class Tasks {
             return false;
         }
 
-        public Object getId() {
+        public @Nullable Object getId() {
             return null;
         }
 
-        public Object getName() {
+        public @Nullable Object getName() {
             return null;
         }
     }
@@ -1860,17 +1862,17 @@ public class Tasks {
     }
 
     private static class DEFAULT_CONFIG {
-        public static Object getName() {
+        public static @Nullable Object getName() {
             return null;
         }
 
-        public static Object getId() {
+        public static @Nullable Object getId() {
             return null;
         }
     }
 
     private class Ns {
-        public Boolean getCatalogName(Boolean aBoolean) {
+        public @Nullable Boolean getCatalogName(Boolean aBoolean) {
             return null;
         }
 
@@ -1878,11 +1880,11 @@ public class Tasks {
 
         }
 
-        public Object getSchemaName(String clsName) {
+        public @Nullable Object getSchemaName(String clsName) {
             return null;
         }
 
-        public Boolean getCatalogName(String clsName) {
+        public @Nullable Boolean getCatalogName(String clsName) {
             return null;
         }
 
@@ -1892,27 +1894,27 @@ public class Tasks {
     }
 
     private class Element {
-        public Object getAttribute(String id) {
+        public @Nullable Object getAttribute(String id) {
             return null;
         }
     }
 
     private static class Message {
-        public static Element getChildElement(Element element, Object xmlElementTagName) {
+        public static @Nullable Element getChildElement(Element element, Object xmlElementTagName) {
             return null;
         }
 
-        public String getMessageID() {
+        public @Nullable String getMessageID() {
             return null;
         }
     }
 
-    private Unit getGame() {
+    private @Nullable Unit getGame() {
         return null;
     }
 
 
-    private Ns jj_consume_token(int eq) {
+    private @Nullable Ns jj_consume_token(int eq) {
         return null;
     }
 
@@ -1929,7 +1931,7 @@ public class Tasks {
     private class PluginTreeNode {
     }
 
-    private PluginTreeNode findProgramTreeNode(Program program, boolean b) {
+    private @Nullable PluginTreeNode findProgramTreeNode(Program program, boolean b) {
         return null;
     }
 
@@ -1963,7 +1965,7 @@ public class Tasks {
             return 0;
         }
 
-        public Object readUTF() {
+        public @Nullable Object readUTF() {
             return null;
         }
     }
@@ -1986,11 +1988,11 @@ public class Tasks {
     }
 
     private class Cc {
-        public String xy(int i, int i1) {
+        public @Nullable String xy(int i, int i1) {
             return null;
         }
 
-        public Object msg(String help, String no_endtime_defined) {
+        public @Nullable Object msg(String help, String no_endtime_defined) {
             return null;
         }
     }
@@ -2001,21 +2003,21 @@ public class Tasks {
     }
 
     private class Klass {
-        public SuiteMethod getMethod(String suite) {
+        public @Nullable SuiteMethod getMethod(String suite) {
             return null;
         }
 
-        public String getName() {
+        public @Nullable String getName() {
             return null;
         }
     }
 
     private class SuiteMethod {
-        public Object getModifiers() {
+        public @Nullable Object getModifiers() {
             return null;
         }
 
-        public Object invoke(Object o) {
+        public @Nullable Object invoke(Object o) {
             return null;
         }
     }
@@ -2042,7 +2044,7 @@ public class Tasks {
     }
 
     private class MissionChip {
-        public Object get(Object color) {
+        public @Nullable Object get(Object color) {
             return null;
         }
     }
@@ -2055,11 +2057,11 @@ public class Tasks {
     }
 
     private static class DriverFactory {
-        public static DriverFactory getInstance() {
+        public static @Nullable DriverFactory getInstance() {
             return null;
         }
 
-        public DeviceIf createDevice(String classname, String devname) {
+        public @Nullable DeviceIf createDevice(String classname, String devname) {
             return null;
         }
     }
@@ -2074,7 +2076,7 @@ public class Tasks {
             return null;
         }
 
-        public Object getRunner() {
+        public @Nullable Object getRunner() {
             return null;
         }
     }
@@ -2083,7 +2085,7 @@ public class Tasks {
         public static final int INFO_CONNECTION_READONLY = 0;
     }
 
-    private Object getAttribute(int infoConnectionReadonly) {
+    private @Nullable Object getAttribute(int infoConnectionReadonly) {
         return null;
     }
 
@@ -2103,11 +2105,11 @@ public class Tasks {
         }
     }
 
-    private Object methodDescription(Method method) {
+    private @Nullable Object methodDescription(Method method) {
         return null;
     }
 
-    private Object getName() {
+    private @Nullable Object getName() {
         return null;
     }
 
@@ -2122,17 +2124,17 @@ public class Tasks {
             return null;
         }
 
-        public ProgramTable getPluginManager() {
+        public @Nullable ProgramTable getPluginManager() {
             return null;
         }
 
-        public JPopupMenu createPluginContextMenu(Program p, Object instance) {
+        public @Nullable JPopupMenu createPluginContextMenu(Program p, Object instance) {
             return null;
         }
     }
 
     private static class CapturePlugin {
-        public static Object getInstance() {
+        public static @Nullable Object getInstance() {
             return null;
         }
     }
@@ -2149,7 +2151,7 @@ public class Tasks {
         }
     }
 
-    private Object createAdaptingListener(RunNotifier notifier) {
+    private @Nullable Object createAdaptingListener(RunNotifier notifier) {
         return null;
     }
 
@@ -2174,7 +2176,7 @@ public class Tasks {
             return 0;
         }
 
-        public Object getSource() {
+        public @Nullable Object getSource() {
             return null;
         }
     }
@@ -2185,7 +2187,7 @@ public class Tasks {
         }
     }
 
-    private Object getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+    private @Nullable Object getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         return null;
     }
 
@@ -2209,21 +2211,21 @@ public class Tasks {
 
     public static class SwingUtilities {
 
-        public static Point convertPoint(Component source, int x, int y, Object o) {
+        public static @Nullable Point convertPoint(Component source, int x, int y, Object o) {
             return null;
         }
     }
 
-    private Object iterateRoutineMethods(String className, Object andAliases) {
+    private @Nullable Object iterateRoutineMethods(String className, Object andAliases) {
         return null;
     }
 
     private class Device {
-        public Object getDriver() {
+        public @Nullable Object getDriver() {
             return null;
         }
 
-        public Object getName() {
+        public @Nullable Object getName() {
             return null;
         }
 
@@ -2233,15 +2235,15 @@ public class Tasks {
     }
 
     private static class Plugin {
-        public static Plugin getPluginManager() {
+        public static @Nullable Plugin getPluginManager() {
             return null;
         }
 
-        public Plugin getTvBrowserSettings() {
+        public @Nullable Plugin getTvBrowserSettings() {
             return null;
         }
 
-        public File getTvBrowserUserHome() {
+        public @Nullable File getTvBrowserUserHome() {
             return null;
         }
     }
@@ -2286,15 +2288,15 @@ public class Tasks {
         }
     }
 
-    private Object getWidth() {
+    private @Nullable Object getWidth() {
         return null;
     }
 
-    private Object getHeight() {
+    private @Nullable Object getHeight() {
         return null;
     }
 
-    private Object getMessageCount() {
+    private @Nullable Object getMessageCount() {
         return null;
     }
 
@@ -2307,11 +2309,11 @@ public class Tasks {
     }
 
     private class Gui {
-        public Position getSelectedTile() {
+        public @Nullable Position getSelectedTile() {
             return null;
         }
 
-        public TerrainCursor getCursor() {
+        public @Nullable TerrainCursor getCursor() {
             return null;
         }
 
@@ -2345,7 +2347,7 @@ public class Tasks {
     }
 
     private class Script {
-        public String executeScript(Object channellist) {
+        public @Nullable String executeScript(Object channellist) {
             return null;
         }
     }
@@ -2357,7 +2359,7 @@ public class Tasks {
     }
 
     private class Annotation {
-        public Parameters annotationType() {
+        public @Nullable Parameters annotationType() {
             return null;
         }
     }
@@ -2366,11 +2368,11 @@ public class Tasks {
     }
 
     private class Node {
-        public Node getRight() {
+        public @Nullable Node getRight() {
             return null;
         }
 
-        public Node getLeft() {
+        public @Nullable Node getLeft() {
             return null;
         }
     }
@@ -2379,12 +2381,12 @@ public class Tasks {
     }
 
     private class Game {
-        public Map getMap() {
+        public @Nullable Map getMap() {
             return null;
         }
     }
 
-    private Parameters showParametersDialog() {
+    private @Nullable Parameters showParametersDialog() {
         return null;
     }
 
@@ -2395,7 +2397,7 @@ public class Tasks {
         }
     }
 
-    private Object createImageIcon(String mimetypes, String s, int i) {
+    private @Nullable Object createImageIcon(String mimetypes, String s, int i) {
         return null;
     }
 
@@ -2408,12 +2410,12 @@ public class Tasks {
             return 0;
         }
 
-        public Object testAt(int i) {
+        public @Nullable Object testAt(int i) {
             return null;
         }
     }
 
-    private Object makeDescription(Object testAt) {
+    private @Nullable Object makeDescription(Object testAt) {
         return null;
     }
 
