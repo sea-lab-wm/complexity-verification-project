@@ -23,19 +23,19 @@ public class Tasks {
 
     private static final String RETURN = "";
     private static final int IRETURN = 0;
-    private static final Object BUTTON_IMAGE = null;
-    private static final Object BUTTON_ROLLOVER_IMAGE = null;
+    private static final @SuppressWarnings("all") Object BUTTON_IMAGE = null;
+    private static final @SuppressWarnings("all") Object BUTTON_ROLLOVER_IMAGE = null;
     private static final int EQ = 0;
     private static final int NE = 1;
     private static final int COLUMNS = 0;
     private static final int DEFAULT_WIDTH = 1;
     private static final int DEFAULT_HEIGHT = 2;
-    private static final Locale CONSTRUCTOR_ERROR_FORMAT = null;
+    private static final @SuppressWarnings("all") Locale CONSTRUCTOR_ERROR_FORMAT = null;
     private static final int ACC_PUBLIC = 0;
-    private static final Object MESSAGE_COUNT = null;
+    private static final @SuppressWarnings("all") Object MESSAGE_COUNT = null;
     private static final int DATABASE_CLOSING = 0;
     private static final int DATABASE_ONLINE = 1;
-    private static final Object CHANNELLIST = null;
+    private static final @SuppressWarnings("all") Object CHANNELLIST = null;
     private static final boolean COLUMN = false;
     private static final boolean VALUE = false;
     private static final boolean FUNCTION = false;
@@ -53,7 +53,7 @@ public class Tasks {
     private static int[] jjbitVec0;
     private static int[] jjbitVec1;
     private int fParameterSetNumber;
-    private Object fParameters = null;
+    private @SuppressWarnings("all") Object fParameters = null;
     private int constType;
     private ConstraintCore core = new ConstraintCore();
     private HsqlName constName = new HsqlName();
@@ -1411,62 +1411,77 @@ public class Tasks {
 //        }
 //    } // Added to allow compilation
 
+    @SuppressWarnings("all")
     private static long getTimeInMillis(Object tempCalDefault) {
         return 0;
     }
 
+    @SuppressWarnings("all")
     private static void resetToTime(Object tempCalDefault) {
 
     }
 
+    @SuppressWarnings("all")
     private static void setTimeInMillis(Object tempCalDefault, long t) {
 
     }
 
+    @SuppressWarnings("all")
     private PrintWriter getWriter() {
         return null;
     }
 
+    @SuppressWarnings("all")
     private boolean isPrimitive(Object returnType) {
         return false;
     }
 
+    @SuppressWarnings("all")
     private void fireActionEvent(ActionEvent blinkEvent) {
 
     }
 
+    @SuppressWarnings("all")
     private void setStrictJava(Object strictJava) {
 
     }
 
+    @SuppressWarnings("all")
     private class Option {
 
     }
 
+    @SuppressWarnings("all")
     private static boolean isEquals(Object expected, Object actual) {
         return false;
     }
 
     private class BtPanel {
+        @SuppressWarnings("all")
         public void add(Object cancel) {
         }
 
+        @SuppressWarnings("all")
         public void add(BtPanel btPanel, String borderLayout) {
 
         }
 
+        @SuppressWarnings("all")
         public void add(TimeDateChooserPanel timeDateChooserPanel, String s) {
 
         }
 
+        @SuppressWarnings("all")
         public boolean isEmpty() {
             return false;
         }
 
+        @SuppressWarnings("all")
         public int size() {
             return 0;
         }
 
+        @SuppressWarnings("all")
         public Object toArray(ProgramReceiveTarget[] programReceiveTargets) {
             return null;
         }
@@ -1474,16 +1489,19 @@ public class Tasks {
 
     private class RootPane{
 
+        @SuppressWarnings("all")
         public void setDefaultButton(Object ok) {
 
         }
     }
 
+    @SuppressWarnings("all")
     private RootPane getRootPane() {
         RootPane rp = new RootPane();
         return rp;
     }
 
+    @SuppressWarnings("all")
     private class InGameController {
         public void moveActiveUnit(Object sw) {
         }
@@ -1491,44 +1509,54 @@ public class Tasks {
 
     private class Parent {
 
+        @SuppressWarnings("all")
         public boolean isMapboardActionsEnabled() {
             return false;
         }
 
+        @SuppressWarnings("all")
         public Object getStrictJava() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public This getGlobal(Interpreter declaringInterpreter) {
             return null;
         }
     }
 
+    @SuppressWarnings("all")
     private void super1(Class<?> aClass, Class<Before> beforeClass, Class<After> afterClass, Object test) {
 
     }
 
+    @SuppressWarnings("all")
     private boolean jj_scan_token(int i) {
         return false;
     }
 
+    @SuppressWarnings("all")
     private ConnectController getConnectController() {
         return null;
     }
 
+    @SuppressWarnings("all")
     private String computeCommonSuffix() {
         return null;
     }
 
+    @SuppressWarnings("all")
     private String computeCommonPrefix() {
         return null;
     }
 
+    @SuppressWarnings("all")
     private static class ReturnControl {
         public String kind;
     }
 
     private static class ActionMenu {
+        @SuppressWarnings("all")
         public AbstractButton[] getSubItems() {
             return new AbstractButton[0];
         }
@@ -1545,6 +1573,7 @@ public class Tasks {
     }
 
     private class ConnectController {
+        @SuppressWarnings("all")
         public void quitGame(boolean b) {
 
         }
@@ -1557,10 +1586,12 @@ public class Tasks {
     }
 
     private class Method {
+        @SuppressWarnings("all")
         public Object getModifiers() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Annotation[] getAnnotations() {
             return new Annotation[0];
         }
@@ -1570,10 +1601,12 @@ public class Tasks {
     }
 
     private static class Description {
+        @SuppressWarnings("all")
         public static Description createSuiteDescription(Object name) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public void addChild(Object methodDescription) {
 
         }
@@ -1586,6 +1619,7 @@ public class Tasks {
     }
 
     private static class BshClassManager {
+        @SuppressWarnings("all")
         public static BshClassManager createClassManager(Tasks tasks) {
             return null;
         }
@@ -1598,16 +1632,19 @@ public class Tasks {
     }
 
     private class In {
+        @SuppressWarnings("all")
         public Object readObject() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public String readInt() {
             return null;
         }
     }
 
     private static class Version {
+        @SuppressWarnings("all")
         public static String id() {
             return null;
         }
@@ -1630,82 +1667,99 @@ public class Tasks {
     }
 
     private class ActionEvent {
+        @SuppressWarnings("all")
         public ActionEvent(Tasks tasks, int eventId, String blink) {
         }
     }
 
     private class CapturePluginPanel {
+        @SuppressWarnings("all")
         public CapturePluginPanel(Object mOwner, Object mCloneData) {
         }
 
+        @SuppressWarnings("all")
         public void setBorder(Object emptyBorder) {
 
         }
 
+        @SuppressWarnings("all")
         public void setSelectedTab(Object mCurrentPanel) {
 
         }
     }
 
     private static class Borders {
+        @SuppressWarnings("all")
         public static Object createEmptyBorder(Object dluy5, Object dlux5, Object dluy51, Object dlux51) {
             return null;
         }
     }
 
     private class Result {
+        @SuppressWarnings("all")
         public int getFailureCount() {
             return 0;
         }
 
+        @SuppressWarnings("all")
         public void setResultType(int sqldisconnect) {
 
         }
     }
 
     private class PathNode {
+        @SuppressWarnings("all")
         public Tile getTile() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public int getTurns() {
             return 0;
         }
     }
 
     private static class Unit {
+        @SuppressWarnings("all")
         public static Object getXMLElementTagName() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object getFreeColGameObject(Object id) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public void readFromXMLElement(Element unitElement) {
 
         }
 
+        @SuppressWarnings("all")
         public BtPanel createHelpTextArea(Object msg) {
             return null;
         }
     }
 
     private class Tile {
+        @SuppressWarnings("all")
         public Settlement getSettlement() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public int getY() {
             return 1;
         }
 
+        @SuppressWarnings("all")
         public int getX() {
             return 0;
         }
     }
 
     private class Settlement {
+        @SuppressWarnings("all")
         public Object getOwner() {
             return null;
         }
@@ -1720,16 +1774,19 @@ public class Tasks {
     }
 
     private class Filter {
+        @SuppressWarnings("all")
         public boolean shouldRun(Object description) {
             return false;
         }
 
+        @SuppressWarnings("all")
         public void apply(Runner runner) {
 
         }
     }
 
     private class Runner {
+        @SuppressWarnings("all")
         public Object getDescription() {
             return null;
         }
@@ -1739,38 +1796,47 @@ public class Tasks {
     }
 
     private class FreeColClient {
+        @SuppressWarnings("all")
         public FreeColClient getActionManager() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object getFreeColAction(Object id) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public FreeColClient getImageLibrary() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object getUnitButtonImageIcon(int unitButtonDisband, int i) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public FreeColClient getCanvas() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public void repaint(int i, int i1, Object width, Object height) {
 
         }
 
+        @SuppressWarnings("all")
         public InGameInputHandler getInGameInputHandler() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public AbstractTranslet getClient() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Game getGame() {
             return null;
         }
@@ -1780,6 +1846,7 @@ public class Tasks {
     }
 
     private class AbstractTranslet {
+        @SuppressWarnings("all")
         public void setMessageHandler(InGameInputHandler inGameInputHandler) {
 
         }
@@ -1793,14 +1860,17 @@ public class Tasks {
 
 
 
+    @SuppressWarnings("all")
     private Object executeCallStatement(Object cs) {
         return null;
     }
 
+    @SuppressWarnings("all")
     private Object executeDDLStatement(Object cs) {
         return null;
     }
 
+    @SuppressWarnings("all")
     private Object executeDeleteStatement(Object cs) {
         return null;
     }
@@ -1809,118 +1879,141 @@ public class Tasks {
         public static final int UNIT_BUTTON_DISBAND = 1;
     }
 
+    @SuppressWarnings("all")
     private void putValue(Object buttonImage, Object unitButtonImageIcon) {
 
     }
 
+    @SuppressWarnings("all")
     public Tasks(FreeColClient freeColClient, String s, Object o, KeyStroke d) {
 
     }
 
     private static class Reflect {
+        @SuppressWarnings("all")
         public static Field resolveJavaField(Class clas, Object name, boolean b) {
             return null;
         }
     }
 
     private class Field {
+        @SuppressWarnings("all")
         public Object getType() {
             return null;
         }
     }
 
     private class LHS {
+        @SuppressWarnings("all")
         public LHS(Object object, Field field) {
 
         }
     }
 
     private class Variable {
+        @SuppressWarnings("all")
         public Variable(Object name, Object type, LHS lhs) {
         }
     }
 
     private class AbstractPluginProgramFormating {
+        @SuppressWarnings("all")
         public boolean isValid() {
             return false;
         }
 
+        @SuppressWarnings("all")
         public Object getId() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object getName() {
             return null;
         }
     }
 
     private class ProgramReceiveTarget {
+        @SuppressWarnings("all")
         public ProgramReceiveTarget(Tasks tasks, Object name, Object id) {
         }
     }
 
     private static class DEFAULT_CONFIG {
+        @SuppressWarnings("all")
         public static Object getName() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public static Object getId() {
             return null;
         }
     }
 
     private class Ns {
+        @SuppressWarnings("all")
         public Boolean getCatalogName(Boolean aBoolean) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public void insertSys(Boolean[] row) {
 
         }
 
+        @SuppressWarnings("all")
         public Object getSchemaName(String clsName) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Boolean getCatalogName(String clsName) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public void checkColumnsMatch(Object mainColArray, Object refTable, Object refColArray) {
 
         }
     }
 
     private class Element {
+        @SuppressWarnings("all")
         public Object getAttribute(String id) {
             return null;
         }
     }
 
     private static class Message {
+        @SuppressWarnings("all")
         public static Element getChildElement(Element element, Object xmlElementTagName) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public String getMessageID() {
             return null;
         }
     }
 
+    @SuppressWarnings("all")
     private Unit getGame() {
         return null;
     }
 
-
+    @SuppressWarnings("all")
     private Ns jj_consume_token(int eq) {
         return null;
     }
 
+    @SuppressWarnings("all")
     private int jj_ntk() {
         return 0;
     }
 
     private class Program {
+        @SuppressWarnings("all")
         public void unmark(Object mMarker) {
 
         }
@@ -1929,6 +2022,7 @@ public class Tasks {
     private class PluginTreeNode {
     }
 
+    @SuppressWarnings("all")
     private PluginTreeNode findProgramTreeNode(Program program, boolean b) {
         return null;
     }
@@ -1943,6 +2037,7 @@ public class Tasks {
     }
 
     private static class Messages {
+        @SuppressWarnings("all")
         public static String message(String height) {
             return null;
         }
@@ -1954,15 +2049,18 @@ public class Tasks {
     private class Interpreter {
     }
 
+    @SuppressWarnings("all")
     private This getThis(Interpreter declaringInterpreter) {
         return null;
     }
 
     private class ObjectInputStream {
+        @SuppressWarnings("all")
         public int readInt() {
             return 0;
         }
 
+        @SuppressWarnings("all")
         public Object readUTF() {
             return null;
         }
@@ -1972,15 +2070,17 @@ public class Tasks {
         public static final int SQLDISCONNECT = 0;
     }
 
-
+    @SuppressWarnings("all")
     private void setOpaque(boolean b) {
 
     }
 
+    @SuppressWarnings("all")
     private void stopBlinking() {
 
     }
 
+    @SuppressWarnings("all")
     private boolean hasFocus() {
         return false;
     }
@@ -1996,31 +2096,37 @@ public class Tasks {
     }
 
     private class TimeDateChooserPanel {
+        @SuppressWarnings("all")
         public TimeDateChooserPanel(Object date) {
         }
     }
 
     private class Klass {
+        @SuppressWarnings("all")
         public SuiteMethod getMethod(String suite) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public String getName() {
             return null;
         }
     }
 
     private class SuiteMethod {
+        @SuppressWarnings("all")
         public Object getModifiers() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object invoke(Object o) {
             return null;
         }
     }
 
     private static class Modifier {
+        @SuppressWarnings("all")
         public static boolean isStatic(Object modifiers) {
             return false;
         }
@@ -2033,20 +2139,24 @@ public class Tasks {
         public static final int VARCHAR = 1;
     }
 
+    @SuppressWarnings("all")
     private void addColumn(Ns t, String procedure_name, int varchar, boolean b) {
 
     }
 
+    @SuppressWarnings("all")
     private void addColumn(Ns t, String procedure_cat, int varchar) {
 
     }
 
     private class MissionChip {
+        @SuppressWarnings("all")
         public Object get(Object color) {
             return null;
         }
     }
 
+    @SuppressWarnings("all")
     private void loadMissionChip(GraphicsConfiguration gc, Object color, boolean expertMission) {
 
     }
@@ -2055,25 +2165,30 @@ public class Tasks {
     }
 
     private static class DriverFactory {
+        @SuppressWarnings("all")
         public static DriverFactory getInstance() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public DeviceIf createDevice(String classname, String devname) {
             return null;
         }
     }
 
     private class InitializationError {
+        @SuppressWarnings("all")
         public InitializationError(String format) {
         }
     }
 
     private static class Request {
+        @SuppressWarnings("all")
         public static Request errorReport(Object fTestClass, InitializationError error) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object getRunner() {
             return null;
         }
@@ -2083,30 +2198,36 @@ public class Tasks {
         public static final int INFO_CONNECTION_READONLY = 0;
     }
 
+    @SuppressWarnings("all")
     private Object getAttribute(int infoConnectionReadonly) {
         return null;
     }
 
     private class WareHouse {
+        @SuppressWarnings("all")
         public boolean getResponseBoolean() {
             return false;
         }
     }
 
+    @SuppressWarnings("all")
     private void remove(WareHouse warehouseDialog) {
 
     }
 
     private class Cv {
+        @SuppressWarnings("all")
         public void visitInsn(Object opcode) {
 
         }
     }
 
+    @SuppressWarnings("all")
     private Object methodDescription(Method method) {
         return null;
     }
 
+    @SuppressWarnings("all")
     private Object getName() {
         return null;
     }
@@ -2114,41 +2235,49 @@ public class Tasks {
     private class ProgramTable {
         public ProgramTable Plugin;
 
+        @SuppressWarnings("all")
         public void changeSelection(Boolean[] row, int i, boolean b, boolean b1) {
 
         }
 
+        @SuppressWarnings("all")
         public Object getValueAt(Boolean[] row, int i) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public ProgramTable getPluginManager() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public JPopupMenu createPluginContextMenu(Program p, Object instance) {
             return null;
         }
     }
 
     private static class CapturePlugin {
+        @SuppressWarnings("all")
         public static Object getInstance() {
             return null;
         }
     }
 
     private class TestResult {
+        @SuppressWarnings("all")
         public void addListener(Object adaptingListener) {
 
         }
     }
 
     private class Ftest {
+        @SuppressWarnings("all")
         public void run(TestResult result) {
 
         }
     }
 
+    @SuppressWarnings("all")
     private Object createAdaptingListener(RunNotifier notifier) {
         return null;
     }
@@ -2161,86 +2290,103 @@ public class Tasks {
     }
 
     private class TableWorks {
+        @SuppressWarnings("all")
         public TableWorks(Connection session, Ns t) {
         }
     }
 
     private class MouseEvent {
+        @SuppressWarnings("all")
         public int getY() {
             return 0;
         }
 
+        @SuppressWarnings("all")
         public int getX() {
             return 0;
         }
 
+        @SuppressWarnings("all")
         public Object getSource() {
             return null;
         }
     }
 
     private static class Modifiers {
+        @SuppressWarnings("all")
         public boolean hasModifier(String aPublic) {
             return false;
         }
     }
 
+    @SuppressWarnings("all")
     private Object getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         return null;
     }
 
     private static class Assert {
+        @SuppressWarnings("all")
         public static String format(String message, String fExpected, String fActual) {
             return null;
         }
     }
 
+    @SuppressWarnings("all")
     private void findCommonSuffix() {
 
     }
 
+    @SuppressWarnings("all")
     private void findCommonPrefix() {
 
     }
 
+    @SuppressWarnings("all")
     private boolean areStringsEqual() {
         return false;
     }
 
     public static class SwingUtilities {
-
+        @SuppressWarnings("all")
         public static Point convertPoint(Component source, int x, int y, Object o) {
             return null;
         }
     }
 
+    @SuppressWarnings("all")
     private Object iterateRoutineMethods(String className, Object andAliases) {
         return null;
     }
 
     private class Device {
+        @SuppressWarnings("all")
         public Object getDriver() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object getName() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public void writeData(ObjectOutput out) {
 
         }
     }
 
     private static class Plugin {
+        @SuppressWarnings("all")
         public static Plugin getPluginManager() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Plugin getTvBrowserSettings() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public File getTvBrowserUserHome() {
             return null;
         }
@@ -2249,26 +2395,31 @@ public class Tasks {
     private class Connection {
         public Database database;
 
+        @SuppressWarnings("all")
         public void commit() {
 
         }
     }
 
     private static class Column {
+        @SuppressWarnings("all")
         public static int compare(Object collation, int i, int i1, int coltype) {
 
             return i;
         }
     }
 
+    @SuppressWarnings("all")
     private void showMainPanel() {
 
     }
 
+    @SuppressWarnings("all")
     private void removeInGameComponents() {
 
     }
 
+    @SuppressWarnings("all")
     private void closeMenus() {
 
     }
@@ -2277,27 +2428,33 @@ public class Tasks {
     }
 
     private class Messagee {
+        @SuppressWarnings("all")
         public void remove(int i) {
 
         }
 
+        @SuppressWarnings("all")
         public void add(GUIMessage message) {
 
         }
     }
 
+    @SuppressWarnings("all")
     private Object getWidth() {
         return null;
     }
 
+    @SuppressWarnings("all")
     private Object getHeight() {
         return null;
     }
 
+    @SuppressWarnings("all")
     private Object getMessageCount() {
         return null;
     }
 
+    @SuppressWarnings("all")
     private int getState() {
         return 0;
     }
@@ -2307,24 +2464,29 @@ public class Tasks {
     }
 
     private class Gui {
+        @SuppressWarnings("all")
         public Position getSelectedTile() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public TerrainCursor getCursor() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public void setInGame(boolean b) {
 
         }
     }
 
     private class Position {
+        @SuppressWarnings("all")
         public int getY() {
             return 1;
         }
 
+        @SuppressWarnings("all")
         public int getX() {
             return 0;
         }
@@ -2333,10 +2495,12 @@ public class Tasks {
     private class TerrainCursor {
     }
 
+    @SuppressWarnings("all")
     private void jjStopStringLiteralDfa_0(int i, long l, long active1, long active2) {
 
     }
 
+    @SuppressWarnings("all")
     private int jjStartNfa_0(int i, long l, long old1, long old2) {
         return 0;
     }
@@ -2345,18 +2509,21 @@ public class Tasks {
     }
 
     private class Script {
+        @SuppressWarnings("all")
         public String executeScript(Object channellist) {
             return null;
         }
     }
 
     private class Fklass {
+        @SuppressWarnings("all")
         public Method[] getMethods() {
             return new Method[0];
         }
     }
 
     private class Annotation {
+        @SuppressWarnings("all")
         public Parameters annotationType() {
             return null;
         }
@@ -2366,10 +2533,12 @@ public class Tasks {
     }
 
     private class Node {
+        @SuppressWarnings("all")
         public Node getRight() {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Node getLeft() {
             return null;
         }
@@ -2379,22 +2548,25 @@ public class Tasks {
     }
 
     private class Game {
+        @SuppressWarnings("all")
         public Map getMap() {
             return null;
         }
     }
 
+    @SuppressWarnings("all")
     private Parameters showParametersDialog() {
         return null;
     }
 
     public class AbstractAction {
-
+        @SuppressWarnings("all")
         public void putValue(String name, Object msg) {
 
         }
     }
 
+    @SuppressWarnings("all")
     private Object createImageIcon(String mimetypes, String s, int i) {
         return null;
     }
@@ -2404,15 +2576,18 @@ public class Tasks {
     }
 
     private class Count {
+        @SuppressWarnings("all")
         public int testCount() {
             return 0;
         }
 
+        @SuppressWarnings("all")
         public Object testAt(int i) {
             return null;
         }
     }
 
+    @SuppressWarnings("all")
     private Object makeDescription(Object testAt) {
         return null;
     }
