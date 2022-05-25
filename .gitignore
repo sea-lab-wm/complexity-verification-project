@@ -166,3 +166,7 @@ CryptoAnalysis
 
 #Do not ignore CogniCrypt build
 !CogniCrypt/*
+
+#Ignore some sample tests
+*KeY_Test/
+*CogniCrypt_Test/
