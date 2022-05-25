@@ -237,7 +237,8 @@ public class Tasks {
                 Action action = menu.getSubItems()[0].getAction();
             } // had to be added to allow compilation
         } // had to be added to allow compilation
-        return null; // had to be added to allow compilation
+        return new Object();                                                /*Altered return*/
+        //return null; // had to be added to allow compilation
     }
 
     // Snippet s2
@@ -336,7 +337,8 @@ public class Tasks {
         while (it.hasNext()) {
             Database db = (Database) it.next();
         } // added to allow compilation
-        return null; // added to allow compilation
+        return v;                                                       /*Altered return*/
+        //return null; // added to allow compilation
     } // added to allow compilation
 
     // Snippet s10
@@ -438,7 +440,8 @@ public class Tasks {
         System.out.println("JUnit version " + Version.id());
         List<Class<?>> classes = new ArrayList<Class<?>>();
         List<Failure> missingClasses = new ArrayList<Failure>();
-        return null; // Added to allow compilation
+        return new Result();                                                        /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s19
@@ -481,7 +484,8 @@ public class Tasks {
         mPanel = new CapturePluginPanel(mOwner, mCloneData);
         mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
         mPanel.setSelectedTab(mCurrentPanel);
-        return null; // Added to allow compilation
+        return new JPanel();                                                                                    /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s23
@@ -535,7 +539,8 @@ public class Tasks {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width - dim.width) / 2;
         int y = (screen.height - dim.height) / 2;
-        return null; // Added to allow compilation
+        return new Point(x, y);                                                     /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s28
@@ -585,7 +590,8 @@ public class Tasks {
     }
 
     private String createEnumeration(char[] toCharArray) {
-        return null;
+        return new String();                                                            /*Altered return*/
+        //return null;
     }
 
     // Snippet s32
@@ -624,7 +630,8 @@ public class Tasks {
             case CompiledStatement.DDL:
                 return executeDDLStatement(cs);
         } // added to allow compilation
-        return null; // added return statement to allow compilation
+        return new Object();                                                                    /*Altered return*/
+        //return null; // added return statement to allow compilation
     }
 
     // Snippet s35
@@ -651,7 +658,8 @@ public class Tasks {
         if (field != null)
             return new Variable(
                     name, field.getType(), new LHS(object, field));
-        return null; // Added to allow compilation
+        return object;                                                                    /*Altered return*/
+        //return null; // Added to allow compilation
     }
 
     // Snippet s37
@@ -698,7 +706,8 @@ public class Tasks {
 
         Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
         unit.readFromXMLElement(unitElement);
-        return null; // Added to allow compilation
+        return unitElement;                                                                                 /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s41
@@ -996,7 +1005,8 @@ public class Tasks {
         }
 
         builder.append(Integer.toString(number));
-        return null; // Added to allow compilation
+        return builder;                                                                            /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s68
@@ -1058,7 +1068,8 @@ public class Tasks {
                 DeviceIf device = (DeviceIf)value;
 
             } // Added to allow compilation
-            return null; // Added to allow compilation
+            return new Component(str = "");                                                /*Altered return*/
+            //return null; // Added to allow compilation
         } // Added to allow compilation
     }
 
@@ -1070,7 +1081,8 @@ public class Tasks {
         findCommonPrefix();
         findCommonSuffix();
 
-        return null; // Added to allow compilation
+        return message;                                                                 /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s74
@@ -1182,7 +1194,8 @@ public class Tasks {
     } // Added to allow compilation
 
     private String getCountry() {
-        return null;
+        return new String();                                            /*Altered return*/
+        //return null;
     }
 
     // Snippet s83
@@ -1251,7 +1264,9 @@ public class Tasks {
         if (fMessage != null)
             builder.append(fMessage);
         builder.append("arrays first differed at element ");
-        return null; // Added to allow compilation
+
+        return new String();                                                            /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s89
@@ -1267,7 +1282,8 @@ public class Tasks {
             case DATABASE_ONLINE:
                 return "DATABASE_ONLINE";
         } // Added to allow compilation
-        return null; // Added to allow compilation
+        return new String();                                                           /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s90
@@ -1312,7 +1328,8 @@ public class Tasks {
         } finally {
             // Added to allow compilation
         }
-        return null; // Added to allow compilation
+        return new ElgatoChannel[0];                                                /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s93
@@ -1372,7 +1389,9 @@ public class Tasks {
         };
         action.putValue(Action.NAME, mLocalizer.msg("CapturePlugin", "Capture Plugin"));
         action.putValue(Action.SMALL_ICON, createImageIcon("mimetypes", "video-x-generic", 16));
-        return null; // Added to allow compilation
+
+        return new ActionMenu();                                                                                                    /*Altered return*/
+        //return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s98
