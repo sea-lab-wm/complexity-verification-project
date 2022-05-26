@@ -34,7 +34,7 @@ checkerFramework {
         'org.checkerframework.common.aliasing.AliasingChecker',
         'org.checkerframework.checker.optional.OptionalChecker',
         'org.checkerframework.checker.regex.RegexChecker',
-        'org.checkerframework.checker.formatter.FormatterChecker'
+        'org.checkerframework.checker.formatter.FormatterChecker',
     ]
 
     extraJavacArgs = [
