@@ -1,0 +1,359 @@
+warning: Use JDK 8 or JDK 11 to run the Checker Framework.  You are using version 9.
+Tasks.java:314: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    public void Date(int daysSince1970) { // return type void added to allow compilation
+                ^
+Tasks.java:2605: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2572: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Map}
+            return null;
+            ^
+Tasks.java:2562: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Node}
+            return null;
+            ^
+Tasks.java:2557: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Node}
+            return null;
+            ^
+Tasks.java:2547: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Parameters}
+            return null;
+            ^
+Tasks.java:2533: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:2488: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Position}
+            return null;
+            ^
+Tasks.java:2493: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.TerrainCursor}
+            return null;
+            ^
+Tasks.java:2482: error: Cannot assign because [this.VIEW_TERRAIN_MODE] is not accessible here
+        public static final int VIEW_TERRAIN_MODE = 0;
+                                ^
+Tasks.java:2482: error: The previous value of [this.VIEW_TERRAIN_MODE] did not complete its protocol (found: Unknown)
+        public static final int VIEW_TERRAIN_MODE = 0;
+                                ^
+Tasks.java:2410: error: Incompatible return value: cannot cast from Null to Shared{java.io.File}
+            return null;
+            ^
+Tasks.java:2400: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Plugin}
+            return null;
+            ^
+Tasks.java:2405: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Plugin}
+            return null;
+            ^
+Tasks.java:2388: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2383: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2371: error: Incompatible return value: cannot cast from Null to Shared{java.awt.Point}
+            return null;
+            ^
+Tasks.java:2349: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:2330: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2281: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2264: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2269: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.ProgramTable}
+            return null;
+            ^
+Tasks.java:2274: error: Incompatible return value: cannot cast from Null to Shared{javax.swing.JPopupMenu}
+            return null;
+            ^
+Tasks.java:2217: error: Cannot assign because [this.INFO_CONNECTION_READONLY] is not accessible here
+        public static final int INFO_CONNECTION_READONLY = 0;
+                                ^
+Tasks.java:2217: error: The previous value of [this.INFO_CONNECTION_READONLY] did not complete its protocol (found: Unknown)
+        public static final int INFO_CONNECTION_READONLY = 0;
+                                ^
+Tasks.java:2212: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2207: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Request}
+            return null;
+            ^
+Tasks.java:2194: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.DeviceIf}
+            return null;
+            ^
+Tasks.java:2189: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.DriverFactory}
+            return null;
+            ^
+Tasks.java:2174: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2158: error: Cannot assign because [this.VARCHAR] is not accessible here
+        public static final int VARCHAR = 1;
+                                ^
+Tasks.java:2158: error: The previous value of [this.VARCHAR] did not complete its protocol (found: Unknown)
+        public static final int VARCHAR = 1;
+                                ^
+Tasks.java:2138: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2143: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2126: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.SuiteMethod}
+            return null;
+            ^
+Tasks.java:2131: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:2113: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2109: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:2089: error: Cannot assign because [this.SQLDISCONNECT] is not accessible here
+        public static final int SQLDISCONNECT = 0;
+                                ^
+Tasks.java:2089: error: The previous value of [this.SQLDISCONNECT] did not complete its protocol (found: Unknown)
+        public static final int SQLDISCONNECT = 0;
+                                ^
+Tasks.java:2084: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:2061: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:2015: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:2010: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Element}
+            return null;
+            ^
+Tasks.java:2003: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1991: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Boolean}
+            return null;
+            ^
+Tasks.java:1986: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1976: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Boolean}
+            return null;
+            ^
+Tasks.java:1969: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1964: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1951: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1946: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1921: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1914: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Field}
+            return null;
+            ^
+Tasks.java:1898: error: Cannot assign because [this.UNIT_BUTTON_DISBAND] is not accessible here
+        public static final int UNIT_BUTTON_DISBAND = 1;
+                                ^
+Tasks.java:1898: error: The previous value of [this.UNIT_BUTTON_DISBAND] did not complete its protocol (found: Unknown)
+        public static final int UNIT_BUTTON_DISBAND = 1;
+                                ^
+Tasks.java:1876: error: Cannot assign because [this.CALL] is not accessible here
+        public static final int CALL = 1;
+                                ^
+Tasks.java:1875: error: Cannot assign because [this.DELETE] is not accessible here
+        public static final int DELETE = 0;
+                                ^
+Tasks.java:1877: error: Cannot assign because [this.DDL] is not accessible here
+        public static final int DDL = 2;
+                                ^
+Tasks.java:1876: error: The previous value of [this.CALL] did not complete its protocol (found: Unknown)
+        public static final int CALL = 1;
+                                ^
+Tasks.java:1875: error: The previous value of [this.DELETE] did not complete its protocol (found: Unknown)
+        public static final int DELETE = 0;
+                                ^
+Tasks.java:1877: error: The previous value of [this.DDL] did not complete its protocol (found: Unknown)
+        public static final int DDL = 2;
+                                ^
+Tasks.java:1830: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.FreeColClient}
+            return null;
+            ^
+Tasks.java:1835: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1840: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.FreeColClient}
+            return null;
+            ^
+Tasks.java:1855: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.AbstractTranslet}
+            return null;
+            ^
+Tasks.java:1820: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.FreeColClient}
+            return null;
+            ^
+Tasks.java:1825: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1850: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.InGameInputHandler}
+            return null;
+            ^
+Tasks.java:1860: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Game}
+            return null;
+            ^
+Tasks.java:1810: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1783: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1766: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Settlement}
+            return null;
+            ^
+Tasks.java:1759: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.BtPanel}
+            return null;
+            ^
+Tasks.java:1749: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1744: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1732: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Tile}
+            return null;
+            ^
+Tasks.java:1713: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1668: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:1656: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1661: error: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+Tasks.java:1643: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.BshClassManager}
+            return null;
+            ^
+Tasks.java:1625: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.Description}
+            return null;
+            ^
+Tasks.java:1610: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1543: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.This}
+            return null;
+            ^
+Tasks.java:1538: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1505: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:1063: warning: Unsafe cast
+            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                           ^
+Tasks.java:645: error: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
+            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+                                                 ^
+Tasks.java:646: error: Cannot access [edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.BUTTON_IMAGE]
+            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+                     ^
+Tasks.java:646: error: Cannot access [edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
+            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+                                                                                                      ^
+Tasks.java:648: error: Cannot access [edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.BUTTON_ROLLOVER_IMAGE]
+            putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
+                     ^
+Tasks.java:645: error: Incompatible parameter: cannot cast from Shared{javax.swing.KeyStroke} | Null to Shared{javax.swing.KeyStroke}
+            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+                                                                             ^
+Tasks.java:649: error: Cannot access [edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
+                    ImageLibrary.UNIT_BUTTON_DISBAND, 1));
+                                ^
+Tasks.java:324: warning: Unsafe cast
+        fTest= (Ftest) test; // Type cast to Ftest to allow compilation
+               ^
+Tasks.java:431: warning: Unsafe cast
+            String classname = (String) in.readObject();
+                               ^
+Tasks.java:573: warning: Unsafe cast
+        MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
+                                ^
+Tasks.java:1093: warning: Unsafe cast
+            className = (String) classNames.next();
+                        ^
+Tasks.java:903: warning: Unsafe cast
+        String devname = (String)in.readObject();
+                         ^
+Tasks.java:921: warning: Unsafe cast
+        isReadOnly = ((Boolean) info).booleanValue();
+                      ^
+Tasks.java:1036: warning: Unsafe cast
+        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
+                                          ^
+Tasks.java:902: warning: Unsafe cast
+        String classname = (String) in.readObject();
+                           ^
+Tasks.java:988: warning: Unsafe cast
+        Program p = (Program) mProgramTableModel.getValueAt(row, 1);
+                    ^
+Tasks.java:707: warning: Unsafe cast
+        Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
+                    ^
+Tasks.java:950: warning: Unsafe cast
+            dataServiceId = (String) in.readObject();
+                            ^
+Tasks.java:1063: warning: Unsafe cast
+            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                           ^
+Tasks.java:969: warning: Unsafe cast
+            clsName = (String) classNames.next();
+                      ^
+Tasks.java:895: warning: Unsafe cast
+        NameSpace oldTop = (NameSpace)(stack.elementAt(0));
+                           ^
+Tasks.java:858: warning: Unsafe cast
+            suite= (Test) suiteMethod.invoke(null); // static method
+                   ^
+Tasks.java:338: warning: Unsafe cast
+            Database db = (Database) it.next();
+                          ^
+Tasks.java:1309: error: Cannot assign because [this.curChar] is not accessible here
+        try { curChar = input_stream.readChar(); }
+                      ^
+Tasks.java:230: error: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.ActionMenu} | Null
+            ActionMenu menu = actionList.get(0);
+                       ^
+Tasks.java:2143: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:526: error: Incompatible parameter: cannot cast from Null | Primitive{int} to Primitive{int}
+            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
+                                                               ^
+Tasks.java:1543: error: Incompatible return value: cannot cast from Null to Shared{edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.This}
+            return null;
+            ^
+Tasks.java:756: error: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+        final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
+                                                                     ^
+Tasks.java:2383: error: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+Tasks.java:431: error: Cannot call readObject on null
+            String classname = (String) in.readObject();
+                                          ^
+Note: Tasks.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+100 errors
+19 warnings

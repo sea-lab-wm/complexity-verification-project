@@ -1,0 +1,367 @@
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\CogniCrypt_Test\IncompleOperationErrorExample.java:35: warning: [initialization.field.uninitialized] the default constructor does not initialize field signature
+	private Signature signature;
+	                  ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\CogniCrypt_Test\IncompleOperationErrorExample.java:22: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+		instance.update(args[0].getBytes());
+		                     ^
+  found   : @UnknownVal String @UnknownVal []
+  required: @MinLen(1) -- an array guaranteed to have at least 1 elements
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:314: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    public void Date(int daysSince1970) { // return type void added to allow compilation
+                ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:45: warning: [initialization.static.field.uninitialized] static field body not initialized
+    private static ScriptEngine body;
+                                ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:46: warning: [initialization.static.field.uninitialized] static field callstack not initialized
+    private static String callstack;
+                          ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:47: warning: [initialization.static.field.uninitialized] static field interpreter not initialized
+    private static Bindings interpreter;
+                            ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:48: warning: [initialization.static.field.uninitialized] static field actionList not initialized
+    private static LinkedList<ActionMenu> actionList;
+                                          ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:49: warning: [initialization.static.field.uninitialized] static field databaseIDMap not initialized
+    private static IdentityHashMap<Object, Object> databaseIDMap;
+                                                   ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:50: warning: [initialization.static.field.uninitialized] static field option not initialized
+    private static Spring option;
+                          ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:51: warning: [initialization.static.field.uninitialized] static field spinner not initialized
+    private static JSpinner spinner;
+                            ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:52: warning: [initialization.static.field.uninitialized] static field tempCalDefault not initialized
+    private static Object tempCalDefault;
+                          ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:53: warning: [initialization.static.field.uninitialized] static field jjbitVec0 not initialized
+    private static int[] jjbitVec0;
+                         ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:54: warning: [initialization.static.field.uninitialized] static field jjbitVec1 not initialized
+    private static int[] jjbitVec1;
+                         ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:203: warning: [initialization.fields.uninitialized] the constructor does not initialize fields: DELTA_START, DELTA_END, gd, xsp, jj_scanpos, rightsMap, granteeName, granteeManager, fTest, fMethod, parent, inGameController, clas, value, asClass, btPanel, cancel, ok, panel, nameList, sourceFileInfo, mDevices, in, returnType, mCloneData, mOwner, mPanel, mCurrentPanel, player, inSettlement, destinations, ret, buffer, fRunners, parameters, currentMapTransform, freeColClient, iterateOverMe, fExpected, fActual, cs, object, name, mConfigs, list, method, row, ns, defschema, schema, t, mChildNodes, mMarker, next, mName, resultOut, cc, mLocalizer, UiUtilities, date, mTimePanel, klass, suiteMethod, suite, missionChip, color, expertMissionChips, stack, runnerClass, fTestClass, warehouseDialog, FRETURN, opcode, LRETURN, cv, dataServiceId, fTestMethods, classNames, clsName, clsCat, clsSchem, messages, mProgramTable, mProgramTableModel, devplugin, tc, session, f, loc, classNameSet, className, andAliases, methods, device, out, mCount, dev, cols, a, coltypes, b, importedPackages, cmpDataServiceId, cmp, mainCols, refCols, messages2, fMessage, gui, input_stream, mAppleScript, fKlass, x, ts, expression, ddl, messagesToIgnore
+    public Tasks(Class<?> klass) {
+           ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:207: warning: [initialization.fields.uninitialized] the constructor does not initialize fields: DELTA_START, DELTA_END, gd, xsp, jj_scanpos, rightsMap, granteeName, granteeManager, fTest, fMethod, parent, inGameController, clas, value, asClass, btPanel, cancel, ok, panel, nameList, sourceFileInfo, mDevices, in, returnType, mCloneData, mOwner, mPanel, mCurrentPanel, player, inSettlement, destinations, ret, buffer, fRunners, parameters, currentMapTransform, freeColClient, iterateOverMe, fExpected, fActual, cs, object, name, mConfigs, list, method, row, ns, defschema, schema, t, mChildNodes, mMarker, next, mName, resultOut, cc, mLocalizer, UiUtilities, date, mTimePanel, klass, suiteMethod, suite, missionChip, color, expertMissionChips, stack, runnerClass, fTestClass, warehouseDialog, FRETURN, opcode, LRETURN, cv, dataServiceId, fTestMethods, classNames, clsName, clsCat, clsSchem, messages, mProgramTable, mProgramTableModel, devplugin, tc, session, f, loc, classNameSet, className, andAliases, methods, device, out, mCount, dev, cols, a, coltypes, b, importedPackages, cmpDataServiceId, cmp, mainCols, refCols, messages2, fMessage, gui, input_stream, mAppleScript, fKlass, x, ts, expression, ddl, messagesToIgnore
+    public Tasks(String message) {
+           ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:233: warning: [return] incompatible types in return.
+                return null;
+                       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:292: warning: [argument] incompatible argument for parameter w of setFullScreenWindow.
+            gd.setFullScreenWindow(null);
+                                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Window
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:645: warning: [argument] incompatible argument for parameter o of Tasks.
+            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:646: warning: [method.invocation] call to putValue(java.lang.Object,java.lang.Object) not allowed on the given receiver.
+            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+                    ^
+  found   : @UnderInitialization(edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.DisbandUnitAction.class) @NonNull Tasks
+  required: @Initialized @NonNull Tasks
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:648: warning: [method.invocation] call to putValue(java.lang.Object,java.lang.Object) not allowed on the given receiver.
+            putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
+                    ^
+  found   : @UnderInitialization(edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.DisbandUnitAction.class) @NonNull Tasks
+  required: @Initialized @NonNull Tasks
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:858: warning: [argument] incompatible argument for parameter o of invoke.
+            suite= (Test) suiteMethod.invoke(null); // static method
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:963: warning: [return] incompatible types in return.
+        return null; // Added to allow compilation
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Description
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1036: warning: [argument] incompatible argument for parameter o of convertPoint.
+        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
+                                                                                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1591: warning: [initialization.field.uninitialized] the default constructor does not initialize field collation
+        public Object collation;
+                      ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1682: warning: [initialization.field.uninitialized] the default constructor does not initialize field mainColArray
+        public ConstraintCore mainColArray;
+                              ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1683: warning: [initialization.field.uninitialized] the default constructor does not initialize field colLen
+        public Object colLen;
+                      ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1684: warning: [initialization.field.uninitialized] the default constructor does not initialize field length
+        public Object length;
+                      ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1685: warning: [initialization.field.uninitialized] the default constructor does not initialize field refColArray
+        public Object refColArray;
+                      ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2050: warning: [initialization.field.uninitialized] the default constructor does not initialize field next
+        public Interval next;
+                        ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2051: warning: [initialization.field.uninitialized] the default constructor does not initialize field last
+        public Tasks last;
+                     ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2055: warning: [initialization.field.uninitialized] the default constructor does not initialize field last
+        public IndexRowIterator last;
+                                ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2109: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2113: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2255: warning: [initialization.field.uninitialized] the default constructor does not initialize field Plugin
+        public ProgramTable Plugin;
+                            ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2305: warning: [initialization.field.uninitialized] the default constructor does not initialize field core
+        public Tc core;
+                  ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2306: warning: [initialization.field.uninitialized] the default constructor does not initialize field refTable
+        public Object refTable;
+                      ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2307: warning: [initialization.field.uninitialized] the default constructor does not initialize field mainColArray
+        public Object mainColArray;
+                      ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2308: warning: [initialization.field.uninitialized] the default constructor does not initialize field refColArray
+        public Object refColArray;
+                      ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:2415: warning: [initialization.field.uninitialized] the default constructor does not initialize field database
+        public Database database;
+                        ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:514: warning: [not.interned] attempting to use a non-@Interned comparison operand
+        if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
+                                                                                       ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:514: warning: [not.interned] attempting to use a non-@Interned comparison operand
+        if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
+                                                                                             ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:515: warning: [not.interned] attempting to use a non-@Interned comparison operand
+                && p.getTile().getSettlement() != inSettlement) {
+                                            ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:515: warning: [not.interned] attempting to use a non-@Interned comparison operand
+                && p.getTile().getSettlement() != inSettlement) {
+                                                  ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1229: warning: [not.interned] attempting to use a non-@Interned comparison operand
+        if (getMessageCount() == MESSAGE_COUNT) {
+                           ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1229: warning: [not.interned] attempting to use a non-@Interned comparison operand
+        if (getMessageCount() == MESSAGE_COUNT) {
+                                 ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:496: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-105 or any of its aliases.
+            getWriter().println("There was " + result.getFailureCount() + " failure:");
+                     ^
+  The type of object is: java.io.PrintWriter.
+  Reason for going out of scope: regular method exit
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:498: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-108 or any of its aliases.
+            getWriter().println("There were " + result.getFailureCount() + " failures:");
+                     ^
+  The type of object is: java.io.PrintWriter.
+  Reason for going out of scope: regular method exit
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1127: warning: [required.method.not.called] @MustCall method close may not have been invoked on stream or any of its aliases.
+        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(data));
+                           ^
+  The type of object is: java.io.ObjectOutputStream.
+  Reason for going out of scope: regular method exit
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1127: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-285 or any of its aliases.
+        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(data));
+                                                           ^
+  The type of object is: java.io.FileOutputStream.
+  Reason for going out of scope: possible exceptional exit due to new ObjectOutputStream(new FileOutputStream(data)) with exception type java.io.IOException
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:237: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+                Action action = menu.getSubItems()[0].getAction();
+                                                   ^
+  found   : @UnknownVal AbstractButton @UnknownVal []
+  required: @MinLen(1) -- an array guaranteed to have at least 1 elements
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:254: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+                Action action = menu.getSubItems()[0].getAction();
+                                                   ^
+  found   : @UnknownVal AbstractButton @UnknownVal []
+  required: @MinLen(1) -- an array guaranteed to have at least 1 elements
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:261: warning: [argument] incompatible argument for parameter beginIndex of substring.
+        String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
+                                                       ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:261: warning: [argument] incompatible argument for parameter beginIndex of substring.
+        String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
+                                                       ^
+  found   : @UpperBoundUnknown int
+  required: @LTEqLengthOf("source") int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:261: warning: [argument] incompatible argument for parameter endIndex of substring.
+        String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
+                                                                                          ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:261: warning: [argument] incompatible argument for parameter endIndex of substring.
+        String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
+                                                                                          ^
+  found   : @LTLengthOf(value="source", offset="this.fSuffix - 2") int
+  required: @LTEqLengthOf("source") int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:526: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
+            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
+                                                  ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:526: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
+                                                               ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:526: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
+                                                               ^
+  found   : @UpperBoundUnknown int
+  required: @LTLengthOf(offset={"this.bufpos - this.len + 1 - 1", "0 - 1"}, value={"this.buffer", "this.ret"}) int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:528: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
+            System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
+                                             ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:529: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+                    len - bufpos - 1);
+                                 ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:529: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+                    len - bufpos - 1);
+                                 ^
+  found   : @UpperBoundUnknown int
+  required: @LTLengthOf(offset={"this.bufsize - (len - bufpos - 1) - 1", "0 - 1"}, value={"this.buffer", "this.ret"}) int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:530: warning: [argument] incompatible argument for parameter arg3 of arraycopy.
+            System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
+                                                          ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:530: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+            System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
+                                                                      ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:530: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+            System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
+                                                                      ^
+  found   : @UpperBoundUnknown int
+  required: @LTLengthOf(offset={"0 - 1", "this.len - this.bufpos - 1 - 1"}, value={"this.buffer", "this.ret"}) int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:674: warning: [array.length.negative] Variable used in array creation could be negative.
+        return list.toArray(new ProgramReceiveTarget[list.size()]);
+                                                              ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:690: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
+        row[1] = ns.getCatalogName(row[0]);
+            ^
+  found   : @UnknownVal Boolean @UnknownVal []
+  required: @MinLen(2) -- an array guaranteed to have at least 2 elements
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:690: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+        row[1] = ns.getCatalogName(row[0]);
+                                       ^
+  found   : @UnknownVal Boolean @UnknownVal []
+  required: @MinLen(1) -- an array guaranteed to have at least 1 elements
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:691: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 2 could be larger than the array's bound
+        row[2] = schema.equals(defschema) ? Boolean.TRUE
+            ^
+  found   : @UnknownVal Boolean @UnknownVal []
+  required: @MinLen(3) -- an array guaranteed to have at least 3 elements
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1143: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+            int i = Column.compare(session.database.collation, a[cols[j]],
+                                                                     ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1143: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+            int i = Column.compare(session.database.collation, a[cols[j]],
+                                                                     ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("this.a") or @LTLengthOf("this.a") -- an integer less than this.a's length
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1143: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+            int i = Column.compare(session.database.collation, a[cols[j]],
+                                                                      ^
+  index type found: @IntRange(from=-2147483648) int
+  array type found: @UnknownVal int @UnknownVal []
+  required        : index of type @IndexFor("this.cols") or @LTLengthOf("this.cols"), or array of type @MinLen(-9223372036854775808)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1144: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                    b[cols[j]], coltypes[cols[j]]);
+                          ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1144: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                    b[cols[j]], coltypes[cols[j]]);
+                          ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("this.b") or @LTLengthOf("this.b") -- an integer less than this.b's length
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1144: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+                    b[cols[j]], coltypes[cols[j]]);
+                           ^
+  index type found: @IntRange(from=-2147483648) int
+  array type found: @UnknownVal int @UnknownVal []
+  required        : index of type @IndexFor("this.cols") or @LTLengthOf("this.cols"), or array of type @MinLen(-9223372036854775808)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1144: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                    b[cols[j]], coltypes[cols[j]]);
+                                             ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1144: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                    b[cols[j]], coltypes[cols[j]]);
+                                             ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("this.coltypes") or @LTLengthOf("this.coltypes") -- an integer less than this.coltypes's length
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1144: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+                    b[cols[j]], coltypes[cols[j]]);
+                                              ^
+  index type found: @IntRange(from=-2147483648) int
+  array type found: @UnknownVal int @UnknownVal []
+  required        : index of type @IndexFor("this.cols") or @LTLengthOf("this.cols"), or array of type @MinLen(-9223372036854775808)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1242: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                return ((jjbitVec0[i2] & l2) != 0L);
+                                   ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1242: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                return ((jjbitVec0[i2] & l2) != 0L);
+                                   ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.jjbitVec0") or @LTLengthOf("edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.jjbitVec0") -- an integer less than edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.jjbitVec0's length
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1244: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                if ((jjbitVec1[i1] & l1) != 0L)
+                               ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:1244: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                if ((jjbitVec1[i1] & l1) != 0L)
+                               ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.jjbitVec1") or @LTLengthOf("edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.jjbitVec1") -- an integer less than edu.wm.kobifeldman.cog_complexity_validation_datasets.Tasks.jjbitVec1's length
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java:912: warning: [format.string] invalid format string (is a @Format annotation missing?)
+                CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
+                                          ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\isPalindrome.java:13: warning: [argument] incompatible argument for parameter index of charAt.
+            if (word.charAt(i) != word.charAt(j)) {
+                                              ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\RecursiveBinaryToDecimal.java:15: warning: [argument] incompatible argument for parameter index of charAt.
+        if (s.charAt(number) == '0'){
+                     ^
+  found   : @UpperBoundUnknown int
+  required: @LTLengthOf("s") int
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\YesNo.java:26: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Boolean
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\KeY_Test\KeYTest.java:4: warning: [initialization.field.uninitialized] the default constructor does not initialize field rec
+    public KeYTest rec;
+                   ^
+D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\KeY_Test\KeY_Test2.java:4: warning: [initialization.field.uninitialized] the default constructor does not initialize field test
+    public KeY_Test2 test;
+                     ^
+Note: D:\Coding\Code-Complexity-Research\complexity-verification-project\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\Tasks.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+87 warnings
