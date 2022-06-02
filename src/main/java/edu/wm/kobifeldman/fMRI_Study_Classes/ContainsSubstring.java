@@ -1,7 +1,5 @@
 package edu.wm.kobifeldman.fMRI_Study_Classes;
 
-import org.checkerframework.checker.nullness.qual.*;
-
 public class ContainsSubstring {
     public static void main() {
         String word1 = "Hamburg";
