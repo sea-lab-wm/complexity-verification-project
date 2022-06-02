@@ -1,0 +1,147 @@
+#0
+Tasks.java:290: error: Null Dereference
+  object returned by `getConnectController()` could be null and is dereferenced at line 290.
+  288.        */
+  289.       public void quit() {
+  290. >         getConnectController().quitGame(true);
+  291.           if (!windowed) {
+  292.               gd.setFullScreenWindow(null);
+
+#1
+Tasks.java:514: error: Null Dereference
+  object returned by `p.getTile()` could be null and is dereferenced at line 514.
+  512.       // Snippet s25
+  513.       public boolean check(Unit u, PathNode p) {
+  514. >         if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
+  515.                   && p.getTile().getSettlement() != inSettlement) {
+  516.               Settlement s = p.getTile().getSettlement();
+
+#2
+Tasks.java:573: error: Null Dereference
+  object returned by `Tasks.freeColClient.getActionManager()` could be null and is dereferenced at line 573.
+  571.       public void setMapTransform(MapTransform mt) {
+  572.           currentMapTransform = mt;
+  573. >         MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
+  574.           if (mca.getMapControls() != null) {
+  575.               mca.getMapControls().update(mt);
+
+#3
+Tasks.java:646: error: Null Dereference
+  object returned by `freeColClient.getImageLibrary()` could be null and is dereferenced at line 646.
+  644.           DisbandUnitAction(FreeColClient freeColClient) {
+  645.               super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+  646. >             putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+  647.                       0));
+  648.               putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
+
+#4
+Tasks.java:707: error: Null Dereference
+  object `unitElement` last assigned on line 705 could be null and is dereferenced at line 707.
+  705.           Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
+  706.   
+  707. >         Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
+  708.           unit.readFromXMLElement(unitElement);
+  709.           return unitElement;                                                                                 /*Altered return*/
+
+#5
+Tasks.java:855: error: Null Dereference
+  object `Tasks.suiteMethod` last assigned on line 854 could be null and is dereferenced at line 855.
+  853.           try {
+  854.               suiteMethod= klass.getMethod("suite");
+  855. >             if (! Modifier.isStatic(suiteMethod.getModifiers())) {
+  856.                   throw new Exception(klass.getName() + ".suite() must be static");
+  857.               }
+
+#6
+Tasks.java:905: error: Null Dereference
+  object returned by `getInstance()` could be null and is dereferenced at line 905.
+  903.           String devname = (String)in.readObject();
+  904.   
+  905. >         DeviceIf dev = DriverFactory.getInstance().createDevice(classname, devname);
+  906.       } // Added to allow compilation
+  907.   
+
+#7
+Tasks.java:913: error: Null Dereference
+  object returned by `errorReport(Tasks.fTestClass,error)` could be null and is dereferenced at line 913.
+  911.           InitializationError error= new InitializationError(String.format(
+  912.                   CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
+  913. >         return Request.errorReport(fTestClass, error).getRunner();
+  914.       } // Added to allow compilation
+  915.   
+
+#8
+Tasks.java:921: error: Null Dereference
+  object `info` last assigned on line 919 could be null and is dereferenced at line 921.
+  919.           Object info = getAttribute(Session.INFO_CONNECTION_READONLY);
+  920.   
+  921. >         isReadOnly = ((Boolean) info).booleanValue();
+  922.   
+  923.           return isReadOnly;
+
+#9
+Tasks.java:961: error: Null Dereference
+  object `spec` last assigned on line 958 could be null and is dereferenced at line 961.
+  959.           List<Method> testMethods = fTestMethods;
+  960.           for (Method method : testMethods)
+  961. >             spec.addChild(methodDescription(method));
+  962.   
+  963.           return null; // Added to allow compilation
+
+#10
+Tasks.java:990: error: Null Dereference
+  object returned by `Tasks.devplugin.Plugin.getPluginManager()` could be null and is dereferenced at line 990.
+  988.           Program p = (Program) mProgramTableModel.getValueAt(row, 1);
+  989.   
+  990. >         JPopupMenu menu = devplugin.Plugin.getPluginManager().createPluginContextMenu(p, CapturePlugin.getInstance());
+  991.   
+  992.       } // Added to allow compilation
+
+#11
+Tasks.java:1116: error: Null Dereference
+  object returned by `Tasks.device.getDriver()` could be null and is dereferenced at line 1116.
+  1114.       // Snippet s76
+  1115.       public void s76() throws IOException{
+  1116. >         out.writeObject(device.getDriver().getClass().getName());
+  1117.           out.writeObject(device.getName());
+  1118.   
+
+#12
+Tasks.java:1124: error: Null Dereference
+  object returned by `getPluginManager()` could be null and is dereferenced at line 1124.
+  1122.       // Snippet s77
+  1123.       public void s77() throws FileNotFoundException, IOException{
+  1124. >         File data = new File(Plugin.getPluginManager().getTvBrowserSettings().getTvBrowserUserHome()  + File.separator +
+  1125.                   "CaptureDevices" + File.separator + mCount + ".dat");
+  1126.   
+
+#13
+Tasks.java:1234: error: Null Dereference
+  object returned by `Tasks.freeColClient.getCanvas()` could be null and is dereferenced at line 1234.
+  1232.           messages2.add(message); // Renamed to allow compilation
+  1233.   
+  1234. >         freeColClient.getCanvas().repaint(0, 0, getWidth(), getHeight());
+  1235.       } // Added to allow compilation
+  1236.   
+
+#14
+Tasks.java:1365: error: Null Dereference
+  object returned by `Tasks.freeColClient.getClient()` could be null and is dereferenced at line 1365.
+  1363.           InGameInputHandler inGameInputHandler = freeColClient.getInGameInputHandler();
+  1364.   
+  1365. >         freeColClient.getClient().setMessageHandler(inGameInputHandler);
+  1366.           gui.setInGame(true);
+  1367.       } // Added to allow compilation
+
+#15
+Tasks.java:1377: error: Null Dereference
+  object `game` last assigned on line 1376 could be null and is dereferenced at line 1377.
+  1375.       public void actionPerformed2(ActionEvent e) { // Renamed to allow compilation
+  1376.           final Game game = freeColClient.getGame();
+  1377. >         final Map map = game.getMap();
+  1378.   
+  1379.           Parameters p = showParametersDialog();
+
+Found 16 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULL_DEREFERENCE): 16
