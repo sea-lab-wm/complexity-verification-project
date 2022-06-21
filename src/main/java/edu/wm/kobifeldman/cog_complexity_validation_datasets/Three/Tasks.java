@@ -2105,10 +2105,12 @@ public class Tasks {
     }
 
     private class Cc {
+        @SuppressWarnings("all")
         public String xy(int i, int i1) {
             return null;
         }
 
+        @SuppressWarnings("all")
         public Object msg(String help, String no_endtime_defined) {
             return null;
         }
