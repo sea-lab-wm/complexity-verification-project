@@ -674,7 +674,7 @@ public class Tasks {
         return list.toArray(new ProgramReceiveTarget[list.size()]);
     }
 
-    // Snippet s38
+    // Snippet s38                                                                      /*ORIGINALLY COMMENTED OUT*/
 //    public Object s38() {
 //        Class<? extends Throwable> expectedException(Method method){
 //            Test annotation = method.getAnnotation(Test.class);
@@ -1129,7 +1129,7 @@ public class Tasks {
         dev.writeData(stream);
     } // Added to allow compilation
 
-    // Snippet s78
+    // Snippet s78                                                                                      /*ORIGINALLY COMMENTED OUT*/
 //    private static Class<?>[] getAnnotatedClasses(Class<?> klass) throws InitializationError {
 //            SuiteClasses annotation= klass.getAnnotation(SuiteClasses.class);
 //            if (annotation == null)
@@ -1332,7 +1332,7 @@ public class Tasks {
         //return null; // Added to allow compilation
     } // Added to allow compilation
 
-    // Snippet s93
+    // Snippet s93                                                                  /*ORIGINALLY COMMENTED OUT*/
 //    private Method getParametersMethod() throws Exception {
 //        for (Method each : fKlass.getMethods()) {
 //            if (Modifier.isStatic(each.getModifiers())) {
@@ -1417,7 +1417,7 @@ public class Tasks {
         return ddl;
     } // Added to allow compilation
 
-    // Snippet s100
+    // Snippet s100                                                                     /*ORGINALLY COMMENTED OUT*/
 //    private synchronized void purgeOldMessagesFromMessagesToIgnore(int thisTurn) {
 //        List<String> keysToRemove = new ArrayList<String>();
 //        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
