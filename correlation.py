@@ -29,8 +29,14 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
 
     return countSnippetsPerDataset
 
+# Sets the values of the column "# of snippets with warnings" in the correlation analysis excel sheet
 def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):
-    pass
+    df = pd.read_excel('correlation_analysis.xlsx')
+
+    for i, value in enumerate(countSnippetsPerDataset.values()):
+        df.at[i, '# of snippets with warnings'] = value
+
+    df.to_excel('correlation_analysis.xlsx', engine='xlsxwriter')
 
 if __name__ == '__main__':
-    sortUniqueSnippetsByDataset(getDatasets(), getSnippetsWithWarnings())
+    setNumSnippetsWithWarningsColumn(sortUniqueSnippetsByDataset(getDatasets(), getSnippetsWithWarnings()))
