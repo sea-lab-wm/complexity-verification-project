@@ -8,8 +8,6 @@ def getSnippetsWithWarnings():
 
     listSnippets = df['Snippet'].to_list()
     uniqueSnippets.extend(list(set(listSnippets)))
-    print(uniqueSnippets)
-    print(len(uniqueSnippets))
 
     return uniqueSnippets
 
@@ -24,3 +22,4 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
 
 if __name__ == '__main__':
     getSnippetsWithWarnings()
+    getDatasets()
