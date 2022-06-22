@@ -18,7 +18,6 @@ def parseCheckerFramework(data):
     startSnippetCOG1 = "\\cog_complexity_validation_datasets\\One\\"
     startSnippetCOG3 = "\\cog_complexity_validation_datasets\\Three\\"
     endSnippet = ": warning:"
-    #startError = " ["
 
     for line in lines:
         if startSnippetfMRI in line and endSnippet in line:
@@ -26,16 +25,15 @@ def parseCheckerFramework(data):
             data["Warning Type"].append(line.split(endSnippet)[1].strip())
         elif startSnippetCOG1 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
-            print("linnum: "+ str(lineNum))
+
             for i in range(len(cog_dataset_1_methods_lines) - 1):
-                print("i: " + str(i) + " cog: " + str(cog_dataset_1_methods_lines[i]))
                 if cog_dataset_1_methods_lines[i] < lineNum and cog_dataset_1_methods_lines[i + 1] > lineNum:
-                    print("test")
                     data["Snippet"].append("COG Dataset 1 - " + str(i + 1))
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
         elif startSnippetCOG3 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
+
             for i in range(len(cog_dataset_3_methods_lines) - 1):
                 if cog_dataset_3_methods_lines[i] < lineNum and cog_dataset_3_methods_lines[i + 1] > lineNum:
                     data["Snippet"].append("COG Dataset 3 - " + str(i + 1))
