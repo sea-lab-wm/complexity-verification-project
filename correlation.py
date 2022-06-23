@@ -1,6 +1,10 @@
 import pandas as pd
 from openpyxl import load_workbook
 
+#
+#   Retrieve Data From Analysis Tool Output
+#
+
 # Read all the data output excel sheets from the various analysis tool 
 # and create a set of all the unique snippets across all the datasets that contain warnings
 def getSnippetsWithWarnings():
@@ -29,6 +33,17 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
             countSnippetsPerDataset[snippet] += 1
 
     return countSnippetsPerDataset
+
+#
+#   Retrieve Data From Studies
+#
+
+def getAveragesCogDataset3():
+    pass
+
+#
+#   Update correlation_analysis.xlsx
+#
 
 # Sets the values of the column "# of snippets with warnings" in the correlation analysis excel sheet
 def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):

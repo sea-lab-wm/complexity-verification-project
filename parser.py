@@ -7,8 +7,6 @@ cog_dataset_3_methods_lines = [212, 228, 245, 277, 289, 298, 314, 322, 332, 345,
 
 # Retrieves the snippet name and warning message for each warning output by the Checker Framework
 def parseCheckerFramework(data):
-    print("LEN STUFFS: "+ str(len(cog_dataset_3_methods_lines)))
-
     lines = []
     with open('checker_framework_output.txt') as f:
         lines = f.readlines()
