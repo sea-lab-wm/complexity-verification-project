@@ -38,8 +38,13 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
 #   Retrieve Data From Studies
 #
 
+# Reads the results of the cog data set 3 study. It contains 120 people who rated 100 snippets on a scale of 1-5.
+# 1 being less readable and 5 being more readable.
 def getAveragesCogDataset3():
-    pass
+    df = pd.read_csv('data/cog_dataset_3.csv')
+
+    # Returns a list of the averages for each snippet
+    return [round(sum(df[column]) / len(df[column]), 2) for column in df.columns[2:]]
 
 #
 #   Update correlation_analysis.xlsx
@@ -47,8 +52,6 @@ def getAveragesCogDataset3():
 
 # Sets the values of the column "# of snippets with warnings" in the correlation analysis excel sheet
 def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):
-    #df = pd.read_excel('correlation_analysis.xlsx')
-
     workbook = load_workbook('data/correlation_analysis.xlsx')
     worksheet = workbook.active # gets first sheet
 
@@ -59,4 +62,6 @@ def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):
     workbook.save('data/correlation_analysis.xlsx')
 
 if __name__ == '__main__':
-    setNumSnippetsWithWarningsColumn(sortUniqueSnippetsByDataset(getDatasets(), getSnippetsWithWarnings()))
+    #setNumSnippetsWithWarningsColumn(sortUniqueSnippetsByDataset(getDatasets(), getSnippetsWithWarnings()))
+
+    getAveragesCogDataset3()
