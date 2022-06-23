@@ -1,5 +1,5 @@
 import pandas as pd
-from openpyxl import Workbook, load_workbook
+from openpyxl import load_workbook
 
 # Read all the data output excel sheets from the various analysis tool 
 # and create a set of all the unique snippets across all the datasets that contain warnings
