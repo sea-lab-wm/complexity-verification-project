@@ -170,3 +170,7 @@ CryptoAnalysis
 #Ignore some sample tests
 *KeY_Test/
 *CogniCrypt_Test/
+rules/
+
+#Do not ignore jatyc.jar
+!jatyc.jar
