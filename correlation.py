@@ -16,12 +16,6 @@ def getSnippetsWithWarnings():
 
     return uniqueSnippets
 
-# Gets a list of all the datasets that snippets can come from
-def getDatasets():
-    df = pd.read_excel('data/correlation_analysis.xlsx', usecols=['Complexity Metric'])
-
-    return df['Complexity Metric'].to_list()
-
 # Gets a count of the number of snippets that contain warnings for each dataset
 def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
     countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
@@ -47,8 +41,32 @@ def getAveragesCogDataset3():
     return [round(sum(df[column]) / len(df[column]), 2) for column in df.columns[2:]]
 
 #
-#   Update correlation_analysis.xlsx
+#   Interact with datapoints.xlsx
 #
+
+# Takes the averages of the complexity metric and places them into the 
+# first column of dataapoints.xlsx sheet cog_dataset_3.
+def setCogDataset3ComplexityMetricColumn(complexityMetrics):
+    workbook = load_workbook('data/datapoints.xlsx')
+    worksheet = workbook['cog_dataset_3']
+
+    for i, value in enumerate(complexityMetrics):
+        worksheet.cell(row=i + 1, column=1, value=value)
+
+    workbook.save('data/datapoints.xlsx')
+
+def setCogDataset3WarningCountColumn():
+    pass
+
+#
+#   Interact with correlation_analysis.xlsx
+#
+
+# Gets a list of all the datasets that snippets can come from
+def getDatasets():
+    df = pd.read_excel('data/correlation_analysis.xlsx', usecols=['Complexity Metric'])
+
+    return df['Complexity Metric'].to_list()
 
 # Sets the values of the column "# of snippets with warnings" in the correlation analysis excel sheet
 def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):
@@ -61,7 +79,11 @@ def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):
 
     workbook.save('data/correlation_analysis.xlsx')
 
-if __name__ == '__main__':
-    #setNumSnippetsWithWarningsColumn(sortUniqueSnippetsByDataset(getDatasets(), getSnippetsWithWarnings()))
+def setNumDatapointsForCorrelationColumn(averages):
+    pass
 
-    getAveragesCogDataset3()
+if __name__ == '__main__':
+    setNumSnippetsWithWarningsColumn(sortUniqueSnippetsByDataset(getDatasets(), getSnippetsWithWarnings()))
+
+    # Already set, no need to run multiple times
+    #setCogDataset3ComplexityMetricColumn(getAveragesCogDataset3())
