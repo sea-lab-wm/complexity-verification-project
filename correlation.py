@@ -1,4 +1,5 @@
 import pandas as pd
+from openpyxl import Workbook, load_workbook
 
 # Read all the data output excel sheets from the various analysis tool 
 # and create a set of all the unique snippets across all the datasets that contain warnings
@@ -31,12 +32,16 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
 
 # Sets the values of the column "# of snippets with warnings" in the correlation analysis excel sheet
 def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):
-    df = pd.read_excel('correlation_analysis.xlsx')
+    #df = pd.read_excel('correlation_analysis.xlsx')
+
+    workbook = load_workbook('correlation_analysis.xlsx')
+    worksheet = workbook.active # gets first sheet
 
     for i, value in enumerate(countSnippetsPerDataset.values()):
-        df.at[i, '# of snippets with warnings'] = value
+        # Writes a new value PRESERVING cell styles.
+        worksheet.cell(row=i + 2, column=3, value=value)
 
-    df.to_excel('correlation_analysis.xlsx', engine='xlsxwriter')
+    workbook.save('correlation_analysis.xlsx')
 
 if __name__ == '__main__':
     setNumSnippetsWithWarningsColumn(sortUniqueSnippetsByDataset(getDatasets(), getSnippetsWithWarnings()))
