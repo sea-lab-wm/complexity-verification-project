@@ -1,5 +1,6 @@
 import pandas as pd
 from openpyxl import load_workbook
+import scipy.stats as scpy
 
 #
 #   Retrieve Data From Analysis Tool Output
@@ -38,10 +39,10 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
 
     return countSnippetsPerDataset
 
+# Determines the number of warnings for each snippet, separated by the dataset the snippet is from
 def getNumWarningsPerSnippet(dfList, numSnippetsJudgedPerDataset, datasets):
-    #warningsPerSnippetPerDataset = [[0 for x in numSnippetsJudgedPerDataset] for y in range(len(numSnippetsJudgedPerDataset))]
     warningsPerSnippetPerDataset = dict([(key.split('-')[1].strip(), 0) for key in datasets])
-    print("BANANA")
+
     # Setup the dictionary with empty lists
     count = 0
     for dataset in warningsPerSnippetPerDataset:
@@ -141,8 +142,52 @@ def setNumSnippetsWithWarningsColumn(countSnippetsPerDataset):
 
     workbook.save('data/correlation_analysis.xlsx')
 
-def setNumDatapointsForCorrelationColumn(averages):
-    pass
+def setNumDatapointsForCorrelationColumn():
+    workbookDatapoints = load_workbook('data/datapoints.xlsx')
+
+    workbookAnalysis = load_workbook('data/correlation_analysis.xlsx')
+    worksheetAnalysis = workbookAnalysis.active
+    
+    # Loop through every sheet in datapoints.xlsx. A sheet corresponds to the datapoints for a specific dataset
+    for i, worksheetDatapoints in enumerate(workbookDatapoints.worksheets):
+        numDataPoints = worksheetDatapoints.max_row
+
+        worksheetAnalysis.cell(row=i + 2, column=4, value=numDataPoints)
+
+    workbookAnalysis.save('data/correlation_analysis.xlsx')
+
+def setKendallTauColumn(kendallTauVals):
+    workbook = load_workbook('data/correlation_analysis.xlsx')
+    worksheet = workbook.active
+
+    for i, value in enumerate(kendallTauVals):
+        worksheet.cell(row=i + 2, column=5, value=value)
+
+    workbook.save('data/correlation_analysis.xlsx')
+
+#
+#   CORRELATION
+#
+
+def kendallTau():
+    workbookDatapoints = load_workbook('data/datapoints.xlsx')
+
+    kendallTauVals = []
+
+    # Loop through every sheet in datapoints.xlsx. A sheet corresponds to the datapoints for a specific dataset
+    for i, worksheetDatapoints in enumerate(workbookDatapoints.worksheets):
+        x = []
+        y = []
+
+        for row in worksheetDatapoints.iter_rows():
+            x.append(row[0].value)
+            y.append(row[1].value)
+
+        corr, pValue = scpy.kendalltau(x, y)
+
+        kendallTauVals.append(corr)
+
+    return kendallTauVals
 
 if __name__ == '__main__':
     dfList = readData()
@@ -155,3 +200,7 @@ if __name__ == '__main__':
 
     #getNumWarningsPerSnippet(dfList, getNumSnippetsJudgedColumn(), datasets)
     setCogDataset3WarningCountColumn(getNumWarningsPerSnippet(dfList, getNumSnippetsJudgedColumn(), datasets))
+
+    setNumDatapointsForCorrelationColumn()
+
+    setKendallTauColumn(kendallTau())
