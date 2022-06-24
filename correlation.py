@@ -6,6 +6,9 @@ import scipy.stats as scpy
 #   Retrieve Data From Analysis Tool Output
 #
 
+# Reads in warning per snippet data from each analysis tool.
+# There is data for one analysis tool per excel file.
+# The data frames for each file are returned in a list.
 def readData():
     dfList = []
 
@@ -15,31 +18,37 @@ def readData():
 
     return dfList
 
-# Read all the data output excel sheets from the various analysis tool 
+# Read all the data output data frames from the various analysis tool 
 # and create a list of all the unique snippets across all the datasets that contain warnings
 def getSnippetsWithWarnings(dfList):
-    #df = pd.read_excel('data/checker_framework_data.xlsx', usecols=['Snippet'])
     uniqueSnippets = []
 
     for df in dfList:
         listSnippets = df['Snippet'].to_list()
         uniqueSnippets.extend(list(set(listSnippets)))
 
+    # Name of snippets in 'uniqueSnippets' format example: COG Dataset 1 - 12
+    #                                              format: Dataset Name - Snippet #
     return uniqueSnippets
 
 # Gets a count of the number of snippets that contain warnings for each dataset
+# Returns a dictionary where the keys is the names of data sets. The values are an integer count of 
+# the number of snippets that contain warnings for that data set.
 def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
     countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
  
     for snippet in uniqueSnippets:
-        snippet = snippet.split("-")[0].strip()
-
+        #TODO: Could maybe simplify all these key.splits by doing it once when the list is first created if the other data is not needed
+        snippet = snippet.split("-")[0].strip() # Name of snippets in 'uniqueSnippets' format example: COG Dataset 1 - 12
+                                                #                                              format: Dataset Name - Snippet #
         if snippet in countSnippetsPerDataset:
             countSnippetsPerDataset[snippet] += 1
 
     return countSnippetsPerDataset
 
-# Determines the number of warnings for each snippet, separated by the dataset the snippet is from
+# Determines the number of warnings for each snippet, separated by the dataset the snippet is from.
+# Creates a dictionary where the keys are the names of data sets. Values are a list where the size is 
+# the TOTAL number of snippets in the dataset and values within the list are the number of warnings for a given snippet.
 def getNumWarningsPerSnippet(dfList, numSnippetsJudgedPerDataset, datasets):
     warningsPerSnippetPerDataset = dict([(key.split('-')[1].strip(), 0) for key in datasets])
 
