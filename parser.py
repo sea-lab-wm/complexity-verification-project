@@ -1,7 +1,12 @@
 from fileinput import lineno
 import pandas as pd
 
+# OSCAR: how are the tools run?
+
 # list of snippets and their start lines in cog_dataset_3 Tasks.java
+# OSCAR: why do we need these line numbers? my understanding is that the codes checks that the warnings fall within
+# these numbers. Does it mean that the warning output file contains extra warnings we don't want to parse? I thought we would parse all the warnings in the file.
+# OSCAR: update, I checked the correlation code, and I think the reason for these lines is that we need to identify the snippets for which we get warnings (i.e., get the snippet ID)
 cog_dataset_1_methods_lines = [14, 26, 47, 65, 82, 101, 110, 120, 132, 145, 159, 170, 184, 195, 206, 230, 238, 257, 281, 296, 311, 326, 341]
 cog_dataset_3_methods_lines = [212, 228, 245, 277, 289, 298, 314, 322, 332, 345, 361, 371, 384, 395, 409, 417, 425, 439, 451, 460, 468, 483, 492, 502, 513, 524, 538, 547, 558, 571, 580, 601, 614, 621, 638, 654, 666, 678, 689, 704, 714, 725, 736, 745, 753, 766, 781, 788, 803, 820, 832, 842, 852, 866, 876, 894, 901, 909, 917, 927, 934, 946, 957, 967, 976, 985, 1000, 1014, 1022, 1032, 1044, 1056, 1077, 1089, 1106, 1115, 1123, 1133, 1141, 1158, 1172, 1185, 1202, 1213, 1228, 1238, 1251, 1262, 1273, 1290, 1305, 1322, 1336, 1351, 1362, 1375, 1383, 1398, 1406, 1421, 1431]
 

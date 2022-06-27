@@ -2,6 +2,13 @@ import pandas as pd
 from openpyxl import load_workbook
 import scipy.stats as scpy
 
+# OSCAR: I think, overall, it is easier to process data with data frames:
+# read data from the excel files into DFs, then processing it to get results as more DFs, and then writing this DFs
+# to either an excel or CSV file
+# RESOURCES:
+# https://www.geeksforgeeks.org/python-pandas-dataframe/
+# https://pandas.pydata.org/docs/user_guide/indexing.html
+
 #
 #   Retrieve Data From Analysis Tool Output
 #
@@ -87,6 +94,8 @@ def getNumWarningsPerSnippet(dfList, numSnippetsJudgedPerDataset, datasets):
 
 # Reads the results of the cog data set 3 study. It contains 120 people who rated 100 snippets on a scale of 1-5.
 # 1 being less readable and 5 being more readable.
+# OSCAR: where are we filtering out the 4 snippets that are commented out?
+# OSCAR: in cog_dataset_3.csv, are the snippets identified by column index?
 def getAveragesCogDataset3():
     df = pd.read_csv('data/cog_dataset_3.csv')
 
@@ -105,6 +114,11 @@ def setCogDataset3ComplexityMetricColumn(complexityMetrics):
 
     for i, value in enumerate(complexityMetrics):
         worksheet.cell(row=i + 1, column=1, value=value)
+
+    # possible dataframe syntax (not sure)
+    # df = read_excel_file(...)
+    # df[:5]
+    # x = df["Dataset"]
 
     workbook.save('data/datapoints.xlsx')
 
@@ -177,7 +191,8 @@ def setKendallTauColumn(kendallTauVals):
 #
 #   CORRELATION
 #
-
+# OSCAR: probably with dataframes and slices, the code would be simpler
+# OSCAR: we need to also compute Spearman Correlation, which doesn't assume normal distributions (scipy.stats.spearmanr)
 def kendallTau():
     workbookDatapoints = load_workbook('data/datapoints.xlsx')
 
@@ -185,8 +200,6 @@ def kendallTau():
 
     # Loop through every sheet in datapoints.xlsx. A sheet corresponds to the datapoints for a specific dataset
     for i, worksheetDatapoints in enumerate(workbookDatapoints.worksheets):
-        x = []
-        y = []
 
         for row in worksheetDatapoints.iter_rows():
             x.append(row[0].value)
