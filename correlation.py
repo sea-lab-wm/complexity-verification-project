@@ -33,6 +33,17 @@ def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 
     return correlationAnalysisDF
 
+# Sets the values of the column '# of warnings' in the correlation analysis dataframe.
+# Returns the modified correlation analysis dataframe.
+def setNumWarningsColumn(warningsPerDataset, correlationAnalysisDF):
+    print(warningsPerDataset)
+
+    # Loop through each dataset
+    for i, numWarnings in enumerate(warningsPerDataset):
+        correlationAnalysisDF.iloc[i, 3] = numWarnings
+
+    return correlationAnalysisDF
+
 # Sets the values of the column '# of datapoints of correlation' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlationAnalysisDF):
@@ -40,14 +51,14 @@ def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlatio
     for i, df in enumerate(dfListCorrelationDatapoints):
         numDataPoints = len(df)
 
-        correlationAnalysisDF.iloc[i, 3] = numDataPoints
+        correlationAnalysisDF.iloc[i, 4] = numDataPoints
 
     return correlationAnalysisDF
 
 # Sets the values of the column 'Kendall's Tau' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setKendallTauColumn(kendallTauVals, correlationAnalysisDF):
-    correlationAnalysisDF.iloc[:, 4] = kendallTauVals
+    correlationAnalysisDF.iloc[:, 5] = kendallTauVals
 
     return correlationAnalysisDF
 
@@ -57,15 +68,13 @@ def setKendallTauColumn(kendallTauVals, correlationAnalysisDF):
 
 # Master function for compiling the datapoints for correlation.
 # Returns a list of dataframes where each dataframe contains the datapoints (x = complexity metric, y = # of warnings) for a specific dataset.
-def setupCorrelationData(dfListAnalysisTools, correlationAnalysisDF):
+def setupCorrelationData(warningsPerSnippetPerDataset):
     # Datapoint structure as a dictionary, each row represents a snippet in numerical order -> first row for first snippet etc. excluding headers
     data = {
         'Metric': [],
         'Warning Count': []
     }
     dfListCorrelationDatapoints = []
-
-    warningsPerSnippetPerDataset = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisDF)
 
     # Compile datapoints for the COG Dataset 3 Study
     dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset['COG Dataset 3'], data))
@@ -179,6 +188,10 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
 
     return warningsPerSnippetPerDataset
 
+# Determines the number of warnings for each dataset
+def getNumWarningsPerDataset(warningsPerSnippetPerDataset):
+    return [sum(warningsPerSnippetPerDataset[dataset]) for dataset in warningsPerSnippetPerDataset]
+
 ############################
 #   Perform Correlations   #
 ############################
@@ -220,8 +233,14 @@ if __name__ == '__main__':
     # Update correlation analyis data frame 
     correlationAnalysisDF = setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 
+    # Get the number of warnings per snippet per dataset
+    warningsPerSnippetPerDataset = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisDF)
+
+    # Update correlation analyis data frame 
+    correlationAnalysisDF = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDataset), correlationAnalysisDF)
+
     # Compile all datapoints for correlation: x = complexity metric, y = # of warnings
-    dfListCorrelationDatapoints = setupCorrelationData(dfListAnalysisTools, correlationAnalysisDF)
+    dfListCorrelationDatapoints = setupCorrelationData(warningsPerSnippetPerDataset)
 
     # Update correlation analyis data frame 
     correlationAnalysisDF = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlationAnalysisDF)
