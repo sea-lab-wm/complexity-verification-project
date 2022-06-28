@@ -12,7 +12,7 @@ import scipy.stats as scpy
 #   Interact with correlation_analysis.xlsx   #
 ###############################################
 
-# Returns the dataframe DONE
+# Returns the dataframe
 def readCorrelationAnalysis():
     return pd.read_excel('data/correlation_analysis.xlsx')
 
@@ -21,7 +21,7 @@ def writeCorrelationAnalysis(correlationAnalysisDF):
 
 # For Reference: The columns 'Complexity Metric' and '# of snippets judged (complexity)' are added manually.
 
-# Sets the values of the column '# of snippets with warnings' in the correlation analysis dataframe. DONE
+# Sets the values of the column '# of snippets with warnings' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF):
     datasets = correlationAnalysisDF.iloc[:, 0]  # A list of all datasets being used
@@ -33,7 +33,7 @@ def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 
     return correlationAnalysisDF
 
-# Sets the values of the column '# of datapoints of correlation' in the correlation analysis dataframe. DONE
+# Sets the values of the column '# of datapoints of correlation' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlationAnalysisDF):
     # Loop through each set of datapoints, there is one for each study
@@ -44,7 +44,7 @@ def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlatio
 
     return correlationAnalysisDF
 
-# Sets the values of the column 'Kendall's Tau' in the correlation analysis dataframe. DONE
+# Sets the values of the column 'Kendall's Tau' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setKendallTauColumn(kendallTauVals, correlationAnalysisDF):
     correlationAnalysisDF.iloc[:, 4] = kendallTauVals
@@ -55,7 +55,7 @@ def setKendallTauColumn(kendallTauVals, correlationAnalysisDF):
 #   Setup Correlation Data   #
 ##############################
 
-# Master function for compiling the datapoints for correlation. DONE ISH
+# Master function for compiling the datapoints for correlation.
 # Returns a list of dataframes where each dataframe contains the datapoints (x = complexity metric, y = # of warnings) for a specific dataset.
 def setupCorrelationData(dfListAnalysisTools, correlationAnalysisDF):
     # Datapoint structure as a dictionary, each row represents a snippet in numerical order -> first row for first snippet etc. excluding headers
@@ -74,18 +74,13 @@ def setupCorrelationData(dfListAnalysisTools, correlationAnalysisDF):
 
     return dfListCorrelationDatapoints
 
-# Gets a list of complexity metrics and a list of warning counts for each snippet in COG Dataset 3. DONE
+# Gets a list of complexity metrics and a list of warning counts for each snippet in COG Dataset 3.
 # Adds that data to a dictionary that is then converted to a dataframe.
 def setCogDataset3Datapoints(warningsPerSnippet, data):
     data['Metric'] = readCOGDataset3StudyMetrics()
     data['Warning Count'] = warningsPerSnippet
 
     return pd.DataFrame(data)
-
-    # possible dataframe syntax (not sure)
-    # df = read_excel_file(...)
-    # df[:5]
-    # x = df["Dataset"]
 
 # TODO: functions for future datasets go here
 
@@ -114,10 +109,9 @@ def readCOGDataset3StudyMetrics():
 def readAnalysisToolOutput():
     dfList = []
 
-    #TODO: change from excel to csv file
     dfList.append(pd.read_csv('data/checker_framework_data.csv'))
 
-    #TODO: Add more analysis tool output here:
+    #TODO: Add more analysis tool output here
 
     return dfList
 
@@ -141,7 +135,6 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
     countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
  
     for snippet in uniqueSnippets:
-        #TODO: Could maybe simplify all these key.splits by doing it once when the list is first created if the other data is not needed
         snippet = snippet.split("-")[0].strip() # Name of snippets in 'uniqueSnippets' format example: COG Dataset 1 - 12
                                                 #                                              format: Dataset Name - Snippet #
         if snippet in countSnippetsPerDataset:
@@ -190,7 +183,7 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
 #   Perform Correlations   #
 ############################
 
-# OSCAR: probably with dataframes and slices, the code would be simpler
+# TODO
 # OSCAR: we need to also compute Spearman Correlation, which doesn't assume normal distributions (scipy.stats.spearmanr)
 
 # Perform Kendall's Tau correlation on each dataset seperatly where datapoints are: x = complexity metric, y = # of warnings
