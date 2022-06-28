@@ -1,0 +1,25 @@
+Snippet,[argument] incompatible argument for parameter arg1 of arraycopy.,[argument] incompatible argument for parameter arg3 of arraycopy.,[argument] incompatible argument for parameter arg4 of arraycopy.,[argument] incompatible argument for parameter beginIndex of substring.,[argument] incompatible argument for parameter endIndex of substring.,[argument] incompatible argument for parameter index of charAt.,[argument] incompatible argument for parameter o of Tasks.,[argument] incompatible argument for parameter o of convertPoint.,[argument] incompatible argument for parameter o of invoke.,[argument] incompatible argument for parameter w of setFullScreenWindow.,[array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound,[array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound,[array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 2 could be larger than the array's bound,[array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound,[array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound,[array.access.unsafe.low] Potentially unsafe array access: the index could be negative.,[array.length.negative] Variable used in array creation could be negative.,[dep-ann] deprecated item is not annotated with @Deprecated,[format.string] invalid format string (is a @Format annotation missing?),"[method.invocation] call to putValue(java.lang.Object,java.lang.Object) not allowed on the given receiver.",[not.interned] attempting to use a non-@Interned comparison operand,[required.method.not.called] @MustCall method close may not have been invoked on stream or any of its aliases.,[required.method.not.called] @MustCall method close may not have been invoked on temp-var-145 or any of its aliases.,[required.method.not.called] @MustCall method close may not have been invoked on temp-var-148 or any of its aliases.,[required.method.not.called] @MustCall method close may not have been invoked on temp-var-325 or any of its aliases.,[return] incompatible types in return.
+COG Dataset 1 - 12,,,,,,1.0,,,,,,,,,,,,,,,,,,,,
+COG Dataset 1 - 15,,,,,,,,,,,,,,,4.0,,,,,,,,,,,
+COG Dataset 1 - 19,,,,1.0,,1.0,,,,,,,,,,,,,,,,,,,,
+COG Dataset 3 - 2,,,,,,,,,,,1.0,,,,,,,,,,,,,,,1.0
+COG Dataset 3 - 23,,,,,,,,,,,,,,,,,,,,,,,1.0,1.0,,
+COG Dataset 3 - 25,,,,,,,,,,,,,,,,,,,,,4.0,,,,,
+COG Dataset 3 - 26,2.0,1.0,6.0,,,,,,,,,,,,,,,,,,,,,,,
+COG Dataset 3 - 3,,,,2.0,2.0,,,,,,1.0,,,,,,,,,,,,,,,
+COG Dataset 3 - 35,,,,,,,1.0,,,,,,,,,,,,,2.0,,,,,,
+COG Dataset 3 - 37,,,,,,,,,,,,,,,,,1.0,,,,,,,,,
+COG Dataset 3 - 39,,,,,,,,,,,1.0,1.0,1.0,,,,,,,,,,,,,
+COG Dataset 3 - 5,,,,,,,,,,1.0,,,,,,,,,,,,,,,,
+COG Dataset 3 - 53,,,,,,,,,1.0,,,,,,,,,,,,,,,,,
+COG Dataset 3 - 58,,,,,,,,,,,,,,,,,,,1.0,,,,,,,
+COG Dataset 3 - 63,,,,,,,,,,,,,,,,,,,,,,,,,,1.0
+COG Dataset 3 - 7,,,,,,,,,,,,,,,,,,1.0,,,,,,,,
+COG Dataset 3 - 70,,,,,,,,1.0,,,,,,,,,,,,,,,,,,
+COG Dataset 3 - 77,,,,,,,,,,,,,,,,,,,,,,1.0,,,1.0,
+COG Dataset 3 - 79,,,,,,,,,,,,,,3.0,3.0,3.0,,,,,,,,,,
+COG Dataset 3 - 85,,,,,,,,,,,,,,,,,,,,,2.0,,,,,
+COG Dataset 3 - 86,,,,,,,,,,,,,,,2.0,2.0,,,,,,,,,,
+fMRI Dataset - RecursiveBinaryToDecimal,,,,,,1.0,,,,,,,,,,,,,,,,,,,,
+fMRI Dataset - YesNo,,,,,,,,,,,,,,,,,,,,,,,,,,1.0
+fMRI Dataset - isPalindrome,,,,,,1.0,,,,,,,,,,,,,,,,,,,,

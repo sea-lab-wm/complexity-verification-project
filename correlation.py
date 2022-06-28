@@ -1,5 +1,4 @@
 import pandas as pd
-from openpyxl import load_workbook
 import scipy.stats as scpy
 
 # OSCAR: I think, overall, it is easier to process data with data frames:
@@ -116,7 +115,7 @@ def readAnalysisToolOutput():
     dfList = []
 
     #TODO: change from excel to csv file
-    dfList.append(pd.read_excel('data/checker_framework_data.xlsx'))
+    dfList.append(pd.read_csv('data/checker_framework_data.csv'))
 
     #TODO: Add more analysis tool output here:
 

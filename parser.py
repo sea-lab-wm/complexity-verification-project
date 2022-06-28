@@ -58,7 +58,7 @@ def setupExcelSheet():
     df["Warning Type Copy"] = df["Warning Type"]    # Must copy values to column with different name to use same column for "values" and "columns" when making a pivot table
     df = df.pivot_table(values="Warning Type", index="Snippet", columns="Warning Type Copy", aggfunc="count")
 
-    df.to_excel('data/checker_framework_data.xlsx', engine='xlsxwriter')
+    df.to_csv('data/checker_framework_data.csv')
 
 if __name__ == '__main__':
     setupExcelSheet()
