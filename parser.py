@@ -1,4 +1,3 @@
-from fileinput import lineno
 import pandas as pd
 
 # OSCAR: how are the tools run?
@@ -13,7 +12,7 @@ cog_dataset_3_methods_lines = [212, 228, 245, 277, 289, 298, 314, 322, 332, 345,
 # Retrieves the snippet name and warning message for each warning output by the Checker Framework
 def parseCheckerFramework(data):
     lines = []
-    with open('checker_framework_output.txt') as f:
+    with open('data/checker_framework_output.txt') as f:
         lines = f.readlines()
 
     # Delimeters with which to parse the warnings
