@@ -16,6 +16,7 @@ import scipy.stats as scpy
 def readCorrelationAnalysis():
     return pd.read_excel('data/correlation_analysis.xlsx')
 
+# Saves the correlation analysis dataframe to its excel file
 def writeCorrelationAnalysis(correlationAnalysisDF):
     correlationAnalysisDF.to_excel('data/correlation_analysis.xlsx', engine='xlsxwriter', index=False)
 
@@ -131,7 +132,9 @@ def getSnippetsWithWarnings(dfListAnalysisTools):
 
     for df in dfListAnalysisTools:
         listSnippets = df['Snippet'].to_list()
-        uniqueSnippets.extend(list(set(listSnippets)))
+        uniqueSnippets.extend(listSnippets)
+
+    uniqueSnippets = list(set(uniqueSnippets))
 
     # Name of snippets in 'uniqueSnippets' format example: COG Dataset 1 - 12
     #                                              format: Dataset Name - Snippet #
@@ -230,7 +233,7 @@ if __name__ == '__main__':
     dfListAnalysisTools = readAnalysisToolOutput()
     correlationAnalysisDF = readCorrelationAnalysis()
 
-    # Update correlation analyis data frame 
+    # Determine the number of snippets that contain warnings within each dataset.
     correlationAnalysisDF = setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 
     # Get the number of warnings per snippet per dataset
