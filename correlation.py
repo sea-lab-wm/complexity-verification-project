@@ -210,7 +210,7 @@ def kendallTau(dfListCorrelationDatapoints):
     #TODO TEMPORARY
     kendallTauVals.append('TEMP')
 
-    # Loop through every sheet in datapoints.xlsx. A sheet corresponds to the datapoints for a specific dataset
+    # Loop through every datapoint dataframe (corresponding to each dataset).
     for df in dfListCorrelationDatapoints:
         x = df.iloc[:, 0]
         y = df.iloc[:, 1]
@@ -236,10 +236,10 @@ if __name__ == '__main__':
     # Determine the number of snippets that contain warnings within each dataset.
     correlationAnalysisDF = setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 
-    # Get the number of warnings per snippet per dataset
+    # Determine the number of warnings per snippet per dataset
     warningsPerSnippetPerDataset = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisDF)
 
-    # Update correlation analyis data frame 
+    # Determine the number of warnings per dataset
     correlationAnalysisDF = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDataset), correlationAnalysisDF)
 
     # Compile all datapoints for correlation: x = complexity metric, y = # of warnings
