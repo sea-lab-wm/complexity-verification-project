@@ -63,6 +63,13 @@ def setKendallTauColumn(kendallTauVals, correlationAnalysisDF):
 
     return correlationAnalysisDF
 
+# Sets the values of the column 'Spearman's Rho' in the correlation analysis dataframe.
+# Returns the modified correlation analysis dataframe.
+def setSpearmanRhoColumn(spearmanRhoVals, correlationAnalysisDF):
+    correlationAnalysisDF.iloc[:, 6] = spearmanRhoVals
+
+    return correlationAnalysisDF
+
 ##############################
 #   Setup Correlation Data   #
 ##############################
@@ -224,6 +231,28 @@ def kendallTau(dfListCorrelationDatapoints):
 
     return kendallTauVals
 
+# Perform Spearman's Rho correlation on each dataset seperatly where datapoints are: a = complexity metric, b = # of warnings
+# Return a list of the correlation coefficients for each dataset.
+def spearmanRho(dfListCorrelationDatapoints):
+    spearmanRhoVals = []
+
+    #TODO TEMPORARY
+    spearmanRhoVals.append('TEMP')
+
+    # Loop through every datapoint dataframe (corresponding to each dataset).
+    for df in dfListCorrelationDatapoints:
+        a = df.iloc[:, 0]
+        b = df.iloc[:, 1]
+
+        corr, pValue = scpy.spearmanr(a, b)
+
+        spearmanRhoVals.append(corr)
+
+    #TODO TEMPORARY
+    spearmanRhoVals.append('TEMP')
+
+    return spearmanRhoVals
+
 ###########################
 #   Program Starts Here   #
 ###########################
@@ -250,8 +279,12 @@ if __name__ == '__main__':
 
     # Perform Correlations
     kendallTauVals = kendallTau(dfListCorrelationDatapoints)
-    print(kendallTauVals)
+    print("Kendall's Tau: " + str(kendallTauVals))
     correlationAnalysisDF = setKendallTauColumn(kendallTauVals, correlationAnalysisDF)
+
+    spearmanRhoVals = spearmanRho(dfListCorrelationDatapoints)
+    print("Spearman's Rho: " + str(spearmanRhoVals))
+    correlationAnalysisDF = setSpearmanRhoColumn(spearmanRhoVals, correlationAnalysisDF)
 
     # Update correlation_analysis.xlsx
     writeCorrelationAnalysis(correlationAnalysisDF)
