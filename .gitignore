@@ -174,3 +174,7 @@ rules/
 
 #Do not ignore jatyc.jar
 !jatyc.jar
+
+#Do not ignore Checker Framework .jar files
+!checker-framework-3.14.0/checker/dist/*
+!checker-framework-3.21.3/checker/dist/*
