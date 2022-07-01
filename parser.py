@@ -22,6 +22,8 @@ def getSnippetNames(filePath):
         for lineNum, line in enumerate(f, start=1):
             if 'SNIPPET_STARTS' in line:
                 methodStartLines.append(lineNum + 1)
+            elif 'SNIPPETS_END' in line:
+                methodStartLines.append(lineNum)
 
     return methodStartLines
 
@@ -49,7 +51,7 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
             for i in range(len(cogDataset1SnippetNums) - 1):
-                if cogDataset1SnippetNums[i] < lineNum and cogDataset1SnippetNums[i + 1] >= lineNum:
+                if cogDataset1SnippetNums[i] <= lineNum and cogDataset1SnippetNums[i + 1] > lineNum:
                     data["Snippet"].append("COG Dataset 1 - " + str(i + 1))
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
@@ -57,7 +59,8 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
             for i in range(len(cogDataset3SnippetNums) - 1):
-                if cogDataset3SnippetNums[i] < lineNum and cogDataset3SnippetNums[i + 1] >= lineNum:
+                #if cogDataset3SnippetNums[i] < lineNum and cogDataset3SnippetNums[i + 1] >= lineNum:
+                if cogDataset3SnippetNums[i] <= lineNum and cogDataset3SnippetNums[i + 1] > lineNum:
                     data["Snippet"].append("COG Dataset 3 - " + str(i + 1))
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
