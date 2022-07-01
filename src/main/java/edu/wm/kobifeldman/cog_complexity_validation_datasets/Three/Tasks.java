@@ -262,6 +262,7 @@ public class Tasks {
      * The dependency upon a GranteeManager is undesirable.  Hopefully we
      * can get rid of this dependency with an IOC or Listener re-design.
      */
+    //SNIPPET_STARTS
     public void Grantee(String name, Grantee inGrantee, // public void added to allow compilation
             GranteeManager man) throws HsqlException {
 
@@ -274,6 +275,7 @@ public class Tasks {
     /**
      * Quits the application without any questions.
      */
+    //SNIPPET_STARTS
     public void quit() {
         getConnectController().quitGame(true);
         if (!windowed) {
@@ -283,6 +285,7 @@ public class Tasks {
     }   // had to be added to allow compilation
 
     // Snippet s6
+    //SNIPPET_STARTS
     private boolean s6() {
         xsp = jj_scanpos;
         if (jj_scan_token(100)) {
@@ -299,6 +302,7 @@ public class Tasks {
      *
      * @deprecated
      */
+    //SNIPPET_STARTS
     public void Date(int daysSince1970) { // return type void added to allow compilation
 
         long l = (long) daysSince1970 * 24 * 60 * 60 * 1000;
@@ -307,6 +311,7 @@ public class Tasks {
     } // added to allow compilation
 
     // Snippet s8
+    //SNIPPET_STARTS
     public void TestMethodRunner(Object test, Method method, RunNotifier notifier, Description description) {
         super1(test.getClass(), Before.class, After.class, test); // super() renamed to super1() to allow compilation
         fTest= (Ftest) test; // Type cast to Ftest to allow compilation
@@ -317,6 +322,7 @@ public class Tasks {
     /**
      * Returns a vector containing the URI (type + path) for all the databases.
      */
+    //SNIPPET_STARTS
     public static Vector getDatabaseURIs() {
 
         Vector v = new Vector();
@@ -330,6 +336,7 @@ public class Tasks {
     } // added to allow compilation
 
     // Snippet s10
+    //SNIPPET_STARTS
     private void moveUnit(KeyEvent e) {
         if (!parent.isMapboardActionsEnabled()) {
             return;
@@ -346,6 +353,7 @@ public class Tasks {
     }
 
     // Snippet s11
+    //SNIPPET_STARTS
     private Object s11() throws ClassNotFoundException {
         if (clas == null)
             throw new ClassNotFoundException(
@@ -356,6 +364,7 @@ public class Tasks {
     }
 
     // Snippet s12
+    //SNIPPET_STARTS
     private void s12() {
         btPanel.add(cancel);
 
@@ -369,6 +378,7 @@ public class Tasks {
      * @param expected expected value
 	 * @param actual actual value
 	 */
+    //SNIPPET_STARTS
     static public void assertEquals(String message, Object expected, Object actual) {
         if (expected == null && actual == null)
             return;
@@ -380,6 +390,7 @@ public class Tasks {
     } // added to allow compilation
 
     // Snippet s14
+    //SNIPPET_STARTS
     Object removeName (String name) throws HsqlException {
 
         Object owner = nameList.remove(name);
@@ -394,6 +405,7 @@ public class Tasks {
     }// added to allow compilation
 
     // Snippet s15
+    //SNIPPET_STARTS
     public static void s15() {
         int stepSize = Math.min((option.getMaximumValue() - option.getMinimumValue()) / 10, 1000);
         spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
@@ -402,6 +414,7 @@ public class Tasks {
     }
 
     // Snippet s16
+    //SNIPPET_STARTS
     public void s16() {
         if ( parent != null )
             setStrictJava( parent.getStrictJava() );
@@ -410,6 +423,7 @@ public class Tasks {
     }
 
     // Snippet s17
+    //SNIPPET_STARTS
     public void s17() {
         mDevices = new Vector<DeviceIf>();
 
@@ -424,6 +438,7 @@ public class Tasks {
     /**
      * Do not use. Testing purposes only.
      */
+    //SNIPPET_STARTS
     public Result runMain(String... args) {
         System.out.println("JUnit version " + Version.id());
         List<Class<?>> classes = new ArrayList<Class<?>>();
@@ -436,6 +451,7 @@ public class Tasks {
     /**
      * temp constraint constructor
      */
+    //SNIPPET_STARTS
     void Constraint(HsqlName name, int[] mainCols, Table refTable, int[] refCols, // Added return type void to allow compilation
                int type, int deleteAction, int updateAction) {
 
@@ -445,6 +461,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s20
+    //SNIPPET_STARTS
     public void s20() {
         int eventId = active? ON : OFF;
         ActionEvent blinkEvent = new ActionEvent(this,eventId,"blink");
@@ -453,6 +470,7 @@ public class Tasks {
     }
 
     // Snippet s21
+    //SNIPPET_STARTS
     public void s21() {
         if(true) // Added to allow compilation
             System.out.println(""); // Added to allow compilation
@@ -468,6 +486,7 @@ public class Tasks {
      * Returns the PluginPanel
      * @return Panel
      */
+    //SNIPPET_STARTS
     public JPanel createSettingsPanel() {
         mPanel = new CapturePluginPanel(mOwner, mCloneData);
         mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
@@ -477,6 +496,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s23
+    //SNIPPET_STARTS
     protected void printFailures(Result result) {
         if (result.getFailureCount() == 0)
             return;
@@ -487,6 +507,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s24
+    //SNIPPET_STARTS
     public static long getNormalisedTime(long t) {
 
         synchronized (tempCalDefault) {
@@ -498,6 +519,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s25
+    //SNIPPET_STARTS
     public boolean check(Unit u, PathNode p) {
         if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
                 && p.getTile().getSettlement() != inSettlement) {
@@ -509,6 +531,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s26
+    //SNIPPET_STARTS
     public void s26() {
         if ((bufpos + 1) >= len)
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
@@ -523,6 +546,7 @@ public class Tasks {
     /**
      * Compute the proper position for a centered window
      */
+    //SNIPPET_STARTS
     private Point comuteDisplayPointCentre(Dimension dim) {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width - dim.width) / 2;
@@ -532,6 +556,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s28
+    //SNIPPET_STARTS
     public void filter(Filter filter) throws NoTestsRemainException {
         for (Iterator<Runner> iter= fRunners.iterator(); iter.hasNext();) {
             Runner runner = iter.next();
@@ -543,6 +568,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s29
+    //SNIPPET_STARTS
     public void s29() {
         boolean    hasReturnValue;
 
@@ -556,6 +582,7 @@ public class Tasks {
      * @param mt The transform that should be applied to a
      *      <code>Tile</code> that is clicked on the map.
      */
+    //SNIPPET_STARTS
     public void setMapTransform(MapTransform mt) {
         currentMapTransform = mt;
         MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
@@ -565,6 +592,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s31
+    //SNIPPET_STARTS
     public String s31() {
         if (iterateOverMe instanceof String)
             return createEnumeration(((String) iterateOverMe).toCharArray());
@@ -586,6 +614,7 @@ public class Tasks {
     /**
      * Constructs a new Date object, initialized with the current date.
      */
+    //SNIPPET_STARTS
     public void Date() { // Return type void added to allow compilation
         Calendar mCalendar = Calendar.getInstance();
         mYear = mCalendar.get(Calendar.YEAR);
@@ -599,6 +628,7 @@ public class Tasks {
      * @param expected the expected string value
      * @param actual the actual string value
      */
+    //SNIPPET_STARTS
     public void ComparisonCompactor(int contextLength, String expected, String actual) { // return type void added to allow compilation
         fContextLength = contextLength;
         fExpected = expected;
@@ -606,6 +636,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s34
+    //SNIPPET_STARTS
     public Object s34() {
         int statement = 0; // added to allow compilation
         switch (statement) { // Added switch case beginning to allow compilation
@@ -623,6 +654,7 @@ public class Tasks {
     }
 
     // Snippet s35
+    //SNIPPET_STARTS
     public class DisbandUnitAction extends Tasks{ // Wrapped in a class to allow compilation
         /**
          * Creates a new <code>DisbandUnitAction</code>.
@@ -639,6 +671,7 @@ public class Tasks {
     }
 
     // Snippet s36
+    //SNIPPET_STARTS
     public Object s36() {
         Class clas = object.getClass();
         Field field = Reflect.resolveJavaField(
@@ -651,6 +684,7 @@ public class Tasks {
     }
 
     // Snippet s37
+    //SNIPPET_STARTS
     public Object s37() {
         for(AbstractPluginProgramFormating config : mConfigs)
             if(config != null && config.isValid())
@@ -663,6 +697,7 @@ public class Tasks {
     }
 
     // Snippet s38                                                                      /*ORIGINALLY COMMENTED OUT*/
+    //SNIPPET_STARTS
 //    public Object s38() {
 //        Class<? extends Throwable> expectedException(Method method){
 //            Test annotation = method.getAnnotation(Test.class);
@@ -674,6 +709,7 @@ public class Tasks {
 //    }
 
     // Snippet s39
+    //SNIPPET_STARTS
     public void s39() {
         row[1] = ns.getCatalogName(row[0]);
         row[2] = schema.equals(defschema) ? Boolean.TRUE
@@ -689,6 +725,7 @@ public class Tasks {
      * @param element The element (root element in a DOM-parsed XML tree) that
      *            holds all the information.
      */
+    //SNIPPET_STARTS
     private Element deliverGift(Element element) {
         Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
 
@@ -699,6 +736,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s41
+    //SNIPPET_STARTS
     public void s41() {
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
             case EQ:
@@ -710,6 +748,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s42
+    //SNIPPET_STARTS
     public synchronized void removeProgram(Program program) {
         PluginTreeNode node = findProgramTreeNode(program, false);
         if (node != null) {
@@ -721,6 +760,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s43
+    //SNIPPET_STARTS
     public class TestClassRunnerForParameters extends Tasks{ // Added class wrapper to allow compilation
         private TestClassRunnerForParameters(Class<?> klass, Object[] parameters, int i) {
             super(klass);
@@ -730,6 +770,7 @@ public class Tasks {
     }
 
     // Snippet s44
+    //SNIPPET_STARTS
     void link(IndexRowIterator other) {
 
         other.next = next;
@@ -738,6 +779,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s45
+    //SNIPPET_STARTS
     public void s45() {
         final String heightText = Messages.message("height");
 
@@ -751,6 +793,7 @@ public class Tasks {
      Note: this method should probably return type bsh.This to be consistent
      with getThis();
      */
+    //SNIPPET_STARTS
     public This getGlobal( Interpreter declaringInterpreter )
     {
         if ( parent != null )
@@ -766,6 +809,7 @@ public class Tasks {
      * @throws IOException
      * @throws ClassNotFoundException
      */
+    //SNIPPET_STARTS
     public void readData(ObjectInputStream stream) throws IOException, ClassNotFoundException {
         int version = stream.readInt();
         mNumber = stream.readInt();
@@ -773,6 +817,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s48
+    //SNIPPET_STARTS
     public class ComparisonFailure extends Tasks{ // Class wrapper to allow compilation
         /**
          * Constructs a comparison failure.
@@ -788,6 +833,7 @@ public class Tasks {
     }
 
     // Snippet s49
+    //SNIPPET_STARTS
     public void close() {
 
         if (isClosed) {
@@ -805,6 +851,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s50
+    //SNIPPET_STARTS
     public void actionPerformed(ActionEvent evt) {
         if (!hasFocus()) {
             stopBlinking();
@@ -817,6 +864,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s51
+    //SNIPPET_STARTS
     private static String getBaseName( String className )
     {
         int i = className.indexOf("$");
@@ -827,6 +875,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s52
+    //SNIPPET_STARTS
     public void s52() {
 
         panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
@@ -837,6 +886,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s53
+    //SNIPPET_STARTS
     public void s53() throws Exception{
         try {
             suiteMethod= klass.getMethod("suite");
@@ -851,6 +901,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s54
+    //SNIPPET_STARTS
     public void s54() {
         // ----------------------------------------------------------------
         // required
@@ -861,6 +912,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s55
+    //SNIPPET_STARTS
     public void s55() {
         if (missionChip == null) {
             GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
@@ -879,6 +931,7 @@ public class Tasks {
      Swap in the value as the new top of the stack and return the old
      value.
      */
+    //SNIPPET_STARTS
     public NameSpace swap( NameSpace newTop ) {
         NameSpace oldTop = (NameSpace)(stack.elementAt(0));
         stack.setElementAt( newTop, 0 );
@@ -886,6 +939,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s57
+    //SNIPPET_STARTS
     public void s57() {
         String classname = (String) in.readObject();
         String devname = (String)in.readObject();
@@ -894,6 +948,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s58
+    //SNIPPET_STARTS
     public Object s58() {
         String simpleName= runnerClass.getSimpleName();
         InitializationError error= new InitializationError(String.format(
@@ -902,6 +957,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s59
+    //SNIPPET_STARTS
     public boolean isReadOnly() throws HsqlException {
 
         Object info = getAttribute(Session.INFO_CONNECTION_READONLY);
@@ -912,6 +968,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s60
+    //SNIPPET_STARTS
     public Object s60() {
         boolean response = warehouseDialog.getResponseBoolean();
         remove(warehouseDialog);
@@ -919,6 +976,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s61
+    //SNIPPET_STARTS
     public void s61() {
 		if (true) // Added to allow compilation
             System.out.println(""); // Added to allow compilation
@@ -931,6 +989,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s62
+    //SNIPPET_STARTS
     public void s62() {
         String channelId;
 
@@ -942,6 +1001,7 @@ public class Tasks {
 
     // Snippet s63
     // @Override // Removed to allow compilation
+    //SNIPPET_STARTS
     public Description getDescription() {
         Description spec = Description.createSuiteDescription(getName());
         List<Method> testMethods = fTestMethods;
@@ -952,6 +1012,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s64
+    //SNIPPET_STARTS
     public void s64() {
         while (classNames.hasNext()) {
             clsName = (String) classNames.next();
@@ -961,6 +1022,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s65
+    //SNIPPET_STARTS
     public void s65() {
         String[] texts = new String[messages.length];
         ImageIcon[] images = new ImageIcon[messages.length];
@@ -970,6 +1032,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s66
+    //SNIPPET_STARTS
     public void s66() {
         mProgramTable.changeSelection(row, 0, false, false);
 
@@ -985,6 +1048,7 @@ public class Tasks {
      * @param number
      * @return
      */
+    //SNIPPET_STARTS
     private CharSequence addZero(int number) {
         StringBuilder builder = new StringBuilder();
 
@@ -999,6 +1063,7 @@ public class Tasks {
 
     // Snippet s68
     // @Override // Removed to allow compilation
+    //SNIPPET_STARTS
     public void run(RunNotifier notifier) {
         TestResult result= new TestResult();
         result.addListener(createAdaptingListener(notifier));
@@ -1007,6 +1072,7 @@ public class Tasks {
 
 
     // Snippet s69
+    //SNIPPET_STARTS
     public void s69() throws SQLException {
         t.checkColumnsMatch(tc.core.mainColArray, tc.core.refTable,
                 tc.core.refColArray);
@@ -1017,6 +1083,7 @@ public class Tasks {
 
     // Snippet s70
 //    @Override // Removed to allow compilation
+    //SNIPPET_STARTS
     public void mousePressed(MouseEvent e) {
         if (f.getDesktopPane() == null || f.getDesktopPane().getDesktopManager() == null) {
             return;
@@ -1029,6 +1096,7 @@ public class Tasks {
     /**
      Translate bsh.Modifiers into ASM modifier bitflags.
      */
+    //SNIPPET_STARTS
     static int getASMModifiers( Modifiers modifiers )
     {
         int mods = 0;
@@ -1041,6 +1109,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s72
+    //SNIPPET_STARTS
     public class Component extends Tasks{ // Added class wrapper to allow compilation
         public Component(String message) {
             super(message);
@@ -1062,6 +1131,7 @@ public class Tasks {
     }
 
     // Snippet s73
+    //SNIPPET_STARTS
     public String compact(String message) {
         if (fExpected == null || fActual == null || areStringsEqual())
             return Assert.format(message, fExpected, fActual);
@@ -1074,6 +1144,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s74
+    //SNIPPET_STARTS
     public void s74() {
         classNames = classNameSet.iterator();
 
@@ -1091,6 +1162,7 @@ public class Tasks {
      *            compatible with the local environment.
      * @param c The color of the color chip to create.
      */
+    //SNIPPET_STARTS
     private void loadColorChip(GraphicsConfiguration gc, Color c) {
         BufferedImage tempImage = gc.createCompatibleImage(11, 17);
         Graphics g = tempImage.getGraphics();
@@ -1100,6 +1172,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s76
+    //SNIPPET_STARTS
     public void s76() throws IOException{
         out.writeObject(device.getDriver().getClass().getName());
         out.writeObject(device.getName());
@@ -1108,6 +1181,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s77
+    //SNIPPET_STARTS
     public void s77() throws FileNotFoundException, IOException{
         File data = new File(Plugin.getPluginManager().getTvBrowserSettings().getTvBrowserUserHome()  + File.separator +
                 "CaptureDevices" + File.separator + mCount + ".dat");
@@ -1118,6 +1192,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s78                                                                                      /*ORIGINALLY COMMENTED OUT*/
+    //SNIPPET_STARTS
 //    private static Class<?>[] getAnnotatedClasses(Class<?> klass) throws InitializationError {
 //            SuiteClasses annotation= klass.getAnnotation(SuiteClasses.class);
 //            if (annotation == null)
@@ -1126,6 +1201,7 @@ public class Tasks {
 //    } // Added to allow compilation
 
     // Snippet s79
+    //SNIPPET_STARTS
     public int s79() {
         for (int j = 0; j < fieldcount; j++) {
             int i = Column.compare(session.database.collation, a[cols[j]],
@@ -1143,6 +1219,7 @@ public class Tasks {
     /**
      * Closes all panels, changes the background and shows the main menu.
      */
+    //SNIPPET_STARTS
     public void returnToTitle() {
         // TODO: check if the GUI object knows that we're not
         // inGame. (Retrieve value of GUI::inGame.)  If GUI thinks
@@ -1157,6 +1234,7 @@ public class Tasks {
     /**
      subsequent imports override earlier ones
      */
+    //SNIPPET_STARTS
     public void	importPackage(String name)
     {
         if(importedPackages == null)
@@ -1170,6 +1248,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s82
+    //SNIPPET_STARTS
     public boolean s82() {
         if(dataServiceId.compareTo(cmpDataServiceId) != 0) {
             return false;
@@ -1187,6 +1266,7 @@ public class Tasks {
     }
 
     // Snippet s83
+    //SNIPPET_STARTS
     public void filter2(Filter filter) throws NoTestsRemainException { // Renamed to allow compilation
         for (Iterator<Method> iter= fTestMethods.iterator(); iter.hasNext();) {
             Method method= iter.next();
@@ -1198,6 +1278,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s84
+    //SNIPPET_STARTS
     public void s84() {
         /* fredt - in FK constraints column lists for iColMain and iColRef have
            identical sets to visible columns of iMain and iRef respectively
@@ -1213,6 +1294,7 @@ public class Tasks {
      * Adds a message to the list of messages that need to be displayed on the GUI.
      * @param message The message to add.
      */
+    //SNIPPET_STARTS
     public synchronized void addMessage(GUIMessage message) {
         if (getMessageCount() == MESSAGE_COUNT) {
             messages2.remove(0); // Renamed to allow compilation
@@ -1223,6 +1305,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s86
+    //SNIPPET_STARTS
     private static final boolean jjCanMove_1(int hiByte, int i1, int i2, long l1, long l2)
     {
         switch(hiByte) {
@@ -1236,6 +1319,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s87
+    //SNIPPET_STARTS
     private static Date correctTimeZone(final Date date) {
         Date ret=date;
         if(java.util.TimeZone.getDefault().useDaylightTime()){
@@ -1247,6 +1331,7 @@ public class Tasks {
 
     // Snippet s88
 //    @Override // Remvoed to allow compilation
+    //SNIPPET_STARTS
     public String getMessage() {
         StringBuilder builder= new StringBuilder();
         if (fMessage != null)
@@ -1258,6 +1343,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s89
+    //SNIPPET_STARTS
     String getStateString() {
 
         int state = getState();
@@ -1275,6 +1361,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s90
+    //SNIPPET_STARTS
     public boolean displayTileCursor(Tile tile, int canvasX, int canvasY) {
         if (currentMode == ViewMode.VIEW_TERRAIN_MODE) {
 
@@ -1290,6 +1377,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s91
+    //SNIPPET_STARTS
     private final int jjMoveStringLiteralDfa18_0(long old1, long active1, long old2, long active2)
     {
         if (((active1 &= old1) | (active2 &= old2)) == 0L)
@@ -1307,6 +1395,7 @@ public class Tasks {
      *
      * @return All available Channels
      */
+    //SNIPPET_STARTS
     public ElgatoChannel[] getAvailableChannels() {
         ArrayList<ElgatoChannel> list = new ArrayList<ElgatoChannel>();
 
@@ -1321,6 +1410,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s93                                                                  /*ORIGINALLY COMMENTED OUT*/
+    //SNIPPET_STARTS
 //    private Method getParametersMethod() throws Exception {
 //        for (Method each : fKlass.getMethods()) {
 //            if (Modifier.isStatic(each.getModifiers())) {
@@ -1336,6 +1426,7 @@ public class Tasks {
 //    } // Added to allow compilation
 
     // Snippet s94
+    //SNIPPET_STARTS
     public void s94() {
         Node r = x.getRight();
 
@@ -1347,6 +1438,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s95
+    //SNIPPET_STARTS
     public void s95() {
         InGameInputHandler inGameInputHandler = freeColClient.getInGameInputHandler();
 
@@ -1360,6 +1452,7 @@ public class Tasks {
      *
      * @param e The <code>ActionEvent</code>.
      */
+    //SNIPPET_STARTS
     public void actionPerformed2(ActionEvent e) { // Renamed to allow compilation
         final Game game = freeColClient.getGame();
         final Map map = game.getMap();
@@ -1368,6 +1461,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s97
+    //SNIPPET_STARTS
     public ActionMenu getButtonAction() {
         AbstractAction action = new AbstractAction() {
 
@@ -1383,6 +1477,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s98
+    //SNIPPET_STARTS
     public void s98() {
         Description description= Description.createSuiteDescription(name);
         int n= ts.testCount();
@@ -1391,6 +1486,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s99
+    //SNIPPET_STARTS
     public Object s99() {
         if (expression.exprType != VALUE && expression.exprType != COLUMN
                 && expression.exprType != FUNCTION
@@ -1406,6 +1502,7 @@ public class Tasks {
     } // Added to allow compilation
 
     // Snippet s100                                                                     /*ORGINALLY COMMENTED OUT*/
+    //SNIPPET_STARTS
 //    private synchronized void purgeOldMessagesFromMessagesToIgnore(int thisTurn) {
 //        List<String> keysToRemove = new ArrayList<String>();
 //        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
