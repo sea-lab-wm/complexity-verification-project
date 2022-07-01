@@ -31,7 +31,6 @@ public class Main {
         RecursiveFactorial.main();
         RecursiveFibonacciVariant.main();
         RecursivePower.main();
-        SampleForTraining.main();
         SquareRoot.main();
         YesNo.main();
     }
