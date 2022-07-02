@@ -59,7 +59,6 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
             for i in range(len(cogDataset3SnippetNums) - 1):
-                #if cogDataset3SnippetNums[i] < lineNum and cogDataset3SnippetNums[i + 1] >= lineNum:
                 if cogDataset3SnippetNums[i] <= lineNum and cogDataset3SnippetNums[i + 1] > lineNum:
                     data["Snippet"].append("COG Dataset 3 - " + str(i + 1))
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
@@ -93,10 +92,6 @@ if __name__ == '__main__':
     fMRIDatasetSnippetNames = [name.split('.')[0] for name in os.listdir('src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes')]
     cogDataset1SnippetNums = getSnippetNames('src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java')
     cogDataset3SnippetNums = getSnippetNames('src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java')
-
-    #print(cogDataset3SnippetNums)
-    #for i in range(len(cogDataset3SnippetNums) - 1):
-    #    print(cogDataset3SnippetNums[i])
 
     # Data output structure as a dictionary
     data = {
