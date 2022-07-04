@@ -37,7 +37,7 @@ def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 # Sets the values of the column '# of warnings' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumWarningsColumn(warningsPerDataset, correlationAnalysisDF):
-    print(warningsPerDataset)
+    #print(warningsPerDataset)
 
     # Loop through each dataset
     for i, numWarnings in enumerate(warningsPerDataset):
@@ -56,17 +56,19 @@ def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlatio
 
     return correlationAnalysisDF
 
-# Sets the values of the column 'Kendall's Tau' in the correlation analysis dataframe.
+# Sets the values of the columns 'Kendall's Tau' and 'Kendall's p-Value' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
-def setKendallTauColumn(kendallTauVals, correlationAnalysisDF):
-    correlationAnalysisDF.iloc[:, 5] = kendallTauVals
+def setKendallTauColumns(kendallTauVals, correlationAnalysisDF):
+    correlationAnalysisDF.iloc[:, 5] = kendallTauVals[0]
+    correlationAnalysisDF.iloc[:, 6] = kendallTauVals[1]
 
     return correlationAnalysisDF
 
-# Sets the values of the column 'Spearman's Rho' in the correlation analysis dataframe.
+# Sets the values of the columns 'Spearman's Rho' and 'Spearman's p-Value' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
-def setSpearmanRhoColumn(spearmanRhoVals, correlationAnalysisDF):
-    correlationAnalysisDF.iloc[:, 6] = spearmanRhoVals
+def setSpearmanRhoColumns(spearmanRhoVals, correlationAnalysisDF):
+    correlationAnalysisDF.iloc[:, 7] = spearmanRhoVals[0]
+    correlationAnalysisDF.iloc[:, 8] = spearmanRhoVals[1]
 
     return correlationAnalysisDF
 
@@ -206,16 +208,17 @@ def getNumWarningsPerDataset(warningsPerSnippetPerDataset):
 #   Perform Correlations   #
 ############################
 
-# TODO
-# OSCAR: we need to also compute Spearman Correlation, which doesn't assume normal distributions (scipy.stats.spearmanr)
-
 # Perform Kendall's Tau correlation on each dataset seperatly where datapoints are: x = complexity metric, y = # of warnings
 # Return a list of the correlation coefficients for each dataset.
 def kendallTau(dfListCorrelationDatapoints):
-    kendallTauVals = []
+    kendallTauVals = ([], [])
+
+    #with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+    #    print(dfListCorrelationDatapoints)
 
     #TODO TEMPORARY
-    kendallTauVals.append('TEMP')
+    kendallTauVals[0].append('TEMP')
+    kendallTauVals[1].append('TEMP')
 
     # Loop through every datapoint dataframe (corresponding to each dataset).
     for df in dfListCorrelationDatapoints:
@@ -224,20 +227,23 @@ def kendallTau(dfListCorrelationDatapoints):
 
         corr, pValue = scpy.kendalltau(x, y)
 
-        kendallTauVals.append(corr)
+        kendallTauVals[0].append(corr)
+        kendallTauVals[1].append(pValue)
 
     #TODO TEMPORARY
-    kendallTauVals.append('TEMP')
+    kendallTauVals[0].append('TEMP')
+    kendallTauVals[1].append('TEMP')
 
     return kendallTauVals
 
 # Perform Spearman's Rho correlation on each dataset seperatly where datapoints are: a = complexity metric, b = # of warnings
 # Return a list of the correlation coefficients for each dataset.
 def spearmanRho(dfListCorrelationDatapoints):
-    spearmanRhoVals = []
+    spearmanRhoVals = ([], [])
 
     #TODO TEMPORARY
-    spearmanRhoVals.append('TEMP')
+    spearmanRhoVals[0].append('TEMP')
+    spearmanRhoVals[1].append('TEMP')
 
     # Loop through every datapoint dataframe (corresponding to each dataset).
     for df in dfListCorrelationDatapoints:
@@ -246,10 +252,12 @@ def spearmanRho(dfListCorrelationDatapoints):
 
         corr, pValue = scpy.spearmanr(a, b)
 
-        spearmanRhoVals.append(corr)
+        spearmanRhoVals[0].append(corr)
+        spearmanRhoVals[1].append(pValue)
 
     #TODO TEMPORARY
-    spearmanRhoVals.append('TEMP')
+    spearmanRhoVals[0].append('TEMP')
+    spearmanRhoVals[1].append('TEMP')
 
     return spearmanRhoVals
 
@@ -279,12 +287,12 @@ if __name__ == '__main__':
 
     # Perform Correlations
     kendallTauVals = kendallTau(dfListCorrelationDatapoints)
-    print("Kendall's Tau: " + str(kendallTauVals))
-    correlationAnalysisDF = setKendallTauColumn(kendallTauVals, correlationAnalysisDF)
+    #print("Kendall's Tau: " + str(kendallTauVals))
+    correlationAnalysisDF = setKendallTauColumns(kendallTauVals, correlationAnalysisDF)
 
     spearmanRhoVals = spearmanRho(dfListCorrelationDatapoints)
-    print("Spearman's Rho: " + str(spearmanRhoVals))
-    correlationAnalysisDF = setSpearmanRhoColumn(spearmanRhoVals, correlationAnalysisDF)
+    #print("Spearman's Rho: " + str(spearmanRhoVals))
+    correlationAnalysisDF = setSpearmanRhoColumns(spearmanRhoVals, correlationAnalysisDF)
 
     # Update correlation_analysis.xlsx
     writeCorrelationAnalysis(correlationAnalysisDF)
