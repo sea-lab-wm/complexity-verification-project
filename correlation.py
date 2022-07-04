@@ -1,5 +1,6 @@
 import pandas as pd
 import scipy.stats as scpy
+import copy
 
 # OSCAR: I think, overall, it is easier to process data with data frames:
 # read data from the excel files into DFs, then processing it to get results as more DFs, and then writing this DFs
@@ -62,11 +63,15 @@ def setNumWarningsColumn(warningsPerDataset, correlationAnalysisDF):
 # Sets the values of the column '# of datapoints of correlation' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlationAnalysisDF):
-    # Loop through each set of datapoints, there is one for each study
+    # TODO: TEMPORARY
+    correlationAnalysisDF.iloc[0, 4] = 'TEMP'
+
+    # Loop through each set of datapoints, there is one for each study/metric
     for i, df in enumerate(dfListCorrelationDatapoints):
         numDataPoints = len(df)
 
-        correlationAnalysisDF.iloc[i, 4] = numDataPoints
+        # TODO: THE + 1 IS TEMPORARY
+        correlationAnalysisDF.iloc[i + 1, 4] = numDataPoints
 
     return correlationAnalysisDF
 
@@ -100,12 +105,20 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     }
     dfListCorrelationDatapoints = []
 
-    # Compile datapoints for the COG Dataset 3 Study
-    dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset['COG Dataset 3'], data))
+    # TODO Add more datasets here ...
 
-    # TODO Add more datasets here...
+    # Compile datapoints for the COG Dataset 3 Study
+    dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset['COG Dataset 3'], copy.deepcopy(data)))
+
+    # Compile datapoints for the fMRI Study
+    fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset['fMRI Dataset'], data)
+    dfListCorrelationDatapoints.append(fmriDatapoints[0])
+    dfListCorrelationDatapoints.append(fmriDatapoints[1])
+    dfListCorrelationDatapoints.append(fmriDatapoints[2])
 
     return dfListCorrelationDatapoints
+
+# TODO: functions for future datasets go here ...
 
 # Gets a list of complexity metrics and a list of warning counts for each snippet in COG Dataset 3.
 # Adds that data to a dictionary that is then converted to a dataframe.
@@ -115,7 +128,20 @@ def setCogDataset3Datapoints(warningsPerSnippet, data):
 
     return pd.DataFrame(data)
 
-# TODO: functions for future datasets go here
+def setFMRIStudyDatapoints(warningsperSnippet, data):
+    dataCorrectness = copy.deepcopy(data)
+    dataTime = copy.deepcopy(data)
+    dataSubjComplexity = copy.deepcopy(data)
+    metrics = readFMRIStudyMetrics()
+
+    dataCorrectness['Metric'] = metrics[0]
+    dataCorrectness['Warning Count'] = warningsperSnippet
+    dataTime['Metric'] = metrics[1]
+    dataTime['Warning Count'] = warningsperSnippet
+    dataSubjComplexity['Metric'] = metrics[2]
+    dataSubjComplexity['Warning Count'] = warningsperSnippet
+
+    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataTime), pd.DataFrame(dataSubjComplexity))
 
 ##################################
 #   Retrieve Data From Studies   #
@@ -136,11 +162,56 @@ def readCOGDataset3StudyMetrics():
 # Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.
 # Subjective rating of low, medium, or high.
 def readFMRIStudyMetrics():
-    #correctness = 
+    correctness = [0] * 16
+    times = [0] * 16
+    subjComplexity = [0] * 16
 
     dfBehavioral = pd.read_csv('data/fmri_dataset_behavioral.csv')
     dfSubjective = pd.read_csv('data/fmri_dataset_subjective.csv')
 
+    count = 0   # Keeps track of which snippet we are on (0-15)
+    numParticipants = 0
+    for i in range(len(dfBehavioral.index)):
+        if pd.isnull(dfBehavioral.iloc[i, 12]):
+            continue
+        if i - 1 >= 0:
+            if dfBehavioral.iloc[i, 3] == dfBehavioral.iloc[i - 1, 3]:
+                correctness[count] += dfBehavioral.iloc[i, 7]
+                times[count] += dfBehavioral.iloc[i, 12] / 1000  # Converting from milliseconds to seconds
+                numParticipants += 1
+            else:
+                numParticipants += 1
+                correctness[count] = (correctness[count] / numParticipants) * 100
+                times[count] = times[count] / numParticipants
+                numParticipants = 0
+
+                count += 1
+                correctness[count] += dfBehavioral.iloc[i, 7]
+                times[count] += dfBehavioral.iloc[i, 12] / 1000  # Converting from milliseconds to seconds
+        else:
+            correctness[count] += dfBehavioral.iloc[i, 7]
+            times[count] += dfBehavioral.iloc[i, 12] / 1000  # Converting from milliseconds to seconds
+            numParticipants += 1
+
+    count = 0   # Keeps track of which snippet we are on (0-15)
+    numParticipants = 0
+    for i in range(len(dfSubjective.index)):
+        if i - 1 >= 0:
+            if dfSubjective.iloc[i, 1] == dfSubjective.iloc[i - 1, 1]:
+                subjComplexity[count] += dfSubjective.iloc[i, 2]
+                numParticipants += 1
+            else:
+                numParticipants += 1
+                subjComplexity[count] = subjComplexity[count] / numParticipants
+                numParticipants = 0
+
+                count += 1
+                subjComplexity[count] += dfSubjective.iloc[i, 2]
+        else:
+            subjComplexity[count] += dfSubjective.iloc[i, 2]
+            numParticipants += 1
+
+    return (correctness, times, subjComplexity)
 
 
 ###############################################
@@ -179,7 +250,7 @@ def getSnippetsWithWarnings(dfListAnalysisTools):
 # the number of snippets that contain warnings for that data set.
 def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
     countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
-    print(countSnippetsPerDataset)
+
     for snippet in uniqueSnippets:
         snippet = snippet.split("-")[0].strip() # Name of snippets in 'uniqueSnippets' format example: COG Dataset 1 - 12
                                                 #                                              format: Dataset Name - Snippet #
@@ -219,10 +290,7 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
             snippetDataset = snippetNames[i].split('-')[0].strip()
             snippetNumber = snippetNames[i].split('-')[1].strip()
 
-            #********************Temporary if statement
-            #TODO change name of the fMRI snippets to match this standard i.e. "fMRI Dataset - 1"
-            if snippetNumber.isnumeric():
-                warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
+            warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
     return warningsPerSnippetPerDataset
 
@@ -239,9 +307,6 @@ def getNumWarningsPerDataset(warningsPerSnippetPerDataset):
 def kendallTau(dfListCorrelationDatapoints):
     kendallTauVals = ([], [])
 
-    #with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-    #    print(dfListCorrelationDatapoints)
-
     #TODO TEMPORARY
     kendallTauVals[0].append('TEMP')
     kendallTauVals[1].append('TEMP')
@@ -255,14 +320,6 @@ def kendallTau(dfListCorrelationDatapoints):
 
         kendallTauVals[0].append(corr)
         kendallTauVals[1].append(pValue)
-
-    #TODO TEMPORARY
-    kendallTauVals[0].append('TEMP')
-    kendallTauVals[1].append('TEMP')
-    kendallTauVals[0].append('TEMP')
-    kendallTauVals[1].append('TEMP')
-    kendallTauVals[0].append('TEMP')
-    kendallTauVals[1].append('TEMP')
 
     return kendallTauVals
 
@@ -284,14 +341,6 @@ def spearmanRho(dfListCorrelationDatapoints):
 
         spearmanRhoVals[0].append(corr)
         spearmanRhoVals[1].append(pValue)
-
-    #TODO TEMPORARY
-    spearmanRhoVals[0].append('TEMP')
-    spearmanRhoVals[1].append('TEMP')
-    spearmanRhoVals[0].append('TEMP')
-    spearmanRhoVals[1].append('TEMP')
-    spearmanRhoVals[0].append('TEMP')
-    spearmanRhoVals[1].append('TEMP')
 
     return spearmanRhoVals
 
@@ -321,11 +370,9 @@ if __name__ == '__main__':
 
     # Perform Correlations
     kendallTauVals = kendallTau(dfListCorrelationDatapoints)
-    #print("Kendall's Tau: " + str(kendallTauVals))
     correlationAnalysisDF = setKendallTauColumns(kendallTauVals, correlationAnalysisDF)
 
     spearmanRhoVals = spearmanRho(dfListCorrelationDatapoints)
-    #print("Spearman's Rho: " + str(spearmanRhoVals))
     correlationAnalysisDF = setSpearmanRhoColumns(spearmanRhoVals, correlationAnalysisDF)
 
     # Update correlation_analysis.xlsx
