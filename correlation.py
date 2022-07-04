@@ -30,18 +30,32 @@ def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
     # A count of the number of snippets that contain warnings for each dataset
     countSnippetsPerDataset = sortUniqueSnippetsByDataset(datasets, getSnippetsWithWarnings(dfListAnalysisTools))
 
-    correlationAnalysisDF.iloc[:, 2] = list(countSnippetsPerDataset.values())
+    for i in range(len(correlationAnalysisDF.index)):
+        dataset = correlationAnalysisDF.iloc[i, 0].split('-')[1].strip()
+
+        if dataset in countSnippetsPerDataset:
+            correlationAnalysisDF.iloc[i, 2] = countSnippetsPerDataset[dataset]
 
     return correlationAnalysisDF
 
 # Sets the values of the column '# of warnings' in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumWarningsColumn(warningsPerDataset, correlationAnalysisDF):
-    #print(warningsPerDataset)
-
     # Loop through each dataset
     for i, numWarnings in enumerate(warningsPerDataset):
         correlationAnalysisDF.iloc[i, 3] = numWarnings
+
+    uniqueDatasetCount = 0
+
+    for i in range(len(correlationAnalysisDF.index)):
+        if i - 1 >= 0:
+            # Condition where dataset we are looking at is the same as the previous one
+            if correlationAnalysisDF.iloc[i, 0].split('-')[1].strip() == correlationAnalysisDF.iloc[i - 1, 0].split('-')[1].strip():
+                correlationAnalysisDF.iloc[i, 3] = correlationAnalysisDF.iloc[i - 1, 3]
+                continue
+        
+        correlationAnalysisDF.iloc[i, 3] = warningsPerDataset[uniqueDatasetCount]
+        uniqueDatasetCount += 1
 
     return correlationAnalysisDF
 
@@ -118,6 +132,17 @@ def readCOGDataset3StudyMetrics():
     # Returns a list of the averages for each snippet
     return [round(sum(df[column]) / len(df[column]), 2) for column in df.columns[2:]]
 
+# Reads the results of the fMRI study. It contains 19 people who looked at 16 snippets.
+# Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.
+# Subjective rating of low, medium, or high.
+def readFMRIStudyMetrics():
+    #correctness = 
+
+    dfBehavioral = pd.read_csv('data/fmri_dataset_behavioral.csv')
+    dfSubjective = pd.read_csv('data/fmri_dataset_subjective.csv')
+
+
+
 ###############################################
 #   Retrieve Data From Analysis Tool Output   #
 ###############################################
@@ -154,12 +179,13 @@ def getSnippetsWithWarnings(dfListAnalysisTools):
 # the number of snippets that contain warnings for that data set.
 def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
     countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
- 
+    print(countSnippetsPerDataset)
     for snippet in uniqueSnippets:
         snippet = snippet.split("-")[0].strip() # Name of snippets in 'uniqueSnippets' format example: COG Dataset 1 - 12
                                                 #                                              format: Dataset Name - Snippet #
-        if snippet in countSnippetsPerDataset:
-            countSnippetsPerDataset[snippet] += 1
+        for key in countSnippetsPerDataset:
+            if snippet in key:
+                countSnippetsPerDataset[key] += 1
 
     return countSnippetsPerDataset
 
@@ -233,6 +259,10 @@ def kendallTau(dfListCorrelationDatapoints):
     #TODO TEMPORARY
     kendallTauVals[0].append('TEMP')
     kendallTauVals[1].append('TEMP')
+    kendallTauVals[0].append('TEMP')
+    kendallTauVals[1].append('TEMP')
+    kendallTauVals[0].append('TEMP')
+    kendallTauVals[1].append('TEMP')
 
     return kendallTauVals
 
@@ -256,6 +286,10 @@ def spearmanRho(dfListCorrelationDatapoints):
         spearmanRhoVals[1].append(pValue)
 
     #TODO TEMPORARY
+    spearmanRhoVals[0].append('TEMP')
+    spearmanRhoVals[1].append('TEMP')
+    spearmanRhoVals[0].append('TEMP')
+    spearmanRhoVals[1].append('TEMP')
     spearmanRhoVals[0].append('TEMP')
     spearmanRhoVals[1].append('TEMP')
 

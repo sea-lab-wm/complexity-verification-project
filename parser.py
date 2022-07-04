@@ -45,7 +45,7 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
 
     for line in lines:
         if startSnippetfMRI in line and endSnippet in line:
-            data["Snippet"].append("fMRI Dataset - " + str(fMRIDatasetSnippetNames.index((line.split(startSnippetfMRI))[1].split(".java")[0]) + 1))
+            data["Snippet"].append("fMRI Dataset - " + str(fMRIDatasetSnippetNames.index((line.split(startSnippetfMRI))[1].split(".java")[0]) + 1) + " - " + (line.split(startSnippetfMRI))[1].split(".java")[0])
             data["Warning Type"].append(line.split(endSnippet)[1].strip())
         elif startSnippetCOG1 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
