@@ -90,6 +90,7 @@ def setupCSVSheets(allAnalysisToolData):
 
 if __name__ == '__main__':
     fMRIDatasetSnippetNames = [name.split('.')[0] for name in os.listdir('src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes')]
+    fMRIDatasetSnippetNames = sorted(fMRIDatasetSnippetNames, key=str.lower)    # Keeps the order of these snippets consistent across operating systems
     cogDataset1SnippetNums = getSnippetNames('src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java')
     cogDataset3SnippetNums = getSnippetNames('src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java')
 
