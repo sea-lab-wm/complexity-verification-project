@@ -1,20 +1,19 @@
-warning: Use JDK 8 or JDK 11 to run the Checker Framework.  You are using version 9.
-..\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\YesNo.java:24: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Boolean}
+src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes/YesNo.java:19: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+            return true;
+            ^
+src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes/YesNo.java:24: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Boolean}
         return null;
         ^
-..\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\YesNo.java:13: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
-            return false;
-            ^
-..\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\YesNo.java:21: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes/YesNo.java:21: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
             return true;
             ^
-..\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\YesNo.java:19: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
-            return true;
-            ^
-..\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\YesNo.java:15: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes/YesNo.java:15: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
             return false;
             ^
-..\src\main\java\edu\wm\kobifeldman\fMRI_Study_Classes\SquareRoot.java:27: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes/YesNo.java:13: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+            return false;
+            ^
+src/main/java/edu/wm/kobifeldman/fMRI_Study_Classes/SquareRoot.java:27: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
         return Arrays.toString(result);
         ^
-7 warnings
+6 warnings

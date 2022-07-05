@@ -1,44 +1,43 @@
-warning: Use JDK 8 or JDK 11 to run the Checker Framework.  You are using version 9.
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:200: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
-            result += word.charAt(j);
-                   ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:290: warning: Cannot call substring on null
-                .append(words[i].substring(1)); // Note: a ")" had to be added here to allow compilation
-                                ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:287: warning: Cannot access [words.length]
-        for(int i=0,l=words.length;i<l;++i) {
-                           ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:217: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-                    array2[i][j] += array[i][k]*array1[k][j];
-                             ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:217: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-                    array2[i][j] += array[i][k]*array1[k][j];
-                                                         ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:289: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.String[]} | Null
-            result.append(Character.toUpperCase(words[i].charAt(0)))
-                                                     ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:217: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-                    array2[i][j] += array[i][k]*array1[k][j];
-                                            ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:290: warning: Cannot call append on null
-                .append(words[i].substring(1)); // Note: a ")" had to be added here to allow compilation
-                ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:217: warning: Cannot call [#helpers.arraySet] on Shared{int[]} | Null
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:232: warning: Cannot call [#helpers.arraySet] on Shared{int[]} | Null
                     array2[i][j] += array[i][k]*array1[k][j];
                                  ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:224: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:232: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+                    array2[i][j] += array[i][k]*array1[k][j];
+                                            ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:239: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
                 System.out.print(" "+array2[i][j]);
                                               ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:289: warning: Cannot call charAt on null
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:232: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+                    array2[i][j] += array[i][k]*array1[k][j];
+                                                         ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:308: warning: Cannot call charAt on null
             result.append(Character.toUpperCase(words[i].charAt(0)))
                                                         ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:290: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.String[]} | Null
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:309: warning: Cannot call append on null
+                .append(words[i].substring(1)); // Note: a ")" had to be added here to allow compilation
+                ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:232: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+                    array2[i][j] += array[i][k]*array1[k][j];
+                             ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:306: warning: Cannot access [words.length]
+        for(int i=0,l=words.length;i<l;++i) {
+                           ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:309: warning: Cannot call substring on null
+                .append(words[i].substring(1)); // Note: a ")" had to be added here to allow compilation
+                                ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:309: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.String[]} | Null
                 .append(words[i].substring(1)); // Note: a ")" had to be added here to allow compilation
                              ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:195: warning: [result[75] StringConcat ToString charAt(word, j)] did not complete its protocol (found: Unknown)
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:214: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+            result += word.charAt(j);
+                   ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:308: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.String[]} | Null
+            result.append(Character.toUpperCase(words[i].charAt(0)))
+                                                     ^
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:209: warning: [result[75] StringConcat ToString charAt(word, j)] did not complete its protocol (found: Unknown)
     public static void main14(String[] args) {
                        ^
-..\src\main\java\edu\wm\kobifeldman\cog_complexity_validation_datasets\One\Tasks.java:195: warning: [result[75] = result[75] StringConcat ToString charAt(word, j)] did not complete its protocol (found: Unknown)
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/One/Tasks.java:209: warning: [result[75] = result[75] StringConcat ToString charAt(word, j)] did not complete its protocol (found: Unknown)
     public static void main14(String[] args) {
                        ^
-15 warnings
+14 warnings
