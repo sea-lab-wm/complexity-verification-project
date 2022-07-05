@@ -38,9 +38,9 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
         lines = f.readlines()
 
     # Delimeters with which to parse the warnings
-    startSnippetfMRI = "\\fMRI_Study_Classes\\"
-    startSnippetCOG1 = "\\cog_complexity_validation_datasets\\One\\"
-    startSnippetCOG3 = "\\cog_complexity_validation_datasets\\Three\\"
+    startSnippetfMRI = "/fMRI_Study_Classes/"
+    startSnippetCOG1 = "/cog_complexity_validation_datasets/One/"
+    startSnippetCOG3 = "/cog_complexity_validation_datasets/Three/"
     endSnippet = ": warning:"
 
     for line in lines:
