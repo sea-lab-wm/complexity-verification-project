@@ -151,6 +151,8 @@ gradle-app.setting
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
+#----------------------------------------------
+# Project Specific
 
 # Ignore Gradle build output directory
 build
@@ -178,3 +180,6 @@ rules/
 #Do not ignore Checker Framework .jar files
 !checker-framework-3.14.0/checker/dist/*
 !checker-framework-3.21.3/checker/dist/*
+
+# Ignore Python Stuff
+__pycache__/
