@@ -21,189 +21,368 @@ import java.util.logging.Level;
  */
 public class Tasks {
 
+    @SuppressWarnings("all")
     private static final String RETURN = "";
+    @SuppressWarnings("all")
     private static final int IRETURN = 0;
-    private static final @SuppressWarnings("all") Object BUTTON_IMAGE = null;
-    private static final @SuppressWarnings("all") Object BUTTON_ROLLOVER_IMAGE = null;
+    @SuppressWarnings("all")
+    private static final Object BUTTON_IMAGE = null;
+    @SuppressWarnings("all")
+    private static final Object BUTTON_ROLLOVER_IMAGE = null;
+    @SuppressWarnings("all")
     private static final int EQ = 0;
+    @SuppressWarnings("all")
     private static final int NE = 1;
+    @SuppressWarnings("all")
     private static final int COLUMNS = 0;
+    @SuppressWarnings("all")
     private static final int DEFAULT_WIDTH = 1;
+    @SuppressWarnings("all")
     private static final int DEFAULT_HEIGHT = 2;
-    private static final @SuppressWarnings("all") Locale CONSTRUCTOR_ERROR_FORMAT = null;
+    @SuppressWarnings("all")
+    private static final Locale CONSTRUCTOR_ERROR_FORMAT = null;
+    @SuppressWarnings("all")
     private static final int ACC_PUBLIC = 0;
-    private static final @SuppressWarnings("all") Object MESSAGE_COUNT = null;
+    @SuppressWarnings("all")
+    private static final Object MESSAGE_COUNT = null;
+    @SuppressWarnings("all")
     private static final int DATABASE_CLOSING = 0;
+    @SuppressWarnings("all")
     private static final int DATABASE_ONLINE = 1;
-    private static final @SuppressWarnings("all") Object CHANNELLIST = null;
+    @SuppressWarnings("all")
+    private static final Object CHANNELLIST = null;
+    @SuppressWarnings("all")
     private static final boolean COLUMN = false;
+    @SuppressWarnings("all")
     private static final boolean VALUE = false;
+    @SuppressWarnings("all")
     private static final boolean FUNCTION = false;
+    @SuppressWarnings("all")
     private static final boolean ALTERNATIVE = false;
+    @SuppressWarnings("all")
     private static final boolean CASEWHEN = false;
+    @SuppressWarnings("all")
     private static final boolean CONVERT = false;
+    @SuppressWarnings("all")
     private static ScriptEngine body;
+    @SuppressWarnings("all")
     private static String callstack;
+    @SuppressWarnings("all")
     private static Bindings interpreter;
+    @SuppressWarnings("all")
     private static LinkedList<ActionMenu> actionList;
+    @SuppressWarnings("all")
     private static IdentityHashMap<Object, Object> databaseIDMap;
+    @SuppressWarnings("all")
     private static Spring option;
+    @SuppressWarnings("all")
     private static JSpinner spinner;
+    @SuppressWarnings("all")
     private static Object tempCalDefault;
+    @SuppressWarnings("all")
     private static int[] jjbitVec0;
+    @SuppressWarnings("all")
     private static int[] jjbitVec1;
+    @SuppressWarnings("all")
     private int fParameterSetNumber;
-    private @SuppressWarnings("all") Object fParameters = null;
+    @SuppressWarnings("all")
+    private Object fParameters = null;
+    @SuppressWarnings("all")
     private int constType;
+    @SuppressWarnings("all")
     private ConstraintCore core = new ConstraintCore();
+    @SuppressWarnings("all")
     private HsqlName constName = new HsqlName();
+    @SuppressWarnings("all")
     private String DELTA_START;
+    @SuppressWarnings("all")
     private int fPrefix;
+    @SuppressWarnings("all")
     private int fSuffix;
+    @SuppressWarnings("all")
     private String DELTA_END;
+    @SuppressWarnings("all")
     private boolean windowed;
+    @SuppressWarnings("all")
     private GraphicsDevice gd;
+    @SuppressWarnings("all")
     private Object xsp;
+    @SuppressWarnings("all")
     private Object jj_scanpos;
+    @SuppressWarnings("all")
     private IntValueHashMap rightsMap;
+    @SuppressWarnings("all")
     private String granteeName;
+    @SuppressWarnings("all")
     private GranteeManager granteeManager;
+    @SuppressWarnings("all")
     private Ftest fTest;
+    @SuppressWarnings("all")
     private Method fMethod;
+    @SuppressWarnings("all")
     private Parent parent;
     private InGameController inGameController;
+    @SuppressWarnings("all")
     private Object clas;
+    @SuppressWarnings("all")
     private String value;
+    @SuppressWarnings("all")
     private Object asClass;
+    @SuppressWarnings("all")
     private BtPanel btPanel;
+    @SuppressWarnings("all")
     private Object cancel;
+    @SuppressWarnings("all")
     private Object ok;
+    @SuppressWarnings("all")
     private BtPanel panel;
+    @SuppressWarnings("all")
     private List<Object> nameList;
+    @SuppressWarnings("all")
     private Object sourceFileInfo;
+    @SuppressWarnings("all")
     private int num;
+    @SuppressWarnings("all")
     private Vector<DeviceIf> mDevices;
+    @SuppressWarnings("all")
     private In in;
+    @SuppressWarnings("all")
     private boolean active;
+    @SuppressWarnings("all")
     private int ON;
+    @SuppressWarnings("all")
     private int OFF;
+    @SuppressWarnings("all")
     private Object returnType;
+    @SuppressWarnings("all")
     private Object mCloneData;
+    @SuppressWarnings("all")
     private Object mOwner;
+    @SuppressWarnings("all")
     private CapturePluginPanel mPanel;
+    @SuppressWarnings("all")
     private Object mCurrentPanel;
+    @SuppressWarnings("all")
     private Object player;
+    @SuppressWarnings("all")
     private Settlement inSettlement;
+    @SuppressWarnings("all")
     private BtPanel destinations;
+    @SuppressWarnings("all")
     private int len;
+    @SuppressWarnings("all")
     private int bufpos;
+    @SuppressWarnings("all")
     private Object ret;
+    @SuppressWarnings("all")
     private int bufsize;
+    @SuppressWarnings("all")
     private Object buffer;
+    @SuppressWarnings("all")
     private Vector<Runner> fRunners;
+    @SuppressWarnings("all")
     private OptionalDataException parameters;
+    @SuppressWarnings("all")
     private int outlen;
+    @SuppressWarnings("all")
     private int offset;
+    @SuppressWarnings("all")
     private MapTransform currentMapTransform;
+    @SuppressWarnings("all")
     private FreeColClient freeColClient;
+    @SuppressWarnings("all")
     private Object iterateOverMe;
+    @SuppressWarnings("all")
     private int mYear;
+    @SuppressWarnings("all")
     private int mMonth;
+    @SuppressWarnings("all")
     private int fContextLength;
+    @SuppressWarnings("all")
     private String fExpected;
+    @SuppressWarnings("all")
     private String fActual;
+    @SuppressWarnings("all")
     private Object cs;
+    @SuppressWarnings("all")
     private Object object;
+    @SuppressWarnings("all")
     private Object name;
+    @SuppressWarnings("all")
     private List<AbstractPluginProgramFormating> mConfigs;
+    @SuppressWarnings("all")
     private BtPanel list;
+    @SuppressWarnings("all")
     private Package method;
+    @SuppressWarnings("all")
     private Boolean[] row;
+    @SuppressWarnings("all")
     private Ns ns;
+    @SuppressWarnings("all")
     private Object defschema;
+    @SuppressWarnings("all")
     private Object schema;
+    @SuppressWarnings("all")
     private Ns t;
+    @SuppressWarnings("all")
     private int jj_ntk;
+    @SuppressWarnings("all")
     private ArrayList mChildNodes;
+    @SuppressWarnings("all")
     private Object mMarker;
+    @SuppressWarnings("all")
     private Interval next;
+    @SuppressWarnings("all")
     private int mNumber;
+    @SuppressWarnings("all")
     private Object mName;
+    @SuppressWarnings("all")
     private boolean isClosed;
+    @SuppressWarnings("all")
     private Result resultOut;
+    @SuppressWarnings("all")
     private boolean blinkOn;
+    @SuppressWarnings("all")
     private Cc cc;
+    @SuppressWarnings("all")
     private Cc mLocalizer;
+    @SuppressWarnings("all")
     private Unit UiUtilities;
+    @SuppressWarnings("all")
     private Object date;
+    @SuppressWarnings("all")
     private TimeDateChooserPanel mTimePanel;
+    @SuppressWarnings("all")
     private Klass klass;
+    @SuppressWarnings("all")
     private SuiteMethod suiteMethod;
+    @SuppressWarnings("all")
     private Test suite;
+    @SuppressWarnings("all")
     private Object missionChip;
+    @SuppressWarnings("all")
     private boolean expertMission;
+    @SuppressWarnings("all")
     private Object color;
+    @SuppressWarnings("all")
     private MissionChip expertMissionChips;
+    @SuppressWarnings("all")
     private Stack stack;
+    @SuppressWarnings("all")
     private Class<Object> runnerClass;
+    @SuppressWarnings("all")
     private Object fTestClass;
+    @SuppressWarnings("all")
     private boolean isReadOnly;
+    @SuppressWarnings("all")
     private WareHouse warehouseDialog;
+    @SuppressWarnings("all")
     private Object FRETURN;
+    @SuppressWarnings("all")
     private Object opcode;
+    @SuppressWarnings("all")
     private Object LRETURN;
+    @SuppressWarnings("all")
     private Cv cv;
+    @SuppressWarnings("all")
     private int version;
+    @SuppressWarnings("all")
     private String dataServiceId;
+    @SuppressWarnings("all")
     private List<Method> fTestMethods;
+    @SuppressWarnings("all")
     private Iterator<Object> classNames;
+    @SuppressWarnings("all")
     private String clsName;
+    @SuppressWarnings("all")
     private Boolean clsCat;
+    @SuppressWarnings("all")
     private Object clsSchem;
+    @SuppressWarnings("all")
     private Message[] messages;
+    @SuppressWarnings("all")
     private ProgramTable mProgramTable;
+    @SuppressWarnings("all")
     private ProgramTable mProgramTableModel;
+    @SuppressWarnings("all")
     private ProgramTable devplugin;
+    @SuppressWarnings("all")
     private Tc tc;
+    @SuppressWarnings("all")
     private Connection session;
+    @SuppressWarnings("all")
     private JInternalFrame f;
+    @SuppressWarnings("all")
     private Point loc;
+    @SuppressWarnings("all")
     private ArrayDeque<Object> classNameSet;
+    @SuppressWarnings("all")
     private String className;
+    @SuppressWarnings("all")
     private Object andAliases;
+    @SuppressWarnings("all")
     private Object methods;
+    @SuppressWarnings("all")
     private Device device;
+    @SuppressWarnings("all")
     private ObjectOutput out;
+    @SuppressWarnings("all")
     private Object mCount;
+    @SuppressWarnings("all")
     private Device dev;
+    @SuppressWarnings("all")
     private int fieldcount;
+    @SuppressWarnings("all")
     private int[] cols;
+    @SuppressWarnings("all")
     private int[] a;
+    @SuppressWarnings("all")
     private int[] coltypes;
+    @SuppressWarnings("all")
     private int[] b;
+    @SuppressWarnings("all")
     private Vector importedPackages;
+    @SuppressWarnings("all")
     private String cmpDataServiceId;
+    @SuppressWarnings("all")
     private Tasks cmp;
+    @SuppressWarnings("all")
     private ConstraintCore mainCols;
+    @SuppressWarnings("all")
     private Object refCols;
+    @SuppressWarnings("all")
     private Messagee messages2;
+    @SuppressWarnings("all")
     private Object fMessage;
+    @SuppressWarnings("all")
     private int currentMode;
+    @SuppressWarnings("all")
     private Gui gui;
+    @SuppressWarnings("all")
     private DataInput input_stream;
+    @SuppressWarnings("all")
     private char curChar;
+    @SuppressWarnings("all")
     private Script mAppleScript;
+    @SuppressWarnings("all")
     private Fklass fKlass;
+    @SuppressWarnings("all")
     private Node x;
+    @SuppressWarnings("all")
     private Count ts;
+    @SuppressWarnings("all")
     private Mexpression expression;
+    @SuppressWarnings("all")
     private String ddl;
+    @SuppressWarnings("all")
     private HashMap<Object, Object> messagesToIgnore;
 
+    @SuppressWarnings("all")
     public Tasks(Class<?> klass) {
 
     }
 
+    @SuppressWarnings("all")
     public Tasks(String message) {
 
     }
@@ -1561,6 +1740,7 @@ public class Tasks {
         return false;
     }
 
+    @SuppressWarnings("all")
     private class BtPanel {
         @SuppressWarnings("all")
         public void add(Object cancel) {
@@ -1592,6 +1772,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class RootPane{
 
         @SuppressWarnings("all")
@@ -1612,6 +1793,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Parent {
 
         @SuppressWarnings("all")
@@ -1660,6 +1842,7 @@ public class Tasks {
         public String kind;
     }
 
+    @SuppressWarnings("all")
     private static class ActionMenu {
         @SuppressWarnings("all")
         public AbstractButton[] getSubItems() {
@@ -1667,16 +1850,20 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class GranteeManager {
     }
 
+    @SuppressWarnings("all")
     public static class HsqlException extends Exception {
     }
 
+    @SuppressWarnings("all")
     private static class Database {
         public Object collation;
     }
 
+    @SuppressWarnings("all")
     private class ConnectController {
         @SuppressWarnings("all")
         public void quitGame(boolean b) {
@@ -1684,12 +1871,15 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Grantee {
     }
 
+    @SuppressWarnings("all")
     private class IntValueHashMap {
     }
 
+    @SuppressWarnings("all")
     private class Method {
         @SuppressWarnings("all")
         public Object getModifiers() {
@@ -1702,9 +1892,11 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class RunNotifier {
     }
 
+    @SuppressWarnings("all")
     private static class Description {
         @SuppressWarnings("all")
         public static Description createSuiteDescription(Object name) {
@@ -1717,12 +1909,15 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Before {
     }
 
+    @SuppressWarnings("all")
     private class After {
     }
 
+    @SuppressWarnings("all")
     private static class BshClassManager {
         @SuppressWarnings("all")
         public static BshClassManager createClassManager(Tasks tasks) {
@@ -1730,12 +1925,15 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class DeviceIf {
     }
 
+    @SuppressWarnings("all")
     private class DeviceFileHandling {
     }
 
+    @SuppressWarnings("all")
     private class In {
         @SuppressWarnings("all")
         public Object readObject() {
@@ -1748,6 +1946,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Version {
         @SuppressWarnings("all")
         public static String id() {
@@ -1755,15 +1954,19 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Failure {
     }
 
+    @SuppressWarnings("all")
     private class HsqlName {
     }
 
+    @SuppressWarnings("all")
     private class Table {
     }
 
+    @SuppressWarnings("all")
     private class ConstraintCore {
         public ConstraintCore mainColArray;
         public Object colLen;
@@ -1771,12 +1974,14 @@ public class Tasks {
         public Object refColArray;
     }
 
+    @SuppressWarnings("all")
     private class ActionEvent {
         @SuppressWarnings("all")
         public ActionEvent(Tasks tasks, int eventId, String blink) {
         }
     }
 
+    @SuppressWarnings("all")
     private class CapturePluginPanel {
         @SuppressWarnings("all")
         public CapturePluginPanel(Object mOwner, Object mCloneData) {
@@ -1793,6 +1998,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Borders {
         @SuppressWarnings("all")
         public static Object createEmptyBorder(Object dluy5, Object dlux5, Object dluy51, Object dlux51) {
@@ -1812,6 +2018,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class PathNode {
         @SuppressWarnings("all")
         public Tile getTile() {
@@ -1824,6 +2031,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Unit {
         @SuppressWarnings("all")
         public static Object getXMLElementTagName() {
@@ -1846,6 +2054,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Tile {
         @SuppressWarnings("all")
         public Settlement getSettlement() {
@@ -1863,6 +2072,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Settlement {
         @SuppressWarnings("all")
         public Object getOwner() {
@@ -1870,14 +2080,17 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class ChoiceItem {
         public ChoiceItem(String s, Settlement s1) {
         }
     }
 
+    @SuppressWarnings("all")
     private class NoTestsRemainException extends Exception {
     }
 
+    @SuppressWarnings("all")
     private class Filter {
         @SuppressWarnings("all")
         public boolean shouldRun(Object description) {
@@ -1890,6 +2103,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Runner {
         @SuppressWarnings("all")
         public Object getDescription() {
@@ -1897,9 +2111,11 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     public class MapTransform {
     }
 
+    @SuppressWarnings("all")
     private class FreeColClient {
         @SuppressWarnings("all")
         public FreeColClient getActionManager() {
@@ -1947,9 +2163,11 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class IterateOverMe {
     }
 
+    @SuppressWarnings("all")
     private class AbstractTranslet {
         @SuppressWarnings("all")
         public void setMessageHandler(InGameInputHandler inGameInputHandler) {
@@ -1957,6 +2175,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class CompiledStatement {
         public static final int DELETE = 0;
         public static final int CALL = 1;
@@ -1980,6 +2199,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class ImageLibrary {
         public static final int UNIT_BUTTON_DISBAND = 1;
     }
@@ -1994,6 +2214,7 @@ public class Tasks {
 
     }
 
+    @SuppressWarnings("all")
     private static class Reflect {
         @SuppressWarnings("all")
         public static Field resolveJavaField(Class clas, Object name, boolean b) {
@@ -2001,6 +2222,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Field {
         @SuppressWarnings("all")
         public Object getType() {
@@ -2008,6 +2230,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class LHS {
         @SuppressWarnings("all")
         public LHS(Object object, Field field) {
@@ -2015,12 +2238,14 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Variable {
         @SuppressWarnings("all")
         public Variable(Object name, Object type, LHS lhs) {
         }
     }
 
+    @SuppressWarnings("all")
     private class AbstractPluginProgramFormating {
         @SuppressWarnings("all")
         public boolean isValid() {
@@ -2038,12 +2263,14 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class ProgramReceiveTarget {
         @SuppressWarnings("all")
         public ProgramReceiveTarget(Tasks tasks, Object name, Object id) {
         }
     }
 
+    @SuppressWarnings("all")
     private static class DEFAULT_CONFIG {
         @SuppressWarnings("all")
         public static Object getName() {
@@ -2056,6 +2283,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Ns {
         @SuppressWarnings("all")
         public Boolean getCatalogName(Boolean aBoolean) {
@@ -2083,6 +2311,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Element {
         @SuppressWarnings("all")
         public Object getAttribute(String id) {
@@ -2090,6 +2319,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Message {
         @SuppressWarnings("all")
         public static Element getChildElement(Element element, Object xmlElementTagName) {
@@ -2117,6 +2347,7 @@ public class Tasks {
         return 0;
     }
 
+    @SuppressWarnings("all")
     private class Program {
         @SuppressWarnings("all")
         public void unmark(Object mMarker) {
@@ -2124,6 +2355,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class PluginTreeNode {
     }
 
@@ -2132,15 +2364,18 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class IndexRowIterator {
         public Interval next;
         public Tasks last;
     }
 
+    @SuppressWarnings("all")
     private class Interval {
         public IndexRowIterator last;
     }
 
+    @SuppressWarnings("all")
     private static class Messages {
         @SuppressWarnings("all")
         public static String message(String height) {
@@ -2148,9 +2383,11 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class This {
     }
 
+    @SuppressWarnings("all")
     private class Interpreter {
     }
 
@@ -2159,6 +2396,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class ObjectInputStream {
         @SuppressWarnings("all")
         public int readInt() {
@@ -2171,6 +2409,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class ResultConstants {
         public static final int SQLDISCONNECT = 0;
     }
@@ -2190,6 +2429,7 @@ public class Tasks {
         return false;
     }
 
+    @SuppressWarnings("all")
     private class Cc {
         @SuppressWarnings("all")
         public String xy(int i, int i1) {
@@ -2202,12 +2442,14 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class TimeDateChooserPanel {
         @SuppressWarnings("all")
         public TimeDateChooserPanel(Object date) {
         }
     }
 
+    @SuppressWarnings("all")
     private class Klass {
         @SuppressWarnings("all")
         public SuiteMethod getMethod(String suite) {
@@ -2220,6 +2462,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class SuiteMethod {
         @SuppressWarnings("all")
         public Object getModifiers() {
@@ -2232,6 +2475,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Modifier {
         @SuppressWarnings("all")
         public static boolean isStatic(Object modifiers) {
@@ -2239,9 +2483,11 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Test {
     }
 
+    @SuppressWarnings("all")
     private class Types {
         public static final int VARCHAR = 1;
     }
@@ -2256,6 +2502,7 @@ public class Tasks {
 
     }
 
+    @SuppressWarnings("all")
     private class MissionChip {
         @SuppressWarnings("all")
         public Object get(Object color) {
@@ -2268,9 +2515,11 @@ public class Tasks {
 
     }
 
+    @SuppressWarnings("all")
     private class NameSpace {
     }
 
+    @SuppressWarnings("all")
     private static class DriverFactory {
         @SuppressWarnings("all")
         public static DriverFactory getInstance() {
@@ -2283,12 +2532,14 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class InitializationError {
         @SuppressWarnings("all")
         public InitializationError(String format) {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Request {
         @SuppressWarnings("all")
         public static Request errorReport(Object fTestClass, InitializationError error) {
@@ -2301,6 +2552,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Session {
         public static final int INFO_CONNECTION_READONLY = 0;
     }
@@ -2310,6 +2562,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class WareHouse {
         @SuppressWarnings("all")
         public boolean getResponseBoolean() {
@@ -2322,6 +2575,7 @@ public class Tasks {
 
     }
 
+    @SuppressWarnings("all")
     private class Cv {
         @SuppressWarnings("all")
         public void visitInsn(Object opcode) {
@@ -2339,6 +2593,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class ProgramTable {
         public ProgramTable Plugin;
 
@@ -2363,6 +2618,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class CapturePlugin {
         @SuppressWarnings("all")
         public static Object getInstance() {
@@ -2370,6 +2626,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class TestResult {
         @SuppressWarnings("all")
         public void addListener(Object adaptingListener) {
@@ -2377,6 +2634,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Ftest {
         @SuppressWarnings("all")
         public void run(TestResult result) {
@@ -2389,6 +2647,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class Tc {
         public Tc core;
         public Object refTable;
@@ -2396,12 +2655,14 @@ public class Tasks {
         public Object refColArray;
     }
 
+    @SuppressWarnings("all")
     private class TableWorks {
         @SuppressWarnings("all")
         public TableWorks(Connection session, Ns t) {
         }
     }
 
+    @SuppressWarnings("all")
     private class MouseEvent {
         @SuppressWarnings("all")
         public int getY() {
@@ -2419,6 +2680,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Modifiers {
         @SuppressWarnings("all")
         public boolean hasModifier(String aPublic) {
@@ -2431,6 +2693,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private static class Assert {
         @SuppressWarnings("all")
         public static String format(String message, String fExpected, String fActual) {
@@ -2453,6 +2716,7 @@ public class Tasks {
         return false;
     }
 
+    @SuppressWarnings("all")
     public static class SwingUtilities {
         @SuppressWarnings("all")
         public static Point convertPoint(Component source, int x, int y, Object o) {
@@ -2465,6 +2729,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class Device {
         @SuppressWarnings("all")
         public Object getDriver() {
@@ -2482,6 +2747,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Plugin {
         @SuppressWarnings("all")
         public static Plugin getPluginManager() {
@@ -2499,6 +2765,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Connection {
         public Database database;
 
@@ -2508,6 +2775,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private static class Column {
         @SuppressWarnings("all")
         public static int compare(Object collation, int i, int i1, int coltype) {
@@ -2531,9 +2799,11 @@ public class Tasks {
 
     }
 
+    @SuppressWarnings("all")
     private class GUIMessage {
     }
 
+    @SuppressWarnings("all")
     private class Messagee {
         @SuppressWarnings("all")
         public void remove(int i) {
@@ -2566,10 +2836,12 @@ public class Tasks {
         return 0;
     }
 
+    @SuppressWarnings("all")
     private class ViewMode {
         public static final int VIEW_TERRAIN_MODE = 0;
     }
 
+    @SuppressWarnings("all")
     private class Gui {
         @SuppressWarnings("all")
         public Position getSelectedTile() {
@@ -2587,6 +2859,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Position {
         @SuppressWarnings("all")
         public int getY() {
@@ -2599,6 +2872,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class TerrainCursor {
     }
 
@@ -2612,9 +2886,11 @@ public class Tasks {
         return 0;
     }
 
+    @SuppressWarnings("all")
     private class ElgatoChannel {
     }
 
+    @SuppressWarnings("all")
     private class Script {
         @SuppressWarnings("all")
         public String executeScript(Object channellist) {
@@ -2622,6 +2898,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Fklass {
         @SuppressWarnings("all")
         public Method[] getMethods() {
@@ -2629,6 +2906,7 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Annotation {
         @SuppressWarnings("all")
         public Parameters annotationType() {
@@ -2636,9 +2914,11 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class Parameters {
     }
 
+    @SuppressWarnings("all")
     private class Node {
         @SuppressWarnings("all")
         public Node getRight() {
@@ -2651,9 +2931,11 @@ public class Tasks {
         }
     }
 
+    @SuppressWarnings("all")
     private class InGameInputHandler {
     }
 
+    @SuppressWarnings("all")
     private class Game {
         @SuppressWarnings("all")
         public Map getMap() {
@@ -2666,6 +2948,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     public class AbstractAction {
         @SuppressWarnings("all")
         public void putValue(String name, Object msg) {
@@ -2678,10 +2961,12 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private void showDialog() {
 
     }
 
+    @SuppressWarnings("all")
     private class Count {
         @SuppressWarnings("all")
         public int testCount() {
@@ -2699,6 +2984,7 @@ public class Tasks {
         return null;
     }
 
+    @SuppressWarnings("all")
     private class Mexpression {
         public boolean exprType;
     }
