@@ -224,9 +224,9 @@ def readFMRIStudyMetrics():
 def readAnalysisToolOutput():
     dfList = []
 
-    dfList.append(pd.read_csv("data/checker_framework_data.csv"))
-
     #TODO: Add more analysis tool output here
+    dfList.append(pd.read_csv("data/checker_framework_data.csv"))
+    dfList.append(pd.read_csv("data/typestate_checker_data.csv"))
 
     return dfList
 
