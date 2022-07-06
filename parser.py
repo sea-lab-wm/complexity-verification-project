@@ -1,4 +1,5 @@
 import pandas as pd
+import copy
 import os
 
 #########################
@@ -28,6 +29,31 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
     with open("data/checker_framework_output.txt") as f:
         lines = f.readlines()
 
+    data = parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums)
+    
+    return ("checker_framework_data", data)
+
+# Retrieves the snippet name and warning message for each warning output by the Typestate Checker.
+def parseTypestateChecker(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums):
+    lines = []
+    files = os.listdir("data")
+
+    filesToFind = "typestate_checker_output"    # File delimeter
+    
+    # The Typestate Checker runs on specific directories instead of the entire project so it produces multiple output files.
+    # This finds all the relevent output files.
+    for fName in files:
+        if filesToFind in fName:
+            with open(os.path.join("data", fName)) as f:
+                lines.append(f.readlines())
+
+    for dataset in lines:
+        data = parseAll(data, dataset, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums)
+
+    return ("typestate_checker_data", data)
+
+# Parses the analysis tool output of both the Checher Framework and Typestate Checker.
+def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums):
     # Delimeters with which to parse the warnings
     startSnippetfMRI = os.path.join(" ", "fMRI_Study_Classes", " ").strip()
     startSnippetCOG1 = os.path.join(" ", "cog_complexity_validation_datasets", "One", " ").strip()
@@ -54,14 +80,8 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
                     data["Snippet"].append(f"COG Dataset 3 - {str(i + 1)}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
-    
-    return ("checker_framework_data", data)
 
-# Retrieves the snippet name and warning message for each warning output by the Typestate Checker.
-def parseTypestateChecker(data):
-
-
-    pass
+    return data
 
 ########################
 #   Setup CSV Sheets   #
@@ -93,6 +113,6 @@ if __name__ == "__main__":
     allAnalysisToolData = []
 
     #TODO: All analysis tools go here
-    allAnalysisToolData.append(parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums))
-
+    allAnalysisToolData.append(parseCheckerFramework(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums))
+    allAnalysisToolData.append(parseTypestateChecker(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums))
     setupCSVSheets(allAnalysisToolData)
