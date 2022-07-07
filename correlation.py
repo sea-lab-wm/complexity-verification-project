@@ -160,7 +160,7 @@ def setFMRIStudyDatapoints(warningsperSnippet, data):
 # OSCAR: in cog_dataset_3.csv, are the snippets identified by column index?
 def readCOGDataset3StudyMetrics():
     df = pd.read_csv("data/cog_dataset_3.csv")
-
+    
     # Returns a list of the averages for each snippet
     return [round(sum(df[column]) / len(df[column]), 2) for column in df.columns[2:]]
 
