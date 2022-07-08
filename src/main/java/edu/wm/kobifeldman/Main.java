@@ -4,7 +4,6 @@ import edu.wm.kobifeldman.fMRI_Study_Classes.*;
 
 public class Main {
     public static void main(String[] args) {
-        // fMRI Study Snippets:
         ArrayAverage.main();
         ContainsSubstring.main();
         CountVowels.main();
@@ -21,7 +20,5 @@ public class Main {
         RecursivePower.main();
         SquareRoot.main();
         YesNo.main();
-
-        
     }
 }
