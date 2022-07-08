@@ -13,7 +13,8 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.logging.Level;
+import java.util.logging.*;     //CHANGED BY KOBI
+import java.util.Map.Entry;     //ADDED BY KOBI
 
 /**
  * Note: method names were changed from 'main' to main + their task number
@@ -375,7 +376,10 @@ public class Tasks {
     @SuppressWarnings("all")
     private String ddl;
     @SuppressWarnings("all")
-    private HashMap<Object, Object> messagesToIgnore;
+    private HashMap<String, Integer> messagesToIgnore;
+    //ADDED BY KOBI
+    @SuppressWarnings("all")
+    private Logger logger;
 
     @SuppressWarnings("all")
     public Tasks(Class<?> klass) {
@@ -1682,17 +1686,17 @@ public class Tasks {
 
     // Snippet s100                                                                     /*ORGINALLY COMMENTED OUT*/
     //SNIPPET_STARTS
-//    private synchronized void purgeOldMessagesFromMessagesToIgnore(int thisTurn) {
-//        List<String> keysToRemove = new ArrayList<String>();
-//        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
-//            if (entry.getValue().intValue() < thisTurn - 1) {
-//                if (logger.isLoggable(Level.FINER)) {
-//                    logger.finer("Removing old model message with key " + entry.getKey() + " from ignored messages.");
-//                }
-//                keysToRemove.add(entry.getKey());
-//            }
-//        }
-//    } // Added to allow compilation
+    private synchronized void purgeOldMessagesFromMessagesToIgnore(int thisTurn) {
+        List<String> keysToRemove = new ArrayList<String>();
+        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
+            if (entry.getValue().intValue() < thisTurn - 1) {
+                if (logger.isLoggable(Level.FINER)) {
+                    logger.finer("Removing old model message with key " + entry.getKey() + " from ignored messages.");
+                }
+                keysToRemove.add(entry.getKey());
+            }
+        }
+    } // Added to allow compilation
     //SNIPPETS_END
 
     @SuppressWarnings("all")
