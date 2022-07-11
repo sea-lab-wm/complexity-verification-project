@@ -29,7 +29,7 @@ def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
     with open("data/checker_framework_output.txt") as f:
         lines = f.readlines()
 
-    data = parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums)
+    data = parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums, ": warning:")
     
     return ("checker_framework_data", data)
 
@@ -48,17 +48,25 @@ def parseTypestateChecker(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
                 lines.append(f.readlines())
 
     for dataset in lines:
-        data = parseAll(data, dataset, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums)
+        data = parseAll(data, dataset, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums, ": warning:")
 
     return ("typestate_checker_data", data)
 
+def parseInfer(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums):
+    lines = []
+    with open("data/infer_output.txt") as f:
+        lines = f.readlines()
+
+    data = parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums, ": error:")
+    
+    return ("infer_data", data)
+
 # Parses the analysis tool output of both the Checher Framework and Typestate Checker.
-def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums):
+def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums, endSnippet):
     # Delimeters with which to parse the warnings
     startSnippetfMRI = os.path.join(" ", "fMRI_Study_Classes", " ").strip()
     startSnippetCOG1 = os.path.join(" ", "cog_complexity_validation_datasets", "One", " ").strip()
     startSnippetCOG3 = os.path.join(" ", "cog_complexity_validation_datasets", "Three", " ").strip()
-    endSnippet = ": warning:"
 
     for line in lines:
         if startSnippetfMRI in line and endSnippet in line:
@@ -115,4 +123,5 @@ if __name__ == "__main__":
     #TODO: All analysis tools go here
     allAnalysisToolData.append(parseCheckerFramework(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums))
     allAnalysisToolData.append(parseTypestateChecker(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums))
+    allAnalysisToolData.append(parseInfer(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums))
     setupCSVSheets(allAnalysisToolData)

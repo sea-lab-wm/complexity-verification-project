@@ -26,6 +26,7 @@ def writeCorrelationAnalysis(allCorrelationAnalysisDFS):
         allCorrelationAnalysisDFS[0].to_excel(writer, sheet_name="all_tools", index=False)
         allCorrelationAnalysisDFS[1].to_excel(writer, sheet_name="checker_framework", index=False)
         allCorrelationAnalysisDFS[2].to_excel(writer, sheet_name="typestate_checker", index=False)
+        allCorrelationAnalysisDFS[3].to_excel(writer, sheet_name="infer", index=False)
 
 # For Reference: The columns "Complexity Metric" and "# of snippets judged (complexity)" are added manually.
 
@@ -233,6 +234,7 @@ def readAnalysisToolOutput():
     #TODO: Add more analysis tool output here
     dfList.append(pd.read_csv("data/checker_framework_data.csv"))
     dfList.append(pd.read_csv("data/typestate_checker_data.csv"))
+    dfList.append(pd.read_csv("data/infer_data.csv"))
 
     return dfList
 
@@ -388,34 +390,41 @@ if __name__ == "__main__":
     # TODO: Add more analysis tools here and after each step below ...
     correlationAnalysisDFCheckerFramework = readCorrelationAnalysis(sheetName="checker_framework")
     correlationAnalysisDFTypestateChecker = readCorrelationAnalysis(sheetName="typestate_checker")
+    correlationAnalysisDFInfer = readCorrelationAnalysis(sheetName="infer")
 
     # STEP 3:
     # Determine the number of snippets that contain warnings within each dataset.
     correlationAnalysisDFAllTools = setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDFAllTools)
     correlationAnalysisDFCheckerFramework = setNumSnippetsWithWarningsColumn(dfListAnalysisTools[0], correlationAnalysisDFCheckerFramework)
     correlationAnalysisDFTypestateChecker = setNumSnippetsWithWarningsColumn(dfListAnalysisTools[1], correlationAnalysisDFTypestateChecker)
+    correlationAnalysisDFInfer = setNumSnippetsWithWarningsColumn(dfListAnalysisTools[2], correlationAnalysisDFInfer)
 
     # STEP 4:
     # Determine the number of warnings per snippet per dataset
     warningsPerSnippetPerDatasetAllTools = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisDFAllTools)
     warningsPerSnippetPerDatasetCheckerFramework = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[0], correlationAnalysisDFCheckerFramework)
     warningsPerSnippetPerDatasetTypestateChecker = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[1], correlationAnalysisDFTypestateChecker)
+    warningsPerSnippetPerDatasetInfer = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[2], correlationAnalysisDFInfer)
 
     # STEP 5:
     # Determine the number of warnings per dataset
     correlationAnalysisDFAllTools = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetAllTools), correlationAnalysisDFAllTools)
     correlationAnalysisDFCheckerFramework = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetCheckerFramework), correlationAnalysisDFCheckerFramework)
     correlationAnalysisDFTypestateChecker = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetTypestateChecker), correlationAnalysisDFTypestateChecker)
+    correlationAnalysisDFInfer = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetInfer), correlationAnalysisDFInfer)
 
     # STEP 6:
     # Compile all datapoints for correlation: x = complexity metric, y = # of warnings
     dfListCorrelationDatapointsAllTools = setupCorrelationData(warningsPerSnippetPerDatasetAllTools)
     dfListCorrelationDatapointsCheckerFramework = setupCorrelationData(warningsPerSnippetPerDatasetCheckerFramework)
     dfListCorrelationDatapointsTypestateChecker = setupCorrelationData(warningsPerSnippetPerDatasetTypestateChecker)
+    dfListCorrelationDatapointsInfer = setupCorrelationData(warningsPerSnippetPerDatasetInfer)
+    
     # Update correlation analyis data frame 
     correlationAnalysisDFAllTools = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsAllTools, correlationAnalysisDFAllTools)
     correlationAnalysisDFCheckerFramework = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsCheckerFramework, correlationAnalysisDFCheckerFramework)
     correlationAnalysisDFTypestateChecker = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsTypestateChecker, correlationAnalysisDFTypestateChecker)
+    correlationAnalysisDFInfer = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsInfer, correlationAnalysisDFInfer)
 
     # STEP 7:
     # Perform Correlations
@@ -425,6 +434,8 @@ if __name__ == "__main__":
     correlationAnalysisDFCheckerFramework = setKendallTauColumns(kendallTauValsCheckerFramework, correlationAnalysisDFCheckerFramework)
     kendallTauValsTypestateChecker = kendallTau(dfListCorrelationDatapointsTypestateChecker)
     correlationAnalysisDFTypestateChecker = setKendallTauColumns(kendallTauValsTypestateChecker, correlationAnalysisDFTypestateChecker)
+    kendallTauValsInfer = kendallTau(dfListCorrelationDatapointsInfer)
+    correlationAnalysisDFInfer = setKendallTauColumns(kendallTauValsInfer, correlationAnalysisDFInfer)
 
     spearmanRhoValsAllTools = spearmanRho(dfListCorrelationDatapointsAllTools)
     correlationAnalysisDFAllTools = setSpearmanRhoColumns(spearmanRhoValsAllTools, correlationAnalysisDFAllTools)
@@ -432,7 +443,9 @@ if __name__ == "__main__":
     correlationAnalysisDFCheckerFramework = setSpearmanRhoColumns(spearmanRhoValsCheckerFramework, correlationAnalysisDFCheckerFramework)
     spearmanRhoValsTypestateChecker = spearmanRho(dfListCorrelationDatapointsTypestateChecker)
     correlationAnalysisDFTypestateChecker = setSpearmanRhoColumns(spearmanRhoValsTypestateChecker, correlationAnalysisDFTypestateChecker)
+    spearmanRhoValsInfer = spearmanRho(dfListCorrelationDatapointsInfer)
+    correlationAnalysisDFInfer = setSpearmanRhoColumns(spearmanRhoValsInfer, correlationAnalysisDFInfer)
 
     # Update correlation_analysis.xlsx
-    allCorrelationAnalysisDFS = [correlationAnalysisDFAllTools, correlationAnalysisDFCheckerFramework, correlationAnalysisDFTypestateChecker]
+    allCorrelationAnalysisDFS = [correlationAnalysisDFAllTools, correlationAnalysisDFCheckerFramework, correlationAnalysisDFTypestateChecker, correlationAnalysisDFInfer]
     writeCorrelationAnalysis(allCorrelationAnalysisDFS)
