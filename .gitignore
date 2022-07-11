@@ -183,3 +183,6 @@ rules/
 
 # Ignore Python Stuff
 __pycache__/
+
+#Ignore Infer Output
+infer-out/
