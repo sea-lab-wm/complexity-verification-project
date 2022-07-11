@@ -1,0 +1,133 @@
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:463: error: Null Dereference
+  object returned by `getConnectController()` could be null and is dereferenced at line 463.
+  461.       //SNIPPET_STARTS
+  462.       public void quit() {
+  463. >         getConnectController().quitGame(true);
+  464.           if (!windowed) {
+  465.               gd.setFullScreenWindow(null);
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:707: error: Null Dereference
+  object returned by `p.getTile()` could be null and is dereferenced at line 707.
+  705.       //SNIPPET_STARTS
+  706.       public boolean check(Unit u, PathNode p) {
+  707. >         if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
+  708.                   && p.getTile().getSettlement() != inSettlement) {
+  709.               Settlement s = p.getTile().getSettlement();
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:771: error: Null Dereference
+  object returned by `Tasks.freeColClient.getActionManager()` could be null and is dereferenced at line 771.
+  769.       public void setMapTransform(MapTransform mt) {
+  770.           currentMapTransform = mt;
+  771. >         MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
+  772.           if (mca.getMapControls() != null) {
+  773.               mca.getMapControls().update(mt);
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:849: error: Null Dereference
+  object returned by `freeColClient.getImageLibrary()` could be null and is dereferenced at line 849.
+  847.           DisbandUnitAction(FreeColClient freeColClient) {
+  848.               super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+  849. >             putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+  850.                       0));
+  851.               putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:915: error: Null Dereference
+  object `unitElement` last assigned on line 913 could be null and is dereferenced at line 915.
+  913.           Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
+  914.   
+  915. >         Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
+  916.           unit.readFromXMLElement(unitElement);
+  917.           return unitElement;                                                                                 /*Altered return*/
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1076: error: Null Dereference
+  object `Tasks.suiteMethod` last assigned on line 1075 could be null and is dereferenced at line 1076.
+  1074.           try {
+  1075.               suiteMethod= klass.getMethod("suite");
+  1076. >             if (! Modifier.isStatic(suiteMethod.getModifiers())) {
+  1077.                   throw new Exception(klass.getName() + ".suite() must be static");
+  1078.               }
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1130: error: Null Dereference
+  object returned by `getInstance()` could be null and is dereferenced at line 1130.
+  1128.           String devname = (String)in.readObject();
+  1129.   
+  1130. >         DeviceIf dev = DriverFactory.getInstance().createDevice(classname, devname);
+  1131.       } // Added to allow compilation
+  1132.   
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1139: error: Null Dereference
+  object returned by `errorReport(Tasks.fTestClass,error)` could be null and is dereferenced at line 1139.
+  1137.           InitializationError error= new InitializationError(String.format(
+  1138.                   CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
+  1139. >         return Request.errorReport(fTestClass, error).getRunner();
+  1140.       } // Added to allow compilation
+  1141.   
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1148: error: Null Dereference
+  object `info` last assigned on line 1146 could be null and is dereferenced at line 1148.
+  1146.           Object info = getAttribute(Session.INFO_CONNECTION_READONLY);
+  1147.   
+  1148. >         isReadOnly = ((Boolean) info).booleanValue();
+  1149.   
+  1150.           return isReadOnly;
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1192: error: Null Dereference
+  object `spec` last assigned on line 1189 could be null and is dereferenced at line 1192.
+  1190.           List<Method> testMethods = fTestMethods;
+  1191.           for (Method method : testMethods)
+  1192. >             spec.addChild(methodDescription(method));
+  1193.   
+  1194.           return null; // Added to allow compilation
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1224: error: Null Dereference
+  object returned by `Tasks.devplugin.Plugin.getPluginManager()` could be null and is dereferenced at line 1224.
+  1222.           Program p = (Program) mProgramTableModel.getValueAt(row, 1);
+  1223.   
+  1224. >         JPopupMenu menu = devplugin.Plugin.getPluginManager().createPluginContextMenu(p, CapturePlugin.getInstance());
+  1225.   
+  1226.       } // Added to allow compilation
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1360: error: Null Dereference
+  object returned by `Tasks.device.getDriver()` could be null and is dereferenced at line 1360.
+  1358.       //SNIPPET_STARTS
+  1359.       public void s76() throws IOException{
+  1360. >         out.writeObject(device.getDriver().getClass().getName());
+  1361.           out.writeObject(device.getName());
+  1362.   
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1369: error: Null Dereference
+  object returned by `getPluginManager()` could be null and is dereferenced at line 1369.
+  1367.       //SNIPPET_STARTS
+  1368.       public void s77() throws FileNotFoundException, IOException{
+  1369. >         File data = new File(Plugin.getPluginManager().getTvBrowserSettings().getTvBrowserUserHome()  + File.separator +
+  1370.                   "CaptureDevices" + File.separator + mCount + ".dat");
+  1371.   
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1487: error: Null Dereference
+  object returned by `Tasks.freeColClient.getCanvas()` could be null and is dereferenced at line 1487.
+  1485.           messages2.add(message); // Renamed to allow compilation
+  1486.   
+  1487. >         freeColClient.getCanvas().repaint(0, 0, getWidth(), getHeight());
+  1488.       } // Added to allow compilation
+  1489.   
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1628: error: Null Dereference
+  object returned by `Tasks.freeColClient.getClient()` could be null and is dereferenced at line 1628.
+  1626.           InGameInputHandler inGameInputHandler = freeColClient.getInGameInputHandler();
+  1627.   
+  1628. >         freeColClient.getClient().setMessageHandler(inGameInputHandler);
+  1629.           gui.setInGame(true);
+  1630.       } // Added to allow compilation
+
+src/main/java/edu/wm/kobifeldman/cog_complexity_validation_datasets/Three/Tasks.java:1641: error: Null Dereference
+  object `game` last assigned on line 1640 could be null and is dereferenced at line 1641.
+  1639.       public void actionPerformed2(ActionEvent e) { // Renamed to allow compilation
+  1640.           final Game game = freeColClient.getGame();
+  1641. >         final Map map = game.getMap();
+  1642.   
+  1643.           Parameters p = showParametersDialog();
+
+
+Found 16 issues
+          Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULL_DEREFERENCE): 16
