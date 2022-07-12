@@ -1,6 +1,4 @@
-package edu.wm.kobifeldman;
-
-import edu.wm.kobifeldman.fMRI_Study_Classes.*;
+import fMRI_Study_Classes.*;
 
 public class Main {
     public static void main(String[] args) {

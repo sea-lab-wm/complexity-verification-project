@@ -1,4 +1,4 @@
-package edu.wm.kobifeldman.fMRI_Study_Classes;
+package fMRI_Study_Classes;
 
 import java.util.Arrays;
 import java.util.List;

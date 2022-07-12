@@ -1,4 +1,4 @@
-package edu.wm.kobifeldman.cog_complexity_validation_datasets.One;
+package cog_complexity_validation_datasets.One;
 
 import java.util.Arrays;
 

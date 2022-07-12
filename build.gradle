@@ -49,7 +49,7 @@ checkerFramework {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'edu.wm.kobifeldman.Main'
+        attributes 'Main-Class': 'Main'
     }
 }
 

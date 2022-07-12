@@ -1,4 +1,4 @@
-package edu.wm.kobifeldman.cog_complexity_validation_datasets.Three;
+package cog_complexity_validation_datasets.Three;
 
 import javax.script.Bindings;
 import javax.script.ScriptEngine;
