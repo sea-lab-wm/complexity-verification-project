@@ -368,18 +368,14 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
     for df in dfListAnalysisTools:
         numWarnings = df.sum(axis=1, numeric_only=True).tolist()
         snippetNames = df["Snippet"].to_list()
-        print(numWarnings)
-        print(snippetNames)
+
         if len(snippetNames) != len(numWarnings):
             raise Exception("Number of snippets does not match number of warnings associated with said snippets") 
 
         for i in range(len(snippetNames)):
             snippetDataset = snippetNames[i].split("-")[0].strip()
             snippetNumber = snippetNames[i].split("-")[1].strip()
-            print(str(i))
-            print(warningsPerSnippetPerDataset)
-            print(str(snippetNumber))
-            print(snippetDataset)
+
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
     return warningsPerSnippetPerDataset
