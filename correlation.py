@@ -49,10 +49,6 @@ def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 # Sets the values of the column "# of warnings" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumWarningsColumn(warningsPerDataset, correlationAnalysisDF):
-    # Loop through each dataset
-    for i, numWarnings in enumerate(warningsPerDataset):
-        correlationAnalysisDF.iloc[i, 3] = numWarnings
-
     uniqueDatasetCount = 0
 
     for i in range(len(correlationAnalysisDF.index)):
