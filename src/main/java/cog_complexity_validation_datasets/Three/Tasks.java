@@ -377,6 +377,7 @@ public class Tasks {
     private String ddl;
     @SuppressWarnings("all")
     private HashMap<String, Integer> messagesToIgnore;
+
     //ADDED BY KOBI
     @SuppressWarnings("all")
     private Logger logger;
@@ -1376,12 +1377,12 @@ public class Tasks {
 
     // Snippet s78                                                                                      /*ORIGINALLY COMMENTED OUT*/
     //SNIPPET_STARTS
-//    private static Class<?>[] getAnnotatedClasses(Class<?> klass) throws InitializationError {
-//            SuiteClasses annotation= klass.getAnnotation(SuiteClasses.class);
-//            if (annotation == null)
-//                throw new InitializationError(String.format("class '%s' must have a SuiteClasses annotation", klass.getName()));
-//            return annotation.value();
-//    } // Added to allow compilation
+    //private static Class<?>[] getAnnotatedClasses(Class<?> klass) throws InitializationError {
+    //        SuiteClasses annotation= klass.getAnnotation(SuiteClasses.class);
+    //        if (annotation == null)
+    //            throw new InitializationError(String.format("class '%s' must have a SuiteClasses annotation", klass.getName()));
+    //        return annotation.value();
+    //} // Added to allow compilation
 
     // Snippet s79
     //SNIPPET_STARTS
@@ -1594,19 +1595,19 @@ public class Tasks {
 
     // Snippet s93                                                                  /*ORIGINALLY COMMENTED OUT*/
     //SNIPPET_STARTS
-//    private Method getParametersMethod() throws Exception {
-//        for (Method each : fKlass.getMethods()) {
-//            if (Modifier.isStatic(each.getModifiers())) {
-//                Annotation[] annotations= each.getAnnotations();
-//                for (Annotation annotation : annotations) {
-//                    if (annotation.annotationType() == Parameters.class)
-//                        return each;
-//                }
-//            }
-//        }
-//        throw new Exception("No public static parameters method on class "
-//                + getName());
-//    } // Added to allow compilation
+    private Method getParametersMethod() throws Exception {
+        for (Method each : fKlass.getMethods()) {
+            if (Modifier.isStatic(each.getModifiers())) {
+                Annotation[] annotations= each.getAnnotations();
+                for (Annotation annotation : annotations) {
+                    if (annotation.annotationType().getClass() == Parameters.class) //.getClass() ADDED BY KOBI
+                        return each;
+                }
+            }
+        }
+        throw new Exception("No public static parameters method on class "
+                + getName());
+    } // Added to allow compilation
 
     // Snippet s94
     //SNIPPET_STARTS
@@ -1698,6 +1699,14 @@ public class Tasks {
         }
     } // Added to allow compilation
     //SNIPPETS_END
+
+    //ADDED BY KOBI
+    //@SuppressWarnings("all")
+    //public abstract class SuiteClasses {
+        //public SuiteClasses getAnnotation() {
+        //    return null;
+        //}
+    //}
 
     @SuppressWarnings("all")
     private static long getTimeInMillis(Object tempCalDefault) {
