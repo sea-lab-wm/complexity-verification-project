@@ -61,7 +61,7 @@ def parseInfer(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset
     
     return ("infer_data", data)
 
-# Parses the analysis tool output of both the Checher Framework and Typestate Checker.
+# Parses the analysis tool output of the Checker Framework, Typestate Checker, and Infer.
 def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset3SnippetNums, endSnippet):
     # Delimeters with which to parse the warnings
     startSnippetfMRI = os.path.join(" ", "fMRI_Study_Classes", " ").strip()
