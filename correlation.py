@@ -112,6 +112,12 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     dfListCorrelationDatapoints.append(cogDataset1Datapoints[1])
     dfListCorrelationDatapoints.append(cogDataset1Datapoints[2])
 
+    cogDataset2Datapoints = setCogDataset2Datapoints(warningsPerSnippetPerDataset["COG Dataset 2"], copy.deepcopy(data))
+    dfListCorrelationDatapoints.append(cogDataset2Datapoints[0])
+    dfListCorrelationDatapoints.append(cogDataset2Datapoints[1])
+    dfListCorrelationDatapoints.append(cogDataset2Datapoints[2])
+    dfListCorrelationDatapoints.append(cogDataset2Datapoints[3])
+
     # Compile datapoints for the COG Dataset 3 Study
     dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset["COG Dataset 3"], copy.deepcopy(data)))
 
@@ -139,6 +145,24 @@ def setCogDataset1Datapoints(warningsPerSnippet, data):
     dataSubjComplexity["Warning Count"] = warningsPerSnippet
 
     return (pd.DataFrame(dataTime), pd.DataFrame(dataCorrectness), pd.DataFrame(dataSubjComplexity))
+
+def setCogDataset2Datapoints(warningsPerSnippet, data):
+    dataTime = copy.deepcopy(data)
+    dataBA32 = copy.deepcopy(data)
+    dataBA31post = copy.deepcopy(data)
+    dataBA31ant = copy.deepcopy(data)
+    metrics = readCOGDataset2StudyMetrics()
+
+    dataTime["Metric"] = metrics[0]
+    dataTime["Warning Count"] = warningsPerSnippet
+    dataBA32["Metric"] = metrics[1]
+    dataBA32["Warning Count"] = warningsPerSnippet
+    dataBA31post["Metric"] = metrics[2]
+    dataBA31post["Warning Count"] = warningsPerSnippet
+    dataBA31ant["Metric"] = metrics[3]
+    dataBA31ant["Warning Count"] = warningsPerSnippet
+
+    return (pd.DataFrame(dataTime), pd.DataFrame(dataBA32), pd.DataFrame(dataBA31post), pd.DataFrame(dataBA31ant))
 
 # Gets a list of complexity metrics and a list of warning counts for each snippet in COG Dataset 3.
 # Adds that data to a dictionary that is then converted to a dataframe.
@@ -194,6 +218,31 @@ def readCOGDataset1StudyMetrics():
 
     return (times, correctness, subjComplexity)
 
+# Reads the results of the study for COG dataset 2 . It contains 16 people who looked at 12 snippets.
+# Note that dataset 2 is a subset of dataset 1. All snippets in dataset 2 are also in dataset 1.
+# Metrics include time to solve, as well as 3 physiological metrics: BA32, BA31post, and BA31ant.
+def readCOGDataset2StudyMetrics():
+    times = [0] * 12
+
+    dfTime = pd.read_csv("data/cog_dataset_2_response_times.csv")
+    dfPhysiological = pd.read_csv("data/cog_dataset_2_physiological.csv")
+
+    # Get time column for each snippet
+    timeCols = dfTime.iloc[1:18, [val for val in range(1, 25, 2)]]
+    print(timeCols)
+    # Average the values of each column
+    times = [int(val) / 16 for val in timeCols.astype(int).sum(axis=0)]
+    print(times)
+
+    BA32 = dfPhysiological.iloc[:, 5]
+    BA31post = dfPhysiological.iloc[:, 6]
+    BA31ant = dfPhysiological.iloc[:, 7]
+
+    print(BA32)
+    print(BA31post)
+    print(BA31ant)
+
+    return (times, BA32, BA31post, BA31ant)
 
 # Reads the results of the cog data set 3 study. It contains 120 people who rated 100 snippets on a scale of 1-5.
 # 1 being less readable and 5 being more readable.
@@ -447,7 +496,7 @@ if __name__ == "__main__":
     warningsPerSnippetPerDatasetCheckerFramework = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[0], correlationAnalysisDFCheckerFramework)
     warningsPerSnippetPerDatasetTypestateChecker = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[1], correlationAnalysisDFTypestateChecker)
     warningsPerSnippetPerDatasetInfer = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[2], correlationAnalysisDFInfer)
-
+    print(warningsPerSnippetPerDatasetAllTools)
     # STEP 5:
     # Determine the number of warnings per dataset
     correlationAnalysisDFAllTools = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetAllTools), correlationAnalysisDFAllTools)

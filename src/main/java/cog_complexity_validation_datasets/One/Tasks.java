@@ -11,7 +11,7 @@ public class Tasks {
     /*REORDERED THE METHODS*/
 
     // 1. Faculty (Factorial)                                        /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main1(String[] args) {
         int result = 1;
         int x = 4;
@@ -22,9 +22,10 @@ public class Tasks {
         }
         System.out.println(result);
     }
+    //DATASET2END
 
     // 2. Count same chars at same positions in String              /*First and second pilot study*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main2(String[] args) {
         String string1 = "Magdeburg";
         String string2 = "Hamburg";
@@ -43,6 +44,7 @@ public class Tasks {
         }
         System.out.println(counter);
     }
+    //DATASET2END
 
     // 3. Greatest common divisor                                               /*Only in the first pilot study*/
     // Note: To allow compilation, number1 and number2 had to be defined
@@ -113,7 +115,7 @@ public class Tasks {
     }
 
     // 7. Find max in list of numbers                                           /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main7 (String[] args) {
         int array[] = {2, 19, 5, 17};
         int result = array[0];
@@ -122,9 +124,10 @@ public class Tasks {
                 result = array[i];
         System.out.println(result);
     }
+    //DATASET2END
 
     // 8. Cross sum                                                         /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main8(String[] args) {
         int number = 323;
         int result = 0;
@@ -135,6 +138,7 @@ public class Tasks {
         }
         System.out.println(result);
     }
+    //DATASET2END
 
     // 9. Prime test                                                       /*Tasks for fMRI-Setting*/
     //SNIPPET_STARTS
@@ -151,7 +155,7 @@ public class Tasks {
     }
 
     // 10. Find largest number of three numbers                                      /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main10(String[] args) {
         int num1 = 5;
         int num2 = 3;
@@ -164,9 +168,10 @@ public class Tasks {
         else if (num3 > num1 && num3 > num2)
             System.out.println(num3);
     }
+    //DATASET2END
 
     // 11. Power                                                                /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main11(String[] args) {
         int num1 = 2;
         int num2 = 3;
@@ -176,6 +181,7 @@ public class Tasks {
         }
         System.out.println(result);
     }
+    //DATASET2END
 
     // 12. Check palindrom                                          /*First and second pilot study*/
     //SNIPPET_STARTS
@@ -193,7 +199,7 @@ public class Tasks {
     }
 
     // 13. Swap                                                             /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main13(String[] args) {
         int var1 = 23;
         int var2 = 42;
@@ -203,9 +209,10 @@ public class Tasks {
         var2 = temp;
         System.out.println(var1);
     }
+    //DATASET2END
 
     // 14. Reverse string                                                       /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main14(String[] args) {
         String word = "Hello";
         String result = new String();
@@ -215,6 +222,7 @@ public class Tasks {
         
         System.out.println(word);
     }
+    //DATASET2END
 
     // 15. Matrix multiplication                                    /*Only in the first pilot study*/
     //SNIPPET_STARTS
@@ -251,7 +259,7 @@ public class Tasks {
     }
 
     // 17. Check whether substring is contained                                             /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main17(String[] args) {
         String word = "Programming in Java";
         String key1 = "Java";
@@ -269,6 +277,7 @@ public class Tasks {
         else
             System.out.println("Substring is not contained: " + key2);
     }
+    //DATASET2END
 
     // 18. Least common multiple                                /*Only in the first pilot study*/
     //SNIPPET_STARTS
@@ -312,7 +321,7 @@ public class Tasks {
     }
 
     // 20. Decimal to binary                                                                /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main20(String[] args) {
         int i=14;
         String result="";
@@ -326,9 +335,10 @@ public class Tasks {
         }
 
         System.out.println(result); }
+    //DATASET2END
     
     // 21. Reverse entries of array                                                 /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main21(String[] args) {
         int[] array = { 1, 6, 4, 10, 2 };
 
@@ -342,9 +352,10 @@ public class Tasks {
             System.out.println(array[i]);
         }
     }
+    //DATASET2END
 
     // 22. Median on sorted data                                                /*Tasks for fMRI-Setting*/
-    //SNIPPET_STARTS    DATASET2
+    //SNIPPET_STARTS    DATASET2START
     public static void main22(String[] args) {
         int[] array={1,2,4,5,6,10};
 
@@ -358,6 +369,7 @@ public class Tasks {
         
         System.out.println(b);
     }
+    //DATASET2END
 
     // 23. Double entries of array                              /*First and second pilot study*/
     //SNIPPET_STARTS

@@ -1,969 +1,978 @@
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1303: warning: Unsafe cast
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1304: warning: Unsafe cast
             JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:848: warning: Incompatible parameter: cannot cast from Shared{javax.swing.KeyStroke} | Null to Shared{javax.swing.KeyStroke}
-            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
-                                                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:851: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_ROLLOVER_IMAGE]
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:852: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_ROLLOVER_IMAGE]
             putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:852: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Incompatible parameter: cannot cast from Shared{javax.swing.KeyStroke} | Null to Shared{javax.swing.KeyStroke}
+            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+                                                                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:853: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
                     ImageLibrary.UNIT_BUTTON_DISBAND, 1));
                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:850: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
             putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
                                                                                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_IMAGE]
-            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:848: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
             super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
                                                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1303: warning: Unsafe cast
-            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1079: warning: Unsafe cast
-            suite= (Test) suiteMethod.invoke(null); // static method
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:500: warning: Unsafe cast
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:850: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_IMAGE]
+            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:501: warning: Unsafe cast
         fTest= (Ftest) test; // Type cast to Ftest to allow compilation
                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1274: warning: Unsafe cast
-        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1335: warning: Unsafe cast
-            className = (String) classNames.next();
-                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1127: warning: Unsafe cast
-        String classname = (String) in.readObject();
-                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1180: warning: Unsafe cast
-            dataServiceId = (String) in.readObject();
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:616: warning: Unsafe cast
-            String classname = (String) in.readObject();
-                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1222: warning: Unsafe cast
-        Program p = (Program) mProgramTableModel.getValueAt(row, 1);
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1128: warning: Unsafe cast
-        String devname = (String)in.readObject();
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:771: warning: Unsafe cast
-        MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
-                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:515: warning: Unsafe cast
-            Database db = (Database) it.next();
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:915: warning: Unsafe cast
-        Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1148: warning: Unsafe cast
-        isReadOnly = ((Boolean) info).booleanValue();
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1201: warning: Unsafe cast
-            clsName = (String) classNames.next();
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1119: warning: Unsafe cast
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1120: warning: Unsafe cast
         NameSpace oldTop = (NameSpace)(stack.elementAt(0));
                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1220: warning: Incompatible parameter: cannot cast from Shared{java.lang.Boolean[]} | Null to Shared{java.lang.Boolean[]}
-        mProgramTable.changeSelection(row, 0, false, false);
-                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1539: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DATABASE_ONLINE]
-            case DATABASE_ONLINE:
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1103: warning: Incompatible parameter: cannot cast from Null | Primitive{boolean} to Primitive{boolean}
-            loadMissionChip(gc, color, expertMission);
-                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:584: warning: Cannot access [cog_complexity_validation_datasets.Three.Trace.GENERAL_ERROR]
-            throw Trace.error(Trace.GENERAL_ERROR);
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:596: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
-        spinner.setToolTipText(option.toString()); // rename getShortDescription to toString to allow compilation
-                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:897: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Boolean[]} | Null
-        row[1] = ns.getCatalogName(row[0]);
-           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot call equals on null
-        row[2] = schema.equals(defschema) ? Boolean.TRUE
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:969: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.COLUMNS]
-        final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
-                                                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:899: warning: Cannot access [java.lang.Boolean.FALSE]
-                : Boolean.FALSE;
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1692: warning: Cannot call intValue on null
-            if (entry.getValue().intValue() < thisTurn - 1) {
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1181: warning: Unsafe cast
+            dataServiceId = (String) in.readObject();
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1223: warning: Unsafe cast
+        Program p = (Program) mProgramTableModel.getValueAt(row, 1);
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:772: warning: Unsafe cast
+        MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1655: warning: Cannot access [javax.swing.Action.NAME]
-        action.putValue(Action.NAME, mLocalizer.msg("CapturePlugin", "Capture Plugin"));
-                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1103: warning: Incompatible parameter: cannot cast from Shared{java.awt.GraphicsConfiguration} | Null to Shared{java.awt.GraphicsConfiguration}
-            loadMissionChip(gc, color, expertMission);
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1353: warning: Cannot access [java.awt.Color.WHITE]
-            g.setColor(Color.WHITE);
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:897: warning: Incompatible parameter: cannot cast from Shared{java.lang.Boolean} | Null to Shared{java.lang.Boolean}
-        row[1] = ns.getCatalogName(row[0]);
-                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:926: warning: Cannot assign because [this.t] is not accessible here
-                t = jj_consume_token(EQ);
-                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:929: warning: Cannot assign because [this.t] is not accessible here
-                t = jj_consume_token(NE);
-                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1677: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CASEWHEN]
-                && expression.exprType != CASEWHEN
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:404: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.RETURN]
-                case RETURN:
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:736: warning: Cannot access [dim.height]
-        int y = (screen.height - dim.height) / 2;
-                                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1332: warning: Cannot assign because [this.classNames] is not accessible here
-        classNames = classNameSet.iterator();
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1149: warning: Unsafe cast
+        isReadOnly = ((Boolean) info).booleanValue();
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1336: warning: Unsafe cast
+            className = (String) classNames.next();
+                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1304: warning: Unsafe cast
+            JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1129: warning: Unsafe cast
+        String devname = (String)in.readObject();
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1202: warning: Unsafe cast
+            clsName = (String) classNames.next();
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:516: warning: Unsafe cast
+            Database db = (Database) it.next();
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:617: warning: Unsafe cast
+            String classname = (String) in.readObject();
+                               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1128: warning: Unsafe cast
+        String classname = (String) in.readObject();
+                           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:916: warning: Unsafe cast
+        Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1080: warning: Unsafe cast
+            suite= (Test) suiteMethod.invoke(null); // static method
                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:415: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.ActionMenu} | Null
-            ActionMenu menu = actionList.get(0);
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:700: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1275: warning: Unsafe cast
+        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1181: warning: Cannot assign because [this.dataServiceId] is not accessible here
+            dataServiceId = (String) in.readObject();
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1065: warning: Cannot call createHelpTextArea on null
+        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:850: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
+            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+                                                                                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
+            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+                                                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:745: warning: Cannot call hasNext on null
+        for (Iterator<Runner> iter= fRunners.iterator(); iter.hasNext();) {
+                                                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:701: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
             return getTimeInMillis(tempCalDefault);
                                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1470: warning: Cannot assign because [this.core.mainColArray] is not accessible here
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1172: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        cv.visitInsn(opcode);
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1471: warning: Cannot access [this.core.mainColArray]
         core.mainColArray = mainCols;
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:594: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.spinner]
-        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1436: warning: Cannot call compareTo on null
-        if(dataServiceId.compareTo(cmpDataServiceId) != 0) {
-                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1360: warning: Cannot call getName on null
+            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1192: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Method} | Null
+        for (Method method : testMethods)
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1223: warning: Cannot call getValueAt on null
+        Program p = (Program) mProgramTableModel.getValueAt(row, 1);
+                                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1095: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Types.VARCHAR]
+        addColumn(t, "PROCEDURE_NAME", Types.VARCHAR, false);    // not null
+                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:899: warning: Cannot call equals on null
+        row[2] = schema.equals(defschema) ? Boolean.TRUE
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1678: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CASEWHEN]
+                && expression.exprType != CASEWHEN
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:594: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
+        int stepSize = Math.min((option.getMaximumValue() - option.getMinimumValue()) / 10, 1000);
+                                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:398: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.body]
+        Object ret = body.eval(callstack, interpreter);
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1361: warning: Cannot call getName on null
         out.writeObject(device.getDriver().getClass().getName());
                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:827: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-                return executeDeleteStatement(cs);
-                                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1678: warning: Cannot access field [exprType] of null
-                && expression.exprType != CONVERT) {
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1498: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.jjbitVec1]
-                if ((jjbitVec1[i1] & l1) != 0L)
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:816: warning: Cannot assign because [this.fContextLength] is not accessible here
-        fContextLength = contextLength;
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1102: warning: Cannot call getDefaultConfiguration on null
-                    .getDefaultConfiguration();
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1694: warning: Cannot call isLoggable on null
+                if (logger.isLoggable(Level.FINER)) {
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:834: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                return executeDDLStatement(cs);
+                                           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:553: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        btPanel.add(cancel);
                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1320: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-            return Assert.format(message, fExpected, fActual);
-                                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:901: warning: Cannot call insertSys on null
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:862: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+                clas, name, false/*onlyStatic*/);
+                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:759: warning: Cannot assign because [this.outlen] is not accessible here
+        outlen = parameters.length;
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1437: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+        if(dataServiceId.compareTo(cmpDataServiceId) != 0) {
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1000: warning: Cannot assign because [this.mName] is not accessible here
+        mName = stream.readUTF();
+              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1392: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+                    b[cols[j]], coltypes[cols[j]]);
+                                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:999: warning: Cannot assign because [this.mNumber] is not accessible here
+        mNumber = stream.readInt();
+                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1275: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
+        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
+                                                                                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1471: warning: Cannot assign because [this.core.mainColArray] is not accessible here
+        core.mainColArray = mainCols;
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1065: warning: Cannot call xy on null
+        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
+                                                                                                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1537: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DATABASE_CLOSING]
+            case DATABASE_CLOSING:
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:818: warning: Cannot assign because [this.fExpected] is not accessible here
+        fExpected = expected;
+                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:409: warning: Incompatible return value: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        return ret; // had to be added to allow compilation
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1221: warning: Cannot call changeSelection on null
+        mProgramTable.changeSelection(row, 0, false, false);
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1618: warning: Cannot assign because [this.x] is not accessible here
+            x = r;
+              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1425: warning: Cannot assign because [this.importedPackages] is not accessible here
+            importedPackages = new Vector();
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:642: warning: Cannot assign because [this.core] is not accessible here
+        core              = new ConstraintCore();
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:513: warning: Cannot call iterator on null
+        Iterator it = databaseIDMap.values().iterator();
+                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:804: warning: Cannot assign because [this.mYear] is not accessible here
+        mYear = mCalendar.get(Calendar.YEAR);
+              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1333: warning: Cannot call iterator on null
+        classNames = classNameSet.iterator();
+                                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:759: warning: Cannot access [this.parameters.length]
+        outlen = parameters.length;
+                           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:875: warning: Cannot call add on null
+                list.add(new ProgramReceiveTarget(this, config.getName(), config.getId()));
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1140: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        return Request.errorReport(fTestClass, error).getRunner();
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1157: warning: Cannot call getResponseBoolean on null
+        boolean response = warehouseDialog.getResponseBoolean();
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1221: warning: Incompatible parameter: cannot cast from Shared{java.lang.Boolean[]} | Null to Shared{java.lang.Boolean[]}
+        mProgramTable.changeSelection(row, 0, false, false);
+                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1599: warning: Cannot call getMethods on null
+        for (Method each : fKlass.getMethods()) {
+                                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1214: warning: Cannot call getMessageID on null
+            String ID = messages[i].getMessageID();
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:697: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
+        synchronized (tempCalDefault) {
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:902: warning: Cannot call insertSys on null
         t.insertSys(row);
          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1320: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-            return Assert.format(message, fExpected, fActual);
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot call [#helpers.arraySet] on Shared{java.lang.Boolean[]} | Null
-        row[2] = schema.equals(defschema) ? Boolean.TRUE
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1666: warning: Cannot call testCount on null
-        int n= ts.testCount();
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:699: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
+            resetToTime(tempCalDefault);
+                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:416: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.actionList]
+            ActionMenu menu = actionList.get(0);
+                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1261: warning: Cannot call checkColumnsMatch on null
+        t.checkColumnsMatch(tc.core.mainColArray, tc.core.refTable,
+         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1103: warning: Cannot call getDefaultConfiguration on null
+                    .getDefaultConfiguration();
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:453: warning: Cannot assign because [this.rightsMap] is not accessible here
+        rightsMap = new IntValueHashMap();
+                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:723: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
+                                                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1588: warning: Cannot call executeScript on null
+            res = mAppleScript.executeScript(CHANNELLIST);
+                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:927: warning: Cannot assign because [this.t] is not accessible here
+                t = jj_consume_token(EQ);
+                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:970: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DEFAULT_WIDTH]
+        final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
+                                                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:597: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
+        spinner.setToolTipText(option.toString()); // rename getShortDescription to toString to allow compilation
+                               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:403: warning: Cannot access [ret.kind]
+            switch(((ReturnControl)ret).kind )
+                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Boolean[]} | Null
+        row[1] = ns.getCatalogName(row[0]);
+                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1275: warning: Cannot assign because [this.loc] is not accessible here
+        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
+            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1540: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DATABASE_ONLINE]
+            case DATABASE_ONLINE:
                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1352: warning: Cannot call getGraphics on null
+        Graphics g = tempImage.getGraphics();
+                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1392: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+                    b[cols[j]], coltypes[cols[j]]);
+                                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:513: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.databaseIDMap]
+        Iterator it = databaseIDMap.values().iterator();
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1353: warning: Cannot access [java.awt.Color.BLACK]
+        if (c.equals(Color.BLACK)) {
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1679: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CONVERT]
+                && expression.exprType != CONVERT) {
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Boolean[]} | Null
+        row[1] = ns.getCatalogName(row[0]);
+           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:585: warning: Cannot access [cog_complexity_validation_datasets.Three.Trace.GENERAL_ERROR]
+            throw Trace.error(Trace.GENERAL_ERROR);
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1107: warning: Cannot assign because [this.missionChip] is not accessible here
+                missionChip = expertMissionChips.get(color);
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:676: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUX5]
+        mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
+                                                                                               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:899: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Boolean[]} | Null
+        row[2] = schema.equals(defschema) ? Boolean.TRUE
+           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:962: warning: Cannot access [this.next.last]
+        next.last  = other;
+            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1203: warning: Cannot call getCatalogName on null
+            clsCat = ns.getCatalogName(clsName);
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1202: warning: Cannot assign because [this.clsName] is not accessible here
+            clsName = (String) classNames.next();
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1615: warning: Cannot call getRight on null
+        Node r = x.getRight();
+                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1497: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.jjbitVec0]
+                return ((jjbitVec0[i2] & l2) != 0L);
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1139: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CONSTRUCTOR_ERROR_FORMAT]
+                CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
+                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1104: warning: Incompatible parameter: cannot cast from Shared{java.awt.GraphicsConfiguration} | Null to Shared{java.awt.GraphicsConfiguration}
+            loadMissionChip(gc, color, expertMission);
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1675: warning: Cannot access field [exprType] of null
+        if (expression.exprType != VALUE && expression.exprType != COLUMN
+                                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1371: warning: Cannot access [java.io.File.separator]
+                "CaptureDevices" + File.separator + mCount + ".dat");
+                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1067: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        mTimePanel = new TimeDateChooserPanel(date);
+                                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1361: warning: Cannot call writeObject on null
+        out.writeObject(device.getDriver().getClass().getName());
+           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:900: warning: Cannot access [java.lang.Boolean.FALSE]
+                : Boolean.FALSE;
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:605: warning: Cannot assign because [this.sourceFileInfo] is not accessible here
+        this.sourceFileInfo = sourceFileInfo;
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1676: warning: Cannot access field [exprType] of null
+                && expression.exprType != FUNCTION
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:533: warning: Cannot access [java.awt.event.KeyEvent.VK_NUMPAD1]
+            case KeyEvent.VK_NUMPAD1:
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1030: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ResultConstants.SQLDISCONNECT]
+            resultOut.setResultType(ResultConstants.SQLDISCONNECT);
+                                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1603: warning: Cannot call annotationType on null
+                    if (annotation.annotationType().getClass() == Parameters.class) //.getClass() ADDED BY KOBI
+                                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1080: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
+            suite= (Test) suiteMethod.invoke(null); // static method
+                                             ^
 src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1: warning: Cannot assign: cannot cast from Null | Primitive{int} to Primitive{int}
 package cog_complexity_validation_datasets.Three;
 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1629: warning: Cannot call setInGame on null
-        gui.setInGame(true);
-           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1336: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-            methods = iterateRoutineMethods(className, andAliases);
-                                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:734: warning: Cannot call getScreenSize on null
-        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:872: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.AbstractPluginProgramFormating} | Null
-        for(AbstractPluginProgramFormating config : mConfigs)
-                                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1274: warning: Cannot assign because [this.loc] is not accessible here
-        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
-            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:925: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.EQ]
-            case EQ:
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1213: warning: Cannot call getMessageID on null
-            String ID = messages[i].getMessageID();
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1353: warning: Cannot call setColor on null
-            g.setColor(Color.WHITE);
-             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:501: warning: Cannot assign because [this.fMethod] is not accessible here
-        fMethod= method;
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1360: warning: Cannot call writeObject on null
-        out.writeObject(device.getDriver().getClass().getName());
-           ^
 src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1: warning: Cannot call iterator on null
 package cog_complexity_validation_datasets.Three;
 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1274: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
-        loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
-                                                                                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1551: warning: Cannot call getSelectedTile on null
-            Position selectedTilePos = gui.getSelectedTile();
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1275: warning: Cannot call getDesktopManager on null
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1569: warning: Cannot assign because [this.curChar] is not accessible here
+        try { curChar = input_stream.readChar(); }
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:535: warning: Cannot access [cog_complexity_validation_datasets.Three.Map.SW]
+                inGameController.moveActiveUnit(Map.SW);
+                                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1685: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.Object}
+        return ddl;
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: Cannot call testCount on null
+        int n= ts.testCount();
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:595: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.spinner]
+        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1276: warning: Cannot call beginDraggingFrame on null
+        f.getDesktopPane().getDesktopManager().beginDraggingFrame(f);
+                                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1276: warning: Cannot call getDesktopManager on null
         f.getDesktopPane().getDesktopManager().beginDraggingFrame(f);
                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1171: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        cv.visitInsn(opcode);
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:642: warning: Cannot assign because [this.constName] is not accessible here
-        constName         = name;
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1455: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Method} | Null
-            Method method= iter.next();
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1336: warning: Cannot assign because [this.methods] is not accessible here
-            methods = iterateRoutineMethods(className, andAliases);
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1057: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-        return className.substring(i+1);
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:698: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
-            resetToTime(tempCalDefault);
-                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:674: warning: Cannot assign because [this.mPanel] is not accessible here
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:675: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
         mPanel = new CapturePluginPanel(mOwner, mCloneData);
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:534: warning: Cannot call moveActiveUnit on null
-                inGameController.moveActiveUnit(Map.SW);
-                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1391: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-                    b[cols[j]], coltypes[cols[j]]);
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:675: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUX5]
+                                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1678: warning: Cannot access field [exprType] of null
+                && expression.exprType != CASEWHEN
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:676: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUY5]
         mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
-                                                                                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:804: warning: Cannot assign because [this.mMonth] is not accessible here
-        mMonth = mCalendar.get(Calendar.MONTH) + 1;
+                                                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:760: warning: Cannot assign because [this.offset] is not accessible here
+        offset = 0;
                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1471: warning: Cannot assign because [this.core.colLen] is not accessible here
-        core.colLen       = core.mainColArray.length;
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:998: warning: Cannot assign because [this.mNumber] is not accessible here
-        mNumber = stream.readInt();
-                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:499: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
-        super1(test.getClass(), Before.class, After.class, test); // super() renamed to super1() to allow compilation
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:781: warning: Incompatible parameter: cannot cast from Shared{char[]} | Null to Shared{char[]}
-            return createEnumeration(((String) iterateOverMe).toCharArray());
-                                                                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:969: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DEFAULT_WIDTH]
-        final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
-                                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:785: warning: Cannot call toCharArray on null
-                    iterateOverMe.toString().toCharArray());
-                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:418: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
-                return null;
-                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:861: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-                clas, name, false/*onlyStatic*/);
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1026: warning: Cannot assign because [this.isClosed] is not accessible here
-        isClosed = true;
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:512: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.databaseIDMap]
-        Iterator it = databaseIDMap.values().iterator();
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:926: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.EQ]
-                t = jj_consume_token(EQ);
-                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:744: warning: Cannot call iterator on null
-        for (Iterator<Runner> iter= fRunners.iterator(); iter.hasNext();) {
-                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1675: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.FUNCTION]
-                && expression.exprType != FUNCTION
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:897: warning: Cannot call getCatalogName on null
-        row[1] = ns.getCatalogName(row[0]);
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1351: warning: Cannot call getGraphics on null
-        Graphics g = tempImage.getGraphics();
-                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1138: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CONSTRUCTOR_ERROR_FORMAT]
-                CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
-                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:848: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
-            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
-                                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:848: warning: Incompatible parameter: cannot cast from Shared{javax.swing.KeyStroke} | Null to Shared{javax.swing.KeyStroke}
-            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
-                                                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:961: warning: Cannot assign because [this.next.last] is not accessible here
-        next.last  = other;
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:817: warning: Cannot assign because [this.fExpected] is not accessible here
-        fExpected = expected;
-                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1224: warning: Cannot access [this.devplugin.Plugin]
-        JPopupMenu menu = devplugin.Plugin.getPluginManager().createPluginContextMenu(p, CapturePlugin.getInstance());
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1436: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-        if(dataServiceId.compareTo(cmpDataServiceId) != 0) {
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1101: warning: Cannot call getDefaultScreenDevice on null
-            GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
-                                                                                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1614: warning: Cannot call getRight on null
-        Node r = x.getRight();
-                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:970: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DEFAULT_HEIGHT]
-        final JTextField inputHeight = new JTextField(Integer.toString(DEFAULT_HEIGHT), COLUMNS);
-                                                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:454: warning: Cannot assign because [this.granteeManager] is not accessible here
-        granteeManager = man;
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:674: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        mPanel = new CapturePluginPanel(mOwner, mCloneData);
-                                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:803: warning: Cannot assign because [this.mYear] is not accessible here
-        mYear = mCalendar.get(Calendar.YEAR);
-              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1674: warning: Cannot access field [exprType] of null
-        if (expression.exprType != VALUE && expression.exprType != COLUMN
-                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:595: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
-                option.getMaximumValue(), Math.max(1, stepSize)));
-                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1681: warning: Cannot assign because [this.ddl] is not accessible here
-            ddl = temp.append('(').append(ddl).append(')').toString();
-                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1106: warning: Cannot assign because [this.missionChip] is not accessible here
-                missionChip = expertMissionChips.get(color);
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:534: warning: Cannot access [cog_complexity_validation_datasets.Three.Map.SW]
-                inGameController.moveActiveUnit(Map.SW);
-                                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1332: warning: Cannot call iterator on null
-        classNames = classNameSet.iterator();
-                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1029: warning: Cannot call setResultType on null
-            resultOut.setResultType(ResultConstants.SQLDISCONNECT);
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1260: warning: Cannot call checkColumnsMatch on null
-        t.checkColumnsMatch(tc.core.mainColArray, tc.core.refTable,
-         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:771: warning: Cannot call getActionManager on null
-        MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
-                                                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1656: warning: Cannot access [javax.swing.Action.SMALL_ICON]
-        action.putValue(Action.SMALL_ICON, createImageIcon("mimetypes", "video-x-generic", 16));
-                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1079: warning: Cannot assign because [this.suite] is not accessible here
-            suite= (Test) suiteMethod.invoke(null); // static method
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:758: warning: Cannot access [this.parameters.length]
-        outlen = parameters.length;
-                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:859: warning: Cannot call getClass on null
-        Class clas = object.getClass();
-                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:851: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_ROLLOVER_IMAGE]
-            putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1655: warning: Cannot call msg on null
-        action.putValue(Action.NAME, mLocalizer.msg("CapturePlugin", "Capture Plugin"));
-                                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1045: warning: Cannot assign because [this.blinkOn] is not accessible here
-            blinkOn = false;
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1064: warning: Cannot call msg on null
-        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
-                                                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot access [java.lang.Boolean.TRUE]
-        row[2] = schema.equals(defschema) ? Boolean.TRUE
-                                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:594: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
-        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
-                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:969: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-        final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
-                                                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:829: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CompiledStatement.CALL]
-            case CompiledStatement.CALL:
-                                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:696: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
-        synchronized (tempCalDefault) {
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1674: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.VALUE]
-        if (expression.exprType != VALUE && expression.exprType != COLUMN
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:720: warning: Incompatible parameter: cannot cast from Null | Primitive{int} to Primitive{int}
-            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
-                                                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:422: warning: Cannot call getAction on null
-                Action action = menu.getSubItems()[0].getAction();
-                                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1180: warning: Cannot assign because [this.dataServiceId] is not accessible here
-            dataServiceId = (String) in.readObject();
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1681: warning: Cannot call append on null
-            ddl = temp.append('(').append(ddl).append(')').toString();
-                                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1360: warning: Cannot call getDriver on null
-        out.writeObject(device.getDriver().getClass().getName());
-                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:641: warning: Cannot assign because [this.core] is not accessible here
-        core              = new ConstraintCore();
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:556: warning: Cannot access [java.awt.BorderLayout.SOUTH]
-        panel.add(btPanel, BorderLayout.SOUTH);
-                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:697: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
-            setTimeInMillis(tempCalDefault, t);
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:415: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.actionList]
-            ActionMenu menu = actionList.get(0);
-                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1222: warning: Cannot call getValueAt on null
-        Program p = (Program) mProgramTableModel.getValueAt(row, 1);
-                                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1454: warning: Cannot call iterator on null
-        for (Iterator<Method> iter= fTestMethods.iterator(); iter.hasNext();) {
-                                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1693: warning: Cannot call isLoggable on null
-                if (logger.isLoggable(Level.FINER)) {
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:771: warning: Cannot access [cog_complexity_validation_datasets.Three.MapControlsAction.ID]
-        MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
-                                                                                                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1472: warning: Cannot assign because [this.core.refColArray] is not accessible here
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1473: warning: Cannot assign because [this.core.refColArray] is not accessible here
         core.refColArray  = refCols;
                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:593: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
-        int stepSize = Math.min((option.getMaximumValue() - option.getMinimumValue()) / 10, 1000);
-                                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1137: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-        InitializationError error= new InitializationError(String.format(
-                                                                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:594: warning: Cannot assign because [cog_complexity_validation_datasets.Three.Tasks.spinner] is not accessible here
-        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
-                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1674: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.COLUMN]
-        if (expression.exprType != VALUE && expression.exprType != COLUMN
-                                                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:500: warning: Cannot assign because [this.fTest] is not accessible here
-        fTest= (Ftest) test; // Type cast to Ftest to allow compilation
-             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1103: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-            loadMissionChip(gc, color, expertMission);
-                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:804: warning: Cannot access [java.util.Calendar.MONTH]
-        mMonth = mCalendar.get(Calendar.MONTH) + 1;
-                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1092: warning: Incompatible parameter: cannot cast from Shared{cog_complexity_validation_datasets.Three.Tasks.Ns} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Ns}
-        addColumn(t, "PROCEDURE_CAT", Types.VARCHAR);
-                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1352: warning: Cannot access [java.awt.Color.BLACK]
-        if (c.equals(Color.BLACK)) {
-                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:960: warning: Cannot access [other.last]
-        other.last = this;
-             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1271: warning: Cannot call getDesktopPane on null
-        if (f.getDesktopPane() == null || f.getDesktopPane().getDesktopManager() == null) {
-             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1470: warning: Cannot access [this.core.mainColArray]
-        core.mainColArray = mainCols;
-            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:402: warning: Cannot access [ret.kind]
-            switch(((ReturnControl)ret).kind )
-                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1119: warning: Cannot call elementAt on null
-        NameSpace oldTop = (NameSpace)(stack.elementAt(0));
-                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:970: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.COLUMNS]
-        final JTextField inputHeight = new JTextField(Integer.toString(DEFAULT_HEIGHT), COLUMNS);
-                                                                                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:675: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUY5]
-        mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
-                                                                                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:529: warning: Cannot access [java.awt.event.KeyEvent.VK_ESCAPE]
-            case KeyEvent.VK_ESCAPE:
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1220: warning: Cannot call changeSelection on null
-        mProgramTable.changeSelection(row, 0, false, false);
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:901: warning: Incompatible parameter: cannot cast from Shared{java.lang.Boolean[]} | Null to Shared{java.lang.Boolean[]}
-        t.insertSys(row);
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:722: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-            System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:720: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
-                                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:961: warning: Cannot access [this.next.last]
-        next.last  = other;
-            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:675: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUX5]
-        mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
-                                                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:735: warning: Cannot access [dim.width]
-        int x = (screen.width - dim.width) / 2;
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1094: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Types.VARCHAR]
-        addColumn(t, "PROCEDURE_NAME", Types.VARCHAR, false);    // not null
-                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:397: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.interpreter]
-        Object ret = body.eval(callstack, interpreter);
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:785: warning: Incompatible parameter: cannot cast from Shared{char[]} | Null to Shared{char[]}
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1483: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.MESSAGE_COUNT]
+        if (getMessageCount() == MESSAGE_COUNT) {
+                                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:597: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.spinner]
+        spinner.setToolTipText(option.toString()); // rename getShortDescription to toString to allow compilation
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:927: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.EQ]
+                t = jj_consume_token(EQ);
+                                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1569: warning: Cannot call readChar on null
+        try { curChar = input_stream.readChar(); }
+                                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:786: warning: Incompatible parameter: cannot cast from Shared{char[]} | Null to Shared{char[]}
                     iterateOverMe.toString().toCharArray());
                                                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1587: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CHANNELLIST]
-            res = mAppleScript.executeScript(CHANNELLIST);
-                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1391: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-                    b[cols[j]], coltypes[cols[j]]);
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:850: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_IMAGE]
+            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:452: warning: Cannot assign because [this.rightsMap] is not accessible here
-        rightsMap = new IntValueHashMap();
-                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:735: warning: Cannot access [screen.width]
-        int x = (screen.width - dim.width) / 2;
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1075: warning: Cannot call getMethod on null
-            suiteMethod= klass.getMethod("suite");
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:745: warning: Cannot call iterator on null
+        for (Iterator<Runner> iter= fRunners.iterator(); iter.hasNext();) {
+                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1104: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            loadMissionChip(gc, color, expertMission);
+                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1391: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+            int i = Column.compare(session.database.collation, a[cols[j]],
+                                                                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:500: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+        super1(test.getClass(), Before.class, After.class, test); // super() renamed to super1() to allow compilation
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:831: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                return executeCallStatement(cs);
+                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:877: warning: Cannot call isEmpty on null
+        if(list.isEmpty())
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1122: warning: Incompatible return value: cannot cast from Shared{cog_complexity_validation_datasets.Three.Tasks.NameSpace} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.NameSpace}
+        return oldTop;
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:961: warning: Cannot access [other.last]
+        other.last = this;
+             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:617: warning: Cannot call readObject on null
+            String classname = (String) in.readObject();
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1361: warning: Cannot call getDriver on null
+        out.writeObject(device.getDriver().getClass().getName());
                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:545: warning: Cannot assign because [this.asClass] is not accessible here
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1080: warning: Cannot assign because [this.suite] is not accessible here
+            suite= (Test) suiteMethod.invoke(null); // static method
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1510: warning: Cannot call inDaylightTime on null
+            if(java.util.TimeZone.getDefault().inDaylightTime(date))
+                                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:662: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.IRETURN]
+            int opcode = IRETURN;
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1641: warning: Cannot call getGame on null
+        final Game game = freeColClient.getGame();
+                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:534: warning: Cannot access [java.awt.event.KeyEvent.VK_END]
+            case KeyEvent.VK_END:
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1675: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.VALUE]
+        if (expression.exprType != VALUE && expression.exprType != COLUMN
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:455: warning: Cannot assign because [this.granteeManager] is not accessible here
+        granteeManager = man;
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot call getCatalogName on null
+        row[1] = ns.getCatalogName(row[0]);
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1128: warning: Cannot call readObject on null
+        String classname = (String) in.readObject();
+                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:930: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.NE]
+                t = jj_consume_token(NE);
+                                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:594: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
+        int stepSize = Math.min((option.getMaximumValue() - option.getMinimumValue()) / 10, 1000);
+                                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:433: warning: Incompatible parameter: cannot cast from Null | Primitive{int} to Primitive{int}
+        String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
+                                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1159: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Object}
+        return response;
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1472: warning: Cannot access [this.core.colLen]
+        core.colLen       = core.mainColArray.length;
+            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:596: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
+                option.getMaximumValue(), Math.max(1, stepSize)));
+                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1261: warning: Cannot access [this.tc.core]
+        t.checkColumnsMatch(tc.core.mainColArray, tc.core.refTable,
+                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:515: warning: Cannot call hasNext on null
+        while (it.hasNext()) {
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:595: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
+        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
+                                                                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1370: warning: Cannot access [java.io.File.separator]
+        File data = new File(Plugin.getPluginManager().getTvBrowserSettings().getTvBrowserUserHome()  + File.separator +
+                                                                                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1391: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+            int i = Column.compare(session.database.collation, a[cols[j]],
+                                                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1065: warning: Cannot call add on null
+        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
+             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:833: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CompiledStatement.DDL]
+            case CompiledStatement.DDL:
+                                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1375: warning: Cannot call writeData on null
+        dev.writeData(stream);
+           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:501: warning: Cannot assign because [this.fTest] is not accessible here
+        fTest= (Ftest) test; // Type cast to Ftest to allow compilation
+             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1067: warning: Cannot assign because [this.mTimePanel] is not accessible here
+        mTimePanel = new TimeDateChooserPanel(date);
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1455: warning: Cannot call iterator on null
+        for (Iterator<Method> iter= fTestMethods.iterator(); iter.hasNext();) {
+                                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:454: warning: Cannot assign because [this.granteeName] is not accessible here
+        granteeName = name;
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:804: warning: Cannot call get on null
+        mYear = mCalendar.get(Calendar.YEAR);
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1272: warning: Cannot call getDesktopPane on null
+        if (f.getDesktopPane() == null || f.getDesktopPane().getDesktopManager() == null) {
+             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:535: warning: Cannot call moveActiveUnit on null
+                inGameController.moveActiveUnit(Map.SW);
+                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1093: warning: Incompatible parameter: cannot cast from Shared{cog_complexity_validation_datasets.Three.Tasks.Ns} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Ns}
+        addColumn(t, "PROCEDURE_CAT", Types.VARCHAR);
+                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1656: warning: Cannot call msg on null
+        action.putValue(Action.NAME, mLocalizer.msg("CapturePlugin", "Capture Plugin"));
+                                               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1679: warning: Cannot access field [exprType] of null
+                && expression.exprType != CONVERT) {
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:476: warning: Cannot assign because [this.jj_scanpos] is not accessible here
+            jj_scanpos = xsp;
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:899: warning: Cannot call [#helpers.arraySet] on Shared{java.lang.Boolean[]} | Null
+        row[2] = schema.equals(defschema) ? Boolean.TRUE
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:789: warning: Cannot call getClass on null
+                "Cannot enumerate object of type " + iterateOverMe.getClass());
+                                                                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1437: warning: Cannot call compareTo on null
+        if(dataServiceId.compareTo(cmpDataServiceId) != 0) {
+                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:676: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUX5]
+        mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
+                                                                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1225: warning: Cannot access [this.devplugin.Plugin]
+        JPopupMenu menu = devplugin.Plugin.getPluginManager().createPluginContextMenu(p, CapturePlugin.getInstance());
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:546: warning: Cannot assign because [this.asClass] is not accessible here
         asClass = clas;
                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:736: warning: Cannot access [screen.height]
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:423: warning: Cannot call getAction on null
+                Action action = menu.getSubItems()[0].getAction();
+                                                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1550: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ViewMode.VIEW_TERRAIN_MODE]
+        if (currentMode == ViewMode.VIEW_TERRAIN_MODE) {
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot call [#helpers.arraySet] on Shared{java.lang.Boolean[]} | Null
+        row[1] = ns.getCatalogName(row[0]);
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:771: warning: Cannot assign because [this.currentMapTransform] is not accessible here
+        currentMapTransform = mt;
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1656: warning: Cannot access [javax.swing.Action.NAME]
+        action.putValue(Action.NAME, mLocalizer.msg("CapturePlugin", "Capture Plugin"));
+                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:398: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.callstack]
+        Object ret = body.eval(callstack, interpreter);
+                               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1030: warning: Cannot call setResultType on null
+            resultOut.setResultType(ResultConstants.SQLDISCONNECT);
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1195: warning: Incompatible return value: cannot cast from Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Description}
+        return null; // Added to allow compilation
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:595: warning: Cannot assign because [cog_complexity_validation_datasets.Three.Tasks.spinner] is not accessible here
+        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
+                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:899: warning: Cannot access [java.lang.Boolean.TRUE]
+        row[2] = schema.equals(defschema) ? Boolean.TRUE
+                                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1675: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.COLUMN]
+        if (expression.exprType != VALUE && expression.exprType != COLUMN
+                                                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1027: warning: Cannot assign because [this.isClosed] is not accessible here
+        isClosed = true;
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:961: warning: Cannot assign because [other.last] is not accessible here
+        other.last = this;
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:737: warning: Cannot access [screen.height]
         int y = (screen.height - dim.height) / 2;
                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1202: warning: Cannot assign because [this.clsCat] is not accessible here
-            clsCat = ns.getCatalogName(clsName);
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:852: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_ROLLOVER_IMAGE]
+            putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1333: warning: Cannot assign because [this.classNames] is not accessible here
+        classNames = classNameSet.iterator();
                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:722: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-            System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
-                                                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:861: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
-                clas, name, false/*onlyStatic*/);
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1692: warning: Cannot call entrySet on null
+        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
+                                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1201: warning: Cannot call hasNext on null
+        while (classNames.hasNext()) {
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:525: warning: Cannot call isMapboardActionsEnabled on null
+        if (!parent.isMapboardActionsEnabled()) {
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:419: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+                return null;
                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1146: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Session.INFO_CONNECTION_READONLY]
-        Object info = getAttribute(Session.INFO_CONNECTION_READONLY);
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1272: warning: Cannot call getDesktopManager on null
+        if (f.getDesktopPane() == null || f.getDesktopPane().getDesktopManager() == null) {
+                                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1204: warning: Cannot assign because [this.clsSchem] is not accessible here
+            clsSchem = ns.getSchemaName(clsName);
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1337: warning: Cannot assign because [this.methods] is not accessible here
+            methods = iterateRoutineMethods(className, andAliases);
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:723: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Incompatible parameter: cannot cast from Shared{javax.swing.KeyStroke} | Null to Shared{javax.swing.KeyStroke}
+            super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+                                                                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1392: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+                    b[cols[j]], coltypes[cols[j]]);
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1336: warning: Cannot assign because [this.className] is not accessible here
+            className = (String) classNames.next();
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1677: warning: Cannot access field [exprType] of null
+                && expression.exprType != ALTERNATIVE
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:643: warning: Cannot assign because [this.constName] is not accessible here
+        constName         = name;
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:746: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Runner} | Null
+            Runner runner = iter.next();
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:612: warning: Cannot assign because [this.mDevices] is not accessible here
+        mDevices = new Vector<DeviceIf>();
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1499: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.jjbitVec1]
+                if ((jjbitVec1[i1] & l1) != 0L)
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:817: warning: Cannot assign because [this.fContextLength] is not accessible here
+        fContextLength = contextLength;
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:971: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.COLUMNS]
+        final JTextField inputHeight = new JTextField(Integer.toString(DEFAULT_HEIGHT), COLUMNS);
+                                                                                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:502: warning: Cannot assign because [this.fMethod] is not accessible here
+        fMethod= method;
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1046: warning: Cannot assign because [this.blinkOn] is not accessible here
+            blinkOn = false;
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1682: warning: Cannot call append on null
+            ddl = temp.append('(').append(ddl).append(')').toString();
+                                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1509: warning: Cannot call useDaylightTime on null
+        if(java.util.TimeZone.getDefault().useDaylightTime()){
                                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:579: warning: Cannot call remove on null
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:580: warning: Cannot call remove on null
         Object owner = nameList.remove(name);
                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:552: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        btPanel.add(cancel);
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1290: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ACC_PUBLIC]
-            mods += ACC_PUBLIC;
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:499: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Before.class]
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1693: warning: Cannot call intValue on null
+            if (entry.getValue().intValue() < thisTurn - 1) {
+                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1094: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Types.VARCHAR]
+        addColumn(t, "PROCEDURE_SCHEM", Types.VARCHAR);
+                                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:595: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
+        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
+                                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:862: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                clas, name, false/*onlyStatic*/);
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:721: warning: Incompatible parameter: cannot cast from Null | Primitive{int} to Primitive{int}
+            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
+                                                               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:804: warning: Cannot access [java.util.Calendar.YEAR]
+        mYear = mCalendar.get(Calendar.YEAR);
+                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1263: warning: Cannot call commit on null
+        session.commit();
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1676: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.FUNCTION]
+                && expression.exprType != FUNCTION
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:786: warning: Cannot call toCharArray on null
+                    iterateOverMe.toString().toCharArray());
+                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1137: warning: Cannot call getSimpleName on null
+        String simpleName= runnerClass.getSimpleName();
+                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1600: warning: Cannot call getModifiers on null
+            if (Modifier.isStatic(each.getModifiers())) {
+                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:926: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.EQ]
+            case EQ:
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1076: warning: Cannot assign because [this.suiteMethod] is not accessible here
+            suiteMethod= klass.getMethod("suite");
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:530: warning: Cannot access [java.awt.event.KeyEvent.VK_ESCAPE]
+            case KeyEvent.VK_ESCAPE:
+                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:929: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.NE]
+            case NE:
+                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:466: warning: Incompatible parameter: cannot cast from Null to Shared{java.awt.Window}
+            gd.setFullScreenWindow(null);
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1138: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+        InitializationError error= new InitializationError(String.format(
+                                                                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:712: warning: Cannot call add on null
+            destinations.add(new ChoiceItem(s.toString() + " (" + turns + ")", s));
+                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:930: warning: Cannot assign because [this.t] is not accessible here
+                t = jj_consume_token(NE);
+                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:676: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUY5]
+        mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
+                                                                                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:500: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Before.class]
         super1(test.getClass(), Before.class, After.class, test); // super() renamed to super1() to allow compilation
                                       ^
 src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:970: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-        final JTextField inputHeight = new JTextField(Integer.toString(DEFAULT_HEIGHT), COLUMNS);
-                                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:524: warning: Cannot call isMapboardActionsEnabled on null
-        if (!parent.isMapboardActionsEnabled()) {
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1472: warning: Cannot access [this.core.refColArray]
-        core.refColArray  = refCols;
-            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Boolean[]} | Null
-        row[2] = schema.equals(defschema) ? Boolean.TRUE
-           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:832: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CompiledStatement.DDL]
-            case CompiledStatement.DDL:
-                                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:611: warning: Cannot assign because [this.mDevices] is not accessible here
-        mDevices = new Vector<DeviceIf>();
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1211: warning: Cannot access field [length] of null
-        ImageIcon[] images = new ImageIcon[messages.length];
-                                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1684: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.Object}
-        return ddl;
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1681: warning: Cannot call append on null
-            ddl = temp.append('(').append(ddl).append(')').toString();
-                                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1064: warning: Cannot call createHelpTextArea on null
-        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:803: warning: Cannot call get on null
-        mYear = mCalendar.get(Calendar.YEAR);
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1158: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Object}
-        return response;
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:960: warning: Cannot assign because [other.last] is not accessible here
-        other.last = this;
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:593: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
-        int stepSize = Math.min((option.getMaximumValue() - option.getMinimumValue()) / 10, 1000);
-                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:676: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        mPanel.setSelectedTab(mCurrentPanel);
-                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1676: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ALTERNATIVE]
-                && expression.exprType != ALTERNATIVE
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1066: warning: Cannot assign because [this.mTimePanel] is not accessible here
-        mTimePanel = new TimeDateChooserPanel(date);
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:999: warning: Cannot assign because [this.mName] is not accessible here
-        mName = stream.readUTF();
-              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:604: warning: Cannot assign because [this.sourceFileInfo] is not accessible here
-        this.sourceFileInfo = sourceFileInfo;
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:675: warning: Cannot access [cog_complexity_validation_datasets.Three.Sizes.DLUY5]
-        mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
-                                                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1156: warning: Cannot call getResponseBoolean on null
-        boolean response = warehouseDialog.getResponseBoolean();
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:959: warning: Cannot assign because [other.next] is not accessible here
-        other.next = next;
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:833: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-                return executeDDLStatement(cs);
-                                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:499: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.After.class]
-        super1(test.getClass(), Before.class, After.class, test); // super() renamed to super1() to allow compilation
-                                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1064: warning: Cannot call xy on null
-        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
-                                                                                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1092: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Types.VARCHAR]
+        final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
+                                                                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:772: warning: Cannot access [cog_complexity_validation_datasets.Three.MapControlsAction.ID]
+        MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
+                                                                                                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1093: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Types.VARCHAR]
         addColumn(t, "PROCEDURE_CAT", Types.VARCHAR);
                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.BUTTON_IMAGE]
-            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:803: warning: Cannot access [java.util.Calendar.YEAR]
-        mYear = mCalendar.get(Calendar.YEAR);
-                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:512: warning: Cannot call iterator on null
-        Iterator it = databaseIDMap.values().iterator();
-                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1271: warning: Cannot call getDesktopManager on null
-        if (f.getDesktopPane() == null || f.getDesktopPane().getDesktopManager() == null) {
-                                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1675: warning: Cannot access field [exprType] of null
-                && expression.exprType != FUNCTION
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1260: warning: Cannot access field [core] of null
-        t.checkColumnsMatch(tc.core.mainColArray, tc.core.refTable,
-                                                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1390: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-            int i = Column.compare(session.database.collation, a[cols[j]],
-                                                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1066: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        mTimePanel = new TimeDateChooserPanel(date);
-                                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1391: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-                    b[cols[j]], coltypes[cols[j]]);
-                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1262: warning: Cannot call commit on null
-        session.commit();
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:788: warning: Cannot call getClass on null
-                "Cannot enumerate object of type " + iterateOverMe.getClass());
-                                                                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1390: warning: Cannot access field [database] of null
-            int i = Column.compare(session.database.collation, a[cols[j]],
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1354: warning: Cannot access [java.awt.Color.WHITE]
+            g.setColor(Color.WHITE);
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1677: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ALTERNATIVE]
+                && expression.exprType != ALTERNATIVE
                                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:643: warning: Cannot assign because [this.constType] is not accessible here
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:960: warning: Cannot assign because [other.next] is not accessible here
+        other.next = next;
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1203: warning: Cannot assign because [this.clsCat] is not accessible here
+            clsCat = ns.getCatalogName(clsName);
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1321: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+            return Assert.format(message, fExpected, fActual);
+                                                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:827: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CompiledStatement.DELETE]
+            case CompiledStatement.DELETE:
+                                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:721: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
+                                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1675: warning: Cannot access [this.expression.exprType]
+        if (expression.exprType != VALUE && expression.exprType != COLUMN
+                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1682: warning: Cannot call toString on null
+            ddl = temp.append('(').append(ddl).append(')').toString();
+                                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:675: warning: Cannot assign because [this.mPanel] is not accessible here
+        mPanel = new CapturePluginPanel(mOwner, mCloneData);
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:677: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        mPanel.setSelectedTab(mCurrentPanel);
+                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1627: warning: Cannot call getInGameInputHandler on null
+        InGameInputHandler inGameInputHandler = freeColClient.getInGameInputHandler();
+                                                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:805: warning: Cannot assign because [this.mMonth] is not accessible here
+        mMonth = mCalendar.get(Calendar.MONTH) + 1;
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:971: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+        final JTextField inputHeight = new JTextField(Integer.toString(DEFAULT_HEIGHT), COLUMNS);
+                                                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:772: warning: Cannot call getActionManager on null
+        MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
+                                                                 ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:828: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                return executeDeleteStatement(cs);
+                                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:805: warning: Cannot access [java.util.Calendar.MONTH]
+        mMonth = mCalendar.get(Calendar.MONTH) + 1;
+                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:873: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.AbstractPluginProgramFormating} | Null
+        for(AbstractPluginProgramFormating config : mConfigs)
+                                           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1337: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            methods = iterateRoutineMethods(className, andAliases);
+                                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1147: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Session.INFO_CONNECTION_READONLY]
+        Object info = getAttribute(Session.INFO_CONNECTION_READONLY);
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1212: warning: Cannot access field [length] of null
+        ImageIcon[] images = new ImageIcon[messages.length];
+                                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1211: warning: Cannot access [this.messages.length]
+        String[] texts = new String[messages.length];
+                                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:971: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DEFAULT_HEIGHT]
+        final JTextField inputHeight = new JTextField(Integer.toString(DEFAULT_HEIGHT), COLUMNS);
+                                                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:970: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.COLUMNS]
+        final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
+                                                                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1392: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
+                    b[cols[j]], coltypes[cols[j]]);
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1139: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:782: warning: Incompatible parameter: cannot cast from Shared{char[]} | Null to Shared{char[]}
+            return createEnumeration(((String) iterateOverMe).toCharArray());
+                                                                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:737: warning: Cannot access [dim.height]
+        int y = (screen.height - dim.height) / 2;
+                                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:819: warning: Cannot assign because [this.fActual] is not accessible here
+        fActual = actual;
+                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1104: warning: Incompatible parameter: cannot cast from Null | Primitive{boolean} to Primitive{boolean}
+            loadMissionChip(gc, color, expertMission);
+                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:960: warning: Cannot access [other.next]
+        other.next = next;
+             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1058: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+        return className.substring(i+1);
+        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:698: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.tempCalDefault]
+            setTimeInMillis(tempCalDefault, t);
+                            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1682: warning: Cannot assign because [this.ddl] is not accessible here
+            ddl = temp.append('(').append(ddl).append(')').toString();
+                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:860: warning: Cannot call getClass on null
+        Class clas = object.getClass();
+                           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:474: warning: Cannot assign because [this.xsp] is not accessible here
+        xsp = jj_scanpos;
+            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:644: warning: Cannot assign because [this.constType] is not accessible here
         constType         = type;
                           ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1568: warning: Cannot assign because [this.curChar] is not accessible here
-        try { curChar = input_stream.readChar(); }
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1201: warning: Cannot assign because [this.clsName] is not accessible here
-            clsName = (String) classNames.next();
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1369: warning: Cannot access [java.io.File.separator]
-        File data = new File(Plugin.getPluginManager().getTvBrowserSettings().getTvBrowserUserHome()  + File.separator +
-                                                                                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1191: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Method} | Null
-        for (Method method : testMethods)
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:408: warning: Incompatible return value: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        return ret; // had to be added to allow compilation
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1496: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.jjbitVec0]
-                return ((jjbitVec0[i2] & l2) != 0L);
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1136: warning: Cannot call getSimpleName on null
-        String simpleName= runnerClass.getSimpleName();
-                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1194: warning: Incompatible return value: cannot cast from Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Description}
-        return null; // Added to allow compilation
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1677: warning: Cannot access field [exprType] of null
-                && expression.exprType != CASEWHEN
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:759: warning: Cannot assign because [this.offset] is not accessible here
-        offset = 0;
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:649: warning: Cannot assign: cannot cast from Null | Primitive{int} to Primitive{int}
-        int eventId = active? ON : OFF;
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1473: warning: Cannot access [this.core.refColArray]
+        core.refColArray  = refCols;
             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1391: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-                    b[cols[j]], coltypes[cols[j]]);
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:721: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
+                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:962: warning: Cannot assign because [this.next.last] is not accessible here
+        next.last  = other;
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1065: warning: Cannot call msg on null
+        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
+                                                           ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:398: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.interpreter]
+        Object ret = body.eval(callstack, interpreter);
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:553: warning: Cannot call add on null
+        btPanel.add(cancel);
+               ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:675: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        mPanel = new CapturePluginPanel(mOwner, mCloneData);
                                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1210: warning: Cannot access [this.messages.length]
-        String[] texts = new String[messages.length];
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:830: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CompiledStatement.CALL]
+            case CompiledStatement.CALL:
+                                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1291: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ACC_PUBLIC]
+            mods += ACC_PUBLIC;
+                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1456: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Method} | Null
+            Method method= iter.next();
+                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:405: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.RETURN]
+                case RETURN:
+                     ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1120: warning: Cannot call elementAt on null
+        NameSpace oldTop = (NameSpace)(stack.elementAt(0));
                                             ^
 src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1: warning: Cannot call iterator on null
 package cog_complexity_validation_datasets.Three;
 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1200: warning: Cannot call hasNext on null
-        while (classNames.hasNext()) {
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:414: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.actionList]
-        if (actionList.size() == 1) {
-            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:745: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.Runner} | Null
-            Runner runner = iter.next();
-                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:616: warning: Cannot call readObject on null
-            String classname = (String) in.readObject();
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1171: warning: Cannot call visitInsn on null
-        cv.visitInsn(opcode);
-          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1203: warning: Cannot assign because [this.clsSchem] is not accessible here
-            clsSchem = ns.getSchemaName(clsName);
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1665: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        Description description= Description.createSuiteDescription(name);
-                                                                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:473: warning: Cannot assign because [this.xsp] is not accessible here
-        xsp = jj_scanpos;
-            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:959: warning: Cannot access [other.next]
-        other.next = next;
-             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1508: warning: Cannot call useDaylightTime on null
-        if(java.util.TimeZone.getDefault().useDaylightTime()){
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1691: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.util.Map.Entry} | Null
-        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
-                                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1335: warning: Cannot assign because [this.className] is not accessible here
-            className = (String) classNames.next();
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1079: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
-            suite= (Test) suiteMethod.invoke(null); // static method
-                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1029: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ResultConstants.SQLDISCONNECT]
-            resultOut.setResultType(ResultConstants.SQLDISCONNECT);
-                                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:397: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.callstack]
-        Object ret = body.eval(callstack, interpreter);
-                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1471: warning: Cannot access [this.core.colLen]
-        core.colLen       = core.mainColArray.length;
-            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:897: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Boolean[]} | Null
-        row[1] = ns.getCatalogName(row[0]);
-                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1370: warning: Cannot access [java.io.File.separator]
-                "CaptureDevices" + File.separator + mCount + ".dat");
-                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1691: warning: Cannot call entrySet on null
-        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
-                                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1121: warning: Incompatible return value: cannot cast from Shared{cog_complexity_validation_datasets.Three.Tasks.NameSpace} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.NameSpace}
-        return oldTop;
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:852: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
-                    ImageLibrary.UNIT_BUTTON_DISBAND, 1));
-                                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1640: warning: Cannot call getGame on null
-        final Game game = freeColClient.getGame();
-                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1674: warning: Cannot access [this.expression.exprType]
-        if (expression.exprType != VALUE && expression.exprType != COLUMN
-                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:826: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CompiledStatement.DELETE]
-            case CompiledStatement.DELETE:
-                                  ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1390: warning: Cannot call [#helpers.arrayAccess] on Shared{int[]} | Null
-            int i = Column.compare(session.database.collation, a[cols[j]],
-                                                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:453: warning: Cannot assign because [this.granteeName] is not accessible here
-        granteeName = name;
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:902: warning: Incompatible parameter: cannot cast from Shared{java.lang.Boolean[]} | Null to Shared{java.lang.Boolean[]}
+        t.insertSys(row);
                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:876: warning: Cannot call isEmpty on null
-        if(list.isEmpty())
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:897: warning: Cannot call [#helpers.arraySet] on Shared{java.lang.Boolean[]} | Null
-        row[1] = ns.getCatalogName(row[0]);
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:720: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-            System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1075: warning: Cannot assign because [this.suiteMethod] is not accessible here
-            suiteMethod= klass.getMethod("suite");
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:596: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.spinner]
-        spinner.setToolTipText(option.toString()); // rename getShortDescription to toString to allow compilation
-        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1138: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
-                CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1617: warning: Cannot assign because [this.x] is not accessible here
-            x = r;
-              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1482: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.MESSAGE_COUNT]
-        if (getMessageCount() == MESSAGE_COUNT) {
-                                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:928: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.NE]
-            case NE:
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1180: warning: Cannot call readObject on null
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1181: warning: Cannot call readObject on null
             dataServiceId = (String) in.readObject();
                                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1587: warning: Cannot call executeScript on null
-            res = mAppleScript.executeScript(CHANNELLIST);
-                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1568: warning: Cannot call readChar on null
-        try { curChar = input_stream.readChar(); }
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1692: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.util.Map.Entry} | Null
+        for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {
                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:758: warning: Cannot assign because [this.outlen] is not accessible here
-        outlen = parameters.length;
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1064: warning: Cannot call add on null
-        panel.add(UiUtilities.createHelpTextArea(mLocalizer.msg("help","No endtime defined")), cc.xy(1,1));
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:736: warning: Cannot access [screen.width]
+        int x = (screen.width - dim.width) / 2;
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1588: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CHANNELLIST]
+            res = mAppleScript.executeScript(CHANNELLIST);
+                                             ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1391: warning: Cannot access field [database] of null
+            int i = Column.compare(session.database.collation, a[cols[j]],
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1666: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+        Description description= Description.createSuiteDescription(name);
+                                                                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:650: warning: Cannot assign: cannot cast from Null | Primitive{int} to Primitive{int}
+        int eventId = active? ON : OFF;
+            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1354: warning: Cannot call setColor on null
+            g.setColor(Color.WHITE);
              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1536: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.DATABASE_CLOSING]
-            case DATABASE_CLOSING:
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1275: warning: Cannot call beginDraggingFrame on null
-        f.getDesktopPane().getDesktopManager().beginDraggingFrame(f);
-                                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1148: warning: Cannot assign because [this.isReadOnly] is not accessible here
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1076: warning: Cannot call getMethod on null
+            suiteMethod= klass.getMethod("suite");
+                              ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:416: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{cog_complexity_validation_datasets.Three.Tasks.ActionMenu} | Null
+            ActionMenu menu = actionList.get(0);
+                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:736: warning: Cannot access [dim.width]
+        int x = (screen.width - dim.width) / 2;
+                                   ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1149: warning: Cannot assign because [this.isReadOnly] is not accessible here
         isReadOnly = ((Boolean) info).booleanValue();
                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1626: warning: Cannot call getInGameInputHandler on null
-        InGameInputHandler inGameInputHandler = freeColClient.getInGameInputHandler();
-                                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:874: warning: Cannot call add on null
-                list.add(new ProgramReceiveTarget(this, config.getName(), config.getId()));
-                    ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1549: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ViewMode.VIEW_TERRAIN_MODE]
-        if (currentMode == ViewMode.VIEW_TERRAIN_MODE) {
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:929: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.NE]
-                t = jj_consume_token(NE);
-                                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:552: warning: Cannot call add on null
-        btPanel.add(cancel);
-               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1127: warning: Cannot call readObject on null
-        String classname = (String) in.readObject();
-                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:830: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-                return executeCallStatement(cs);
-                                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1093: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.Types.VARCHAR]
-        addColumn(t, "PROCEDURE_SCHEM", Types.VARCHAR);
-                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1424: warning: Cannot assign because [this.importedPackages] is not accessible here
-            importedPackages = new Vector();
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1139: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        return Request.errorReport(fTestClass, error).getRunner();
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:432: warning: Incompatible parameter: cannot cast from Null | Primitive{int} to Primitive{int}
-        String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
-                                                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:661: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.IRETURN]
-            int opcode = IRETURN;
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:594: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.option]
-        spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
-                                                                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:514: warning: Cannot call hasNext on null
-        while (it.hasNext()) {
-                 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1202: warning: Cannot call getCatalogName on null
-            clsCat = ns.getCatalogName(clsName);
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:849: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
-            putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
-                                                                                                      ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1676: warning: Cannot access field [exprType] of null
-                && expression.exprType != ALTERNATIVE
-                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1678: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.CONVERT]
-                && expression.exprType != CONVERT) {
-                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1681: warning: Cannot call toString on null
-            ddl = temp.append('(').append(ddl).append(')').toString();
-                                                          ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:674: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
-        mPanel = new CapturePluginPanel(mOwner, mCloneData);
-                                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:818: warning: Cannot assign because [this.fActual] is not accessible here
-        fActual = actual;
-                ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:532: warning: Cannot access [java.awt.event.KeyEvent.VK_NUMPAD1]
-            case KeyEvent.VK_NUMPAD1:
-                         ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:500: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.After.class]
+        super1(test.getClass(), Before.class, After.class, test); // super() renamed to super1() to allow compilation
+                                                   ^
 src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1: warning: Cannot call hasNext on null
 package cog_complexity_validation_datasets.Three;
 ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:465: warning: Incompatible parameter: cannot cast from Null to Shared{java.awt.Window}
-            gd.setFullScreenWindow(null);
-                                   ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:397: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.body]
-        Object ret = body.eval(callstack, interpreter);
-                     ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:533: warning: Cannot access [java.awt.event.KeyEvent.VK_END]
-            case KeyEvent.VK_END:
-                         ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1260: warning: Cannot access [this.tc.core]
-        t.checkColumnsMatch(tc.core.mainColArray, tc.core.refTable,
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:898: warning: Incompatible parameter: cannot cast from Shared{java.lang.Boolean} | Null to Shared{java.lang.Boolean}
+        row[1] = ns.getCatalogName(row[0]);
+                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1172: warning: Cannot call visitInsn on null
+        cv.visitInsn(opcode);
+          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:853: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.ImageLibrary.UNIT_BUTTON_DISBAND]
+                    ImageLibrary.UNIT_BUTTON_DISBAND, 1));
+                                ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:557: warning: Cannot access [java.awt.BorderLayout.SOUTH]
+        panel.add(btPanel, BorderLayout.SOUTH);
+                                       ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1552: warning: Cannot call getSelectedTile on null
+            Position selectedTilePos = gui.getSelectedTile();
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:735: warning: Cannot call getScreenSize on null
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+                                                      ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1102: warning: Cannot call getDefaultScreenDevice on null
+            GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
+                                                                                        ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1682: warning: Cannot call append on null
+            ddl = temp.append('(').append(ddl).append(')').toString();
+                                  ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:415: warning: Cannot access [cog_complexity_validation_datasets.Three.Tasks.actionList]
+        if (actionList.size() == 1) {
+            ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1657: warning: Cannot access [javax.swing.Action.SMALL_ICON]
+        action.putValue(Action.SMALL_ICON, createImageIcon("mimetypes", "video-x-generic", 16));
                               ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1509: warning: Cannot call inDaylightTime on null
-            if(java.util.TimeZone.getDefault().inDaylightTime(date))
-                                              ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:711: warning: Cannot call add on null
-            destinations.add(new ChoiceItem(s.toString() + " (" + turns + ")", s));
-                        ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:475: warning: Cannot assign because [this.jj_scanpos] is not accessible here
-            jj_scanpos = xsp;
-                       ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1374: warning: Cannot call writeData on null
-        dev.writeData(stream);
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1261: warning: Cannot access field [core] of null
+        t.checkColumnsMatch(tc.core.mainColArray, tc.core.refTable,
+                                                    ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1321: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+            return Assert.format(message, fExpected, fActual);
+                                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1472: warning: Cannot assign because [this.core.colLen] is not accessible here
+        core.colLen       = core.mainColArray.length;
+                          ^
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1630: warning: Cannot call setInGame on null
+        gui.setInGame(true);
            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:770: warning: Cannot assign because [this.currentMapTransform] is not accessible here
-        currentMapTransform = mt;
-                            ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:744: warning: Cannot call hasNext on null
-        for (Iterator<Runner> iter= fRunners.iterator(); iter.hasNext();) {
-                                                             ^
-src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:594: warning: The previous value of [cog_complexity_validation_datasets.Three.Tasks.spinner] did not complete its protocol (found: Unknown)
+src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:595: warning: The previous value of [cog_complexity_validation_datasets.Three.Tasks.spinner] did not complete its protocol (found: Unknown)
         spinner = new JSpinner(new SpinnerNumberModel(option.getValue(), option.getMinimumValue(),
                 ^
 Note: src/main/java/cog_complexity_validation_datasets/Three/Tasks.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-322 warnings
+325 warnings
