@@ -10,7 +10,7 @@ public class Tasks {
 
     /*REORDERED THE METHODS*/
 
-    // 1. Faculty                                           /*Tasks for fMRI-Setting*/
+    // 1. Faculty (Factorial)                                        /*Tasks for fMRI-Setting*/
     //SNIPPET_STARTS
     public static void main1(String[] args) {
         int result = 1;
@@ -150,7 +150,7 @@ public class Tasks {
         System.out.println(result);
     }
 
-    // 10. Find middle number of three numbers                                      /*Tasks for fMRI-Setting*/
+    // 10. Find largest number of three numbers                                      /*Tasks for fMRI-Setting*/
     //SNIPPET_STARTS
     public static void main10(String[] args) {
         int num1 = 5;
