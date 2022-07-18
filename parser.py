@@ -115,11 +115,11 @@ def setupCSVSheets(allAnalysisToolData):
         df.to_csv(f"data/{data[0]}.csv")
 
 if __name__ == "__main__":
-    fMRIDatasetSnippetNames = [name.split(".")[0] for name in os.listdir("src/main/java/fMRI_Study_Classes")]
+    fMRIDatasetSnippetNames = [name.split(".")[0] for name in os.listdir("simple-datasets/src/main/java/fMRI_Study_Classes") if ".java" in name]
     fMRIDatasetSnippetNames = sorted(fMRIDatasetSnippetNames, key=str.lower)    # Keeps the order of these snippets consistent across operating systems
-    cogDataset1SnippetNums = getSnippetNames("src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset2SnippetNums =  getSnippetNames("src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END")
-    cogDataset3SnippetNums = getSnippetNames("src/main/java/cog_complexity_validation_datasets/Three/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset1SnippetNums = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset2SnippetNums =  getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END")
+    cogDataset3SnippetNums = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END")
 
     # Data output structure as a dictionary
     data = {

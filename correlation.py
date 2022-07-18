@@ -229,18 +229,18 @@ def readCOGDataset2StudyMetrics():
 
     # Get time column for each snippet
     timeCols = dfTime.iloc[1:18, [val for val in range(1, 25, 2)]]
-    print(timeCols)
+    #print(timeCols)
     # Average the values of each column
     times = [int(val) / 16 for val in timeCols.astype(int).sum(axis=0)]
-    print(times)
+    #print(times)
 
     BA32 = dfPhysiological.iloc[:, 5]
     BA31post = dfPhysiological.iloc[:, 6]
     BA31ant = dfPhysiological.iloc[:, 7]
 
-    print(BA32)
-    print(BA31post)
-    print(BA31ant)
+    #print(BA32)
+    #print(BA31post)
+    #print(BA31ant)
 
     return (times, BA32, BA31post, BA31ant)
 
@@ -417,10 +417,14 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
         if len(snippetNames) != len(numWarnings):
             raise Exception("Number of snippets does not match number of warnings associated with said snippets") 
 
+        #print(warningsPerSnippetPerDataset)
+        #print(snippetNames)
+        #print(numWarnings)
         for i in range(len(snippetNames)):
             snippetDataset = snippetNames[i].split("-")[0].strip()
             snippetNumber = snippetNames[i].split("-")[1].strip()
-
+            #print(snippetDataset)
+            #print(snippetNumber)
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
     return warningsPerSnippetPerDataset
