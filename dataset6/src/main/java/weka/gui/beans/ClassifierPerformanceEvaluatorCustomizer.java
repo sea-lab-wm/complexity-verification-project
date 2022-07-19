@@ -45,6 +45,7 @@ public class ClassifierPerformanceEvaluatorCustomizer extends JPanel {
   private ModifyListener m_cpe;
   private ModifyListener m_parent;
 
+  //SNIPPET_STARTS
   private void addButtons() {
     JButton okBut = new JButton("OK");
     JButton cancelBut = new JButton("Cancel");
@@ -88,6 +89,7 @@ public class ClassifierPerformanceEvaluatorCustomizer extends JPanel {
       }
     });
   }
+  //SNIPPETS_END
 
   private void customizerClosing() {
 

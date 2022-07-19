@@ -1,0 +1,781 @@
+dataset6/src/main/java/Antlr4Master.java:2: error: cannot find symbol
+import javax.transaction.Transaction;
+                        ^
+  symbol:   class Transaction
+  location: package javax.transaction
+dataset6/src/main/java/Antlr4Master.java:423: error: cannot find symbol
+        public Transaction add(Object newInstanceWithBundle, MyExpenses.Dummy asyncTag) {
+               ^
+  symbol:   class Transaction
+  location: class ATNConfigSet
+dataset6/src/main/java/HibernateORM.java:1: error: package javax.persistence does not exist
+import javax.persistence.Column;
+                        ^
+dataset6/src/main/java/HibernateORM.java:24: error: cannot find symbol
+    public Column[] getOverriddenColumn(String propertyName) {
+           ^
+  symbol:   class Column
+  location: class HibernateORM
+dataset6/src/main/java/HibernateORM.java:314: error: cannot find symbol
+    private Column[] getExactOverriddenColumn(String replace) {
+            ^
+  symbol:   class Column
+  location: class HibernateORM
+dataset6/src/main/java/Phoenix.java:1: error: package com.google.common.base does not exist
+import com.google.common.base.Preconditions;
+                             ^
+dataset6/src/main/java/Phoenix.java:2: error: package com.google.common.collect does not exist
+import com.google.common.collect.Lists;
+                                ^
+dataset6/src/main/java/Phoenix.java:3: error: package org.apache.hadoop.hbase does not exist
+import org.apache.hadoop.hbase.Cell;
+                              ^
+dataset6/src/main/java/Phoenix.java:4: error: package org.apache.hadoop.hbase.client does not exist
+import org.apache.hadoop.hbase.client.Mutation;
+                                     ^
+dataset6/src/main/java/Phoenix.java:5: error: package org.apache.hadoop.hbase.client does not exist
+import org.apache.hadoop.hbase.client.Scan;
+                                     ^
+dataset6/src/main/java/Phoenix.java:6: error: package org.apache.hadoop.hbase.io does not exist
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+                                 ^
+dataset6/src/main/java/Phoenix.java:7: error: package org.apache.hadoop.hbase.util does not exist
+import org.apache.hadoop.hbase.util.Bytes;
+                                   ^
+dataset6/src/main/java/Phoenix.java:8: error: package org.apache.hbase.thirdparty.com.google.common.base does not exist
+import org.apache.hbase.thirdparty.com.google.common.base.Splitter;
+                                                         ^
+dataset6/src/main/java/Phoenix.java:9: error: package org.apache.hbase.thirdparty.com.google.common.base does not exist
+import org.apache.hbase.thirdparty.com.google.common.base.Strings;
+                                                         ^
+dataset6/src/main/java/Phoenix.java:10: error: package org.apache.hbase.thirdparty.com.google.common.base does not exist
+import org.apache.hbase.thirdparty.com.google.common.base.Throwables;
+                                                         ^
+dataset6/src/main/java/Phoenix.java:11: error: package org.apache.hbase.thirdparty.io.netty.channel does not exist
+import org.apache.hbase.thirdparty.io.netty.channel.ChannelException;
+                                                   ^
+dataset6/src/main/java/Phoenix.java:19: error: package org.apache.commons.cli does not exist
+    private static final org.apache.commons.cli.Option INPUT_PATH_OPT = null;
+                                               ^
+dataset6/src/main/java/Phoenix.java:25: error: package org.apache.commons.cli does not exist
+    private static final org.apache.commons.cli.Option TABLE_NAME_OPT = null;
+                                               ^
+dataset6/src/main/java/Phoenix.java:26: error: package org.apache.commons.cli does not exist
+    private static final org.apache.commons.cli.Option HELP_OPT = null;
+                                               ^
+dataset6/src/main/java/Pom.java:1: error: package com.kenai.constantine.platform does not exist
+import com.kenai.constantine.platform.Errno;
+                                     ^
+dataset6/src/main/java/Pom.java:462: error: package org.jruby.ext.posix does not exist
+    public static class POSIXHandler implements org.jruby.ext.posix.POSIXHandler {
+                                                                   ^
+dataset6/src/main/java/Phoenix.java:44: error: cannot find symbol
+                                                List<Mutation> schemaMutations, List<ImmutableBytesPtr> invalidateList) throws Exception {
+                                                     ^
+  symbol:   class Mutation
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:90: error: cannot find symbol
+    public boolean evaluate(Tuple tuple, ImmutableBytesWritable ptr) {
+                                         ^
+  symbol:   class ImmutableBytesWritable
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:271: error: cannot find symbol
+    protected CommandLine parseOptions(String[] args) {
+              ^
+  symbol:   class CommandLine
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:310: error: cannot find symbol
+    private void printHelpAndExit(Options options, int i) {
+                                  ^
+  symbol:   class Options
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:314: error: cannot find symbol
+    private void printHelpAndExit(String s, Options options) {
+                                            ^
+  symbol:   class Options
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:318: error: cannot find symbol
+    private Options getOptions() {
+            ^
+  symbol:   class Options
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:359: error: cannot find symbol
+        public boolean evaluate(Tuple tuple, ImmutableBytesWritable ptr) {
+                                             ^
+  symbol:   class ImmutableBytesWritable
+  location: class Phoenix.Expression
+dataset6/src/main/java/Phoenix.java:375: error: cannot find symbol
+        public long decodeLong(ImmutableBytesWritable ptr, Object sortOrder) {
+                               ^
+  symbol:   class ImmutableBytesWritable
+  location: class Phoenix.Expression
+dataset6/src/main/java/Pom.java:464: error: cannot find symbol
+        public void error(Errno errno, String s) {
+                          ^
+  symbol:   class Errno
+  location: class POSIXHandler
+dataset6/src/main/java/Pom.java:474: error: cannot find symbol
+        public void warn(WARNING_ID warning_id, String s, Object... objects) {
+                         ^
+  symbol:   class WARNING_ID
+  location: class POSIXHandler
+dataset6/src/main/java/Pom.java:32: error: package org.jruby.ext.posix does not exist
+    private static org.jruby.ext.posix.POSIX jnaPosix;
+                                      ^
+dataset6/src/main/java/Pom.java:142: error: package org.jruby.ext.posix does not exist
+    public static synchronized org.jruby.ext.posix.POSIX get() {
+                                                  ^
+dataset6/src/main/java/Phoenix.java:392: error: cannot find symbol
+        public RegionScanner getScanner(Scan scan) {
+                                        ^
+  symbol:   class Scan
+  location: class Phoenix.Region
+dataset6/src/main/java/Phoenix.java:381: error: cannot find symbol
+        public void next(List<Cell> results) {
+                              ^
+  symbol:   class Cell
+  location: class Phoenix.RegionScanner
+dataset6/src/main/java/Phoenix.java:12: error: package org.apache.hbase.thirdparty.org.apache.commons.cli does not exist
+import org.apache.hbase.thirdparty.org.apache.commons.cli.*;
+^
+dataset6/src/main/java/Phoenix.java:440: error: cannot find symbol
+        public static Scan newTableRowsScan(Object keyForSchema, Object minTableTimestamp, long clientTimeStamp) {
+                      ^
+  symbol:   class Scan
+  location: class MetaDataUtil
+dataset6/src/main/java/Pom.java:459: error: cannot find symbol
+    private static class ERRORS extends Errno {
+                                        ^
+  symbol:   class Errno
+  location: class Pom
+dataset6/src/main/java/SpringBatch.java:1: error: package org.springframework.batch.item does not exist
+import org.springframework.batch.item.ExecutionContext;
+                                     ^
+dataset6/src/main/java/SpringBatch.java:2: error: package org.springframework.batch.item.file does not exist
+import org.springframework.batch.item.file.FlatFileItemReader;
+                                          ^
+dataset6/src/main/java/SpringBatch.java:3: error: package org.springframework.batch.item.file.separator does not exist
+import org.springframework.batch.item.file.separator.RecordSeparatorPolicy;
+                                                    ^
+dataset6/src/main/java/SpringBatch.java:4: error: package org.springframework.batch.item.xml does not exist
+import org.springframework.batch.item.xml.StaxWriterCallback;
+                                         ^
+dataset6/src/main/java/SpringBatch.java:5: error: package org.springframework.core.io does not exist
+import org.springframework.core.io.Resource;
+                                  ^
+dataset6/src/main/java/SpringBatch.java:6: error: package org.springframework.util does not exist
+import org.springframework.util.StringUtils;
+                               ^
+dataset6/src/main/java/SpringBatch.java:22: error: cannot find symbol
+    private FlatFileItemReader<Object> reader;
+            ^
+  symbol:   class FlatFileItemReader
+  location: class SpringBatch
+dataset6/src/main/java/SpringBatch.java:23: error: cannot find symbol
+    private ExecutionContext executionContext;
+            ^
+  symbol:   class ExecutionContext
+  location: class SpringBatch
+dataset6/src/main/java/SpringBatch.java:226: error: cannot find symbol
+    private Resource getInputResource(String s) {
+            ^
+  symbol:   class Resource
+  location: class SpringBatch
+dataset6/src/main/java/SpringBatch.java:368: error: cannot find symbol
+        public void setHeaderCallback(StaxWriterCallback staxWriterCallback) {
+                                      ^
+  symbol:   class StaxWriterCallback
+  location: class SpringBatch.ItmWriter
+dataset6/src/main/java/SpringBatch.java:372: error: cannot find symbol
+        public void setFooterCallback(StaxWriterCallback staxWriterCallback) {
+                                      ^
+  symbol:   class StaxWriterCallback
+  location: class SpringBatch.ItmWriter
+dataset6/src/main/java/Antlr4Master.java:14: warning: type.checking.not.run
+public class Antlr4Master {
+       ^
+dataset6/src/main/java/MyExpenses.java:6: warning: type.checking.not.run
+public class MyExpenses {
+       ^
+dataset6/src/main/java/CarReport.java:9: warning: type.checking.not.run
+public class CarReport {
+       ^
+dataset6/src/main/java/HibernateORM.java:25: error: cannot find symbol
+        Column[] result = getExactOverriddenColumn( propertyName );
+        ^
+  symbol:   class Column
+  location: class HibernateORM
+dataset6/src/main/java/HibernateORM.java:315: error: cannot find symbol
+        return new Column[0];
+                   ^
+  symbol:   class Column
+  location: class HibernateORM
+dataset6/src/main/java/HibernateORM.java:5: warning: type.checking.not.run
+public class HibernateORM {
+       ^
+dataset6/src/main/java/K9.java:4: warning: type.checking.not.run
+public class K9 {
+       ^
+dataset6/src/main/java/Main.java:1: warning: type.checking.not.run
+public class Main {
+       ^
+dataset6/src/main/java/OpenCMSCore.java:6: warning: type.checking.not.run
+public class OpenCMSCore {
+       ^
+dataset6/src/main/java/Phoenix.java:51: error: cannot find symbol
+            Scan scan = MetaDataUtil.newTableRowsScan(SchemaUtil.getKeyForSchema(null, schemaName), MIN_TABLE_TIMESTAMP,
+            ^
+  symbol:   class Scan
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:53: error: cannot find symbol
+            List<Cell> results = Lists.newArrayList();
+                 ^
+  symbol:   class Cell
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:53: error: cannot find symbol
+            List<Cell> results = Lists.newArrayList();
+                                 ^
+  symbol:   variable Lists
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:61: error: cannot find symbol
+                    Cell kv = results.get(0);
+                    ^
+  symbol:   class Cell
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:62: error: cannot find symbol
+                    if (Bytes.compareTo(kv.getRowArray(), kv.getRowOffset(), kv.getRowLength(), key, 0,
+                        ^
+  symbol:   variable Bytes
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:147: error: cannot find symbol
+        Preconditions.checkNotNull(this.fullTableName,"Table name cannot be empty, please specify in the configuration file");
+        ^
+  symbol:   variable Preconditions
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:148: error: cannot find symbol
+        if(!Strings.isNullOrEmpty(zookeeperQuorum)) {
+            ^
+  symbol:   variable Strings
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:151: error: cannot find symbol
+        if(!Strings.isNullOrEmpty(ipJdbcURL)) {
+            ^
+  symbol:   variable Strings
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:154: error: cannot find symbol
+        Preconditions.checkNotNull(this.jdbcUrl,"Please specify either the zookeeper quorum or the jdbc url in the configuration file");
+        ^
+  symbol:   variable Preconditions
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:155: error: cannot find symbol
+        Preconditions.checkNotNull(columnNames,"Column names cannot be empty, please specify in configuration file");
+        ^
+  symbol:   variable Preconditions
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:156: error: cannot find symbol
+        for(String s : Splitter.on(DEFAULT_COLUMNS_DELIMITER).split(columnNames)) {
+                       ^
+  symbol:   variable Splitter
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:160: error: cannot find symbol
+        if(!Strings.isNullOrEmpty(headersStr)) {
+            ^
+  symbol:   variable Strings
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:161: error: cannot find symbol
+            for(String s : Splitter.on(DEFAULT_COLUMNS_DELIMITER).split(headersStr)) {
+                           ^
+  symbol:   variable Splitter
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:166: error: cannot find symbol
+        if(!Strings.isNullOrEmpty(keyGeneratorType)) {
+            ^
+  symbol:   variable Strings
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:172: error: cannot find symbol
+                Throwables.propagate(iae);
+                ^
+  symbol:   variable Throwables
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:193: error: cannot find symbol
+        List<Event>  events = Lists.newArrayListWithExpectedSize(this.batchSize);
+                              ^
+  symbol:   variable Lists
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:231: error: cannot find symbol
+        } catch (ChannelException e) {
+                 ^
+  symbol:   class ChannelException
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:273: error: cannot find symbol
+        Options options = getOptions();
+        ^
+  symbol:   class Options
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:275: error: cannot find symbol
+        CommandLineParser parser = new PosixParser();
+        ^
+  symbol:   class CommandLineParser
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:275: error: cannot find symbol
+        CommandLineParser parser = new PosixParser();
+                                       ^
+  symbol:   class PosixParser
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:276: error: cannot find symbol
+        CommandLine cmdLine = null;
+        ^
+  symbol:   class CommandLine
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:279: error: cannot find symbol
+        } catch (ParseException e) {
+                 ^
+  symbol:   class ParseException
+  location: class Phoenix
+dataset6/src/main/java/Phoenix.java:17: warning: type.checking.not.run
+public class Phoenix {
+       ^
+dataset6/src/main/java/Pom.java:153: error: cannot find symbol
+                public void warn(WARNING_ID warning_id, String s, Object... objects) {
+                                 ^
+  symbol: class WARNING_ID
+dataset6/src/main/java/Pom.java:463: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:468: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:473: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:478: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:483: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:488: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:493: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:498: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:503: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:508: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+dataset6/src/main/java/Pom.java:145: error: error(ERRORS,String) in <anonymous Pom$1> cannot override error(Errno,String) in POSIXHandler
+                public void error(ERRORS errors, String s) throws PosixException { // changed ERRORS signature, added throws
+                            ^
+  overridden method does not throw PosixException
+dataset6/src/main/java/Pom.java:144: error: package org.jruby.ext.posix does not exist
+            jnaPosix = org.jruby.ext.posix.POSIXFactory.getPOSIX(new Pom.POSIXHandler() { // Change POSIXHandler signature
+                                          ^
+dataset6/src/main/java/Pom.java:12: warning: type.checking.not.run
+public class Pom {
+       ^
+dataset6/src/main/java/SpringBatch.java:152: error: cannot find symbol
+        reader.setRecordSeparatorPolicy(new RecordSeparatorPolicy() {
+                                            ^
+  symbol:   class RecordSeparatorPolicy
+  location: class SpringBatch
+dataset6/src/main/java/SpringBatch.java:188: error: cannot find symbol
+        writer.setHeaderCallback(new StaxWriterCallback() {
+                                     ^
+  symbol:   class StaxWriterCallback
+  location: class SpringBatch
+dataset6/src/main/java/SpringBatch.java:202: error: cannot find symbol
+        writer.setFooterCallback(new StaxWriterCallback() {
+                                     ^
+  symbol:   class StaxWriterCallback
+  location: class SpringBatch
+dataset6/src/main/java/SpringBatch.java:17: warning: type.checking.not.run
+public class SpringBatch {
+       ^
+Note: dataset6/src/main/java/Pom.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+89 errors
+10 warnings
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:100: warning: Incompatible return value: cannot cast from Primitive{int} to Primitive{double}
+      return 0;
+      ^
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:90: warning: Incompatible return value: cannot cast from Null to Shared{java.util.Enumeration}
+      return null;
+      ^
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:100: warning: Incompatible return value: cannot cast from Primitive{int} to Primitive{double}
+      return 0;
+      ^
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:59: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{weka.estimators.EstimatorUtils.Instance} | Null
+        instance = enumInst.nextElement();
+                 ^
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:69: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{weka.estimators.EstimatorUtils.Instance} | Null
+        instance = enumInst.nextElement();
+                 ^
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:48: warning: Cannot access [java.lang.Double.NaN]
+    double min = Double.NaN;
+                       ^
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:49: warning: Cannot access [java.lang.Double.NaN]
+    double max = Double.NaN;
+                       ^
+dataset6/src/main/java/weka/estimators/EstimatorUtils.java:90: warning: Incompatible return value: cannot cast from Null to Shared{java.util.Enumeration}
+      return null;
+      ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:271: warning: Cannot assign because [this.RELATIONAL] is not accessible here
+    public static final int RELATIONAL = 4;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:269: warning: Cannot assign because [this.STRING] is not accessible here
+    public static final int STRING = 2;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:270: warning: Cannot assign because [this.DATE] is not accessible here
+    public static final int DATE = 3;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:267: warning: Cannot assign because [this.NUMERIC] is not accessible here
+    public static final int NUMERIC = 0;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:268: warning: Cannot assign because [this.NOMINAL] is not accessible here
+    public static final int NOMINAL = 1;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:271: warning: The previous value of [this.RELATIONAL] did not complete its protocol (found: Unknown)
+    public static final int RELATIONAL = 4;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:269: warning: The previous value of [this.STRING] did not complete its protocol (found: Unknown)
+    public static final int STRING = 2;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:270: warning: The previous value of [this.DATE] did not complete its protocol (found: Unknown)
+    public static final int DATE = 3;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:267: warning: The previous value of [this.NUMERIC] did not complete its protocol (found: Unknown)
+    public static final int NUMERIC = 0;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:268: warning: The previous value of [this.NOMINAL] did not complete its protocol (found: Unknown)
+    public static final int NOMINAL = 1;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:177: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+      str += " relational";
+          ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:170: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+      str += " date";
+          ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:154: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+        str += " &";
+            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:234: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+    str += " attribute(s))";
+        ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:161: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+        str += " &";
+            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:192: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.DATE]
+    case Attribute.DATE:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:159: warning: Cannot access [attrTypes.string]
+    if (attrTypes.string) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:183: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.NUMERIC]
+    case Attribute.NUMERIC:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:163: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+      str += " string";
+          ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:221: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.NOMINAL]
+    case Attribute.NOMINAL:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:224: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.STRING]
+    case Attribute.STRING:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:249: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.RELATIONAL]
+    case Attribute.RELATIONAL:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:195: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.RELATIONAL]
+    case Attribute.RELATIONAL:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:270: warning: Cannot assign because [this.DATE] is not accessible here
+    public static final int DATE = 3;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:243: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.STRING]
+    case Attribute.STRING:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:166: warning: Cannot access [attrTypes.date]
+    if (attrTypes.date) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:156: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+      str += " nominal";
+          ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:168: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+        str += " &";
+            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:230: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.RELATIONAL]
+    case Attribute.RELATIONAL:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:271: warning: Cannot assign because [this.RELATIONAL] is not accessible here
+    public static final int RELATIONAL = 4;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:189: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.STRING]
+    case Attribute.STRING:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:218: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.NUMERIC]
+    case Attribute.NUMERIC:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:148: warning: Cannot access [attrTypes.numeric]
+    if (attrTypes.numeric) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:237: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.NUMERIC]
+    case Attribute.NUMERIC:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:246: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.DATE]
+    case Attribute.DATE:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:269: warning: Cannot assign because [this.STRING] is not accessible here
+    public static final int STRING = 2;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:149: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+      str += " numeric";
+          ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:173: warning: Cannot access [attrTypes.relational]
+    if (attrTypes.relational) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:175: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+        str += " &";
+            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:240: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.NOMINAL]
+    case Attribute.NOMINAL:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:152: warning: Cannot access [attrTypes.nominal]
+    if (attrTypes.nominal) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:267: warning: Cannot assign because [this.NUMERIC] is not accessible here
+    public static final int NUMERIC = 0;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:227: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.DATE]
+    case Attribute.DATE:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:180: warning: Cannot assign: cannot cast from Unknown to Shared{java.lang.String} | Null
+    str += " attributes)";
+        ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:186: warning: Cannot access [weka.estimators.CheckEstimator.Attribute.NOMINAL]
+    case Attribute.NOMINAL:
+                  ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:268: warning: Cannot assign because [this.NOMINAL] is not accessible here
+    public static final int NOMINAL = 1;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:271: warning: The previous value of [this.RELATIONAL] did not complete its protocol (found: Unknown)
+    public static final int RELATIONAL = 4;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " numeric"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " numeric"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " nominal"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " nominal"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " string"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " string"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " date"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " date"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " &"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " relational"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " relational"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] StringConcat " attributes)"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:144: warning: [str[1] = str[1] StringConcat " attributes)"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(AttrTypes attrTypes, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:269: warning: The previous value of [this.STRING] did not complete its protocol (found: Unknown)
+    public static final int STRING = 2;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:213: warning: [str[11] StringConcat " attribute(s))"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(int attrType, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:213: warning: [str[11] = str[11] StringConcat " attribute(s))"] did not complete its protocol (found: Unknown)
+  protected void printAttributeSummary(int attrType, int classType) {
+                 ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:270: warning: The previous value of [this.DATE] did not complete its protocol (found: Unknown)
+    public static final int DATE = 3;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:267: warning: The previous value of [this.NUMERIC] did not complete its protocol (found: Unknown)
+    public static final int NUMERIC = 0;
+                            ^
+dataset6/src/main/java/weka/estimators/CheckEstimator.java:268: warning: The previous value of [this.NOMINAL] did not complete its protocol (found: Unknown)
+    public static final int NOMINAL = 1;
+                            ^
+81 warnings
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:85: warning: Cannot access [this.m_framePoppedUp]
+              m_framePoppedUp = false;
+              ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:85: warning: Cannot assign because [this.m_framePoppedUp] is not accessible here
+              m_framePoppedUp = false;
+                              ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:84: warning: Cannot access [jf]
+              jf.dispose();
+              ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:80: warning: Cannot call add on null
+          jf.getContentPane().add(m_visPanel, BorderLayout.CENTER);
+                             ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:85: warning: Cannot access [this.m_framePoppedUp]
+              m_framePoppedUp = false;
+              ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:74: warning: Cannot assign because [this.m_framePoppedUp] is not accessible here
+          m_framePoppedUp = true;
+                          ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:80: warning: Cannot access [java.awt.BorderLayout.CENTER]
+          jf.getContentPane().add(m_visPanel, BorderLayout.CENTER);
+                                                          ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:85: warning: Cannot assign because [this.m_framePoppedUp] is not accessible here
+              m_framePoppedUp = false;
+                              ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:101: warning: Cannot assign because [this.m_visPanel] is not accessible here
+      m_visPanel = null;
+                 ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:42: warning: Cannot assign because [this.serialVersionUID] is not accessible here
+  private static final long serialVersionUID = -4602034200071195924L;
+                            ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:84: warning: Cannot access [jf]
+              jf.dispose();
+              ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:102: warning: Cannot assign because [this.m_masterPlot] is not accessible here
+      m_masterPlot = null;
+                   ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:89: warning: Cannot assign because [this.m_popupFrame] is not accessible here
+          m_popupFrame = jf;
+                       ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:118: warning: Incompatible return value: cannot cast from Null to Shared{java.beans.beancontext.BeanContext}
+    return null;
+    ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:79: warning: Cannot call setLayout on null
+          jf.getContentPane().setLayout(new BorderLayout());
+                             ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:103: warning: Cannot assign because [this.m_offscreenPlotData] is not accessible here
+      m_offscreenPlotData = null;
+                          ^
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:42: warning: The previous value of [this.serialVersionUID] did not complete its protocol (found: Unknown)
+  private static final long serialVersionUID = -4602034200071195924L;
+                            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:86: warning: Cannot access [this.m_parent]
+        if (m_parent != null) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:73: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+          m_cpe.setEvaluationMetricsToOutput(newList);
+                                             ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:75: warning: Cannot access [this.m_parent]
+        if (m_parent != null) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:73: warning: Cannot access [this.m_cpe]
+          m_cpe.setEvaluationMetricsToOutput(newList);
+          ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:69: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.String} | Null
+          for (String s : m_evaluationMetrics) {
+                      ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:64: warning: Cannot access [this]
+              ClassifierPerformanceEvaluatorCustomizer.this, true);
+                                                      ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:62: warning: Cannot access [this.m_modifyListener]
+        if (m_modifyListener != null) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:67: warning: Cannot access [this.m_evaluationMetrics]
+        if (m_evaluationMetrics.size() > 0) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:70: warning: Cannot call append on null
+            b.append(s).append(",");
+                       ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:73: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+          m_cpe.setEvaluationMetricsToOutput(newList);
+                                             ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:75: warning: Cannot access [this.m_parent]
+        if (m_parent != null) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:73: warning: Cannot access [this.m_cpe]
+          m_cpe.setEvaluationMetricsToOutput(newList);
+          ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:69: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.String} | Null
+          for (String s : m_evaluationMetrics) {
+                      ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:64: warning: Cannot access [this]
+              ClassifierPerformanceEvaluatorCustomizer.this, true);
+                                                      ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:62: warning: Cannot access [this.m_modifyListener]
+        if (m_modifyListener != null) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:67: warning: Cannot access [this.m_evaluationMetrics]
+        if (m_evaluationMetrics.size() > 0) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:70: warning: Cannot call append on null
+            b.append(s).append(",");
+                       ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:86: warning: Cannot access [this.m_parent]
+        if (m_parent != null) {
+            ^
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:57: warning: Cannot access [java.awt.BorderLayout.SOUTH]
+    add(butHolder, BorderLayout.SOUTH);
+                               ^
+36 warnings
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:122: warning: Incompatible return value: cannot cast from Null to Shared{java.awt.Component}
+      return null;
+      ^
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:116: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+      return null;
+      ^
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:87: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
+        m_ArrayEditor.setValue(null);
+                               ^
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:116: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+      return null;
+      ^
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:122: warning: Incompatible return value: cannot cast from Null to Shared{java.awt.Component}
+      return null;
+      ^
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:77: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.awt.event.ActionListener} | Null
+        ActionListener temp = (m_Listeners.get(i));
+                       ^
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:44: warning: Cannot assign because [this.serialVersionUID] is not accessible here
+  private static final long serialVersionUID = -6026938995241632139L;
+                            ^
+dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:44: warning: The previous value of [this.serialVersionUID] did not complete its protocol (found: Unknown)
+  private static final long serialVersionUID = -6026938995241632139L;
+                            ^
+8 warnings

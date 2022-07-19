@@ -209,6 +209,7 @@ public class CheckEstimator implements OptionHandler, RevisionHandler {
    * @param attrType the attribute type (NUMERIC, NOMINAL, etc.)
    * @param classType the class type (NUMERIC, NOMINAL, etc.)
    */
+  //SNIPPET_STARTS
   protected void printAttributeSummary(int attrType, int classType) {
 
     String str = "";
@@ -252,6 +253,7 @@ public class CheckEstimator implements OptionHandler, RevisionHandler {
 
     print(str);
   }
+  //SNIPPETS_END
 
   private class AttrTypes {
     public boolean numeric;

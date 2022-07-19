@@ -1,11 +1,1795 @@
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:137: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:17: warning: [initialization.field.uninitialized] the default constructor does not initialize field log
+    private Logger log;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:18: warning: [initialization.field.uninitialized] the default constructor does not initialize field sourceDirectory
+    private String sourceDirectory;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:19: warning: [initialization.field.uninitialized] the default constructor does not initialize field grammars
+    private Grammar grammars;
+                    ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:20: warning: [initialization.field.uninitialized] the default constructor does not initialize field grammarName
+    private String grammarName;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:21: warning: [initialization.field.uninitialized] the default constructor does not initialize field startRuleName
+    private String startRuleName;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:22: warning: [initialization.field.uninitialized] the default constructor does not initialize field encoding
+    private String encoding;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:23: warning: [initialization.field.uninitialized] the default constructor does not initialize field inputFiles
+    private List<String> inputFiles;
+                         ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:25: warning: [initialization.field.uninitialized] the default constructor does not initialize field buckets
+    private T[][] buckets;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:26: warning: [initialization.field.uninitialized] the default constructor does not initialize field comparator
+    private Comparador comparator;
+                       ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:92: warning: [dereference.of.nullable] dereference of possibly-null reference cl
+            lexerClass = cl.loadClass(lexerName).asSubclass(Lexer.class);
+                         ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:107: warning: [argument] incompatible argument for parameter initargs of newInstance.
+        Lexer lexer = lexerCtor.newInstance((CharStream)null);
+                                            ^
+  found   : @Initialized @NonNull Antlr4Master.@FBCBottom @Nullable CharStream
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:115: warning: [argument] incompatible argument for parameter initargs of newInstance.
+            parser = parserCtor.newInstance((TokenStream)null);
+                                            ^
+  found   : @Initialized @NonNull Antlr4Master.@FBCBottom @Nullable TokenStream
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:128: warning: [argument] incompatible argument for parameter c of process.
+            process(lexer, parserClass, parser, charStream);
+                           ^
+  found   : @Initialized @Nullable Class<capture#395 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:128: warning: [argument] incompatible argument for parameter p of process.
+            process(lexer, parserClass, parser, charStream);
+                                        ^
+  found   : @Initialized @NonNull Antlr4Master.@Initialized @Nullable Parser
+  required: @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:143: warning: [argument] incompatible argument for parameter c of process.
+            process(lexer, parserClass, parser, charStream);
+                           ^
+  found   : @Initialized @Nullable Class<capture#56 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:143: warning: [argument] incompatible argument for parameter p of process.
+            process(lexer, parserClass, parser, charStream);
+                                        ^
+  found   : @Initialized @NonNull Antlr4Master.@Initialized @Nullable Parser
+  required: @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:208: warning: [assignment] incompatible types in assignment.
+                bucket[bucket.length - 1] = null;
+                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Antlr4Master.@Initialized @NonNull T
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:308: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Collection<@Initialized @NonNull String>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:312: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:333: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Antlr4Master.@Initialized @NonNull CharStream
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:337: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Antlr4Master.@Initialized @NonNull CharStream
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:371: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Iterator<@Initialized @NonNull ATNConfig>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:380: warning: [override.param] Incompatible parameter type for a.
+        public <T> T[] toArray(T[] a) {
+                                   ^
+  found   : T extends @Initialized @Nullable Object @Initialized @NonNull []
+  required: T extends @Initialized @PolyNull Object @Initialized @NonNull []
+  Consequence: method in @Initialized @NonNull ATNConfigSet
+    <T extends @Initialized @Nullable Object> T extends @Initialized @Nullable Object @Initialized @NonNull [] toArray(@Initialized @NonNull ATNConfigSet this, T extends @Initialized @Nullable Object @Initialized @NonNull [] p0)
+  cannot override method in @Initialized @NonNull Set<@Initialized @NonNull ATNConfig>
+    <T extends @Initialized @Nullable Object> T extends @Initialized @Nullable Object @Initialized @NonNull [] toArray(@Initialized @NonNull Set<@Initialized @NonNull ATNConfig> this, T extends @Initialized @PolyNull Object @Initialized @NonNull [] p0)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:381: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: T extends @Initialized @Nullable Object @Initialized @NonNull []
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:424: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Transaction
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:429: warning: [assignment] incompatible types in assignment.
+        public static final PredictionMode SLL = null;
+                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull PredictionMode
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:439: warning: [assignment] incompatible types in assignment.
+        public static final Object NONE = null;
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:447: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Collection<@Initialized @NonNull BitSet>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:477: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Antlr4Master.@Initialized @NonNull LexerInterpreter
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:500: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull JLabel
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:508: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:512: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:522: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:160: warning: [not.interned] attempting to use a non-@Interned comparison operand
+        if ( mode == PredictionMode.SLL ) {
+             ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:160: warning: [not.interned] attempting to use a non-@Interned comparison operand
+        if ( mode == PredictionMode.SLL ) {
+                                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:192: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+        T[] bucket = buckets[b];
+                             ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:192: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+        T[] bucket = buckets[b];
+                             ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("this.buckets") or @LTLengthOf("this.buckets") -- an integer less than this.buckets's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:208: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                bucket[bucket.length - 1] = null;
+                                     ^
+  found   : @GTENegativeOne int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:355: warning: [override.return] Incompatible return type.
+        public int size() {
+               ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+  Consequence: method in @LowerBoundUnknown ATNConfigSet
+    @LowerBoundUnknown int size(@LowerBoundUnknown ATNConfigSet this)
+  cannot override method in @LowerBoundUnknown Set<@LowerBoundUnknown ATNConfig>
+    @NonNegative int size(@LowerBoundUnknown Set<@LowerBoundUnknown ATNConfig> this)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:92: warning: [argument] incompatible argument for parameter name of loadClass.
+            lexerClass = cl.loadClass(lexerName).asSubclass(Lexer.class);
+                                      ^
+  found   : @SignatureUnknown String
+  required: @BinaryName String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:98: warning: [argument] incompatible argument for parameter name of loadClass.
+                lexerClass = cl.loadClass(lexerName).asSubclass(Lexer.class);
+                                          ^
+  found   : @SignatureUnknown String
+  required: @BinaryName String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:113: warning: [argument] incompatible argument for parameter name of loadClass.
+            parserClass = cl.loadClass(parserName).asSubclass(Parser.class);
+                                       ^
+  found   : @SignatureUnknown String
+  required: @BinaryName String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:13: warning: [assignment] incompatible types in assignment.
+    private static final Object TASK_PRINT = null;
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:14: warning: [assignment] incompatible types in assignment.
+    private static final Dummy KEY_ROWID = null;
+                                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:15: warning: [initialization.field.uninitialized] the default constructor does not initialize field mDrawerListAdapter
+    private StickyListHeadersAdapter mDrawerListAdapter;
+                                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:17: warning: [initialization.field.uninitialized] the default constructor does not initialize field mList
+    private Dummy mList;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:18: warning: [initialization.field.uninitialized] the default constructor does not initialize field payeeToId
+    private Dummy payeeToId;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:19: warning: [initialization.field.uninitialized] the default constructor does not initialize field currentFont
+    private Font currentFont;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:21: warning: [initialization.field.uninitialized] the default constructor does not initialize field mAdapter
+    private Dummy mAdapter;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:22: warning: [initialization.field.uninitialized] the default constructor does not initialize field files
+    private Dummy[] files;
+                    ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:55: warning: [argument] incompatible argument for parameter o of startTaskExecution.
+                            null,
+                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:155: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:252: warning: [return] incompatible types in return.
+        return newChunk;
+               ^
+  type of expression: @Initialized @NonNull MyExpenses.@Initialized @Nullable Chunk
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Chunk
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:256: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Font
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:311: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Account
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:338: warning: [assignment] incompatible types in assignment.
+        public static final Object KEY_FILTER = null;
+                                                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:341: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:356: warning: [assignment] incompatible types in assignment.
+        public static final Object TASK_SPLIT = null;
+                                                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:359: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:364: warning: [assignment] incompatible types in assignment.
+        public static final Dummy ASYNC_TAG = null;
+                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:365: warning: [assignment] incompatible types in assignment.
+        public static final Dummy PROGRESS_TAG = null;
+                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:370: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:375: warning: [initialization.static.field.uninitialized] static field string not initialized
+        public static Dummy string;
+                            ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:384: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Long
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:388: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:392: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:396: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:400: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:404: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:408: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:412: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:416: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Long
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:420: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:424: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:428: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:432: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:436: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull TransactionChange.@Initialized @NonNull Builder
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:494: warning: [return] incompatible types in return.
+                return null;
+                       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:512: warning: [initialization.fields.uninitialized] the constructor does not initialize fields: uuid, comment, referenceNumber, crStatus
+        public Transaction(Dummy id, Long amount) {
+               ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:516: warning: [initialization.fields.uninitialized] the constructor does not initialize fields: uuid, comment, referenceNumber, crStatus
+        public Transaction() {
+               ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:533: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull ArrayList<@Initialized @NonNull MyExpenses.@Initialized @NonNull ContentProviderOperation>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:542: warning: [return] incompatible types in return.
+                return null;
+                       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:564: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:585: warning: [initialization.field.uninitialized] the default constructor does not initialize field progress_dialog_printing
+        public Dummy progress_dialog_printing;
+                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:588: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:592: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:596: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:604: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:608: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull TransactionChange
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:656: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull MyExpenses.@Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:664: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull TransactionList
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:683: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:222: warning: [not.interned] attempting to use a non-@Interned comparison operand
+                        if (currentFont != font) {
+                            ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:222: warning: [not.interned] attempting to use a non-@Interned comparison operand
+                        if (currentFont != font) {
+                                           ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:239: warning: [not.interned] attempting to use a non-@Interned comparison operand
+                        if (currentFont != font) {
+                            ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:239: warning: [not.interned] attempting to use a non-@Interned comparison operand
+                        if (currentFont != font) {
+                                           ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:211: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+        char c = cc[k];
+                    ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:211: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+        char c = cc[k];
+                    ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("cc") or @LTLengthOf("cc") -- an integer less than cc's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:230: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                        sb.append(cc[++k]);
+                                     ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/MyExpenses.java:230: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                        sb.append(cc[++k]);
+                                     ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("cc") or @LTLengthOf("cc") -- an integer less than cc's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:12: warning: [assignment] incompatible types in assignment.
+    private static final Object TAG = null;
+                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:13: warning: [initialization.field.uninitialized] the default constructor does not initialize field mFuelType
+    private Save mFuelType;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:14: warning: [initialization.field.uninitialized] the default constructor does not initialize field mEdtCategory
+    private Save mEdtCategory;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:15: warning: [initialization.field.uninitialized] the default constructor does not initialize field mEdtName
+    private Save mEdtName;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:16: warning: [initialization.field.uninitialized] the default constructor does not initialize field mOtherFuelTypeNames
+    private List<Object> mOtherFuelTypeNames;
+                         ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:17: warning: [initialization.field.uninitialized] the default constructor does not initialize field mBtnOk
+    private Button mBtnOk;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:18: warning: [initialization.field.uninitialized] the default constructor does not initialize field mTxtTrustCertificateDescription
+    private View mTxtTrustCertificateDescription;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:19: warning: [initialization.field.uninitialized] the default constructor does not initialize field mTxtTrustCertificate
+    private View mTxtTrustCertificate;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:20: warning: [initialization.field.uninitialized] the default constructor does not initialize field mChkTrustCertificate
+    private View mChkTrustCertificate;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:21: warning: [initialization.field.uninitialized] the default constructor does not initialize field mEdtUserName
+    private EditText mEdtUserName;
+                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:22: warning: [initialization.field.uninitialized] the default constructor does not initialize field mEdtPassword
+    private EditText mEdtPassword;
+                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:23: warning: [initialization.field.uninitialized] the default constructor does not initialize field mEdtUrl
+    private EditText mEdtUrl;
+                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:24: warning: [initialization.field.uninitialized] the default constructor does not initialize field mFullScreenChartAnimator
+    private AnimatorSet mFullScreenChartAnimator;
+                        ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:25: warning: [initialization.field.uninitialized] the default constructor does not initialize field mCurrentFullScreenChart
+    private ComboLineColumnChartView mCurrentFullScreenChart;
+                                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:26: warning: [initialization.field.uninitialized] the default constructor does not initialize field mFullScreenChart
+    private View mFullScreenChart;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:27: warning: [initialization.field.uninitialized] the default constructor does not initialize field mCurrentFullScreenStartBounds
+    private Rect mCurrentFullScreenStartBounds;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:30: warning: [initialization.field.uninitialized] the default constructor does not initialize field mFullScreenChartHolder
+    private ComboLineColumnChartView mFullScreenChartHolder;
+                                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:31: warning: [initialization.field.uninitialized] the default constructor does not initialize field android
+    private View android;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:32: warning: [initialization.field.uninitialized] the default constructor does not initialize field mAppBarLayout
+    private ComboLineColumnChartView mAppBarLayout;
+                                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:33: warning: [initialization.field.uninitialized] the default constructor does not initialize field mDbxClient
+    private View mDbxClient;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:74: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:138: warning: [argument] incompatible argument for parameter date of suspendedSince.
+        CarCursor car = new CarSelection().suspendedSince((Date) null).query(getContentResolver(),
+                                                          ^
+  found   : @FBCBottom @Nullable Date
+  required: @Initialized @NonNull Date
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:226: warning: [assignment] incompatible types in assignment.
+                mFullScreenChartAnimator = null;
+                                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull CarReport.@Initialized @NonNull AnimatorSet
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:271: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull File
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:275: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:279: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull ComboLineColumnChartView
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:287: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull ReportChartOptions
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:291: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull Save
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:295: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull Save
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:302: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull Save
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:306: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:310: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:338: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull FuelTypeSelection
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:367: warning: [initialization.static.field.uninitialized] static field string not initialized
+        public static Save string;
+                           ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:368: warning: [initialization.static.field.uninitialized] static field id not initialized
+        public static R id;
+                        ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:369: warning: [initialization.static.field.uninitialized] static field layout not initialized
+        public static View layout;
+                           ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:370: warning: [initialization.field.uninitialized] the default constructor does not initialize field edt_url
+        public Object edt_url;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:371: warning: [initialization.field.uninitialized] the default constructor does not initialize field edt_user_name
+        public Object edt_user_name;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:372: warning: [initialization.field.uninitialized] the default constructor does not initialize field edt_password
+        public Object edt_password;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:373: warning: [initialization.field.uninitialized] the default constructor does not initialize field txt_trust_certificate_description
+        public Object txt_trust_certificate_description;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:374: warning: [initialization.field.uninitialized] the default constructor does not initialize field txt_trust_certificate
+        public Object txt_trust_certificate;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:375: warning: [initialization.field.uninitialized] the default constructor does not initialize field chk_trust_certificate
+        public Object chk_trust_certificate;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:376: warning: [initialization.field.uninitialized] the default constructor does not initialize field btn_ok
+        public Object btn_ok;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:377: warning: [initialization.field.uninitialized] the default constructor does not initialize field btn_cancel
+        public Object btn_cancel;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:385: warning: [assignment] incompatible types in assignment.
+            public static final Object MATCH_PARENT = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:386: warning: [assignment] incompatible types in assignment.
+            public static final Object WRAP_CONTENT = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:400: warning: [assignment] incompatible types in assignment.
+        public static final Object GONE = null;
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:401: warning: [assignment] incompatible types in assignment.
+        public static final Object INVISIBLE = null;
+                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:402: warning: [assignment] incompatible types in assignment.
+        public static final Object VISIBLE = null;
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:403: warning: [assignment] incompatible types in assignment.
+        public static final Object X = null;
+                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:404: warning: [assignment] incompatible types in assignment.
+        public static final Object Y = null;
+                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:405: warning: [assignment] incompatible types in assignment.
+        public static final Object SCALE_X = null;
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:406: warning: [assignment] incompatible types in assignment.
+        public static final Object SCALE_Y = null;
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:407: warning: [assignment] incompatible types in assignment.
+        public static final View R = null;
+                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:408: warning: [initialization.field.uninitialized] the default constructor does not initialize field activity_setup_webdav_sync
+        public Object activity_setup_webdav_sync;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:409: warning: [initialization.field.uninitialized] the default constructor does not initialize field integer
+        public View integer;
+                    ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:410: warning: [initialization.field.uninitialized] the default constructor does not initialize field config_longAnimTime
+        public Object config_longAnimTime;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:429: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull CarCursor
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:441: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:445: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:449: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:453: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:464: warning: [assignment] incompatible types in assignment.
+        public static final Object RESULT_CANCELED = null;
+                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:491: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:503: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:524: warning: [assignment] incompatible types in assignment.
+        public static final Object ALL_COLUMNS = null;
+                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:525: warning: [assignment] incompatible types in assignment.
+        public static final String NAME = null;
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:544: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull Builder
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:548: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull Builder
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:558: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull View
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:568: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:585: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:593: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CarReport.@Initialized @NonNull Intent
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:624: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:632: warning: [initialization.field.uninitialized] the default constructor does not initialize field left
+        public Object left;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:633: warning: [initialization.field.uninitialized] the default constructor does not initialize field top
+        public Object top;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:662: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Temporal
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:672: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull TemporalAdjuster
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:700: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Utils
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:145: warning: [array.length.negative] Variable used in array creation could be negative.
+            final long[] carIds = new long[car.getCount()];
+                                                       ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:146: warning: [array.length.negative] Variable used in array creation could be negative.
+            final String[] carNames = new String[car.getCount()];
+                                                             ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:148: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                carIds[car.getPosition()] = car.getId();
+                                      ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:148: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                carIds[car.getPosition()] = car.getId();
+                                      ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("carIds") or @LTLengthOf("carIds") -- an integer less than carIds's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:149: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                carNames[car.getPosition()] = car.getName();
+                                        ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:149: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                carNames[car.getPosition()] = car.getName();
+                                        ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("carNames") or @LTLengthOf("carNames") -- an integer less than carNames's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:156: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+                            Intent intent = getDetailActivityIntent(edit, carIds[which], otherType);
+                                                                                 ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/CarReport.java:156: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                            Intent intent = getDetailActivityIntent(edit, carIds[which], otherType);
+                                                                                 ^
+  found   : @UpperBoundUnknown int
+  required: @IndexFor("carIds") or @LTLengthOf("carIds") -- an integer less than carIds's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:140: warning: [removal] Double(double) in Double has been deprecated and marked for removal
                         parameters.add(Integer.toString(new Double(st.nval).intValue()));
                                                         ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:12: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_out
+    private OpenCMSWriter m_out;
+                          ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:13: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_err
+    private PrintStream m_err;
+                        ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:142: warning: [argument] incompatible argument for parameter arg0 of add.
+                        parameters.add(st.sval);
+                                         ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:243: warning: [argument] incompatible argument for parameter o of defaultButtonHtml.
+                    null,
+                    ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:255: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull OpenCMSCore.@Initialized @NonNull ConfirmationMessage
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:259: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull OpenCMSCore.@Initialized @NonNull ConfirmationMessage
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:263: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:267: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:271: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull OpenCMSCore.@Initialized @NonNull ConfirmationMessage
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:275: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:279: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:307: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:313: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:325: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull List<@Initialized @NonNull OpenCMSCore.@Initialized @NonNull A_CmsSitemapMenuEntry>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:544: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:548: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:554: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull OpenCMSCore.@Initialized @NonNull CmsWorkplace
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:560: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:570: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:575: warning: [assignment] incompatible types in assignment.
+        public static final Object SMALL_ICON_TEXT = null;
+                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:26: warning: [initialization.field.uninitialized] the default constructor does not initialize field iconClassName
+    private String iconClassName;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:31: warning: [initialization.static.field.uninitialized] static field reloadThread not initialized
+    private static ReloadThread reloadThread;
+                                ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:32: warning: [initialization.static.field.uninitialized] static field jnaPosix not initialized
+    private static org.jruby.ext.posix.POSIX jnaPosix;
+                                             ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:67: warning: [initialization.fields.uninitialized] the constructor does not initialize fields: localizibleDescription
+        public HealthReport(int score, String iconUrl, Localizable description) {
+               ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:95: warning: [assignment] incompatible types in assignment.
+            this.description = null;
+                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:96: warning: [method.invocation] call to setLocalizibleDescription(Pom.Localizable) not allowed on the given receiver.
+            setLocalizibleDescription(description);
+                                     ^
+  found   : @Initialized @NonNull Pom.@UnderInitialization @NonNull HealthReport
+  required: @Initialized @NonNull Pom.@Initialized @NonNull HealthReport
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:207: warning: [initialization.field.uninitialized] the default constructor does not initialize field next
+            private T next;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:218: warning: [assignment] incompatible types in assignment.
+                next = null;
+                       ^
+  found   : null (NullType)
+  required: T extends @Initialized @Nullable Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:227: warning: [assignment] incompatible types in assignment.
+                            next = null;
+                                   ^
+  found   : null (NullType)
+  required: T extends @Initialized @Nullable Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:304: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:312: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:324: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:328: warning: [initialization.field.uninitialized] the default constructor does not initialize field reloadQueue
+        public Set<ViewJob> reloadQueue;
+                            ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:347: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Comparator</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:352: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull SortedMap</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object, /*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:357: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull SortedMap</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object, /*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:362: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull SortedMap</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object, /*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:367: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:372: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:397: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:401: warning: [contracts.postcondition] postcondition of put is not satisfied.
+        public Object put(Object key, Object value) {
+                      ^
+  found   : key is @UnknownKeyFor
+  required: key is @KeyFor("this")
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:402: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:407: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:422: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Set</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:427: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Collection</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:432: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Set<@Initialized @NonNull Entry</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object, /*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:436: warning: [override.param] Incompatible parameter type for o.
+        public boolean equals(Object o) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull Pom.@Initialized @NonNull RunMap<T extends @Initialized @Nullable Object>
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Pom.@Initialized @NonNull RunMap<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:485: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull File
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:495: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull InputStream
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:500: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull PrintStream
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:510: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull PrintStream
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:171: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+                        envp[i++] = e.getKey()+'+'+e.getValue();
+                              ^
+  index type found: @IntRange(from=-2147483648) int
+  array type found: @UnknownVal String @UnknownVal []
+  required        : index of type @IndexFor("envp") or @LTLengthOf("envp"), or array of type @MinLen(-9223372036854775808)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java:376: warning: [override.return] Incompatible return type.
+        public int size() {
+               ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+  Consequence: method in @LowerBoundUnknown Pom.@LowerBoundUnknown RunMap<T extends @LowerBoundUnknown Object>
+    @LowerBoundUnknown int size(@LowerBoundUnknown Pom.@LowerBoundUnknown RunMap<T extends @LowerBoundUnknown Object> this)
+  cannot override method in @LowerBoundUnknown Map</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object, /*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object>
+    @NonNegative int size(@LowerBoundUnknown Map</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object, /*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object> this)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/estimators/EstimatorUtils.java:90: warning: [return] incompatible types in return.
+      return null;
+             ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Enumeration<@Initialized @NonNull Instance>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:44: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_popupFrame
+  protected transient JFrame m_popupFrame;
+                             ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:48: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_visPanel
+  private transient VisualizePanel m_visPanel;
+                                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:49: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_masterPlot
+  private Object m_masterPlot;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:50: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_offscreenPlotData
+  private Object m_offscreenPlotData;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:101: warning: [assignment] incompatible types in assignment.
+      m_visPanel = null;
+                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull ModelPerformanceChart.@Initialized @NonNull VisualizePanel
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:102: warning: [assignment] incompatible types in assignment.
+      m_masterPlot = null;
+                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:103: warning: [assignment] incompatible types in assignment.
+      m_offscreenPlotData = null;
+                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:118: warning: [return] incompatible types in return.
+    return null;
+           ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull BeanContext
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:43: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_modifyListener
+  private ModifyListener m_modifyListener;
+                         ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:44: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_evaluationMetrics
+  private List<String> m_evaluationMetrics;
+                       ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:45: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_cpe
+  private ModifyListener m_cpe;
+                         ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:46: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_parent
+  private ModifyListener m_parent;
+                         ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:72: warning: [argument] incompatible argument for parameter end of substring.
+          String newList = b.substring(0, b.length() - 1);
+                                                     ^
+  found   : @GTENegativeOne int
+  required: @NonNegative int
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:56: warning: [initialization.field.uninitialized] the default constructor does not initialize field m_Exp
+  protected Experiment m_Exp;
+                       ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:87: warning: [argument] incompatible argument for parameter o of setValue.
+        m_ArrayEditor.setValue(null);
+                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:116: warning: [return] incompatible types in return.
+      return null;
+             ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:122: warning: [return] incompatible types in return.
+      return null;
+             ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Component
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:72: warning: [not.interned] attempting to use a non-@Interned comparison operand
+    if (e.getSource() == m_ConfigureBut) {
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:74: warning: [not.interned] attempting to use a non-@Interned comparison operand
+    } else if (e.getSource() == m_StatusBox) {
+                          ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:18: warning: [initialization.field.uninitialized] the default constructor does not initialize field container
+    private Bean container;
+                 ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:19: warning: [initialization.field.uninitialized] the default constructor does not initialize field processed
+    private Treese processed;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:20: warning: [initialization.field.uninitialized] the default constructor does not initialize field recovered
+    private Treese recovered;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:21: warning: [initialization.field.uninitialized] the default constructor does not initialize field jmsTemplate
+    private Treese jmsTemplate;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:22: warning: [initialization.field.uninitialized] the default constructor does not initialize field reader
+    private FlatFileItemReader<Object> reader;
+                                       ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:23: warning: [initialization.field.uninitialized] the default constructor does not initialize field executionContext
+    private ExecutionContext executionContext;
+                             ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:24: warning: [initialization.field.uninitialized] the default constructor does not initialize field writer
+    private ItmWriter writer;
+                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:144: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: T extends @Initialized @Nullable Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:167: warning: [return] incompatible types in return.
+                return StringUtils.hasText(record) ? record : null;
+                                                   ^
+  type of expression: @Initialized @Nullable String
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:180: warning: [argument] incompatible argument for parameter foo of assertEquals.
+        assertEquals(null, reader.read());
+                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:223: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull SpringBatch.@Initialized @NonNull ItmWriter
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:227: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Resource
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:239: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull SpringBatch.@Initialized @NonNull Returner
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:251: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull SpringBatch.@Initialized @NonNull JobExecution
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:256: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:292: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:296: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:316: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/SpringBatch.java:351: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Connection
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:5: warning: [initialization.static.field.uninitialized] static field sStores not initialized
+    private static DualHashMap<String, Store> sStores;
+                                              ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:64: warning: [argument] incompatible argument for parameter oAuth2TokenProvider of ImapStore.
+                        oAuth2TokenProvider);
+                        ^
+  found   : @FBCBottom @Nullable OAuth2TokenProvider
+  required: @Initialized @NonNull OAuth2TokenProvider
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:119: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: T1 extends @Initialized @Nullable Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:222: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull K9.@Initialized @NonNull SmtpTransport
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:226: warning: [assignment] incompatible types in assignment.
+        public static final Object CONNECTIVITY_SERVICE = null;
+                                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:229: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:258: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:276: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:292: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull K9.@Initialized @NonNull ImapResponse
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:302: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:306: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull K9.@Initialized @NonNull ImapResponse
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:315: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull K9.@Initialized @NonNull ImapResponseParser
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:325: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:392: warning: [assignment] incompatible types in assignment.
+        public static final Object NONE = null;
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:396: warning: [assignment] incompatible types in assignment.
+        public static final Object XOAUTH2 = null;
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:407: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/K9.java:413: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:19: warning: [assignment] incompatible types in assignment.
+    private static final org.apache.commons.cli.Option INPUT_PATH_OPT = null;
+                                                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Option
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:20: warning: [assignment] incompatible types in assignment.
+    private static final Object MIN_TABLE_TIMESTAMP = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:21: warning: [assignment] incompatible types in assignment.
+    private static final Object CONFIG_COLUMN_NAMES = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:22: warning: [assignment] incompatible types in assignment.
+    private static final Object CONFIG_HEADER_NAMES = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:23: warning: [assignment] incompatible types in assignment.
+    private static final Object CONFIG_ROWKEY_TYPE_GENERATOR = null;
+                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:25: warning: [assignment] incompatible types in assignment.
+    private static final org.apache.commons.cli.Option TABLE_NAME_OPT = null;
+                                                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Option
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:26: warning: [assignment] incompatible types in assignment.
+    private static final org.apache.commons.cli.Option HELP_OPT = null;
+                                                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Option
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:27: warning: [initialization.field.uninitialized] the default constructor does not initialize field env
+    private Dummy env;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:28: warning: [initialization.field.uninitialized] the default constructor does not initialize field PLong
+    private Dummy PLong;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:29: warning: [initialization.field.uninitialized] the default constructor does not initialize field createTableDdl
+    private String createTableDdl;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:30: warning: [initialization.field.uninitialized] the default constructor does not initialize field fullTableName
+    private String fullTableName;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:32: warning: [initialization.field.uninitialized] the default constructor does not initialize field jdbcUrl
+    private Object jdbcUrl;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:33: warning: [initialization.field.uninitialized] the default constructor does not initialize field colNames
+    private Antlr4Master.ATNConfigSet colNames;
+                                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:34: warning: [initialization.field.uninitialized] the default constructor does not initialize field headers
+    private Antlr4Master.ATNConfigSet headers;
+                                      ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:35: warning: [initialization.field.uninitialized] the default constructor does not initialize field keyGenerator
+    private Object keyGenerator;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:37: warning: [initialization.field.uninitialized] the default constructor does not initialize field logger
+    private Pom.POSIXHandler logger;
+                             ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:38: warning: [initialization.field.uninitialized] the default constructor does not initialize field sinkCounter
+    private Dummy sinkCounter;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:39: warning: [initialization.field.uninitialized] the default constructor does not initialize field serializer
+    private Dummy serializer;
+                  ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:48: warning: [argument] incompatible argument for parameter o of MetaDataMutationResult.
+                EnvironmentEdgeManager.currentTimeMillis(), null); }
+                                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:51: warning: [argument] incompatible argument for parameter o of getKeyForSchema.
+            Scan scan = MetaDataUtil.newTableRowsScan(SchemaUtil.getKeyForSchema(null, schemaName), MIN_TABLE_TIMESTAMP,
+                                                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:58: warning: [argument] incompatible argument for parameter o of MetaDataMutationResult.
+                            EnvironmentEdgeManager.currentTimeMillis(), null);
+                                                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:78: warning: [argument] incompatible argument for parameter o of MetaDataMutationResult.
+                null);
+                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:83: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull PSchema
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:122: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Expression
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:126: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Expression
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:130: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Expression
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:232: warning: [dereference.of.nullable] dereference of possibly-null reference transaction
+            transaction.rollback();
+            ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:243: warning: [dereference.of.nullable] dereference of possibly-null reference transaction
+            transaction.rollback();
+            ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:259: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Channel
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:283: warning: [dereference.of.nullable] dereference of possibly-null reference cmdLine
+        if (cmdLine.hasOption(HELP_OPT.getOpt())) {
+            ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:319: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Options
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:329: warning: [assignment] incompatible types in assignment.
+        public static final Object SCHEMA_NOT_FOUND = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:330: warning: [assignment] incompatible types in assignment.
+        public static final Object TABLES_EXIST_ON_SCHEMA = null;
+                                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:331: warning: [assignment] incompatible types in assignment.
+        public static final Object SCHEMA_ALREADY_EXISTS = null;
+                                                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:341: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:356: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:364: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Expression
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:368: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Expression
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:393: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull RegionScanner
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:398: warning: [assignment] incompatible types in assignment.
+        public static final Dummy INSTANCE = null;
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Dummy
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:401: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Region
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:435: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:441: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Scan
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:446: warning: [assignment] incompatible types in assignment.
+        public static final Object CONFIG_TABLE_DDL = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:447: warning: [assignment] incompatible types in assignment.
+        public static final Object CONFIG_TABLE = null;
+                                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:448: warning: [assignment] incompatible types in assignment.
+        public static final Object CONFIG_ZK_QUORUM = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:449: warning: [assignment] incompatible types in assignment.
+        public static final Object DEFAULT_BATCH_SIZE = null;
+                                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:450: warning: [assignment] incompatible types in assignment.
+        public static final Object CONFIG_BATCHSIZE = null;
+                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:451: warning: [assignment] incompatible types in assignment.
+        public static final Object CONFIG_JDBC_URL = null;
+                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:456: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:466: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:472: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:476: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:491: warning: [assignment] incompatible types in assignment.
+        public static final Status READY = null;
+                                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Status
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:492: warning: [assignment] incompatible types in assignment.
+        public static final Status BACKOFF = null;
+                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Status
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:496: warning: [assignment] incompatible types in assignment.
+        public static final Object NANOSECONDS = null;
+                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:497: warning: [assignment] incompatible types in assignment.
+        public static final HibernateORM.Environment SECONDS = null;
+                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:523: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Transaction
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:527: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Phoenix.@Initialized @NonNull Event
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java:115: warning: [array.length.negative] Variable used in array creation could be negative.
+        byte[] resultPtr=new byte[PLong.INSTANCE.getByteSize()];
+                                                            ^
+  found   : @LowerBoundUnknown int
+  required: an integer >= 0 (@NonNegative or @Positive)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:6: warning: [assignment] incompatible types in assignment.
+    private final String DEFAULT_BATCH_SIZE = null;
+                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:7: warning: [initialization.field.uninitialized] the default constructor does not initialize field targetedPersister
+    private Object targetedPersister;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:8: warning: [initialization.field.uninitialized] the default constructor does not initialize field updates
+    private Update[] updates;
+                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:9: warning: [initialization.field.uninitialized] the default constructor does not initialize field idInsertSelect
+    private String idInsertSelect;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:10: warning: [initialization.field.uninitialized] the default constructor does not initialize field idSelectParameterSpecifications
+    private ParameterSpecification[] idSelectParameterSpecifications;
+                                     ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:11: warning: [initialization.field.uninitialized] the default constructor does not initialize field assignmentParameterSpecifications
+    private ParameterSpecification[][] assignmentParameterSpecifications;
+                                       ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:12: warning: [initialization.field.uninitialized] the default constructor does not initialize field queryString
+    private Update queryString;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:13: warning: [initialization.field.uninitialized] the default constructor does not initialize field dialect
+    private Object dialect;
+                   ^
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:73: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CollectionPersister
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:77: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Type
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:83: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:89: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class<? extends @Initialized @Nullable Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:99: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Serializable
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:303: warning: [argument] incompatible argument for parameter ownerKey of toLoggableString.
+                    ownerKey, session.getFactory() ) );
+                    ^
+  found   : @Initialized @Nullable Serializable
+  required: @Initialized @NonNull Serializable
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:338: warning: [assignment] incompatible types in assignment.
+        public static final Object STRING = null;
+                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:339: warning: [assignment] incompatible types in assignment.
+        public static final Object TIMESTAMP = null;
+                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:343: warning: [assignment] incompatible types in assignment.
+        public static final Object USE_STREAMS_FOR_BINARY = null;
+                                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:344: warning: [assignment] incompatible types in assignment.
+        public static final Object STATEMENT_BATCH_SIZE = null;
+                                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:351: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:355: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull PreparedStatement
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:359: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull PreparedStatement
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:367: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:371: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:379: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:387: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:391: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Exception
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:394: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Exception
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:398: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull PreparedStatement
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:402: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull ResultSet
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:406: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull EntityEntry
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:410: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:420: warning: [return] incompatible types in return.
+        return null;
+               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:429: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:433: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:437: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:441: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:450: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Environment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:485: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull HibernateORM.@Initialized @NonNull Transaction
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:183: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                        if ( assignmentParameterSpecifications[i] != null ) {
+                                                               ^
+  found   : @LTLengthOf(value="this.updates", offset="0") int
+  required: @IndexFor("this.assignmentParameterSpecifications") or @LTLengthOf("this.assignmentParameterSpecifications") -- an integer less than this.assignmentParameterSpecifications's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:185: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                            for ( int x = 0; x < assignmentParameterSpecifications[i].length; x++ ) {
+                                                                                   ^
+  found   : @LTLengthOf(value="this.updates", offset="0") int
+  required: @IndexFor("this.assignmentParameterSpecifications") or @LTLengthOf("this.assignmentParameterSpecifications") -- an integer less than this.assignmentParameterSpecifications's length
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/HibernateORM.java:186: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+                                position += assignmentParameterSpecifications[i][x].bind( ps, queryParameters, session, position );
+                                                                              ^
+  found   : @LTLengthOf(value="this.updates", offset="0") int
+  required: @IndexFor("this.assignmentParameterSpecifications") or @LTLengthOf("this.assignmentParameterSpecifications") -- an integer less than this.assignmentParameterSpecifications's length
 Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Phoenix.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-1 warning
+398 warnings
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/isPalindrome.java:13: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^
@@ -263,90 +2047,90 @@ Note: Recompile with -Xlint:unchecked for details.
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1139: warning: [format.string] invalid format string (is a @Format annotation missing?)
                 CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
                                           ^
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 4974864
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 4610296
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 4972216
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 4089552
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 4451448
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 4089552
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 4451448
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 3564248
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 3926264
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 3564248
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 3926264
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 3041104
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 3923608
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 144056872
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 3402872
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 144056872
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 2877712
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 143534632
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 2877712
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 143534632
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 2877712
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 143008296
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 2354296
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 143008296
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 2354296
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 143008296
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 2354296
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 142486056
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 1829096
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 142484008
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 1829096
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 141959720
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 1305968
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 141959720
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 310100208
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 141437480
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 310100208
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 141435432
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 309577968
-warning: Garbage collection consumed 51% of CPU during the past 60 seconds.
+   free memory = 141435432
+warning: Garbage collection consumed 55% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 309577968
+   free memory = 140911144
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:193: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^

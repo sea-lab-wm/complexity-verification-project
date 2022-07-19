@@ -8,6 +8,7 @@ public class K9 {
 
     // com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
 //    @Test // Removed to allow compilation
+    //SNIPPET_STARTS
     public void testFetchResponse() throws Exception {
         ImapResponseParser parser = createParser("* 1 FETCH (" +
                 "UID 23 " +
@@ -44,6 +45,7 @@ public class K9 {
     /**
      * Get an instance of a remote mail store.
      */
+    //SNIPPET_STARTS
     public static synchronized Store getInstance(Context context, StoreConfig storeConfig) throws MessagingException {
         String uri = storeConfig.getStoreUri();
 
@@ -80,6 +82,7 @@ public class K9 {
 
     // com.fsck.k9.mail.transport.SmtpTransportTest.open_withXoauth2Extension_shouldThrowOnMultipleFailure()
 //    @Test // Removed to allow compilation
+    //SNIPPET_STARTS
     public void open_withXoauth2Extension_shouldThrowOnMultipleFailure() throws Exception {
         MockSmtpServer server = new MockSmtpServer();
         server.output("220 localhost Simple Mail Transfer Service Ready");
@@ -121,6 +124,7 @@ public class K9 {
         }
     }
 
+    //SNIPPET_STARTS
     public class StorageManager {
         private final Context context;
         // com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
@@ -167,6 +171,7 @@ public class K9 {
 
     // com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
 //    @Test // Removed to allow compilation
+    //SNIPPET_STARTS
     public void testTextQuoteToHtmlBlockquote() {
         String message = "Panama!\r\n" +
                 "\r\n" +
@@ -207,6 +212,7 @@ public class K9 {
                 + "</blockquote>"
                 + "</pre>", result);
     }
+    //SNIPPETS_END
 
     private void writeToFile(String result) {
 

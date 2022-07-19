@@ -42,6 +42,7 @@ public class EstimatorUtils implements RevisionHandler {
    * @return number of not missing values
    * @throws Exception if parameter minMax wasn't initialized properly
    */
+  //SNIPPET_STARTS
   public static int getMinMax(Instances inst, int attrIndex, double[] minMax)
           throws Exception {
     double min = Double.NaN;
@@ -82,6 +83,7 @@ public class EstimatorUtils implements RevisionHandler {
     minMax[1] = max;
     return numNotMissing;
   }
+  //SNIPPETS_END
 
   private static class Instances {
     public Enumeration<Instance> enumerateInstances() {

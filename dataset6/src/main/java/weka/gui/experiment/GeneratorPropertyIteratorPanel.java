@@ -65,6 +65,7 @@ public class GeneratorPropertyIteratorPanel extends JPanel implements
    * 
    * @param e a value of type 'ActionEvent'
    */
+  //SNIPPET_STARTS
   @Override
   public void actionPerformed(ActionEvent e) {
 
@@ -100,6 +101,7 @@ public class GeneratorPropertyIteratorPanel extends JPanel implements
       }
     }
   }
+  //SNIPPETS_END
 
   private void selectProperty() {
 

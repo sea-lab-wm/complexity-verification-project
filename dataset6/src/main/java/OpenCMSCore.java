@@ -13,6 +13,7 @@ public class OpenCMSCore {
     private PrintStream m_err;
 
     // org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
+    //SNIPPET_STARTS
     public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
 
         List<A_CmsSitemapMenuEntry> result = Lists.newArrayList();
@@ -57,6 +58,7 @@ public class OpenCMSCore {
 
     // org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
 //    @Override // Removed to allow compilation
+    //SNIPPET_STARTS
     public long seekFile(long pos, int typ) throws IOException {
 
         try {
@@ -101,6 +103,7 @@ public class OpenCMSCore {
      *
      * @param reader the reader from which the commands are read
      */
+    //SNIPPET_STARTS
     public void execute(Reader reader) {
 
         try {
@@ -174,6 +177,7 @@ public class OpenCMSCore {
      *
      * @throws Exception if something goes wrong
      */
+    //SNIPPET_STARTS
     public static int generateContent(CmsObject cms, String vfsFolder, int numberOfFiles, double fileTypeDistribution)
             throws Exception {
 
@@ -210,6 +214,7 @@ public class OpenCMSCore {
 
     // org.opencms.workplace.list.CmsListRadioMultiAction.buttonHtml(org.opencms.workplace.CmsWorkplace)
 //    @Override // Removed to allow compilation
+    //SNIPPET_STARTS
     public String buttonHtml(CmsWorkplace wp) {
 
         if (!isVisible()) {
@@ -240,6 +245,7 @@ public class OpenCMSCore {
         }
         return "";
     }
+    //SNIPPETS_END
 
     private void load(boolean b) {
 

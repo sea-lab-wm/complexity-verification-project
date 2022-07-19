@@ -25,6 +25,7 @@ public class SpringBatch {
 
     // org.springframework.batch.container.jms.BatchMessageListenerContainerIntegrationTests.testFailureAndRecovery()
 //    @Test // removed to allow compilation
+    //SNIPPET_STARTS
     public void testFailureAndRecovery() throws Exception {
         final RetryTemplate retryTemplate = new RetryTemplate();
         retryTemplate.setRetryPolicy(new NeverRetryPolicy());
@@ -72,6 +73,7 @@ public class SpringBatch {
 
     // org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
 //    @Test // removed to allow compilation
+    //SNIPPET_STARTS
     public void testArtifactUniqueness() throws Exception {
         JobExecution jobExecution = runJob("jsrUniqueInstanceTests", new Properties(), 10000L);
         String exitStatus = jobExecution.getExitStatus();
@@ -105,6 +107,7 @@ public class SpringBatch {
 
     // org.springframework.batch.item.database.ExtendedConnectionDataSourceProxyTests.testOperationWithDirectCloseCall()
 //    @Test // removed to allow compilation
+    //SNIPPET_STARTS
     public void testOperationWithDirectCloseCall() throws SQLException {
         Connection con = mock(Connection.class);
         DataSource ds = mock(DataSource.class);
@@ -143,6 +146,7 @@ public class SpringBatch {
 
     // org.springframework.batch.item.file.FlatFileItemReaderTests.testCustomRecordSeparatorMultilineBlankLineAfterEnd()
 //    @Test // removed to allow compilation
+    //SNIPPET_STARTS
     public void testCustomRecordSeparatorMultilineBlankLineAfterEnd() throws Exception {
 
         reader.setRecordSeparatorPolicy(new RecordSeparatorPolicy() {
@@ -178,6 +182,7 @@ public class SpringBatch {
     }
 
     // org.springframework.batch.item.xml.StaxEventItemWriterTests.initWriterForSimpleCallbackTests()
+    //SNIPPET_STARTS
     private void initWriterForSimpleCallbackTests() throws Exception {
         writer = createItemWriter();
         writer.setHeaderCallback(new StaxWriterCallback() {
@@ -212,6 +217,7 @@ public class SpringBatch {
         writer.setRootTagName("{https://www.springframework.org/test}ns:testroot");
         writer.afterPropertiesSet();
     }
+    //SNIPPETS_END
 
     private ItmWriter createItemWriter() {
         return null;

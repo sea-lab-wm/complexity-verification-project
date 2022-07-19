@@ -112,6 +112,7 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     dfListCorrelationDatapoints.append(cogDataset1Datapoints[1])
     dfListCorrelationDatapoints.append(cogDataset1Datapoints[2])
 
+    # Compile datapoints for the COG Dataset 2 Study
     cogDataset2Datapoints = setCogDataset2Datapoints(warningsPerSnippetPerDataset["COG Dataset 2"], copy.deepcopy(data))
     dfListCorrelationDatapoints.append(cogDataset2Datapoints[0])
     dfListCorrelationDatapoints.append(cogDataset2Datapoints[1])
@@ -120,6 +121,12 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
 
     # Compile datapoints for the COG Dataset 3 Study
     dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset["COG Dataset 3"], copy.deepcopy(data)))
+
+    # Compile datapoints for the COG Dataset 6 Study
+    cogDataset6Datapoints = setCogDataset6Datapoints(warningsPerSnippetPerDataset["COG Dataset 6"], copy.deepcopy(data))
+    dfListCorrelationDatapoints.append(cogDataset6Datapoints[0])
+    dfListCorrelationDatapoints.append(cogDataset6Datapoints[1])
+    dfListCorrelationDatapoints.append(cogDataset6Datapoints[2])
 
     # Compile datapoints for the fMRI Study
     fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["fMRI Dataset"], data)
@@ -171,6 +178,21 @@ def setCogDataset3Datapoints(warningsPerSnippet, data):
     data["Warning Count"] = warningsPerSnippet
 
     return pd.DataFrame(data)
+
+def setCogDataset6Datapoints(warningsPerSnippet, data):
+    dataTime = copy.deepcopy(data)
+    dataCorrectness = copy.deepcopy(data)
+    dataRating = copy.deepcopy(data)
+    metrics = readCOGDataset6StudyMetrics()
+
+    dataTime["Metric"] = metrics[0]
+    dataTime["Warning Count"] = warningsPerSnippet
+    dataCorrectness["Metric"] = metrics[1]
+    dataCorrectness["Warning Count"] = warningsPerSnippet
+    dataRating["Metric"] = metrics[2]
+    dataRating["Warning Count"] = warningsPerSnippet
+
+    return (pd.DataFrame(dataTime), pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating))
 
 def setFMRIStudyDatapoints(warningsPerSnippet, data):
     dataCorrectness = copy.deepcopy(data)
@@ -229,18 +251,13 @@ def readCOGDataset2StudyMetrics():
 
     # Get time column for each snippet
     timeCols = dfTime.iloc[1:18, [val for val in range(1, 25, 2)]]
-    #print(timeCols)
+
     # Average the values of each column
     times = [int(val) / 16 for val in timeCols.astype(int).sum(axis=0)]
-    #print(times)
 
     BA32 = dfPhysiological.iloc[:, 5]
     BA31post = dfPhysiological.iloc[:, 6]
     BA31ant = dfPhysiological.iloc[:, 7]
-
-    #print(BA32)
-    #print(BA31post)
-    #print(BA31ant)
 
     return (times, BA32, BA31post, BA31ant)
 
@@ -255,6 +272,58 @@ def readCOGDataset3StudyMetrics():
     
     # Returns a list of the averages for each snippet
     return [round(sum(df[column]) / len(df[column]), 2) for column in df.columns[2:]]
+
+# Reads the results of the cog data set 6 study. It contains 120 people who looked at 63 snippets with metrics based on time, correctness, and rating.
+# IMPORTANT: Each participant was assigned randomly assigned about 8 snippets out of the 50. So not every person looked at every snippet.
+# The metrics were Time Needed for Perceived Understandability (TNPU), Actual Understanding (AU), and Perceived Binary Understandability (PBU).
+def readCOGDataset6StudyMetrics():
+    times = []
+    correctness = []
+    rating = []
+
+    df = pd.read_csv("data/cog_dataset_6.csv")
+    
+    participantsPerSnippet = 0
+    participantsPerSnippetTNPU = 0  # Separate variable to keep track of the fact that some TNPU are NULL. We don't want to average with the participant count if we skipped over the NULL values
+    lastSnippet = ""
+    sumTNPU = 0
+    sumAU = 0
+    sumPBU = 0
+    for row in df.itertuples():
+        if row[3] != lastSnippet and row[0] != 0:
+            # Moved onto new snippet. Get averages for previous snippet.
+            times.append(sumTNPU / participantsPerSnippetTNPU)
+            correctness.append(sumAU / participantsPerSnippet)
+            rating.append(sumPBU / participantsPerSnippet)
+
+            sumTNPU = 0
+            sumAU = 0
+            sumPBU = 0
+            participantsPerSnippet = 0
+            participantsPerSnippetTNPU = 0
+        
+        # Still on same snippet, on first snippet, or starting new snippet after getting the averages for the previous one.
+        participantsPerSnippet += 1
+        #124 = PBU, 125 = TNPU, 126 = AU
+        if not pd.isnull(row[125]):
+            participantsPerSnippetTNPU += 1
+            sumTNPU += row[125]
+
+        sumAU += row[126]
+        sumPBU += row[124]
+        lastSnippet = row[3]
+
+        #print(row[124], row[125], row[126])
+
+    # Get averages for last snippet
+    times.append(sumTNPU / participantsPerSnippetTNPU)
+    correctness.append(sumAU / participantsPerSnippet)
+    rating.append(sumPBU / participantsPerSnippet)
+
+    if len(times) != 50 and len(correctness) != 50 and len(rating) != 50:
+        raise Exception
+
+    return (times, correctness, rating)
 
 # Reads the results of the fMRI study. It contains 19 people who looked at 16 snippets.
 # Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.
@@ -500,7 +569,7 @@ if __name__ == "__main__":
     warningsPerSnippetPerDatasetCheckerFramework = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[0], correlationAnalysisDFCheckerFramework)
     warningsPerSnippetPerDatasetTypestateChecker = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[1], correlationAnalysisDFTypestateChecker)
     warningsPerSnippetPerDatasetInfer = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[2], correlationAnalysisDFInfer)
-    print(warningsPerSnippetPerDatasetAllTools)
+    #print(warningsPerSnippetPerDatasetAllTools)
     # STEP 5:
     # Determine the number of warnings per dataset
     correlationAnalysisDFAllTools = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetAllTools), correlationAnalysisDFAllTools)

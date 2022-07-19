@@ -39,6 +39,7 @@ public class Phoenix {
     private Dummy serializer;
 
     // org.apache.phoenix.coprocessor.MetaDataEndpointImpl.doDropSchema(long,java.lang.String,byte[],java.util.List<org.apache.hadoop.hbase.client.Mutation>,java.util.List<org.apache.phoenix.hbase.index.util.ImmutableBytesPtr>)
+    //SNIPPET_STARTS
     private MetaDataMutationResult doDropSchema(long clientTimeStamp, String schemaName, byte[] key,
                                                 List<Mutation> schemaMutations, List<ImmutableBytesPtr> invalidateList) throws Exception {
         PSchema schema = loadSchema(env, key, new ImmutableBytesPtr(key), clientTimeStamp, clientTimeStamp);
@@ -85,6 +86,7 @@ public class Phoenix {
     // org.apache.phoenix.expression.ModulusExpression.evaluate(org.apache.phoenix.schema.tuple.Tuple,org.apache.hadoop.hbase.io.ImmutableBytesWritable)
 
 //    @Override // removed to allow compilation
+    //SNIPPET_STARTS
     public boolean evaluate(Tuple tuple, ImmutableBytesWritable ptr) {
         // get the dividend
         Expression dividendExpression = getDividendExpression();
@@ -130,6 +132,7 @@ public class Phoenix {
 
     // org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
 //    @Override // removed to allow compilation
+    //SNIPPET_STARTS
     public void configure(Context context) {
 
         this.createTableDdl = context.getString(FlumeConstants.CONFIG_TABLE_DDL);
@@ -181,6 +184,7 @@ public class Phoenix {
 
     // org.apache.phoenix.flume.sink.PhoenixSink.process()
 //    @Override // removed to allow compilation
+    //SNIPPET_STARTS
     public Status process() throws EventDeliveryException {
 
         Status status = Status.READY;
@@ -263,6 +267,7 @@ public class Phoenix {
      * @param args supplied command line arguments
      * @return the parsed command line
      */
+    //SNIPPET_STARTS
     protected CommandLine parseOptions(String[] args) {
 
         Options options = getOptions();
@@ -296,6 +301,7 @@ public class Phoenix {
 
         return cmdLine;
     }
+    //SNIPPETS_END
 
     private void doConfigure(Context context) {
 

@@ -32,6 +32,7 @@ public class Pom {
     private static org.jruby.ext.posix.POSIX jnaPosix;
     private boolean ignoreBase;
 
+    //SNIPPET_STARTS
     public class HealthReport implements Serializable, Comparable<HealthReport> {
         private String iconClassName;
         private int score;
@@ -96,6 +97,7 @@ public class Pom {
         }
     }
 
+    //SNIPPET_STARTS
     private class ViewJob {
         // hudson.model.ViewJob._getRuns()
         protected SortedMap<Integer,RunT> _getRuns() {
@@ -135,6 +137,7 @@ public class Pom {
     }
 
     // hudson.os.PosixAPI.get()
+    //SNIPPET_STARTS
     @Deprecated
     public static synchronized org.jruby.ext.posix.POSIX get() {
         if (jnaPosix == null) {
@@ -198,6 +201,7 @@ public class Pom {
      *
      * @since 1.485
      */
+    //SNIPPET_STARTS
     public static <T> Iterator<T> limit(final Iterator<? extends T> base, final CountingPredicate<? super T> filter) {
         return new Iterator<T>() {
             private T next;
@@ -256,6 +260,7 @@ public class Pom {
      * on the system classpath (when not in isolated mode) or this loader's
      * classpath.
      */
+    //SNIPPET_STARTS
     protected synchronized Class loadClass(String classname, boolean resolve)
             throws ClassNotFoundException {
         // 'sync' is needed - otherwise 2 threads can load the same class
@@ -293,6 +298,7 @@ public class Pom {
         }
         return theClass;
     }
+    //SNIPPETS_END
 
     private Class findClass(String classname) throws ClassNotFoundException{
         return null;

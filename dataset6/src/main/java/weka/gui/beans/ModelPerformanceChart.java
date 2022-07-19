@@ -65,6 +65,7 @@ public class ModelPerformanceChart extends JPanel implements Serializable, BeanC
    * @exception IllegalArgumentException if an error occurs
    */
 //  @Override // removed to allow compilation
+  //SNIPPET_STARTS
   public void performRequest(String request) {
     if (request.compareTo("Show chart") == 0) {
       try {
@@ -105,6 +106,7 @@ public class ModelPerformanceChart extends JPanel implements Serializable, BeanC
         + " not supported (Model Performance Chart)");
     }
   }
+  //SNIPPETS_END
 
   @Override
   public void setBeanContext(BeanContext bc) throws PropertyVetoException {

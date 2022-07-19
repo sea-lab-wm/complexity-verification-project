@@ -29,6 +29,7 @@ public class MyExpenses {
 
     // org.totschnig.myexpenses.activity.MyExpenses.contribFeatureCalled(org.totschnig.myexpenses.model.ContribFeature,java.io.Serializable)
 //  @Override // removed to allow compilation
+    //SNIPPET_STARTS
     public void contribFeatureCalled(ContribFeature feature, Serializable tag) {
         switch (feature) {
             case DISTRIBUTION:
@@ -72,6 +73,7 @@ public class MyExpenses {
     }
 
     // org.totschnig.myexpenses.sync.SyncAdapter.getContentProviderOperationsForCreate(org.totschnig.myexpenses.sync.json.TransactionChange,int,int)
+    //SNIPPET_STARTS
 private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreate(
         TransactionChange change, int offset, int parentOffset) {
     if (!change.isCreate()) throw new AssertionError();
@@ -154,6 +156,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
 
     // org.totschnig.myexpenses.sync.SyncAdapter.mergeUpdate(org.totschnig.myexpenses.sync.json.TransactionChange,org.totschnig.myexpenses.sync.json.TransactionChange)
+    //SNIPPET_STARTS
     private TransactionChange mergeUpdate(TransactionChange initial, TransactionChange change) {
         if (!(change.isCreateOrUpdate() && initial.isCreateOrUpdate())) {
             throw new IllegalStateException("Can only merge creates and updates");
@@ -202,6 +205,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
 
     // org.totschnig.myexpenses.util.LazyFontSelector.processChar(char[],int,java.lang.StringBuffer)
+    //SNIPPET_STARTS
     protected Chunk processChar(char[] cc, int k, StringBuffer sb) throws DocumentException, IOException {
         Chunk newChunk = null;
         char c = cc[k];
@@ -253,6 +257,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
 
     // se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
+    //SNIPPET_STARTS
     private void updateOrClearHeader(int firstVisiblePosition) {
         final int adapterCount = mAdapter == null ? 0 : mAdapter.getCount();
         if (adapterCount == 0 || !mAreHeadersSticky) {
@@ -284,6 +289,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
         updateHeader(headerPosition);
     }
+    //SNIPPETS_END
 
     private void clearHeader() {
 

@@ -20,6 +20,7 @@ public class HibernateORM {
      * These rules are here to support both JPA 2 and legacy overriding rules.
      */
 //    @Override // Removed to allow compilation
+    //SNIPPET_STARTS
     public Column[] getOverriddenColumn(String propertyName) {
         Column[] result = getExactOverriddenColumn( propertyName );
         if (result == null) {
@@ -99,6 +100,7 @@ public class HibernateORM {
         }
     }
 
+    //SNIPPET_STARTS
     public class TimesTenDialect extends Dialect {
         // org.hibernate.dialect.TimesTenDialect.TimesTenDialect()
         /**
@@ -142,6 +144,7 @@ public class HibernateORM {
 
     // org.hibernate.hql.spi.id.TableBasedUpdateHandlerImpl.execute(org.hibernate.engine.spi.SharedSessionContractImplementor,org.hibernate.engine.spi.QueryParameters)
 //    @Override // Removed to allow compilation
+    //SNIPPET_STARTS
     public int execute(SharedSessionContractImplementor session, QueryParameters queryParameters) throws Exception { // throws Exception added to allow compilation
         prepareForUse( targetedPersister, session );
         try {
@@ -222,6 +225,7 @@ public class HibernateORM {
     }
 
     // org.hibernate.id.SequenceValueExtractor.extractSequenceValue(org.hibernate.engine.spi.SessionImplementor)
+    //SNIPPET_STARTS
     public long extractSequenceValue(final SessionImplementor sessionImpl) {
         class WorkImpl implements Work {
             private long value;
@@ -265,6 +269,7 @@ public class HibernateORM {
      * @param session The session
      * @return An info string, in the form [Foo.bars#1]
      */
+    //SNIPPET_STARTS
     public static String collectionInfoString(
             CollectionPersister persister,
             PersistentCollection collection,
@@ -301,6 +306,7 @@ public class HibernateORM {
 
         return s.toString();
     }
+    //SNIPPETS_END
 
     private class Dialect {
     }
