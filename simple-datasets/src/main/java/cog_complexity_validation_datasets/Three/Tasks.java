@@ -4,6 +4,7 @@ import javax.script.Bindings;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -390,6 +391,281 @@ public class Tasks {
     @SuppressWarnings("all")
     public Tasks(String message) {
 
+    }
+
+    //ADDED BY KOBI
+    public void runAllSnippets() {
+        //S1
+        try {
+            s1();
+        } catch (ScriptException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S2
+        s2();
+        //S3
+        compactString("source");
+        //S4
+        try {
+            Grantee("name", new Grantee(), new GranteeManager());
+        } catch (HsqlException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S5
+        quit();
+        //S6
+        s6();
+        //S7
+        Date(1000);
+        //S8
+        TestMethodRunner(new Object(), new Method(), new RunNotifier(), new Description());
+        //S9
+        getDatabaseURIs();
+        //S10
+        moveUnit(new KeyEvent(f, 1, 1, 1, 1, 'c'));
+        //S11
+        try {
+            s11();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S12
+        s12();
+        //S13
+        assertEquals("message", new Object(), new Object());
+        //S14
+        try {
+            removeName("name");
+        } catch (HsqlException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S15
+        s15();
+        //S16
+        s16();
+        //S17
+        s17();
+        //S18
+        runMain("args");
+        //S19
+        Constraint(new HsqlName(), new int[10], new Table(), new int[10], 1, 1, 1);
+        //S20
+        s20();
+        //S21
+        s21();
+        //S22
+        createSettingsPanel();
+        //S23
+        printFailures(new Result());
+        //S24
+        getNormalisedTime(1);
+        //S25
+        check(new Unit(), new PathNode());
+        //S26
+        s26();
+        //S27
+        comuteDisplayPointCentre(new Dimension());
+        //S28
+        try {
+            filter(new Filter());
+        } catch (NoTestsRemainException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S29
+        s29();
+        //S30
+        setMapTransform(new MapTransform());
+        //S31
+        s31();
+        //S32
+        Date();
+        //S33
+        ComparisonCompactor(1, "expected", "actual");
+        //S34
+        s34();
+        //S35
+        new DisbandUnitAction(new FreeColClient());
+        //S36
+        s36();
+        //S37
+        s37();
+        //S38
+        //SKIPPED!!!!!!!!!!!!!!!
+        //S39
+        s39();
+        //S40
+        deliverGift(new Element());
+        //S41
+        s41();
+        //S42
+        removeProgram(new Program());
+        //S43
+        new TestClassRunnerForParameters(new Klass().getClass(), new Object[10], 1);
+        //S44
+        link(new IndexRowIterator());
+        //S45
+        s45();
+        //S46
+        getGlobal(new Interpreter());
+        //S47
+        try {
+            readData(new ObjectInputStream());
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S48
+        new ComparisonFailure("message", "expected", "actual");
+        //S49
+        close();
+        //S50
+        actionPerformed(new ActionEvent(new Tasks("message"), 1, "blink"));
+        //S51
+        getBaseName("className");
+        //S52
+        s52();
+        //S53
+        try {
+            s53();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S54
+        s54();
+        //S55
+        s55();
+        //S56
+        swap(new NameSpace());
+        //S57
+        s57();
+        //S58
+        s58();
+        //S59
+        try {
+            isReadOnly();
+        } catch (HsqlException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S60
+        s60();
+        //S61
+        s61();
+        //S62
+        s62();
+        //S63
+        getDescription();
+        //S64
+        s64();
+        //S65
+        s65();
+        //S66
+        s66();
+        //S67
+        addZero(1);
+        //S68
+        run(new RunNotifier());
+        //S69
+        try {
+            s69();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S70
+        mousePressed(new MouseEvent());
+        //S71
+        getASMModifiers(new Modifiers());
+        //S72
+        getListCellRendererComponent(new JList<>(), new Object(), 1, true, true);
+        //S73
+        compact("message");
+        //S74
+        s74();
+        //S75
+        loadColorChip(GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration(), new Color(1));
+        //S76
+        try {
+            s76();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S77
+        try {
+            s77();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S78
+        //SKIPPED!!!!!!!!!!!!!!
+        //S79
+        s79();
+        //S80
+        returnToTitle();
+        //S81
+        importPackage("name");
+        //S82
+        s82();
+        //S83
+        try {
+            filter2(new Filter());
+        } catch (NoTestsRemainException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S84
+        s84();
+        //S85
+        addMessage(new GUIMessage());
+        //S86
+        jjCanMove_1(1, 1, 1, 1, 1);
+        //S87
+        correctTimeZone(new Date());
+        //S88
+        getMessage();
+        //S89
+        getStateString();
+        //S90
+        displayTileCursor(new Tile(), 1, 1);
+        //S91
+        jjMoveStringLiteralDfa18_0(1, 1, 1, 1);
+        //S92
+        getAvailableChannels();
+        //S93
+        try {
+            getParametersMethod();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //S94
+        s94();
+        //S95
+        s95();
+        //S96
+        actionPerformed2(new ActionEvent(new Tasks("message"), 1, "blink"));
+        //S97
+        getButtonAction();
+        //S98
+        s98();
+        //S99
+        s99();
+        //S100
+        purgeOldMessagesFromMessagesToIgnore(1);
     }
 
     // Snippet s1
