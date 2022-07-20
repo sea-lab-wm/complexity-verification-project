@@ -8,5 +8,5 @@
  */
 
 rootProject.name = 'complexity-verification-project'
-include 'simple-datasets'
-include 'dataset6'
+include ':simple-datasets', ':dataset6'
+//include 'dataset6'
