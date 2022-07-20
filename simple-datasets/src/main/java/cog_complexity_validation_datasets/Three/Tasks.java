@@ -1156,17 +1156,15 @@ public class Tasks {
         return list.toArray(new ProgramReceiveTarget[list.size()]);
     }
 
-    // Snippet s38                                                                      /*ORIGINALLY COMMENTED OUT*/
+    // Snippet s38                                                                      /*ORIGINALLY COMMENTED OUT, ALTERED METHOD*/
     //SNIPPET_STARTS
-//    public Object s38() {
-//        Class<? extends Throwable> expectedException(Method method){
-//            Test annotation = method.getAnnotation(Test.class);
-//            if (annotation.expected() == None.class)
-//                return null;
-//            else
-//                return annotation.expected();
-//        }
-//    }
+    Class<? extends Throwable> expectedException(Method method){
+        Test annotation = method.getAnnotation(Test.class);
+        if (annotation.expected() == None.class)
+            return null;
+        else
+            return annotation.expected();
+    }
 
     // Snippet s39
     //SNIPPET_STARTS
@@ -1979,10 +1977,20 @@ public class Tasks {
     //ADDED BY KOBI
     //@SuppressWarnings("all")
     //public abstract class SuiteClasses {
-        //public SuiteClasses getAnnotation() {
-        //    return null;
-        //}
+    //    public SuiteClasses getAnnotation() {
+    //        return null;
+    //    }
+
+    //    public Class<?>[] value() {
+    //        return null;
+    //    }
     //}
+
+    //ADDED BY KOBI
+    @SuppressWarnings("all")
+    private class None {
+
+    }
 
     @SuppressWarnings("all")
     private static long getTimeInMillis(Object tempCalDefault) {
@@ -2178,6 +2186,12 @@ public class Tasks {
         @SuppressWarnings("all")
         public Annotation[] getAnnotations() {
             return new Annotation[0];
+        }
+
+        //ADDED BY KOBI
+        @SuppressWarnings("all")
+        public Test getAnnotation(Class <?> c) {
+            return new Test();
         }
     }
 
@@ -2774,6 +2788,10 @@ public class Tasks {
 
     @SuppressWarnings("all")
     private class Test {
+        //ADDED BY KOBI
+        public Class expected() {
+            return null;
+        }
     }
 
     @SuppressWarnings("all")
