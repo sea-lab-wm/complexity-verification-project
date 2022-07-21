@@ -41,7 +41,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:128: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#912 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#580 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:128: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -51,7 +51,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:143: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#553 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#624 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:143: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -1805,367 +1805,372 @@ Note: Recompile with -Xlint:unchecked for details.
                ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Boolean
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:766: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:767: warning: [dep-ann] deprecated item is not annotated with @Deprecated
     public void Date(int daysSince1970) { // return type void added to allow compilation
                 ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:695: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:696: warning: [return] incompatible types in return.
                 return null;
                        ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Object
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:742: warning: [argument] incompatible argument for parameter w of setFullScreenWindow.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:743: warning: [argument] incompatible argument for parameter w of setFullScreenWindow.
             gd.setFullScreenWindow(null);
                                    ^
   found   : null (NullType)
   required: @Initialized @NonNull Window
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1125: warning: [argument] incompatible argument for parameter o of Tasks.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1126: warning: [argument] incompatible argument for parameter o of Tasks.
             super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
                                                  ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1126: warning: [method.invocation] call to putValue(java.lang.Object,java.lang.Object) not allowed on the given receiver.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1127: warning: [method.invocation] call to putValue(java.lang.Object,java.lang.Object) not allowed on the given receiver.
             putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
                     ^
   found   : @UnderInitialization(cog_complexity_validation_datasets.Three.Tasks.DisbandUnitAction.class) @NonNull Tasks
   required: @Initialized @NonNull Tasks
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1128: warning: [method.invocation] call to putValue(java.lang.Object,java.lang.Object) not allowed on the given receiver.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1129: warning: [method.invocation] call to putValue(java.lang.Object,java.lang.Object) not allowed on the given receiver.
             putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
                     ^
   found   : @UnderInitialization(cog_complexity_validation_datasets.Three.Tasks.DisbandUnitAction.class) @NonNull Tasks
   required: @Initialized @NonNull Tasks
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1356: warning: [argument] incompatible argument for parameter o of invoke.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1165: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class<? extends @Initialized @NonNull Throwable>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1355: warning: [argument] incompatible argument for parameter o of invoke.
             suite= (Test) suiteMethod.invoke(null); // static method
                                              ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1471: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1470: warning: [return] incompatible types in return.
         return null; // Added to allow compilation
                ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Description
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1551: warning: [argument] incompatible argument for parameter o of convertPoint.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1550: warning: [argument] incompatible argument for parameter o of convertPoint.
         loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
                                                                                          ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:984: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:985: warning: [not.interned] attempting to use a non-@Interned comparison operand
         if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
                                                                                        ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:984: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:985: warning: [not.interned] attempting to use a non-@Interned comparison operand
         if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
                                                                                              ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:985: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:986: warning: [not.interned] attempting to use a non-@Interned comparison operand
                 && p.getTile().getSettlement() != inSettlement) {
                                             ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:985: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:986: warning: [not.interned] attempting to use a non-@Interned comparison operand
                 && p.getTile().getSettlement() != inSettlement) {
                                                   ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1759: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1758: warning: [not.interned] attempting to use a non-@Interned comparison operand
         if (getMessageCount() == MESSAGE_COUNT) {
                            ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1759: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1758: warning: [not.interned] attempting to use a non-@Interned comparison operand
         if (getMessageCount() == MESSAGE_COUNT) {
                                  ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:964: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-114 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:965: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-114 or any of its aliases.
             getWriter().println("There was " + result.getFailureCount() + " failure:");
                      ^
   The type of object is: java.io.PrintWriter.
   Reason for going out of scope: regular method exit
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:966: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-117 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:967: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-117 or any of its aliases.
             getWriter().println("There were " + result.getFailureCount() + " failures:");
                      ^
   The type of object is: java.io.PrintWriter.
   Reason for going out of scope: regular method exit
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1649: warning: [required.method.not.called] @MustCall method close may not have been invoked on stream or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1648: warning: [required.method.not.called] @MustCall method close may not have been invoked on stream or any of its aliases.
         ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(data));
                            ^
   The type of object is: java.io.ObjectOutputStream.
   Reason for going out of scope: regular method exit
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1649: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-294 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1648: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-297 or any of its aliases.
         ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(data));
                                                            ^
   The type of object is: java.io.FileOutputStream.
   Reason for going out of scope: possible exceptional exit due to new ObjectOutputStream(new FileOutputStream(data)) with exception type java.io.IOException
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:699: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:700: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
                 Action action = menu.getSubItems()[0].getAction();
                                                    ^
   found   : @UnknownVal AbstractButton @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:709: warning: [argument] incompatible argument for parameter beginIndex of substring.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:710: warning: [argument] incompatible argument for parameter beginIndex of substring.
         String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
                                                        ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:709: warning: [argument] incompatible argument for parameter beginIndex of substring.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:710: warning: [argument] incompatible argument for parameter beginIndex of substring.
         String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
                                                        ^
   found   : @UpperBoundUnknown int
   required: @LTEqLengthOf("source") int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:709: warning: [argument] incompatible argument for parameter endIndex of substring.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:710: warning: [argument] incompatible argument for parameter endIndex of substring.
         String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
                                                                                           ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:709: warning: [argument] incompatible argument for parameter endIndex of substring.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:710: warning: [argument] incompatible argument for parameter endIndex of substring.
         String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
                                                                                           ^
   found   : @LTLengthOf(value="source", offset="this.fSuffix - 2") int
   required: @LTEqLengthOf("source") int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:997: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:998: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
                                                   ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:997: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:998: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
                                                                ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:997: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:998: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
                                                                ^
   found   : @UpperBoundUnknown int
   required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"this.bufpos - this.len + 1 - 1", "0 - 1"}) int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:999: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1000: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
             System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
                                              ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1000: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1001: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
                     len - bufpos - 1);
                                  ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1000: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1001: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
                     len - bufpos - 1);
                                  ^
   found   : @UpperBoundUnknown int
   required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"this.bufsize - (len - bufpos - 1) - 1", "0 - 1"}) int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1001: warning: [argument] incompatible argument for parameter arg3 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1002: warning: [argument] incompatible argument for parameter arg3 of arraycopy.
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
                                                           ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1001: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1002: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
                                                                       ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1001: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1002: warning: [argument] incompatible argument for parameter arg4 of arraycopy.
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
                                                                       ^
   found   : @UpperBoundUnknown int
   required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"0 - 1", "this.len - this.bufpos - 1 - 1"}) int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1156: warning: [array.length.negative] Variable used in array creation could be negative.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1157: warning: [array.length.negative] Variable used in array creation could be negative.
         return list.toArray(new ProgramReceiveTarget[list.size()]);
                                                               ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1174: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1173: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
         row[1] = ns.getCatalogName(row[0]);
             ^
   found   : @UnknownVal Boolean @UnknownVal []
   required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1174: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1173: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         row[1] = ns.getCatalogName(row[0]);
                                        ^
   found   : @UnknownVal Boolean @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1175: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 2 could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1174: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 2 could be larger than the array's bound
         row[2] = schema.equals(defschema) ? Boolean.TRUE
             ^
   found   : @UnknownVal Boolean @UnknownVal []
   required: @MinLen(3) -- an array guaranteed to have at least 3 elements
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1666: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
             int i = Column.compare(session.database.collation, a[cols[j]],
                                                                      ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1666: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
             int i = Column.compare(session.database.collation, a[cols[j]],
                                                                      ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("this.a") or @LTLengthOf("this.a") -- an integer less than this.a's length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1666: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
             int i = Column.compare(session.database.collation, a[cols[j]],
                                                                       ^
   index type found: @IntRange(from=-2147483648) int
   array type found: @UnknownVal int @UnknownVal []
   required        : index of type @IndexFor("this.cols") or @LTLengthOf("this.cols"), or array of type @MinLen(-9223372036854775808)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1668: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                     b[cols[j]], coltypes[cols[j]]);
                           ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1668: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                     b[cols[j]], coltypes[cols[j]]);
                           ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("this.b") or @LTLengthOf("this.b") -- an integer less than this.b's length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1668: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
                     b[cols[j]], coltypes[cols[j]]);
                            ^
   index type found: @IntRange(from=-2147483648) int
   array type found: @UnknownVal int @UnknownVal []
   required        : index of type @IndexFor("this.cols") or @LTLengthOf("this.cols"), or array of type @MinLen(-9223372036854775808)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1668: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                     b[cols[j]], coltypes[cols[j]]);
                                              ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1668: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                     b[cols[j]], coltypes[cols[j]]);
                                              ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("this.coltypes") or @LTLengthOf("this.coltypes") -- an integer less than this.coltypes's length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1668: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1667: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
                     b[cols[j]], coltypes[cols[j]]);
                                               ^
   index type found: @IntRange(from=-2147483648) int
   array type found: @UnknownVal int @UnknownVal []
   required        : index of type @IndexFor("this.cols") or @LTLengthOf("this.cols"), or array of type @MinLen(-9223372036854775808)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1773: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1772: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                 return ((jjbitVec0[i2] & l2) != 0L);
                                    ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1773: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1772: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                 return ((jjbitVec0[i2] & l2) != 0L);
                                    ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("cog_complexity_validation_datasets.Three.Tasks.jjbitVec0") or @LTLengthOf("cog_complexity_validation_datasets.Three.Tasks.jjbitVec0") -- an integer less than cog_complexity_validation_datasets.Three.Tasks.jjbitVec0's length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1775: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1774: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                 if ((jjbitVec1[i1] & l1) != 0L)
                                ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1775: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1774: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                 if ((jjbitVec1[i1] & l1) != 0L)
                                ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("cog_complexity_validation_datasets.Three.Tasks.jjbitVec1") or @LTLengthOf("cog_complexity_validation_datasets.Three.Tasks.jjbitVec1") -- an integer less than cog_complexity_validation_datasets.Three.Tasks.jjbitVec1's length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1415: warning: [format.string] invalid format string (is a @Format annotation missing?)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1414: warning: [format.string] invalid format string (is a @Format annotation missing?)
                 CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
                                           ^
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 4667024
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 1247216
+warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 4143600
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 2020256
+warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 4143600
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 2020256
+warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 100931400
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 1497064
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 100928752
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 112882672
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 100409160
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 112882672
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 100409160
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 112360432
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 100409160
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 112360432
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 99882824
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 111834096
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 99360584
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 111834096
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 99360584
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 111311856
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 99360584
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 111311856
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 98834248
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 111309808
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 98834248
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 110785520
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 98831592
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 110785520
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 98312008
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 110263280
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 98312008
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 110261232
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 97785672
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 109736944
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 97785672
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 109736944
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 97263432
-warning: Garbage collection consumed 50% of CPU during the past 60 seconds.
+   free memory = 109736944
+warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
     max memory = 536870912
   total memory = 536870912
-   free memory = 97261384
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:193: warning: [argument] incompatible argument for parameter index of charAt.
+   free memory = 109214704
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:221: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:240: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:268: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                     array2[i][j] += array[i][k]*array1[k][j];
                               ^
   found   : @LTOMLengthOf("array1") int
   required: @IndexFor("array2[i]") or @LTLengthOf("array2[i]") -- an integer less than array2[i]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:240: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:268: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                     array2[i][j] += array[i][k]*array1[k][j];
                                              ^
   found   : @LTLengthOf(value="array1", offset="0") int
   required: @IndexFor("array[i]") or @LTLengthOf("array[i]") -- an integer less than array[i]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:240: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:268: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                     array2[i][j] += array[i][k]*array1[k][j];
                                                           ^
   found   : @LTOMLengthOf("array1") int
   required: @IndexFor("array1[k]") or @LTLengthOf("array1[k]") -- an integer less than array1[k]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:247: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:275: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                 System.out.print(" "+array2[i][j]);
                                                ^
   found   : @LTOMLengthOf("array1") int
   required: @IndexFor("array2[i]") or @LTLengthOf("array2[i]") -- an integer less than array2[i]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:317: warning: [argument] incompatible argument for parameter index of charAt.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:345: warning: [argument] incompatible argument for parameter index of charAt.
             result.append(Character.toUpperCase(words[i].charAt(0)))
                                                                 ^
   found   : @UpperBoundLiteral(0) int
   required: @LTLengthOf("words[i]") int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:318: warning: [argument] incompatible argument for parameter beginIndex of substring.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:346: warning: [argument] incompatible argument for parameter beginIndex of substring.
                 .append(words[i].substring(1)); // Note: a ")" had to be added here to allow compilation
                                            ^
   found   : @UpperBoundLiteral(1) int
   required: @LTEqLengthOf("words[i]") int
 Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-82 warnings
+83 warnings

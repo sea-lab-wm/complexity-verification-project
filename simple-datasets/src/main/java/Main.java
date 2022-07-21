@@ -1,6 +1,4 @@
 import fMRI_Study_Classes.*;
-//import cog_complexity_validation_datasets.One.*;
-import cog_complexity_validation_datasets.Three.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +19,9 @@ public class Main {
         SquareRoot.main();
         YesNo.main();
 
-        Tasks t3 = new Tasks("message");
+        cog_complexity_validation_datasets.One.Tasks.runAllSnippets();
+
+        cog_complexity_validation_datasets.Three.Tasks t3 = new cog_complexity_validation_datasets.Three.Tasks("message");
         t3.runAllSnippets();
     }
 }

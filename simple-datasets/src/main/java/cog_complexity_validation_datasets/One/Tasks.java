@@ -8,6 +8,34 @@ import java.util.Arrays;
  */
 public class Tasks {
 
+    //ADDED BY KOBI
+    @SuppressWarnings("all")
+    public static void runAllSnippets() {
+        main1(new String[2]);
+        main2(new String[2]);
+        main(8, 17);
+        main4(new String[2]);
+        main5(new String[2]);
+        main6(new String[2]);
+        main7(new String[2]);
+        main8(new String[2]);
+        main9(new String[2]);
+        main10(new String[2]);
+        main11(new String[2]);
+        main12(new String[2]);
+        main13(new String[2]);
+        main14(new String[2]);
+        main15(new String[2]);
+        main16(new String[2]);
+        main17(new String[2]);
+        main18(new String[2]);
+        main(new String[2]);
+        main20(new String[2]);
+        main21(new String[2]);
+        main22(new String[2]);
+        main23(new String[2]);
+    }
+
     /*REORDERED THE METHODS*/
 
     // 1. Faculty (Factorial)                                        /*Tasks for fMRI-Setting*/

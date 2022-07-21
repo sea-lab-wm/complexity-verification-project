@@ -394,6 +394,7 @@ public class Tasks {
     }
 
     //ADDED BY KOBI
+    @SuppressWarnings("all")
     public void runAllSnippets() {
         //S1
         try {
