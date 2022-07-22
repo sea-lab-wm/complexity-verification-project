@@ -128,6 +128,13 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     dfListCorrelationDatapoints.append(cogDataset6Datapoints[1])
     dfListCorrelationDatapoints.append(cogDataset6Datapoints[2])
 
+    # Compile datapoints for the COG Dataset 9 Study
+    cogDataset9Datapoints = setCogDataset9Datapoints(warningsPerSnippetPerDataset["COG Dataset 9"], copy.deepcopy(data))
+    dfListCorrelationDatapoints.append(cogDataset9Datapoints[0])
+    dfListCorrelationDatapoints.append(cogDataset9Datapoints[1])
+    dfListCorrelationDatapoints.append(cogDataset9Datapoints[2])
+    dfListCorrelationDatapoints.append(cogDataset9Datapoints[3])
+
     # Compile datapoints for the fMRI Study
     fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["fMRI Dataset"], data)
     dfListCorrelationDatapoints.append(fmriDatapoints[0])
@@ -193,6 +200,24 @@ def setCogDataset6Datapoints(warningsPerSnippet, data):
     dataRating["Warning Count"] = warningsPerSnippet
 
     return (pd.DataFrame(dataTime), pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating))
+
+def setCogDataset9Datapoints(warningsPerSnippet, data):
+    dataTime = copy.deepcopy(data)
+    dataCorrectness = copy.deepcopy(data)
+    dataRating1 = copy.deepcopy(data)
+    dataRating2 = copy.deepcopy(data)
+    metrics = readCOGDataset9StudyMetrics()
+
+    dataTime["Metric"] = metrics[0]
+    dataTime["Warning Count"] = warningsPerSnippet
+    dataCorrectness["Metric"] = metrics[1]
+    dataCorrectness["Warning Count"] = warningsPerSnippet
+    dataRating1["Metric"] = metrics[2]
+    dataRating1["Warning Count"] = warningsPerSnippet
+    dataRating2["Metric"] = metrics[3]
+    dataRating2["Warning Count"] = warningsPerSnippet
+
+    return (pd.DataFrame(dataTime), pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating1), pd.DataFrame(dataRating2))
 
 def setFMRIStudyDatapoints(warningsPerSnippet, data):
     dataCorrectness = copy.deepcopy(data)
@@ -324,6 +349,58 @@ def readCOGDataset6StudyMetrics():
         raise Exception
 
     return (times, correctness, rating)
+
+# Reads the results of the cog data set 9 study. It contains 104 participants and 30 unique snippets (5 snippets each with varying quality of comments).
+# Time, correctness, and rating were measured.
+def readCOGDataset9StudyMetrics():
+    times = []
+    correctness = []
+    rating1 = []
+    rating2 = []
+
+    df = pd.read_excel("data/cog_dataset_9.xlsx")
+
+    participantsPerSnippet = 0
+    lastSnippet = ""
+    sumTime = 0
+    sumCorrectness = 0
+    sumRating1 = 0
+    sumRating2 = 0
+    for row in df.itertuples():
+        if pd.isnull(row[19]):
+            break
+
+        if row[19] != lastSnippet and row[0] != 0:
+            # Moved onto new snippet. Get averages for previous snippet.
+            times.append(sumTime / (participantsPerSnippet * 2))
+            correctness.append(sumCorrectness / participantsPerSnippet)
+            rating1.append(sumRating1 / (participantsPerSnippet * 2))
+            rating2.append(sumRating2 / participantsPerSnippet)
+
+            sumTime = 0
+            sumCorrectness = 0
+            sumRating = 0
+            participantsPerSnippet = 0
+        
+        # Still on same snippet, on first snippet, or starting new snippet after getting the averages for the previous one.
+        participantsPerSnippet += 1
+        #25 = Score R1, 62 = Score R2, 64 = Score Difference, 82 = Time Read, 83 = Time Completion, 86 = recall accuracy (acc)
+        sumTime += row[82] + row[83]
+        sumCorrectness += row[86]
+        sumRating1 += row[25] + row[62]
+        sumRating2 += row[62]
+        lastSnippet = row[19]
+
+    # Get averages for last snippet
+    times.append(sumTime / (participantsPerSnippet * 2))
+    correctness.append(sumCorrectness / participantsPerSnippet)
+    rating1.append(sumRating1 / (participantsPerSnippet * 2))
+    rating2.append(sumRating2 / participantsPerSnippet)
+
+    if len(times) != 30 and len(correctness) != 30 and len(rating1) != 30 and len(rating2) != 30:
+        raise Exception
+
+    return (times, correctness, rating1, rating2)
 
 # Reads the results of the fMRI study. It contains 19 people who looked at 16 snippets.
 # Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.
