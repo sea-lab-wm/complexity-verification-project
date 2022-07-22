@@ -41,7 +41,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:128: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#580 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#395 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:128: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -51,7 +51,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:143: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#624 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#56 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:143: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -1790,6 +1790,208 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 398 warnings
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:448: warning: [argument] incompatible argument for parameter cell of addCell.
+    table.addCell(cell);
+                  ^
+  found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
+  required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:490: warning: [argument] incompatible argument for parameter cell of addCell.
+    table.addCell(cell);
+                  ^
+  found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
+  required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:525: warning: [argument] incompatible argument for parameter cell of addCell.
+    table.addCell(cell);
+                  ^
+  found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
+  required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:570: warning: [argument] incompatible argument for parameter cell of addCell.
+    table.addCell(cell);
+                  ^
+  found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
+  required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:616: warning: [argument] incompatible argument for parameter cell of addCell.
+    table.addCell(cell);
+                  ^
+  found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
+  required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:655: warning: [argument] incompatible argument for parameter cell of addCell.
+    table.addCell(cell);
+                  ^
+  found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
+  required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:898: warning: [return] incompatible types in return.
+    return null; // Had to be added to allow compilation
+           ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:933: warning: [return] incompatible types in return.
+    return null; // Had to be added to allow compilation
+           ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:963: warning: [return] incompatible types in return.
+    return null; // Had to be added to allow compilation
+           ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1001: warning: [return] incompatible types in return.
+    return null; // Had to be added to allow compilation
+           ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1039: warning: [return] incompatible types in return.
+    return null; // Had to be added to allow compilation
+           ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1072: warning: [return] incompatible types in return.
+    return null; // Had to be added to allow compilation
+           ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1099: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull TimeTakenForMove
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1111: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Bounds
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1120: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Extent
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1154: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull ProjectSpace
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1160: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull PropertyManager
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1170: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Collection</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1176: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull StoreProperty
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1186: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Value
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1195: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1201: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationComposite
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1223: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Iterator</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1252: warning: [override.param] Incompatible parameter type for o.
+        public boolean equals(Object o) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList
+    @Initialized @NonNull boolean equals(@Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1277: warning: [override.param] Incompatible parameter type for a.
+        public Object[] toArray(Object[] a) {
+                                         ^
+  found   : @Initialized @NonNull Object @Initialized @NonNull []
+  required: @Initialized @PolyNull Object @Initialized @NonNull []
+  Consequence: method in @Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList
+    @Initialized @NonNull Object @Initialized @NonNull [] toArray(@Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList this, @Initialized @NonNull Object @Initialized @NonNull [] p0)
+  cannot override method in @Initialized @NonNull Collection</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
+    @Initialized @Nullable Object @Initialized @NonNull [] toArray(@Initialized @NonNull Collection this, @Initialized @PolyNull Object @Initialized @NonNull [] p0)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1286: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1290: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull BoxModelOption
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1314: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UColor
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1318: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UColor
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1338: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UParagraph
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1342: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull BoxModelOption
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1348: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UChildren
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1354: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Path
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1374: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UImage
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1384: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull USegment
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1277: warning: [override.param] Incompatible parameter type for a.
+        public Object[] toArray(Object[] a) {
+                                         ^
+  found   : @MustCall Object @MustCall []
+  required: @MustCallUnknown Object @MustCall []
+  Consequence: method in @MustCall CodeSnippets.@MustCall NotificationList
+    @MustCall Object @MustCall [] toArray(@MustCall CodeSnippets.@MustCall NotificationList this, @MustCall Object @MustCall [] p0)
+  cannot override method in @MustCall Collection</*INFERENCE FAILED for:*/ ? extends @MustCall Object>
+    @MustCallUnknown Object @MustCall [] toArray(@MustCall Collection this, @MustCallUnknown Object @MustCall [] p0)
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1207: warning: [override.return] Incompatible return type.
+        public int size() {
+               ^
+  found   : @LowerBoundUnknown int
+  required: @NonNegative int
+  Consequence: method in @LowerBoundUnknown CodeSnippets.@LowerBoundUnknown NotificationList
+    @LowerBoundUnknown int size(@LowerBoundUnknown CodeSnippets.@LowerBoundUnknown NotificationList this)
+  cannot override method in @LowerBoundUnknown Collection</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object>
+    @NonNegative int size(@LowerBoundUnknown Collection</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object> this)
+37 warnings
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/isPalindrome.java:13: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^
@@ -1871,12 +2073,12 @@ Note: Recompile with -Xlint:unchecked for details.
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1758: warning: [not.interned] attempting to use a non-@Interned comparison operand
         if (getMessageCount() == MESSAGE_COUNT) {
                                  ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:965: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-114 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:965: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-263 or any of its aliases.
             getWriter().println("There was " + result.getFailureCount() + " failure:");
                      ^
   The type of object is: java.io.PrintWriter.
   Reason for going out of scope: regular method exit
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:967: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-117 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:967: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-266 or any of its aliases.
             getWriter().println("There were " + result.getFailureCount() + " failures:");
                      ^
   The type of object is: java.io.PrintWriter.
@@ -1886,7 +2088,7 @@ Note: Recompile with -Xlint:unchecked for details.
                            ^
   The type of object is: java.io.ObjectOutputStream.
   Reason for going out of scope: regular method exit
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1648: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-297 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1648: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-446 or any of its aliases.
         ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(data));
                                                            ^
   The type of object is: java.io.FileOutputStream.
@@ -2049,128 +2251,19 @@ Note: Recompile with -Xlint:unchecked for details.
                                ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("cog_complexity_validation_datasets.Three.Tasks.jjbitVec1") or @LTLengthOf("cog_complexity_validation_datasets.Three.Tasks.jjbitVec1") -- an integer less than cog_complexity_validation_datasets.Three.Tasks.jjbitVec1's length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1414: warning: [format.string] invalid format string (is a @Format annotation missing?)
-                CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
-                                          ^
-warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 1247216
-warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 2020256
-warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 2020256
-warning: Garbage collection consumed 82% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 1497064
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 112882672
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 112882672
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 112360432
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 112360432
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 111834096
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 111834096
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 111311856
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 111311856
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 111309808
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 110785520
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 110785520
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 110263280
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 110261232
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 109736944
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 109736944
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 109736944
-warning: Garbage collection consumed 83% of CPU during the past 60 seconds.
-    max memory = 536870912
-  total memory = 536870912
-   free memory = 109214704
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:221: warning: [argument] incompatible argument for parameter index of charAt.
-            if (word.charAt(i) != word.charAt(j)) {
-                                              ^
-  found   : @LowerBoundUnknown int
-  required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:268: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-                    array2[i][j] += array[i][k]*array1[k][j];
-                              ^
-  found   : @LTOMLengthOf("array1") int
-  required: @IndexFor("array2[i]") or @LTLengthOf("array2[i]") -- an integer less than array2[i]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:268: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-                    array2[i][j] += array[i][k]*array1[k][j];
-                                             ^
-  found   : @LTLengthOf(value="array1", offset="0") int
-  required: @IndexFor("array[i]") or @LTLengthOf("array[i]") -- an integer less than array[i]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:268: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-                    array2[i][j] += array[i][k]*array1[k][j];
-                                                          ^
-  found   : @LTOMLengthOf("array1") int
-  required: @IndexFor("array1[k]") or @LTLengthOf("array1[k]") -- an integer less than array1[k]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:275: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-                System.out.print(" "+array2[i][j]);
-                                               ^
-  found   : @LTOMLengthOf("array1") int
-  required: @IndexFor("array2[i]") or @LTLengthOf("array2[i]") -- an integer less than array2[i]'s length
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:345: warning: [argument] incompatible argument for parameter index of charAt.
-            result.append(Character.toUpperCase(words[i].charAt(0)))
-                                                                ^
-  found   : @UpperBoundLiteral(0) int
-  required: @LTLengthOf("words[i]") int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:346: warning: [argument] incompatible argument for parameter beginIndex of substring.
-                .append(words[i].substring(1)); // Note: a ")" had to be added here to allow compilation
-                                           ^
-  found   : @UpperBoundLiteral(1) int
-  required: @LTEqLengthOf("words[i]") int
-Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-83 warnings
+Exception in thread "Memory manager" java.lang.OutOfMemoryError: Java heap space
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':simple-datasets:compileJava'.
+> Java heap space
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2m 6s

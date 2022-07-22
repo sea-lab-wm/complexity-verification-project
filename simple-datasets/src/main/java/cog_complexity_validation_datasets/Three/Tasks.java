@@ -1652,12 +1652,12 @@ public class Tasks {
 
     // Snippet s78                                                                                      /*ORIGINALLY COMMENTED OUT*/
     //SNIPPET_STARTS
-    //private static Class<?>[] getAnnotatedClasses(Class<?> klass) throws InitializationError {
-    //        SuiteClasses annotation= klass.getAnnotation(SuiteClasses.class);
-    //        if (annotation == null)
-    //            throw new InitializationError(String.format("class '%s' must have a SuiteClasses annotation", klass.getName()));
-    //        return annotation.value();
-    //} // Added to allow compilation
+    private static Class<?>[] getAnnotatedClasses(Class<?> klass) throws InitializationError {
+            SuiteClasses annotation= klass.getAnnotation(SuiteClasses.class);
+            if (annotation == null)
+                throw new Tasks("message").new InitializationError(String.format("class '%s' must have a SuiteClasses annotation", klass.getName()));
+            return annotation.value();
+    } // Added to allow compilation
 
     // Snippet s79
     //SNIPPET_STARTS
@@ -1976,16 +1976,10 @@ public class Tasks {
     //SNIPPETS_END
 
     //ADDED BY KOBI
-    //@SuppressWarnings("all")
-    //public abstract class SuiteClasses {
-    //    public SuiteClasses getAnnotation() {
-    //        return null;
-    //    }
-
-    //    public Class<?>[] value() {
-    //        return null;
-    //    }
-    //}
+    @SuppressWarnings("all")
+    public @interface SuiteClasses {
+        Class<?>[] value();
+    }
 
     //ADDED BY KOBI
     @SuppressWarnings("all")
@@ -2841,7 +2835,7 @@ public class Tasks {
     }
 
     @SuppressWarnings("all")
-    private class InitializationError {
+    private class InitializationError extends Throwable {
         @SuppressWarnings("all")
         public InitializationError(String format) {
         }
