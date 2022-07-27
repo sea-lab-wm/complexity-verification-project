@@ -187,4 +187,7 @@ __pycache__/
 #Ignore Infer Output
 infer-out/
 
+#Don't ignore dependencies for some snippets
 !dataset6/lib/*
+!dataset9/lib/*
+!dataset9/libs/*
