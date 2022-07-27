@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class RecursiveBinaryToDecimal {
-    public static void main() {
+    public static void run() {
         String input = "101";
         int number = 1;
         System.out.print(compute(input, number));

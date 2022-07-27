@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class RecursiveCrossSum {
-    public static void main() {
+    public static void run() {
         int n = 3247;
         System.out.print(compute(n));
     }

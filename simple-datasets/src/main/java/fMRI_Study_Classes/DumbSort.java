@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DumbSort {
-    public static void main() {
+    public static void run() {
         int a = 9;
         int b = 12;
         int c = 8;

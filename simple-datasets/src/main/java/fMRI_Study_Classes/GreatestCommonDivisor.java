@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class GreatestCommonDivisor {
-    public static void main() {
+    public static void run() {
         int number1 = 20;
         int number2 = 15;
         System.out.print(compute(number1, number2));

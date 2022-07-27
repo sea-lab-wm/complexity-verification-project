@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class isPalindrome {
-    public static void main() {
+    public static void run() {
         String word = "reviver";
         System.out.print(compute(word));
     }

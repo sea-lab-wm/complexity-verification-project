@@ -2,7 +2,7 @@ package fMRI_Study_Classes;
 
 
 public class lengthOfLastWord {
-    public static void main() {
+    public static void run() {
         String text = "The quick brown fox jumps";
         System.out.print(compute(text));
     }

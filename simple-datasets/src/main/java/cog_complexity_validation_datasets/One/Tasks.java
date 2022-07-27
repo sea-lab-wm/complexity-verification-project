@@ -13,7 +13,7 @@ public class Tasks {
     public static void runAllSnippets() {
         main1(new String[2]);
         main2(new String[2]);
-        main(8, 17);
+        main3(8, 17);
         main4(new String[2]);
         main5(new String[2]);
         main6(new String[2]);
@@ -29,7 +29,7 @@ public class Tasks {
         main16(new String[2]);
         main17(new String[2]);
         main18(new String[2]);
-        main(new String[2]);
+        main19(new String[2]);
         main20(new String[2]);
         main21(new String[2]);
         main22(new String[2]);
@@ -77,7 +77,7 @@ public class Tasks {
     // 3. Greatest common divisor                                               /*Only in the first pilot study*/
     // Note: To allow compilation, number1 and number2 had to be defined
     //SNIPPET_STARTS
-    public static void main(int number1, int number2) {
+    public static void main3(int number1, int number2) {
         int temp; // Note: a ";" had to be added here to allow compilation
         do {
             if (number1 < number2) {
@@ -334,7 +334,7 @@ public class Tasks {
 
     // 19. Capitalize first letter of word                          /*Only in the first pilot study*/
     //SNIPPET_STARTS
-    public static void main(String[] args) {
+    public static void main19(String[] args) {
         String s = "here are a bunch of words";
 
         final StringBuilder result = new StringBuilder(s.length());

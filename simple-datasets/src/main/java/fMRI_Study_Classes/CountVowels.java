@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class CountVowels {
-    public static void main() {
+    public static void run() {
         String word = "Magdeburg";
         System.out.print(compute(word));
     }

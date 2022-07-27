@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class isHurricane {
-    public static void main() {
+    public static void run() {
         int value = 112;
         System.out.print(compute(value));
     }

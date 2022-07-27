@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class RecursiveFibonacciVariant {
-    public static void main() {
+    public static void run() {
         int number = 4;
         System.out.print(compute(number));
     }

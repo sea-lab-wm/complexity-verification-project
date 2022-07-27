@@ -3,7 +3,7 @@ package fMRI_Study_Classes;
 import java.util.Arrays;
 
 public class SquareRoot {
-    public static void main() {
+    public static void run() {
         int[] numbers = {9, 25, 16, 100};
         System.out.print(compute(numbers));
     }

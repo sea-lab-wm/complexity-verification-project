@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class ContainsSubstring {
-    public static void main() {
+    public static void run() {
         String word1 = "Hamburg";
         String word2 = "burg";
         System.out.print(compute(word1, word2));

@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class ArrayAverage {
-    public static void main() {
+    public static void run() {
         int[] numbers = {2, 4, 1, 9};
         System.out.print(compute(numbers));
     }

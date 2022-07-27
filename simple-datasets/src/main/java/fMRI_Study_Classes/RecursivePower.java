@@ -1,7 +1,7 @@
 package fMRI_Study_Classes;
 
 public class RecursivePower {
-    public static void main() {
+    public static void run() {
         int a = 3;
         int b = 2;
         System.out.print(compute(a, b));
