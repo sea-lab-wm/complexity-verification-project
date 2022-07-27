@@ -186,3 +186,5 @@ __pycache__/
 
 #Ignore Infer Output
 infer-out/
+
+!dataset6/lib/*
