@@ -25,6 +25,30 @@ public class Antlr4Master {
     private T[][] buckets;
     private Comparador comparator;
 
+    //ADDED BY KOBI
+    public void runAll() {
+        try {
+            new GrammarDependencies().analyze(new HashSet<File> (), new HashSet<File> (), new Tool());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            process();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        hasSLLConflictTerminatingPrediction(new PredictionMode(), new ATNConfigSet());
+        removeFast(new T());
+        try {
+            testToStringStartStop2();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     //SNIPPET_STARTS
     public class GrammarDependencies {
         // org.antlr.mojo.antlr4.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,org.antlr.v4.Tool)

@@ -6,6 +6,30 @@ public class K9 {
     private final ProvLock mProviderLocks = new ProvLock();
     private final ProvLock mProviders = new ProvLock();
 
+    //ADDED BY KOBI
+    public void runAll() {
+        try {
+            testFetchResponse();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            getInstance(new Context(), new StoreConfig());
+        } catch (K9.MessagingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            open_withXoauth2Extension_shouldThrowOnMultipleFailure();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        new StorageManager(new Context());
+        testTextQuoteToHtmlBlockquote();
+    }
+
     // com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS

@@ -135,6 +135,12 @@ package weka.estimators;
  * @version $Revision$
  */
 public class CheckEstimator implements OptionHandler, RevisionHandler {
+
+  //ADDED BY KOBI
+  public void runAll() {
+    printAttributeSummary(1, 1);
+  }
+
   /**
    * Print out a short summary string for the dataset characteristics
    * 

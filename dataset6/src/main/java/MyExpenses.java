@@ -27,6 +27,20 @@ public class MyExpenses {
         PRINT
     }
 
+    //ADDED BY KOBI
+    public void runAll() {
+        contribFeatureCalled(ContribFeature.DISTRIBUTION, new Serializable() {});
+        getContentProviderOperationsForCreate(new TransactionChange(), 1, 1);
+        mergeUpdate(new TransactionChange(), new TransactionChange());
+        try {
+            processChar(new char[5], 1, new StringBuffer());
+        } catch (MyExpenses.DocumentException | IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        updateOrClearHeader(1);
+    }
+
     // org.totschnig.myexpenses.activity.MyExpenses.contribFeatureCalled(org.totschnig.myexpenses.model.ContribFeature,java.io.Serializable)
 //  @Override // removed to allow compilation
     //SNIPPET_STARTS

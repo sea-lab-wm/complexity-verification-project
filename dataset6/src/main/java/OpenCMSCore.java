@@ -12,6 +12,36 @@ public class OpenCMSCore {
     private OpenCMSWriter m_out;
     private PrintStream m_err;
 
+    //ADDED BY KOBI
+    public void runAll() {
+        createContextMenu(new CmsSitemapHoverbar());
+        try {
+            seekFile(1, 1);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        execute(new Reader() {
+            @Override
+            public void close() throws IOException {
+                // TODO Auto-generated method stub
+                
+            }
+            @Override
+            public int read(char[] arg0, int arg1, int arg2) throws IOException {
+                // TODO Auto-generated method stub
+                return 0;
+            }
+        });
+        try {
+            generateContent(new CmsObject(), "vfsFolder", 1, 1);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        buttonHtml(new CmsWorkplace());
+    }
+
     // org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
     //SNIPPET_STARTS
     public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {

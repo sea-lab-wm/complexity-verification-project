@@ -32,6 +32,16 @@ import java.util.Enumeration;
  */
 public class EstimatorUtils implements RevisionHandler {
 
+  //ADDED BY KOBI
+  public void runAll() {
+    try {
+      getMinMax(new Instances(), 1, new double[5]);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
   /**
    * Find the minimum and the maximum of the attribute and return it in the last
    * parameter..

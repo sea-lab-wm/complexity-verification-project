@@ -12,6 +12,20 @@ public class HibernateORM {
     private Update queryString;
     private Object dialect;
 
+    //ADDED BY KOBI
+    public void runAll() {
+        getOverriddenColumn("propertyName");
+        new TimesTenDialect();
+        try {
+            execute(new SharedSessionContractImplementor(), new QueryParameters());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        extractSequenceValue(new SessionImplementor());
+        collectionInfoString(new CollectionPersister(), new PersistentCollection(), new Serializable() {}, new SharedSessionContractImplementor());
+    }
+
     // org.hibernate.cfg.AbstractPropertyHolder.getOverriddenColumn(java.lang.String)
     /**
      * Get column overriding, property first, then parent, then holder

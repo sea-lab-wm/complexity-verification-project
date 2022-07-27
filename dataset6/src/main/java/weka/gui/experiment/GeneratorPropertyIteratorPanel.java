@@ -60,6 +60,13 @@ public class GeneratorPropertyIteratorPanel extends JPanel implements
    */
   protected ArrayList<ActionListener> m_Listeners = new ArrayList<ActionListener>();
 
+
+  //ADDED BY KOBI
+  public void runAll() {
+    actionPerformed(new ActionEvent(new Object(), 1, "name"));
+  }
+
+
   /**
    * Handles the various button clicking type activities.
    * 

@@ -23,6 +23,39 @@ public class SpringBatch {
     private ExecutionContext executionContext;
     private ItmWriter writer;
 
+    public void runAll() {
+        try {
+            testFailureAndRecovery();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            testArtifactUniqueness();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+        testOperationWithDirectCloseCall();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            testCustomRecordSeparatorMultilineBlankLineAfterEnd();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            initWriterForSimpleCallbackTests();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     // org.springframework.batch.container.jms.BatchMessageListenerContainerIntegrationTests.testFailureAndRecovery()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS

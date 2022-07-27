@@ -14,6 +14,9 @@ import org.apache.hbase.thirdparty.org.apache.commons.cli.*;
 import java.sql.SQLException;
 import java.util.List;
 
+//ADDED BY KOBI
+import java.util.ArrayList;
+
 public class Phoenix {
 
     private static final org.apache.commons.cli.Option INPUT_PATH_OPT = null;
@@ -37,6 +40,25 @@ public class Phoenix {
     private Pom.POSIXHandler logger;
     private Dummy sinkCounter;
     private Dummy serializer;
+
+    //ADDED BY KOBI
+    public void runAll() {
+        try {
+            doDropSchema(1, "schemaName", new byte[5], new ArrayList<Mutation>(), new ArrayList<ImmutableBytesPtr>());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        evaluate(new Tuple(), new ImmutableBytesWritable());
+        configure(new Context());
+        try {
+            process();
+        } catch (Phoenix.EventDeliveryException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        parseOptions(new String[5]);
+    }
 
     // org.apache.phoenix.coprocessor.MetaDataEndpointImpl.doDropSchema(long,java.lang.String,byte[],java.util.List<org.apache.hadoop.hbase.client.Mutation>,java.util.List<org.apache.phoenix.hbase.index.util.ImmutableBytesPtr>)
     //SNIPPET_STARTS

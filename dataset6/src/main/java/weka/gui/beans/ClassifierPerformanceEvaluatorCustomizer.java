@@ -45,6 +45,11 @@ public class ClassifierPerformanceEvaluatorCustomizer extends JPanel {
   private ModifyListener m_cpe;
   private ModifyListener m_parent;
 
+  //ADDED BY KOBI
+  public void runAll() {
+    addButtons();
+  }
+
   //SNIPPET_STARTS
   private void addButtons() {
     JButton okBut = new JButton("OK");

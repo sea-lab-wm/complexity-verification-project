@@ -49,6 +49,11 @@ public class ModelPerformanceChart extends JPanel implements Serializable, BeanC
   private Object m_masterPlot;
   private Object m_offscreenPlotData;
 
+  //ADDED BY KOBI
+  public void runAll() {
+    performRequest("request");
+  }
+
   /**
    * Global info for this bean
    * 

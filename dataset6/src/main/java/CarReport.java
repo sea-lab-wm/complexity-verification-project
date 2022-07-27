@@ -32,6 +32,20 @@ public class CarReport {
     private ComboLineColumnChartView mAppBarLayout;
     private View mDbxClient;
 
+    //ADDED BY KOBI
+    public void runAll() {
+        save();
+        new SetupWebDavSyncDialogActivity().onCreate(new Bundle());
+        handleFABClick(1, 1);
+        showFullScreenChart(new AbstractReport(), new ComboLineColumnChartView());
+        try {
+            downloadFile();
+        } catch (CarReport.SyncIoException | CarReport.SyncParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     // me.kuehle.carreport.gui.dialog.EditFuelTypeDialogFragment.save()
     //SNIPPET_STARTS
     private boolean save() {

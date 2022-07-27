@@ -32,6 +32,14 @@ public class Pom {
     private static org.jruby.ext.posix.POSIX jnaPosix;
     private boolean ignoreBase;
 
+    //ADDED BY KOBI
+    public void runAll() {
+        //new HealthReport(1, "iconUrl", new Localizable());
+        //new ViewJob()._getRuns();
+        //get();
+        //limit(new Iterator<>(), filter)
+    }
+
     //SNIPPET_STARTS
     public class HealthReport implements Serializable, Comparable<HealthReport> {
         private String iconClassName;
