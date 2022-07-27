@@ -167,6 +167,70 @@ dataset6/src/main/java/HibernateORM.java:289: error: Null Dereference
   290.               Serializable ownerKey;
   291.               // TODO: Is it redundant to attempt to use the collectionKey,
 
+dataset9/src/main/java/CodeSnippets.java:434: error: Null Dereference
+  object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 434.
+  432.       Table table = new Table(uTable.getColumnsCount());
+  433.       table.setBorderColor(new Color (
+  434. >     uTable.getBoxModel().getBorderColor().getRed(),
+  435.       uTable.getBoxModel().getBorderColor().getGreen(),
+  436.       uTable.getBoxModel().getBorderColor().getBlue()));
+
+dataset9/src/main/java/CodeSnippets.java:476: error: Null Dereference
+  object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 476.
+  474.       Table table = new Table(uTable.getColumnsCount());
+  475.       table.setBorderColor(new Color (
+  476. >     uTable.getBoxModel().getBorderColor().getRed(),
+  477.       uTable.getBoxModel().getBorderColor().getGreen(),
+  478.       uTable.getBoxModel().getBorderColor().getBlue()));
+
+dataset9/src/main/java/CodeSnippets.java:518: error: Null Dereference
+  object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 518.
+  516.       Table table = new Table(uTable.getColumnsCount());
+  517.       table.setBorderColor(new Color (
+  518. >     uTable.getBoxModel().getBorderColor().getRed(),
+  519.       uTable.getBoxModel().getBorderColor().getGreen(),
+  520.       uTable.getBoxModel().getBorderColor().getBlue()));
+
+dataset9/src/main/java/CodeSnippets.java:555: error: Null Dereference
+  object `option` last assigned on line 554 could be null and is dereferenced at line 555.
+  553.       Table table = new Table(uTable.getColumnsCount());
+  554.       BoxModelOption option = uTable.getBoxModel();
+  555. >     UColor color = option.getBorderColor();
+  556.       table.setBorderColor(new Color
+  557.       (color.getRed(),color.getGreen(),color.getBlue()));
+
+dataset9/src/main/java/CodeSnippets.java:601: error: Null Dereference
+  object `option` last assigned on line 600 could be null and is dereferenced at line 601.
+  599.       Table table = new Table(uTable.getColumnsCount());
+  600.       BoxModelOption option = uTable.getBoxModel();
+  601. >     UColor color = option.getBorderColor();
+  602.       table.setBorderColor(new Color
+  603.       (color.getRed(),color.getGreen(),color.getBlue()));
+
+dataset9/src/main/java/CodeSnippets.java:647: error: Null Dereference
+  object `option` last assigned on line 646 could be null and is dereferenced at line 647.
+  645.       Table table = new Table(uTable.getColumnsCount());
+  646.       BoxModelOption option = uTable.getBoxModel();
+  647. >     UColor color = option.getBorderColor();
+  648.       table.setBorderColor(new Color
+  649.       (color.getRed(),color.getGreen(),color.getBlue()));
+
+dataset9/src/main/java/CodeSnippets.java:711: error: Null Dereference
+  object returned by `move.getTimeTakenForMove()` could be null and is dereferenced at line 711.
+  709.       }
+  710.       /* Add time taken for the move. */
+  711. >     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+  712.       return result;
+  713.       }
+
+dataset9/src/main/java/CodeSnippets.java:743: error: Null Dereference
+  object returned by `move.getTimeTakenForMove()` could be null and is dereferenced at line 743.
+  741.       }
+  742.       /* Add time. */
+  743. >     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+  744.       return result;
+  745.       }
+
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:741: error: Null Dereference
   object returned by `getConnectController()` could be null and is dereferenced at line 741.
   739.       //SNIPPET_STARTS
@@ -174,6 +238,62 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.jav
   741. >         getConnectController().quitGame(true);
   742.           if (!windowed) {
   743.               gd.setFullScreenWindow(null);
+
+dataset9/src/main/java/CodeSnippets.java:770: error: Null Dereference
+  object returned by `move.getTimeTakenForMove()` could be null and is dereferenced at line 770.
+  768.       builder.append(" ").append(nag.getNagString());
+  769.       }
+  770. >     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+  771.       return result;
+  772.       }
+
+dataset9/src/main/java/CodeSnippets.java:808: error: Null Dereference
+  object `timeTaken` last assigned on line 807 could be null and is dereferenced at line 808.
+  806.       builder.append(" {");
+  807.       TimeTakenForMove timeTaken = move.getTimeTakenForMove();
+  808. >     builder.append(timeTaken.getText());
+  809.       builder.append("}");
+  810.       return result;
+
+dataset9/src/main/java/CodeSnippets.java:847: error: Null Dereference
+  object `timeTaken` last assigned on line 846 could be null and is dereferenced at line 847.
+  845.       builder.append(" {");
+  846.       TimeTakenForMove timeTaken = move.getTimeTakenForMove();
+  847. >     builder.append(timeTaken.getText());
+  848.       builder.append("}");
+  849.       return result;
+
+dataset9/src/main/java/CodeSnippets.java:881: error: Null Dereference
+  object `timeTaken` last assigned on line 880 could be null and is dereferenced at line 881.
+  879.       builder.append(" {");
+  880.       TimeTakenForMove timeTaken = move.getTimeTakenForMove();
+  881. >     builder.append(timeTaken.getText());
+  882.       builder.append("}");
+  883.       return result;
+
+dataset9/src/main/java/CodeSnippets.java:901: error: Null Dereference
+  object returned by `textExtent(gc,textValue)` could be null and is dereferenced at line 901.
+  899.       {
+  900.       GraphicsContext gc = new GraphicsContext(control);
+  901. >     int maxExtent = gc.textExtent(textValue).x;
+  902.       int maxWidth = control.getBounds().width - 5;
+  903.       /* Set start and end points for the center of the text. */
+
+dataset9/src/main/java/CodeSnippets.java:938: error: Null Dereference
+  object returned by `textExtent(gc,textValue)` could be null and is dereferenced at line 938.
+  936.       /* Define local variables. */
+  937.       GraphicsContext gc = new GraphicsContext(control);
+  938. >     int maxExtent = gc.textExtent(textValue).x;
+  939.       int maxWidth = control.getBounds().width - 5;
+  940.       /* Define further local variables. */
+
+dataset9/src/main/java/CodeSnippets.java:973: error: Null Dereference
+  object returned by `textExtent(gc,textValue)` could be null and is dereferenced at line 973.
+  971.       {
+  972.       GraphicsContext gc = new GraphicsContext(control);
+  973. >     int maxExtent = gc.textExtent(textValue).x;
+  974.       int maxWidth = control.getBounds().width - 5;
+  975.       int length = textValue.length();
 
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:985: error: Null Dereference
   object returned by `p.getTile()` could be null and is dereferenced at line 985.
@@ -183,6 +303,22 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.jav
   986.                   && p.getTile().getSettlement() != inSettlement) {
   987.               Settlement s = p.getTile().getSettlement();
 
+dataset9/src/main/java/CodeSnippets.java:1005: error: Null Dereference
+  object `extent` last assigned on line 1004 could be null and is dereferenced at line 1005.
+  1003.       GraphicsContext gc = new GraphicsContext(control);
+  1004.       Extent extent = gc.textExtent(textValue);
+  1005. >     int maxExtent = extent.x;
+  1006.       Bounds bounds = control.getBounds();
+  1007.       int maxWidth = bounds.width - 5;
+
+dataset9/src/main/java/CodeSnippets.java:1045: error: Null Dereference
+  object `extent` last assigned on line 1044 could be null and is dereferenced at line 1045.
+  1043.       GraphicsContext gc = new GraphicsContext(control);
+  1044.       Extent extent = gc.textExtent(textValue);
+  1045. >     int maxExtent = extent.x;
+  1046.       Bounds bounds = control.getBounds();
+  1047.       int maxWidth = bounds.width - 5;
+
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1049: error: Null Dereference
   object returned by `Tasks.freeColClient.getActionManager()` could be null and is dereferenced at line 1049.
   1047.       public void setMapTransform(MapTransform mt) {
@@ -190,6 +326,14 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.jav
   1049. >         MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
   1050.           if (mca.getMapControls() != null) {
   1051.               mca.getMapControls().update(mt);
+
+dataset9/src/main/java/CodeSnippets.java:1083: error: Null Dereference
+  object `extent` last assigned on line 1082 could be null and is dereferenced at line 1083.
+  1081.       GraphicsContext gc = new GraphicsContext(control);
+  1082.       Extent extent = gc.textExtent(textValue);
+  1083. >     int maxExtent = extent.x;
+  1084.       Bounds bounds = control.getBounds();
+  1085.       int maxWidth = bounds.width - 5;
 
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java:1127: error: Null Dereference
   object returned by `freeColClient.getImageLibrary()` could be null and is dereferenced at line 1127.
@@ -314,7 +458,7 @@ dataset6/src/main/java/Pom.java:135: warning: Thread Safety Violation
   137.       }
 
 
-Found 39 issues
+Found 57 issues
                         Issue Type(ISSUED_TYPE_ID): #
-                Null Dereference(NULL_DEREFERENCE): 37
+                Null Dereference(NULL_DEREFERENCE): 55
   Thread Safety Violation(THREAD_SAFETY_VIOLATION): 2

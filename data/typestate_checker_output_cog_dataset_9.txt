@@ -1,0 +1,145 @@
+dataset9/src/main/java/CodeSnippets.java:1: error: package hirondelle.web4j.util does not exist
+import hirondelle.web4j.util.Util;
+                            ^
+dataset9/src/main/java/CodeSnippets.java:2: error: package hirondelle.web4j.webmaster does not exist
+import hirondelle.web4j.webmaster.TroubleTicket;
+                                 ^
+dataset9/src/main/java/CodeSnippets.java:9: error: package javax.servlet does not exist
+import javax.servlet.ServletContext;
+                    ^
+dataset9/src/main/java/CodeSnippets.java:10: error: package javax.servlet.http does not exist
+import javax.servlet.http.HttpServletRequest;
+                         ^
+dataset9/src/main/java/CodeSnippets.java:11: error: package javax.servlet.http does not exist
+import javax.servlet.http.HttpSession;
+                         ^
+dataset9/src/main/java/CodeSnippets.java:33: error: cannot find symbol
+    public void logAndEmailSeriousProblemS111(Throwable ex, HttpServletRequest aRequest)
+                                                            ^
+  symbol:   class HttpServletRequest
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:54: error: cannot find symbol
+    public void logAndEmailSeriousProblemS112(Throwable ex, HttpServletRequest aRequest)
+                                                            ^
+  symbol:   class HttpServletRequest
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:74: error: cannot find symbol
+    public void logAndEmailSeriousProblemS113(Throwable ex, HttpServletRequest aRequest)
+                                                            ^
+  symbol:   class HttpServletRequest
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:91: error: cannot find symbol
+    public void logAndEmailSeriousProblemS121(Throwable ex, HttpServletRequest aRequest)
+                                                            ^
+  symbol:   class HttpServletRequest
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:113: error: cannot find symbol
+    public void logAndEmailSeriousProblemS122(Throwable ex, HttpServletRequest aRequest)
+                                                            ^
+  symbol:   class HttpServletRequest
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:135: error: cannot find symbol
+    public void logAndEmailSeriousProblemS123(Throwable ex, HttpServletRequest aRequest)
+                                                            ^
+  symbol:   class HttpServletRequest
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:24: error: cannot find symbol
+    private static final Logger fLogger = Util.getLogger(CodeSnippets.class);
+                                          ^
+  symbol:   variable Util
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:36: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+    ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:36: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+                                      ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:57: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+    ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:57: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+                                      ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:76: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+    ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:76: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+                                      ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:94: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+    ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:94: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+                                      ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:102: error: cannot find symbol
+    HttpSession session = aRequest.getSession();
+    ^
+  symbol:   class HttpSession
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:103: error: cannot find symbol
+    ServletContext context = session.getServletContext();
+    ^
+  symbol:   class ServletContext
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:116: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+    ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:116: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+                                      ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:124: error: cannot find symbol
+    HttpSession session = aRequest.getSession();
+    ^
+  symbol:   class HttpSession
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:125: error: cannot find symbol
+    ServletContext context = session.getServletContext();
+    ^
+  symbol:   class ServletContext
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:137: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+    ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:137: error: cannot find symbol
+    TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
+                                      ^
+  symbol:   class TroubleTicket
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:142: error: cannot find symbol
+    HttpSession session = aRequest.getSession();
+    ^
+  symbol:   class HttpSession
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:143: error: cannot find symbol
+    ServletContext context = session.getServletContext();
+    ^
+  symbol:   class ServletContext
+  location: class CodeSnippets
+dataset9/src/main/java/CodeSnippets.java:13: warning: type.checking.not.run
+public class CodeSnippets {
+       ^
+30 errors
+1 warning

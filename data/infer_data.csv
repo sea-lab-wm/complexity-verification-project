@@ -1,39 +1,54 @@
-Snippet,Null Dereference,Thread Safety Violation
-COG Dataset 3 - 25,1.0,
-COG Dataset 3 - 30,1.0,
-COG Dataset 3 - 35,1.0,
-COG Dataset 3 - 40,1.0,
-COG Dataset 3 - 5,1.0,
-COG Dataset 3 - 53,1.0,
-COG Dataset 3 - 57,1.0,
-COG Dataset 3 - 58,1.0,
-COG Dataset 3 - 59,1.0,
-COG Dataset 3 - 63,1.0,
-COG Dataset 3 - 66,1.0,
-COG Dataset 3 - 76,1.0,
-COG Dataset 3 - 77,1.0,
-COG Dataset 3 - 85,1.0,
-COG Dataset 3 - 95,1.0,
-COG Dataset 3 - 96,1.0,
-COG Dataset 6 - 1 - CarReport,1.0,
-COG Dataset 6 - 1 - EstimatorUtils,1.0,
-COG Dataset 6 - 1 - GeneratorPropertyIteratorPanel,1.0,
-COG Dataset 6 - 1 - K9,1.0,
-COG Dataset 6 - 1 - OpenCMSCore,1.0,
-COG Dataset 6 - 2 - CarReport,1.0,
-COG Dataset 6 - 2 - K9,1.0,
-COG Dataset 6 - 2 - Phoenix,1.0,
-COG Dataset 6 - 2 - Pom,,2.0
-COG Dataset 6 - 2 - SpringBatch,1.0,
-COG Dataset 6 - 3 - Antlr4Master,1.0,
-COG Dataset 6 - 3 - CarReport,1.0,
-COG Dataset 6 - 3 - HibernateORM,1.0,
-COG Dataset 6 - 3 - K9,1.0,
-COG Dataset 6 - 3 - SpringBatch,1.0,
-COG Dataset 6 - 4 - HibernateORM,1.0,
-COG Dataset 6 - 4 - MyExpenses,1.0,
-COG Dataset 6 - 4 - Phoenix,1.0,
-COG Dataset 6 - 5 - Antlr4Master,1.0,
-COG Dataset 6 - 5 - CarReport,1.0,
-COG Dataset 6 - 5 - HibernateORM,1.0,
-COG Dataset 6 - 5 - SpringBatch,1.0,
+Snippet,Null Dereference
+COG Dataset 3 - 25,1
+COG Dataset 3 - 30,1
+COG Dataset 3 - 35,1
+COG Dataset 3 - 40,1
+COG Dataset 3 - 5,1
+COG Dataset 3 - 53,1
+COG Dataset 3 - 57,1
+COG Dataset 3 - 58,1
+COG Dataset 3 - 59,1
+COG Dataset 3 - 63,1
+COG Dataset 3 - 66,1
+COG Dataset 3 - 76,1
+COG Dataset 3 - 77,1
+COG Dataset 3 - 85,1
+COG Dataset 3 - 95,1
+COG Dataset 3 - 96,1
+COG Dataset 6 - 1 - CarReport,1
+COG Dataset 6 - 1 - EstimatorUtils,1
+COG Dataset 6 - 1 - GeneratorPropertyIteratorPanel,1
+COG Dataset 6 - 1 - K9,1
+COG Dataset 6 - 1 - OpenCMSCore,1
+COG Dataset 6 - 2 - CarReport,1
+COG Dataset 6 - 2 - K9,1
+COG Dataset 6 - 2 - Phoenix,1
+COG Dataset 6 - 2 - SpringBatch,1
+COG Dataset 6 - 3 - Antlr4Master,1
+COG Dataset 6 - 3 - CarReport,1
+COG Dataset 6 - 3 - HibernateORM,1
+COG Dataset 6 - 3 - K9,1
+COG Dataset 6 - 3 - SpringBatch,1
+COG Dataset 6 - 4 - HibernateORM,1
+COG Dataset 6 - 4 - MyExpenses,1
+COG Dataset 6 - 4 - Phoenix,1
+COG Dataset 6 - 5 - Antlr4Master,1
+COG Dataset 6 - 5 - CarReport,1
+COG Dataset 6 - 5 - HibernateORM,1
+COG Dataset 6 - 5 - SpringBatch,1
+COG Dataset 9 - 12,1
+COG Dataset 9 - 13,1
+COG Dataset 9 - 14,1
+COG Dataset 9 - 15,1
+COG Dataset 9 - 16,1
+COG Dataset 9 - 17,1
+COG Dataset 9 - 19,1
+COG Dataset 9 - 20,2
+COG Dataset 9 - 22,1
+COG Dataset 9 - 23,2
+COG Dataset 9 - 24,1
+COG Dataset 9 - 25,1
+COG Dataset 9 - 26,1
+COG Dataset 9 - 27,1
+COG Dataset 9 - 28,1
+COG Dataset 9 - 29,1
