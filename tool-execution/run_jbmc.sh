@@ -6,5 +6,11 @@ then
     exit
 fi
 
-( cd simple-datasets/src/main/java && javac Main.java )
-( cd simple-datasets/src/main/java && jbmc Main --unwind 5 > ../../../../data/jbmc_output.txt )
+gradle clean
+./gradlew build -PskipCheckerFramework --rerun-tasks
+
+( cd simple-datasets/build/classes/java/main && jbmc Main --unwind 5 > ../../../../../data/jbmc_output_simple_datasets.txt )
+
+( cd dataset6/build/classes/java/main && jbmc Main --unwind 5 > ../../../../../data/jbmc_output_dataset6.txt )
+
+( cd dataset9/build/classes/java/main && jbmc Main --unwind 5 > ../../../../../data/jbmc_output_dataset9.txt )
