@@ -34,10 +34,10 @@ public class Pom {
 
     //ADDED BY KOBI
     public void runAll() {
-        //new HealthReport(1, "iconUrl", new Localizable());
-        //new ViewJob()._getRuns();
-        //get();
-        //limit(new Iterator<>(), filter)
+        new HealthReport(1, "iconUrl", new Localizable());
+        new ViewJob()._getRuns();
+        get();
+        limit(null, null);
     }
 
     //SNIPPET_STARTS

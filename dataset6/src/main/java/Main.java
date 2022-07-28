@@ -30,7 +30,8 @@ public class Main {
         Phoenix phoenix = new Phoenix();
         phoenix.runAll();
 
-        //TEMP SKIPPED POM
+        Pom pom = new Pom();
+        pom.runAll();
 
         SpringBatch springBatch = new SpringBatch();
         springBatch.runAll();
