@@ -12,7 +12,7 @@ public class MapControlsAction {
 
     public class MapControls {
         @SuppressWarnings("all")
-        public void update(Tasks.MapTransform mt) {
+        public void update(Tasks_1.MapTransform mt) {
 
         }
     }

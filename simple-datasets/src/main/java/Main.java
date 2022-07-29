@@ -2,13 +2,6 @@ import fMRI_Study_Classes.*;
 
 public class Main {
     public static void main(String[] args) {
-        //String s = new String("Abc");
-        //String u = "bc";
-        //assert(!s.contains(u)); // This assert failure should be found by JBMC!
-
-        //Object n = null;
-        //n.toString();
-
         ArrayAverage.run();
         ContainsSubstring.run();
         CountVowels.run();
@@ -28,7 +21,11 @@ public class Main {
 
         cog_complexity_validation_datasets.One.Tasks.runAllSnippets();
 
-        cog_complexity_validation_datasets.Three.Tasks t3 = new cog_complexity_validation_datasets.Three.Tasks("message");
-        t3.runAllSnippets();
+        cog_complexity_validation_datasets.Three.Tasks_1 t3_1 = new cog_complexity_validation_datasets.Three.Tasks_1("message");
+        t3_1.runAllSnippets();
+        cog_complexity_validation_datasets.Three.Tasks_2 t3_2 = new cog_complexity_validation_datasets.Three.Tasks_2("message");
+        t3_2.runAllSnippets();
+        cog_complexity_validation_datasets.Three.Tasks_3 t3_3 = new cog_complexity_validation_datasets.Three.Tasks_3("message");
+        t3_3.runAllSnippets();
     }
 }

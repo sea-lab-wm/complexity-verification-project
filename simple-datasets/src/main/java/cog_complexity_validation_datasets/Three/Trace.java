@@ -4,7 +4,7 @@ public class Trace {
     public static final @SuppressWarnings("all") String GENERAL_ERROR = "";
 
     @SuppressWarnings("all")
-    public static Tasks.HsqlException error(String generalError) {
+    public static Tasks_1.HsqlException error(String generalError) {
         return null;
     }
 }

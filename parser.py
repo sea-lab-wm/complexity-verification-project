@@ -1,3 +1,4 @@
+from audioop import add
 import pandas as pd
 import copy
 import os
@@ -44,6 +45,7 @@ def parseJBMC(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2
     startSnippetCOG6 = "dataset6"
     endSnippet = "" #Change later
 
+#TODO: UPDATE THIS!!!!!!!!!!!!!!
     for file in lines:
         for line in file:
             if startSnippetfMRI in line and endSnippet in line:
@@ -161,16 +163,28 @@ def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDa
                     break
         elif startSnippetCOG3 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
+            fileName = line.split(".java:")[0].rsplit("/", 1)[1]
 
-            for i in range(len(cogDataset3SnippetNums) - 1):
-                if cogDataset3SnippetNums[i] <= lineNum and cogDataset3SnippetNums[i + 1] > lineNum:
-                    data["Snippet"].append(f"COG Dataset 3 - {str(i + 1)}")
+            if fileName not in cogDataset3SnippetNums:
+                continue
+
+            snippetNums = cogDataset3SnippetNums[fileName]
+
+            addToI = 0
+            if fileName == "Tasks_2":
+                addToI = len(cogDataset3SnippetNums["Tasks_1"]) - 1
+            elif fileName == "Tasks_3":
+                addToI = len(cogDataset3SnippetNums["Tasks_1"]) - 1
+                addToI += len(cogDataset3SnippetNums["Tasks_2"]) - 1
+
+            for i in range(len(snippetNums) - 1):
+                if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
+                    data["Snippet"].append(f"COG Dataset 3 - {str(i + 1 + addToI)}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
         elif startSnippetCOG6 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
             fileName = line.split(".java:")[0].rsplit("/", 1)[1]
-
             if fileName not in cogDataset6SnippetNums:
                 continue
 
@@ -214,7 +228,11 @@ if __name__ == "__main__":
     fMRIDatasetSnippetNames = sorted(fMRIDatasetSnippetNames, key=str.lower)    # Keeps the order of these snippets consistent across operating systems
     cogDataset1SnippetNums = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END")
     cogDataset2SnippetNums =  getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END")
-    cogDataset3SnippetNums = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END")
+
+    cogDataset3SnippetNums = {}
+    cogDataset3SnippetNums["Tasks_1"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset3SnippetNums["Tasks_2"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset3SnippetNums["Tasks_3"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java", "SNIPPET_STARTS", "SNIPPETS_END")
 
     # A dictionary of lists. Each inner list contains the line numbers for the snippets in a single .java file. This dataset has snippets split across several files.
     # They are in the order of how they appear in "cog_dataset_6.csv", the file containing the metric data from its prior study.
