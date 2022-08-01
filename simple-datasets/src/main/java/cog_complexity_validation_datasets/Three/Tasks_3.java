@@ -440,6 +440,7 @@ public class Tasks_3 {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        
         //S84
         s84();
         //S85
@@ -472,7 +473,7 @@ public class Tasks_3 {
         //S96
         actionPerformed2(new ActionEvent(new Tasks_3("message"), 1, "blink"));
         //S97
-        getButtonAction();
+        //getButtonAction();    //
         //S98
         s98();
         //S99
@@ -851,7 +852,7 @@ public class Tasks_3 {
 
     // Snippet s97
     //SNIPPET_STARTS
-    public ActionMenu getButtonAction() {
+    /*public ActionMenu getButtonAction() {
         AbstractAction action = new AbstractAction() {
 
             public void actionPerformed(ActionEvent evt) {
@@ -863,7 +864,7 @@ public class Tasks_3 {
 
         return new ActionMenu();                                                                                                    /*Altered return*/
         //return null; // Added to allow compilation
-    } // Added to allow compilation
+    //}*/ // Added to allow compilation
 
     // Snippet s98
     //SNIPPET_STARTS

@@ -24,13 +24,13 @@ public class Tasks {
         main11(new String[2]);
         main12(new String[2]);
         main13(new String[2]);
-        main14(new String[2]); //
-        main15(new String[2]); //
+        //main14(new String[2]); //
+        //main15(new String[2]); //
         main16(new String[2]);
-        main17(new String[2]); //
+        //main17(new String[2]); //
         main18(new String[2]);
         main19(new String[2]);
-        main20(new String[2]); //
+        //main20(new String[2]); //
         main21(new String[2]);
         main22(new String[2]);
         main23(new String[2]);
@@ -254,7 +254,7 @@ public class Tasks {
 
     // 15. Matrix multiplication                                    /*Only in the first pilot study*/
     //SNIPPET_STARTS
-    public static void main15(String[] args) {
+    /*public static void main15(String[] args) {
         int array[][] = {{5,6,7},{4,8,9}};
         int array1[][] = {{6,4},{5,7},{1,1}};
         int array2[][] = new int[3][3];
@@ -275,7 +275,7 @@ public class Tasks {
                 System.out.print(" "+array2[i][j]);
             }
         }
-    }
+    }*/
 
     // 16. Arithmetic mean                                  /*Only in the first pilot study*/
     //SNIPPET_STARTS

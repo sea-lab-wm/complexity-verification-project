@@ -404,7 +404,7 @@ public class Tasks_1 {
             e.printStackTrace();
         }
         //S2
-        s2();
+        //s2(); //
         //S3
         compactString("source");
         //S4
@@ -482,7 +482,7 @@ public class Tasks_1 {
         //S30
         setMapTransform(new MapTransform());
         //S31
-        s31();
+        //s31();    //
         //S32
         Date();
     }
@@ -506,7 +506,7 @@ public class Tasks_1 {
 
     // Snippet s2
     //SNIPPET_STARTS
-    public static Object s2() {
+    /*public static Object s2() {
         if (actionList.size() == 1) {
             ActionMenu menu = actionList.get(0);
 
@@ -520,7 +520,7 @@ public class Tasks_1 {
         } // had to be added to allow compilation
         return new Object();                                                /*Altered return*/
         //return null; // had to be added to allow compilation
-    }
+    //}*/
 
     // Snippet s3
     //SNIPPET_STARTS
@@ -872,7 +872,7 @@ public class Tasks_1 {
 
     // Snippet s31
     //SNIPPET_STARTS
-    public String s31() {
+    /*public String s31() {
         if (iterateOverMe instanceof String)
             return createEnumeration(((String) iterateOverMe).toCharArray());
 
@@ -887,7 +887,7 @@ public class Tasks_1 {
     private String createEnumeration(char[] toCharArray) {
         return new String();                                                            /*Altered return*/
         //return null;
-    }
+    //}*/
 
     // Snippet s32
     /**
