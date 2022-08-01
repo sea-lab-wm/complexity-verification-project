@@ -34,21 +34,21 @@ public class CarReport {
 
     //ADDED BY KOBI
     public void runAll() {
-        save();
+        //save();
         new SetupWebDavSyncDialogActivity().onCreate(new Bundle());
         handleFABClick(1, 1);
-        showFullScreenChart(new AbstractReport(), new ComboLineColumnChartView());
-        try {
-            downloadFile();
-        } catch (CarReport.SyncIoException | CarReport.SyncParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        //showFullScreenChart(new AbstractReport(), new ComboLineColumnChartView());
+        //try {
+        //    downloadFile();
+        //} catch (CarReport.SyncIoException | CarReport.SyncParseException e) {
+        //    // TODO Auto-generated catch block
+        //    e.printStackTrace();
+        //}
     }
 
     // me.kuehle.carreport.gui.dialog.EditFuelTypeDialogFragment.save()
     //SNIPPET_STARTS
-    private boolean save() {
+    /*private boolean save() {
         FormValidator validator = new FormValidator();
         validator.add(new FormFieldNotEmptyValidator(mEdtName));
         validator.add(new AbstractFormFieldValidator(mEdtName) {
@@ -81,7 +81,7 @@ public class CarReport {
         } else {
             return false;
         }
-    }
+    }*/
 
     private static class Utils {
         public String getCacheDir() {
@@ -178,7 +178,7 @@ public class CarReport {
 
     // me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
     //SNIPPET_STARTS
-    private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
+    /*private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
         if (getView() == null) {
             return;
         }
@@ -243,12 +243,12 @@ public class CarReport {
         });
         set.start();
         mFullScreenChartAnimator = set;
-    }
+    }*/
 
     // me.kuehle.carreport.util.sync.provider.DropboxSyncProvider.downloadFile()
     //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
-    public void downloadFile() throws SyncIoException, SyncParseException {
+    /*public void downloadFile() throws SyncIoException, SyncParseException {
         File localFile = getLocalFile();
         File tempFile = new File(Application.getContext().getCacheDir(), getClass().getSimpleName());
 
@@ -278,7 +278,7 @@ public class CarReport {
                 Log.w(TAG, "Could not delete temp file after downloading.");
             }
         }
-    }
+    }*/
     //SNIPPETS_END
 
     private File getLocalFile() {

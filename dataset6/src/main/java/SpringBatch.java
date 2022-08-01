@@ -24,12 +24,12 @@ public class SpringBatch {
     private ItmWriter writer;
 
     public void runAll() {
-        try {
-            testFailureAndRecovery();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        //try {
+        //    testFailureAndRecovery();
+        //} catch (Exception e) {
+        //    // TODO Auto-generated catch block
+        //    e.printStackTrace();
+        //}
         try {
             testArtifactUniqueness();
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class SpringBatch {
     // org.springframework.batch.container.jms.BatchMessageListenerContainerIntegrationTests.testFailureAndRecovery()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
-    public void testFailureAndRecovery() throws Exception {
+    /*public void testFailureAndRecovery() throws Exception {
         final RetryTemplate retryTemplate = new RetryTemplate();
         retryTemplate.setRetryPolicy(new NeverRetryPolicy());
         container.setMessageListener(new MessageListener() {
@@ -102,7 +102,7 @@ public class SpringBatch {
         jmsTemplate.convertAndSend("queue", "foo");
         assertEquals("foo", processed.poll(5, TimeUnit.SECONDS));
         assertEquals("foo", recovered.poll(5, TimeUnit.SECONDS));
-    }
+    }*/
 
     // org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
 //    @Test // removed to allow compilation

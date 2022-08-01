@@ -33,20 +33,20 @@ public class Antlr4Master {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        try {
-            process();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        //try {
+        //    process();
+        //} catch (Exception e) {
+        //    // TODO Auto-generated catch block
+        //    e.printStackTrace();
+        //}
         hasSLLConflictTerminatingPrediction(new PredictionMode(), new ATNConfigSet());
         removeFast(new T());
-        try {
-            testToStringStartStop2();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        //try {
+        //    testToStringStartStop2();
+        //} catch (Exception e) {
+        //    // TODO Auto-generated catch block
+        //    e.printStackTrace();
+        //}
     }
 
     //SNIPPET_STARTS
@@ -107,7 +107,7 @@ public class Antlr4Master {
 
     // org.antlr.v4.gui.TestRig.process()
     //SNIPPET_STARTS
-    public void process() throws Exception {
+    /*public void process() throws Exception {
 //		System.out.println("exec "+grammarName+"."+startRuleName);
         String lexerName = grammarName+"Lexer";
         ClassLoader cl = Thread.currentThread().getContextClassLoader();
@@ -166,7 +166,7 @@ public class Antlr4Master {
             }
             process(lexer, parserClass, parser, charStream);
         }
-    }
+    }*/
 
     // org.antlr.v4.runtime.atn.PredictionMode.hasSLLConflictTerminatingPrediction(org.antlr.v4.runtime.atn.PredictionMode,org.antlr.v4.runtime.atn.ATNConfigSet)
     //SNIPPET_STARTS
@@ -240,7 +240,7 @@ public class Antlr4Master {
     // org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
-    public void testToStringStartStop2() throws Exception {
+    /*public void testToStringStartStop2() throws Exception {
         LexerGrammar g = new LexerGrammar(
                 "lexer grammar T;\n"+
                         "ID : 'a'..'z'+;\n" +
@@ -295,7 +295,7 @@ public class Antlr4Master {
 // try again after insert at end
         expecting = "x = 0";
         assertEquals(expecting, result);
-    }
+    }*/
     //SNIPPETS_END
 
     private void assertEquals(String expecting, String result) {

@@ -14,7 +14,7 @@ public class OpenCMSCore {
 
     //ADDED BY KOBI
     public void runAll() {
-        createContextMenu(new CmsSitemapHoverbar());
+        //createContextMenu(new CmsSitemapHoverbar());
         try {
             seekFile(1, 1);
         } catch (IOException e) {
@@ -44,7 +44,7 @@ public class OpenCMSCore {
 
     // org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
     //SNIPPET_STARTS
-    public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
+    /*public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
 
         List<A_CmsSitemapMenuEntry> result = Lists.newArrayList();
 
@@ -84,7 +84,7 @@ public class OpenCMSCore {
         result.add(new CmsDeleteMenuEntry(hoverbar));
 
         return result;
-    }
+    }*/
 
     // org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
 //    @Override // Removed to allow compilation
@@ -494,11 +494,11 @@ public class OpenCMSCore {
         }
     }
 
-    private class CmsCreateGalleryMenuEntry extends A_CmsSitemapMenuEntry {
-        public CmsCreateGalleryMenuEntry(CmsSitemapHoverbar hoverbar) {
-            super();
-        }
-    }
+    //private class CmsCreateGalleryMenuEntry extends A_CmsSitemapMenuEntry {
+    //    public CmsCreateGalleryMenuEntry(CmsSitemapHoverbar hoverbar) {
+    //        super();
+    //    }
+    //}
 
     private class CmsResourceInfoMenuEntry extends A_CmsSitemapMenuEntry {
         public CmsResourceInfoMenuEntry(CmsSitemapHoverbar hoverbar) {

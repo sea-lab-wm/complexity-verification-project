@@ -22,8 +22,10 @@ public class HibernateORM {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        /*
         extractSequenceValue(new SessionImplementor());
         collectionInfoString(new CollectionPersister(), new PersistentCollection(), new Serializable() {}, new SharedSessionContractImplementor());
+        */
     }
 
     // org.hibernate.cfg.AbstractPropertyHolder.getOverriddenColumn(java.lang.String)
@@ -240,7 +242,7 @@ public class HibernateORM {
 
     // org.hibernate.id.SequenceValueExtractor.extractSequenceValue(org.hibernate.engine.spi.SessionImplementor)
     //SNIPPET_STARTS
-    public long extractSequenceValue(final SessionImplementor sessionImpl) {
+    /*public long extractSequenceValue(final SessionImplementor sessionImpl) {
         class WorkImpl implements Work {
             private long value;
 
@@ -269,7 +271,7 @@ public class HibernateORM {
         WorkImpl work = new WorkImpl();
         ((Session) sessionImpl).doWork( work );
         return work.value;
-    }
+    }*/
 
     // org.hibernate.pretty.MessageHelper.collectionInfoString(org.hibernate.persister.collection.CollectionPersister,org.hibernate.collection.spi.PersistentCollection,java.io.Serializable,org.hibernate.engine.spi.SharedSessionContractImplementor)
     /**
@@ -284,7 +286,7 @@ public class HibernateORM {
      * @return An info string, in the form [Foo.bars#1]
      */
     //SNIPPET_STARTS
-    public static String collectionInfoString(
+    /*public static String collectionInfoString(
             CollectionPersister persister,
             PersistentCollection collection,
             Serializable collectionKey,
@@ -319,7 +321,7 @@ public class HibernateORM {
         s.append( ']' );
 
         return s.toString();
-    }
+    }*/
     //SNIPPETS_END
 
     private class Dialect {
