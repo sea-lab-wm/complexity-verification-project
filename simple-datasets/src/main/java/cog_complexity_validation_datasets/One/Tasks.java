@@ -24,13 +24,13 @@ public class Tasks {
         main11(new String[2]);
         main12(new String[2]);
         main13(new String[2]);
-        main14(new String[2]);
-        main15(new String[2]);
+        main14(new String[2]); //
+        main15(new String[2]); //
         main16(new String[2]);
-        main17(new String[2]);
+        main17(new String[2]); //
         main18(new String[2]);
         main19(new String[2]);
-        main20(new String[2]);
+        main20(new String[2]); //
         main21(new String[2]);
         main22(new String[2]);
         main23(new String[2]);
