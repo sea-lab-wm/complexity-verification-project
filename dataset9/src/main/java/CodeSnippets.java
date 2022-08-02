@@ -1577,10 +1577,6 @@ public class CodeSnippets {
         }
     }
 
-    private class SublineNode {
-
-    }
-
     private class Project {
         public ProjectSpace eContainer() {
             return null;
@@ -1824,6 +1820,10 @@ public class CodeSnippets {
     }
 
     private static void appendSubline(StringBuilder builder, SublineNode subline) {
+
+    }
+
+    private class SublineNode {
 
     }
 }
