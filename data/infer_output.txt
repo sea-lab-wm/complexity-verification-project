@@ -167,21 +167,21 @@ dataset6/src/main/java/HibernateORM.java:303: error: Null Dereference
   304.               Serializable ownerKey;
   305.               // TODO: Is it redundant to attempt to use the collectionKey,
 
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:542: error: Null Dereference
-  object returned by `freeColClient.getImageLibrary()` could be null and is dereferenced at line 542.
-  540.           DisbandUnitAction(FreeColClient freeColClient) {
-  541.               super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
-  542. >             putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
-  543.                       0));
-  544.               putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:354: error: Null Dereference
+  object returned by `freeColClient.getImageLibrary()` could be null and is dereferenced at line 354.
+  352.           DisbandUnitAction(FreeColClient freeColClient) {
+  353.               super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
+  354. >             putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
+  355.                       0));
+  356.               putValue(BUTTON_ROLLOVER_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(
 
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:559: error: Null Dereference
-  object returned by `getConnectController()` could be null and is dereferenced at line 559.
-  557.       //SNIPPET_STARTS
-  558.       public void quit() {
-  559. >         getConnectController().quitGame(true);
-  560.           if (!windowed) {
-  561.               gd.setFullScreenWindow(null);
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:418: error: Null Dereference
+  object `unitElement` last assigned on line 416 could be null and is dereferenced at line 418.
+  416.           Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
+  417.   
+  418. >         Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
+  419.           unit.readFromXMLElement(unitElement);
+  420.           return unitElement;                                                                                 /*Altered return*/
 
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java:566: error: Null Dereference
   object returned by `Tasks_3.device.getDriver()` could be null and is dereferenced at line 566.
@@ -199,13 +199,37 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.j
   576.                   "CaptureDevices" + File.separator + mCount + ".dat");
   577.   
 
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:606: error: Null Dereference
-  object `unitElement` last assigned on line 604 could be null and is dereferenced at line 606.
-  604.           Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
-  605.   
-  606. >         Unit unit = (Unit) getGame().getFreeColGameObject(unitElement.getAttribute("ID"));
-  607.           unit.readFromXMLElement(unitElement);
-  608.           return unitElement;                                                                                 /*Altered return*/
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:579: error: Null Dereference
+  object `Tasks_2.suiteMethod` last assigned on line 578 could be null and is dereferenced at line 579.
+  577.           try {
+  578.               suiteMethod= klass.getMethod("suite");
+  579. >             if (! Modifier.isStatic(suiteMethod.getModifiers())) {
+  580.                   throw new Exception(klass.getName() + ".suite() must be static");
+  581.               }
+
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:633: error: Null Dereference
+  object returned by `getInstance()` could be null and is dereferenced at line 633.
+  631.           String devname = (String)in.readObject();
+  632.   
+  633. >         DeviceIf dev = DriverFactory.getInstance().createDevice(classname, devname);
+  634.       } // Added to allow compilation
+  635.   
+
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:642: error: Null Dereference
+  object returned by `errorReport(Tasks_2.fTestClass,error)` could be null and is dereferenced at line 642.
+  640.           InitializationError error= new InitializationError(String.format(
+  641.                   CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
+  642. >         return Request.errorReport(fTestClass, error).getRunner();
+  643.       } // Added to allow compilation
+  644.   
+
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:651: error: Null Dereference
+  object `info` last assigned on line 649 could be null and is dereferenced at line 651.
+  649.           Object info = getAttribute(Session.INFO_CONNECTION_READONLY);
+  650.   
+  651. >         isReadOnly = ((Boolean) info).booleanValue();
+  652.   
+  653.           return isReadOnly;
 
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java:693: error: Null Dereference
   object returned by `Tasks_3.freeColClient.getCanvas()` could be null and is dereferenced at line 693.
@@ -215,37 +239,21 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.j
   694.       } // Added to allow compilation
   695.   
 
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:767: error: Null Dereference
-  object `Tasks_2.suiteMethod` last assigned on line 766 could be null and is dereferenced at line 767.
-  765.           try {
-  766.               suiteMethod= klass.getMethod("suite");
-  767. >             if (! Modifier.isStatic(suiteMethod.getModifiers())) {
-  768.                   throw new Exception(klass.getName() + ".suite() must be static");
-  769.               }
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:695: error: Null Dereference
+  object `spec` last assigned on line 692 could be null and is dereferenced at line 695.
+  693.           List<Method> testMethods = fTestMethods;
+  694.           for (Method method : testMethods)
+  695. >             spec.addChild(methodDescription(method));
+  696.   
+  697.           return null; // Added to allow compilation
 
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:803: error: Null Dereference
-  object returned by `p.getTile()` could be null and is dereferenced at line 803.
-  801.       //SNIPPET_STARTS
-  802.       public boolean check(Unit u, PathNode p) {
-  803. >         if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
-  804.                   && p.getTile().getSettlement() != inSettlement) {
-  805.               Settlement s = p.getTile().getSettlement();
-
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:821: error: Null Dereference
-  object returned by `getInstance()` could be null and is dereferenced at line 821.
-  819.           String devname = (String)in.readObject();
-  820.   
-  821. >         DeviceIf dev = DriverFactory.getInstance().createDevice(classname, devname);
-  822.       } // Added to allow compilation
-  823.   
-
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:830: error: Null Dereference
-  object returned by `errorReport(Tasks_2.fTestClass,error)` could be null and is dereferenced at line 830.
-  828.           InitializationError error= new InitializationError(String.format(
-  829.                   CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
-  830. >         return Request.errorReport(fTestClass, error).getRunner();
-  831.       } // Added to allow compilation
-  832.   
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:727: error: Null Dereference
+  object returned by `Tasks_2.devplugin.Plugin.getPluginManager()` could be null and is dereferenced at line 727.
+  725.           Program p = (Program) mProgramTableModel.getValueAt(row, 1);
+  726.   
+  727. >         JPopupMenu menu = devplugin.Plugin.getPluginManager().createPluginContextMenu(p, CapturePlugin.getInstance());
+  728.   
+  729.       } // Added to allow compilation
 
 dataset9/src/main/java/CodeSnippets.java:835: error: Null Dereference
   object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 835.
@@ -263,14 +271,6 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.j
   835.           gui.setInGame(true);
   836.       } // Added to allow compilation
 
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:839: error: Null Dereference
-  object `info` last assigned on line 837 could be null and is dereferenced at line 839.
-  837.           Object info = getAttribute(Session.INFO_CONNECTION_READONLY);
-  838.   
-  839. >         isReadOnly = ((Boolean) info).booleanValue();
-  840.   
-  841.           return isReadOnly;
-
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java:847: error: Null Dereference
   object `game` last assigned on line 846 could be null and is dereferenced at line 847.
   845.       public void actionPerformed2(ActionEvent e) { // Renamed to allow compilation
@@ -279,14 +279,6 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.j
   848.   
   849.           Parameters p = showParametersDialog();
 
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:867: error: Null Dereference
-  object returned by `Tasks_1.freeColClient.getActionManager()` could be null and is dereferenced at line 867.
-  865.       public void setMapTransform(MapTransform mt) {
-  866.           currentMapTransform = mt;
-  867. >         MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
-  868.           if (mca.getMapControls() != null) {
-  869.               mca.getMapControls().update(mt);
-
 dataset9/src/main/java/CodeSnippets.java:877: error: Null Dereference
   object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 877.
   875.       Table table = new Table(uTable.getColumnsCount());
@@ -294,22 +286,6 @@ dataset9/src/main/java/CodeSnippets.java:877: error: Null Dereference
   877. >     uTable.getBoxModel().getBorderColor().getRed(),
   878.       uTable.getBoxModel().getBorderColor().getGreen(),
   879.       uTable.getBoxModel().getBorderColor().getBlue()));
-
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:883: error: Null Dereference
-  object `spec` last assigned on line 880 could be null and is dereferenced at line 883.
-  881.           List<Method> testMethods = fTestMethods;
-  882.           for (Method method : testMethods)
-  883. >             spec.addChild(methodDescription(method));
-  884.   
-  885.           return null; // Added to allow compilation
-
-simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:915: error: Null Dereference
-  object returned by `Tasks_2.devplugin.Plugin.getPluginManager()` could be null and is dereferenced at line 915.
-  913.           Program p = (Program) mProgramTableModel.getValueAt(row, 1);
-  914.   
-  915. >         JPopupMenu menu = devplugin.Plugin.getPluginManager().createPluginContextMenu(p, CapturePlugin.getInstance());
-  916.   
-  917.       } // Added to allow compilation
 
 dataset9/src/main/java/CodeSnippets.java:919: error: Null Dereference
   object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 919.
@@ -457,8 +433,17 @@ dataset6/src/main/java/Pom.java:143: warning: Thread Safety Violation
   144.           }
   145.       }
 
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:829: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Tasks_1.getNormalisedTime(...)` reads without synchronization from `Three.Tasks_1.tempCalDefault`. Potentially races with write in method `Tasks_1.runAllSnippets()`.
+ Reporting because this access may occur on a background thread.
+  827.       public static long getNormalisedTime(long t) {
+  828.   
+  829. >         synchronized (tempCalDefault) {
+  830.               setTimeInMillis(tempCalDefault, t);
+  831.               resetToTime(tempCalDefault);
 
-Found 57 issues
+
+Found 55 issues
                         Issue Type(ISSUED_TYPE_ID): #
-                Null Dereference(NULL_DEREFERENCE): 55
-  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 2
+                Null Dereference(NULL_DEREFERENCE): 52
+  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 3

@@ -24,10 +24,6 @@ import java.util.Map.Entry;     //ADDED BY KOBI
 public class Tasks_2 {
 
     @SuppressWarnings("all")
-    private static final String RETURN = "";
-    @SuppressWarnings("all")
-    private static final int IRETURN = 0;
-    @SuppressWarnings("all")
     private static final Object BUTTON_IMAGE = null;
     @SuppressWarnings("all")
     private static final Object BUTTON_ROLLOVER_IMAGE = null;
@@ -44,160 +40,21 @@ public class Tasks_2 {
     @SuppressWarnings("all")
     private static final Locale CONSTRUCTOR_ERROR_FORMAT = null;
     @SuppressWarnings("all")
-    private static final int ACC_PUBLIC = 0;
-    @SuppressWarnings("all")
-    private static final Object MESSAGE_COUNT = null;
-    @SuppressWarnings("all")
-    private static final int DATABASE_CLOSING = 0;
-    @SuppressWarnings("all")
-    private static final int DATABASE_ONLINE = 1;
-    @SuppressWarnings("all")
-    private static final Object CHANNELLIST = null;
-    @SuppressWarnings("all")
-    private static final boolean COLUMN = false;
-    @SuppressWarnings("all")
-    private static final boolean VALUE = false;
-    @SuppressWarnings("all")
-    private static final boolean FUNCTION = false;
-    @SuppressWarnings("all")
-    private static final boolean ALTERNATIVE = false;
-    @SuppressWarnings("all")
-    private static final boolean CASEWHEN = false;
-    @SuppressWarnings("all")
-    private static final boolean CONVERT = false;
-    @SuppressWarnings("all")
-    private static ScriptEngine body;
-    @SuppressWarnings("all")
-    private static String callstack;
-    @SuppressWarnings("all")
-    private static Bindings interpreter;
-    @SuppressWarnings("all")
-    private static LinkedList<ActionMenu> actionList;
-    @SuppressWarnings("all")
-    private static IdentityHashMap<Object, Object> databaseIDMap;
-    @SuppressWarnings("all")
-    private static Spring option;
-    @SuppressWarnings("all")
-    private static JSpinner spinner;
-    @SuppressWarnings("all")
-    private static Object tempCalDefault;
-    @SuppressWarnings("all")
-    private static int[] jjbitVec0;
-    @SuppressWarnings("all")
-    private static int[] jjbitVec1;
-    @SuppressWarnings("all")
     private int fParameterSetNumber;
     @SuppressWarnings("all")
     private Object fParameters = null;
-    @SuppressWarnings("all")
-    private int constType;
-    @SuppressWarnings("all")
-    private ConstraintCore core = new ConstraintCore();
-    @SuppressWarnings("all")
-    private HsqlName constName = new HsqlName();
-    @SuppressWarnings("all")
-    private String DELTA_START;
-    @SuppressWarnings("all")
-    private int fPrefix;
-    @SuppressWarnings("all")
-    private int fSuffix;
-    @SuppressWarnings("all")
-    private String DELTA_END;
-    @SuppressWarnings("all")
-    private boolean windowed;
-    @SuppressWarnings("all")
-    private GraphicsDevice gd;
-    @SuppressWarnings("all")
-    private Object xsp;
-    @SuppressWarnings("all")
-    private Object jj_scanpos;
-    @SuppressWarnings("all")
-    private IntValueHashMap rightsMap;
-    @SuppressWarnings("all")
-    private String granteeName;
-    @SuppressWarnings("all")
-    private GranteeManager granteeManager;
     @SuppressWarnings("all")
     private Ftest fTest;
     @SuppressWarnings("all")
     private Method fMethod;
     @SuppressWarnings("all")
     private Parent parent;
-    private InGameController inGameController;
-    @SuppressWarnings("all")
-    private Object clas;
-    @SuppressWarnings("all")
-    private String value;
-    @SuppressWarnings("all")
-    private Object asClass;
-    @SuppressWarnings("all")
-    private BtPanel btPanel;
-    @SuppressWarnings("all")
-    private Object cancel;
-    @SuppressWarnings("all")
-    private Object ok;
     @SuppressWarnings("all")
     private BtPanel panel;
     @SuppressWarnings("all")
-    private List<Object> nameList;
-    @SuppressWarnings("all")
-    private Object sourceFileInfo;
-    @SuppressWarnings("all")
-    private int num;
-    @SuppressWarnings("all")
-    private Vector<DeviceIf> mDevices;
-    @SuppressWarnings("all")
     private In in;
     @SuppressWarnings("all")
-    private boolean active;
-    @SuppressWarnings("all")
-    private int ON;
-    @SuppressWarnings("all")
-    private int OFF;
-    @SuppressWarnings("all")
     private Object returnType;
-    @SuppressWarnings("all")
-    private Object mCloneData;
-    @SuppressWarnings("all")
-    private Object mOwner;
-    @SuppressWarnings("all")
-    private CapturePluginPanel mPanel;
-    @SuppressWarnings("all")
-    private Object mCurrentPanel;
-    @SuppressWarnings("all")
-    private Object player;
-    @SuppressWarnings("all")
-    private Settlement inSettlement;
-    @SuppressWarnings("all")
-    private BtPanel destinations;
-    @SuppressWarnings("all")
-    private int len;
-    @SuppressWarnings("all")
-    private int bufpos;
-    @SuppressWarnings("all")
-    private Object ret;
-    @SuppressWarnings("all")
-    private int bufsize;
-    @SuppressWarnings("all")
-    private Object buffer;
-    @SuppressWarnings("all")
-    private Vector<Runner> fRunners;
-    @SuppressWarnings("all")
-    private OptionalDataException parameters;
-    @SuppressWarnings("all")
-    private int outlen;
-    @SuppressWarnings("all")
-    private int offset;
-    @SuppressWarnings("all")
-    private MapTransform currentMapTransform;
-    @SuppressWarnings("all")
-    private FreeColClient freeColClient;
-    @SuppressWarnings("all")
-    private Object iterateOverMe;
-    @SuppressWarnings("all")
-    private int mYear;
-    @SuppressWarnings("all")
-    private int mMonth;
     @SuppressWarnings("all")
     private int fContextLength;
     @SuppressWarnings("all")
@@ -214,8 +71,6 @@ public class Tasks_2 {
     private List<AbstractPluginProgramFormating> mConfigs;
     @SuppressWarnings("all")
     private BtPanel list;
-    @SuppressWarnings("all")
-    private Package method;
     @SuppressWarnings("all")
     private Boolean[] row;
     @SuppressWarnings("all")
@@ -316,72 +171,6 @@ public class Tasks_2 {
     private JInternalFrame f;
     @SuppressWarnings("all")
     private Point loc;
-    @SuppressWarnings("all")
-    private ArrayDeque<Object> classNameSet;
-    @SuppressWarnings("all")
-    private String className;
-    @SuppressWarnings("all")
-    private Object andAliases;
-    @SuppressWarnings("all")
-    private Object methods;
-    @SuppressWarnings("all")
-    private Device device;
-    @SuppressWarnings("all")
-    private ObjectOutput out;
-    @SuppressWarnings("all")
-    private Object mCount;
-    @SuppressWarnings("all")
-    private Device dev;
-    @SuppressWarnings("all")
-    private int fieldcount;
-    @SuppressWarnings("all")
-    private int[] cols;
-    @SuppressWarnings("all")
-    private int[] a;
-    @SuppressWarnings("all")
-    private int[] coltypes;
-    @SuppressWarnings("all")
-    private int[] b;
-    @SuppressWarnings("all")
-    private Vector importedPackages;
-    @SuppressWarnings("all")
-    private String cmpDataServiceId;
-    @SuppressWarnings("all")
-    private Tasks_2 cmp;
-    @SuppressWarnings("all")
-    private ConstraintCore mainCols;
-    @SuppressWarnings("all")
-    private Object refCols;
-    @SuppressWarnings("all")
-    private Messagee messages2;
-    @SuppressWarnings("all")
-    private Object fMessage;
-    @SuppressWarnings("all")
-    private int currentMode;
-    @SuppressWarnings("all")
-    private Gui gui;
-    @SuppressWarnings("all")
-    private DataInput input_stream;
-    @SuppressWarnings("all")
-    private char curChar;
-    @SuppressWarnings("all")
-    private Script mAppleScript;
-    @SuppressWarnings("all")
-    private Fklass fKlass;
-    @SuppressWarnings("all")
-    private Node x;
-    @SuppressWarnings("all")
-    private Count ts;
-    @SuppressWarnings("all")
-    private Mexpression expression;
-    @SuppressWarnings("all")
-    private String ddl;
-    @SuppressWarnings("all")
-    private HashMap<String, Integer> messagesToIgnore;
-
-    //ADDED BY KOBI
-    @SuppressWarnings("all")
-    private Logger logger;
 
     @SuppressWarnings("all")
     public Tasks_2(Class<?> klass) {
@@ -396,11 +185,34 @@ public class Tasks_2 {
     //ADDED BY KOBI
     @SuppressWarnings("all")
     public void runAllSnippets() {
+        /*------------------------------------------------------
+         *----------------Initialize used Fields----------------
+         *------------------------------------------------------
+         */
+
+        object = new Object();
+        name = new Object();
+        mConfigs = new ArrayList<AbstractPluginProgramFormating>();
+        list = new BtPanel();
+        row = new Boolean[10];
+        ns = new Ns();
+        schema = new Object();
+        defschema = new Object();
+        jj_ntk = 10;
+        mChildNodes = new ArrayList<>();
+        mMarker = new Object();
+
+        /*----------------------------------------
+         *----------------Snippets----------------
+         *----------------------------------------
+         */
+
         //S33
         ComparisonCompactor(1, "expected", "actual");
         //S34
         s34();
         //S35
+        //TODO: FIX
         new DisbandUnitAction(new FreeColClient());
         //S36
         s36();

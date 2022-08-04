@@ -1,7 +1,10 @@
 package cog_complexity_validation_datasets.Three;
 
+import javax.management.ObjectName;
 import javax.script.Bindings;
+import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
+import javax.script.ScriptEngineFactory;
 import javax.script.ScriptException;
 import javax.swing.*;
 
@@ -28,44 +31,6 @@ public class Tasks_1 {
     @SuppressWarnings("all")
     private static final int IRETURN = 0;
     @SuppressWarnings("all")
-    private static final Object BUTTON_IMAGE = null;
-    @SuppressWarnings("all")
-    private static final Object BUTTON_ROLLOVER_IMAGE = null;
-    @SuppressWarnings("all")
-    private static final int EQ = 0;
-    @SuppressWarnings("all")
-    private static final int NE = 1;
-    @SuppressWarnings("all")
-    private static final int COLUMNS = 0;
-    @SuppressWarnings("all")
-    private static final int DEFAULT_WIDTH = 1;
-    @SuppressWarnings("all")
-    private static final int DEFAULT_HEIGHT = 2;
-    @SuppressWarnings("all")
-    private static final Locale CONSTRUCTOR_ERROR_FORMAT = null;
-    @SuppressWarnings("all")
-    private static final int ACC_PUBLIC = 0;
-    @SuppressWarnings("all")
-    private static final Object MESSAGE_COUNT = null;
-    @SuppressWarnings("all")
-    private static final int DATABASE_CLOSING = 0;
-    @SuppressWarnings("all")
-    private static final int DATABASE_ONLINE = 1;
-    @SuppressWarnings("all")
-    private static final Object CHANNELLIST = null;
-    @SuppressWarnings("all")
-    private static final boolean COLUMN = false;
-    @SuppressWarnings("all")
-    private static final boolean VALUE = false;
-    @SuppressWarnings("all")
-    private static final boolean FUNCTION = false;
-    @SuppressWarnings("all")
-    private static final boolean ALTERNATIVE = false;
-    @SuppressWarnings("all")
-    private static final boolean CASEWHEN = false;
-    @SuppressWarnings("all")
-    private static final boolean CONVERT = false;
-    @SuppressWarnings("all")
     private static ScriptEngine body;
     @SuppressWarnings("all")
     private static String callstack;
@@ -81,14 +46,6 @@ public class Tasks_1 {
     private static JSpinner spinner;
     @SuppressWarnings("all")
     private static Object tempCalDefault;
-    @SuppressWarnings("all")
-    private static int[] jjbitVec0;
-    @SuppressWarnings("all")
-    private static int[] jjbitVec1;
-    @SuppressWarnings("all")
-    private int fParameterSetNumber;
-    @SuppressWarnings("all")
-    private Object fParameters = null;
     @SuppressWarnings("all")
     private int constType;
     @SuppressWarnings("all")
@@ -123,6 +80,7 @@ public class Tasks_1 {
     private Method fMethod;
     @SuppressWarnings("all")
     private Parent parent;
+    @SuppressWarnings("all")
     private InGameController inGameController;
     @SuppressWarnings("all")
     private Object clas;
@@ -182,8 +140,9 @@ public class Tasks_1 {
     private Object buffer;
     @SuppressWarnings("all")
     private Vector<Runner> fRunners;
+    //CHANGED TYPE OF parameters
     @SuppressWarnings("all")
-    private OptionalDataException parameters;
+    private int[] parameters;
     @SuppressWarnings("all")
     private int outlen;
     @SuppressWarnings("all")
@@ -199,189 +158,7 @@ public class Tasks_1 {
     @SuppressWarnings("all")
     private int mMonth;
     @SuppressWarnings("all")
-    private int fContextLength;
-    @SuppressWarnings("all")
-    private String fExpected;
-    @SuppressWarnings("all")
-    private String fActual;
-    @SuppressWarnings("all")
-    private Object cs;
-    @SuppressWarnings("all")
-    private Object object;
-    @SuppressWarnings("all")
-    private Object name;
-    @SuppressWarnings("all")
-    private List<AbstractPluginProgramFormating> mConfigs;
-    @SuppressWarnings("all")
-    private BtPanel list;
-    @SuppressWarnings("all")
-    private Package method;
-    @SuppressWarnings("all")
-    private Boolean[] row;
-    @SuppressWarnings("all")
-    private Ns ns;
-    @SuppressWarnings("all")
-    private Object defschema;
-    @SuppressWarnings("all")
-    private Object schema;
-    @SuppressWarnings("all")
-    private Ns t;
-    @SuppressWarnings("all")
-    private int jj_ntk;
-    @SuppressWarnings("all")
-    private ArrayList mChildNodes;
-    @SuppressWarnings("all")
-    private Object mMarker;
-    @SuppressWarnings("all")
-    private Interval next;
-    @SuppressWarnings("all")
-    private int mNumber;
-    @SuppressWarnings("all")
-    private Object mName;
-    @SuppressWarnings("all")
-    private boolean isClosed;
-    @SuppressWarnings("all")
-    private Result resultOut;
-    @SuppressWarnings("all")
-    private boolean blinkOn;
-    @SuppressWarnings("all")
-    private Cc cc;
-    @SuppressWarnings("all")
-    private Cc mLocalizer;
-    @SuppressWarnings("all")
-    private Unit UiUtilities;
-    @SuppressWarnings("all")
-    private Object date;
-    @SuppressWarnings("all")
-    private TimeDateChooserPanel mTimePanel;
-    @SuppressWarnings("all")
-    private Klass klass;
-    @SuppressWarnings("all")
-    private SuiteMethod suiteMethod;
-    @SuppressWarnings("all")
-    private Test suite;
-    @SuppressWarnings("all")
-    private Object missionChip;
-    @SuppressWarnings("all")
-    private boolean expertMission;
-    @SuppressWarnings("all")
-    private Object color;
-    @SuppressWarnings("all")
-    private MissionChip expertMissionChips;
-    @SuppressWarnings("all")
-    private Stack stack;
-    @SuppressWarnings("all")
-    private Class<Object> runnerClass;
-    @SuppressWarnings("all")
-    private Object fTestClass;
-    @SuppressWarnings("all")
-    private boolean isReadOnly;
-    @SuppressWarnings("all")
-    private WareHouse warehouseDialog;
-    @SuppressWarnings("all")
-    private Object FRETURN;
-    @SuppressWarnings("all")
-    private Object opcode;
-    @SuppressWarnings("all")
-    private Object LRETURN;
-    @SuppressWarnings("all")
-    private Cv cv;
-    @SuppressWarnings("all")
-    private int version;
-    @SuppressWarnings("all")
-    private String dataServiceId;
-    @SuppressWarnings("all")
-    private List<Method> fTestMethods;
-    @SuppressWarnings("all")
-    private Iterator<Object> classNames;
-    @SuppressWarnings("all")
-    private String clsName;
-    @SuppressWarnings("all")
-    private Boolean clsCat;
-    @SuppressWarnings("all")
-    private Object clsSchem;
-    @SuppressWarnings("all")
-    private Message[] messages;
-    @SuppressWarnings("all")
-    private ProgramTable mProgramTable;
-    @SuppressWarnings("all")
-    private ProgramTable mProgramTableModel;
-    @SuppressWarnings("all")
-    private ProgramTable devplugin;
-    @SuppressWarnings("all")
-    private Tc tc;
-    @SuppressWarnings("all")
-    private Connection session;
-    @SuppressWarnings("all")
     private JInternalFrame f;
-    @SuppressWarnings("all")
-    private Point loc;
-    @SuppressWarnings("all")
-    private ArrayDeque<Object> classNameSet;
-    @SuppressWarnings("all")
-    private String className;
-    @SuppressWarnings("all")
-    private Object andAliases;
-    @SuppressWarnings("all")
-    private Object methods;
-    @SuppressWarnings("all")
-    private Device device;
-    @SuppressWarnings("all")
-    private ObjectOutput out;
-    @SuppressWarnings("all")
-    private Object mCount;
-    @SuppressWarnings("all")
-    private Device dev;
-    @SuppressWarnings("all")
-    private int fieldcount;
-    @SuppressWarnings("all")
-    private int[] cols;
-    @SuppressWarnings("all")
-    private int[] a;
-    @SuppressWarnings("all")
-    private int[] coltypes;
-    @SuppressWarnings("all")
-    private int[] b;
-    @SuppressWarnings("all")
-    private Vector importedPackages;
-    @SuppressWarnings("all")
-    private String cmpDataServiceId;
-    @SuppressWarnings("all")
-    private Tasks_1 cmp;
-    @SuppressWarnings("all")
-    private ConstraintCore mainCols;
-    @SuppressWarnings("all")
-    private Object refCols;
-    @SuppressWarnings("all")
-    private Messagee messages2;
-    @SuppressWarnings("all")
-    private Object fMessage;
-    @SuppressWarnings("all")
-    private int currentMode;
-    @SuppressWarnings("all")
-    private Gui gui;
-    @SuppressWarnings("all")
-    private DataInput input_stream;
-    @SuppressWarnings("all")
-    private char curChar;
-    @SuppressWarnings("all")
-    private Script mAppleScript;
-    @SuppressWarnings("all")
-    private Fklass fKlass;
-    @SuppressWarnings("all")
-    private Node x;
-    @SuppressWarnings("all")
-    private Count ts;
-    @SuppressWarnings("all")
-    private Mexpression expression;
-    @SuppressWarnings("all")
-    private String ddl;
-    @SuppressWarnings("all")
-    private HashMap<String, Integer> messagesToIgnore;
-
-    //ADDED BY KOBI
-    @SuppressWarnings("all")
-    private Logger logger;
 
     @SuppressWarnings("all")
     public Tasks_1(Class<?> klass) {
@@ -396,6 +173,254 @@ public class Tasks_1 {
     //ADDED BY KOBI
     @SuppressWarnings("all")
     public void runAllSnippets() {
+        /*------------------------------------------------------
+         *----------------Initialize used Fields----------------
+         *------------------------------------------------------
+         */
+
+        body = new ScriptEngine() {
+
+            @Override
+            public Bindings createBindings() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object eval(String arg0) throws ScriptException {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object eval(Reader arg0) throws ScriptException {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object eval(String arg0, ScriptContext arg1) throws ScriptException {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object eval(Reader arg0, ScriptContext arg1) throws ScriptException {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object eval(String arg0, Bindings arg1) throws ScriptException {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object eval(Reader arg0, Bindings arg1) throws ScriptException {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object get(String arg0) {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Bindings getBindings(int arg0) {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public ScriptContext getContext() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public ScriptEngineFactory getFactory() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public void put(String arg0, Object arg1) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void setBindings(Bindings arg0, int arg1) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void setContext(ScriptContext arg0) {
+                // TODO Auto-generated method stub
+                
+            }
+        };
+        callstack = new String();
+        interpreter = new Bindings() {
+
+            @Override
+            public void clear() {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public boolean containsValue(Object arg0) {
+                // TODO Auto-generated method stub
+                return false;
+            }
+
+            @Override
+            public Set<Entry<String, Object>> entrySet() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                // TODO Auto-generated method stub
+                return false;
+            }
+
+            @Override
+            public Set<String> keySet() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public int size() {
+                // TODO Auto-generated method stub
+                return 0;
+            }
+
+            @Override
+            public Collection<Object> values() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public boolean containsKey(Object arg0) {
+                // TODO Auto-generated method stub
+                return false;
+            }
+
+            @Override
+            public Object get(Object arg0) {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public Object put(String arg0, Object arg1) {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public void putAll(java.util.Map<? extends String, ? extends Object> arg0) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public Object remove(Object arg0) {
+                // TODO Auto-generated method stub
+                return null;
+            }
+        };
+        actionList = new LinkedList<ActionMenu>();
+        DELTA_START = new String();
+        DELTA_END = new String();
+        fPrefix = 1;
+        fSuffix = 6;
+        windowed = true;
+        gd = new GraphicsDevice();  //GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices();
+        jj_scanpos = new Object();
+        databaseIDMap = new IdentityHashMap<Object, Object>();
+        parent = new Parent();
+        inGameController = new InGameController();
+        f = new JInternalFrame();
+        clas = new Object();
+        value = new String();
+        btPanel = new BtPanel();
+        cancel = new Object();
+        ok = new Object();
+        panel = new BtPanel();
+        nameList = new ArrayList<Object>();
+        option = new Spring() {
+            @Override
+            public int getMaximumValue() {
+                // TODO Auto-generated method stub
+                return 0;
+            }
+
+            @Override
+            public int getMinimumValue() {
+                // TODO Auto-generated method stub
+                return 0;
+            }
+
+            @Override
+            public int getPreferredValue() {
+                // TODO Auto-generated method stub
+                return 0;
+            }
+
+            @Override
+            public int getValue() {
+                // TODO Auto-generated method stub
+                return 0;
+            }
+
+            @Override
+            public void setValue(int arg0) {
+                // TODO Auto-generated method stub
+                
+            }
+        };
+        sourceFileInfo = new Object();
+        num = 10;
+        in = new In();
+        active = true;
+        ON = 1;
+        OFF = 0;
+        returnType = new Object();
+        mOwner = new Object();
+        mCloneData = new Object();
+        mCurrentPanel = new Object();
+        tempCalDefault = new Object();
+        player = new Object();
+        inSettlement = new Settlement();
+        destinations = new BtPanel();
+        buffer = new Object();
+        bufpos = 10;
+        len = 10;
+        ret = new Object();
+        bufsize = 10;
+        fRunners = new Vector<Runner>();
+        parameters = new int[10];
+        currentMapTransform = new MapTransform();
+        freeColClient = new FreeColClient();
+        iterateOverMe = new Object();
+        mMonth = 4;
+        mYear = 4;
+
+        /*----------------------------------------
+         *----------------Snippets----------------
+         *----------------------------------------
+         */
+
         //S1
         try {
             s1();
@@ -415,16 +440,19 @@ public class Tasks_1 {
             e.printStackTrace();
         }
         //S5
+        //TODO: FIX
         quit();
         //S6
         s6();
         //S7
         Date(1000);
         //S8
+        //TODO: FIX
         TestMethodRunner(new Object(), new Method(), new RunNotifier(), new Description());
         //S9
         getDatabaseURIs();
         //S10
+        //TODO: FIX
         moveUnit(new KeyEvent(f, 1, 1, 1, 1, 'c'));
         //S11
         try {
@@ -445,6 +473,7 @@ public class Tasks_1 {
             e.printStackTrace();
         }
         //S15
+        //TODO: FIX
         s15();
         //S16
         s16();
@@ -459,6 +488,7 @@ public class Tasks_1 {
         //S21
         s21();
         //S22
+        //TODO: FIX
         createSettingsPanel();
         //S23
         printFailures(new Result());
@@ -467,8 +497,10 @@ public class Tasks_1 {
         //S25
         check(new Unit(), new PathNode());
         //S26
+        //TODO: FIX
         s26();
         //S27
+        //TODO: FIX
         comuteDisplayPointCentre(new Dimension());
         //S28
         try {
@@ -480,9 +512,14 @@ public class Tasks_1 {
         //S29
         s29();
         //S30
+        //TODO: FIX
         setMapTransform(new MapTransform());
         //S31
-        s31();
+        try {
+            s31();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         //S32
         Date();
     }
@@ -902,6 +939,13 @@ public class Tasks_1 {
     //SNIPPETS_END
 
     //ADDED BY KOBI
+    public class GraphicsDevice {
+        public void setFullScreenWindow(Window w) {
+
+        }
+    }
+
+    //ADDED BY KOBI
     @SuppressWarnings("all")
     public @interface SuiteClasses {
         Class<?>[] value();
@@ -1042,7 +1086,8 @@ public class Tasks_1 {
 
     @SuppressWarnings("all")
     private ConnectController getConnectController() {
-        return null;
+        //ALTERED BY KOBI
+        return new ConnectController();     //return null;
     }
 
     @SuppressWarnings("all")
@@ -1246,7 +1291,7 @@ public class Tasks_1 {
     private class PathNode {
         @SuppressWarnings("all")
         public Tile getTile() {
-            return null;
+            return new Tile();//CHANGED RETURN
         }
 
         @SuppressWarnings("all")
@@ -1282,7 +1327,7 @@ public class Tasks_1 {
     private class Tile {
         @SuppressWarnings("all")
         public Settlement getSettlement() {
-            return null;
+            return new Settlement();//CHANGED RETURN
         }
 
         @SuppressWarnings("all")
@@ -1300,7 +1345,7 @@ public class Tasks_1 {
     private class Settlement {
         @SuppressWarnings("all")
         public Object getOwner() {
-            return null;
+            return player;//CHANGED RETURN
         }
     }
 
@@ -1343,12 +1388,12 @@ public class Tasks_1 {
     private class FreeColClient {
         @SuppressWarnings("all")
         public FreeColClient getActionManager() {
-            return null;
+            return this;//CHANGED RETURN
         }
 
         @SuppressWarnings("all")
         public Object getFreeColAction(Object id) {
-            return null;
+            return new Object();//CHANGED RETURN
         }
 
         @SuppressWarnings("all")
