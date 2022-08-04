@@ -4,6 +4,9 @@
 ##                Load libraries and import data                 ##
 ##---------------------------------------------------------------##
 
+#delete all variables
+rm(list = ls())
+
 # Load libraries
 library(readxl)
 library(writexl)
@@ -19,7 +22,7 @@ convert_to_pearson <- function(tau) {
 
 
 # Performs a correlation meta analysis on the given data and saves the forestplot to file
-print_meta_analysis <- function(data_in, generateForestPlot, label) {
+print_meta_analysis <- function(data_in, generateForestPlot, label, sheet_in) {
   
   #filter by label (i.e., metric type) and select the columns needed
   correlation_data = select(subset(data_in, metric_type == label), c('var_name', 
@@ -35,7 +38,7 @@ print_meta_analysis <- function(data_in, generateForestPlot, label) {
   if (generateForestPlot) {
     path = "./forest-plot/"
     dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
-    png(file = paste(path, label, "_forestplot.png", sep = ""), 
+    png(file = paste(path, sheet_in, "_", label, "_forestplot.png", sep = ""), 
         width = 1535, 
         height = 575, res = 180)
     #pdf(file = paste(path, label, "_forestplot.pdf", sep = ""))
@@ -51,31 +54,39 @@ print_meta_analysis <- function(data_in, generateForestPlot, label) {
 
 #-----------------------------------
 
-#read data
-all_tools_data = read_excel("correlation_analysis.xlsx", sheet = "all_tools")
+#run the meta-analysis on the data found in sheet_in
+run_meta_analysis <- function(sheet_in){
+  
+  #read data
+  all_data = read_excel("correlation_analysis.xlsx", sheet = sheet_in)
+  
+  #select columns that I need
+  all_data2 = select(all_data, c('dataset','metric_type',
+                                 'higher_warnings', 
+                                 "# of data points for correlation",
+                                 "Kendall's Tau",
+                                 "Kendall's p-value"))
+  #rename columns
+  colnames(all_data2) <- c('dataset','metric_type',
+                           'higher_warnings', 
+                           "n",
+                           "cor_tau",
+                           "p_value")
+  
+  #concatenate the dataset ID and the metric type
+  all_data2$var_name = paste(all_data2$dataset, "_", all_data2$metric_type, sep = "")
+  
+  #transform Kendall's tau into Pearson's r (cor)
+  all_data2$cor_r <- sapply(all_data2$cor_tau, convert_to_pearson)
+  
+  #get all the metric types
+  metric_types = unique(all_data2$metric_type)
+  
+  #run the metanalysis for all the metric types
+  lapply(metric_types, function (label){print_meta_analysis(all_data2, TRUE, label, sheet_in)})
+}
 
-#select columns that I need
-all_tools_data2 = select(all_tools_data, c('dataset','metric_type',
-                                           'higher_warnings', 
-                                           "# of data points for correlation",
-                                           "Kendall's Tau",
-                                           "Kendall's p-value"))
-#rename columns
-colnames(all_tools_data2) <- c('dataset','metric_type',
-                               'higher_warnings', 
-                               "n",
-                               "cor_tau",
-                               "p_value")
+sheets = c("all_tools", "checker_framework", "typestate_checker", "infer")
+lapply(sheets, function(sheet_in){run_meta_analysis(sheet_in)})
 
-#concatenate the dataset ID and the metric type
-all_tools_data2$var_name = paste(all_tools_data2$dataset, "_", all_tools_data2$metric_type, sep = "")
-
-#transform Kendall's tau into Pearson's r (cor)
-all_tools_data2$cor_r <- sapply(all_tools_data2$cor_tau, convert_to_pearson)
-
-#get all the metric types
-metric_types = unique(all_tools_data2$metric_type)
-
-#run the metanalysis for all the metric types
-lapply(metric_types, function (label){print_meta_analysis(all_tools_data2, TRUE, label)})
   
