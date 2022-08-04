@@ -65,7 +65,8 @@ all_tools_data2$var_name = paste(all_tools_data2$dataset, "_", all_tools_data2$m
 
 metric_types = unique(all_tools_data2$metric_type)
 
-print_meta_analysis(all_tools_data2, TRUE, metric_types[1])
+#print_meta_analysis(all_tools_data2, TRUE, metric_types[1])
 lapply(metric_types, function (label){print_meta_analysis(all_tools_data2, TRUE, label)})
   
   
+#sapply(all_tools_data2$cor, convert_to_pearson)
