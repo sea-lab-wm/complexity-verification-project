@@ -21,13 +21,13 @@ convert_to_pearson <- function(tau) {
 # Performs a correlation meta analysis on the given data and saves the forestplot to file
 print_meta_analysis <- function(data_in, generateForestPlot, label) {
   
+  #filter by label (i.e., metric type) and select the columns needed
   correlation_data = select(subset(data_in, metric_type == label), c('var_name', 
                                                                  "n",
-                                                                 "cor",
+                                                                 "cor_r",
                                                                  "p_value"))
-  
-  correlation_data$cor <- sapply(correlation_data$cor, convert_to_pearson)
-  meta_analysis_result <- metacor(cor, n, data = correlation_data,
+  #run the meta analysis
+  meta_analysis_result <- metacor(cor_r, n, data = correlation_data,
                                   studlab = correlation_data$var_name,
                                   sm = "ZCOR", comb.fixed=FALSE,
                                   method.tau = "SJ")
@@ -49,25 +49,33 @@ print_meta_analysis <- function(data_in, generateForestPlot, label) {
   }
 }
 
+#-----------------------------------
 
+#read data
 all_tools_data = read_excel("correlation_analysis.xlsx", sheet = "all_tools")
 
+#select columns that I need
 all_tools_data2 = select(all_tools_data, c('dataset','metric_type',
                                            'higher_warnings', 
                                            "# of data points for correlation",
                                            "Kendall's Tau",
                                            "Kendall's p-value"))
+#rename columns
 colnames(all_tools_data2) <- c('dataset','metric_type',
                                'higher_warnings', 
                                "n",
-                               "cor",
+                               "cor_tau",
                                "p_value")
+
+#concatenate the dataset ID and the metric type
 all_tools_data2$var_name = paste(all_tools_data2$dataset, "_", all_tools_data2$metric_type, sep = "")
 
+#transform Kendall's tau into Pearson's r (cor)
+all_tools_data2$cor_r <- sapply(all_tools_data2$cor_tau, convert_to_pearson)
+
+#get all the metric types
 metric_types = unique(all_tools_data2$metric_type)
 
-#print_meta_analysis(all_tools_data2, TRUE, metric_types[1])
+#run the metanalysis for all the metric types
 lapply(metric_types, function (label){print_meta_analysis(all_tools_data2, TRUE, label)})
   
-  
-#sapply(all_tools_data2$cor, convert_to_pearson)
