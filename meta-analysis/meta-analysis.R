@@ -41,8 +41,9 @@ print_meta_analysis <- function(data_in, generateForestPlot, label) {
     #pdf(file = paste(path, label, "_forestplot.pdf", sep = ""))
     forest_plot <- forest(meta_analysis_result, 
                           #prediction = TRUE, 
-                          smlab = "Correlation meta-analysis",
-                          leftlabs = c("Metric", "# of snippets"))
+                          #smlab = "Correlation meta-analysis",
+                          #smlab = "",
+                          leftlabs = c("Study-metric", "# of snippets"))
     dev.off()
     print(forest_plot)
   }
