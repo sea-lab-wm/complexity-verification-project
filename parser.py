@@ -20,6 +20,50 @@ def getSnippetNames(filePath, start, end):
 
     return methodStartLines
 
+# Get the line numbers for all snippets
+def getAllSnippets():
+    allSnippetNums = []
+
+    # fMRI Dataset
+    fMRIDatasetSnippetNames = [name.split(".")[0] for name in os.listdir("simple-datasets/src/main/java/fMRI_Study_Classes") if ".java" in name]
+    allSnippetNums.append(sorted(fMRIDatasetSnippetNames, key=str.lower))    # Keeps the order of these snippets consistent across operating systems
+    # COG Dataset 1
+    allSnippetNums.append(getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END"))
+    #COG Dataset 2
+    allSnippetNums.append(getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END"))
+
+    # COG Dataset 3
+    cogDataset3SnippetNums = {}
+    cogDataset3SnippetNums["Tasks_1"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset3SnippetNums["Tasks_2"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset3SnippetNums["Tasks_3"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    allSnippetNums.append(cogDataset3SnippetNums)
+
+    # COG Dataset 6
+    # A dictionary of lists. Each inner list contains the line numbers for the snippets in a single .java file. This dataset has snippets split across several files.
+    # They are in the order of how they appear in "cog_dataset_6.csv", the file containing the metric data from its prior study.
+    cogDataset6SnippetNums = {}
+    cogDataset6SnippetNums["K9"] = getSnippetNames("dataset6/src/main/java/K9.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["Pom"] = getSnippetNames("dataset6/src/main/java/Pom.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["CarReport"] = getSnippetNames("dataset6/src/main/java/CarReport.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["Antlr4Master"] = getSnippetNames("dataset6/src/main/java/Antlr4Master.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["Phoenix"] = getSnippetNames("dataset6/src/main/java/Phoenix.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["HibernateORM"] = getSnippetNames("dataset6/src/main/java/HibernateORM.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["OpenCMSCore"] = getSnippetNames("dataset6/src/main/java/OpenCMSCore.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["SpringBatch"] = getSnippetNames("dataset6/src/main/java/SpringBatch.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["MyExpenses"] = getSnippetNames("dataset6/src/main/java/MyExpenses.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["CheckEstimator"] = getSnippetNames("dataset6/src/main/java/weka/estimators/CheckEstimator.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["EstimatorUtils"] = getSnippetNames("dataset6/src/main/java/weka/estimators/EstimatorUtils.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["ClassifierPerformanceEvaluatorCustomizer"] = getSnippetNames("dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["ModelPerformanceChart"] = getSnippetNames("dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["GeneratorPropertyIteratorPanel"] = getSnippetNames("dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    allSnippetNums.append(cogDataset6SnippetNums)
+
+    # COG Dataset 9
+    allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS", "SNIPPETS_END"))
+
+    return allSnippetNums
+
 ##################################
 #   Parse Analysis Tool Output   #
 ##################################
@@ -96,17 +140,17 @@ def parseJBMC(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2
 
 
 # Retrieves the snippet name and warning message for each warning output by the Checker Framework.
-def parseCheckerFramework(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums):
+def parseCheckerFramework(data, allSnippetNums):
     lines = []
     with open("data/checker_framework_output.txt") as f:
         lines = f.readlines()
 
-    data = parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums, ": warning:")
+    data = parseAll(data, lines, allSnippetNums, ": warning:")
     
     return ("checker_framework_data", data)
 
 # Retrieves the snippet name and warning message for each warning output by the Typestate Checker.
-def parseTypestateChecker(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums):
+def parseTypestateChecker(data, allSnippetNums):
     lines = []
     files = os.listdir("data")
 
@@ -120,21 +164,21 @@ def parseTypestateChecker(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums,
                 lines.append(f.readlines())
 
     for dataset in lines:
-        data = parseAll(data, dataset, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums, ": warning:")
+        data = parseAll(data, dataset, allSnippetNums, ": warning:")
 
     return ("typestate_checker_data", data)
 
-def parseInfer(data, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums):
+def parseInfer(data, allSnippetNums):
     lines = []
     with open("data/infer_output.txt") as f:
         lines = f.readlines()
 
-    data = parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums, ": error:")
+    data = parseAll(data, lines, allSnippetNums, ": error:")
     
     return ("infer_data", data)
 
 # Parses the analysis tool output of the Checker Framework, Typestate Checker, and Infer.
-def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums, endSnippet):
+def parseAll(data, lines, allSnippetNums, endSnippet):
     # Delimeters with which to parse the warnings
     startSnippetfMRI = os.path.join(" ", "fMRI_Study_Classes", " ").strip()
     startSnippetCOG1 = os.path.join(" ", "cog_complexity_validation_datasets", "One", " ").strip()
@@ -144,19 +188,19 @@ def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDa
 
     for line in lines:
         if startSnippetfMRI in line and endSnippet in line:
-            data["Snippet"].append(f"fMRI Dataset - {str(fMRIDatasetSnippetNames.index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} - {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
+            data["Snippet"].append(f"fMRI Dataset - {str(allSnippetNums[0].index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} - {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
             data["Warning Type"].append(line.split(endSnippet)[1].strip())
         elif startSnippetCOG1 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
-            for i in range(len(cogDataset1SnippetNums) - 1):
-                if cogDataset1SnippetNums[i] <= lineNum and cogDataset1SnippetNums[i + 1] > lineNum:
+            for i in range(len(allSnippetNums[1]) - 1):
+                if allSnippetNums[1][i] <= lineNum and allSnippetNums[1][i + 1] > lineNum:
                     data["Snippet"].append(f"COG Dataset 1 - {str(i + 1)}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
 
                     # Additional check to see if the snippet is from dataset 2 as well (which is a subset of 1)
-                    for j in range(0, len(cogDataset2SnippetNums) - 1, 2):
-                        if cogDataset2SnippetNums[j] <= lineNum and cogDataset2SnippetNums[j + 1] > lineNum:
+                    for j in range(0, len(allSnippetNums[2]) - 1, 2):
+                        if allSnippetNums[2][j] <= lineNum and allSnippetNums[2][j + 1] > lineNum:
                             data["Snippet"].append(f"COG Dataset 2 - {str((j + 2) // 2)}")
                             data["Warning Type"].append(line.split(endSnippet)[1].strip())
                             break
@@ -165,17 +209,17 @@ def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDa
             lineNum = int(line.split(".java:")[1].split(":")[0])
             fileName = line.split(".java:")[0].rsplit("/", 1)[1]
 
-            if fileName not in cogDataset3SnippetNums:
+            if fileName not in allSnippetNums[3]:
                 continue
 
-            snippetNums = cogDataset3SnippetNums[fileName]
+            snippetNums = allSnippetNums[3][fileName]
 
             addToI = 0
             if fileName == "Tasks_2":
-                addToI = len(cogDataset3SnippetNums["Tasks_1"]) - 1
+                addToI = len(allSnippetNums[3]["Tasks_1"]) - 1
             elif fileName == "Tasks_3":
-                addToI = len(cogDataset3SnippetNums["Tasks_1"]) - 1
-                addToI += len(cogDataset3SnippetNums["Tasks_2"]) - 1
+                addToI = len(allSnippetNums[3]["Tasks_1"]) - 1
+                addToI += len(allSnippetNums[3]["Tasks_2"]) - 1
 
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
@@ -185,10 +229,10 @@ def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDa
         elif startSnippetCOG6 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
             fileName = line.split(".java:")[0].rsplit("/", 1)[1]
-            if fileName not in cogDataset6SnippetNums:
+            if fileName not in allSnippetNums[4]:
                 continue
 
-            snippetNums = cogDataset6SnippetNums[fileName]
+            snippetNums = allSnippetNums[4][fileName]
  
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
@@ -199,8 +243,8 @@ def parseAll(data, lines, fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDa
         elif startSnippetCOG9 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
-            for i in range(len(cogDataset9SnippetNums) - 1):
-                if cogDataset9SnippetNums[i] <= lineNum and cogDataset9SnippetNums[i + 1] > lineNum:
+            for i in range(len(allSnippetNums[5]) - 1):
+                if allSnippetNums[5][i] <= lineNum and allSnippetNums[5][i + 1] > lineNum:
                     data["Snippet"].append(f"COG Dataset 9 - {str(i + 1)}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
@@ -223,36 +267,19 @@ def setupCSVSheets(allAnalysisToolData):
 
         df.to_csv(f"data/{data[0]}.csv")
 
+def csvAllSnippetNames(allSnippetNums):
+    info = {
+        "dataset": [],
+        "snippet": []
+    }
+
+    for dataset in allSnippetNums:
+        pass
+
 if __name__ == "__main__":
-    fMRIDatasetSnippetNames = [name.split(".")[0] for name in os.listdir("simple-datasets/src/main/java/fMRI_Study_Classes") if ".java" in name]
-    fMRIDatasetSnippetNames = sorted(fMRIDatasetSnippetNames, key=str.lower)    # Keeps the order of these snippets consistent across operating systems
-    cogDataset1SnippetNums = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset2SnippetNums =  getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END")
+    allSnippetNums = getAllSnippets()
 
-    cogDataset3SnippetNums = {}
-    cogDataset3SnippetNums["Tasks_1"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset3SnippetNums["Tasks_2"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset3SnippetNums["Tasks_3"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java", "SNIPPET_STARTS", "SNIPPETS_END")
-
-    # A dictionary of lists. Each inner list contains the line numbers for the snippets in a single .java file. This dataset has snippets split across several files.
-    # They are in the order of how they appear in "cog_dataset_6.csv", the file containing the metric data from its prior study.
-    cogDataset6SnippetNums = {}
-    cogDataset6SnippetNums["K9"] = getSnippetNames("dataset6/src/main/java/K9.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["Pom"] = getSnippetNames("dataset6/src/main/java/Pom.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["CarReport"] = getSnippetNames("dataset6/src/main/java/CarReport.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["Antlr4Master"] = getSnippetNames("dataset6/src/main/java/Antlr4Master.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["Phoenix"] = getSnippetNames("dataset6/src/main/java/Phoenix.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["HibernateORM"] = getSnippetNames("dataset6/src/main/java/HibernateORM.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["OpenCMSCore"] = getSnippetNames("dataset6/src/main/java/OpenCMSCore.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["SpringBatch"] = getSnippetNames("dataset6/src/main/java/SpringBatch.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["MyExpenses"] = getSnippetNames("dataset6/src/main/java/MyExpenses.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["CheckEstimator"] = getSnippetNames("dataset6/src/main/java/weka/estimators/CheckEstimator.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["EstimatorUtils"] = getSnippetNames("dataset6/src/main/java/weka/estimators/EstimatorUtils.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["ClassifierPerformanceEvaluatorCustomizer"] = getSnippetNames("dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["ModelPerformanceChart"] = getSnippetNames("dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["GeneratorPropertyIteratorPanel"] = getSnippetNames("dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java", "SNIPPET_STARTS", "SNIPPETS_END")
-
-    cogDataset9SnippetNums = getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    #csvAllSnippetNames(allSnippetNums)
 
     # Data output structure as a dictionary
     data = {
@@ -263,7 +290,7 @@ if __name__ == "__main__":
 
     #TODO: All analysis tools go here
     #allAnalysisToolData.append(parseJBMC(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums))
-    allAnalysisToolData.append(parseCheckerFramework(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums))
-    allAnalysisToolData.append(parseTypestateChecker(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums))
-    allAnalysisToolData.append(parseInfer(copy.deepcopy(data), fMRIDatasetSnippetNames, cogDataset1SnippetNums, cogDataset2SnippetNums, cogDataset3SnippetNums, cogDataset6SnippetNums, cogDataset9SnippetNums))
+    allAnalysisToolData.append(parseCheckerFramework(copy.deepcopy(data), allSnippetNums))
+    allAnalysisToolData.append(parseTypestateChecker(copy.deepcopy(data), allSnippetNums))
+    allAnalysisToolData.append(parseInfer(copy.deepcopy(data), allSnippetNums))
     setupCSVSheets(allAnalysisToolData)
