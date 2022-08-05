@@ -19,14 +19,21 @@ def readCorrelationAnalysis(sheetName):
 
 # Saves the correlation analysis dataframe to its excel sheet.
 def writeCorrelationAnalysis(allCorrelationAnalysisDFS):
-    #correlationAnalysisDF.to_excel("data/correlation_analysis.xlsx", engine="xlsxwriter", sheet_name=sheetName, index=False)
+    sheetNames = ["all_tools", "checker_framework", "typestate_checker", "infer"]
 
     with pd.ExcelWriter("data/correlation_analysis.xlsx") as writer:
         # TODO: Add more analysis tool sheets here ...
-        allCorrelationAnalysisDFS[0].to_excel(writer, sheet_name="all_tools", index=False)
-        allCorrelationAnalysisDFS[1].to_excel(writer, sheet_name="checker_framework", index=False)
-        allCorrelationAnalysisDFS[2].to_excel(writer, sheet_name="typestate_checker", index=False)
-        allCorrelationAnalysisDFS[3].to_excel(writer, sheet_name="infer", index=False)
+        allCorrelationAnalysisDFS[0].to_excel(writer, sheet_name=sheetNames[0], index=False)
+        allCorrelationAnalysisDFS[1].to_excel(writer, sheet_name=sheetNames[1], index=False)
+        allCorrelationAnalysisDFS[2].to_excel(writer, sheet_name=sheetNames[2], index=False)
+        allCorrelationAnalysisDFS[3].to_excel(writer, sheet_name=sheetNames[3], index=False)
+
+        # Auto-adjust columns' width
+        for i, df in enumerate(allCorrelationAnalysisDFS):
+            for column in df:
+                column_width = max(df[column].astype(str).map(len).max(), len(column))
+                col_idx = df.columns.get_loc(column)
+                writer.sheets[sheetNames[i]].set_column(col_idx, col_idx, column_width)
 
 # For Reference: The columns "Complexity Metric" and "# of snippets judged (complexity)" are added manually.
 
