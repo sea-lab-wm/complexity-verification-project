@@ -153,37 +153,37 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
 # TODO: functions for future datasets go here ...
 
 def setCogDataset1Datapoints(warningsPerSnippet, data):
-    dataTime = copy.deepcopy(data)
     dataCorrectness = copy.deepcopy(data)
     dataSubjComplexity = copy.deepcopy(data)
+    dataTime = copy.deepcopy(data)
     metrics = readCOGDataset1StudyMetrics()
 
-    dataTime["Metric"] = metrics[0]
-    dataTime["Warning Count"] = warningsPerSnippet
-    dataCorrectness["Metric"] = metrics[1]
+    dataCorrectness["Metric"] = metrics[0]
     dataCorrectness["Warning Count"] = warningsPerSnippet
-    dataSubjComplexity["Metric"] = metrics[2]
+    dataSubjComplexity["Metric"] = metrics[1]
     dataSubjComplexity["Warning Count"] = warningsPerSnippet
+    dataTime["Metric"] = metrics[2]
+    dataTime["Warning Count"] = warningsPerSnippet
 
-    return (pd.DataFrame(dataTime), pd.DataFrame(dataCorrectness), pd.DataFrame(dataSubjComplexity))
+    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
 
 def setCogDataset2Datapoints(warningsPerSnippet, data):
-    dataTime = copy.deepcopy(data)
-    dataBA32 = copy.deepcopy(data)
-    dataBA31post = copy.deepcopy(data)
     dataBA31ant = copy.deepcopy(data)
+    dataBA31post = copy.deepcopy(data)
+    dataBA32 = copy.deepcopy(data)
+    dataTime = copy.deepcopy(data)
     metrics = readCOGDataset2StudyMetrics()
 
-    dataTime["Metric"] = metrics[0]
-    dataTime["Warning Count"] = warningsPerSnippet
-    dataBA32["Metric"] = metrics[1]
-    dataBA32["Warning Count"] = warningsPerSnippet
-    dataBA31post["Metric"] = metrics[2]
-    dataBA31post["Warning Count"] = warningsPerSnippet
-    dataBA31ant["Metric"] = metrics[3]
+    dataBA31ant["Metric"] = metrics[0]
     dataBA31ant["Warning Count"] = warningsPerSnippet
+    dataBA31post["Metric"] = metrics[1]
+    dataBA31post["Warning Count"] = warningsPerSnippet
+    dataBA32["Metric"] = metrics[2]
+    dataBA32["Warning Count"] = warningsPerSnippet
+    dataTime["Metric"] = metrics[3]
+    dataTime["Warning Count"] = warningsPerSnippet
 
-    return (pd.DataFrame(dataTime), pd.DataFrame(dataBA32), pd.DataFrame(dataBA31post), pd.DataFrame(dataBA31ant))
+    return (pd.DataFrame(dataBA31ant), pd.DataFrame(dataBA31post), pd.DataFrame(dataBA32), pd.DataFrame(dataTime))
 
 # Gets a list of complexity metrics and a list of warning counts for each snippet in COG Dataset 3.
 # Adds that data to a dictionary that is then converted to a dataframe.
@@ -194,52 +194,52 @@ def setCogDataset3Datapoints(warningsPerSnippet, data):
     return pd.DataFrame(data)
 
 def setCogDataset6Datapoints(warningsPerSnippet, data):
-    dataTime = copy.deepcopy(data)
     dataCorrectness = copy.deepcopy(data)
     dataRating = copy.deepcopy(data)
+    dataTime = copy.deepcopy(data)
     metrics = readCOGDataset6StudyMetrics()
 
-    dataTime["Metric"] = metrics[0]
-    dataTime["Warning Count"] = warningsPerSnippet
-    dataCorrectness["Metric"] = metrics[1]
+    dataCorrectness["Metric"] = metrics[0]
     dataCorrectness["Warning Count"] = warningsPerSnippet
-    dataRating["Metric"] = metrics[2]
+    dataRating["Metric"] = metrics[1]
     dataRating["Warning Count"] = warningsPerSnippet
+    dataTime["Metric"] = metrics[2]
+    dataTime["Warning Count"] = warningsPerSnippet
 
-    return (pd.DataFrame(dataTime), pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating))
+    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating), pd.DataFrame(dataTime))
 
 def setCogDataset9Datapoints(warningsPerSnippet, data):
-    dataTime = copy.deepcopy(data)
     dataCorrectness = copy.deepcopy(data)
     dataRating1 = copy.deepcopy(data)
     dataRating2 = copy.deepcopy(data)
+    dataTime = copy.deepcopy(data)
     metrics = readCOGDataset9StudyMetrics()
 
-    dataTime["Metric"] = metrics[0]
-    dataTime["Warning Count"] = warningsPerSnippet
-    dataCorrectness["Metric"] = metrics[1]
+    dataCorrectness["Metric"] = metrics[0]
     dataCorrectness["Warning Count"] = warningsPerSnippet
-    dataRating1["Metric"] = metrics[2]
+    dataRating1["Metric"] = metrics[1]
     dataRating1["Warning Count"] = warningsPerSnippet
-    dataRating2["Metric"] = metrics[3]
+    dataRating2["Metric"] = metrics[2]
     dataRating2["Warning Count"] = warningsPerSnippet
+    dataTime["Metric"] = metrics[3]
+    dataTime["Warning Count"] = warningsPerSnippet
 
-    return (pd.DataFrame(dataTime), pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating1), pd.DataFrame(dataRating2))
+    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating1), pd.DataFrame(dataRating2), pd.DataFrame(dataTime))
 
 def setFMRIStudyDatapoints(warningsPerSnippet, data):
     dataCorrectness = copy.deepcopy(data)
-    dataTime = copy.deepcopy(data)
     dataSubjComplexity = copy.deepcopy(data)
+    dataTime = copy.deepcopy(data)
     metrics = readFMRIStudyMetrics()
 
     dataCorrectness["Metric"] = metrics[0]
     dataCorrectness["Warning Count"] = warningsPerSnippet
-    dataTime["Metric"] = metrics[1]
-    dataTime["Warning Count"] = warningsPerSnippet
-    dataSubjComplexity["Metric"] = metrics[2]
+    dataSubjComplexity["Metric"] = metrics[1]
     dataSubjComplexity["Warning Count"] = warningsPerSnippet
+    dataTime["Metric"] = metrics[2]
+    dataTime["Warning Count"] = warningsPerSnippet
 
-    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataTime), pd.DataFrame(dataSubjComplexity))
+    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
 
 ##################################
 #   Retrieve Data From Studies   #
@@ -270,7 +270,7 @@ def readCOGDataset1StudyMetrics():
     # Average the values of each column
     subjComplexity = [val / 41 for val in subjComplexityCols.sum(axis=0)]
 
-    return (times, correctness, subjComplexity)
+    return (correctness, subjComplexity, times)
 
 # Reads the results of the study for COG dataset 2 . It contains 16 people who looked at 12 snippets.
 # Note that dataset 2 is a subset of dataset 1. All snippets in dataset 2 are also in dataset 1.
@@ -291,7 +291,7 @@ def readCOGDataset2StudyMetrics():
     BA31post = dfPhysiological.iloc[:, 6]
     BA31ant = dfPhysiological.iloc[:, 7]
 
-    return (times, BA32, BA31post, BA31ant)
+    return (BA31ant, BA31post, BA32, times)
 
 # Reads the results of the cog data set 3 study. It contains 120 people who rated 100 snippets on a scale of 1-5.
 # 1 being less readable and 5 being more readable.
@@ -355,7 +355,7 @@ def readCOGDataset6StudyMetrics():
     if len(times) != 50 and len(correctness) != 50 and len(rating) != 50:
         raise Exception
 
-    return (times, correctness, rating)
+    return (correctness, rating, times)
 
 # Reads the results of the cog data set 9 study. It contains 104 participants and 30 unique snippets (5 snippets each with varying quality of comments).
 # Time, correctness, and rating were measured.
@@ -407,7 +407,7 @@ def readCOGDataset9StudyMetrics():
     if len(times) != 30 and len(correctness) != 30 and len(rating1) != 30 and len(rating2) != 30:
         raise Exception
 
-    return (times, correctness, rating1, rating2)
+    return (correctness, rating1, rating2, times)
 
 # Reads the results of the fMRI study. It contains 19 people who looked at 16 snippets.
 # Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.
@@ -462,7 +462,7 @@ def readFMRIStudyMetrics():
             subjComplexity[count] += dfSubjective.iloc[i, 2]
             numParticipants += 1
 
-    return (correctness, times, subjComplexity)
+    return (correctness, subjComplexity, times)
 
 
 ###############################################
