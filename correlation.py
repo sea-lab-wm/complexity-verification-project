@@ -33,16 +33,16 @@ def writeCorrelationAnalysis(allCorrelationAnalysisDFS):
 # Sets the values of the column "# of snippets with warnings" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF):
-    datasets = correlationAnalysisDF.iloc[:, 0]  # A list of all datasets being used
+    datasets = correlationAnalysisDF.iloc[:, 1]  # A list of all datasets being used
 
     # A count of the number of snippets that contain warnings for each dataset
     countSnippetsPerDataset = sortUniqueSnippetsByDataset(datasets, getSnippetsWithWarnings(dfListAnalysisTools))
 
     for i in range(len(correlationAnalysisDF.index)):
-        dataset = correlationAnalysisDF.iloc[i, 0].split("-")[1].strip()
+        dataset = str(correlationAnalysisDF.iloc[i, 1])
 
         if dataset in countSnippetsPerDataset:
-            correlationAnalysisDF.iloc[i, 2] = countSnippetsPerDataset[dataset]
+            correlationAnalysisDF.iloc[i, 5] = countSnippetsPerDataset[dataset]
 
     return correlationAnalysisDF
 
@@ -54,11 +54,11 @@ def setNumWarningsColumn(warningsPerDataset, correlationAnalysisDF):
     for i in range(len(correlationAnalysisDF.index)):
         if i - 1 >= 0:
             # Condition where dataset we are looking at is the same as the previous one
-            if correlationAnalysisDF.iloc[i, 0].split("-")[1].strip() == correlationAnalysisDF.iloc[i - 1, 0].split("-")[1].strip():
-                correlationAnalysisDF.iloc[i, 3] = correlationAnalysisDF.iloc[i - 1, 3]
+            if correlationAnalysisDF.iloc[i, 1] == correlationAnalysisDF.iloc[i - 1, 1]:
+                correlationAnalysisDF.iloc[i, 6] = correlationAnalysisDF.iloc[i - 1, 6]
                 continue
         
-        correlationAnalysisDF.iloc[i, 3] = warningsPerDataset[uniqueDatasetCount]
+        correlationAnalysisDF.iloc[i, 6] = warningsPerDataset[uniqueDatasetCount]
         uniqueDatasetCount += 1
 
     return correlationAnalysisDF
@@ -70,23 +70,23 @@ def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlatio
     for i, df in enumerate(dfListCorrelationDatapoints):
         numDataPoints = len(df)
 
-        correlationAnalysisDF.iloc[i, 4] = numDataPoints
+        correlationAnalysisDF.iloc[i, 7] = numDataPoints
 
     return correlationAnalysisDF
 
 # Sets the values of the columns "Kendall"s Tau" and "Kendall"s p-Value" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setKendallTauColumns(kendallTauVals, correlationAnalysisDF):
-    correlationAnalysisDF.iloc[:, 5] = kendallTauVals[0]
-    correlationAnalysisDF.iloc[:, 6] = kendallTauVals[1]
+    correlationAnalysisDF.iloc[:, 8] = kendallTauVals[0]
+    correlationAnalysisDF.iloc[:, 9] = kendallTauVals[1]
 
     return correlationAnalysisDF
 
 # Sets the values of the columns "Spearman"s Rho" and "Spearman"s p-Value" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setSpearmanRhoColumns(spearmanRhoVals, correlationAnalysisDF):
-    correlationAnalysisDF.iloc[:, 7] = spearmanRhoVals[0]
-    correlationAnalysisDF.iloc[:, 8] = spearmanRhoVals[1]
+    correlationAnalysisDF.iloc[:, 10] = spearmanRhoVals[0]
+    correlationAnalysisDF.iloc[:, 11] = spearmanRhoVals[1]
 
     return correlationAnalysisDF
 
@@ -107,36 +107,36 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     # TODO Add more datasets here ...
 
     # Compile datapoints for the COG Dataset 1 Study
-    cogDataset1Datapoints = setCogDataset1Datapoints(warningsPerSnippetPerDataset["COG Dataset 1"], copy.deepcopy(data))
+    cogDataset1Datapoints = setCogDataset1Datapoints(warningsPerSnippetPerDataset["1"], copy.deepcopy(data))
     dfListCorrelationDatapoints.append(cogDataset1Datapoints[0])
     dfListCorrelationDatapoints.append(cogDataset1Datapoints[1])
     dfListCorrelationDatapoints.append(cogDataset1Datapoints[2])
 
     # Compile datapoints for the COG Dataset 2 Study
-    cogDataset2Datapoints = setCogDataset2Datapoints(warningsPerSnippetPerDataset["COG Dataset 2"], copy.deepcopy(data))
+    cogDataset2Datapoints = setCogDataset2Datapoints(warningsPerSnippetPerDataset["2"], copy.deepcopy(data))
     dfListCorrelationDatapoints.append(cogDataset2Datapoints[0])
     dfListCorrelationDatapoints.append(cogDataset2Datapoints[1])
     dfListCorrelationDatapoints.append(cogDataset2Datapoints[2])
     dfListCorrelationDatapoints.append(cogDataset2Datapoints[3])
 
     # Compile datapoints for the COG Dataset 3 Study
-    dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset["COG Dataset 3"], copy.deepcopy(data)))
+    dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset["3"], copy.deepcopy(data)))
 
     # Compile datapoints for the COG Dataset 6 Study
-    cogDataset6Datapoints = setCogDataset6Datapoints(warningsPerSnippetPerDataset["COG Dataset 6"], copy.deepcopy(data))
+    cogDataset6Datapoints = setCogDataset6Datapoints(warningsPerSnippetPerDataset["6"], copy.deepcopy(data))
     dfListCorrelationDatapoints.append(cogDataset6Datapoints[0])
     dfListCorrelationDatapoints.append(cogDataset6Datapoints[1])
     dfListCorrelationDatapoints.append(cogDataset6Datapoints[2])
 
     # Compile datapoints for the COG Dataset 9 Study
-    cogDataset9Datapoints = setCogDataset9Datapoints(warningsPerSnippetPerDataset["COG Dataset 9"], copy.deepcopy(data))
+    cogDataset9Datapoints = setCogDataset9Datapoints(warningsPerSnippetPerDataset["9"], copy.deepcopy(data))
     dfListCorrelationDatapoints.append(cogDataset9Datapoints[0])
     dfListCorrelationDatapoints.append(cogDataset9Datapoints[1])
     dfListCorrelationDatapoints.append(cogDataset9Datapoints[2])
     dfListCorrelationDatapoints.append(cogDataset9Datapoints[3])
 
     # Compile datapoints for the fMRI Study
-    fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["fMRI Dataset"], data)
+    fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["f"], data)
     dfListCorrelationDatapoints.append(fmriDatapoints[0])
     dfListCorrelationDatapoints.append(fmriDatapoints[1])
     dfListCorrelationDatapoints.append(fmriDatapoints[2])
@@ -502,11 +502,12 @@ def getSnippetsWithWarnings(dfListAnalysisTools):
 # Returns a dictionary where the keys is the names of data sets. The values are an integer count of 
 # the number of snippets that contain warnings for that data set.
 def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
-    countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
+    #countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
+    countSnippetsPerDataset = dict([(str(key), 0) for key in datasets])
 
     for snippet in uniqueSnippets:
-        snippet = snippet.split("-")[0].strip() # Name of snippets in "uniqueSnippets" format example: COG Dataset 1 - 12
-                                                #                                              format: Dataset Name - Snippet #
+        snippet = snippet.split("-")[0].strip() # Name of snippets in "uniqueSnippets" format example: 1 - 12
+                                                #                                             format: Dataset ID - Snippet #
         for key in countSnippetsPerDataset:
             if snippet in key:
                 countSnippetsPerDataset[key] += 1
@@ -518,15 +519,15 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
 # the TOTAL number of snippets in the dataset and values within the list are the number of warnings for a given snippet.
 def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisDF):
     # Gets data from the dataframe corresponding to correlation_analysis.xlsx
-    datasets = correlationAnalysisDF.iloc[:,0]  # A list of all datasets being used
-    numSnippetsJudgedPerDataset = correlationAnalysisDF.iloc[:,1]   # A list of the number of snippets in each dataset
+    datasets = correlationAnalysisDF.iloc[:,1]  # A list of all datasets being used
+    numSnippetsJudgedPerDataset = correlationAnalysisDF.iloc[:,4]   # A list of the number of snippets in each dataset
 
     datasetsUnique = []
     numSnippetsJudgedPerDatasetUnique = []
 
     for i, dataset in enumerate(datasets):
-        if dataset.split("-")[1].strip() not in datasetsUnique:
-            datasetsUnique.append(dataset.split("-")[1].strip())
+        if str(dataset) not in datasetsUnique:
+            datasetsUnique.append(str(dataset))
             numSnippetsJudgedPerDatasetUnique.append(numSnippetsJudgedPerDataset[i])
 
     # Setup the dictionary with its keys
@@ -563,14 +564,9 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
         if len(snippetNames) != len(numWarnings):
             raise Exception("Number of snippets does not match number of warnings associated with said snippets") 
 
-        #print(warningsPerSnippetPerDataset)
-        #print(snippetNames)
-        #print(numWarnings)
         for i in range(len(snippetNames)):
-            snippetDataset = snippetNames[i].split("-")[0].strip()
+            snippetDataset = str(snippetNames[i].split("-")[0].strip())
             snippetNumber = snippetNames[i].split("-")[1].strip()
-            #print(snippetDataset)
-            #print(snippetNumber)
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
     return warningsPerSnippetPerDataset
@@ -625,7 +621,7 @@ if __name__ == "__main__":
     # STEP 1 is in parser.py
 
     # STEP 2:
-    # Read in all excel and csv sheets as dataframes
+    # Read in all analysis tool sheets produced by parser.py
     dfListAnalysisTools = readAnalysisToolOutput()
     correlationAnalysisDFAllTools = readCorrelationAnalysis(sheetName="all_tools")
     # TODO: Add more analysis tools here and after each step below ...
@@ -646,7 +642,7 @@ if __name__ == "__main__":
     warningsPerSnippetPerDatasetCheckerFramework = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[0], correlationAnalysisDFCheckerFramework)
     warningsPerSnippetPerDatasetTypestateChecker = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[1], correlationAnalysisDFTypestateChecker)
     warningsPerSnippetPerDatasetInfer = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[2], correlationAnalysisDFInfer)
-    #print(warningsPerSnippetPerDatasetAllTools)
+
     # STEP 5:
     # Determine the number of warnings per dataset
     correlationAnalysisDFAllTools = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetAllTools), correlationAnalysisDFAllTools)

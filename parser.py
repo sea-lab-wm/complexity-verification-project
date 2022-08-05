@@ -188,20 +188,20 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
 
     for line in lines:
         if startSnippetfMRI in line and endSnippet in line:
-            data["Snippet"].append(f"fMRI Dataset - {str(allSnippetNums[0].index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} - {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
+            data["Snippet"].append(f"f - {str(allSnippetNums[0].index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} - {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
             data["Warning Type"].append(line.split(endSnippet)[1].strip())
         elif startSnippetCOG1 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
             for i in range(len(allSnippetNums[1]) - 1):
                 if allSnippetNums[1][i] <= lineNum and allSnippetNums[1][i + 1] > lineNum:
-                    data["Snippet"].append(f"COG Dataset 1 - {str(i + 1)}")
+                    data["Snippet"].append(f"1 - {str(i + 1)}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
 
                     # Additional check to see if the snippet is from dataset 2 as well (which is a subset of 1)
                     for j in range(0, len(allSnippetNums[2]) - 1, 2):
                         if allSnippetNums[2][j] <= lineNum and allSnippetNums[2][j + 1] > lineNum:
-                            data["Snippet"].append(f"COG Dataset 2 - {str((j + 2) // 2)}")
+                            data["Snippet"].append(f"2 - {str((j + 2) // 2)}")
                             data["Warning Type"].append(line.split(endSnippet)[1].strip())
                             break
                     break
@@ -223,7 +223,7 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
 
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
-                    data["Snippet"].append(f"COG Dataset 3 - {str(i + 1 + addToI)}")
+                    data["Snippet"].append(f"3 - {str(i + 1 + addToI)}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
         elif startSnippetCOG6 in line and endSnippet in line:
@@ -236,7 +236,7 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
  
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
-                    data["Snippet"].append(f"COG Dataset 6 - {str(i + 1)} - {fileName}")
+                    data["Snippet"].append(f"6 - {str(i + 1)} - {fileName}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
 
                     break
@@ -245,7 +245,7 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
 
             for i in range(len(allSnippetNums[5]) - 1):
                 if allSnippetNums[5][i] <= lineNum and allSnippetNums[5][i + 1] > lineNum:
-                    data["Snippet"].append(f"COG Dataset 9 - {str(i + 1)}")
+                    data["Snippet"].append(f"9 - {str(i + 1)}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
                     break
 
