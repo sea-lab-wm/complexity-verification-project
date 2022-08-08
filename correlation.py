@@ -1,6 +1,7 @@
 import pandas as pd
 import scipy.stats as scpy
 import copy
+import numpy as np
 
 # OSCAR: I think, overall, it is easier to process data with data frames:
 # read data from the excel files into DFs, then processing it to get results as more DFs, and then writing this DFs
@@ -56,44 +57,51 @@ def setNumSnippetsWithWarningsColumn(dfListAnalysisTools, correlationAnalysisDF)
 # Sets the values of the column "# of warnings" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setNumWarningsColumn(warningsPerDataset, correlationAnalysisDF):
-    uniqueDatasetCount = 0
-
     for i in range(len(correlationAnalysisDF.index)):
-        if i - 1 >= 0:
-            # Condition where dataset we are looking at is the same as the previous one
-            if correlationAnalysisDF.iloc[i, 1] == correlationAnalysisDF.iloc[i - 1, 1]:
-                correlationAnalysisDF.iloc[i, 6] = correlationAnalysisDF.iloc[i - 1, 6]
-                continue
-        
-        correlationAnalysisDF.iloc[i, 6] = warningsPerDataset[uniqueDatasetCount]
-        uniqueDatasetCount += 1
+        correlationAnalysisDF.iloc[i, 6] = warningsPerDataset[str(correlationAnalysisDF.iloc[i, 1])]
 
     return correlationAnalysisDF
 
 # Sets the values of the column "# of datapoints of correlation" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
-def setNumDatapointsForCorrelationColumn(dfListCorrelationDatapoints, correlationAnalysisDF):
+def setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapoints, correlationAnalysisDF):
     # Loop through each set of datapoints, there is one for each study/metric
-    for i, df in enumerate(dfListCorrelationDatapoints):
+    for key, df in dfDictCorrelationDatapoints.items():
         numDataPoints = len(df)
+        i = correlationAnalysisDF[['metric','dataset_id']][(correlationAnalysisDF['metric'] == key[0]) & (correlationAnalysisDF['dataset_id'] == key[1])].index.to_list()
 
-        correlationAnalysisDF.iloc[i, 7] = numDataPoints
+        if len(i) != 1:
+            raise Exception("There are multiple rows with the same metric and dataset_id!")
+
+        correlationAnalysisDF.iloc[i[0], 7] = numDataPoints
 
     return correlationAnalysisDF
 
 # Sets the values of the columns "Kendall"s Tau" and "Kendall"s p-Value" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setKendallTauColumns(kendallTauVals, correlationAnalysisDF):
-    correlationAnalysisDF.iloc[:, 8] = kendallTauVals[0]
-    correlationAnalysisDF.iloc[:, 9] = kendallTauVals[1]
+    for key, val in kendallTauVals.items():
+        i = correlationAnalysisDF[['metric','dataset_id']][(correlationAnalysisDF['metric'] == key[0]) & (correlationAnalysisDF['dataset_id'] == key[1])].index.to_list()
+
+        if len(i) != 1:
+            raise Exception("There are multiple rows with the same metric and dataset_id!")
+
+        correlationAnalysisDF.iloc[i[0], 8] = val[0]
+        correlationAnalysisDF.iloc[i[0], 9] = val[1]
 
     return correlationAnalysisDF
 
 # Sets the values of the columns "Spearman"s Rho" and "Spearman"s p-Value" in the correlation analysis dataframe.
 # Returns the modified correlation analysis dataframe.
 def setSpearmanRhoColumns(spearmanRhoVals, correlationAnalysisDF):
-    correlationAnalysisDF.iloc[:, 10] = spearmanRhoVals[0]
-    correlationAnalysisDF.iloc[:, 11] = spearmanRhoVals[1]
+    for key, val in spearmanRhoVals.items():
+        i = correlationAnalysisDF[['metric','dataset_id']][(correlationAnalysisDF['metric'] == key[0]) & (correlationAnalysisDF['dataset_id'] == key[1])].index.to_list()
+
+        if len(i) != 1:
+            raise Exception("There are multiple rows with the same metric and dataset_id!")
+
+        correlationAnalysisDF.iloc[i[0], 10] = val[0]
+        correlationAnalysisDF.iloc[i[0], 11] = val[1]
 
     return correlationAnalysisDF
 
@@ -109,46 +117,48 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
         "Metric": [],
         "Warning Count": []
     }
-    dfListCorrelationDatapoints = []
+
+    # Datapoint keys have the format: (metric, dataset_id)
+    dfDictCorrelationDatapoints = {}
 
     # TODO Add more datasets here ...
 
     # Compile datapoints for the COG Dataset 1 Study
     cogDataset1Datapoints = setCogDataset1Datapoints(warningsPerSnippetPerDataset["1"], copy.deepcopy(data))
-    dfListCorrelationDatapoints.append(cogDataset1Datapoints[0])
-    dfListCorrelationDatapoints.append(cogDataset1Datapoints[1])
-    dfListCorrelationDatapoints.append(cogDataset1Datapoints[2])
+    dfDictCorrelationDatapoints[("correct_output_rating", 1)] = cogDataset1Datapoints[0]
+    dfDictCorrelationDatapoints[("output_difficulty", 1)] = cogDataset1Datapoints[1]
+    dfDictCorrelationDatapoints[("time_to_give_output", 1)] = cogDataset1Datapoints[2]
 
     # Compile datapoints for the COG Dataset 2 Study
     cogDataset2Datapoints = setCogDataset2Datapoints(warningsPerSnippetPerDataset["2"], copy.deepcopy(data))
-    dfListCorrelationDatapoints.append(cogDataset2Datapoints[0])
-    dfListCorrelationDatapoints.append(cogDataset2Datapoints[1])
-    dfListCorrelationDatapoints.append(cogDataset2Datapoints[2])
-    dfListCorrelationDatapoints.append(cogDataset2Datapoints[3])
+    dfDictCorrelationDatapoints[("brain_act_31ant", 2)] = cogDataset2Datapoints[0]
+    dfDictCorrelationDatapoints[("brain_act_31post", 2)] = cogDataset2Datapoints[1]
+    dfDictCorrelationDatapoints[("brain_act_32", 2)] = cogDataset2Datapoints[2]
+    dfDictCorrelationDatapoints[("time_to_understand", 2)] = cogDataset2Datapoints[3]
 
     # Compile datapoints for the COG Dataset 3 Study
-    dfListCorrelationDatapoints.append(setCogDataset3Datapoints(warningsPerSnippetPerDataset["3"], copy.deepcopy(data)))
+    dfDictCorrelationDatapoints[("readability_level", 3)] = setCogDataset3Datapoints(warningsPerSnippetPerDataset["3"], copy.deepcopy(data))
 
     # Compile datapoints for the COG Dataset 6 Study
     cogDataset6Datapoints = setCogDataset6Datapoints(warningsPerSnippetPerDataset["6"], copy.deepcopy(data))
-    dfListCorrelationDatapoints.append(cogDataset6Datapoints[0])
-    dfListCorrelationDatapoints.append(cogDataset6Datapoints[1])
-    dfListCorrelationDatapoints.append(cogDataset6Datapoints[2])
+    dfDictCorrelationDatapoints[("correct_verif_questions", 6)] = cogDataset6Datapoints[0]
+    dfDictCorrelationDatapoints[("binary_understandability", 6)] = cogDataset6Datapoints[1]
+    dfDictCorrelationDatapoints[("time_to_understand", 6)] = cogDataset6Datapoints[2]
 
     # Compile datapoints for the COG Dataset 9 Study
     cogDataset9Datapoints = setCogDataset9Datapoints(warningsPerSnippetPerDataset["9"], copy.deepcopy(data))
-    dfListCorrelationDatapoints.append(cogDataset9Datapoints[0])
-    dfListCorrelationDatapoints.append(cogDataset9Datapoints[1])
-    dfListCorrelationDatapoints.append(cogDataset9Datapoints[2])
-    dfListCorrelationDatapoints.append(cogDataset9Datapoints[3])
+    dfDictCorrelationDatapoints[("gap_accuracy", 9)] = cogDataset9Datapoints[0]
+    dfDictCorrelationDatapoints[("readability_level_before", 9)] = cogDataset9Datapoints[1]
+    dfDictCorrelationDatapoints[("readability_level_ba", 9)] = cogDataset9Datapoints[2]
+    dfDictCorrelationDatapoints[("time_to_read_complete", 9)] = cogDataset9Datapoints[3]
 
     # Compile datapoints for the fMRI Study
     fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["f"], data)
-    dfListCorrelationDatapoints.append(fmriDatapoints[0])
-    dfListCorrelationDatapoints.append(fmriDatapoints[1])
-    dfListCorrelationDatapoints.append(fmriDatapoints[2])
+    dfDictCorrelationDatapoints[("perc_correct_output", "f")] = fmriDatapoints[0]
+    dfDictCorrelationDatapoints[("complexity_level", "f")] = fmriDatapoints[1]
+    dfDictCorrelationDatapoints[("time_to_understand", "f")] = fmriDatapoints[2]
 
-    return dfListCorrelationDatapoints
+    return dfDictCorrelationDatapoints
 
 # TODO: functions for future datasets go here ...
 
@@ -509,7 +519,6 @@ def getSnippetsWithWarnings(dfListAnalysisTools):
 # Returns a dictionary where the keys is the names of data sets. The values are an integer count of 
 # the number of snippets that contain warnings for that data set.
 def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
-    #countSnippetsPerDataset = dict([(key.split("-")[1].strip(), 0) for key in datasets])
     countSnippetsPerDataset = dict([(str(key), 0) for key in datasets])
 
     for snippet in uniqueSnippets:
@@ -580,43 +589,41 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
 
 # Determines the number of warnings for each dataset
 def getNumWarningsPerDataset(warningsPerSnippetPerDataset):
-    return [sum(warningsPerSnippetPerDataset[dataset]) for dataset in warningsPerSnippetPerDataset]
+    return {dataset:sum(warningsPerSnippetPerDataset[dataset]) for dataset in warningsPerSnippetPerDataset}
 
 ############################
 #   Perform Correlations   #
 ############################
 
-# Perform Kendall"s Tau correlation on each dataset seperatly where datapoints are: x = complexity metric, y = # of warnings
+# Perform Kendall's Tau correlation on each dataset seperatly where datapoints are: x = complexity metric, y = # of warnings
 # Return a list of the correlation coefficients for each dataset.
-def kendallTau(dfListCorrelationDatapoints):
-    kendallTauVals = ([], [])
+def kendallTau(dfDictCorrelationDatapoints):
+    kendallTauVals = {key:None for key in dfDictCorrelationDatapoints}
 
     # Loop through every datapoint dataframe (corresponding to each dataset).
-    for df in dfListCorrelationDatapoints:
+    for key, df in dfDictCorrelationDatapoints.items():
         x = df.iloc[:, 0]
         y = df.iloc[:, 1]
 
         corr, pValue = scpy.kendalltau(x, y)
 
-        kendallTauVals[0].append(corr)
-        kendallTauVals[1].append(pValue)
+        kendallTauVals[key] = (corr, pValue)
 
     return kendallTauVals
 
 # Perform Spearman"s Rho correlation on each dataset seperatly where datapoints are: a = complexity metric, b = # of warnings
 # Return a list of the correlation coefficients for each dataset.
-def spearmanRho(dfListCorrelationDatapoints):
-    spearmanRhoVals = ([], [])
+def spearmanRho(dfDictCorrelationDatapoints):
+    spearmanRhoVals = {key:None for key in dfDictCorrelationDatapoints}
 
     # Loop through every datapoint dataframe (corresponding to each dataset).
-    for df in dfListCorrelationDatapoints:
+    for key, df in dfDictCorrelationDatapoints.items():
         a = df.iloc[:, 0]
         b = df.iloc[:, 1]
 
         corr, pValue = scpy.spearmanr(a, b)
 
-        spearmanRhoVals[0].append(corr)
-        spearmanRhoVals[1].append(pValue)
+        spearmanRhoVals[key] = (corr, pValue)
 
     return spearmanRhoVals
 
@@ -659,35 +666,35 @@ if __name__ == "__main__":
 
     # STEP 6:
     # Compile all datapoints for correlation: x = complexity metric, y = # of warnings
-    dfListCorrelationDatapointsAllTools = setupCorrelationData(warningsPerSnippetPerDatasetAllTools)
-    dfListCorrelationDatapointsCheckerFramework = setupCorrelationData(warningsPerSnippetPerDatasetCheckerFramework)
-    dfListCorrelationDatapointsTypestateChecker = setupCorrelationData(warningsPerSnippetPerDatasetTypestateChecker)
-    dfListCorrelationDatapointsInfer = setupCorrelationData(warningsPerSnippetPerDatasetInfer)
+    dfDictCorrelationDatapointsAllTools = setupCorrelationData(warningsPerSnippetPerDatasetAllTools)
+    dfDictCorrelationDatapointsCheckerFramework = setupCorrelationData(warningsPerSnippetPerDatasetCheckerFramework)
+    dfDictCorrelationDatapointsTypestateChecker = setupCorrelationData(warningsPerSnippetPerDatasetTypestateChecker)
+    dfDictCorrelationDatapointsInfer = setupCorrelationData(warningsPerSnippetPerDatasetInfer)
     
     # Update correlation analyis data frame 
-    correlationAnalysisDFAllTools = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsAllTools, correlationAnalysisDFAllTools)
-    correlationAnalysisDFCheckerFramework = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsCheckerFramework, correlationAnalysisDFCheckerFramework)
-    correlationAnalysisDFTypestateChecker = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsTypestateChecker, correlationAnalysisDFTypestateChecker)
-    correlationAnalysisDFInfer = setNumDatapointsForCorrelationColumn(dfListCorrelationDatapointsInfer, correlationAnalysisDFInfer)
+    correlationAnalysisDFAllTools = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsAllTools, correlationAnalysisDFAllTools)
+    correlationAnalysisDFCheckerFramework = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsCheckerFramework, correlationAnalysisDFCheckerFramework)
+    correlationAnalysisDFTypestateChecker = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsTypestateChecker, correlationAnalysisDFTypestateChecker)
+    correlationAnalysisDFInfer = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsInfer, correlationAnalysisDFInfer)
 
     # STEP 7:
     # Perform Correlations
-    kendallTauValsAllTools = kendallTau(dfListCorrelationDatapointsAllTools)
+    kendallTauValsAllTools = kendallTau(dfDictCorrelationDatapointsAllTools)
     correlationAnalysisDFAllTools = setKendallTauColumns(kendallTauValsAllTools, correlationAnalysisDFAllTools)
-    kendallTauValsCheckerFramework = kendallTau(dfListCorrelationDatapointsCheckerFramework)
+    kendallTauValsCheckerFramework = kendallTau(dfDictCorrelationDatapointsCheckerFramework)
     correlationAnalysisDFCheckerFramework = setKendallTauColumns(kendallTauValsCheckerFramework, correlationAnalysisDFCheckerFramework)
-    kendallTauValsTypestateChecker = kendallTau(dfListCorrelationDatapointsTypestateChecker)
+    kendallTauValsTypestateChecker = kendallTau(dfDictCorrelationDatapointsTypestateChecker)
     correlationAnalysisDFTypestateChecker = setKendallTauColumns(kendallTauValsTypestateChecker, correlationAnalysisDFTypestateChecker)
-    kendallTauValsInfer = kendallTau(dfListCorrelationDatapointsInfer)
+    kendallTauValsInfer = kendallTau(dfDictCorrelationDatapointsInfer)
     correlationAnalysisDFInfer = setKendallTauColumns(kendallTauValsInfer, correlationAnalysisDFInfer)
 
-    spearmanRhoValsAllTools = spearmanRho(dfListCorrelationDatapointsAllTools)
+    spearmanRhoValsAllTools = spearmanRho(dfDictCorrelationDatapointsAllTools)
     correlationAnalysisDFAllTools = setSpearmanRhoColumns(spearmanRhoValsAllTools, correlationAnalysisDFAllTools)
-    spearmanRhoValsCheckerFramework = spearmanRho(dfListCorrelationDatapointsCheckerFramework)
+    spearmanRhoValsCheckerFramework = spearmanRho(dfDictCorrelationDatapointsCheckerFramework)
     correlationAnalysisDFCheckerFramework = setSpearmanRhoColumns(spearmanRhoValsCheckerFramework, correlationAnalysisDFCheckerFramework)
-    spearmanRhoValsTypestateChecker = spearmanRho(dfListCorrelationDatapointsTypestateChecker)
+    spearmanRhoValsTypestateChecker = spearmanRho(dfDictCorrelationDatapointsTypestateChecker)
     correlationAnalysisDFTypestateChecker = setSpearmanRhoColumns(spearmanRhoValsTypestateChecker, correlationAnalysisDFTypestateChecker)
-    spearmanRhoValsInfer = spearmanRho(dfListCorrelationDatapointsInfer)
+    spearmanRhoValsInfer = spearmanRho(dfDictCorrelationDatapointsInfer)
     correlationAnalysisDFInfer = setSpearmanRhoColumns(spearmanRhoValsInfer, correlationAnalysisDFInfer)
 
     # Update correlation_analysis.xlsx
