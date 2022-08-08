@@ -1,0 +1,2 @@
+target=ArrayAverage
+jpf-core.classpath+=;/~/Code-Complexity-Research/complexity-verification-project/simple-datasets/build/classes/java/main
