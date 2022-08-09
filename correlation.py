@@ -20,21 +20,16 @@ def readCorrelationAnalysis(sheetName):
 
 # Saves the correlation analysis dataframe to its excel sheet.
 def writeCorrelationAnalysis(allCorrelationAnalysisDFS):
-    sheetNames = ["all_tools", "checker_framework", "typestate_checker", "infer"]
-
     with pd.ExcelWriter("data/correlation_analysis.xlsx") as writer:
-        # TODO: Add more analysis tool sheets here ...
-        allCorrelationAnalysisDFS[0].to_excel(writer, sheet_name=sheetNames[0], index=False)
-        allCorrelationAnalysisDFS[1].to_excel(writer, sheet_name=sheetNames[1], index=False)
-        allCorrelationAnalysisDFS[2].to_excel(writer, sheet_name=sheetNames[2], index=False)
-        allCorrelationAnalysisDFS[3].to_excel(writer, sheet_name=sheetNames[3], index=False)
+        for correlationAnalysisDF in allCorrelationAnalysisDFS:
+            correlationAnalysisDF[1].to_excel(writer, sheet_name=correlationAnalysisDF[0], index=False)
 
         # Auto-adjust columns' width
-        for i, df in enumerate(allCorrelationAnalysisDFS):
-            for column in df:
-                column_width = max(df[column].astype(str).map(len).max(), len(column))
-                col_idx = df.columns.get_loc(column)
-                writer.sheets[sheetNames[i]].set_column(col_idx, col_idx, column_width)
+        for correlationAnalysisDF in allCorrelationAnalysisDFS:
+            for column in correlationAnalysisDF[1]:
+                column_width = max(correlationAnalysisDF[1][column].astype(str).map(len).max(), len(column))
+                col_idx = correlationAnalysisDF[1].columns.get_loc(column)
+                writer.sheets[correlationAnalysisDF[0]].set_column(col_idx, col_idx, column_width)
 
 # For Reference: The columns "Complexity Metric" and "# of snippets judged (complexity)" are added manually.
 
@@ -220,21 +215,21 @@ def setCogDataset6Datapoints(warningsPerSnippet, data):
 
 def setCogDataset9Datapoints(warningsPerSnippet, data):
     dataCorrectness = copy.deepcopy(data)
-    dataRating1 = copy.deepcopy(data)
-    dataRating2 = copy.deepcopy(data)
+    dataRatingBefore = copy.deepcopy(data)
+    dataRatingBA = copy.deepcopy(data)
     dataTime = copy.deepcopy(data)
     metrics = readCOGDataset9StudyMetrics()
 
     dataCorrectness["Metric"] = metrics[0]
     dataCorrectness["Warning Count"] = warningsPerSnippet
-    dataRating1["Metric"] = metrics[1]
-    dataRating1["Warning Count"] = warningsPerSnippet
-    dataRating2["Metric"] = metrics[2]
-    dataRating2["Warning Count"] = warningsPerSnippet
+    dataRatingBefore["Metric"] = metrics[1]
+    dataRatingBefore["Warning Count"] = warningsPerSnippet
+    dataRatingBA["Metric"] = metrics[2]
+    dataRatingBA["Warning Count"] = warningsPerSnippet
     dataTime["Metric"] = metrics[3]
     dataTime["Warning Count"] = warningsPerSnippet
 
-    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating1), pd.DataFrame(dataRating2), pd.DataFrame(dataTime))
+    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRatingBefore), pd.DataFrame(dataRatingBA), pd.DataFrame(dataTime))
 
 def setFMRIStudyDatapoints(warningsPerSnippet, data):
     dataCorrectness = copy.deepcopy(data)
@@ -355,8 +350,6 @@ def readCOGDataset6StudyMetrics():
         sumPBU += row[124]
         lastSnippet = row[3]
 
-        #print(row[124], row[125], row[126])
-
     # Get averages for last snippet
     times.append(sumTNPU / participantsPerSnippetTNPU)
     correctness.append(sumAU / participantsPerSnippet)
@@ -372,8 +365,8 @@ def readCOGDataset6StudyMetrics():
 def readCOGDataset9StudyMetrics():
     times = []
     correctness = []
-    rating1 = []
-    rating2 = []
+    ratingBA = []
+    ratingBefore = []
 
     df = pd.read_excel("data/cog_dataset_9.xlsx")
 
@@ -381,8 +374,8 @@ def readCOGDataset9StudyMetrics():
     lastSnippet = ""
     sumTime = 0
     sumCorrectness = 0
-    sumRating1 = 0
-    sumRating2 = 0
+    sumRatingBA = 0
+    sumRatingBefore = 0
     for row in df.itertuples():
         if pd.isnull(row[19]):
             break
@@ -391,12 +384,13 @@ def readCOGDataset9StudyMetrics():
             # Moved onto new snippet. Get averages for previous snippet.
             times.append(sumTime / (participantsPerSnippet * 2))
             correctness.append(sumCorrectness / participantsPerSnippet)
-            rating1.append(sumRating1 / (participantsPerSnippet * 2))
-            rating2.append(sumRating2 / participantsPerSnippet)
+            ratingBA.append(sumRatingBA / (participantsPerSnippet * 2))
+            ratingBefore.append(sumRatingBefore / participantsPerSnippet)
 
             sumTime = 0
             sumCorrectness = 0
-            sumRating = 0
+            sumRatingBA = 0
+            sumRatingBefore = 0
             participantsPerSnippet = 0
         
         # Still on same snippet, on first snippet, or starting new snippet after getting the averages for the previous one.
@@ -404,20 +398,20 @@ def readCOGDataset9StudyMetrics():
         #25 = Score R1, 62 = Score R2, 64 = Score Difference, 82 = Time Read, 83 = Time Completion, 86 = recall accuracy (acc)
         sumTime += row[82] + row[83]
         sumCorrectness += row[86]
-        sumRating1 += row[25] + row[62]
-        sumRating2 += row[62]
+        sumRatingBA += row[25] + row[62]
+        sumRatingBefore += row[25]
         lastSnippet = row[19]
 
     # Get averages for last snippet
     times.append(sumTime / (participantsPerSnippet * 2))
     correctness.append(sumCorrectness / participantsPerSnippet)
-    rating1.append(sumRating1 / (participantsPerSnippet * 2))
-    rating2.append(sumRating2 / participantsPerSnippet)
+    ratingBA.append(sumRatingBA / (participantsPerSnippet * 2))
+    ratingBefore.append(sumRatingBefore / participantsPerSnippet)
 
-    if len(times) != 30 and len(correctness) != 30 and len(rating1) != 30 and len(rating2) != 30:
+    if len(times) != 30 and len(correctness) != 30 and len(ratingBA) != 30 and len(ratingBefore) != 30:
         raise Exception
 
-    return (correctness, rating1, rating2, times)
+    return (correctness, ratingBefore, ratingBA, times)
 
 # Reads the results of the fMRI study. It contains 19 people who looked at 16 snippets.
 # Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.
@@ -627,6 +621,29 @@ def spearmanRho(dfDictCorrelationDatapoints):
 
     return spearmanRhoVals
 
+##############################################
+#   Interact with raw_correlation_data.csv   #
+##############################################
+
+def writeRawCorrelationData(allCorrelationData):
+    data = []
+
+    for tool in allCorrelationData:
+        for correlationDatapoints, df in tool[1].items():
+            df = df.reset_index()  # make sure indexes pair with number of rows
+            for index, row in df.iterrows():
+                data.append({
+                    "dataset": correlationDatapoints[1],
+                    "snippet": index + 1,
+                    "metric": correlationDatapoints[0],
+                    "metric_value": row[1],
+                    "#_of_warnings": row[2],
+                    "tool": tool[0]
+                })
+
+    raw_correlation_data_df = pd.DataFrame(data)
+    raw_correlation_data_df.to_csv("data/raw_correlation_data.csv", index=False)
+
 ###########################
 #   Program Starts Here   #
 ###########################
@@ -677,6 +694,9 @@ if __name__ == "__main__":
     correlationAnalysisDFTypestateChecker = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsTypestateChecker, correlationAnalysisDFTypestateChecker)
     correlationAnalysisDFInfer = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsInfer, correlationAnalysisDFInfer)
 
+    # Update raw_correlation_data.csv
+    writeRawCorrelationData([("all_tools", dfDictCorrelationDatapointsAllTools), ("checker_framework", dfDictCorrelationDatapointsCheckerFramework), ("typestate_checker", dfDictCorrelationDatapointsTypestateChecker), ("infer", dfDictCorrelationDatapointsInfer)])
+
     # STEP 7:
     # Perform Correlations
     kendallTauValsAllTools = kendallTau(dfDictCorrelationDatapointsAllTools)
@@ -698,5 +718,5 @@ if __name__ == "__main__":
     correlationAnalysisDFInfer = setSpearmanRhoColumns(spearmanRhoValsInfer, correlationAnalysisDFInfer)
 
     # Update correlation_analysis.xlsx
-    allCorrelationAnalysisDFS = [correlationAnalysisDFAllTools, correlationAnalysisDFCheckerFramework, correlationAnalysisDFTypestateChecker, correlationAnalysisDFInfer]
+    allCorrelationAnalysisDFS = [("all_tools", correlationAnalysisDFAllTools), ("checker_framework", correlationAnalysisDFCheckerFramework), ("typestate_checker", correlationAnalysisDFTypestateChecker), ("infer", correlationAnalysisDFInfer)]
     writeCorrelationAnalysis(allCorrelationAnalysisDFS)
