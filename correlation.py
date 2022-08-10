@@ -150,8 +150,10 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     # Compile datapoints for the fMRI Study
     fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["f"], data)
     dfDictCorrelationDatapoints[("perc_correct_output", "f")] = fmriDatapoints[0]
-    dfDictCorrelationDatapoints[("complexity_level", "f")] = fmriDatapoints[1]
-    dfDictCorrelationDatapoints[("time_to_understand", "f")] = fmriDatapoints[2]
+    dfDictCorrelationDatapoints[("something_ba31", "f")] = fmriDatapoints[1]
+    dfDictCorrelationDatapoints[("something_ba32", "f")] = fmriDatapoints[2]
+    dfDictCorrelationDatapoints[("complexity_level", "f")] = fmriDatapoints[3]
+    dfDictCorrelationDatapoints[("time_to_understand", "f")] = fmriDatapoints[4]
 
     return dfDictCorrelationDatapoints
 
@@ -233,18 +235,24 @@ def setCogDataset9Datapoints(warningsPerSnippet, data):
 
 def setFMRIStudyDatapoints(warningsPerSnippet, data):
     dataCorrectness = copy.deepcopy(data)
+    dataBA31 = copy.deepcopy(data)
+    dataBA32 = copy.deepcopy(data)
     dataSubjComplexity = copy.deepcopy(data)
     dataTime = copy.deepcopy(data)
     metrics = readFMRIStudyMetrics()
 
     dataCorrectness["Metric"] = metrics[0]
     dataCorrectness["Warning Count"] = warningsPerSnippet
-    dataSubjComplexity["Metric"] = metrics[1]
+    dataBA31["Metric"] = metrics[1]
+    dataBA31["Warning Count"] = warningsPerSnippet
+    dataBA32["Metric"] = metrics[2]
+    dataBA32["Warning Count"] = warningsPerSnippet
+    dataSubjComplexity["Metric"] = metrics[3]
     dataSubjComplexity["Warning Count"] = warningsPerSnippet
-    dataTime["Metric"] = metrics[2]
+    dataTime["Metric"] = metrics[4]
     dataTime["Warning Count"] = warningsPerSnippet
 
-    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
+    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataBA31), pd.DataFrame(dataBA32), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
 
 ##################################
 #   Retrieve Data From Studies   #
@@ -420,9 +428,12 @@ def readFMRIStudyMetrics():
     correctness = [0] * 16
     times = [0] * 16
     subjComplexity = [0] * 16
+    ba31 = [0] * 16
+    ba32 = [0] * 16
 
     dfBehavioral = pd.read_csv("data/fmri_dataset_behavioral.csv")
     dfSubjective = pd.read_csv("data/fmri_dataset_subjective.csv")
+    dfPhysiological = pd.read_csv("data/fmri_dataset_physiological.csv")
 
     count = 0   # Keeps track of which snippet we are on (0-15)
     numParticipants = 0
@@ -466,7 +477,11 @@ def readFMRIStudyMetrics():
             subjComplexity[count] += dfSubjective.iloc[i, 2]
             numParticipants += 1
 
-    return (correctness, subjComplexity, times)
+    for i in range(len(dfPhysiological.index)):
+        ba31[i] = dfPhysiological.iloc[i, 1]
+        ba32[i] = dfPhysiological.iloc[i, 2]
+
+    return (correctness, ba31, ba32, subjComplexity, times)
 
 
 ###############################################
