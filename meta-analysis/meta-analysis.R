@@ -4,6 +4,8 @@
 ##                Load libraries and import data                 ##
 ##---------------------------------------------------------------##
 
+setwd("meta-analysis")
+
 #delete all variables
 rm(list = ls())
 
@@ -89,7 +91,8 @@ run_meta_analysis <- function(data_file_in, sheet_in){
   lapply(metric_types, function (metric_type){print_meta_analysis(all_data2, TRUE, metric_type, sheet_in)})
 }
 
-data_file = "correlation_analysis_for_meta_analysis.xlsx"
+#data_file = "correlation_analysis_for_meta_analysis.xlsx"
+data_file = "../data/correlation_analysis.xlsx"
 sheets = c("all_tools", "checker_framework", "typestate_checker", "infer")
 lapply(sheets, function(sheet_in){run_meta_analysis(data_file, sheet_in)})
 
