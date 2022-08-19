@@ -8,7 +8,7 @@
 
 if [ -d ~/openjml ]; then
    echo "openjml is already setup on this machine. Set your OJ variable by running:"
-   echo "export OJ=$(realpath ~/openjml/)"
+   echo "export OJ=$(realpath ~/openjml/openjml)"
    exit 0
 fi
 
@@ -17,9 +17,11 @@ cd ~/openjml
 wget https://github.com/OpenJML/OpenJML/releases/download/0.17.0-alpha-15/openjml-ubuntu-20.04-0.17.0-alpha-15.zip
 unzip openjml-ubuntu-20.04-0.17.0-alpha-15.zip
 export OJ_DIR=$(realpath ~/openjml/)
-export OJ=${OJ_DIR}/openjml
 
 # remove bad spec files
 rm ${OJ_DIR}/specs/java/awt/geom/Point2D.jml
 rm ${OJ_DIR}/specs/java/awt/Color.jml
 rm ${OJ_DIR}/specs/java/awt/event/ActionListener.jml
+
+echo "finished setting up openjml on this machine. Run the following command before running run_openjml.sh:"
+echo "export OJ=${OJ_DIR}/openjml"
