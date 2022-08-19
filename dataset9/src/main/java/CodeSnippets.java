@@ -58,11 +58,11 @@ public class CodeSnippets {
                 // TODO Auto-generated method stub
                 return 0;
             }
-            @Override
+            /*@Override
             public long getContentLengthLong() {
                 // TODO Auto-generated method stub
                 return 0;
-            }
+            }*/
             @Override
             public String getContentType() {
                 // TODO Auto-generated method stub
@@ -220,11 +220,11 @@ public class CodeSnippets {
                 // TODO Auto-generated method stub
                 return false;
             }
-            @Override
+            /*@Override
             public String changeSessionId() {
                 // TODO Auto-generated method stub
                 return null;
-            }
+            }*/
             @Override
             public String getAuthType() {
                 // TODO Auto-generated method stub
@@ -368,11 +368,11 @@ public class CodeSnippets {
             public void logout() throws ServletException {
                 // TODO Auto-generated method stub
             }
-            @Override
+            /*@Override
             public <T extends HttpUpgradeHandler> T upgrade(Class<T> arg0) throws IOException, ServletException {
                 // TODO Auto-generated method stub
                 return null;
-            }
+            }*/
         };
 
         logAndEmailSeriousProblemS111(new Throwable(), h);

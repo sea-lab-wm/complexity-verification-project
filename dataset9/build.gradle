@@ -49,3 +49,7 @@ checkerFramework {
         //'-Adetailedmsgtext'
     ]
 }
+
+task printClasspath {
+    println "${sourceSets.main.compileClasspath.asPath}"
+}

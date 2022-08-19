@@ -342,7 +342,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
 
     private class Grouping {
-        public static final long NONE = 1;
+        public static final long NONE = 1L;
     }
 
     private class StickyListHeadersAdapter {
