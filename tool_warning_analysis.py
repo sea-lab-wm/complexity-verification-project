@@ -203,7 +203,7 @@ def calculate_snippet_distribution_by_dataset(data, tools):
 
     # obtain the total number of snippets and compute the number of snippets that didn't have any wanings by any tool
     correlation_data = pd.read_excel(
-        "meta-analysis/correlation_analysis_for_meta_analysis.xlsx", sheet_name="all_tools")
+        "data/correlation_analysis.xlsx", sheet_name="all_tools")
     correlation_data = correlation_data.loc[:, [
         "dataset_id", "num_snippets_judged", "num_snippets_warnings"]].drop_duplicates()
     correlation_data["no_tool"] = correlation_data["num_snippets_judged"] - \
