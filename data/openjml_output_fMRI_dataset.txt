@@ -1,0 +1,352 @@
+fMRI_Study_Classes/GreatestCommonDivisor.java:19: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method compute
+            temp = number1 % number2;
+                           ^
+fMRI_Study_Classes/GreatestCommonDivisor.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.GreatestCommonDivisor.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(number1, number2));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/GreatestCommonDivisor.java:7:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/GreatestCommonDivisor.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.GreatestCommonDivisor.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(number1, number2));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/GreatestCommonDivisor.java:7:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/isPalindrome.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.isPalindrome.run(), Callee: java.io.PrintStream.print(boolean))
+        System.out.print(compute(word));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/isPalindrome.java:6:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/isPalindrome.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.isPalindrome.run(), Callee: java.io.PrintStream.print(boolean))
+        System.out.print(compute(word));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/isPalindrome.java:6:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/RecursiveFactorial.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: int multiply overflow
+        return compute(value - 1) * value;
+                                  ^
+fMRI_Study_Classes/RecursiveFactorial.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int difference
+        return compute(value - 1) * value;
+                             ^
+fMRI_Study_Classes/RecursiveFactorial.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.RecursiveFactorial.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(input));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/RecursiveFactorial.java:7:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/RecursiveFactorial.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.RecursiveFactorial.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(input));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/RecursiveFactorial.java:7:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/RecursiveBinaryToDecimal.java:16: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: int multiply overflow
+            return 2 * compute(s, number - 1);
+                     ^
+fMRI_Study_Classes/RecursiveBinaryToDecimal.java:19: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: int multiply overflow
+        return 1 + 2 * compute(s, number - 1);
+                     ^
+fMRI_Study_Classes/RecursiveBinaryToDecimal.java:10: verify: The prover cannot establish an assertion (InvariantExit: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30:) in method compute: fMRI_Study_Classes.RecursiveBinaryToDecimal.compute(java.lang.String,int) (parameter s)
+    static int compute(String s, int number) {
+                              ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: fMRI_Study_Classes/RecursiveBinaryToDecimal.java:10:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+fMRI_Study_Classes/RecursiveBinaryToDecimal.java:10: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30:) in method compute: fMRI_Study_Classes.RecursiveBinaryToDecimal.compute(java.lang.String,int) (parameter s)
+    static int compute(String s, int number) {
+                              ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: fMRI_Study_Classes/RecursiveBinaryToDecimal.java:10:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+fMRI_Study_Classes/RecursiveBinaryToDecimal.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.RecursiveBinaryToDecimal.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(input, number));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/RecursiveBinaryToDecimal.java:7:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/RecursiveBinaryToDecimal.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.RecursiveBinaryToDecimal.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(input, number));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/RecursiveBinaryToDecimal.java:7:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/RecursiveCrossSum.java:14: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int sum
+        return (number % 10) + compute((int) number/10);
+                             ^
+fMRI_Study_Classes/RecursiveCrossSum.java:14: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+        return (number % 10) + compute((int) number/10);
+                             ^
+fMRI_Study_Classes/RecursiveCrossSum.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.RecursiveCrossSum.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(n));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/RecursiveCrossSum.java:6:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/RecursiveCrossSum.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.RecursiveCrossSum.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(n));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/RecursiveCrossSum.java:6:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/YesNo.java:9: verify: The prover cannot establish an assertion (PossiblyNullReturn: fMRI_Study_Classes/YesNo.java:9:) in method compute: compute
+    static Boolean compute(String input) {
+           ^
+fMRI_Study_Classes/YesNo.java:9: verify: Associated declaration: fMRI_Study_Classes/YesNo.java:9:
+    static Boolean compute(String input) {
+                   ^
+fMRI_Study_Classes/YesNo.java:24: verify: Associated method exit
+        return null;
+        ^
+fMRI_Study_Classes/YesNo.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.YesNo.run(), Callee: java.io.PrintStream.print(java.lang.Object))
+        System.out.print(compute(input));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/YesNo.java:6:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/YesNo.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.YesNo.run(), Callee: java.io.PrintStream.print(java.lang.Object))
+        System.out.print(compute(input));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/YesNo.java:6:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/RecursivePower.java:19: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: int multiply overflow
+        return (a + 1) * compute(a, b - 1);
+                       ^
+fMRI_Study_Classes/RecursivePower.java:19: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+        return (a + 1) * compute(a, b - 1);
+                  ^
+fMRI_Study_Classes/RecursivePower.java:19: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int difference
+        return (a + 1) * compute(a, b - 1);
+                                      ^
+fMRI_Study_Classes/RecursivePower.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.RecursivePower.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(a, b));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/RecursivePower.java:7:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/RecursivePower.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.RecursivePower.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(a, b));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/RecursivePower.java:7:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/SquareRoot.java:23: verify: The prover cannot establish an assertion (Precondition: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:264:) in method compute
+                result[i] = Math.sqrt(numbers[i]);
+                                     ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:264: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:23:
+    public static /*@ pure @*/ double sqrt(double a);
+                                      ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:247: verify: Precondition conjunct is false: Double.isNaN(a) || a < 0.0
+      @   requires Double.isNaN(a) || a < 0.0;
+                                   ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:250: verify: Precondition conjunct is false: a == Double.POSITIVE_INFINITY
+      @   requires a == Double.POSITIVE_INFINITY;
+                     ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:253: verify: Precondition conjunct is false: java.lang.Math.isPositiveZero(a)
+      @   requires isPositiveZero(a);
+                                 ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:256: verify: Precondition conjunct is false: java.lang.Math.isNegativeZero(a)
+      @   requires isNegativeZero(a);
+                                 ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:259: verify: Precondition conjunct is false: a < Double.POSITIVE_INFINITY
+      @   requires a > 0.0 && a < Double.POSITIVE_INFINITY;
+                                ^
+fMRI_Study_Classes/SquareRoot.java:21: verify: The prover cannot establish an assertion (Precondition: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:264:) in method compute
+                result[i] = Math.sqrt(-1 * numbers[i]);
+                                     ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:264: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:21:
+    public static /*@ pure @*/ double sqrt(double a);
+                                      ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:247: verify: Precondition conjunct is false: Double.isNaN(a) || a < 0.0
+      @   requires Double.isNaN(a) || a < 0.0;
+                                   ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:250: verify: Precondition conjunct is false: a == Double.POSITIVE_INFINITY
+      @   requires a == Double.POSITIVE_INFINITY;
+                     ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:253: verify: Precondition conjunct is false: java.lang.Math.isPositiveZero(a)
+      @   requires isPositiveZero(a);
+                                 ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:256: verify: Precondition conjunct is false: java.lang.Math.isNegativeZero(a)
+      @   requires isNegativeZero(a);
+                                 ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Math.jml:259: verify: Precondition conjunct is false: a < Double.POSITIVE_INFINITY
+      @   requires a > 0.0 && a < Double.POSITIVE_INFINITY;
+                                ^
+fMRI_Study_Classes/SquareRoot.java:21: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: int multiply overflow
+                result[i] = Math.sqrt(-1 * numbers[i]);
+                                         ^
+fMRI_Study_Classes/SquareRoot.java:15: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method compute
+            if (numbers[i] == 0) {
+                       ^
+fMRI_Study_Classes/SquareRoot.java:8: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.SquareRoot.run(), Callee: java.io.PrintStream.print(java.lang.String))
+        System.out.print(compute(numbers));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:8:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/SquareRoot.java:8: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.SquareRoot.run(), Callee: java.io.PrintStream.print(java.lang.String))
+        System.out.print(compute(numbers));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:8:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/ArrayAverage.java:19: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method compute
+        float result = number2 / (float) number1;
+                               ^
+fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method compute
+            number2 = number2 + numbers[number1];
+                                       ^
+fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int sum
+            number2 = number2 + numbers[number1];
+                              ^
+fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+            number2 = number2 + numbers[number1];
+                              ^
+fMRI_Study_Classes/ArrayAverage.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.ArrayAverage.run(), Callee: java.io.PrintStream.print(float))
+        System.out.print(compute(numbers));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/ArrayAverage.java:6:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/ArrayAverage.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.ArrayAverage.run(), Callee: java.io.PrintStream.print(float))
+        System.out.print(compute(numbers));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/ArrayAverage.java:6:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/isHurricane.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.isHurricane.run(), Callee: java.io.PrintStream.print(java.lang.String))
+        System.out.print(compute(value));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/isHurricane.java:6:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/isHurricane.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.isHurricane.run(), Callee: java.io.PrintStream.print(java.lang.String))
+        System.out.print(compute(value));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/isHurricane.java:6:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/hIndex.java:18: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method compute
+            if (numbers[i] >= current) {
+                       ^
+fMRI_Study_Classes/hIndex.java:8: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.hIndex.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(numbers));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/hIndex.java:8:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/hIndex.java:8: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.hIndex.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(numbers));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/hIndex.java:8:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/lengthOfLastWord.java:18: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+                result++;
+                      ^
+fMRI_Study_Classes/lengthOfLastWord.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.lengthOfLastWord.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(text));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/lengthOfLastWord.java:7:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/lengthOfLastWord.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.lengthOfLastWord.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(text));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/lengthOfLastWord.java:7:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/CountVowels.java:15: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method compute
+                if (word.charAt(i) == letters[j]) {
+                                             ^
+fMRI_Study_Classes/CountVowels.java:16: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+                    result++;
+                          ^
+fMRI_Study_Classes/CountVowels.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.CountVowels.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(word));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/CountVowels.java:6:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/CountVowels.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.CountVowels.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(word));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/CountVowels.java:6:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/ContainsSubstring.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int sum
+                if (i + j >= word1.length())
+                      ^
+fMRI_Study_Classes/ContainsSubstring.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+                if (i + j >= word1.length())
+                      ^
+fMRI_Study_Classes/ContainsSubstring.java:17: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+                if (word1.charAt(i + j) != word2.charAt(j)) {
+                                   ^
+fMRI_Study_Classes/ContainsSubstring.java:17: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int sum
+                if (word1.charAt(i + j) != word2.charAt(j)) {
+                                   ^
+fMRI_Study_Classes/ContainsSubstring.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.ContainsSubstring.run(), Callee: java.io.PrintStream.print(boolean))
+        System.out.print(compute(word1, word2));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/ContainsSubstring.java:7:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/ContainsSubstring.java:7: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.ContainsSubstring.run(), Callee: java.io.PrintStream.print(boolean))
+        System.out.print(compute(word1, word2));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/ContainsSubstring.java:7:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/DumbSort.java:12: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.DumbSort.run(), Callee: java.io.PrintStream.print(java.lang.Object))
+        System.out.print(compute(a, b, c, d));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/DumbSort.java:12:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+fMRI_Study_Classes/DumbSort.java:12: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.DumbSort.run(), Callee: java.io.PrintStream.print(java.lang.Object))
+        System.out.print(compute(a, b, c, d));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/DumbSort.java:12:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/DumbSort.java:24: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Object.jml:206:) in method run
+}
+^
+Note: Call stack
+  /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:157: java.lang.Object.ptoString
+  fMRI_Study_Classes/DumbSort.java:12: java.io.PrintStream.print
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Object.jml:206: verify: Associated declaration: fMRI_Study_Classes/DumbSort.java:24:
+    //@ model pure public non_null String ptoString();
+                                          ^
+fMRI_Study_Classes/DumbSort.java:13: verify: Associated method exit
+    }
+     ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Object.jml:198: verify: Precondition conjunct is false: toStringDefined
+      @     requires toStringDefined;
+                     ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/Object.jml:202: verify: Precondition conjunct is false: toStringDefined
+      @     requires toStringDefined;
+                     ^
+fMRI_Study_Classes/RecursiveFibonacciVariant.java:14: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int sum
+        return compute(number - 2) + compute(number - 4);
+                                   ^
+fMRI_Study_Classes/RecursiveFibonacciVariant.java:14: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+        return compute(number - 2) + compute(number - 4);
+                                   ^
+fMRI_Study_Classes/RecursiveFibonacciVariant.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.RecursiveFibonacciVariant.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(number));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/RecursiveFibonacciVariant.java:6:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+fMRI_Study_Classes/RecursiveFibonacciVariant.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.RecursiveFibonacciVariant.run(), Callee: java.io.PrintStream.print(int))
+        System.out.print(compute(number));
+                        ^
+/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/RecursiveFibonacciVariant.java:6:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+116 verification failures
