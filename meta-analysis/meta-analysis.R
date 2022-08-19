@@ -4,7 +4,7 @@
 ##                Load libraries and import data                 ##
 ##---------------------------------------------------------------##
 
-setwd("meta-analysis")
+#setwd("meta-analysis")
 
 #delete all variables
 rm(list = ls())

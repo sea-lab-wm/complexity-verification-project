@@ -126,9 +126,9 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
 
     # Compile datapoints for the COG Dataset 2 Study
     cogDataset2Datapoints = setCogDataset2Datapoints(warningsPerSnippetPerDataset["2"], copy.deepcopy(data))
-    dfDictCorrelationDatapoints[("brain_act_31ant", 2)] = cogDataset2Datapoints[0]
-    dfDictCorrelationDatapoints[("brain_act_31post", 2)] = cogDataset2Datapoints[1]
-    dfDictCorrelationDatapoints[("brain_act_32", 2)] = cogDataset2Datapoints[2]
+    dfDictCorrelationDatapoints[("brain_deact_31ant", 2)] = cogDataset2Datapoints[0]
+    dfDictCorrelationDatapoints[("brain_deact_31post", 2)] = cogDataset2Datapoints[1]
+    dfDictCorrelationDatapoints[("brain_deact_32", 2)] = cogDataset2Datapoints[2]
     dfDictCorrelationDatapoints[("time_to_understand", 2)] = cogDataset2Datapoints[3]
 
     # Compile datapoints for the COG Dataset 3 Study
@@ -150,8 +150,8 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     # Compile datapoints for the fMRI Study
     fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["f"], data)
     dfDictCorrelationDatapoints[("perc_correct_output", "f")] = fmriDatapoints[0]
-    dfDictCorrelationDatapoints[("something_ba31", "f")] = fmriDatapoints[1]
-    dfDictCorrelationDatapoints[("something_ba32", "f")] = fmriDatapoints[2]
+    dfDictCorrelationDatapoints[("brain_deact_31", "f")] = fmriDatapoints[1]
+    dfDictCorrelationDatapoints[("brain_deact_32", "f")] = fmriDatapoints[2]
     dfDictCorrelationDatapoints[("complexity_level", "f")] = fmriDatapoints[3]
     dfDictCorrelationDatapoints[("time_to_understand", "f")] = fmriDatapoints[4]
 
