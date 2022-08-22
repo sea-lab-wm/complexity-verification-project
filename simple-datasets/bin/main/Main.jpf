@@ -1,1 +1,7 @@
 target=Main
+
+cg.enumerate_random=true
+search.multiple_errors=true
+
+listener=gov.nasa.jpf.listener.EndlessLoopDetector
+idle.max_backjumps=10

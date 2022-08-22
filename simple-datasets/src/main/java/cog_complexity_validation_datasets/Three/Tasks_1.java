@@ -178,243 +178,23 @@ public class Tasks_1 {
          *------------------------------------------------------
          */
 
-        body = new ScriptEngine() {
+        Random rand = new Random();
 
-            @Override
-            public Bindings createBindings() {
-                // TODO Auto-generated method stub
-                return null;
-            }
+        
 
-            @Override
-            public Object eval(String arg0) throws ScriptException {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Object eval(Reader arg0) throws ScriptException {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Object eval(String arg0, ScriptContext arg1) throws ScriptException {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Object eval(Reader arg0, ScriptContext arg1) throws ScriptException {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Object eval(String arg0, Bindings arg1) throws ScriptException {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Object eval(Reader arg0, Bindings arg1) throws ScriptException {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Object get(String arg0) {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Bindings getBindings(int arg0) {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public ScriptContext getContext() {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public ScriptEngineFactory getFactory() {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public void put(String arg0, Object arg1) {
-                // TODO Auto-generated method stub
-                
-            }
-
-            @Override
-            public void setBindings(Bindings arg0, int arg1) {
-                // TODO Auto-generated method stub
-                
-            }
-
-            @Override
-            public void setContext(ScriptContext arg0) {
-                // TODO Auto-generated method stub
-                
-            }
-        };
-        callstack = new String();
-        interpreter = new Bindings() {
-
-            @Override
-            public void clear() {
-                // TODO Auto-generated method stub
-                
-            }
-
-            @Override
-            public boolean containsValue(Object arg0) {
-                // TODO Auto-generated method stub
-                return false;
-            }
-
-            @Override
-            public Set<Entry<String, Object>> entrySet() {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                // TODO Auto-generated method stub
-                return false;
-            }
-
-            @Override
-            public Set<String> keySet() {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public int size() {
-                // TODO Auto-generated method stub
-                return 0;
-            }
-
-            @Override
-            public Collection<Object> values() {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public boolean containsKey(Object arg0) {
-                // TODO Auto-generated method stub
-                return false;
-            }
-
-            @Override
-            public Object get(Object arg0) {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public Object put(String arg0, Object arg1) {
-                // TODO Auto-generated method stub
-                return null;
-            }
-
-            @Override
-            public void putAll(java.util.Map<? extends String, ? extends Object> arg0) {
-                // TODO Auto-generated method stub
-                
-            }
-
-            @Override
-            public Object remove(Object arg0) {
-                // TODO Auto-generated method stub
-                return null;
-            }
-        };
-        actionList = new LinkedList<ActionMenu>();
-        DELTA_START = new String();
-        DELTA_END = new String();
-        fPrefix = 1;
-        fSuffix = 6;
-        windowed = true;
-        gd = new GraphicsDevice();  //GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices();
-        jj_scanpos = new Object();
-        databaseIDMap = new IdentityHashMap<Object, Object>();
-        parent = new Parent();
-        inGameController = new InGameController();
-        f = new JInternalFrame();
-        clas = new Object();
-        value = new String();
-        btPanel = new BtPanel();
-        cancel = new Object();
-        ok = new Object();
-        panel = new BtPanel();
-        nameList = new ArrayList<Object>();
-        option = new Spring() {
-            @Override
-            public int getMaximumValue() {
-                // TODO Auto-generated method stub
-                return 0;
-            }
-
-            @Override
-            public int getMinimumValue() {
-                // TODO Auto-generated method stub
-                return 0;
-            }
-
-            @Override
-            public int getPreferredValue() {
-                // TODO Auto-generated method stub
-                return 0;
-            }
-
-            @Override
-            public int getValue() {
-                // TODO Auto-generated method stub
-                return 0;
-            }
-
-            @Override
-            public void setValue(int arg0) {
-                // TODO Auto-generated method stub
-                
-            }
-        };
-        sourceFileInfo = new Object();
-        num = 10;
-        in = new In();
-        active = true;
+        fPrefix = rand.nextInt();
+        fSuffix = rand.nextInt();
+        windowed = Math.random() < 0.5;
+        num = rand.nextInt();
+        active = Math.random() < 0.5;
         ON = 1;
         OFF = 0;
-        returnType = new Object();
-        mOwner = new Object();
-        mCloneData = new Object();
-        mCurrentPanel = new Object();
-        tempCalDefault = new Object();
-        player = new Object();
-        inSettlement = new Settlement();
-        destinations = new BtPanel();
-        buffer = new Object();
-        bufpos = 10;
-        len = 10;
-        ret = new Object();
-        bufsize = 10;
-        fRunners = new Vector<Runner>();
-        parameters = new int[10];
-        currentMapTransform = new MapTransform();
-        freeColClient = new FreeColClient();
-        iterateOverMe = new Object();
-        mMonth = 4;
-        mYear = 4;
+        bufpos = rand.nextInt();
+        len = rand.nextInt();
+        bufsize = rand.nextInt();
+        parameters = new int[rand.nextInt()];
+        mMonth = rand.nextInt();
+        mYear = rand.nextInt();
 
         /*----------------------------------------
          *----------------Snippets----------------
@@ -422,12 +202,12 @@ public class Tasks_1 {
          */
 
         //S1
-        try {
-            s1();
-        } catch (ScriptException e) {
+        //try {
+        //    s1();
+        //} catch (ScriptException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        //    e.printStackTrace();
+        //}
         //S2
         s2();
         //S3

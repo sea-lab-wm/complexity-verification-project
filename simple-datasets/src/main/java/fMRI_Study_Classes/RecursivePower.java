@@ -1,9 +1,13 @@
 package fMRI_Study_Classes;
 
+import gov.nasa.jpf.vm.Verify;
+
 public class RecursivePower {
     public static void run() {
         int a = 3;
         int b = 2;
+        //int a = Verify.getInt(-128, 127);
+        //int b = Verify.getInt(-128, 127);
         System.out.print(compute(a, b));
     }
 

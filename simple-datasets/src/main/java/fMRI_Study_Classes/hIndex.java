@@ -2,9 +2,12 @@ package fMRI_Study_Classes;
 
 import java.util.Arrays;
 
+import gov.nasa.jpf.vm.Verify;
+
 public class hIndex {
     public static void run() {
         int[] numbers = {2, 4, 1, 4, 9};
+        //int[] numbers = {Verify.getInt(0, 10), Verify.getInt(0, 10), Verify.getInt(0, 10), Verify.getInt(0, 10), Verify.getInt(0, 10)};
         System.out.print(compute(numbers));
     }
 

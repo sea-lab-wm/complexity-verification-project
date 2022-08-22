@@ -2,6 +2,8 @@ package cog_complexity_validation_datasets.One;
 
 import java.util.Arrays;
 
+import gov.nasa.jpf.vm.Verify;
+
 /**
  * Note: method names were changed from 'main' to main + their task number
  *       this allows the code to be compiled and analyzed by sonarqube
@@ -11,9 +13,16 @@ public class Tasks {
     //ADDED BY KOBI
     @SuppressWarnings("all")
     public static void runAllSnippets() {
+        //Map<Integer, String> stringByKey = new HashMap<>();
+        //stringByKey.put(1, null);
+        //stringByKey.put(2, "thisisastring");
+        //stringByKey.put(3, "a");
+        //stringByKey.put(4, "3456");
+        //System.out.println(stringByKey.get(Verify.getIntFromList(1, 2, 3, 4)));
+
         main1(new String[2]);
         main2(new String[2]);
-        main3(8, 17);
+        main3(Verify.getInt(-1, 7), Verify.getInt(-1, 7));
         main4(new String[2]);
         main5(new String[2]);
         main6(new String[2]);
@@ -79,6 +88,7 @@ public class Tasks {
     //SNIPPET_STARTS
     public static void main3(int number1, int number2) {
         int temp; // Note: a ";" had to be added here to allow compilation
+
         do {
             if (number1 < number2) {
                 temp = number1;
@@ -91,7 +101,6 @@ public class Tasks {
                 number2 = temp;
             }
         } while (temp != 0);
-        System.out.println(number2);
     }
 
     // 4. BubbleSort                                                        /*Only in the first pilot study*/

@@ -1,8 +1,11 @@
 package fMRI_Study_Classes;
 
+import gov.nasa.jpf.vm.Verify;
+
 public class isHurricane {
     public static void run() {
         int value = 112;
+        //int value = Verify.getIntFromList(-128, 0, 60, 65, 96, 111, 131, 155, 156);
         System.out.print(compute(value));
     }
 

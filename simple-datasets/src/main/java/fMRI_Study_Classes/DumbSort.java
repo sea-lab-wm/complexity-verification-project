@@ -3,12 +3,18 @@ package fMRI_Study_Classes;
 import java.util.Arrays;
 import java.util.List;
 
+import gov.nasa.jpf.vm.Verify;
+
 public class DumbSort {
     public static void run() {
-        int a = 9;
-        int b = 12;
-        int c = 8;
-        int d = 11;
+        //int a = 9;
+        //int b = 12;
+        //int c = 8;
+        //int d = 11;
+        int a = Verify.getInt(-1, 7);
+        int b = Verify.getInt(-1, 7);
+        int c = Verify.getInt(-1, 7);
+        int d = Verify.getInt(-1, 7);
         System.out.print(compute(a, b, c, d));
     }
 

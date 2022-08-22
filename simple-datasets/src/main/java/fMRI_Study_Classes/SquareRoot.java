@@ -2,9 +2,12 @@ package fMRI_Study_Classes;
 
 import java.util.Arrays;
 
+import gov.nasa.jpf.vm.Verify;
+
 public class SquareRoot {
     public static void run() {
         int[] numbers = {9, 25, 16, 100};
+        //int[] numbers = {Verify.getInt(-128, 127)};
         System.out.print(compute(numbers));
     }
 

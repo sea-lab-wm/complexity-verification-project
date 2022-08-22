@@ -411,7 +411,6 @@ public class CodeSnippets {
         shortenText523(new String(), new Control());
     }
 
-
     // Snippet 1
     // hirondelle.web4j.Controller.logAndEmailSeriousProblem
     // http://www.web4j.com/web4j/javadoc/src‐html/hirondelle/web4j/Controller.html#line.381

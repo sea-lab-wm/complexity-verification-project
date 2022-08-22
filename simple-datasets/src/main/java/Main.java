@@ -26,6 +26,6 @@ public class Main {
         cog_complexity_validation_datasets.Three.Tasks_2 t3_2 = new cog_complexity_validation_datasets.Three.Tasks_2("message");
         t3_2.runAllSnippets();
         cog_complexity_validation_datasets.Three.Tasks_3 t3_3 = new cog_complexity_validation_datasets.Three.Tasks_3("message");
-        t3_3.runAllSnippets();
+        t3_3.runAllSnippets(); 
     }
 }

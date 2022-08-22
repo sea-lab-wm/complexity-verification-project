@@ -1,9 +1,13 @@
 package fMRI_Study_Classes;
 
+import gov.nasa.jpf.vm.Verify;
+
 public class GreatestCommonDivisor {
     public static void run() {
         int number1 = 20;
         int number2 = 15;
+        //int number1 = Verify.getInt(-8, 7);
+        //int number2 = Verify.getInt(-8, 7);
         System.out.print(compute(number1, number2));
     }
 
