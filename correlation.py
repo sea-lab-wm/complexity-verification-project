@@ -498,6 +498,7 @@ def readAnalysisToolOutput():
     dfList.append(pd.read_csv("data/checker_framework_data.csv"))
     dfList.append(pd.read_csv("data/typestate_checker_data.csv"))
     dfList.append(pd.read_csv("data/infer_data.csv"))
+    dfList.append(pd.read_csv("data/openjml_data.csv"))
 
     return dfList
 
@@ -531,7 +532,7 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
     countSnippetsPerDataset = dict([(str(key), 0) for key in datasets])
 
     for snippet in uniqueSnippets:
-        snippet = snippet.split("-")[0].strip() # Name of snippets in "uniqueSnippets" format example: 1 - 12
+        snippet = snippet.split("--")[0].strip() # Name of snippets in "uniqueSnippets" format example: 1 - 12
                                                 #                                             format: Dataset ID - Snippet #
         for key in countSnippetsPerDataset:
             if snippet in key:
@@ -574,8 +575,8 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
             raise Exception("Number of snippets does not match number of warnings associated with said snippets") 
 
         for i in range(len(snippetNames)):
-            snippetDataset = snippetNames[i].split("-")[0].strip()
-            snippetNumber = snippetNames[i].split("-")[1].strip()
+            snippetDataset = snippetNames[i].split("--")[0].strip()
+            snippetNumber = snippetNames[i].split("--")[1].strip()
 
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
@@ -590,8 +591,8 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
             raise Exception("Number of snippets does not match number of warnings associated with said snippets") 
 
         for i in range(len(snippetNames)):
-            snippetDataset = str(snippetNames[i].split("-")[0].strip())
-            snippetNumber = snippetNames[i].split("-")[1].strip()
+            snippetDataset = str(snippetNames[i].split("--")[0].strip())
+            snippetNumber = snippetNames[i].split("--")[1].strip()
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
     return warningsPerSnippetPerDataset
@@ -674,6 +675,7 @@ if __name__ == "__main__":
     correlationAnalysisDFCheckerFramework = readCorrelationAnalysis(sheetName="checker_framework")
     correlationAnalysisDFTypestateChecker = readCorrelationAnalysis(sheetName="typestate_checker")
     correlationAnalysisDFInfer = readCorrelationAnalysis(sheetName="infer")
+    correlationAnalysisDFOpenJML = readCorrelationAnalysis(sheetName="openjml")
 
     # STEP 3:
     # Determine the number of snippets that contain warnings within each dataset.
@@ -681,6 +683,7 @@ if __name__ == "__main__":
     correlationAnalysisDFCheckerFramework = setNumSnippetsWithWarningsColumn(dfListAnalysisTools[0], correlationAnalysisDFCheckerFramework)
     correlationAnalysisDFTypestateChecker = setNumSnippetsWithWarningsColumn(dfListAnalysisTools[1], correlationAnalysisDFTypestateChecker)
     correlationAnalysisDFInfer = setNumSnippetsWithWarningsColumn(dfListAnalysisTools[2], correlationAnalysisDFInfer)
+    correlationAnalysisDFOpenJML = setNumSnippetsWithWarningsColumn(dfListAnalysisTools[3], correlationAnalysisDFOpenJML)
 
     # STEP 4:
     # Determine the number of warnings per snippet per dataset
@@ -688,6 +691,7 @@ if __name__ == "__main__":
     warningsPerSnippetPerDatasetCheckerFramework = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[0], correlationAnalysisDFCheckerFramework)
     warningsPerSnippetPerDatasetTypestateChecker = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[1], correlationAnalysisDFTypestateChecker)
     warningsPerSnippetPerDatasetInfer = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[2], correlationAnalysisDFInfer)
+    warningsPerSnippetPerDatasetOpenJML = getNumWarningsPerSnippetPerDataset(dfListAnalysisTools[3], correlationAnalysisDFOpenJML)
 
     # STEP 5:
     # Determine the number of warnings per dataset
@@ -695,6 +699,7 @@ if __name__ == "__main__":
     correlationAnalysisDFCheckerFramework = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetCheckerFramework), correlationAnalysisDFCheckerFramework)
     correlationAnalysisDFTypestateChecker = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetTypestateChecker), correlationAnalysisDFTypestateChecker)
     correlationAnalysisDFInfer = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetInfer), correlationAnalysisDFInfer)
+    correlationAnalysisDFOpenJML = setNumWarningsColumn(getNumWarningsPerDataset(warningsPerSnippetPerDatasetOpenJML), correlationAnalysisDFOpenJML)
 
     # STEP 6:
     # Compile all datapoints for correlation: x = complexity metric, y = # of warnings
@@ -702,15 +707,17 @@ if __name__ == "__main__":
     dfDictCorrelationDatapointsCheckerFramework = setupCorrelationData(warningsPerSnippetPerDatasetCheckerFramework)
     dfDictCorrelationDatapointsTypestateChecker = setupCorrelationData(warningsPerSnippetPerDatasetTypestateChecker)
     dfDictCorrelationDatapointsInfer = setupCorrelationData(warningsPerSnippetPerDatasetInfer)
+    dfDictCorrelationDatapointsOpenJML = setupCorrelationData(warningsPerSnippetPerDatasetOpenJML)
     
     # Update correlation analyis data frame 
     correlationAnalysisDFAllTools = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsAllTools, correlationAnalysisDFAllTools)
     correlationAnalysisDFCheckerFramework = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsCheckerFramework, correlationAnalysisDFCheckerFramework)
     correlationAnalysisDFTypestateChecker = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsTypestateChecker, correlationAnalysisDFTypestateChecker)
     correlationAnalysisDFInfer = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsInfer, correlationAnalysisDFInfer)
+    correlationAnalysisDFOpenJML = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsOpenJML, correlationAnalysisDFOpenJML)
 
     # Update raw_correlation_data.csv
-    writeRawCorrelationData([("all_tools", dfDictCorrelationDatapointsAllTools), ("checker_framework", dfDictCorrelationDatapointsCheckerFramework), ("typestate_checker", dfDictCorrelationDatapointsTypestateChecker), ("infer", dfDictCorrelationDatapointsInfer)])
+    writeRawCorrelationData([("all_tools", dfDictCorrelationDatapointsAllTools), ("checker_framework", dfDictCorrelationDatapointsCheckerFramework), ("typestate_checker", dfDictCorrelationDatapointsTypestateChecker), ("infer", dfDictCorrelationDatapointsInfer), ("openjml", dfDictCorrelationDatapointsOpenJML)])
 
     # STEP 7:
     # Perform Correlations
@@ -722,6 +729,8 @@ if __name__ == "__main__":
     correlationAnalysisDFTypestateChecker = setKendallTauColumns(kendallTauValsTypestateChecker, correlationAnalysisDFTypestateChecker)
     kendallTauValsInfer = kendallTau(dfDictCorrelationDatapointsInfer)
     correlationAnalysisDFInfer = setKendallTauColumns(kendallTauValsInfer, correlationAnalysisDFInfer)
+    kendallTauValsOpenJML = kendallTau(dfDictCorrelationDatapointsOpenJML)
+    correlationAnalysisDFOpenJML = setKendallTauColumns(kendallTauValsOpenJML, correlationAnalysisDFOpenJML)
 
     spearmanRhoValsAllTools = spearmanRho(dfDictCorrelationDatapointsAllTools)
     correlationAnalysisDFAllTools = setSpearmanRhoColumns(spearmanRhoValsAllTools, correlationAnalysisDFAllTools)
@@ -731,7 +740,9 @@ if __name__ == "__main__":
     correlationAnalysisDFTypestateChecker = setSpearmanRhoColumns(spearmanRhoValsTypestateChecker, correlationAnalysisDFTypestateChecker)
     spearmanRhoValsInfer = spearmanRho(dfDictCorrelationDatapointsInfer)
     correlationAnalysisDFInfer = setSpearmanRhoColumns(spearmanRhoValsInfer, correlationAnalysisDFInfer)
+    spearmanRhoValsOpenJML = spearmanRho(dfDictCorrelationDatapointsOpenJML)
+    correlationAnalysisDFOpenJML = setSpearmanRhoColumns(spearmanRhoValsOpenJML, correlationAnalysisDFOpenJML)
 
     # Update correlation_analysis.xlsx
-    allCorrelationAnalysisDFS = [("all_tools", correlationAnalysisDFAllTools), ("checker_framework", correlationAnalysisDFCheckerFramework), ("typestate_checker", correlationAnalysisDFTypestateChecker), ("infer", correlationAnalysisDFInfer)]
+    allCorrelationAnalysisDFS = [("all_tools", correlationAnalysisDFAllTools), ("checker_framework", correlationAnalysisDFCheckerFramework), ("typestate_checker", correlationAnalysisDFTypestateChecker), ("infer", correlationAnalysisDFInfer), ("openjml", correlationAnalysisDFOpenJML)]
     writeCorrelationAnalysis(allCorrelationAnalysisDFS)
