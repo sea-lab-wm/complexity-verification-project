@@ -1,0 +1,1138 @@
+warning: A specification path directory does not exist: /home/mkellogg/.gradle/caches/modules-2/files-2.1/org.apache.hbase/hbase/2.2.0/7ffe793908c696d87ba5b68e52eea1d628832b98/hbase-2.2.0.pom (/home/mkellogg/dataset9-runner/complexity-verification-project/dataset9/src/main/java)
+warning: A specification path directory does not exist: /home/mkellogg/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/da08b8cce7bbf903602a25a3a163ae252435795/asm-5.0.4.jar
+  /home/mkellogg/dataset9-runner/complexity-verification-project/dataset9/libs/org.eclipse.emf.emfstore.mongodb.server_1.2.0.v20140404-1123.jar (/home/mkellogg/dataset9-runner/complexity-verification-project/dataset9/src/main/java)
+./CodeSnippets.java:704: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method apply: (Caller: CodeSnippets.apply(CodeSnippets.Project,CodeSnippets.NotificationStore), Callee: CodeSnippets.PropertyManager.getLocalProperty(java.lang.String))
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:704:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:718: verify: The prover cannot establish an assertion (Precondition: ./CodeSnippets.java:1674:) in method apply
+    notifications.addAll(nStore.getNotifications());
+                        ^
+./CodeSnippets.java:1674: verify: Associated declaration: ./CodeSnippets.java:718:
+        public boolean addAll(Collection c) {
+                       ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+      @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
+                                ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+      @  requires c == null;
+                    ^
+./CodeSnippets.java:574: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method apply211: (Caller: CodeSnippets.apply211(CodeSnippets.Project,CodeSnippets.NotificationStore), Callee: CodeSnippets.PropertyManager.getLocalProperty(java.lang.String))
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:574:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:587: verify: The prover cannot establish an assertion (Precondition: ./CodeSnippets.java:1674:) in method apply211
+    nComposite.getNotifications().addAll(
+                                        ^
+./CodeSnippets.java:1674: verify: Associated declaration: ./CodeSnippets.java:587:
+        public boolean addAll(Collection c) {
+                       ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+      @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
+                                ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+      @  requires c == null;
+                    ^
+./CodeSnippets.java:621: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method apply212: (Caller: CodeSnippets.apply212(CodeSnippets.Project,CodeSnippets.NotificationStore), Callee: CodeSnippets.PropertyManager.getLocalProperty(java.lang.String))
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:621:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:633: verify: The prover cannot establish an assertion (Precondition: ./CodeSnippets.java:1674:) in method apply212
+    nComposite.getNotifications().addAll(
+                                        ^
+./CodeSnippets.java:1674: verify: Associated declaration: ./CodeSnippets.java:633:
+        public boolean addAll(Collection c) {
+                       ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+      @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
+                                ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+      @  requires c == null;
+                    ^
+./CodeSnippets.java:665: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method apply213: (Caller: CodeSnippets.apply213(CodeSnippets.Project,CodeSnippets.NotificationStore), Callee: CodeSnippets.PropertyManager.getLocalProperty(java.lang.String))
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:665:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:674: verify: The prover cannot establish an assertion (Precondition: ./CodeSnippets.java:1674:) in method apply213
+    nComposite.getNotifications().addAll(
+                                        ^
+./CodeSnippets.java:1674: verify: Associated declaration: ./CodeSnippets.java:674:
+        public boolean addAll(Collection c) {
+                       ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+      @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
+                                ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+      @  requires c == null;
+                    ^
+./CodeSnippets.java:751: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method apply222: (Caller: CodeSnippets.apply222(CodeSnippets.Project,CodeSnippets.NotificationStore), Callee: CodeSnippets.PropertyManager.getLocalProperty(java.lang.String))
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:751:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:764: verify: The prover cannot establish an assertion (Precondition: ./CodeSnippets.java:1674:) in method apply222
+    notifications.addAll(nStore.getNotifications());
+                        ^
+./CodeSnippets.java:1674: verify: Associated declaration: ./CodeSnippets.java:764:
+        public boolean addAll(Collection c) {
+                       ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+      @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
+                                ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+      @  requires c == null;
+                    ^
+./CodeSnippets.java:795: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method apply223: (Caller: CodeSnippets.apply223(CodeSnippets.Project,CodeSnippets.NotificationStore), Callee: CodeSnippets.PropertyManager.getLocalProperty(java.lang.String))
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:795:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:805: verify: The prover cannot establish an assertion (Precondition: ./CodeSnippets.java:1674:) in method apply223
+    notifications.addAll(nStore.getNotifications());
+                        ^
+./CodeSnippets.java:1674: verify: Associated declaration: ./CodeSnippets.java:805:
+        public boolean addAll(Collection c) {
+                       ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+      @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
+                                ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+      @  requires c == null;
+                    ^
+./CodeSnippets.java:1749: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1749:) in method getBackgroundColor: getBackgroundColor
+        public UColor getBackgroundColor() {
+               ^
+./CodeSnippets.java:1749: verify: Associated declaration: ./CodeSnippets.java:1749:
+        public UColor getBackgroundColor() {
+                      ^
+./CodeSnippets.java:1750: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1745: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1745:) in method getBorderColor: getBorderColor
+        public UColor getBorderColor() {
+               ^
+./CodeSnippets.java:1745: verify: Associated declaration: ./CodeSnippets.java:1745:
+        public UColor getBorderColor() {
+                      ^
+./CodeSnippets.java:1746: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1542: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1542:) in method getBounds: getBounds
+        public Bounds getBounds() {
+               ^
+./CodeSnippets.java:1542: verify: Associated declaration: ./CodeSnippets.java:1542:
+        public Bounds getBounds() {
+                      ^
+./CodeSnippets.java:1543: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:839: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method copyUTable311: cell
+    Cell cell = null; // had to be added to allow compilation
+         ^
+./CodeSnippets.java:880: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method copyUTable312: cell
+    Cell cell = null; // Had to be added to allow compilation
+         ^
+./CodeSnippets.java:922: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method copyUTable313: cell
+    Cell cell = null; // Had to be added to allow compilation
+         ^
+./CodeSnippets.java:1632: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1632:) in method createNotificationComposite: createNotificationComposite
+        public static NotificationComposite createNotificationComposite() {
+                      ^
+./CodeSnippets.java:1632: verify: Associated declaration: ./CodeSnippets.java:1632:
+        public static NotificationComposite createNotificationComposite() {
+                                            ^
+./CodeSnippets.java:1633: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1259: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getMove: CodeSnippets.getMove(java.lang.StringBuilder,CodeSnippets.Move) (parameter builder)
+    public static boolean getMove(StringBuilder builder, Move move) {
+                                                ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1259:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1090: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getMove411: CodeSnippets.getMove411(java.lang.StringBuilder,CodeSnippets.Move) (parameter builder)
+    public static boolean getMove411(StringBuilder builder, Move move) {
+                                                   ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1090:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1122: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getMove412: CodeSnippets.getMove412(java.lang.StringBuilder,CodeSnippets.Move) (parameter builder)
+    public static boolean getMove412(StringBuilder builder, Move move) {
+                                                   ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1122:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1154: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getMove413: CodeSnippets.getMove413(java.lang.StringBuilder,CodeSnippets.Move) (parameter builder)
+    public static boolean getMove413(StringBuilder builder, Move move) {
+                                                   ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1154:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1181: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getMove421: CodeSnippets.getMove421(java.lang.StringBuilder,CodeSnippets.Move) (parameter builder)
+    public static boolean getMove421(StringBuilder builder, Move move) {
+                                                   ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1181:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1220: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getMove422: CodeSnippets.getMove422(java.lang.StringBuilder,CodeSnippets.Move) (parameter builder)
+    public static boolean getMove422(StringBuilder builder, Move move) {
+                                                   ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1220:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1551: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1551:) in method textExtent: textExtent
+        public Extent textExtent(String textValue) {
+               ^
+./CodeSnippets.java:1551: verify: Associated declaration: ./CodeSnippets.java:1551:
+        public Extent textExtent(String textValue) {
+                      ^
+./CodeSnippets.java:1552: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:443: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED."); // changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:443:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:443: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED."); // changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:443:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:444: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:444:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:444: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:444:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:447: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
+    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                 ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:447:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:465: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS112: (Caller: CodeSnippets.logAndEmailSeriousProblemS112(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:465:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:465: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS112: (Caller: CodeSnippets.logAndEmailSeriousProblemS112(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:465:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:466: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS112: (Caller: CodeSnippets.logAndEmailSeriousProblemS112(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:466:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:466: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS112: (Caller: CodeSnippets.logAndEmailSeriousProblemS112(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:466:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:469: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS112: (Caller: CodeSnippets.logAndEmailSeriousProblemS112(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
+    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                 ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:469:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:483: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:483:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:483: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:483:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:484: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:484:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:484: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:484:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:486: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
+    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                 ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:486:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:504: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS121: (Caller: CodeSnippets.logAndEmailSeriousProblemS121(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED."); // changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:504:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:504: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS121: (Caller: CodeSnippets.logAndEmailSeriousProblemS121(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED."); // changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:504:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:505: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS121: (Caller: CodeSnippets.logAndEmailSeriousProblemS121(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString()); // changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:505:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:505: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS121: (Caller: CodeSnippets.logAndEmailSeriousProblemS121(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString()); // changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:505:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:509: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS121: (Caller: CodeSnippets.logAndEmailSeriousProblemS121(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                         ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:509:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:527: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:527:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:527: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:527:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:528: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:528:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:528: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:528:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:532: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                         ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:532:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:547: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:547:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:547: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:547:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:548: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:548:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+./CodeSnippets.java:548: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:548:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+./CodeSnippets.java:551: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                         ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:551:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1530: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1530:) in method getTimeTakenForMove: getTimeTakenForMove
+        public TimeTakenForMove getTimeTakenForMove() {
+               ^
+./CodeSnippets.java:1530: verify: Associated declaration: ./CodeSnippets.java:1530:
+        public TimeTakenForMove getTimeTakenForMove() {
+                                ^
+./CodeSnippets.java:1531: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1626: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1626:) in method <E>getNotifications: getNotifications
+        public <E> NotificationList getNotifications() {
+                   ^
+./CodeSnippets.java:1626: verify: Associated declaration: ./CodeSnippets.java:1626:
+        public <E> NotificationList getNotifications() {
+                                    ^
+./CodeSnippets.java:1627: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1637: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method NotificationList
+    private class NotificationList implements Collection {
+            ^
+/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./CodeSnippets.java:1637:
+    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
+                   ^
+./CodeSnippets.java:1665: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:144:) in method add
+            return false;
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:144: verify: Associated declaration: ./CodeSnippets.java:1665:
+      @   ensures \exists \bigint i; 0 <= i < values.length; values[i] == o;
+          ^
+./CodeSnippets.java:1679: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:277:) in method clear
+        public void clear() {
+                    ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:277: verify: Associated declaration: ./CodeSnippets.java:1679:
+      @   ensures isEmpty();
+          ^
+./CodeSnippets.java:1650: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:72:) in method contains
+            return false;
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:72: verify: Associated declaration: ./CodeSnippets.java:1650:
+      @   ensures \result == (\exists int i; 0 <= i < values.length; Collection.nullequals(o,values[i]));
+          ^
+./CodeSnippets.java:1705: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:198:) in method containsAll
+            return false;
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:198: verify: Associated declaration: ./CodeSnippets.java:1705:
+          ensures \result;
+          ^
+./CodeSnippets.java:1685: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/lang/Object.jml:85:) in method equals
+            return false;
+            ^
+/home/mkellogg/openjml/specs/java/lang/Object.jml:85: verify: Associated declaration: ./CodeSnippets.java:1685:
+      @     ensures \result;
+            ^
+./CodeSnippets.java:1690: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/lang/Object.jml:69:) in method hashCode
+            return 0;
+            ^
+/home/mkellogg/openjml/specs/java/lang/Object.jml:69: verify: Associated declaration: ./CodeSnippets.java:1690:
+    //-RAC@ ensures \result == theHashCode;  
+            ^
+./CodeSnippets.java:1645: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:66:) in method isEmpty
+            return false;
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:66: verify: Associated declaration: ./CodeSnippets.java:1645:
+      @  ensures \result <==> (values.length == 0);
+         ^
+./CodeSnippets.java:1654: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1654:) in method iterator: iterator
+        public Iterator iterator() {
+               ^
+./CodeSnippets.java:1654: verify: Associated declaration: ./CodeSnippets.java:1654:
+        public Iterator iterator() {
+                        ^
+./CodeSnippets.java:1655: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1670: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:173:) in method remove
+            return false;
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:173: verify: Associated declaration: ./CodeSnippets.java:1670:
+      @   ensures \result;
+          ^
+./CodeSnippets.java:1700: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:229:) in method removeAll
+            return false;
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:229: verify: Associated declaration: ./CodeSnippets.java:1700:
+      @   ensures c == this ==> isEmpty();
+          ^
+./CodeSnippets.java:1640: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:61:) in method size
+            return 0;
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:61: verify: Associated declaration: ./CodeSnippets.java:1640:
+      @    ensures \result == values.length;
+           ^
+./CodeSnippets.java:1660: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:102:) in method toArray
+            return new Object[0];
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:102: verify: Associated declaration: ./CodeSnippets.java:1660:
+    //@       ensures \result.length == size();
+              ^
+./CodeSnippets.java:1660: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:106:) in method toArray
+            return new Object[0];
+            ^
+/home/mkellogg/openjml/specs/java/util/Collection.jml:106: verify: Associated declaration: ./CodeSnippets.java:1660:
+    //-RAC@   ensures  (\forall Object o; containsObject(o) <==> Arrays.contains(\result,o));
+              ^
+./CodeSnippets.java:1601: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1601:) in method getNotifications: getNotifications
+        public Collection getNotifications() {
+               ^
+./CodeSnippets.java:1601: verify: Associated declaration: ./CodeSnippets.java:1601:
+        public Collection getNotifications() {
+                          ^
+./CodeSnippets.java:1602: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1815: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1815:) in method lastSegment: lastSegment
+        public USegment lastSegment() {
+               ^
+./CodeSnippets.java:1815: verify: Associated declaration: ./CodeSnippets.java:1815:
+        public USegment lastSegment() {
+                        ^
+./CodeSnippets.java:1816: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1585: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1585:) in method eContainer: eContainer
+        public ProjectSpace eContainer() {
+               ^
+./CodeSnippets.java:1585: verify: Associated declaration: ./CodeSnippets.java:1585:
+        public ProjectSpace eContainer() {
+                            ^
+./CodeSnippets.java:1586: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1591: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1591:) in method getPropertyManager: getPropertyManager
+        public PropertyManager getPropertyManager() {
+               ^
+./CodeSnippets.java:1591: verify: Associated declaration: ./CodeSnippets.java:1591:
+        public PropertyManager getPropertyManager() {
+                               ^
+./CodeSnippets.java:1592: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1607: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1607:) in method getLocalProperty: getLocalProperty
+        public StoreProperty getLocalProperty(String notificationComposite) {
+               ^
+./CodeSnippets.java:1607: verify: Associated declaration: ./CodeSnippets.java:1607:
+        public StoreProperty getLocalProperty(String notificationComposite) {
+                             ^
+./CodeSnippets.java:1608: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:37: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:37:) in method getAsyncContext: getAsyncContext
+            public AsyncContext getAsyncContext() {
+                   ^
+./CodeSnippets.java:37: verify: Associated declaration: ./CodeSnippets.java:37:
+            public AsyncContext getAsyncContext() {
+                                ^
+./CodeSnippets.java:39: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:42: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:42:) in method getAttribute: getAttribute
+            public Object getAttribute(String arg0) {
+                   ^
+./CodeSnippets.java:42: verify: Associated declaration: ./CodeSnippets.java:42:
+            public Object getAttribute(String arg0) {
+                          ^
+./CodeSnippets.java:44: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:47: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:47:) in method getAttributeNames: getAttributeNames
+            public Enumeration<String> getAttributeNames() {
+                              ^
+./CodeSnippets.java:47: verify: Associated declaration: ./CodeSnippets.java:47:
+            public Enumeration<String> getAttributeNames() {
+                                       ^
+./CodeSnippets.java:49: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:229: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:229:) in method getAuthType: getAuthType
+            public String getAuthType() {
+                   ^
+./CodeSnippets.java:229: verify: Associated declaration: ./CodeSnippets.java:229:
+            public String getAuthType() {
+                          ^
+./CodeSnippets.java:231: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:52: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:52:) in method getCharacterEncoding: getCharacterEncoding
+            public String getCharacterEncoding() {
+                   ^
+./CodeSnippets.java:52: verify: Associated declaration: ./CodeSnippets.java:52:
+            public String getCharacterEncoding() {
+                          ^
+./CodeSnippets.java:54: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:67: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:67:) in method getContentType: getContentType
+            public String getContentType() {
+                   ^
+./CodeSnippets.java:67: verify: Associated declaration: ./CodeSnippets.java:67:
+            public String getContentType() {
+                          ^
+./CodeSnippets.java:69: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:234: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:234:) in method getContextPath: getContextPath
+            public String getContextPath() {
+                   ^
+./CodeSnippets.java:234: verify: Associated declaration: ./CodeSnippets.java:234:
+            public String getContextPath() {
+                          ^
+./CodeSnippets.java:236: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:239: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:239:) in method getCookies: getCookies
+            public Cookie[] getCookies() {
+                         ^
+./CodeSnippets.java:239: verify: Associated declaration: ./CodeSnippets.java:239:
+            public Cookie[] getCookies() {
+                            ^
+./CodeSnippets.java:241: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:72: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:72:) in method getDispatcherType: getDispatcherType
+            public DispatcherType getDispatcherType() {
+                   ^
+./CodeSnippets.java:72: verify: Associated declaration: ./CodeSnippets.java:72:
+            public DispatcherType getDispatcherType() {
+                                  ^
+./CodeSnippets.java:74: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:249: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:249:) in method getHeader: getHeader
+            public String getHeader(String arg0) {
+                   ^
+./CodeSnippets.java:249: verify: Associated declaration: ./CodeSnippets.java:249:
+            public String getHeader(String arg0) {
+                          ^
+./CodeSnippets.java:251: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:254: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:254:) in method getHeaderNames: getHeaderNames
+            public Enumeration<String> getHeaderNames() {
+                              ^
+./CodeSnippets.java:254: verify: Associated declaration: ./CodeSnippets.java:254:
+            public Enumeration<String> getHeaderNames() {
+                                       ^
+./CodeSnippets.java:256: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:259: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:259:) in method getHeaders: getHeaders
+            public Enumeration<String> getHeaders(String arg0) {
+                              ^
+./CodeSnippets.java:259: verify: Associated declaration: ./CodeSnippets.java:259:
+            public Enumeration<String> getHeaders(String arg0) {
+                                       ^
+./CodeSnippets.java:261: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:77: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:77:) in method getInputStream: getInputStream
+            public ServletInputStream getInputStream() throws IOException {
+                   ^
+./CodeSnippets.java:77: verify: Associated declaration: ./CodeSnippets.java:77:
+            public ServletInputStream getInputStream() throws IOException {
+                                      ^
+./CodeSnippets.java:79: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:82: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:82:) in method getLocalAddr: getLocalAddr
+            public String getLocalAddr() {
+                   ^
+./CodeSnippets.java:82: verify: Associated declaration: ./CodeSnippets.java:82:
+            public String getLocalAddr() {
+                          ^
+./CodeSnippets.java:84: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:97: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:97:) in method getLocale: getLocale
+            public Locale getLocale() {
+                   ^
+./CodeSnippets.java:97: verify: Associated declaration: ./CodeSnippets.java:97:
+            public Locale getLocale() {
+                          ^
+./CodeSnippets.java:99: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:102: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:102:) in method getLocales: getLocales
+            public Enumeration<Locale> getLocales() {
+                              ^
+./CodeSnippets.java:102: verify: Associated declaration: ./CodeSnippets.java:102:
+            public Enumeration<Locale> getLocales() {
+                                       ^
+./CodeSnippets.java:104: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:87: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:87:) in method getLocalName: getLocalName
+            public String getLocalName() {
+                   ^
+./CodeSnippets.java:87: verify: Associated declaration: ./CodeSnippets.java:87:
+            public String getLocalName() {
+                          ^
+./CodeSnippets.java:89: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:269: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:269:) in method getMethod: getMethod
+            public String getMethod() {
+                   ^
+./CodeSnippets.java:269: verify: Associated declaration: ./CodeSnippets.java:269:
+            public String getMethod() {
+                          ^
+./CodeSnippets.java:271: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:107: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:107:) in method getParameter: getParameter
+            public String getParameter(String arg0) {
+                   ^
+./CodeSnippets.java:107: verify: Associated declaration: ./CodeSnippets.java:107:
+            public String getParameter(String arg0) {
+                          ^
+./CodeSnippets.java:109: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:112: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:112:) in method getParameterMap: getParameterMap
+            public Map<String, String[]> getParameterMap() {
+                      ^
+./CodeSnippets.java:112: verify: Associated declaration: ./CodeSnippets.java:112:
+            public Map<String, String[]> getParameterMap() {
+                                         ^
+./CodeSnippets.java:114: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:117: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:117:) in method getParameterNames: getParameterNames
+            public Enumeration<String> getParameterNames() {
+                              ^
+./CodeSnippets.java:117: verify: Associated declaration: ./CodeSnippets.java:117:
+            public Enumeration<String> getParameterNames() {
+                                       ^
+./CodeSnippets.java:119: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:122: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:122:) in method getParameterValues: getParameterValues
+            public String[] getParameterValues(String arg0) {
+                         ^
+./CodeSnippets.java:122: verify: Associated declaration: ./CodeSnippets.java:122:
+            public String[] getParameterValues(String arg0) {
+                            ^
+./CodeSnippets.java:124: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:274: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:274:) in method getPart: getPart
+            public Part getPart(String arg0) throws IOException, ServletException {
+                   ^
+./CodeSnippets.java:274: verify: Associated declaration: ./CodeSnippets.java:274:
+            public Part getPart(String arg0) throws IOException, ServletException {
+                        ^
+./CodeSnippets.java:276: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:279: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:279:) in method getParts: getParts
+            public Collection<Part> getParts() throws IOException, ServletException {
+                             ^
+./CodeSnippets.java:279: verify: Associated declaration: ./CodeSnippets.java:279:
+            public Collection<Part> getParts() throws IOException, ServletException {
+                                    ^
+./CodeSnippets.java:281: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:284: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:284:) in method getPathInfo: getPathInfo
+            public String getPathInfo() {
+                   ^
+./CodeSnippets.java:284: verify: Associated declaration: ./CodeSnippets.java:284:
+            public String getPathInfo() {
+                          ^
+./CodeSnippets.java:286: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:289: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:289:) in method getPathTranslated: getPathTranslated
+            public String getPathTranslated() {
+                   ^
+./CodeSnippets.java:289: verify: Associated declaration: ./CodeSnippets.java:289:
+            public String getPathTranslated() {
+                          ^
+./CodeSnippets.java:291: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:127: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:127:) in method getProtocol: getProtocol
+            public String getProtocol() {
+                   ^
+./CodeSnippets.java:127: verify: Associated declaration: ./CodeSnippets.java:127:
+            public String getProtocol() {
+                          ^
+./CodeSnippets.java:129: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:294: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:294:) in method getQueryString: getQueryString
+            public String getQueryString() {
+                   ^
+./CodeSnippets.java:294: verify: Associated declaration: ./CodeSnippets.java:294:
+            public String getQueryString() {
+                          ^
+./CodeSnippets.java:296: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:132: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:132:) in method getReader: getReader
+            public BufferedReader getReader() throws IOException {
+                   ^
+./CodeSnippets.java:132: verify: Associated declaration: ./CodeSnippets.java:132:
+            public BufferedReader getReader() throws IOException {
+                                  ^
+./CodeSnippets.java:134: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:137: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:137:) in method getRealPath: getRealPath
+            public String getRealPath(String arg0) {
+                   ^
+./CodeSnippets.java:137: verify: Associated declaration: ./CodeSnippets.java:137:
+            public String getRealPath(String arg0) {
+                          ^
+./CodeSnippets.java:139: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:142: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:142:) in method getRemoteAddr: getRemoteAddr
+            public String getRemoteAddr() {
+                   ^
+./CodeSnippets.java:142: verify: Associated declaration: ./CodeSnippets.java:142:
+            public String getRemoteAddr() {
+                          ^
+./CodeSnippets.java:144: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:147: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:147:) in method getRemoteHost: getRemoteHost
+            public String getRemoteHost() {
+                   ^
+./CodeSnippets.java:147: verify: Associated declaration: ./CodeSnippets.java:147:
+            public String getRemoteHost() {
+                          ^
+./CodeSnippets.java:149: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:299: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:299:) in method getRemoteUser: getRemoteUser
+            public String getRemoteUser() {
+                   ^
+./CodeSnippets.java:299: verify: Associated declaration: ./CodeSnippets.java:299:
+            public String getRemoteUser() {
+                          ^
+./CodeSnippets.java:301: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:157: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:157:) in method getRequestDispatcher: getRequestDispatcher
+            public RequestDispatcher getRequestDispatcher(String arg0) {
+                   ^
+./CodeSnippets.java:157: verify: Associated declaration: ./CodeSnippets.java:157:
+            public RequestDispatcher getRequestDispatcher(String arg0) {
+                                     ^
+./CodeSnippets.java:159: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:314: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:314:) in method getRequestedSessionId: getRequestedSessionId
+            public String getRequestedSessionId() {
+                   ^
+./CodeSnippets.java:314: verify: Associated declaration: ./CodeSnippets.java:314:
+            public String getRequestedSessionId() {
+                          ^
+./CodeSnippets.java:316: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:304: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:304:) in method getRequestURI: getRequestURI
+            public String getRequestURI() {
+                   ^
+./CodeSnippets.java:304: verify: Associated declaration: ./CodeSnippets.java:304:
+            public String getRequestURI() {
+                          ^
+./CodeSnippets.java:306: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:309: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:309:) in method getRequestURL: getRequestURL
+            public StringBuffer getRequestURL() {
+                   ^
+./CodeSnippets.java:309: verify: Associated declaration: ./CodeSnippets.java:309:
+            public StringBuffer getRequestURL() {
+                                ^
+./CodeSnippets.java:311: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:162: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:162:) in method getScheme: getScheme
+            public String getScheme() {
+                   ^
+./CodeSnippets.java:162: verify: Associated declaration: ./CodeSnippets.java:162:
+            public String getScheme() {
+                          ^
+./CodeSnippets.java:164: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:167: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:167:) in method getServerName: getServerName
+            public String getServerName() {
+                   ^
+./CodeSnippets.java:167: verify: Associated declaration: ./CodeSnippets.java:167:
+            public String getServerName() {
+                          ^
+./CodeSnippets.java:169: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:177: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:177:) in method getServletContext: getServletContext
+            public ServletContext getServletContext() {
+                   ^
+./CodeSnippets.java:177: verify: Associated declaration: ./CodeSnippets.java:177:
+            public ServletContext getServletContext() {
+                                  ^
+./CodeSnippets.java:179: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:319: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:319:) in method getServletPath: getServletPath
+            public String getServletPath() {
+                   ^
+./CodeSnippets.java:319: verify: Associated declaration: ./CodeSnippets.java:319:
+            public String getServletPath() {
+                          ^
+./CodeSnippets.java:321: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:324: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:324:) in method getSession: getSession
+            public HttpSession getSession() {
+                   ^
+./CodeSnippets.java:324: verify: Associated declaration: ./CodeSnippets.java:324:
+            public HttpSession getSession() {
+                               ^
+./CodeSnippets.java:326: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:329: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:329:) in method getSession: getSession
+            public HttpSession getSession(boolean arg0) {
+                   ^
+./CodeSnippets.java:329: verify: Associated declaration: ./CodeSnippets.java:329:
+            public HttpSession getSession(boolean arg0) {
+                               ^
+./CodeSnippets.java:331: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:334: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:334:) in method getUserPrincipal: getUserPrincipal
+            public Principal getUserPrincipal() {
+                   ^
+./CodeSnippets.java:334: verify: Associated declaration: ./CodeSnippets.java:334:
+            public Principal getUserPrincipal() {
+                             ^
+./CodeSnippets.java:336: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:209: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:209:) in method startAsync: startAsync
+            public AsyncContext startAsync() throws IllegalStateException {
+                   ^
+./CodeSnippets.java:209: verify: Associated declaration: ./CodeSnippets.java:209:
+            public AsyncContext startAsync() throws IllegalStateException {
+                                ^
+./CodeSnippets.java:211: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:214: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:214:) in method startAsync: startAsync
+            public AsyncContext startAsync(ServletRequest arg0, ServletResponse arg1) throws IllegalStateException {
+                   ^
+./CodeSnippets.java:214: verify: Associated declaration: ./CodeSnippets.java:214:
+            public AsyncContext startAsync(ServletRequest arg0, ServletResponse arg1) throws IllegalStateException {
+                                ^
+./CodeSnippets.java:216: verify: Associated method exit
+                return null;
+                ^
+./CodeSnippets.java:1303: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method shortenText511: underflow in int difference
+    int maxWidth = control.getBounds().width - 5;
+                                             ^
+./CodeSnippets.java:1314: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method shortenText511: (Caller: CodeSnippets.shortenText511(java.lang.String,CodeSnippets.Control), Callee: java.lang.String.valueOf(java.lang.Object))
+    String s = s1 + ELLIPSIS + s2;
+                    ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1314:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1299: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1299:) in method shortenText511: shortenText511
+    public static String shortenText511(String textValue, Control control)
+                  ^
+./CodeSnippets.java:1299: verify: Associated declaration: ./CodeSnippets.java:1299:
+    public static String shortenText511(String textValue, Control control)
+                         ^
+./CodeSnippets.java:1324: verify: Associated method exit
+    return null; // Had to be added to allow compilation
+    ^
+./CodeSnippets.java:1340: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method shortenText512: underflow in int difference
+    int maxWidth = control.getBounds().width - 5;
+                                             ^
+./CodeSnippets.java:1335: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1335:) in method shortenText512: shortenText512
+    public static String shortenText512(String textValue, Control control)
+                  ^
+./CodeSnippets.java:1335: verify: Associated declaration: ./CodeSnippets.java:1335:
+    public static String shortenText512(String textValue, Control control)
+                         ^
+./CodeSnippets.java:1360: verify: Associated method exit
+    return null; // Had to be added to allow compilation
+    ^
+./CodeSnippets.java:1350: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method shortenText512: (Caller: CodeSnippets.shortenText512(java.lang.String,CodeSnippets.Control), Callee: java.lang.String.valueOf(java.lang.Object))
+    String s = s1 + ELLIPSIS + s2;
+                    ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1350:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1375: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method shortenText513: underflow in int difference
+    int maxWidth = control.getBounds().width - 5;
+                                             ^
+./CodeSnippets.java:1371: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1371:) in method shortenText513: shortenText513
+    public static String shortenText513(String textValue, Control control)
+                  ^
+./CodeSnippets.java:1371: verify: Associated declaration: ./CodeSnippets.java:1371:
+    public static String shortenText513(String textValue, Control control)
+                         ^
+./CodeSnippets.java:1391: verify: Associated method exit
+    return null; // Had to be added to allow compilation
+    ^
+./CodeSnippets.java:1382: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method shortenText513: (Caller: CodeSnippets.shortenText513(java.lang.String,CodeSnippets.Control), Callee: java.lang.String.valueOf(java.lang.Object))
+    String s = s1 + ELLIPSIS + s2;
+                    ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1382:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1408: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method shortenText521: underflow in int difference
+    int maxWidth = bounds.width - 5;
+                                ^
+./CodeSnippets.java:1402: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1402:) in method shortenText521: shortenText521
+    public static String shortenText521(String textValue, Control control)
+                  ^
+./CodeSnippets.java:1402: verify: Associated declaration: ./CodeSnippets.java:1402:
+    public static String shortenText521(String textValue, Control control)
+                         ^
+./CodeSnippets.java:1430: verify: Associated method exit
+    return null; // Had to be added to allow compilation
+    ^
+./CodeSnippets.java:1419: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method shortenText521: (Caller: CodeSnippets.shortenText521(java.lang.String,CodeSnippets.Control), Callee: java.lang.String.valueOf(java.lang.Object))
+    String s = s1 + ELLIPSIS + s2;
+                    ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1419:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1448: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method shortenText522: underflow in int difference
+    int maxWidth = bounds.width - 5;
+                                ^
+./CodeSnippets.java:1441: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1441:) in method shortenText522: shortenText522
+    public static String shortenText522(String textValue, Control control)
+                  ^
+./CodeSnippets.java:1441: verify: Associated declaration: ./CodeSnippets.java:1441:
+    public static String shortenText522(String textValue, Control control)
+                         ^
+./CodeSnippets.java:1469: verify: Associated method exit
+    return null; // Had to be added to allow compilation
+    ^
+./CodeSnippets.java:1458: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method shortenText522: (Caller: CodeSnippets.shortenText522(java.lang.String,CodeSnippets.Control), Callee: java.lang.String.valueOf(java.lang.Object))
+    String s = s1 + ELLIPSIS + s2;
+                    ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1458:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1486: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method shortenText523: underflow in int difference
+    int maxWidth = bounds.width - 5;
+                                ^
+./CodeSnippets.java:1480: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1480:) in method shortenText523: shortenText523
+    public static String shortenText523(String textValue, Control control)
+                  ^
+./CodeSnippets.java:1480: verify: Associated declaration: ./CodeSnippets.java:1480:
+    public static String shortenText523(String textValue, Control control)
+                         ^
+./CodeSnippets.java:1503: verify: Associated method exit
+    return null; // Had to be added to allow compilation
+    ^
+./CodeSnippets.java:1493: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method shortenText523: (Caller: CodeSnippets.shortenText523(java.lang.String,CodeSnippets.Control), Callee: java.lang.String.valueOf(java.lang.Object))
+    String s = s1 + ELLIPSIS + s2;
+                    ^
+/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1493:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:1617: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1617:) in method getValue: getValue
+        public Value getValue() {
+               ^
+./CodeSnippets.java:1617: verify: Associated declaration: ./CodeSnippets.java:1617:
+        public Value getValue() {
+                     ^
+./CodeSnippets.java:1618: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1805: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1805:) in method get: get
+        public UImage get(int i) {
+               ^
+./CodeSnippets.java:1805: verify: Associated declaration: ./CodeSnippets.java:1805:
+        public UImage get(int i) {
+                      ^
+./CodeSnippets.java:1806: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1785: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1785:) in method getPath: getPath
+        public Path getPath() {
+               ^
+./CodeSnippets.java:1785: verify: Associated declaration: ./CodeSnippets.java:1785:
+        public Path getPath() {
+                    ^
+./CodeSnippets.java:1786: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1779: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1779:) in method getChildren: getChildren
+        public UChildren getChildren() {
+               ^
+./CodeSnippets.java:1779: verify: Associated declaration: ./CodeSnippets.java:1779:
+        public UChildren getChildren() {
+                         ^
+./CodeSnippets.java:1780: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1721: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1721:) in method getBoxModel: getBoxModel
+        public BoxModelOption getBoxModel() {
+               ^
+./CodeSnippets.java:1721: verify: Associated declaration: ./CodeSnippets.java:1721:
+        public BoxModelOption getBoxModel() {
+                              ^
+./CodeSnippets.java:1722: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1717: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1717:) in method getColumnsCount: getColumnsCount
+        public Object getColumnsCount() {
+               ^
+./CodeSnippets.java:1717: verify: Associated declaration: ./CodeSnippets.java:1717:
+        public Object getColumnsCount() {
+                      ^
+./CodeSnippets.java:1718: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1773: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1773:) in method getBoxModel: getBoxModel
+        public BoxModelOption getBoxModel() {
+               ^
+./CodeSnippets.java:1773: verify: Associated declaration: ./CodeSnippets.java:1773:
+        public BoxModelOption getBoxModel() {
+                              ^
+./CodeSnippets.java:1774: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1769: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CodeSnippets.java:1769:) in method getContent: getContent
+        public UParagraph getContent() {
+               ^
+./CodeSnippets.java:1769: verify: Associated declaration: ./CodeSnippets.java:1769:
+        public UParagraph getContent() {
+                          ^
+./CodeSnippets.java:1770: verify: Associated method exit
+            return null;
+            ^
+./CodeSnippets.java:1005: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method writeUTable: cell
+    Cell cell = null; // Added to allow compilation
+         ^
+./CodeSnippets.java:960: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method writeUTable321: cell
+    Cell cell = null; // Added to allow compilation
+         ^
+./CodeSnippets.java:1051: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method writeUTable323: cell
+    Cell cell = null; // Added to allow compilation
+         ^
+Note: ./CodeSnippets.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+377 verification failures

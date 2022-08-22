@@ -128,6 +128,7 @@ def parseOpenJML(data, allSnippetNums):
     # Delimeters with which to parse the warnings
     startSnippetfMRI = os.path.join("fMRI_Study_Classes", " ").strip()
     startSnippetCOG1 = os.path.join("cog_complexity_validation_datasets", "One", " ").strip()
+    startSnippetCOG9 = os.path.join(".", "CodeSnippets").strip()
     endSnippet = "verify:"
     startWarning = "assertion"
     endWarning = "in method"
@@ -171,6 +172,19 @@ def parseOpenJML(data, allSnippetNums):
 
                                 data["Warning Type"].append(warning.strip())
                                 break
+                        break
+            elif startSnippetCOG9 in line.split(".java:")[0] and endSnippet in line:
+                lineNum = int(line.split(".java:")[1].split(":")[0])
+
+                for i in range(len(allSnippetNums[5]) - 1):
+                    if allSnippetNums[5][i] <= lineNum and allSnippetNums[5][i + 1] > lineNum:
+                        data["Snippet"].append(f"9 -- {str(i + 1)}")
+                        warning = line.split(endSnippet)[1]
+
+                        if startWarning in warning and endWarning in warning:
+                            warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
+
+                        data["Warning Type"].append(warning.strip())
                         break
 
     return ("openjml_data", data)
