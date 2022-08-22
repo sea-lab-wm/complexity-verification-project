@@ -6,6 +6,7 @@ public class YesNo {
         System.out.print(compute(input));
     }
 
+    //SNIPPET_STARTS
     static Boolean compute(String input) {
         input = input.toLowerCase();
 

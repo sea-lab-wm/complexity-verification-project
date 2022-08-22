@@ -7,6 +7,7 @@ public class RecursiveBinaryToDecimal {
         System.out.print(compute(input, number));
     }
 
+    //SNIPPET_STARTS
     static int compute(String s, int number) {
         if (number < 0) {
             return 0;

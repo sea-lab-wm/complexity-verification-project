@@ -7,6 +7,7 @@ public class ContainsSubstring {
         System.out.print(compute(word1, word2));
     }
 
+    //SNIPPET_STARTS
     public static boolean compute(String word1, String word2) {
         boolean result = false;
 

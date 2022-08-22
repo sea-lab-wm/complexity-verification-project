@@ -6,6 +6,7 @@ public class isPalindrome {
         System.out.print(compute(word));
     }
 
+    //SNIPPET_STARTS
     public static boolean compute(String word) {
         boolean result = true;
 

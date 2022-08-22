@@ -6,6 +6,7 @@ public class ArrayAverage {
         System.out.print(compute(numbers));
     }
 
+    //SNIPPET_STARTS
     public static float compute(int[] numbers) {
         int number1 = 0;
         int number2 = 0;

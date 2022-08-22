@@ -7,6 +7,7 @@ public class RecursiveFactorial {
         System.out.print(compute(input));
     }
 
+    //SNIPPET_STARTS
     public static int compute(int value) {
         if (value == 1) {
             return 1;

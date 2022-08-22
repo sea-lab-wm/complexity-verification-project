@@ -6,6 +6,7 @@ public class isHurricane {
         System.out.print(compute(value));
     }
 
+    //SNIPPET_STARTS
     public static String compute(int value) {
         String result;
 

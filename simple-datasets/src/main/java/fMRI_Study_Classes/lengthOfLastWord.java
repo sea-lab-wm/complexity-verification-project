@@ -7,6 +7,7 @@ public class lengthOfLastWord {
         System.out.print(compute(text));
     }
 
+    //SNIPPET_STARTS
     public static int compute(String text) {
         int result = 0;
 

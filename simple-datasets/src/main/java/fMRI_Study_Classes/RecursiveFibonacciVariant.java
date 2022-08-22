@@ -6,6 +6,7 @@ public class RecursiveFibonacciVariant {
         System.out.print(compute(number));
     }
 
+    //SNIPPET_STARTS
     public static int compute(int number) {
         if (number <= 1) {
             return 1;

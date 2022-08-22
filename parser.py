@@ -25,8 +25,14 @@ def getAllSnippets():
     allSnippetNums = []
 
     # fMRI Dataset
-    fMRIDatasetSnippetNames = [name.split(".")[0] for name in os.listdir("simple-datasets/src/main/java/fMRI_Study_Classes") if ".java" in name]
-    allSnippetNums.append(sorted(fMRIDatasetSnippetNames, key=str.lower))    # Keeps the order of these snippets consistent across operating systems
+    fMRIDatasetSnippetNums = []
+    inOrder = [file.split(".")[0] for file in os.listdir("simple-datasets/src/main/java/fMRI_Study_Classes") if ".java" in file]
+    inOrder = sorted(inOrder, key=str.lower) # Keeps the order of these snippets consistent across operating systems
+    for file in inOrder:
+        fMRIDatasetSnippetNums.append(getSnippetNames(f"simple-datasets/src/main/java/fMRI_Study_Classes/{file}.java", "SNIPPET_STARTS", "**NO_END**")[0])
+    fMRIDatasetSnippetNames = {file:fMRIDatasetSnippetNums[i] for i, file in enumerate(inOrder)}
+    allSnippetNums.append(fMRIDatasetSnippetNames)
+
     # COG Dataset 1
     allSnippetNums.append(getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END"))
     #COG Dataset 2
@@ -132,13 +138,15 @@ def parseOpenJML(data, allSnippetNums):
                 continue
 
             if startSnippetfMRI in line.split(".java:")[0] and endSnippet in line:
-                data["Snippet"].append(f"f -- {str(allSnippetNums[0].index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} -- {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
-                warning = line.split(endSnippet)[1]
+                lineNum = int(line.split(".java:")[1].split(":")[0])
+                if allSnippetNums[0][(line.split(startSnippetfMRI))[1].split('.java')[0]] <= lineNum:
+                    data["Snippet"].append(f"f -- {str(list(allSnippetNums[0].keys()).index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} -- {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
+                    warning = line.split(endSnippet)[1]
 
-                if startWarning in warning and endWarning in warning:
-                    warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
+                    if startWarning in warning and endWarning in warning:
+                        warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
 
-                data["Warning Type"].append(warning.strip())
+                    data["Warning Type"].append(warning.strip())
             elif startSnippetCOG1 in line.split(".java:")[0] and endSnippet in line:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
 
@@ -164,8 +172,6 @@ def parseOpenJML(data, allSnippetNums):
                                 data["Warning Type"].append(warning.strip())
                                 break
                         break
-            else:
-                print(line)
 
     return ("openjml_data", data)
 
@@ -181,8 +187,11 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
 
     for line in lines:
         if startSnippetfMRI in line and endSnippet in line:
-            data["Snippet"].append(f"f -- {str(allSnippetNums[0].index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} -- {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
-            data["Warning Type"].append(line.split(endSnippet)[1].strip())
+            lineNum = int(line.split(".java:")[1].split(":")[0])
+
+            if allSnippetNums[0][(line.split(startSnippetfMRI))[1].split('.java')[0]] <= lineNum:
+                data["Snippet"].append(f"f -- {str(list(allSnippetNums[0].keys()).index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} -- {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
+                data["Warning Type"].append(line.split(endSnippet)[1].strip())
         elif startSnippetCOG1 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
 

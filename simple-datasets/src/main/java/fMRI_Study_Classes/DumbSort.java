@@ -12,6 +12,7 @@ public class DumbSort {
         System.out.print(compute(a, b, c, d));
     }
 
+    //SNIPPET_STARTS
     public static List<Integer> compute(int a, int b, int c, int d) {
         if (a > b) { int temp = b; b = a; a = temp; }
         if (c > d) { int temp = d; d = c; c = temp; }

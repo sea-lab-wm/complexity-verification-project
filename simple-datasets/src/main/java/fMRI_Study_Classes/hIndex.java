@@ -8,6 +8,7 @@ public class hIndex {
         System.out.print(compute(numbers));
     }
 
+    //SNIPPET_STARTS
     public static int compute(int[] numbers) {
         Arrays.sort(numbers);
 

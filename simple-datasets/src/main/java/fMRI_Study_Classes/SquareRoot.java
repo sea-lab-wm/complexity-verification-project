@@ -8,6 +8,7 @@ public class SquareRoot {
         System.out.print(compute(numbers));
     }
 
+    //SNIPPET_STARTS
     public static String compute(int[] numbers) {
         double[] result = new double[numbers.length];
 
