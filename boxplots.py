@@ -39,14 +39,13 @@ if __name__ == "__main__":
     data["metric_value"] = list(map(lambda x: x.item(), data.loc[:,"metric_value"]))
     data["#_of_warnings"] = list(map(lambda x: x.item(), data.loc[:,"#_of_warnings"]))
 
-    data = data[data["tool"] == "all_tools"]
+    data_only_all_tools = data[data["tool"] == "all_tools"]
 
     #ax1 = data.boxplot(["metric_value", "#_of_warnings"], by =["dataset", "metric"])
     #plt.savefig('box_plots/metrics.pdf')  
     
-
     #group by dataset and metric
-    data_by_dm = data.groupby(["dataset", "metric"])
+    data_by_dm = data_only_all_tools.groupby(["dataset", "metric"])
 
     #---------------
 
@@ -94,7 +93,7 @@ if __name__ == "__main__":
         k = k + 1
         plt.xlabel(xlabel, fontweight='bold')
         df.plot(kind='box', column = "metric_value", ax=ax1, grid = False, showmeans=True, showfliers=True
-             ,figsize=(3*Cols, 4*Rows)
+             ,figsize=(3*Cols, 3.5*Rows)
              )
 
         for item in ([ax1.title, ax1.xaxis.label, ax1.yaxis.label] +
@@ -109,7 +108,82 @@ if __name__ == "__main__":
     #clear plot
     plt.clf()
 
+    #---------------------------------------
 
-    #------------------
+    data_by_t = data.groupby(["tool"])
+
+    #---------------
+
+    # Subplots are organized in a Rows x Cols Grid
+    # Tot and Cols are known
+
+    num_datasets = len(data.dataset.unique())
+    Tot = len(data_by_t.groups.keys()) * num_datasets
+    Cols = num_datasets
+
+    # Compute Rows required
+
+    Rows = Tot // Cols 
+
+    #     EDIT for correct number of rows:
+    #     If one additional row is necessary -> add one:
+
+    if Tot % Cols != 0:
+        Rows += 1
+
+    # Create a Position index
+
+    Position = range(1,Tot + 1)
+
+    fig = plt.figure(1)
+    k = 0
+
+    plt.subplots_adjust(left=0.1,
+                 bottom=0.1, 
+                 right=0.9, 
+                 top=0.9, 
+                 wspace=0.6, 
+                 hspace=0.3)
+
+    # for each group
+    for tool_key, group_df in data_by_t:
+        print(f"Processing {tool_key!r}")
 
 
+        #group by dataset and metric
+        data_by_dm = group_df.groupby(["dataset", "metric"])
+
+        all_datasets = set()
+
+         # for each group
+        for key, group in data_by_dm:
+
+            if key[0] in all_datasets:
+                continue
+
+            all_datasets.add(key[0])
+            print(f"Processing {key!r}")
+            
+            xlabel = f"{key[0]} (# of points: {str(len(group))})"
+            ylabel = f"{tool_key}"
+            ax1 = fig.add_subplot(Rows,Cols,Position[k])
+            k = k + 1
+            plt.xlabel(xlabel, fontweight='bold')
+            plt.ylabel(ylabel, fontweight='bold')
+            group.plot(kind='box', column = "#_of_warnings", ax=ax1, grid = False, showmeans=True, showfliers=True
+                ,figsize=(3*Cols, 4*Rows)
+                )
+
+            for item in ([ax1.title, ax1.xaxis.label, ax1.yaxis.label] +
+                                ax1.get_xticklabels() + ax1.get_yticklabels()):
+                item.set_fontsize(12)
+            
+            
+    
+    
+    plt.savefig(f'box_plots/tool_warnings.pdf', 
+    bbox_inches='tight', 
+        pad_inches=0.1)  
+    
+    #clear plot
+    plt.clf()
