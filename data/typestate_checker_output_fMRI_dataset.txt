@@ -1,19 +1,19 @@
-simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:19: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:20: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
             return true;
             ^
-simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:13: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:14: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
             return false;
             ^
-simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:21: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:22: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
             return true;
             ^
-simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:15: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
+simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:16: warning: Incompatible return value: cannot cast from Primitive{boolean} to Shared{java.lang.Boolean}
             return false;
             ^
-simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:24: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Boolean}
+simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:25: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Boolean}
         return null;
         ^
-simple-datasets/src/main/java/fMRI_Study_Classes/SquareRoot.java:27: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+simple-datasets/src/main/java/fMRI_Study_Classes/SquareRoot.java:28: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
         return Arrays.toString(result);
         ^
 6 warnings
