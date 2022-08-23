@@ -1,4 +1,3 @@
-from audioop import add
 import pandas as pd
 import copy
 import os
@@ -8,7 +7,7 @@ import os
 #########################
 
 # Parses a .java file containing numbered snippets to determine which snippet starts on which line.
-def getSnippetNames(filePath, start, end):
+def getSnippetNums(filePath, start, end):
     methodStartLines = []
 
     with open(filePath) as f:
@@ -29,44 +28,44 @@ def getAllSnippets():
     inOrder = [file.split(".")[0] for file in os.listdir("simple-datasets/src/main/java/fMRI_Study_Classes") if ".java" in file]
     inOrder = sorted(inOrder, key=str.lower) # Keeps the order of these snippets consistent across operating systems
     for file in inOrder:
-        fMRIDatasetSnippetNums.append(getSnippetNames(f"simple-datasets/src/main/java/fMRI_Study_Classes/{file}.java", "SNIPPET_STARTS", "**NO_END**")[0])
+        fMRIDatasetSnippetNums.append(getSnippetNums(f"simple-datasets/src/main/java/fMRI_Study_Classes/{file}.java", "SNIPPET_STARTS", "**NO_END**")[0])
     fMRIDatasetSnippetNames = {file:fMRIDatasetSnippetNums[i] for i, file in enumerate(inOrder)}
     allSnippetNums.append(fMRIDatasetSnippetNames)
 
     # COG Dataset 1
-    allSnippetNums.append(getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END"))
+    allSnippetNums.append(getSnippetNums("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END"))
     #COG Dataset 2
-    allSnippetNums.append(getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END"))
+    allSnippetNums.append(getSnippetNums("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END"))
 
     # COG Dataset 3
     cogDataset3SnippetNums = {}
-    cogDataset3SnippetNums["Tasks_1"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset3SnippetNums["Tasks_2"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset3SnippetNums["Tasks_3"] = getSnippetNames("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset3SnippetNums["Tasks_1"] = getSnippetNums("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset3SnippetNums["Tasks_2"] = getSnippetNums("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset3SnippetNums["Tasks_3"] = getSnippetNums("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java", "SNIPPET_STARTS", "SNIPPETS_END")
     allSnippetNums.append(cogDataset3SnippetNums)
 
     # COG Dataset 6
     # A dictionary of lists. Each inner list contains the line numbers for the snippets in a single .java file. This dataset has snippets split across several files.
     # They are in the order of how they appear in "cog_dataset_6.csv", the file containing the metric data from its prior study.
     cogDataset6SnippetNums = {}
-    cogDataset6SnippetNums["K9"] = getSnippetNames("dataset6/src/main/java/K9.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["Pom"] = getSnippetNames("dataset6/src/main/java/Pom.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["CarReport"] = getSnippetNames("dataset6/src/main/java/CarReport.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["Antlr4Master"] = getSnippetNames("dataset6/src/main/java/Antlr4Master.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["Phoenix"] = getSnippetNames("dataset6/src/main/java/Phoenix.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["HibernateORM"] = getSnippetNames("dataset6/src/main/java/HibernateORM.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["OpenCMSCore"] = getSnippetNames("dataset6/src/main/java/OpenCMSCore.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["SpringBatch"] = getSnippetNames("dataset6/src/main/java/SpringBatch.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["MyExpenses"] = getSnippetNames("dataset6/src/main/java/MyExpenses.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["CheckEstimator"] = getSnippetNames("dataset6/src/main/java/weka/estimators/CheckEstimator.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["EstimatorUtils"] = getSnippetNames("dataset6/src/main/java/weka/estimators/EstimatorUtils.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["ClassifierPerformanceEvaluatorCustomizer"] = getSnippetNames("dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["ModelPerformanceChart"] = getSnippetNames("dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java", "SNIPPET_STARTS", "SNIPPETS_END")
-    cogDataset6SnippetNums["GeneratorPropertyIteratorPanel"] = getSnippetNames("dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["K9"] = getSnippetNums("dataset6/src/main/java/K9.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["Pom"] = getSnippetNums("dataset6/src/main/java/Pom.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["CarReport"] = getSnippetNums("dataset6/src/main/java/CarReport.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["Antlr4Master"] = getSnippetNums("dataset6/src/main/java/Antlr4Master.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["Phoenix"] = getSnippetNums("dataset6/src/main/java/Phoenix.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["HibernateORM"] = getSnippetNums("dataset6/src/main/java/HibernateORM.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["OpenCMSCore"] = getSnippetNums("dataset6/src/main/java/OpenCMSCore.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["SpringBatch"] = getSnippetNums("dataset6/src/main/java/SpringBatch.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["MyExpenses"] = getSnippetNums("dataset6/src/main/java/MyExpenses.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["CheckEstimator"] = getSnippetNums("dataset6/src/main/java/weka/estimators/CheckEstimator.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["EstimatorUtils"] = getSnippetNums("dataset6/src/main/java/weka/estimators/EstimatorUtils.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["ClassifierPerformanceEvaluatorCustomizer"] = getSnippetNums("dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["ModelPerformanceChart"] = getSnippetNums("dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    cogDataset6SnippetNums["GeneratorPropertyIteratorPanel"] = getSnippetNums("dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java", "SNIPPET_STARTS", "SNIPPETS_END")
     allSnippetNums.append(cogDataset6SnippetNums)
 
     # COG Dataset 9
-    allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS", "SNIPPETS_END"))
+    allSnippetNums.append(getSnippetNums("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS", "SNIPPETS_END"))
 
     return allSnippetNums
 
