@@ -56,17 +56,26 @@ def plot_data(df, xlabel, ylabel, file_prefix, save_file = True):
 if __name__ == "__main__":
     # -----------------
 
-    # create output folder
-    os.makedirs("scatter_plots", exist_ok=True)
+    input_correlation_excel_file = "data/correlation_analysis.xlsx"
+
+    #aggregate # of warnings (avg)
+    input_file = f"data/raw_correlation_data_avg.csv"
+    output_folder = "scatter_plots_avg"
+
+    #aggregate # of warnings (sum)
+    # input_file = f"data/raw_correlation_data.csv"
+    # output_folder = "scatter_plots"
 
     # -----------------
 
+    # create output folder
+    os.makedirs(output_folder, exist_ok=True)
+
     #read data
-    data = pd.read_csv(f"data/raw_correlation_data.csv")
+    data = pd.read_csv(input_file)
     
     #read data for metric types
-    correlation_data = pd.read_excel(
-        "data/correlation_analysis.xlsx", sheet_name="all_tools")
+    correlation_data = pd.read_excel(input_correlation_excel_file, sheet_name="all_tools")
 
     #select metrics of interest
     ds_metrics = correlation_data[["dataset_id", "metric", "metric_type"]]
@@ -82,35 +91,36 @@ if __name__ == "__main__":
     #assign metric type to data
     data = data.merge(ds_metrics, on=['dataset','metric'], how='left')
     
-    #save the data, for sanitity check
-    data.to_csv("scatter_plots/data2.csv", index=False)
+    #----------------------
+    #code that generates the scatter plots in individual files
 
-    #group by tool, dataset, and metric
-    data_by_tdm = data.groupby(["tool", "dataset", "metric"])
+    # #save the data, for sanitity check
+    # data.to_csv(output_folder + "data2.csv", index=False)
 
-    # for each group
-    for key, group in data_by_tdm:
-        print(f"Processing {key!r}")
+    # #group by tool, dataset, and metric
+    # data_by_tdm = data.groupby(["tool", "dataset", "metric"])
 
-        # select columns of interest
-        df = group[["metric_value", "#_of_warnings"]]
-        df["metric_value"] = list(map(lambda x: x.item(), df.iloc[:,0]))
-        df["#_of_warnings"] = list(map(lambda x: x.item(), df.iloc[:,1]))
+    # # for each group
+    # for key, group in data_by_tdm:
+    #     print(f"Processing {key!r}")
 
-        xlabel = f"{key[1]}_{key[2]}"
-        ylabel = f"# of warnings ({key[0]})"
-        file_prefix = f"{key[0]}_{key[1]}_{key[2]}"
+    #     # select columns of interest
+    #     df = group[["metric_value", "#_of_warnings"]]
+    #     df["metric_value"] = list(map(lambda x: x.item(), df.iloc[:,0]))
+    #     df["#_of_warnings"] = list(map(lambda x: x.item(), df.iloc[:,1]))
 
-        #plot_data(df, xlabel, ylabel, file_prefix)
+    #     xlabel = f"{key[1]}_{key[2]}"
+    #     ylabel = f"# of warnings ({key[0]})"
+    #     file_prefix = f"{key[0]}_{key[1]}_{key[2]}"
 
-        #break
+    #     #plot_data(df, xlabel, ylabel, file_prefix)
 
-    #-------
+    #     #break
 
+    #----------------------
 
     data_by_tool = data.groupby("tool")
    
-
     for tool, tool_data in data_by_tool:
         print(f"Processing {tool!r}")
     
@@ -121,8 +131,7 @@ if __name__ == "__main__":
         ylabel = f""
         file_prefix = f"{tool}"
 
-
-         #---------------
+        #---------------
 
         # Subplots are organized in a Rows x Cols Grid
         # Tot and Cols are known
@@ -227,7 +236,7 @@ if __name__ == "__main__":
             
         #save plot
         #fig.tight_layout()
-        plt.savefig(os.path.join("scatter_plots", str(file_prefix) + '.pdf'), dpi=300, 
+        plt.savefig(os.path.join(output_folder, str(file_prefix) + '.pdf'), dpi=300, 
         bbox_inches='tight', 
         pad_inches=0.1)
         
