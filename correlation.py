@@ -306,7 +306,7 @@ def readCOGDataset2StudyMetrics():
 
     return (BA31ant, BA31post, BA32, times)
 
-# Reads the results of the cog data set 3 study. It contains 120 people who rated 100 snippets on a scale of 1-5.
+# Reads the results of the cog data set 3 study. It contains 121 people who rated 100 snippets on a scale of 1-5.
 # 1 being less readable and 5 being more readable.
 # TODO:
 # OSCAR: where are we filtering out the 4 snippets that are commented out?
