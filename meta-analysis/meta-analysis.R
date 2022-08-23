@@ -93,7 +93,7 @@ run_meta_analysis <- function(data_file_in, sheet_in){
 
 #data_file = "correlation_analysis_for_meta_analysis.xlsx"
 data_file = "../data/correlation_analysis.xlsx"
-sheets = c("all_tools", "checker_framework", "typestate_checker", "infer")
+sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
 lapply(sheets, function(sheet_in){run_meta_analysis(data_file, sheet_in)})
 
   
