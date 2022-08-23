@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import scipy
 import seaborn as sns
+import scipy.stats as scpy
 
 def plot_data(df, xlabel, ylabel, file_prefix, save_file = True): 
     color = "#1f78b4"
@@ -58,13 +59,17 @@ if __name__ == "__main__":
 
     input_correlation_excel_file = "data/correlation_analysis.xlsx"
 
+    #aggregate # of warnings (ablation)
+    #input_file = f"data/raw_correlation_data_ablation.csv"
+    #output_folder = "scatter_plots_ablation"
+
     #aggregate # of warnings (avg)
-    input_file = f"data/raw_correlation_data_avg.csv"
-    output_folder = "scatter_plots_avg"
+    #input_file = f"data/raw_correlation_data_avg.csv"
+    #output_folder = "scatter_plots_avg"
 
     #aggregate # of warnings (sum)
-    # input_file = f"data/raw_correlation_data.csv"
-    # output_folder = "scatter_plots"
+    input_file = f"data/raw_correlation_data.csv"
+    output_folder = "scatter_plots"
 
     # -----------------
 
@@ -78,7 +83,7 @@ if __name__ == "__main__":
     correlation_data = pd.read_excel(input_correlation_excel_file, sheet_name="all_tools")
 
     #select metrics of interest
-    ds_metrics = correlation_data[["dataset_id", "metric", "metric_type"]]
+    ds_metrics = correlation_data[["dataset_id", "metric", "metric_type", "expected_cor"]]
     #ds_metrics.rename(columns={"dataset_id": "dataset"}, inplace=True)
 
     #string converstion, there should be other ways to do it
@@ -95,7 +100,7 @@ if __name__ == "__main__":
     #code that generates the scatter plots in individual files
 
     # #save the data, for sanitity check
-    # data.to_csv(output_folder + "data2.csv", index=False)
+    data.to_csv(output_folder + "/data2.csv", index=False)
 
     # #group by tool, dataset, and metric
     # data_by_tdm = data.groupby(["tool", "dataset", "metric"])
@@ -156,6 +161,8 @@ if __name__ == "__main__":
         fig = plt.figure(1)
         k = 0
 
+        #---------------
+
         plt.subplots_adjust(left=0.1,
                     bottom=0.1, 
                     right=0.9, 
@@ -163,18 +170,77 @@ if __name__ == "__main__":
                     wspace=0.1, 
                     hspace=0.3)
 
+        #---------------
+
+          
+        dict_df = {
+                'metric':[],
+                'dataset_id':[],
+                'metric_type':[],
+                'expected_cor':[],
+                "num_snippets_for_correlation":[],
+                "kendalls_tau":[],
+                "kendalls_p_value": [],
+                "expected_cor?": [],
+                "cor_intepretation": [],
+                "stat_significant?": []
+            }
+
+        tool_cor_data = pd.DataFrame(dict_df)
+
         for key, group in data_by_dm:
              # select columns of interest
             df = group[["metric_value", "#_of_warnings"]]
             df["metric_value"] = list(map(lambda x: x.item(), df.iloc[:,0]))
             df["#_of_warnings"] = list(map(lambda x: x.item(), df.iloc[:,1]))
 
-            corr = df['metric_value'].corr(df["#_of_warnings"], method='kendall')
+            #corr = df['metric_value'].corr(df["#_of_warnings"], method='kendall')
+
+            corr, p_value = scpy.kendalltau(df['metric_value'], df["#_of_warnings"])
+
+            #-----------------------
+            dataset = key[0]
+            metric = key[1]
+            #all array values should be the same for each property
+            metric_type = group.metric_type.values[0]
+            expected_cor = group.expected_cor.values[0]
+            expected_cor_short = "neg" if "negative" == expected_cor else "pos"
+            num_snippets_for_correlation = len(group)
+            kendalls_tau = corr
+            kendalls_p_value = p_value
+            expected_cor_test= "" if numpy.isnan(corr) else \
+                               "*" if "negative" == expected_cor and corr < 0 else \
+                               "*" if "positive" == expected_cor and corr > 0 else ""
+            cor_intepretation= "" if numpy.isnan(corr) else \
+                                "none" if abs(corr) >=0 and abs(corr) < 0.1 else \
+                                "small" if abs(corr) >=0.1 and abs(corr) < 0.3 else \
+                                "medium" if abs(corr) >=0.3 and abs(corr) < 0.5 else "large"
+            #one star -> p_value <= 0.05, two stars -> p_value <= 0.01                    
+            stat_significant = list(map(lambda x: ''.join(['*' for t in [0.01,0.05] if x<=t]), [p_value]))[0]
+
+            record = {
+                'metric':[metric],
+                'dataset_id':[dataset],
+                'metric_type':[metric_type],
+                'expected_cor':[expected_cor],
+                "num_snippets_for_correlation":[num_snippets_for_correlation],
+                "kendalls_tau":[kendalls_tau],
+                "kendalls_p_value": [kendalls_p_value],
+                "expected_cor?": [expected_cor_test],
+                "cor_intepretation": [cor_intepretation],
+                "stat_significant?": [stat_significant]
+            }
+            df_record = pd.DataFrame(record)
+            tool_cor_data = pd.concat([tool_cor_data, df_record], ignore_index=True, axis=0)  
+
+            #------------------------
 
             if numpy.isnan(corr):
                 continue
 
-            xlabel = f"{key[0]}_{key[1]}"
+            #--------------------
+
+            xlabel = f"{dataset}_{metric}"
 
             color = "#1f78b4"
             graph_label = dict(color='#101010', alpha=0.95, size = 14, weight='bold')
@@ -215,12 +281,17 @@ if __name__ == "__main__":
             # text(x, y, ...)
 
             gap = ((top - bottom) / 18)
-            ax1.text(right - ((right - left) / 2.7), top - gap, 
-                "Kendall's τ: " + format(corr, '.2f'), fontdict=graph_label)
-            ax1.text(right - ((right - left) / 2.7), top - gap*2, 
-                'r squared: ' + format(r_value ** 2, '.2f'), fontdict=graph_label)
-            ax1.text(right - ((right - left) / 2.7), top - gap*3, 
+            h_gap = ((right - left) / 2.4)
+            ax1.text(right - h_gap, top - gap, 
+                "Kendall's τ: " + format(corr, '.2f') + f"{stat_significant}", fontdict=graph_label)
+            ax1.text(right - h_gap, top - gap*2, 
+                f"τ's interpr: {cor_intepretation}", fontdict=graph_label)  
+            ax1.text(right - h_gap, top - gap*3, 
+                f"Expected cor: {expected_cor_short}{expected_cor_test}", fontdict=graph_label)    
+            ax1.text(right - h_gap, top - gap*4, 
                 '# of points: ' + str(len(df)), fontdict=graph_label)
+            ax1.text(right - h_gap, top - gap*5, 
+                'r squared: ' + format(r_value ** 2, '.2f'), fontdict=graph_label)
 
             plt.setp(ax1.get_xticklabels(), rotation=30, horizontalalignment='right')
             
@@ -233,7 +304,11 @@ if __name__ == "__main__":
                                 ax1.get_xticklabels() + ax1.get_yticklabels()):
                 item.set_fontsize(14)
 
-            
+        #save correlation values
+        tool_cor_data = tool_cor_data.convert_dtypes()
+        tool_cor_data.to_csv(os.path.join(output_folder, str(tool) + '_corr_data.csv'), index=False)
+
+
         #save plot
         #fig.tight_layout()
         plt.savefig(os.path.join(output_folder, str(file_prefix) + '.pdf'), dpi=300, 
