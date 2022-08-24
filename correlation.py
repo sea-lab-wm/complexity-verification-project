@@ -226,6 +226,12 @@ def setCogDataset6Datapoints(warningsPerSnippet, data):
     return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating), pd.DataFrame(dataTime))
 
 def setCogDataset9Datapoints(warningsPerSnippetPerDataset, data):
+    print(warningsPerSnippetPerDataset["9_gc"])
+    print(warningsPerSnippetPerDataset["9_bc"])
+    print(warningsPerSnippetPerDataset["9_nc"])
+    if warningsPerSnippetPerDataset["9_gc"] != warningsPerSnippetPerDataset["9_bc"] or warningsPerSnippetPerDataset["9_bc"] != warningsPerSnippetPerDataset["9_nc"] or warningsPerSnippetPerDataset["9_gc"] != warningsPerSnippetPerDataset["9_nc"]:
+        raise Exception("Inconsistency in warnings per snippet for Dataset 9!")
+
     dataCorrectness_GC = copy.deepcopy(data)
     dataRatingBefore_GC = copy.deepcopy(data)
     dataRatingBA_GC = copy.deepcopy(data)
@@ -471,6 +477,7 @@ def readCOGDataset9StudyMetrics():
         lastSnippet = row[19]
 
     # Get averages for last snippet
+    # *Note: the last snippet in the csv we are iterating through above happens to contain no comments which is why we only compute averages for "_NC" metrics here.
     times_NC.append(sumTime / (participantsPerSnippet * 2))
     correctness_NC.append(sumCorrectness / participantsPerSnippet)
     ratingBA_NC.append(sumRatingBA / (participantsPerSnippet * 2))
@@ -649,7 +656,7 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
 
         if len(snippetNames) != len(numWarnings):
             raise Exception("Number of snippets does not match number of warnings associated with said snippets") 
-            
+
         for i in range(len(snippetNames)):
             snippetDataset = str(snippetNames[i].split("--")[0].strip())
             snippetNumber = snippetNames[i].split("--")[1].strip()
