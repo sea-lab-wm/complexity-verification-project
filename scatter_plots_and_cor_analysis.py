@@ -53,23 +53,39 @@ def plot_data(df, xlabel, ylabel, file_prefix, save_file = True):
     #clear plot
     plt.clf()
 
+
+def no_outliers(data):
+
+    # calculate interquartile range
+    q25, q75 = numpy.percentile(data, 25), numpy.percentile(data, 75)
+    iqr = q75 - q25
+
+    # calculate the outlier cutoff
+    cut_off = iqr * 1.5
+    lower, upper = q25 - cut_off, q75 + cut_off
+    
+    # true if x is NOT an outlier, false otherwise
+    return list(map(lambda x: x > lower and x < upper, data))
+
 # -------------------
 if __name__ == "__main__":
     # -----------------
 
+    remove_outliers = True
     input_correlation_excel_file = "data/correlation_analysis.xlsx"
+    suffix_files = "_no_outliers" if remove_outliers else ""
 
     #aggregate # of warnings (ablation)
-    #input_file = f"data/raw_correlation_data_ablation.csv"
-    #output_folder = "scatter_plots_ablation"
+    input_file = f"data/raw_correlation_data_ablation.csv"
+    output_folder = f"scatter_plots_ablation{suffix_files}"
 
     #aggregate # of warnings (avg)
-    #input_file = f"data/raw_correlation_data_avg.csv"
-    #output_folder = "scatter_plots_avg"
+    input_file = f"data/raw_correlation_data_avg.csv"
+    output_folder = f"scatter_plots_avg{suffix_files}"
 
     #aggregate # of warnings (sum)
     input_file = f"data/raw_correlation_data.csv"
-    output_folder = "scatter_plots"
+    output_folder = f"scatter_plots{suffix_files}"
 
     # -----------------
 
@@ -190,9 +206,17 @@ if __name__ == "__main__":
 
         for key, group in data_by_dm:
              # select columns of interest
-            df = group[["metric_value", "#_of_warnings"]]
+            df = group[["metric_value", "#_of_warnings", "metric_type", "expected_cor"]]
+
             df["metric_value"] = list(map(lambda x: x.item(), df.iloc[:,0]))
             df["#_of_warnings"] = list(map(lambda x: x.item(), df.iloc[:,1]))
+            
+            #------------------------
+
+            if remove_outliers:
+                df = df[no_outliers(df["metric_value"])]
+
+            #------------------------
 
             #corr = df['metric_value'].corr(df["#_of_warnings"], method='kendall')
 
@@ -202,10 +226,10 @@ if __name__ == "__main__":
             dataset = key[0]
             metric = key[1]
             #all array values should be the same for each property
-            metric_type = group.metric_type.values[0]
-            expected_cor = group.expected_cor.values[0]
+            metric_type = df.metric_type.values[0]
+            expected_cor = df.expected_cor.values[0]
             expected_cor_short = "neg" if "negative" == expected_cor else "pos"
-            num_snippets_for_correlation = len(group)
+            num_snippets_for_correlation = len(df)
             kendalls_tau = corr
             kendalls_p_value = p_value
             expected_cor_test= "" if numpy.isnan(corr) else \
@@ -289,7 +313,7 @@ if __name__ == "__main__":
             ax1.text(right - h_gap, top - gap*3, 
                 f"Expected cor: {expected_cor_short}{expected_cor_test}", fontdict=graph_label)    
             ax1.text(right - h_gap, top - gap*4, 
-                '# of points: ' + str(len(df)), fontdict=graph_label)
+                '# of points: ' + str(num_snippets_for_correlation), fontdict=graph_label)
             ax1.text(right - h_gap, top - gap*5, 
                 'r squared: ' + format(r_value ** 2, '.2f'), fontdict=graph_label)
 
