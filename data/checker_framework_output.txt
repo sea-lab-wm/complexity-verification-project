@@ -41,7 +41,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#877 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#441 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -51,7 +51,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#185 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#743 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -2267,17 +2267,17 @@ Note: Recompile with -Xlint:unchecked for details.
 Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 85 warnings
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/isPalindrome.java:13: warning: [argument] incompatible argument for parameter index of charAt.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/isPalindrome.java:14: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^
   found   : @LowerBoundUnknown int
   required: @NonNegative int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/RecursiveBinaryToDecimal.java:15: warning: [argument] incompatible argument for parameter index of charAt.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/RecursiveBinaryToDecimal.java:16: warning: [argument] incompatible argument for parameter index of charAt.
         if (s.charAt(number) == '0'){
                      ^
   found   : @UpperBoundUnknown int
   required: @LTLengthOf("s") int
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:24: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/YesNo.java:25: warning: [return] incompatible types in return.
         return null;
                ^
   type of expression: null (NullType)
@@ -2307,12 +2307,12 @@ Note: Recompile with -Xlint:deprecation for details.
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:841: warning: [not.interned] attempting to use a non-@Interned comparison operand
                 && p.getTile().getSettlement() != inSettlement) {
                                                   ^
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:820: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-205 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:820: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-209 or any of its aliases.
             getWriter().println("There was " + result.getFailureCount() + " failure:");
                      ^
   The type of object is: java.io.PrintWriter.
   Reason for going out of scope: regular method exit
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:822: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-208 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:822: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-212 or any of its aliases.
             getWriter().println("There were " + result.getFailureCount() + " failures:");
                      ^
   The type of object is: java.io.PrintWriter.
@@ -2456,7 +2456,7 @@ Note: Recompile with -Xlint:deprecation for details.
                            ^
   The type of object is: java.io.ObjectOutputStream.
   Reason for going out of scope: regular method exit
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java:578: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-747 or any of its aliases.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java:578: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-751 or any of its aliases.
         ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(data));
                                                            ^
   The type of object is: java.io.FileOutputStream.

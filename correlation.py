@@ -580,6 +580,7 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
 
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
+        print(warningsPerSnippetPerDataset)
         return warningsPerSnippetPerDataset
 
     # Loop through the analysis tool output dataframes
