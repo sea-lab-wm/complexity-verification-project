@@ -174,6 +174,23 @@ def parseOpenJML(data, allSnippetNums):
                                 data["Warning Type"].append(warning.strip())
                                 break
                         break
+            elif "./" in line[:2] and line.split(".java:")[0].rsplit("/", 1)[1] in allSnippetNums[4]:
+                lineNum = int(line.split(".java:")[1].split(":")[0])
+                fileName = line.split(".java:")[0].rsplit("/", 1)[1]
+
+                snippetNums = allSnippetNums[4][fileName]
+    
+                for i in range(len(snippetNums) - 1):
+                    if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
+                        data["Snippet"].append(f"6 -- {str(i + 1)} -- {fileName}")
+                        warning = line.split(endSnippet)[1]
+
+                        if startWarning in warning and endWarning in warning:
+                            warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
+
+                        data["Warning Type"].append(warning.strip())
+
+                        break
             elif startSnippetCOG9 in line.split(".java:")[0] and endSnippet in line:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
 
