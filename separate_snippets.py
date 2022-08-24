@@ -34,15 +34,13 @@ def isolateAllSnippets():
 
     for i, val in enumerate(fMRIDatasetSnippets):
         fMRIDatasetSnippets[i] = val[0]
-    #fMRIDatasetSnippets = 
-    #print(fMRIDatasetSnippets)
+
     fMRIDatasetSnippetNames = {file:fMRIDatasetSnippets[i] for i, file in enumerate(inOrder)}
     allSnippets["dataset_f"] = fMRIDatasetSnippetNames
-    print(allSnippets["dataset_f"])
-    print("BANANANANANAN")
+
     # COG Dataset 1
     allSnippets["dataset_1"] = {f"S_{str(i)}":snippet for i, snippet in enumerate(isolateSnippets("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "SNIPPET_STARTS", "SNIPPETS_END"))}
-    print(allSnippets["dataset_1"])
+
     #COG Dataset 2
     allSnippets["dataset_2"] = {f"S_{str(i)}":snippet for i, snippet in enumerate(isolateSnippets("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java", "DATASET2START", "DATASET2END"))}
 
@@ -85,7 +83,6 @@ def writeIsolatedSnippets(allSnippets):
         for key2, value2 in value.items():
             #for snippet in value2:
             with open(f"{path}{key2}.java", "w") as file:
-                print(value2)
                 file.writelines(value2)
             
 
