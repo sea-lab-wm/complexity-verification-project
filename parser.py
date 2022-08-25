@@ -128,11 +128,13 @@ def parseOpenJML(data, allSnippetNums):
     # Delimeters with which to parse the warnings
     startSnippetfMRI = os.path.join("fMRI_Study_Classes", " ").strip()
     startSnippetCOG1 = os.path.join("cog_complexity_validation_datasets", "One", " ").strip()
+    startSnippetCOG3 = os.path.join("cog_complexity_validation_datasets", "Three").strip()
     startSnippetCOG9 = os.path.join(".", "CodeSnippets").strip()
     startSnippetCOG9 = os.path.join(".", " ").strip()
     endSnippet = "verify:"
     startWarning = "assertion"
     endWarning = "in method"
+    DS3TimeoutCount = 0
 
     for dataset in lines:
         for line in dataset:
@@ -174,6 +176,36 @@ def parseOpenJML(data, allSnippetNums):
                                 data["Warning Type"].append(warning.strip())
                                 break
                         break
+            elif startSnippetCOG3 in line.split(".java:")[0] and endSnippet in line:
+                lineNum = int(line.split(".java:")[1].split(":")[0])
+                fileName = line.split(".java:")[0].rsplit("/", 1)[1]
+
+                if fileName not in allSnippetNums[3]:
+                    continue
+
+                snippetNums = allSnippetNums[3][fileName]
+
+                addToI = 0
+                if fileName == "Tasks_2":
+                    addToI = len(allSnippetNums[3]["Tasks_1"]) - 1
+                elif fileName == "Tasks_3":
+                    addToI = len(allSnippetNums[3]["Tasks_1"]) - 1
+                    addToI += len(allSnippetNums[3]["Tasks_2"]) - 1
+
+                for i in range(len(snippetNums) - 1):
+                    if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
+                        if "timeout" in line:
+                            DS3TimeoutCount += 1
+                            break
+
+                        data["Snippet"].append(f"3 -- {str(i + 1 + addToI)}")
+                        warning = line.split(endSnippet)[1]
+
+                        if startWarning in warning and endWarning in warning:
+                            warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
+
+                        data["Warning Type"].append(warning.strip())
+                        break
             elif "./" in line[:2] and line.split(".java:")[0].rsplit("/", 1)[1] in allSnippetNums[4]:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
                 fileName = line.split(".java:")[0].rsplit("/", 1)[1]
@@ -205,6 +237,7 @@ def parseOpenJML(data, allSnippetNums):
                         data["Warning Type"].append(warning.strip())
                         break
 
+    print(DS3TimeoutCount)
     return ("openjml_data", data)
 
 
