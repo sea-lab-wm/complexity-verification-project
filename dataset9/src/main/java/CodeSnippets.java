@@ -32,7 +32,7 @@ public class CodeSnippets {
 
     //ADDED BY KOBI
     public void runAll() {
-        HttpServletRequest h = new HttpServletRequest() {
+        /*HttpServletRequest h = new HttpServletRequest() {
             @Override
             public AsyncContext getAsyncContext() {
                 // TODO Auto-generated method stub
@@ -373,14 +373,14 @@ public class CodeSnippets {
                 // TODO Auto-generated method stub
                 return null;
             }
-        };
+        };*/
 
-        logAndEmailSeriousProblemS111(new Throwable(), h);
+        /*logAndEmailSeriousProblemS111(new Throwable(), h);
         logAndEmailSeriousProblemS112(new Throwable(), h);
         logAndEmailSeriousProblemS113(new Throwable(), h);
         logAndEmailSeriousProblemS121(new Throwable(), h);
         logAndEmailSeriousProblemS122(new Throwable(), h);
-        logAndEmailSeriousProblemS123(new Throwable(), h);
+        logAndEmailSeriousProblemS123(new Throwable(), h);*/
 
         apply211(new Project(), new NotificationStore());
         apply212(new Project(), new NotificationStore());
