@@ -1,19 +1,496 @@
-dataset9/src/main/java/CodeSnippets.java:61: error: method does not override or implement a method from a supertype
-            @Override
+dataset9/src/main/java/CodeSnippets.java:1845: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.USegment}
+            return null;
             ^
-dataset9/src/main/java/CodeSnippets.java:223: error: method does not override or implement a method from a supertype
-            @Override
+dataset9/src/main/java/CodeSnippets.java:1835: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UImage}
+            return null;
             ^
-dataset9/src/main/java/CodeSnippets.java:371: error: method does not override or implement a method from a supertype
-            @Override
+dataset9/src/main/java/CodeSnippets.java:1815: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Path}
+            return null;
             ^
-dataset9/src/main/java/CodeSnippets.java:31: warning: type.checking.not.run
-public class CodeSnippets {
-       ^
-dataset9/src/main/java/Main.java:1: warning: type.checking.not.run
-public class Main {
-       ^
-Note: dataset9/src/main/java/CodeSnippets.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-3 errors
-2 warnings
+dataset9/src/main/java/CodeSnippets.java:1809: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UChildren}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1803: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.BoxModelOption}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1799: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UParagraph}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1779: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UColor}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1775: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UColor}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1751: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.BoxModelOption}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1747: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1684: warning: Incompatible return value: cannot cast from Null to Shared{java.util.Iterator}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1693: warning: Parameter [o] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.lang.Object})
+        public boolean add(Object o) {
+                       ^
+dataset9/src/main/java/CodeSnippets.java:1713: warning: Parameter [o] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.lang.Object})
+        public boolean equals(Object o) {
+                       ^
+dataset9/src/main/java/CodeSnippets.java:1713: warning: Parameter [o] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.lang.Object})
+        public boolean equals(Object o) {
+                       ^
+dataset9/src/main/java/CodeSnippets.java:1662: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.NotificationComposite}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1656: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.NotificationList}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1647: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Value}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1637: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.StoreProperty}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1631: warning: Incompatible return value: cannot cast from Null to Shared{java.util.Collection}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1621: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.PropertyManager}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1615: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.ProjectSpace}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1581: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Extent}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1572: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Bounds}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1560: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.TimeTakenForMove}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1637: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.StoreProperty}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1647: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Value}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1112: warning: Cannot call append on null
+    builder.append(moveNumber).append(move.isWhitesMove() ? ". " : "... ").
+                                                                          ^
+dataset9/src/main/java/CodeSnippets.java:713: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1560: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.TimeTakenForMove}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:512: warning: Cannot call setAttribute on null
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+           ^
+dataset9/src/main/java/CodeSnippets.java:528: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe("TOP LEVEL CATCHING Throwable.");
+    ^
+dataset9/src/main/java/CodeSnippets.java:536: warning: Cannot access [CodeSnippets.MOST_RECENT_TROUBLE_TICKET]
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                         ^
+dataset9/src/main/java/CodeSnippets.java:1219: warning: Cannot call getText on null
+    builder.append(comment.getText());
+                          ^
+dataset9/src/main/java/CodeSnippets.java:529: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe(troubleTicket.toString());
+    ^
+dataset9/src/main/java/CodeSnippets.java:654: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.setLocalProperty(NOTIFICATION_COMPOSITE, nComposite);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1127: warning: Cannot call getNagString on null
+    builder.append(" ").append(nag.getNagString());
+                                  ^
+dataset9/src/main/java/CodeSnippets.java:1515: warning: Cannot access [bounds.width]
+    int maxWidth = bounds.width - 5;
+                         ^
+dataset9/src/main/java/CodeSnippets.java:825: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.setLocalProperty(NOTIFICATION_COMPOSITE, nComposite);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1156: warning: Cannot call append on null
+    builder.append(" {").append(comment.getText()).append("}");
+                                                  ^
+dataset9/src/main/java/CodeSnippets.java:1747: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1186: warning: Cannot call append on null
+    builder.append(" {").append(comment.getText()).append("}");
+                                                  ^
+dataset9/src/main/java/CodeSnippets.java:424: warning: Cannot assign because [this.MOST_RECENT_TROUBLE_TICKET] is not accessible here
+    public static final String MOST_RECENT_TROUBLE_TICKET = "web4j_key_for_most_recent_trouble_ticket";
+                               ^
+dataset9/src/main/java/CodeSnippets.java:1118: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.SublineNode} | Null to Shared{CodeSnippets.SublineNode}
+    appendSubline(builder, subline);
+                           ^
+dataset9/src/main/java/CodeSnippets.java:1091: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.Cell} | Null to Shared{CodeSnippets.Cell}
+    table.addCell(cell);
+                  ^
+dataset9/src/main/java/CodeSnippets.java:1291: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.SublineNode} | Null to Shared{CodeSnippets.SublineNode}
+    appendSubline(builder, subline);
+                           ^
+dataset9/src/main/java/CodeSnippets.java:1513: warning: Cannot access [extent.x]
+    int maxExtent = extent.x;
+                          ^
+dataset9/src/main/java/CodeSnippets.java:446: warning: Cannot call getServletContext on null
+    aRequest.getSession().getServletContext().
+                         ^
+dataset9/src/main/java/CodeSnippets.java:464: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe(troubleTicket.toString());
+    ^
+dataset9/src/main/java/CodeSnippets.java:673: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:874: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.Cell} | Null to Shared{CodeSnippets.Cell}
+    table.addCell(cell);
+                  ^
+dataset9/src/main/java/CodeSnippets.java:1002: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.Cell} | Null to Shared{CodeSnippets.Cell}
+    table.addCell(cell);
+                  ^
+dataset9/src/main/java/CodeSnippets.java:1615: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.ProjectSpace}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:607: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.setLocalProperty(NOTIFICATION_COMPOSITE, nComposite);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1400: warning: Cannot access [textExtent(gc, textValue).x]
+    int maxExtent = gc.textExtent(textValue).x;
+                                            ^
+dataset9/src/main/java/CodeSnippets.java:1476: warning: Cannot access [bounds.width]
+    int maxWidth = bounds.width - 5;
+                         ^
+dataset9/src/main/java/CodeSnippets.java:1182: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.SublineNode} | Null to Shared{CodeSnippets.SublineNode}
+    appendSubline(builder, subline);
+                           ^
+dataset9/src/main/java/CodeSnippets.java:1191: warning: Cannot call append on null
+    builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+                        ^
+dataset9/src/main/java/CodeSnippets.java:536: warning: Cannot call setAttribute on null
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+           ^
+dataset9/src/main/java/CodeSnippets.java:556: warning: Cannot call setAttribute on null
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+           ^
+dataset9/src/main/java/CodeSnippets.java:977: warning: Cannot call getContent on null
+    UParagraph paragraph = uCell.getContent();
+                                ^
+dataset9/src/main/java/CodeSnippets.java:1213: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.SublineNode} | Null to Shared{CodeSnippets.SublineNode}
+    appendSubline(builder, subline);
+                           ^
+dataset9/src/main/java/CodeSnippets.java:425: warning: Cannot access [CodeSnippets.class]
+    private static final Logger fLogger = Util.getLogger(CodeSnippets.class);
+                                                                     ^
+dataset9/src/main/java/CodeSnippets.java:1385: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+    return null; // Had to be added to allow compilation
+    ^
+dataset9/src/main/java/CodeSnippets.java:1186: warning: Cannot call getText on null
+    builder.append(" {").append(comment.getText()).append("}");
+                                       ^
+dataset9/src/main/java/CodeSnippets.java:1156: warning: Cannot call append on null
+    builder.append(" {").append(comment.getText()).append("}");
+                        ^
+dataset9/src/main/java/CodeSnippets.java:440: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe("TOP LEVEL CATCHING Throwable.");
+    ^
+dataset9/src/main/java/CodeSnippets.java:555: warning: Cannot call getServletContext on null
+    ServletContext context = session.getServletContext();
+                                    ^
+dataset9/src/main/java/CodeSnippets.java:1130: warning: Cannot call append on null
+    builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+                                                                     ^
+dataset9/src/main/java/CodeSnippets.java:1123: warning: Cannot call getText on null
+    builder.append(" {").append(comment.getText()).append("}");
+                                       ^
+dataset9/src/main/java/CodeSnippets.java:1779: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UColor}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1775: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UColor}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1581: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Extent}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1348: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+    return null; // Had to be added to allow compilation
+    ^
+dataset9/src/main/java/CodeSnippets.java:1145: warning: Cannot call append on null
+    builder.append(moveNumber).append(move.isWhitesMove() ? ". " : "... ").
+                                                                          ^
+dataset9/src/main/java/CodeSnippets.java:446: warning: Cannot call setAttribute on null
+    aRequest.getSession().getServletContext().
+                                             ^
+dataset9/src/main/java/CodeSnippets.java:1572: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Bounds}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1189: warning: Cannot call getNagString on null
+    builder.append(" ").append(nag.getNagString());
+                                  ^
+dataset9/src/main/java/CodeSnippets.java:1621: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.PropertyManager}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1123: warning: Cannot call append on null
+    builder.append(" {").append(comment.getText()).append("}");
+                                                  ^
+dataset9/src/main/java/CodeSnippets.java:1253: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.SublineNode} | Null to Shared{CodeSnippets.SublineNode}
+    appendSubline(builder, subline);
+                           ^
+dataset9/src/main/java/CodeSnippets.java:1326: warning: Cannot access [textExtent(gc, textValue).x]
+    int maxExtent = gc.textExtent(textValue).x;
+                                            ^
+dataset9/src/main/java/CodeSnippets.java:427: warning: Cannot assign because [this.NOTIFICATION_COMPOSITE] is not accessible here
+    private static final String NOTIFICATION_COMPOSITE = "";
+                                ^
+dataset9/src/main/java/CodeSnippets.java:483: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe("TOP LEVEL CATCHING Throwable.");
+    ^
+dataset9/src/main/java/CodeSnippets.java:692: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.setLocalProperty(NOTIFICATION_COMPOSITE, nComposite);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1070: warning: Cannot call getContent on null
+    UParagraph paragraph = uCell.getContent();
+                                ^
+dataset9/src/main/java/CodeSnippets.java:426: warning: Cannot assign because [this.ELLIPSIS] is not accessible here
+    private static final String ELLIPSIS = "";
+                                ^
+dataset9/src/main/java/CodeSnippets.java:512: warning: Cannot access [CodeSnippets.MOST_RECENT_TROUBLE_TICKET]
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                         ^
+dataset9/src/main/java/CodeSnippets.java:1186: warning: Cannot call append on null
+    builder.append(" {").append(comment.getText()).append("}");
+                        ^
+dataset9/src/main/java/CodeSnippets.java:1127: warning: Cannot call append on null
+    builder.append(" ").append(nag.getNagString());
+                       ^
+dataset9/src/main/java/CodeSnippets.java:896: warning: Cannot call getContent on null
+    UParagraph paragraph = uCell.getContent();
+                                ^
+dataset9/src/main/java/CodeSnippets.java:484: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe(troubleTicket.toString());
+    ^
+dataset9/src/main/java/CodeSnippets.java:487: warning: Cannot call getServletContext on null
+    aRequest.getSession().getServletContext().
+                         ^
+dataset9/src/main/java/CodeSnippets.java:1845: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.USegment}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1177: warning: Cannot call append on null
+    builder.append(moveNumber).append(move.isWhitesMove() ? ". " : "... ").
+                                                                          ^
+dataset9/src/main/java/CodeSnippets.java:1259: warning: Cannot call getText on null
+    builder.append(comment.getText());
+                          ^
+dataset9/src/main/java/CodeSnippets.java:1296: warning: Cannot call getText on null
+    builder.append(comment.getText());
+                          ^
+dataset9/src/main/java/CodeSnippets.java:1365: warning: Cannot access [getBounds(control).width]
+    int maxWidth = control.getBounds().width - 5;
+                                      ^
+dataset9/src/main/java/CodeSnippets.java:1474: warning: Cannot access [extent.x]
+    int maxExtent = extent.x;
+                          ^
+dataset9/src/main/java/CodeSnippets.java:1160: warning: Cannot call getNagString on null
+    builder.append(" ").append(nag.getNagString());
+                                  ^
+dataset9/src/main/java/CodeSnippets.java:1803: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.BoxModelOption}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1225: warning: Cannot call getNagString on null
+    builder.append(nag.getNagString());
+                      ^
+dataset9/src/main/java/CodeSnippets.java:1265: warning: Cannot call getNagString on null
+    builder.append(nag.getNagString());
+                      ^
+dataset9/src/main/java/CodeSnippets.java:1123: warning: Cannot call append on null
+    builder.append(" {").append(comment.getText()).append("}");
+                        ^
+dataset9/src/main/java/CodeSnippets.java:535: warning: Cannot call getServletContext on null
+    ServletContext context = session.getServletContext();
+                                    ^
+dataset9/src/main/java/CodeSnippets.java:740: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.setLocalProperty(NOTIFICATION_COMPOSITE, nComposite);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1815: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.Path}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1457: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+    return null; // Had to be added to allow compilation
+    ^
+dataset9/src/main/java/CodeSnippets.java:1809: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UChildren}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:463: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe("TOP LEVEL CATCHING Throwable.");
+    ^
+dataset9/src/main/java/CodeSnippets.java:787: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.setLocalProperty(NOTIFICATION_COMPOSITE, nComposite);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:447: warning: Cannot access [CodeSnippets.MOST_RECENT_TROUBLE_TICKET]
+    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                 ^
+dataset9/src/main/java/CodeSnippets.java:550: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe("TOP LEVEL CATCHING Throwable.");
+    ^
+dataset9/src/main/java/CodeSnippets.java:425: warning: Cannot assign because [this.fLogger] is not accessible here
+    private static final Logger fLogger = Util.getLogger(CodeSnippets.class);
+                                ^
+dataset9/src/main/java/CodeSnippets.java:1151: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.SublineNode} | Null to Shared{CodeSnippets.SublineNode}
+    appendSubline(builder, subline);
+                           ^
+dataset9/src/main/java/CodeSnippets.java:505: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe(troubleTicket.toString());
+    ^
+dataset9/src/main/java/CodeSnippets.java:806: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1163: warning: Cannot call append on null
+    builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+                                                                     ^
+dataset9/src/main/java/CodeSnippets.java:1433: warning: Cannot access [extent.x]
+    int maxExtent = extent.x;
+                          ^
+dataset9/src/main/java/CodeSnippets.java:580: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:761: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1835: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UImage}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:469: warning: Cannot call setAttribute on null
+    aRequest.getSession().getServletContext().
+                                             ^
+dataset9/src/main/java/CodeSnippets.java:1656: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.NotificationList}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:470: warning: Cannot access [CodeSnippets.MOST_RECENT_TROUBLE_TICKET]
+    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                 ^
+dataset9/src/main/java/CodeSnippets.java:1327: warning: Cannot access [getBounds(control).width]
+    int maxWidth = control.getBounds().width - 5;
+                                      ^
+dataset9/src/main/java/CodeSnippets.java:1024: warning: Cannot call getContent on null
+    UParagraph paragraph = uCell.getContent();
+                                ^
+dataset9/src/main/java/CodeSnippets.java:487: warning: Cannot call setAttribute on null
+    aRequest.getSession().getServletContext().
+                                             ^
+dataset9/src/main/java/CodeSnippets.java:955: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.Cell} | Null to Shared{CodeSnippets.Cell}
+    table.addCell(cell);
+                  ^
+dataset9/src/main/java/CodeSnippets.java:441: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe(troubleTicket.toString());
+    ^
+dataset9/src/main/java/CodeSnippets.java:1751: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.BoxModelOption}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1631: warning: Incompatible return value: cannot cast from Null to Shared{java.util.Collection}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1401: warning: Cannot access [getBounds(control).width]
+    int maxWidth = control.getBounds().width - 5;
+                                      ^
+dataset9/src/main/java/CodeSnippets.java:1497: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+    return null; // Had to be added to allow compilation
+    ^
+dataset9/src/main/java/CodeSnippets.java:1799: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.UParagraph}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:556: warning: Cannot access [CodeSnippets.MOST_RECENT_TROUBLE_TICKET]
+    context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                         ^
+dataset9/src/main/java/CodeSnippets.java:1177: warning: Cannot call append on null
+    builder.append(moveNumber).append(move.isWhitesMove() ? ". " : "... ").
+                              ^
+dataset9/src/main/java/CodeSnippets.java:628: warning: Cannot access [CodeSnippets.NOTIFICATION_COMPOSITE]
+    manager.getLocalProperty(NOTIFICATION_COMPOSITE);
+                             ^
+dataset9/src/main/java/CodeSnippets.java:1145: warning: Cannot call append on null
+    builder.append(moveNumber).append(move.isWhitesMove() ? ". " : "... ").
+                              ^
+dataset9/src/main/java/CodeSnippets.java:938: warning: Cannot call getContent on null
+    UParagraph paragraph = uCell.getContent();
+                                ^
+dataset9/src/main/java/CodeSnippets.java:1130: warning: Cannot call append on null
+    builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+                        ^
+dataset9/src/main/java/CodeSnippets.java:1189: warning: Cannot call append on null
+    builder.append(" ").append(nag.getNagString());
+                       ^
+dataset9/src/main/java/CodeSnippets.java:1050: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.Cell} | Null to Shared{CodeSnippets.Cell}
+    table.addCell(cell);
+                  ^
+dataset9/src/main/java/CodeSnippets.java:1364: warning: Cannot access [textExtent(gc, textValue).x]
+    int maxExtent = gc.textExtent(textValue).x;
+                                            ^
+dataset9/src/main/java/CodeSnippets.java:1684: warning: Incompatible return value: cannot cast from Null to Shared{java.util.Iterator}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1163: warning: Cannot call append on null
+    builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+                        ^
+dataset9/src/main/java/CodeSnippets.java:853: warning: Cannot call getContent on null
+    UParagraph paragraph = uCell.getContent();
+                                ^
+dataset9/src/main/java/CodeSnippets.java:1160: warning: Cannot call append on null
+    builder.append(" ").append(nag.getNagString());
+                       ^
+dataset9/src/main/java/CodeSnippets.java:1417: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+    return null; // Had to be added to allow compilation
+    ^
+dataset9/src/main/java/CodeSnippets.java:504: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe("TOP LEVEL CATCHING Throwable.");
+    ^
+dataset9/src/main/java/CodeSnippets.java:1435: warning: Cannot access [bounds.width]
+    int maxWidth = bounds.width - 5;
+                         ^
+dataset9/src/main/java/CodeSnippets.java:1112: warning: Cannot call append on null
+    builder.append(moveNumber).append(move.isWhitesMove() ? ". " : "... ").
+                              ^
+dataset9/src/main/java/CodeSnippets.java:551: warning: Cannot access [CodeSnippets.fLogger]
+    fLogger.severe(troubleTicket.toString());
+    ^
+dataset9/src/main/java/CodeSnippets.java:1156: warning: Cannot call getText on null
+    builder.append(" {").append(comment.getText()).append("}");
+                                       ^
+dataset9/src/main/java/CodeSnippets.java:1532: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+    return null; // Had to be added to allow compilation
+    ^
+dataset9/src/main/java/CodeSnippets.java:918: warning: Incompatible parameter: cannot cast from Shared{CodeSnippets.Cell} | Null to Shared{CodeSnippets.Cell}
+    table.addCell(cell);
+                  ^
+dataset9/src/main/java/CodeSnippets.java:469: warning: Cannot call getServletContext on null
+    aRequest.getSession().getServletContext().
+                         ^
+dataset9/src/main/java/CodeSnippets.java:1662: warning: Incompatible return value: cannot cast from Null to Shared{CodeSnippets.NotificationComposite}
+            return null;
+            ^
+dataset9/src/main/java/CodeSnippets.java:1191: warning: Cannot call append on null
+    builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
+                                                                     ^
+dataset9/src/main/java/CodeSnippets.java:488: warning: Cannot access [CodeSnippets.MOST_RECENT_TROUBLE_TICKET]
+    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                 ^
+dataset9/src/main/java/CodeSnippets.java:1301: warning: Cannot call getNagString on null
+    builder.append(nag.getNagString());
+                      ^
+dataset9/src/main/java/CodeSnippets.java:511: warning: Cannot call getServletContext on null
+    ServletContext context = session.getServletContext();
+                                    ^
+dataset9/src/main/java/CodeSnippets.java:427: warning: The previous value of [this.NOTIFICATION_COMPOSITE] did not complete its protocol (found: Unknown)
+    private static final String NOTIFICATION_COMPOSITE = "";
+                                ^
+dataset9/src/main/java/CodeSnippets.java:426: warning: The previous value of [this.ELLIPSIS] did not complete its protocol (found: Unknown)
+    private static final String ELLIPSIS = "";
+                                ^
+dataset9/src/main/java/CodeSnippets.java:425: warning: The previous value of [this.fLogger] did not complete its protocol (found: Unknown)
+    private static final Logger fLogger = Util.getLogger(CodeSnippets.class);
+                                ^
+dataset9/src/main/java/CodeSnippets.java:424: warning: The previous value of [this.MOST_RECENT_TROUBLE_TICKET] did not complete its protocol (found: Unknown)
+    public static final String MOST_RECENT_TROUBLE_TICKET = "web4j_key_for_most_recent_trouble_ticket";
+                               ^
+165 warnings
