@@ -71,7 +71,7 @@ def no_outliers(data):
 if __name__ == "__main__":
     # -----------------
 
-    remove_outliers = True
+    remove_outliers = False
     input_correlation_excel_file = "data/correlation_analysis.xlsx"
     suffix_files = "_no_outliers" if remove_outliers else ""
 
@@ -80,12 +80,12 @@ if __name__ == "__main__":
     output_folder = f"scatter_plots_ablation{suffix_files}"
 
     #aggregate # of warnings (avg)
-    input_file = f"data/raw_correlation_data_avg.csv"
-    output_folder = f"scatter_plots_avg{suffix_files}"
+    #input_file = f"data/raw_correlation_data_avg.csv"
+    #output_folder = f"scatter_plots_avg{suffix_files}"
 
     #aggregate # of warnings (sum)
-    input_file = f"data/raw_correlation_data.csv"
-    output_folder = f"scatter_plots{suffix_files}"
+    #input_file = f"data/raw_correlation_data.csv"
+    #output_folder = f"scatter_plots{suffix_files}"
 
     # -----------------
 
@@ -94,6 +94,8 @@ if __name__ == "__main__":
 
     #read data
     data = pd.read_csv(input_file)
+
+    
     
     #read data for metric types
     correlation_data = pd.read_excel(input_correlation_excel_file, sheet_name="all_tools")
@@ -108,6 +110,9 @@ if __name__ == "__main__":
     #convert to best possible datatypes
     data = data.convert_dtypes()
     ds_metrics = ds_metrics.convert_dtypes(infer_objects=False)
+
+    #keep only DS9 with no comments
+    data = data[(data.dataset != "9_gc") & (data.dataset != "9_bc")]
 
     #assign metric type to data
     data = data.merge(ds_metrics, on=['dataset','metric'], how='left')

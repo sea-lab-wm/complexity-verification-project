@@ -14,6 +14,9 @@ if __name__ == "__main__":
 
     data_indiv_tools = data[data["tool"] != "all_tools"]
 
+    #keep only DS9 with no comments
+    data_indiv_tools = data_indiv_tools[(data_indiv_tools.dataset != "9_gc") & (data_indiv_tools.dataset != "9_bc")]
+
     data_by_dsmt = data_indiv_tools.groupby(["dataset", "snippet", "metric"])
     
     #----------

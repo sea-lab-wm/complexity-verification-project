@@ -72,7 +72,11 @@ run_meta_analysis <- function(data_file_in, sheet_in){
                                  "kendalls_tau",
                                  "kendalls_p_value", 
                                  "expected_cor", "expected_cor"))                      
-  all_data2 = subset(all_data2, !is.na(all_data2[,5]))
+  all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
+
+
+  #keep only DS9 with no comments
+  all_data2 = subset(all_data2, (dataset_id != "9_gc") & (dataset_id != "9_bc"))
   
   #rename columns
   # colnames(all_data2) <- c('dataset_id','metric_type',
