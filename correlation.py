@@ -141,11 +141,21 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     dfDictCorrelationDatapoints[("time_to_understand", 6)] = cogDataset6Datapoints[2]
 
     # Compile datapoints for the COG Dataset 9 Study
-    cogDataset9Datapoints = setCogDataset9Datapoints(warningsPerSnippetPerDataset["9"], copy.deepcopy(data))
-    dfDictCorrelationDatapoints[("gap_accuracy", 9)] = cogDataset9Datapoints[0]
-    dfDictCorrelationDatapoints[("readability_level_before", 9)] = cogDataset9Datapoints[1]
-    dfDictCorrelationDatapoints[("readability_level_ba", 9)] = cogDataset9Datapoints[2]
-    dfDictCorrelationDatapoints[("time_to_read_complete", 9)] = cogDataset9Datapoints[3]
+    cogDataset9Datapoints = setCogDataset9Datapoints(warningsPerSnippetPerDataset, copy.deepcopy(data))
+    dfDictCorrelationDatapoints[("gap_accuracy", "9_gc")] = cogDataset9Datapoints["9_gc"][0]
+    dfDictCorrelationDatapoints[("readability_level_before", "9_gc")] = cogDataset9Datapoints["9_gc"][1]
+    dfDictCorrelationDatapoints[("readability_level_ba", "9_gc")] = cogDataset9Datapoints["9_gc"][2]
+    dfDictCorrelationDatapoints[("time_to_read_complete", "9_gc")] = cogDataset9Datapoints["9_gc"][3]
+
+    dfDictCorrelationDatapoints[("gap_accuracy", "9_bc")] = cogDataset9Datapoints["9_bc"][0]
+    dfDictCorrelationDatapoints[("readability_level_before", "9_bc")] = cogDataset9Datapoints["9_bc"][1]
+    dfDictCorrelationDatapoints[("readability_level_ba", "9_bc")] = cogDataset9Datapoints["9_bc"][2]
+    dfDictCorrelationDatapoints[("time_to_read_complete", "9_bc")] = cogDataset9Datapoints["9_bc"][3]
+
+    dfDictCorrelationDatapoints[("gap_accuracy", "9_nc")] = cogDataset9Datapoints["9_nc"][0]
+    dfDictCorrelationDatapoints[("readability_level_before", "9_nc")] = cogDataset9Datapoints["9_nc"][1]
+    dfDictCorrelationDatapoints[("readability_level_ba", "9_nc")] = cogDataset9Datapoints["9_nc"][2]
+    dfDictCorrelationDatapoints[("time_to_read_complete", "9_nc")] = cogDataset9Datapoints["9_nc"][3]
 
     # Compile datapoints for the fMRI Study
     fmriDatapoints = setFMRIStudyDatapoints(warningsPerSnippetPerDataset["f"], data)
@@ -215,23 +225,59 @@ def setCogDataset6Datapoints(warningsPerSnippet, data):
 
     return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating), pd.DataFrame(dataTime))
 
-def setCogDataset9Datapoints(warningsPerSnippet, data):
-    dataCorrectness = copy.deepcopy(data)
-    dataRatingBefore = copy.deepcopy(data)
-    dataRatingBA = copy.deepcopy(data)
-    dataTime = copy.deepcopy(data)
+def setCogDataset9Datapoints(warningsPerSnippetPerDataset, data):
+    print(warningsPerSnippetPerDataset["9_gc"])
+    print(warningsPerSnippetPerDataset["9_bc"])
+    print(warningsPerSnippetPerDataset["9_nc"])
+    if warningsPerSnippetPerDataset["9_gc"] != warningsPerSnippetPerDataset["9_bc"] or warningsPerSnippetPerDataset["9_bc"] != warningsPerSnippetPerDataset["9_nc"] or warningsPerSnippetPerDataset["9_gc"] != warningsPerSnippetPerDataset["9_nc"]:
+        raise Exception("Inconsistency in warnings per snippet for Dataset 9!")
+
+    dataCorrectness_GC = copy.deepcopy(data)
+    dataRatingBefore_GC = copy.deepcopy(data)
+    dataRatingBA_GC = copy.deepcopy(data)
+    dataTime_GC = copy.deepcopy(data)
+    dataCorrectness_BC = copy.deepcopy(data)
+    dataRatingBefore_BC = copy.deepcopy(data)
+    dataRatingBA_BC = copy.deepcopy(data)
+    dataTime_BC = copy.deepcopy(data)
+    dataCorrectness_NC = copy.deepcopy(data)
+    dataRatingBefore_NC = copy.deepcopy(data)
+    dataRatingBA_NC = copy.deepcopy(data)
+    dataTime_NC = copy.deepcopy(data)
     metrics = readCOGDataset9StudyMetrics()
 
-    dataCorrectness["Metric"] = metrics[0]
-    dataCorrectness["Warning Count"] = warningsPerSnippet
-    dataRatingBefore["Metric"] = metrics[1]
-    dataRatingBefore["Warning Count"] = warningsPerSnippet
-    dataRatingBA["Metric"] = metrics[2]
-    dataRatingBA["Warning Count"] = warningsPerSnippet
-    dataTime["Metric"] = metrics[3]
-    dataTime["Warning Count"] = warningsPerSnippet
+    dataCorrectness_GC["Metric"] = metrics[0]
+    dataCorrectness_GC["Warning Count"] = warningsPerSnippetPerDataset["9_gc"]
+    dataRatingBefore_GC["Metric"] = metrics[1]
+    dataRatingBefore_GC["Warning Count"] = warningsPerSnippetPerDataset["9_gc"]
+    dataRatingBA_GC["Metric"] = metrics[2]
+    dataRatingBA_GC["Warning Count"] = warningsPerSnippetPerDataset["9_gc"]
+    dataTime_GC["Metric"] = metrics[3]
+    dataTime_GC["Warning Count"] = warningsPerSnippetPerDataset["9_gc"]
+    dataCorrectness_BC["Metric"] = metrics[4]
+    dataCorrectness_BC["Warning Count"] = warningsPerSnippetPerDataset["9_bc"]
+    dataRatingBefore_BC["Metric"] = metrics[5]
+    dataRatingBefore_BC["Warning Count"] = warningsPerSnippetPerDataset["9_bc"]
+    dataRatingBA_BC["Metric"] = metrics[6]
+    dataRatingBA_BC["Warning Count"] = warningsPerSnippetPerDataset["9_bc"]
+    dataTime_BC["Metric"] = metrics[7]
+    dataTime_BC["Warning Count"] = warningsPerSnippetPerDataset["9_bc"]
+    dataCorrectness_NC["Metric"] = metrics[8]
+    dataCorrectness_NC["Warning Count"] = warningsPerSnippetPerDataset["9_nc"]
+    dataRatingBefore_NC["Metric"] = metrics[9]
+    dataRatingBefore_NC["Warning Count"] = warningsPerSnippetPerDataset["9_nc"]
+    dataRatingBA_NC["Metric"] = metrics[10]
+    dataRatingBA_NC["Warning Count"] = warningsPerSnippetPerDataset["9_nc"]
+    dataTime_NC["Metric"] = metrics[11]
+    dataTime_NC["Warning Count"] = warningsPerSnippetPerDataset["9_nc"]
 
-    return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRatingBefore), pd.DataFrame(dataRatingBA), pd.DataFrame(dataTime))
+    results = {
+        "9_gc": (pd.DataFrame(dataCorrectness_GC), pd.DataFrame(dataRatingBefore_GC), pd.DataFrame(dataRatingBA_GC), pd.DataFrame(dataTime_GC)),
+        "9_bc": (pd.DataFrame(dataCorrectness_BC), pd.DataFrame(dataRatingBefore_BC), pd.DataFrame(dataRatingBA_BC), pd.DataFrame(dataTime_BC)),
+        "9_nc": (pd.DataFrame(dataCorrectness_NC), pd.DataFrame(dataRatingBefore_NC), pd.DataFrame(dataRatingBA_NC), pd.DataFrame(dataTime_NC))
+    }
+
+    return results
 
 def setFMRIStudyDatapoints(warningsPerSnippet, data):
     dataCorrectness = copy.deepcopy(data)
@@ -369,12 +415,21 @@ def readCOGDataset6StudyMetrics():
     return (correctness, rating, times)
 
 # Reads the results of the cog data set 9 study. It contains 104 participants and 30 unique snippets (5 snippets each with varying quality of comments).
-# Time, correctness, and rating were measured.
+# Correlation data is split into 3 categories of 10 snippets each: Good comments, bad comments, and no comments. Then further split into the metrics:
+# Time, correctness, and rating.
 def readCOGDataset9StudyMetrics():
-    times = []
-    correctness = []
-    ratingBA = []
-    ratingBefore = []
+    times_GC = []
+    correctness_GC = []
+    ratingBA_GC = []
+    ratingBefore_GC = []
+    times_BC = []
+    correctness_BC = []
+    ratingBA_BC = []
+    ratingBefore_BC = []
+    times_NC = []
+    correctness_NC = []
+    ratingBA_NC = []
+    ratingBefore_NC = []
 
     df = pd.read_excel("data/cog_dataset_9.xlsx")
 
@@ -390,10 +445,21 @@ def readCOGDataset9StudyMetrics():
 
         if row[19] != lastSnippet and row[0] != 0:
             # Moved onto new snippet. Get averages for previous snippet.
-            times.append(sumTime / (participantsPerSnippet * 2))
-            correctness.append(sumCorrectness / participantsPerSnippet)
-            ratingBA.append(sumRatingBA / (participantsPerSnippet * 2))
-            ratingBefore.append(sumRatingBefore / participantsPerSnippet)
+            if "1" in lastSnippet.split(":")[1]:
+                times_GC.append(sumTime / (participantsPerSnippet * 2))
+                correctness_GC.append(sumCorrectness / participantsPerSnippet)
+                ratingBA_GC.append(sumRatingBA / (participantsPerSnippet * 2))
+                ratingBefore_GC.append(sumRatingBefore / participantsPerSnippet)
+            elif "2" in lastSnippet.split(":")[1]:
+                times_BC.append(sumTime / (participantsPerSnippet * 2))
+                correctness_BC.append(sumCorrectness / participantsPerSnippet)
+                ratingBA_BC.append(sumRatingBA / (participantsPerSnippet * 2))
+                ratingBefore_BC.append(sumRatingBefore / participantsPerSnippet)
+            elif "3" in lastSnippet.split(":")[1]:
+                times_NC.append(sumTime / (participantsPerSnippet * 2))
+                correctness_NC.append(sumCorrectness / participantsPerSnippet)
+                ratingBA_NC.append(sumRatingBA / (participantsPerSnippet * 2))
+                ratingBefore_NC.append(sumRatingBefore / participantsPerSnippet)
 
             sumTime = 0
             sumCorrectness = 0
@@ -411,15 +477,16 @@ def readCOGDataset9StudyMetrics():
         lastSnippet = row[19]
 
     # Get averages for last snippet
-    times.append(sumTime / (participantsPerSnippet * 2))
-    correctness.append(sumCorrectness / participantsPerSnippet)
-    ratingBA.append(sumRatingBA / (participantsPerSnippet * 2))
-    ratingBefore.append(sumRatingBefore / participantsPerSnippet)
+    # *Note: the last snippet in the csv we are iterating through above happens to contain no comments which is why we only compute averages for "_NC" metrics here.
+    times_NC.append(sumTime / (participantsPerSnippet * 2))
+    correctness_NC.append(sumCorrectness / participantsPerSnippet)
+    ratingBA_NC.append(sumRatingBA / (participantsPerSnippet * 2))
+    ratingBefore_NC.append(sumRatingBefore / participantsPerSnippet)
 
-    if len(times) != 30 and len(correctness) != 30 and len(ratingBA) != 30 and len(ratingBefore) != 30:
-        raise Exception
+    if len(times_GC) != 10 and len(correctness_GC) != 10 and len(ratingBA_GC) != 10 and len(ratingBefore_GC) != 10 and len(times_BC) != 10 and len(correctness_BC) != 10 and len(ratingBA_BC) != 10 and len(ratingBefore_BC) != 10 and len(times_NC) != 10 and len(correctness_NC) != 10 and len(ratingBA_NC) != 10 and len(ratingBefore_NC) != 10:
+        raise Exception("Problem reading in DS9 metrics.")
 
-    return (correctness, ratingBefore, ratingBA, times)
+    return (correctness_GC, ratingBefore_GC, ratingBA_GC, times_GC, correctness_BC, ratingBefore_BC, ratingBA_BC, times_BC, correctness_NC, ratingBefore_NC, ratingBA_NC, times_NC)
 
 # Reads the results of the fMRI study. It contains 19 people who looked at 16 snippets.
 # Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.

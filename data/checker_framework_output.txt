@@ -1823,362 +1823,122 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Pom.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 403 warnings
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:39: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull AsyncContext
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:44: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Object
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:49: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Enumeration<@Initialized @NonNull String>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:54: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:69: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:74: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull DispatcherType
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:79: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull ServletInputStream
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:84: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:89: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:99: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Locale
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:104: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Enumeration<@Initialized @NonNull Locale>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:109: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:114: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull String @Initialized @NonNull []>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:119: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Enumeration<@Initialized @NonNull String>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:124: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String @Initialized @NonNull []
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:129: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:134: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull BufferedReader
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:139: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:144: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:149: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:159: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull RequestDispatcher
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:164: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:169: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:179: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull ServletContext
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:211: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull AsyncContext
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:216: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull AsyncContext
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:226: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:231: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:236: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:241: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Cookie @Initialized @NonNull []
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:251: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:256: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Enumeration<@Initialized @NonNull String>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:261: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Enumeration<@Initialized @NonNull String>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:271: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:276: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Part
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:281: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Collection<@Initialized @NonNull Part>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:286: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:291: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:296: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:301: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:306: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:311: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull StringBuffer
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:316: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:321: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:326: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull HttpSession
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:331: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull HttpSession
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:336: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Principal
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:374: warning: [return] incompatible types in return.
-                return null;
-                       ^
-  type of expression: null (NullType)
-  method return type: T extends @Initialized @NonNull HttpUpgradeHandler
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:862: warning: [argument] incompatible argument for parameter cell of addCell.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:874: warning: [argument] incompatible argument for parameter cell of addCell.
     table.addCell(cell);
                   ^
   found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
   required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:905: warning: [argument] incompatible argument for parameter cell of addCell.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:918: warning: [argument] incompatible argument for parameter cell of addCell.
     table.addCell(cell);
                   ^
   found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
   required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:941: warning: [argument] incompatible argument for parameter cell of addCell.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:955: warning: [argument] incompatible argument for parameter cell of addCell.
     table.addCell(cell);
                   ^
   found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
   required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:987: warning: [argument] incompatible argument for parameter cell of addCell.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1002: warning: [argument] incompatible argument for parameter cell of addCell.
     table.addCell(cell);
                   ^
   found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
   required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1034: warning: [argument] incompatible argument for parameter cell of addCell.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1050: warning: [argument] incompatible argument for parameter cell of addCell.
     table.addCell(cell);
                   ^
   found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
   required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1074: warning: [argument] incompatible argument for parameter cell of addCell.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1091: warning: [argument] incompatible argument for parameter cell of addCell.
     table.addCell(cell);
                   ^
   found   : @Initialized @NonNull CodeSnippets.@Initialized @Nullable Cell
   required: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Cell
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1324: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1348: warning: [return] incompatible types in return.
     return null; // Had to be added to allow compilation
            ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1360: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1385: warning: [return] incompatible types in return.
     return null; // Had to be added to allow compilation
            ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1391: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1417: warning: [return] incompatible types in return.
     return null; // Had to be added to allow compilation
            ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1430: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1457: warning: [return] incompatible types in return.
     return null; // Had to be added to allow compilation
            ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1469: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1497: warning: [return] incompatible types in return.
     return null; // Had to be added to allow compilation
            ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1503: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1532: warning: [return] incompatible types in return.
     return null; // Had to be added to allow compilation
            ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1531: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1560: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull TimeTakenForMove
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1543: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1572: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Bounds
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1552: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1581: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Extent
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1586: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1615: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull ProjectSpace
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1592: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1621: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull PropertyManager
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1602: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1631: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Collection</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1608: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1637: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull StoreProperty
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1618: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1647: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Value
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1627: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1656: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1633: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1662: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationComposite
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1655: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1684: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Iterator</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1684: warning: [override.param] Incompatible parameter type for o.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1713: warning: [override.param] Incompatible parameter type for o.
         public boolean equals(Object o) {
                                      ^
   found   : @Initialized @NonNull Object
@@ -2187,7 +1947,7 @@ Note: Recompile with -Xlint:unchecked for details.
     @Initialized @NonNull boolean equals(@Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList this, @Initialized @NonNull Object p0)
   cannot override method in @Initialized @NonNull Object
     @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1709: warning: [override.param] Incompatible parameter type for a.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1738: warning: [override.param] Incompatible parameter type for a.
         public Object[] toArray(Object[] a) {
                                          ^
   found   : @Initialized @NonNull Object @Initialized @NonNull []
@@ -2196,57 +1956,57 @@ Note: Recompile with -Xlint:unchecked for details.
     @Initialized @NonNull Object @Initialized @NonNull [] toArray(@Initialized @NonNull CodeSnippets.@Initialized @NonNull NotificationList this, @Initialized @NonNull Object @Initialized @NonNull [] p0)
   cannot override method in @Initialized @NonNull Collection</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
     @Initialized @Nullable Object @Initialized @NonNull [] toArray(@Initialized @NonNull Collection this, @Initialized @PolyNull Object @Initialized @NonNull [] p0)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1718: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1747: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Object
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1722: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1751: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull BoxModelOption
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1746: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1775: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UColor
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1750: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1779: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UColor
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1770: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1799: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UParagraph
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1774: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1803: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull BoxModelOption
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1780: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1809: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UChildren
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1786: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1815: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull Path
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1806: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1835: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull UImage
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1816: warning: [return] incompatible types in return.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1845: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull CodeSnippets.@Initialized @NonNull USegment
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1709: warning: [override.param] Incompatible parameter type for a.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1738: warning: [override.param] Incompatible parameter type for a.
         public Object[] toArray(Object[] a) {
                                          ^
   found   : @MustCall Object @MustCall []
@@ -2255,7 +2015,7 @@ Note: Recompile with -Xlint:unchecked for details.
     @MustCall Object @MustCall [] toArray(@MustCall CodeSnippets.@MustCall NotificationList this, @MustCall Object @MustCall [] p0)
   cannot override method in @MustCall Collection</*INFERENCE FAILED for:*/ ? extends @MustCall Object>
     @MustCallUnknown Object @MustCall [] toArray(@MustCall Collection this, @MustCallUnknown Object @MustCall [] p0)
-/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1639: warning: [override.return] Incompatible return type.
+/home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:1668: warning: [override.return] Incompatible return type.
         public int size() {
                ^
   found   : @LowerBoundUnknown int
@@ -2264,9 +2024,13 @@ Note: Recompile with -Xlint:unchecked for details.
     @LowerBoundUnknown int size(@LowerBoundUnknown CodeSnippets.@LowerBoundUnknown NotificationList this)
   cannot override method in @LowerBoundUnknown Collection</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object>
     @NonNegative int size(@LowerBoundUnknown Collection</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object> this)
+<<<<<<< HEAD
 Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 85 warnings
+=======
+37 warnings
+>>>>>>> dataset_9_split
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/isPalindrome.java:14: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^
@@ -2356,7 +2120,7 @@ Note: Recompile with -Xlint:deprecation for details.
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
                                                                ^
   found   : @UpperBoundUnknown int
-  required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"this.bufpos - this.len + 1 - 1", "0 - 1"}) int
+  required: @LTLengthOf(offset={"this.bufpos - this.len + 1 - 1", "0 - 1"}, value={"this.buffer", "this.ret"}) int
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:855: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
             System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
                                              ^
@@ -2371,7 +2135,7 @@ Note: Recompile with -Xlint:deprecation for details.
                     len - bufpos - 1);
                                  ^
   found   : @UpperBoundUnknown int
-  required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"this.bufsize - (len - bufpos - 1) - 1", "0 - 1"}) int
+  required: @LTLengthOf(offset={"this.bufsize - (len - bufpos - 1) - 1", "0 - 1"}, value={"this.buffer", "this.ret"}) int
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:857: warning: [argument] incompatible argument for parameter arg3 of arraycopy.
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
                                                           ^
@@ -2386,7 +2150,7 @@ Note: Recompile with -Xlint:deprecation for details.
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
                                                                       ^
   found   : @UpperBoundUnknown int
-  required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"0 - 1", "this.len - this.bufpos - 1 - 1"}) int
+  required: @LTLengthOf(offset={"0 - 1", "this.len - this.bufpos - 1 - 1"}, value={"this.buffer", "this.ret"}) int
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:353: warning: [argument] incompatible argument for parameter o of Tasks_2.
             super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
                                                  ^

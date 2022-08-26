@@ -1,4 +1,3 @@
-from audioop import add
 import pandas as pd
 import copy
 import os
@@ -66,7 +65,9 @@ def getAllSnippets():
     allSnippetNums.append(cogDataset6SnippetNums)
 
     # COG Dataset 9
-    allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS", "SNIPPETS_END"))
+    allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS_1", "SNIPPET_END_1"))
+    allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS_2", "SNIPPET_END_2"))
+    allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS_3", "SNIPPET_END_3"))
 
     return allSnippetNums
 
@@ -130,7 +131,6 @@ def parseOpenJML(data, allSnippetNums):
     startSnippetCOG1 = os.path.join("cog_complexity_validation_datasets", "One", " ").strip()
     startSnippetCOG3 = os.path.join("cog_complexity_validation_datasets", "Three").strip()
     startSnippetCOG9 = os.path.join(".", "CodeSnippets").strip()
-    startSnippetCOG9 = os.path.join(".", " ").strip()
     endSnippet = "verify:"
     startWarning = "assertion"
     endWarning = "in method"
@@ -226,18 +226,25 @@ def parseOpenJML(data, allSnippetNums):
             elif startSnippetCOG9 in line.split(".java:")[0] and endSnippet in line:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
 
-                for i in range(len(allSnippetNums[5]) - 1):
+                for i in range(0, len(allSnippetNums[5]) - 1, 2):
                     if allSnippetNums[5][i] <= lineNum and allSnippetNums[5][i + 1] > lineNum:
-                        data["Snippet"].append(f"9 -- {str(i + 1)}")
+                        data["Snippet"].append(f"9_gc -- {str((i + 2) // 2)}")
                         warning = line.split(endSnippet)[1]
+                    elif allSnippetNums[6][i] <= lineNum and allSnippetNums[6][i + 1] > lineNum:
+                        data["Snippet"].append(f"9_bc -- {str((i + 2) // 2)}")
+                        warning = line.split(endSnippet)[1]
+                    elif allSnippetNums[7][i] <= lineNum and allSnippetNums[7][i + 1] > lineNum:
+                        data["Snippet"].append(f"9_nc -- {str((i + 2) // 2)}")
+                        warning = line.split(endSnippet)[1]
+                    else:
+                        continue
 
-                        if startWarning in warning and endWarning in warning:
-                            warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
+                    if startWarning in warning and endWarning in warning:
+                        warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
 
-                        data["Warning Type"].append(warning.strip())
-                        break
+                    data["Warning Type"].append(warning.strip())
+                    break
 
-    print(DS3TimeoutCount)
     return ("openjml_data", data)
 
 
@@ -310,11 +317,18 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
         elif startSnippetCOG9 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
-            for i in range(len(allSnippetNums[5]) - 1):
+            for i in range(0, len(allSnippetNums[5]) - 1, 2):
                 if allSnippetNums[5][i] <= lineNum and allSnippetNums[5][i + 1] > lineNum:
-                    data["Snippet"].append(f"9 -- {str(i + 1)}")
-                    data["Warning Type"].append(line.split(endSnippet)[1].strip())
-                    break
+                    data["Snippet"].append(f"9_gc -- {str((i + 2) // 2)}")
+                elif allSnippetNums[6][i] <= lineNum and allSnippetNums[6][i + 1] > lineNum:
+                    data["Snippet"].append(f"9_bc -- {str((i + 2) // 2)}")
+                elif allSnippetNums[7][i] <= lineNum and allSnippetNums[7][i + 1] > lineNum:
+                    data["Snippet"].append(f"9_nc -- {str((i + 2) // 2)}")
+                else:
+                    continue
+
+                data["Warning Type"].append(line.split(endSnippet)[1].strip())
+                break
 
     return data
 
