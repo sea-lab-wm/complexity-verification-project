@@ -41,7 +41,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#441 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#378 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -51,7 +51,7 @@
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#743 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#597 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -2024,13 +2024,7 @@ Note: Recompile with -Xlint:unchecked for details.
     @LowerBoundUnknown int size(@LowerBoundUnknown CodeSnippets.@LowerBoundUnknown NotificationList this)
   cannot override method in @LowerBoundUnknown Collection</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object>
     @NonNegative int size(@LowerBoundUnknown Collection</*INFERENCE FAILED for:*/ ? extends @LowerBoundUnknown Object> this)
-<<<<<<< HEAD
-Note: /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/dataset9/src/main/java/CodeSnippets.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-85 warnings
-=======
 37 warnings
->>>>>>> dataset_9_split
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/fMRI_Study_Classes/isPalindrome.java:14: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^
@@ -2120,7 +2114,7 @@ Note: Recompile with -Xlint:deprecation for details.
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
                                                                ^
   found   : @UpperBoundUnknown int
-  required: @LTLengthOf(offset={"this.bufpos - this.len + 1 - 1", "0 - 1"}, value={"this.buffer", "this.ret"}) int
+  required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"this.bufpos - this.len + 1 - 1", "0 - 1"}) int
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:855: warning: [argument] incompatible argument for parameter arg1 of arraycopy.
             System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
                                              ^
@@ -2135,7 +2129,7 @@ Note: Recompile with -Xlint:deprecation for details.
                     len - bufpos - 1);
                                  ^
   found   : @UpperBoundUnknown int
-  required: @LTLengthOf(offset={"this.bufsize - (len - bufpos - 1) - 1", "0 - 1"}, value={"this.buffer", "this.ret"}) int
+  required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"this.bufsize - (len - bufpos - 1) - 1", "0 - 1"}) int
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:857: warning: [argument] incompatible argument for parameter arg3 of arraycopy.
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
                                                           ^
@@ -2150,7 +2144,7 @@ Note: Recompile with -Xlint:deprecation for details.
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
                                                                       ^
   found   : @UpperBoundUnknown int
-  required: @LTLengthOf(offset={"0 - 1", "this.len - this.bufpos - 1 - 1"}, value={"this.buffer", "this.ret"}) int
+  required: @LTLengthOf(value={"this.buffer", "this.ret"}, offset={"0 - 1", "this.len - this.bufpos - 1 - 1"}) int
 /home/kobifeldman/Code-Complexity-Research/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_2.java:353: warning: [argument] incompatible argument for parameter o of Tasks_2.
             super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
                                                  ^
