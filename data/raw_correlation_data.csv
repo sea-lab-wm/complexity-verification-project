@@ -217,10 +217,10 @@ dataset,snippet,metric,metric_value,#_of_warnings,tool
 3,99,readability_level,2.95,17.0,all_tools
 3,100,readability_level,2.12,4.0,all_tools
 6,1,correct_verif_questions,0.37037037037037046,237.0,all_tools
-6,2,correct_verif_questions,0.40740740740740733,256.0,all_tools
+6,2,correct_verif_questions,0.40740740740740733,258.0,all_tools
 6,3,correct_verif_questions,0.41666666666666674,146.0,all_tools
 6,4,correct_verif_questions,0.40740740740740755,130.0,all_tools
-6,5,correct_verif_questions,0.5925925925925927,50.0,all_tools
+6,5,correct_verif_questions,0.5925925925925927,51.0,all_tools
 6,6,correct_verif_questions,0.44444444444444436,0.0,all_tools
 6,7,correct_verif_questions,0.44444444444444453,0.0,all_tools
 6,8,correct_verif_questions,0.29629629629629634,0.0,all_tools
@@ -267,10 +267,10 @@ dataset,snippet,metric,metric_value,#_of_warnings,tool
 6,49,correct_verif_questions,0.40740740740740733,0.0,all_tools
 6,50,correct_verif_questions,0.3333333333333334,0.0,all_tools
 6,1,binary_understandability,0.5555555555555556,237.0,all_tools
-6,2,binary_understandability,0.8888888888888888,256.0,all_tools
+6,2,binary_understandability,0.8888888888888888,258.0,all_tools
 6,3,binary_understandability,0.625,146.0,all_tools
 6,4,binary_understandability,0.6666666666666666,130.0,all_tools
-6,5,binary_understandability,0.7777777777777778,50.0,all_tools
+6,5,binary_understandability,0.7777777777777778,51.0,all_tools
 6,6,binary_understandability,0.8888888888888888,0.0,all_tools
 6,7,binary_understandability,0.7777777777777778,0.0,all_tools
 6,8,binary_understandability,0.5555555555555556,0.0,all_tools
@@ -317,10 +317,10 @@ dataset,snippet,metric,metric_value,#_of_warnings,tool
 6,49,binary_understandability,0.7777777777777778,0.0,all_tools
 6,50,binary_understandability,0.5555555555555556,0.0,all_tools
 6,1,time_to_understand,74.4,237.0,all_tools
-6,2,time_to_understand,73.75,256.0,all_tools
+6,2,time_to_understand,73.75,258.0,all_tools
 6,3,time_to_understand,59.8,146.0,all_tools
 6,4,time_to_understand,60.5,130.0,all_tools
-6,5,time_to_understand,66.14285714285714,50.0,all_tools
+6,5,time_to_understand,66.14285714285714,51.0,all_tools
 6,6,time_to_understand,82.625,0.0,all_tools
 6,7,time_to_understand,257.42857142857144,0.0,all_tools
 6,8,time_to_understand,81.4,0.0,all_tools
@@ -486,7 +486,7 @@ dataset,snippet,metric,metric_value,#_of_warnings,tool
 9_nc,8,time_to_read_complete,134.88285714285712,5.0,all_tools
 9_nc,9,time_to_read_complete,81.70666666666666,9.0,all_tools
 9_nc,10,time_to_read_complete,115.86906250000001,9.0,all_tools
-f,1,perc_correct_output,39.473684210526315,4.0,all_tools
+f,1,perc_correct_output,39.473684210526315,5.0,all_tools
 f,2,perc_correct_output,89.47368421052632,4.0,all_tools
 f,3,perc_correct_output,78.94736842105263,2.0,all_tools
 f,4,perc_correct_output,47.368421052631575,1.0,all_tools
@@ -502,7 +502,7 @@ f,13,perc_correct_output,78.94736842105263,2.0,all_tools
 f,14,perc_correct_output,68.42105263157895,3.0,all_tools
 f,15,perc_correct_output,18.0,5.0,all_tools
 f,16,perc_correct_output,0.0,7.0,all_tools
-f,1,brain_deact_31,-2.248355733,4.0,all_tools
+f,1,brain_deact_31,-2.248355733,5.0,all_tools
 f,2,brain_deact_31,-2.137145163,4.0,all_tools
 f,3,brain_deact_31,-1.921303548,2.0,all_tools
 f,4,brain_deact_31,-1.831843539,1.0,all_tools
@@ -518,7 +518,7 @@ f,13,brain_deact_31,-1.835985696,2.0,all_tools
 f,14,brain_deact_31,-1.897029609,3.0,all_tools
 f,15,brain_deact_31,-2.115286243,5.0,all_tools
 f,16,brain_deact_31,-1.729084884,7.0,all_tools
-f,1,brain_deact_32,-1.774586165,4.0,all_tools
+f,1,brain_deact_32,-1.774586165,5.0,all_tools
 f,2,brain_deact_32,-1.91559082,4.0,all_tools
 f,3,brain_deact_32,-1.495832442,2.0,all_tools
 f,4,brain_deact_32,-1.46374886,1.0,all_tools
@@ -534,7 +534,7 @@ f,13,brain_deact_32,-1.458877878,2.0,all_tools
 f,14,brain_deact_32,-1.6700936,3.0,all_tools
 f,15,brain_deact_32,-1.820133117,5.0,all_tools
 f,16,brain_deact_32,-1.241652874,7.0,all_tools
-f,1,complexity_level,46.6,4.0,all_tools
+f,1,complexity_level,46.6,5.0,all_tools
 f,2,complexity_level,73.73684210526316,4.0,all_tools
 f,3,complexity_level,38.578947368421055,2.0,all_tools
 f,4,complexity_level,25.88888888888889,1.0,all_tools
@@ -550,7 +550,7 @@ f,13,complexity_level,47.22222222222222,2.0,all_tools
 f,14,complexity_level,44.44444444444444,3.0,all_tools
 f,15,complexity_level,47.22222222222222,5.0,all_tools
 f,16,complexity_level,150.0,7.0,all_tools
-f,1,time_to_understand,48.275447368421055,4.0,all_tools
+f,1,time_to_understand,48.275447368421055,5.0,all_tools
 f,2,time_to_understand,30.38747368421053,4.0,all_tools
 f,3,time_to_understand,41.406684210526315,2.0,all_tools
 f,4,time_to_understand,50.024,1.0,all_tools
@@ -1918,10 +1918,10 @@ f,16,time_to_understand,0.0,5.0,typestate_checker
 3,99,readability_level,2.95,0.0,infer
 3,100,readability_level,2.12,0.0,infer
 6,1,correct_verif_questions,0.37037037037037046,5.0,infer
-6,2,correct_verif_questions,0.40740740740740733,4.0,infer
+6,2,correct_verif_questions,0.40740740740740733,6.0,infer
 6,3,correct_verif_questions,0.41666666666666674,5.0,infer
 6,4,correct_verif_questions,0.40740740740740755,3.0,infer
-6,5,correct_verif_questions,0.5925925925925927,4.0,infer
+6,5,correct_verif_questions,0.5925925925925927,5.0,infer
 6,6,correct_verif_questions,0.44444444444444436,0.0,infer
 6,7,correct_verif_questions,0.44444444444444453,0.0,infer
 6,8,correct_verif_questions,0.29629629629629634,0.0,infer
@@ -1968,10 +1968,10 @@ f,16,time_to_understand,0.0,5.0,typestate_checker
 6,49,correct_verif_questions,0.40740740740740733,0.0,infer
 6,50,correct_verif_questions,0.3333333333333334,0.0,infer
 6,1,binary_understandability,0.5555555555555556,5.0,infer
-6,2,binary_understandability,0.8888888888888888,4.0,infer
+6,2,binary_understandability,0.8888888888888888,6.0,infer
 6,3,binary_understandability,0.625,5.0,infer
 6,4,binary_understandability,0.6666666666666666,3.0,infer
-6,5,binary_understandability,0.7777777777777778,4.0,infer
+6,5,binary_understandability,0.7777777777777778,5.0,infer
 6,6,binary_understandability,0.8888888888888888,0.0,infer
 6,7,binary_understandability,0.7777777777777778,0.0,infer
 6,8,binary_understandability,0.5555555555555556,0.0,infer
@@ -2018,10 +2018,10 @@ f,16,time_to_understand,0.0,5.0,typestate_checker
 6,49,binary_understandability,0.7777777777777778,0.0,infer
 6,50,binary_understandability,0.5555555555555556,0.0,infer
 6,1,time_to_understand,74.4,5.0,infer
-6,2,time_to_understand,73.75,4.0,infer
+6,2,time_to_understand,73.75,6.0,infer
 6,3,time_to_understand,59.8,5.0,infer
 6,4,time_to_understand,60.5,3.0,infer
-6,5,time_to_understand,66.14285714285714,4.0,infer
+6,5,time_to_understand,66.14285714285714,5.0,infer
 6,6,time_to_understand,82.625,0.0,infer
 6,7,time_to_understand,257.42857142857144,0.0,infer
 6,8,time_to_understand,81.4,0.0,infer
@@ -2187,7 +2187,7 @@ f,16,time_to_understand,0.0,5.0,typestate_checker
 9_nc,8,time_to_read_complete,134.88285714285712,1.0,infer
 9_nc,9,time_to_read_complete,81.70666666666666,1.0,infer
 9_nc,10,time_to_read_complete,115.86906250000001,1.0,infer
-f,1,perc_correct_output,39.473684210526315,0.0,infer
+f,1,perc_correct_output,39.473684210526315,1.0,infer
 f,2,perc_correct_output,89.47368421052632,0.0,infer
 f,3,perc_correct_output,78.94736842105263,0.0,infer
 f,4,perc_correct_output,47.368421052631575,0.0,infer
@@ -2203,7 +2203,7 @@ f,13,perc_correct_output,78.94736842105263,0.0,infer
 f,14,perc_correct_output,68.42105263157895,0.0,infer
 f,15,perc_correct_output,18.0,0.0,infer
 f,16,perc_correct_output,0.0,0.0,infer
-f,1,brain_deact_31,-2.248355733,0.0,infer
+f,1,brain_deact_31,-2.248355733,1.0,infer
 f,2,brain_deact_31,-2.137145163,0.0,infer
 f,3,brain_deact_31,-1.921303548,0.0,infer
 f,4,brain_deact_31,-1.831843539,0.0,infer
@@ -2219,7 +2219,7 @@ f,13,brain_deact_31,-1.835985696,0.0,infer
 f,14,brain_deact_31,-1.897029609,0.0,infer
 f,15,brain_deact_31,-2.115286243,0.0,infer
 f,16,brain_deact_31,-1.729084884,0.0,infer
-f,1,brain_deact_32,-1.774586165,0.0,infer
+f,1,brain_deact_32,-1.774586165,1.0,infer
 f,2,brain_deact_32,-1.91559082,0.0,infer
 f,3,brain_deact_32,-1.495832442,0.0,infer
 f,4,brain_deact_32,-1.46374886,0.0,infer
@@ -2235,7 +2235,7 @@ f,13,brain_deact_32,-1.458877878,0.0,infer
 f,14,brain_deact_32,-1.6700936,0.0,infer
 f,15,brain_deact_32,-1.820133117,0.0,infer
 f,16,brain_deact_32,-1.241652874,0.0,infer
-f,1,complexity_level,46.6,0.0,infer
+f,1,complexity_level,46.6,1.0,infer
 f,2,complexity_level,73.73684210526316,0.0,infer
 f,3,complexity_level,38.578947368421055,0.0,infer
 f,4,complexity_level,25.88888888888889,0.0,infer
@@ -2251,7 +2251,7 @@ f,13,complexity_level,47.22222222222222,0.0,infer
 f,14,complexity_level,44.44444444444444,0.0,infer
 f,15,complexity_level,47.22222222222222,0.0,infer
 f,16,complexity_level,150.0,0.0,infer
-f,1,time_to_understand,48.275447368421055,0.0,infer
+f,1,time_to_understand,48.275447368421055,1.0,infer
 f,2,time_to_understand,30.38747368421053,0.0,infer
 f,3,time_to_understand,41.406684210526315,0.0,infer
 f,4,time_to_understand,50.024,0.0,infer
