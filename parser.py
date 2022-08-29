@@ -137,7 +137,7 @@ def parseOpenJML(data, allSnippetNums, timeouts):
 
     for dataset in lines:
         for line in dataset:
-            if "Associated declaration" in line:
+            if "Associated declaration" in line or "Associated method exit" in line:
                 continue
 
             if startSnippetfMRI in line.split(".java:")[0] and endSnippet in line:
@@ -229,8 +229,8 @@ def openJMLWriteData(data, warning, message, line, timeouts):
 
 def openJMLHandleTimeouts(timeouts):
     ###SET THIS TO CHANGE HOW TIMEOUTS ARE HANDLED###
-    #True = max, False = zero
-    handleType = True
+    #0 = max, 1 = zero, 2 = completely remove the snippet
+    handleType = 2
 
     df = pd.read_csv("data/openjml_data.csv")
     df.set_index("Snippet")
@@ -238,23 +238,33 @@ def openJMLHandleTimeouts(timeouts):
     max3 = findMaxNumWarnings("3", df)
     max6 = findMaxNumWarnings("6", df)
 
-    for message in timeouts:
-        df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] = "MAX" if handleType is True else 0
+    for col in df.columns:
+        if "timeout" in col:
+            df = df.rename(columns={col: "timeout"})
 
-    if handleType is True:
+    if handleType == 0:
         for message in timeouts:
-            if (df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] == "MAX").all():
+            df.loc[df["Snippet"] == message, "timeout"] = "MAX"
+
+        for message in timeouts:
+            if (df.loc[df["Snippet"] == message, "timeout"] == "MAX").any():
                 if "3" in message.split("--")[0]:
-                    df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] = max3
+                    df.loc[df["Snippet"] == message, "timeout"] = max3
                 elif "6" in message.split("--")[0]:
-                    df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] = max6
+                    df.loc[df["Snippet"] == message, "timeout"] = max6
                 else:
                     raise Exception("Issue handling timeouts!")
     else:
+        for message in timeouts:
+            df.loc[df["Snippet"] == message, "timeout"] = 0
+
         df.reset_index()
         for message in timeouts:
-            if (df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] == 0).all():
-                if (df.loc[df["Snippet"] == message].sum(axis=1, numeric_only=True) == 0).all():
+            if (df.loc[df["Snippet"] == message, "timeout"] == 0).all():
+                if handleType == 1:
+                    if (df.loc[df["Snippet"] == message].sum(axis=1, numeric_only=True) == 0).all():
+                        df = df.drop(df.loc[df["Snippet"] == message].index)
+                else:
                     df = df.drop(df.loc[df["Snippet"] == message].index)
 
     df.to_csv("data/openjml_data.csv", index=False)
@@ -273,6 +283,24 @@ def findMaxNumWarnings(dataset, df):
                 maxNumWarnings = numWarnings[i]
 
     return maxNumWarnings
+
+def getNumTimeoutsPerDataset(timeouts):
+    counts = {
+        "dataset_1": 0,
+        "dataset_2": 0,
+        "dataset_3": 0,
+        "dataset_6": 0,
+        "dataset_9": 0,
+        "dataset_f": 0
+    }
+
+    timeouts = list(set(timeouts))
+
+    for snippet in timeouts:
+        if f"dataset_{snippet.split('--')[0].strip()}" in counts:
+            counts[f"dataset_{snippet.split('--')[0].strip()}"] += 1
+
+    print(counts)
 
 # Parses the analysis tool output of the Checker Framework, Typestate Checker, and Infer.
 def parseAll(data, lines, allSnippetNums, endSnippet):
@@ -403,5 +431,7 @@ if __name__ == "__main__":
     allAnalysisToolData.append(parseOpenJML(copy.deepcopy(data), allSnippetNums, openJMLTimeouts))
 
     setupCSVSheets(allAnalysisToolData)
+
+    getNumTimeoutsPerDataset(openJMLTimeouts)
 
     openJMLHandleTimeouts(openJMLTimeouts)
