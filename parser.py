@@ -113,7 +113,7 @@ def parseInfer(data, allSnippetNums):
     
     return ("infer_data", data)
 
-def parseOpenJML(data, allSnippetNums):
+def parseOpenJML(data, allSnippetNums, timeouts):
     lines = []
     files = os.listdir("data")
 
@@ -134,7 +134,6 @@ def parseOpenJML(data, allSnippetNums):
     endSnippet = "verify:"
     startWarning = "assertion"
     endWarning = "in method"
-    DS3TimeoutCount = 0
 
     for dataset in lines:
         for line in dataset:
@@ -144,36 +143,18 @@ def parseOpenJML(data, allSnippetNums):
             if startSnippetfMRI in line.split(".java:")[0] and endSnippet in line:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
                 if allSnippetNums[0][(line.split(startSnippetfMRI))[1].split('.java')[0]] <= lineNum:
-                    data["Snippet"].append(f"f -- {str(list(allSnippetNums[0].keys()).index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} -- {(line.split(startSnippetfMRI))[1].split('.java')[0]}")
-                    warning = line.split(endSnippet)[1]
-
-                    if startWarning in warning and endWarning in warning:
-                        warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
-
-                    data["Warning Type"].append(warning.strip())
+                    openJMLWriteData(data, line.split(endSnippet)[1], f"f -- {str(list(allSnippetNums[0].keys()).index((line.split(startSnippetfMRI))[1].split('.java')[0]) + 1)} -- {(line.split(startSnippetfMRI))[1].split('.java')[0]}", line, timeouts)
             elif startSnippetCOG1 in line.split(".java:")[0] and endSnippet in line:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
 
                 for i in range(len(allSnippetNums[1]) - 1):
                     if allSnippetNums[1][i] <= lineNum and allSnippetNums[1][i + 1] > lineNum:
-                        data["Snippet"].append(f"1 -- {str(i + 1)}")
-                        warning = line.split(endSnippet)[1]
-
-                        if startWarning in warning and endWarning in warning:
-                            warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
-
-                        data["Warning Type"].append(warning.strip())
+                        openJMLWriteData(data, line.split(endSnippet)[1], f"1 -- {str(i + 1)}", line, timeouts)
 
                         # Additional check to see if the snippet is from dataset 2 as well (which is a subset of 1)
                         for j in range(0, len(allSnippetNums[2]) - 1, 2):
                             if allSnippetNums[2][j] <= lineNum and allSnippetNums[2][j + 1] > lineNum:
-                                data["Snippet"].append(f"2 -- {str((j + 2) // 2)}")
-                                warning = line.split(endSnippet)[1]
-                                #count += 1
-                                if startWarning in warning and endWarning in warning:
-                                    warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
-
-                                data["Warning Type"].append(warning.strip())
+                                openJMLWriteData(data, line.split(endSnippet)[1], f"2 -- {str((j + 2) // 2)}", line, timeouts)
                                 break
                         break
             elif startSnippetCOG3 in line.split(".java:")[0] and endSnippet in line:
@@ -194,17 +175,8 @@ def parseOpenJML(data, allSnippetNums):
 
                 for i in range(len(snippetNums) - 1):
                     if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
-                        if "timeout" in line:
-                            DS3TimeoutCount += 1
-                            break
+                        openJMLWriteData(data, line.split(endSnippet)[1], f"3 -- {str(i + 1 + addToI)}", line, timeouts)
 
-                        data["Snippet"].append(f"3 -- {str(i + 1 + addToI)}")
-                        warning = line.split(endSnippet)[1]
-
-                        if startWarning in warning and endWarning in warning:
-                            warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
-
-                        data["Warning Type"].append(warning.strip())
                         break
             elif "./" in line[:2] and line.split(".java:")[0].rsplit("/", 1)[1] in allSnippetNums[4]:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
@@ -213,14 +185,8 @@ def parseOpenJML(data, allSnippetNums):
                 snippetNums = allSnippetNums[4][fileName]
     
                 for i in range(len(snippetNums) - 1):
-                    if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
-                        data["Snippet"].append(f"6 -- {str(i + 1)} -- {fileName}")
-                        warning = line.split(endSnippet)[1]
-
-                        if startWarning in warning and endWarning in warning:
-                            warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
-
-                        data["Warning Type"].append(warning.strip())
+                    if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum: 
+                        openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1)} -- {fileName}", line, timeouts)
 
                         break
             elif startSnippetCOG9 in line.split(".java:")[0] and endSnippet in line:
@@ -247,6 +213,66 @@ def parseOpenJML(data, allSnippetNums):
 
     return ("openjml_data", data)
 
+def openJMLWriteData(data, warning, message, line, timeouts):
+    startWarning = "assertion"
+    endWarning = "in method"
+
+    if "timeout" in line:
+        timeouts.append(message)
+
+    data["Snippet"].append(message)
+
+    if startWarning in warning and endWarning in warning:
+        warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
+
+    data["Warning Type"].append(warning.strip())
+
+def openJMLHandleTimeouts(timeouts):
+    ###SET THIS TO CHANGE HOW TIMEOUTS ARE HANDLED###
+    #True = max, False = zero
+    handleType = True
+
+    df = pd.read_csv("data/openjml_data.csv")
+    df.set_index("Snippet")
+
+    max3 = findMaxNumWarnings("3", df)
+    max6 = findMaxNumWarnings("6", df)
+
+    for message in timeouts:
+        df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] = "MAX" if handleType is True else 0
+
+    if handleType is True:
+        for message in timeouts:
+            if (df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] == "MAX").all():
+                if "3" in message.split("--")[0]:
+                    df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] = max3
+                elif "6" in message.split("--")[0]:
+                    df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] = max6
+                else:
+                    raise Exception("Issue handling timeouts!")
+    else:
+        df.reset_index()
+        for message in timeouts:
+            if (df.loc[df["Snippet"] == message, "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"] == 0).all():
+                if (df.loc[df["Snippet"] == message].sum(axis=1, numeric_only=True) == 0).all():
+                    df = df.drop(df.loc[df["Snippet"] == message].index)
+
+    df.to_csv("data/openjml_data.csv", index=False)
+
+def findMaxNumWarnings(dataset, df):
+    numWarnings = df.sum(axis=1, numeric_only=True).tolist()
+    snippetNames = df["Snippet"].to_list()
+    maxNumWarnings = 0
+
+    for i, snippet in enumerate(snippetNames):
+        if pd.isnull(snippet):
+            continue
+
+        if dataset in snippet.split("--")[0]:
+            if numWarnings[i] > maxNumWarnings:
+                maxNumWarnings = numWarnings[i]
+
+    return maxNumWarnings
 
 # Parses the analysis tool output of the Checker Framework, Typestate Checker, and Infer.
 def parseAll(data, lines, allSnippetNums, endSnippet):
@@ -368,10 +394,14 @@ if __name__ == "__main__":
         "Warning Type": []
     }
     allAnalysisToolData = []
+    openJMLTimeouts = []
 
     #TODO: All analysis tools go here
     allAnalysisToolData.append(parseCheckerFramework(copy.deepcopy(data), allSnippetNums))
     allAnalysisToolData.append(parseTypestateChecker(copy.deepcopy(data), allSnippetNums))
     allAnalysisToolData.append(parseInfer(copy.deepcopy(data), allSnippetNums))
-    allAnalysisToolData.append(parseOpenJML(copy.deepcopy(data), allSnippetNums))
+    allAnalysisToolData.append(parseOpenJML(copy.deepcopy(data), allSnippetNums, openJMLTimeouts))
+
     setupCSVSheets(allAnalysisToolData)
+
+    openJMLHandleTimeouts(openJMLTimeouts)
