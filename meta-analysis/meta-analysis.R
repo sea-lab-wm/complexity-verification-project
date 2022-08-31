@@ -43,16 +43,25 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
   if (generateForestPlot) {
     path = "./forest-plot/"
     dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
-    png(file = paste(path, sheet_in, "_", metric_type_in, "_", expected_cor_in, ".png", sep = ""), 
-        width = 1535, 
-        height = 575, res = 180)
+    # png(file = paste(path, sheet_in, "_", metric_type_in, "_", expected_cor_in, ".png", sep = ""), 
+    #     width = 1535, 
+    #     height = 575, res = 180)
+    pdf(file = paste(path, sheet_in, "_", metric_type_in, "_", expected_cor_in, ".pdf", sep = "")
+        , 
+        width = 8, 
+        height = 2.5
+        #, res = 180
+        )
     #pdf(file = paste(path, metric_type_in, "_forestplot.pdf", sep = ""))
     forest_plot <- forest(meta_analysis_result, 
                           #prediction = TRUE, 
                           #smlab = "Correlation meta-analysis",
                           #smlab = "",
-                          leftlabs = c("Metric", "# of snippets"))
+                          leftlabs = c("DS_Metric", "Snippets"),
+                          rightlabs = c("r value", "95% CI   ", "Weight")
+                          )
     dev.off()
+    #dev.off()
     print(forest_plot)
   }
 }
@@ -77,6 +86,7 @@ run_meta_analysis <- function(data_file_in, sheet_in){
 
   #keep only DS9 with no comments
   all_data2 = subset(all_data2, (dataset_id != "9_gc") & (dataset_id != "9_bc"))
+  all_data2$dataset_id[all_data2$dataset_id == "9_nc"] <- "9"
   
   #rename columns
   # colnames(all_data2) <- c('dataset_id','metric_type',
