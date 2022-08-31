@@ -1,3 +1,0 @@
-:: **The complexity-verification-project.jar must have been built with Java JDK version 9 to work**
-call java -cp CogniCrypt/CryptoAnalysis-2.8.0-SNAPSHOT-jar-with-dependencies.jar crypto.HeadlessCryptoScanner --rulesDir D:\Coding\Code-Complexity-Research\complexity-verification-project\CogniCrypt\rules --appPath D:\Coding\Code-Complexity-Research\complexity-verification-project\build\libs\complexity-verification-project.jar > data\outputcognicrypt.txt 2>&1
-pause
