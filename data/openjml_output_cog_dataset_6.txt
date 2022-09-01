@@ -1,13 +1,13 @@
-warning: A specification path directory does not exist: /home/mkellogg/.gradle/caches/modules-2/files-2.1/org.apache.hbase/hbase/2.2.0/7ffe793908c696d87ba5b68e52eea1d628832b98/hbase-2.2.0.pom (/home/mkellogg/dataset-6-runner-60-minute-to/complexity-verification-project/dataset6/src/main/java)
-warning: A specification path directory does not exist: /home/mkellogg/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/da08b8cce7bbf903602a25a3a163ae252435795/asm-5.0.4.jar
-  /home/mkellogg/dataset-6-runner-60-minute-to/complexity-verification-project/dataset9/libs/org.eclipse.emf.emfstore.mongodb.server_1.2.0.v20140404-1123.jar (/home/mkellogg/dataset-6-runner-60-minute-to/complexity-verification-project/dataset6/src/main/java)
-/home/mkellogg/openjml/specs/java/nio/file/Path.jml:25: warning: A non-pure method is being called where it is not permitted: java.nio.file.Path.isAbsolute()
+warning: A specification path directory does not exist: /home/authors/.gradle/caches/modules-2/files-2.1/org.apache.hbase/hbase/2.2.0/7ffe793908c696d87ba5b68e52eea1d628832b98/hbase-2.2.0.pom (/home/authors/dataset-6-runner-60-minute-to/complexity-verification-project/dataset6/src/main/java)
+warning: A specification path directory does not exist: /home/authors/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/da08b8cce7bbf903602a25a3a163ae252435795/asm-5.0.4.jar
+  /home/authors/dataset-6-runner-60-minute-to/complexity-verification-project/dataset9/libs/org.eclipse.emf.emfstore.mongodb.server_1.2.0.v20140404-1123.jar (/home/authors/dataset-6-runner-60-minute-to/complexity-verification-project/dataset6/src/main/java)
+/home/authors/openjml/specs/java/nio/file/Path.jml:25: warning: A non-pure method is being called where it is not permitted: java.nio.file.Path.isAbsolute()
     //@   requires path.isAbsolute() && path.canonicalPath.length != 0;
                                   ^
-/home/mkellogg/openjml/specs/java/nio/file/Path.jml:28: warning: A non-pure method is being called where it is not permitted: java.nio.file.Path.isAbsolute()
+/home/authors/openjml/specs/java/nio/file/Path.jml:28: warning: A non-pure method is being called where it is not permitted: java.nio.file.Path.isAbsolute()
     //@   requires !path.isAbsolute() && path.canonicalPath.length != 0;
                                    ^
-/home/mkellogg/openjml/specs/java/util/Calendar.jml:185: warning: A non-pure method is being called where it is not permitted: java.text.DateFormat.getAvailableLocales()
+/home/authors/openjml/specs/java/util/Calendar.jml:185: warning: A non-pure method is being called where it is not permitted: java.text.DateFormat.getAvailableLocales()
        @                \result.equals(DateFormat.getAvailableLocales());
                                                                      ^
 ./MyExpenses.java:370: warning: Use a static_initializer clause to specify the values of static final fields: MyExpenses.TaskExecutionFragment.TASK_SPLIT
@@ -298,10 +298,10 @@ warning: A specification path directory does not exist: /home/mkellogg/.gradle/c
 ./MyExpenses.java:56: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method contribFeatureCalled
                     int year = (int) ((Long) tag / 1000);
                                ^
-./MyExpenses.java:54: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method contribFeatureCalled: (Caller: MyExpenses.contribFeatureCalled(MyExpenses.ContribFeature,java.io.Serializable), Callee: MyExpenses.Intent.putExtra(java.lang.String,long))
+./MyExpenses.java:54: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method contribFeatureCalled: (Caller: MyExpenses.contribFeatureCalled(MyExpenses.ContribFeature,java.io.Serializable), Callee: MyExpenses.Intent.putExtra(java.lang.String,long))
                 i.putExtra(KEY_ACCOUNTID, mAccountId);
                            ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./MyExpenses.java:54:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./MyExpenses.java:54:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./MyExpenses.java:599: verify: The prover cannot establish an assertion (NullField) in method Dummy
@@ -433,23 +433,23 @@ warning: A specification path directory does not exist: /home/mkellogg/.gradle/c
 ./MyExpenses.java:384: verify: Associated method exit
             return null;
             ^
-./MyExpenses.java:626: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /home/mkellogg/openjml/specs/java/lang/String.jml:447:) in method runAll
+./MyExpenses.java:626: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /home/authors/openjml/specs/java/lang/String.jml:447:) in method runAll
         public int compareTo(Object o) {
                    ^
 Note: Call stack
-  /home/mkellogg/openjml/specs/java/lang/String.jml:458: java.lang.String.equals
-  /home/mkellogg/openjml/specs/java/lang/StringBuffer.jml:35: java.lang.String.equals
+  /home/authors/openjml/specs/java/lang/String.jml:458: java.lang.String.equals
+  /home/authors/openjml/specs/java/lang/StringBuffer.jml:35: java.lang.String.equals
   ./MyExpenses.java:36: java.lang.StringBuffer.<init>
-/home/mkellogg/openjml/specs/java/lang/String.jml:447: verify: Associated declaration: ./MyExpenses.java:626:
+/home/authors/openjml/specs/java/lang/String.jml:447: verify: Associated declaration: ./MyExpenses.java:626:
       @ public static model helper boolean equals(nullable String s1, nullable String s2);
                                            ^
-/home/mkellogg/openjml/specs/java/lang/String.jml:436: verify: Precondition conjunct is false: s1.charArray != null
+/home/authors/openjml/specs/java/lang/String.jml:436: verify: Precondition conjunct is false: s1.charArray != null
       @   //-RAC@ requires s1.charArray != null & s2.charArray != null; // OPENJML: TODO Needs the invariant that charArray is not null
                                         ^
-/home/mkellogg/openjml/specs/java/lang/String.jml:439: verify: Precondition conjunct is false: s1 == s2
+/home/authors/openjml/specs/java/lang/String.jml:439: verify: Precondition conjunct is false: s1 == s2
       @   requires s1 == s2;
                       ^
-/home/mkellogg/openjml/specs/java/lang/String.jml:442: verify: Precondition conjunct is false: s1 == null || s2 == null || (java.lang.String.isInterned(s1) && java.lang.String.isInterned(s2))
+/home/authors/openjml/specs/java/lang/String.jml:442: verify: Precondition conjunct is false: s1 == null || s2 == null || (java.lang.String.isInterned(s1) && java.lang.String.isInterned(s2))
       @   requires s1 == null || s2 == null ||
                                             ^
 ./MyExpenses.java:372: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./MyExpenses.java:372:) in method newInstanceWithBundle: newInstanceWithBundle
@@ -782,10 +782,10 @@ Note: Call stack
 ./K9.java:395: verify: Associated declaration: ./K9.java:117:
         public void output(String s) {
                            ^
-./K9.java:117: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method open_withXoauth2Extension_shouldThrowOnMultipleFailure: (Caller: K9.open_withXoauth2Extension_shouldThrowOnMultipleFailure(), Callee: K9.MockSmtpServer.output(java.lang.String))
+./K9.java:117: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method open_withXoauth2Extension_shouldThrowOnMultipleFailure: (Caller: K9.open_withXoauth2Extension_shouldThrowOnMultipleFailure(), Callee: K9.MockSmtpServer.output(java.lang.String))
         server.output("334 " + XOAuth2ChallengeParserTest.STATUS_400_RESPONSE);
                       ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./K9.java:117:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./K9.java:117:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./K9.java:245: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./K9.java:245:) in method startServerAndCreateSmtpTransport: startServerAndCreateSmtpTransport
@@ -815,46 +815,46 @@ Note: Call stack
 ./Antlr4Master.java:463: warning: Use a static_initializer clause to specify the values of static final fields: Antlr4Master.SemanticContext.NONE
         public static final Object NONE = null;
                                    ^
-./Antlr4Master.java:339: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method analyse: (Parameter: grammarsAndTokens, Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:339: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/Iterable.jml:10:) in method analyse: (Parameter: grammarsAndTokens, Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     private void analyse(File grammarFile, Collection<File> grammarsAndTokens, Tool tool) {
                                                             ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Antlr4Master.java:339:
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Antlr4Master.java:339:
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-./Antlr4Master.java:339: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method analyse: (Parameter: grammarFile, Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:339: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:24:) in method analyse: (Parameter: grammarFile, Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     private void analyse(File grammarFile, Collection<File> grammarsAndTokens, Tool tool) {
                               ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:339:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:339:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
-./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyse: (Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyse: (Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     private T[][] buckets;
                   ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:339: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method analyse: (Parameter: grammarFile, Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:339: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:23:) in method analyse: (Parameter: grammarFile, Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     private void analyse(File grammarFile, Collection<File> grammarsAndTokens, Tool tool) {
                               ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:339:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:339:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyse: (Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyse: (Caller: Antlr4Master.analyse(java.io.File,java.util.Collection<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     public void runAll() {
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:375: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method ATNConfigSet
+./Antlr4Master.java:375: verify: The prover cannot establish an assertion (InvariantExit: /home/authors/openjml/specs/java/lang/Iterable.jml:10:) in method ATNConfigSet
     public static class ATNConfigSet implements Set<ATNConfig> {
                   ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Antlr4Master.java:375:
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Antlr4Master.java:375:
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-./Antlr4Master.java:410: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:144:) in method add
+./Antlr4Master.java:410: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:144:) in method add
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:144: verify: Associated declaration: ./Antlr4Master.java:410:
+/home/authors/openjml/specs/java/util/Collection.jml:144: verify: Associated declaration: ./Antlr4Master.java:410:
       @   ensures \exists \bigint i; 0 <= i < values.length; values[i] == o;
           ^
 ./Antlr4Master.java:447: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Antlr4Master.java:447:) in method add: add
@@ -866,28 +866,28 @@ Note: Call stack
 ./Antlr4Master.java:448: verify: Associated method exit
             return null;
             ^
-./Antlr4Master.java:439: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:277:) in method clear
+./Antlr4Master.java:439: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:277:) in method clear
         public void clear() {
                     ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:277: verify: Associated declaration: ./Antlr4Master.java:439:
+/home/authors/openjml/specs/java/util/Collection.jml:277: verify: Associated declaration: ./Antlr4Master.java:439:
       @   ensures isEmpty();
           ^
-./Antlr4Master.java:390: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:72:) in method contains
+./Antlr4Master.java:390: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:72:) in method contains
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:72: verify: Associated declaration: ./Antlr4Master.java:390:
+/home/authors/openjml/specs/java/util/Collection.jml:72: verify: Associated declaration: ./Antlr4Master.java:390:
       @   ensures \result == (\exists int i; 0 <= i < values.length; Collection.nullequals(o,values[i]));
           ^
-./Antlr4Master.java:420: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:198:) in method containsAll
+./Antlr4Master.java:420: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:198:) in method containsAll
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:198: verify: Associated declaration: ./Antlr4Master.java:420:
+/home/authors/openjml/specs/java/util/Collection.jml:198: verify: Associated declaration: ./Antlr4Master.java:420:
           ensures \result;
           ^
-./Antlr4Master.java:385: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:66:) in method isEmpty
+./Antlr4Master.java:385: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:66:) in method isEmpty
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:66: verify: Associated declaration: ./Antlr4Master.java:385:
+/home/authors/openjml/specs/java/util/Collection.jml:66: verify: Associated declaration: ./Antlr4Master.java:385:
       @  ensures \result <==> (values.length == 0);
          ^
 ./Antlr4Master.java:394: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Antlr4Master.java:394:) in method iterator: iterator
@@ -899,46 +899,46 @@ Note: Call stack
 ./Antlr4Master.java:395: verify: Associated method exit
             return null;
             ^
-./Antlr4Master.java:415: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Set.jml:62:) in method remove
+./Antlr4Master.java:415: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Set.jml:62:) in method remove
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Set.jml:62: verify: Associated declaration: ./Antlr4Master.java:415:
+/home/authors/openjml/specs/java/util/Set.jml:62: verify: Associated declaration: ./Antlr4Master.java:415:
        @   ensures \result;
            ^
-./Antlr4Master.java:435: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:229:) in method removeAll
+./Antlr4Master.java:435: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:229:) in method removeAll
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:229: verify: Associated declaration: ./Antlr4Master.java:435:
+/home/authors/openjml/specs/java/util/Collection.jml:229: verify: Associated declaration: ./Antlr4Master.java:435:
       @   ensures c == this ==> isEmpty();
           ^
-./Antlr4Master.java:435: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Set.jml:88:) in method removeAll
+./Antlr4Master.java:435: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Set.jml:88:) in method removeAll
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Set.jml:88: verify: Associated declaration: ./Antlr4Master.java:435:
+/home/authors/openjml/specs/java/util/Set.jml:88: verify: Associated declaration: ./Antlr4Master.java:435:
        @   ensures (\forall Object o; c.contains(o) <==>
            ^
-./Antlr4Master.java:435: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Set.jml:87:) in method removeAll
+./Antlr4Master.java:435: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Set.jml:87:) in method removeAll
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Set.jml:87: verify: Associated declaration: ./Antlr4Master.java:435:
+/home/authors/openjml/specs/java/util/Set.jml:87: verify: Associated declaration: ./Antlr4Master.java:435:
        @   ensures \old(c.contains(null)) ==> !contains(null);
            ^
-./Antlr4Master.java:380: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:61:) in method size
+./Antlr4Master.java:380: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:61:) in method size
             return 0;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:61: verify: Associated declaration: ./Antlr4Master.java:380:
+/home/authors/openjml/specs/java/util/Collection.jml:61: verify: Associated declaration: ./Antlr4Master.java:380:
       @    ensures \result == values.length;
            ^
-./Antlr4Master.java:400: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:102:) in method toArray
+./Antlr4Master.java:400: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:102:) in method toArray
             return new Object[0];
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:102: verify: Associated declaration: ./Antlr4Master.java:400:
+/home/authors/openjml/specs/java/util/Collection.jml:102: verify: Associated declaration: ./Antlr4Master.java:400:
     //@       ensures \result.length == size();
               ^
-./Antlr4Master.java:400: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:106:) in method toArray
+./Antlr4Master.java:400: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Collection.jml:106:) in method toArray
             return new Object[0];
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:106: verify: Associated declaration: ./Antlr4Master.java:400:
+/home/authors/openjml/specs/java/util/Collection.jml:106: verify: Associated declaration: ./Antlr4Master.java:400:
     //-RAC@   ensures  (\forall Object o; containsObject(o) <==> Arrays.contains(\result,o));
               ^
 ./Antlr4Master.java:404: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Antlr4Master.java:404:) in method <T>toArray: toArray
@@ -986,28 +986,28 @@ Note: Call stack
 ./Antlr4Master.java:471: verify: Associated method exit
         return null;
         ^
-./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getRelativePath: (Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method getRelativePath: (Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
     public void runAll() {
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:335: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method getRelativePath: (Parameter: grammarFile, Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:335: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:23:) in method getRelativePath: (Parameter: grammarFile, Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
     private String getRelativePath(File grammarFile) {
                                         ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:335:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:335:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getRelativePath: (Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method getRelativePath: (Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
     private T[][] buckets;
                   ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:335: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method getRelativePath: (Parameter: grammarFile, Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:335: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:24:) in method getRelativePath: (Parameter: grammarFile, Caller: Antlr4Master.getRelativePath(java.io.File), Callee: java.lang.String.charAt(int))
     private String getRelativePath(File grammarFile) {
                                         ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:335:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:335:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
 ./Antlr4Master.java:335: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Antlr4Master.java:335:) in method getRelativePath: getRelativePath
@@ -1019,130 +1019,130 @@ Note: Call stack
 ./Antlr4Master.java:336: verify: Associated method exit
         return null;
         ^
-./Antlr4Master.java:326: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method put: (Parameter: grammarFile, Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:326: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:24:) in method put: (Parameter: grammarFile, Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
         public void put(File grammarFile, AbstractMap.SimpleImmutableEntry<byte[], Collection<String>> collectionSimpleImmutableEntry) {
                              ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:326:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:326:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
-./Antlr4Master.java:326: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method put: (Parameter: grammarFile, Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:326: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:23:) in method put: (Parameter: grammarFile, Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
         public void put(File grammarFile, AbstractMap.SimpleImmutableEntry<byte[], Collection<String>> collectionSimpleImmutableEntry) {
                              ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:326:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:326:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method put: (Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method put: (Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
     public void runAll() {
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method put: (Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method put: (Caller: Antlr4Master.Grammar.put(java.io.File,java.util.AbstractMap.SimpleImmutableEntry<byte[],java.util.Collection<java.lang.String>>), Callee: java.lang.String.charAt(int))
     private T[][] buckets;
                   ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:53: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
+./Antlr4Master.java:53: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
     public class GrammarDependencies {
            ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:53:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:53:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:70: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:224:) in method analyze
+./Antlr4Master.java:70: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/util/Collection.jml:224:) in method analyze
             grammarsAndTokens.addAll(importGrammarFiles);
                                     ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:224: verify: Associated declaration: ./Antlr4Master.java:70:
+/home/authors/openjml/specs/java/util/Collection.jml:224: verify: Associated declaration: ./Antlr4Master.java:70:
     boolean addAll(Collection<? extends E> c) throws NullPointerException;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+/home/authors/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
       @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
                                 ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+/home/authors/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
       @  requires c == null;
                     ^
-./Antlr4Master.java:71: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/util/Collection.jml:224:) in method analyze
+./Antlr4Master.java:71: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/util/Collection.jml:224:) in method analyze
             grammarsAndTokens.addAll(grammarFiles);
                                     ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:224: verify: Associated declaration: ./Antlr4Master.java:71:
+/home/authors/openjml/specs/java/util/Collection.jml:224: verify: Associated declaration: ./Antlr4Master.java:71:
     boolean addAll(Collection<? extends E> c) throws NullPointerException;
             ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
+/home/authors/openjml/specs/java/util/Collection.jml:210: verify: Precondition conjunct is false: !false ==> (!containsNull ==> !c.containsNull)
       @   requires !\key("RAC") ==> !containsNull ==> !c.containsNull;
                                 ^
-/home/mkellogg/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
+/home/authors/openjml/specs/java/util/Collection.jml:219: verify: Precondition conjunct is false: c == null
       @  requires c == null;
                     ^
-./Antlr4Master.java:93: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
+./Antlr4Master.java:93: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/File.jml:23:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
                 Collection<String> usages = findUsages(grammarFile.getName());
                                                                           ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:93:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:93:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./Antlr4Master.java:80: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: Antlr4Master.getRelativePath(java.io.File))
+./Antlr4Master.java:80: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/File.jml:23:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: Antlr4Master.getRelativePath(java.io.File))
                 Collection<String> usages = findUsages(getRelativePath(grammarFile));
                                                                        ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:80:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:80:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./Antlr4Master.java:93: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
+./Antlr4Master.java:93: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/File.jml:24:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
                 Collection<String> usages = findUsages(grammarFile.getName());
                                                                           ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:93:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:93:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
-./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     private T[][] buckets;
                   ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:80: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: Antlr4Master.getRelativePath(java.io.File))
+./Antlr4Master.java:80: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/File.jml:24:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: Antlr4Master.getRelativePath(java.io.File))
                 Collection<String> usages = findUsages(getRelativePath(grammarFile));
                                                                        ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:80:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:80:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
-./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     public void runAll() {
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     private T[][] buckets;
                   ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:75: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
+./Antlr4Master.java:75: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/File.jml:23:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
                 if (!grammarFile.getName().endsWith(".tokens"))
                                         ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:75:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:75:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     public void runAll() {
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     private T[][] buckets;
                   ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:75: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
+./Antlr4Master.java:75: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/File.jml:24:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.io.File.getName())
                 if (!grammarFile.getName().endsWith(".tokens"))
                                         ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:75:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:75:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
-./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method analyze: (Caller: Antlr4Master.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,Antlr4Master.Tool), Callee: java.lang.String.charAt(int))
     public void runAll() {
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./Antlr4Master.java:545: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Antlr4Master.java:545:) in method of: of
@@ -1163,28 +1163,28 @@ Note: Call stack
 ./Antlr4Master.java:501: verify: Associated method exit
             return null;
             ^
-./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method checksum: (Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method checksum: (Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
     private T[][] buckets;
                   ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Antlr4Master.java:320: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method checksum: (Parameter: grammarFile, Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:320: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:23:) in method checksum: (Parameter: grammarFile, Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
         public static byte[] checksum(File grammarFile) {
                                            ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:320:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./Antlr4Master.java:320:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./Antlr4Master.java:320: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method checksum: (Parameter: grammarFile, Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:320: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:24:) in method checksum: (Parameter: grammarFile, Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
         public static byte[] checksum(File grammarFile) {
                                            ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:320:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./Antlr4Master.java:320:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
-./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method checksum: (Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
+./Antlr4Master.java:29: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method checksum: (Caller: Antlr4Master.MojoUtils.checksum(java.io.File), Callee: java.lang.String.charAt(int))
     public void runAll() {
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Antlr4Master.java:29:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./Antlr4Master.java:114: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method process: lexerClass
@@ -1202,28 +1202,28 @@ Note: Call stack
 ./Antlr4Master.java:223: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method removeFast: e
             T e = bucket[i];
               ^
-./Antlr4Master.java:231: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/lang/System.jml:312:) in method removeFast
+./Antlr4Master.java:231: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/lang/System.jml:312:) in method removeFast
                 System.arraycopy(bucket, i+1, bucket, i, bucket.length-i-1);
                                 ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:312: verify: Associated declaration: ./Antlr4Master.java:231:
+/home/authors/openjml/specs/java/lang/System.jml:312: verify: Associated declaration: ./Antlr4Master.java:231:
     public static native void arraycopy(/*@nullable*/ Object src,
                               ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:147: verify: Precondition conjunct is false: src == null || dest == null
+/home/authors/openjml/specs/java/lang/System.jml:147: verify: Precondition conjunct is false: src == null || dest == null
       @    requires src == null || dest == null;
                                 ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:152: verify: Precondition conjunct is false: (src instanceof byte[])
+/home/authors/openjml/specs/java/lang/System.jml:152: verify: Precondition conjunct is false: (src instanceof byte[])
            requires (src instanceof byte[]) &&
                     ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:208: verify: Precondition conjunct is false: \elemtype(\typeof(src)) <: \elemtype(\typeof(dest))
+/home/authors/openjml/specs/java/lang/System.jml:208: verify: Precondition conjunct is false: \elemtype(\typeof(src)) <: \elemtype(\typeof(dest))
                  \elemtype(\typeof(src)) <: \elemtype(\typeof(dest)) &&
                                          ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:218: verify: Precondition conjunct is false: (src instanceof int[])
+/home/authors/openjml/specs/java/lang/System.jml:218: verify: Precondition conjunct is false: (src instanceof int[])
         requires (src instanceof int[]) &&
                  ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:229: verify: Precondition conjunct is false: (src instanceof long[])
+/home/authors/openjml/specs/java/lang/System.jml:229: verify: Precondition conjunct is false: (src instanceof long[])
         requires (src instanceof long[]) &&
                  ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:240: verify: Precondition conjunct is false: (src instanceof char[])
+/home/authors/openjml/specs/java/lang/System.jml:240: verify: Precondition conjunct is false: (src instanceof char[])
         requires (src instanceof char[]) &&
                  ^
 ./Antlr4Master.java:232: verify: The prover cannot establish an assertion (PossiblyNullAssignment) in method removeFast
@@ -1286,16 +1286,16 @@ Note: Call stack
 ./Pom.java:170: verify: The prover cannot establish an assertion (Accessible) in method getCurrentWorkingDirectory: \everything
                     return new File(".").getAbsoluteFile();
                            ^
-./Pom.java:19: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
+./Pom.java:19: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
     private static final String HEALTH_0_TO_20 = "icon-health-00to19";
                                                              ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:19:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:19:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Pom.java:22: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
+./Pom.java:22: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
     private static final String HEALTH_61_TO_80_IMG = "health-60to79.png";
       ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:22:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:22:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./Pom.java:170: verify: The prover cannot establish an assertion (Accessible) in method getCurrentWorkingDirectory: \everything
@@ -1304,16 +1304,16 @@ Note: Call stack
 ./Pom.java:170: verify: The prover cannot establish an assertion (Assignable) in method getCurrentWorkingDirectory: \everything
                     return new File(".").getAbsoluteFile();
                                                         ^
-./Pom.java:19: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
+./Pom.java:19: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
     private static final String HEALTH_0_TO_20 = "icon-health-00to19";
                                                              ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:19:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:19:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Pom.java:22: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
+./Pom.java:22: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method getCurrentWorkingDirectory: (Caller: Pom.1.getCurrentWorkingDirectory(), Callee: java.lang.String.charAt(int))
     private static final String HEALTH_61_TO_80_IMG = "health-60to79.png";
       ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:22:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Pom.java:22:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./Pom.java:175: verify: The prover cannot establish an assertion (Accessible) in method getEnv: \everything
@@ -1385,43 +1385,43 @@ Note: Call stack
 ./Pom.java:103: verify: The prover cannot establish an assertion (PossiblyNullAssignment) in method HealthReport
             this.description = null;
                              ^
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:109: verify: The prover cannot establish an assertion (Assignable: /home/mkellogg/openjml/specs/java/util/Iterator.jml:66:) in method hasNext: \everything
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:66: verify: Associated declaration: /home/mkellogg/openjml/specs/java/util/Iterator.jml:109:
+/home/authors/openjml/specs/java/util/Iterator.jml:109: verify: The prover cannot establish an assertion (Assignable: /home/authors/openjml/specs/java/util/Iterator.jml:66:) in method hasNext: \everything
+/home/authors/openjml/specs/java/util/Iterator.jml:66: verify: Associated declaration: /home/authors/openjml/specs/java/util/Iterator.jml:109:
     //@ pure helper
         ^
-./Pom.java:220: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Iterator.jml:64:) in method hasNext
+./Pom.java:220: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Iterator.jml:64:) in method hasNext
                 return next!=null;
                 ^
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:64: verify: Associated declaration: ./Pom.java:220:
+/home/authors/openjml/specs/java/util/Iterator.jml:64: verify: Associated declaration: ./Pom.java:220:
       @    ensures \result <==> moreElements;
            ^
-./Pom.java:219: verify: The prover cannot establish an assertion (ExceptionalPostcondition: /home/mkellogg/openjml/specs/java/util/Iterator.jml:62:) in method hasNext
+./Pom.java:219: verify: The prover cannot establish an assertion (ExceptionalPostcondition: /home/authors/openjml/specs/java/util/Iterator.jml:62:) in method hasNext
                 fetch();
                      ^
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:62: verify: Associated declaration: ./Pom.java:219:
+/home/authors/openjml/specs/java/util/Iterator.jml:62: verify: Associated declaration: ./Pom.java:219:
     /*@ public normal_behavior
                ^
 ./Pom.java:226: verify: The prover cannot establish an assertion (PossiblyNullAssignment) in method next
                 next = null;
                      ^
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:109: verify: The prover cannot establish an assertion (Assignable: /home/mkellogg/openjml/specs/java/util/Iterator.jml:83:) in method next: \everything
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:83: verify: Associated declaration: /home/mkellogg/openjml/specs/java/util/Iterator.jml:109:
+/home/authors/openjml/specs/java/util/Iterator.jml:109: verify: The prover cannot establish an assertion (Assignable: /home/authors/openjml/specs/java/util/Iterator.jml:83:) in method next: \everything
+/home/authors/openjml/specs/java/util/Iterator.jml:83: verify: Associated declaration: /home/authors/openjml/specs/java/util/Iterator.jml:109:
       @     assignable \nothing;
             ^
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:109: verify: The prover cannot establish an assertion (Assignable: /home/mkellogg/openjml/specs/java/util/Iterator.jml:77:) in method next: \everything
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:77: verify: Associated declaration: /home/mkellogg/openjml/specs/java/util/Iterator.jml:109:
+/home/authors/openjml/specs/java/util/Iterator.jml:109: verify: The prover cannot establish an assertion (Assignable: /home/authors/openjml/specs/java/util/Iterator.jml:77:) in method next: \everything
+/home/authors/openjml/specs/java/util/Iterator.jml:77: verify: Associated declaration: /home/authors/openjml/specs/java/util/Iterator.jml:109:
       @     assignable objectState, remove_called_since, moreElements;
             ^
-./Pom.java:224: verify: The prover cannot establish an assertion (ExceptionalPostcondition: /home/mkellogg/openjml/specs/java/util/Iterator.jml:75:) in method next
+./Pom.java:224: verify: The prover cannot establish an assertion (ExceptionalPostcondition: /home/authors/openjml/specs/java/util/Iterator.jml:75:) in method next
                 fetch();
                      ^
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:75: verify: Associated declaration: ./Pom.java:224:
+/home/authors/openjml/specs/java/util/Iterator.jml:75: verify: Associated declaration: ./Pom.java:224:
     /*@  public normal_behavior
                 ^
-./Pom.java:224: verify: The prover cannot establish an assertion (ExceptionList: /home/mkellogg/openjml/specs/java/util/Iterator.jml:84:) in method next
+./Pom.java:224: verify: The prover cannot establish an assertion (ExceptionList: /home/authors/openjml/specs/java/util/Iterator.jml:84:) in method next
                 fetch();
                      ^
-/home/mkellogg/openjml/specs/java/util/Iterator.jml:84: verify: Associated declaration: ./Pom.java:224:
+/home/authors/openjml/specs/java/util/Iterator.jml:84: verify: Associated declaration: ./Pom.java:224:
       @     signals_only NoSuchElementException;
             ^
 ./Pom.java:492: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:492:) in method getCurrentWorkingDirectory: getCurrentWorkingDirectory
@@ -1469,10 +1469,10 @@ Note: Call stack
 ./Pom.java:213: verify: Associated declaration: ./Pom.java:40:
     public static <T> Iterator<T> limit(final Iterator<? extends T> base, final CountingPredicate<? super T> filter) {
                                                       ^
-./Pom.java:424: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:230:) in method clear
+./Pom.java:424: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:230:) in method clear
         public void clear() {
                     ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:230: verify: Associated declaration: ./Pom.java:424:
+/home/authors/openjml/specs/java/util/Map.jml:230: verify: Associated declaration: ./Pom.java:424:
       @    ensures isEmpty();
            ^
 ./Pom.java:354: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:354:) in method comparator: comparator
@@ -1484,16 +1484,16 @@ Note: Call stack
 ./Pom.java:355: verify: Associated method exit
             return null;
             ^
-./Pom.java:395: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:113:) in method containsKey
+./Pom.java:395: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:113:) in method containsKey
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:113: verify: Associated declaration: ./Pom.java:395:
+/home/authors/openjml/specs/java/util/Map.jml:113: verify: Associated declaration: ./Pom.java:395:
       @    ensures keys[key.uniqueHash] <==> \result;
            ^
-./Pom.java:400: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:125:) in method containsValue
+./Pom.java:400: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:125:) in method containsValue
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:125: verify: Associated declaration: ./Pom.java:400:
+/home/authors/openjml/specs/java/util/Map.jml:125: verify: Associated declaration: ./Pom.java:400:
       @    ensures \result <==> ((nullPresent && nullValue.uniqueHash == value.uniqueHash) || \exists \bigint i;; keys[i] && modelMap[i].uniqueHash == value.uniqueHash);
            ^
 ./Pom.java:439: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:439:) in method entrySet: entrySet
@@ -1505,10 +1505,10 @@ Note: Call stack
 ./Pom.java:440: verify: Associated method exit
             return null;
             ^
-./Pom.java:445: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/lang/Object.jml:85:) in method equals
+./Pom.java:445: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/lang/Object.jml:85:) in method equals
             return false;
             ^
-/home/mkellogg/openjml/specs/java/lang/Object.jml:85: verify: Associated declaration: ./Pom.java:445:
+/home/authors/openjml/specs/java/lang/Object.jml:85: verify: Associated declaration: ./Pom.java:445:
       @     ensures \result;
             ^
 ./Pom.java:374: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:374:) in method firstKey: firstKey
@@ -1529,10 +1529,10 @@ Note: Call stack
 ./Pom.java:405: verify: Associated method exit
             return null;
             ^
-./Pom.java:450: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/lang/Object.jml:69:) in method hashCode
+./Pom.java:450: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/lang/Object.jml:69:) in method hashCode
             return 0;
             ^
-/home/mkellogg/openjml/specs/java/lang/Object.jml:69: verify: Associated declaration: ./Pom.java:450:
+/home/authors/openjml/specs/java/lang/Object.jml:69: verify: Associated declaration: ./Pom.java:450:
     //-RAC@ ensures \result == theHashCode;  
             ^
 ./Pom.java:364: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:364:) in method headMap: headMap
@@ -1544,10 +1544,10 @@ Note: Call stack
 ./Pom.java:365: verify: Associated method exit
             return null;
             ^
-./Pom.java:390: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:107:) in method isEmpty
+./Pom.java:390: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:107:) in method isEmpty
             return false;
             ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:107: verify: Associated declaration: ./Pom.java:390:
+/home/authors/openjml/specs/java/util/Map.jml:107: verify: Associated declaration: ./Pom.java:390:
       @    ensures \result <==> (_size == 0); 
            ^
 ./Pom.java:429: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:429:) in method keySet: keySet
@@ -1586,10 +1586,10 @@ Note: Call stack
 ./Pom.java:415: verify: Associated method exit
             return null;
             ^
-./Pom.java:385: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:101:) in method size
+./Pom.java:385: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:101:) in method size
             return 0;
             ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:101: verify: Associated declaration: ./Pom.java:385:
+/home/authors/openjml/specs/java/util/Map.jml:101: verify: Associated declaration: ./Pom.java:385:
     //-RAC@   ensures \result == _size;
               ^
 ./Pom.java:359: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:359:) in method subMap: subMap
@@ -1619,10 +1619,10 @@ Note: Call stack
 ./Pom.java:435: verify: Associated method exit
             return null;
             ^
-./Pom.java:138: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method _getRuns: (Caller: Pom.ViewJob._getRuns(), Callee: java.util.Set.add(E))
+./Pom.java:138: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/Iterable.jml:10:) in method _getRuns: (Caller: Pom.ViewJob._getRuns(), Callee: java.util.Set.add(E))
                         reloadQueue.add(this);
                                        ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Pom.java:138:
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Pom.java:138:
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 ./Pom.java:111: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./Pom.java:111:) in method _getRuns: _getRuns
@@ -1700,49 +1700,49 @@ Note: Call stack
 ./CarReport.java:572: verify: Associated method exit
             return null;
             ^
-./CarReport.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method downloadFile: (Caller: CarReport.downloadFile(), Callee: java.lang.String.charAt(int))
+./CarReport.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method downloadFile: (Caller: CarReport.downloadFile(), Callee: java.lang.String.charAt(int))
     private ComboLineColumnChartView mCurrentFullScreenChart;
                                    ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./CarReport.java:23: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method downloadFile: (Caller: CarReport.downloadFile(), Callee: java.lang.String.charAt(int))
+./CarReport.java:23: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method downloadFile: (Caller: CarReport.downloadFile(), Callee: java.lang.String.charAt(int))
     private EditText mEdtUrl;
                        ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:23:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:23:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./CarReport.java:253: verify: The prover cannot establish an assertion (NullFormal: /home/mkellogg/openjml/specs/java/io/File.jml:29:) in method downloadFile: arg1 in File(java.lang.String,java.lang.String)
+./CarReport.java:253: verify: The prover cannot establish an assertion (NullFormal: /home/authors/openjml/specs/java/io/File.jml:29:) in method downloadFile: arg1 in File(java.lang.String,java.lang.String)
         File tempFile = new File(Application.getContext().getCacheDir(), getClass().getSimpleName());
                                                                                                  ^
-/home/mkellogg/openjml/specs/java/io/File.jml:29: verify: Associated declaration: ./CarReport.java:253:
+/home/authors/openjml/specs/java/io/File.jml:29: verify: Associated declaration: ./CarReport.java:253:
     /*@ pure*/ public File(/*@ nullable*/ String parent, /*@ non_null*/ String child);
                                                              ^
 ./CarReport.java:255: verify: The prover cannot establish an assertion (PossiblyNullInitialization) in method downloadFile: outputStream
         FileOutputStream outputStream = null;
                          ^
-./CarReport.java:23: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method copyFile: (Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
+./CarReport.java:23: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method copyFile: (Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
     private EditText mEdtUrl;
                        ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:23:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:23:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./CarReport.java:719: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:23:) in method copyFile: (Parameter: tempFile, Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
+./CarReport.java:719: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:23:) in method copyFile: (Parameter: tempFile, Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
         public static boolean copyFile(File tempFile, File localFile) {
                                             ^
-/home/mkellogg/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./CarReport.java:719:
+/home/authors/openjml/specs/java/io/File.jml:23: verify: Associated declaration: ./CarReport.java:719:
     //@ public invariant pathSeparator.length() == 1 && pathSeparator.charAt(0) == pathSeparatorChar;
                ^
-./CarReport.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method copyFile: (Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
+./CarReport.java:25: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method copyFile: (Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
     private ComboLineColumnChartView mCurrentFullScreenChart;
                                    ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:25:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CarReport.java:25:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./CarReport.java:719: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/File.jml:24:) in method copyFile: (Parameter: tempFile, Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
+./CarReport.java:719: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/File.jml:24:) in method copyFile: (Parameter: tempFile, Caller: CarReport.FileCopyUtil.copyFile(java.io.File,java.io.File), Callee: java.lang.String.charAt(int))
         public static boolean copyFile(File tempFile, File localFile) {
                                             ^
-/home/mkellogg/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./CarReport.java:719:
+/home/authors/openjml/specs/java/io/File.jml:24: verify: Associated declaration: ./CarReport.java:719:
     //@ public invariant separator.length() == 1 && separator.charAt(0) == separatorChar;
                ^
 ./CarReport.java:516: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CarReport.java:516:) in method findViewById: findViewById
@@ -1870,10 +1870,10 @@ error: An error while executing a proof script for handleFABClick: (error "line 
 ./CarReport.java:58: verify: The prover cannot establish an assertion (PossiblyNullDeReference) in method isValid
                 return !mOtherFuelTypeNames.contains(name);
                                            ^
-./CarReport.java:58: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method isValid: (Caller: CarReport.1.isValid(), Callee: java.util.List.contains(java.lang.Object))
+./CarReport.java:58: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/Iterable.jml:10:) in method isValid: (Caller: CarReport.1.isValid(), Callee: java.util.List.contains(java.lang.Object))
                 return !mOtherFuelTypeNames.contains(name);
                                                     ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./CarReport.java:58:
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./CarReport.java:58:
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 ./CarReport.java:54: verify: The prover cannot establish an assertion (Precondition: ./CarReport.java:54:) in method save
@@ -1897,7 +1897,7 @@ error: An error while executing a proof script for handleFABClick: (error "line 
 ./CarReport.java:371: verify: Associated declaration: ./CarReport.java:66:
         public FormFieldNotEmptyValidator(Save mEdtName) {
                                           ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method save
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method save
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 ./CarReport.java:315: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./CarReport.java:315:) in method getContentResolver: getContentResolver
@@ -2010,13 +2010,13 @@ error: An error while executing a proof script for showFullScreenChart: (error "
       return null;
       ^
 warning: Use a static_initializer clause to specify the values of static final fields: java.awt.Component.LOCK
-/home/mkellogg/openjml/specs/java/awt/event/MouseMotionListener.jml:9: error: There is no binary class to match this Java declaration in the specification file: java.awt.event.MouseMotionListener
+/home/authors/openjml/specs/java/awt/event/MouseMotionListener.jml:9: error: There is no binary class to match this Java declaration in the specification file: java.awt.event.MouseMotionListener
 public interface MouseMotionListener extends java.util.EventListener {
        ^
-/home/mkellogg/openjml/specs/java/awt/event/MouseListener.jml:9: error: There is no binary class to match this Java declaration in the specification file: java.awt.event.MouseListener
+/home/authors/openjml/specs/java/awt/event/MouseListener.jml:9: error: There is no binary class to match this Java declaration in the specification file: java.awt.event.MouseListener
 public interface MouseListener extends java.util.EventListener {
        ^
-/home/mkellogg/openjml/specs/java/awt/event/FocusListener.jml:9: error: There is no binary class to match this Java declaration in the specification file: java.awt.event.FocusListener
+/home/authors/openjml/specs/java/awt/event/FocusListener.jml:9: error: There is no binary class to match this Java declaration in the specification file: java.awt.event.FocusListener
 public interface FocusListener extends java.util.EventListener {
        ^
 ./weka/gui/experiment/GeneratorPropertyIteratorPanel.java:65: verify: The prover cannot establish an assertion (Assignable: ./weka/gui/experiment/GeneratorPropertyIteratorPanel.java:85:) in method actionPerformed: \everything
@@ -2061,10 +2061,10 @@ public interface FocusListener extends java.util.EventListener {
 ./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:87: verify: Associated declaration: ./weka/gui/experiment/GeneratorPropertyIteratorPanel.java:80:
       @Override
             ^
-./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:75: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method actionPerformed: (Caller: weka.gui.beans.ClassifierPerformanceEvaluatorCustomizer.1.actionPerformed(java.awt.event.ActionEvent), Callee: java.lang.StringBuilder.append(java.lang.String))
+./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:75: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method actionPerformed: (Caller: weka.gui.beans.ClassifierPerformanceEvaluatorCustomizer.1.actionPerformed(java.awt.event.ActionEvent), Callee: java.lang.StringBuilder.append(java.lang.String))
             b.append(s).append(",");
                      ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:75:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:75:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./weka/gui/experiment/GeneratorPropertyIteratorPanel.java:77: verify: The prover cannot establish an assertion (Accessible: ./weka/gui/experiment/GeneratorPropertyIteratorPanel.java:85:) in method actionPerformed: \everything
@@ -2133,10 +2133,10 @@ public interface FocusListener extends java.util.EventListener {
 ./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:87: verify: Associated declaration: ./weka/gui/experiment/GeneratorPropertyIteratorPanel.java:89:
       @Override
             ^
-./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:62: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method addButtons: (Caller: weka.gui.beans.ClassifierPerformanceEvaluatorCustomizer.addButtons(), Callee: java.awt.Container.add(java.awt.Component,java.lang.Object))
+./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:62: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method addButtons: (Caller: weka.gui.beans.ClassifierPerformanceEvaluatorCustomizer.addButtons(), Callee: java.awt.Container.add(java.awt.Component,java.lang.Object))
     add(butHolder, BorderLayout.SOUTH);
                    ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:62:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:62:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 warning: Use a static_initializer clause to specify the values of static final fields: java.awt.Component.LOCK
@@ -2152,16 +2152,16 @@ warning: Use a static_initializer clause to specify the values of static final f
 ./weka/gui/beans/ModelPerformanceChart.java:90: verify: The prover cannot establish an assertion (Assignable) in method windowClosing: m_framePoppedUp
               m_framePoppedUp = false;
                               ^
-./weka/gui/beans/ModelPerformanceChart.java:85: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method performRequest: (Caller: weka.gui.beans.ModelPerformanceChart.performRequest(java.lang.String), Callee: java.awt.Container.add(java.awt.Component,java.lang.Object))
+./weka/gui/beans/ModelPerformanceChart.java:85: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method performRequest: (Caller: weka.gui.beans.ModelPerformanceChart.performRequest(java.lang.String), Callee: java.awt.Container.add(java.awt.Component,java.lang.Object))
           jf.getContentPane().add(m_visPanel, BorderLayout.CENTER);
                                               ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ModelPerformanceChart.java:85:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ModelPerformanceChart.java:85:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./weka/gui/beans/ModelPerformanceChart.java:74: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method performRequest: (Parameter: request, Caller: weka.gui.beans.ModelPerformanceChart.performRequest(java.lang.String), Callee: java.lang.Throwable.printStackTrace())
+./weka/gui/beans/ModelPerformanceChart.java:74: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method performRequest: (Parameter: request, Caller: weka.gui.beans.ModelPerformanceChart.performRequest(java.lang.String), Callee: java.lang.Throwable.printStackTrace())
   public void performRequest(String request) {
                                     ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ModelPerformanceChart.java:74:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ModelPerformanceChart.java:74:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./weka/gui/beans/ModelPerformanceChart.java:49: verify: The prover cannot establish an assertion (NullField) in method performRequest
@@ -2170,10 +2170,10 @@ warning: Use a static_initializer clause to specify the values of static final f
 ./weka/gui/beans/ModelPerformanceChart.java:48: verify: The prover cannot establish an assertion (NullField) in method performRequest
   private transient VisualizePanel m_visPanel;
                                    ^
-./weka/gui/beans/ModelPerformanceChart.java:74: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method performRequest: weka.gui.beans.ModelPerformanceChart.performRequest(java.lang.String) (parameter request)
+./weka/gui/beans/ModelPerformanceChart.java:74: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method performRequest: weka.gui.beans.ModelPerformanceChart.performRequest(java.lang.String) (parameter request)
   public void performRequest(String request) {
                                     ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ModelPerformanceChart.java:74:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./weka/gui/beans/ModelPerformanceChart.java:74:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./weka/gui/beans/ModelPerformanceChart.java:74: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -2314,10 +2314,10 @@ error: An error while executing a proof script for onMessage: (error "line 3512 
 ./HibernateORM.java:352: warning: Use a static_initializer clause to specify the values of static final fields: HibernateORM.StandardBasicTypes.STRING
         public static final Object STRING = null;
                                    ^
-./HibernateORM.java:299: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method collectionInfoString: (Caller: HibernateORM.collectionInfoString(HibernateORM.CollectionPersister,HibernateORM.PersistentCollection,java.io.Serializable,HibernateORM.SharedSessionContractImplementor), Callee: java.lang.StringBuilder.append(char[]))
+./HibernateORM.java:299: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method collectionInfoString: (Caller: HibernateORM.collectionInfoString(HibernateORM.CollectionPersister,HibernateORM.PersistentCollection,java.io.Serializable,HibernateORM.SharedSessionContractImplementor), Callee: java.lang.StringBuilder.append(char[]))
             s.append( persister.getRole() );
                     ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:299:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:299:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./HibernateORM.java:90: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./HibernateORM.java:90:) in method getIdentifierType: getIdentifierType
@@ -2509,16 +2509,16 @@ error: An error while executing a proof script for onMessage: (error "line 3512 
 ./HibernateORM.java:434: verify: Associated method exit
         return null;
         ^
-./HibernateORM.java:346: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method NoArgSQLFunction: HibernateORM.NoArgSQLFunction.NoArgSQLFunction(java.lang.String,java.lang.Object,boolean) (parameter sysdate)
+./HibernateORM.java:346: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method NoArgSQLFunction: HibernateORM.NoArgSQLFunction.NoArgSQLFunction(java.lang.String,java.lang.Object,boolean) (parameter sysdate)
         public NoArgSQLFunction(String sysdate, Object p1, boolean b) {
                                        ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:346:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:346:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./HibernateORM.java:346: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method NoArgSQLFunction: HibernateORM.NoArgSQLFunction.NoArgSQLFunction(java.lang.String,java.lang.Object,boolean) (parameter sysdate)
+./HibernateORM.java:346: verify: The prover cannot establish an assertion (InvariantExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method NoArgSQLFunction: HibernateORM.NoArgSQLFunction.NoArgSQLFunction(java.lang.String,java.lang.Object,boolean) (parameter sysdate)
         public NoArgSQLFunction(String sysdate, Object p1, boolean b) {
                                        ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:346:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:346:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./HibernateORM.java:96: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./HibernateORM.java:96:) in method getOwner: getOwner
@@ -2584,10 +2584,10 @@ error: An error while executing a proof script for onMessage: (error "line 3512 
 ./HibernateORM.java:451: verify: Associated method exit
             return null;
             ^
-./HibernateORM.java:118: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method TimesTenDialect: (Caller: HibernateORM.TimesTenDialect.TimesTenDialect(), Callee: HibernateORM.Environment.setProperty(java.lang.Object,java.lang.String))
+./HibernateORM.java:118: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method TimesTenDialect: (Caller: HibernateORM.TimesTenDialect.TimesTenDialect(), Callee: HibernateORM.Environment.setProperty(java.lang.Object,java.lang.String))
     public class TimesTenDialect extends Dialect {
            ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:118:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./HibernateORM.java:118:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./HibernateORM.java:102: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./HibernateORM.java:102:) in method getReturnedClass: getReturnedClass
@@ -2620,43 +2620,43 @@ error: An error while executing a proof script for onMessage: (error "line 3512 
 ./Phoenix.java:549: verify: Associated method exit
             return null;
             ^
-./Phoenix.java:20: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: com.google.common.base.Preconditions.<T>checkNotNull(T,java.lang.Object))
+./Phoenix.java:20: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: com.google.common.base.Preconditions.<T>checkNotNull(T,java.lang.Object))
 public class Phoenix {
        ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:20:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:20:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Phoenix.java:178: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: org.apache.hbase.thirdparty.com.google.common.base.Splitter.on(java.lang.String))
+./Phoenix.java:178: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: org.apache.hbase.thirdparty.com.google.common.base.Splitter.on(java.lang.String))
         for(String s : Splitter.on(DEFAULT_COLUMNS_DELIMITER).split(columnNames)) {
                                    ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:178:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:178:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./Phoenix.java:179: verify: The prover cannot establish an assertion (PossiblyNullDeReference) in method configure
             colNames.add(s);
                     ^
-./Phoenix.java:179: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
+./Phoenix.java:179: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/Iterable.jml:10:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
             colNames.add(s);
                         ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Phoenix.java:179:
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Phoenix.java:179:
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-./Phoenix.java:179: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
+./Phoenix.java:179: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
             colNames.add(s);
                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:179:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:179:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./Phoenix.java:184: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
+./Phoenix.java:184: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/Iterable.jml:10:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
                 headers.add(s);
                            ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Phoenix.java:184:
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./Phoenix.java:184:
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-./Phoenix.java:184: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
+./Phoenix.java:184: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Antlr4Master.ATNConfigSet.add(java.lang.String))
                 headers.add(s);
                             ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:184:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:184:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./Phoenix.java:184: verify: The prover cannot establish an assertion (PossiblyNullDeReference) in method configure
@@ -2665,10 +2665,10 @@ public class Phoenix {
 ./Phoenix.java:198: verify: The prover cannot establish an assertion (PossiblyNullDeReference) in method configure
         logger.debug(" the jdbcUrl configured is {}",jdbcUrl);
               ^
-./Phoenix.java:199: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Pom.POSIXHandler.debug(java.lang.String,java.lang.Object))
+./Phoenix.java:199: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method configure: (Caller: Phoenix.configure(Phoenix.Context), Callee: Pom.POSIXHandler.debug(java.lang.String,java.lang.Object))
         logger.debug(" columns configured are {}",colNames.toString());
                      ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:199:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./Phoenix.java:199:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./Phoenix.java:193: verify: The prover cannot establish an assertion (PossiblyNullDeReference) in method configure
@@ -2878,10 +2878,10 @@ public class Phoenix {
 ./OpenCMSCore.java:600: verify: Associated method exit
             return null;
             ^
-./OpenCMSCore.java:261: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method buttonHtml: (Caller: OpenCMSCore.buttonHtml(OpenCMSCore.CmsWorkplace), Callee: java.lang.String.valueOf(java.lang.Object))
+./OpenCMSCore.java:261: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method buttonHtml: (Caller: OpenCMSCore.buttonHtml(OpenCMSCore.CmsWorkplace), Callee: java.lang.String.valueOf(java.lang.Object))
                     + CmsHtmlList.NO_SELECTION_MATCH_HELP_VAR
                       ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:261:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:261:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./OpenCMSCore.java:273: verify: The prover cannot establish an assertion (NullFormal: ./OpenCMSCore.java:599:) in method buttonHtml: o in defaultButtonHtml(java.lang.Object,java.lang.String,OpenCMSCore.CmsWorkplace,OpenCMSCore.CmsWorkplace,boolean,java.lang.Object,java.lang.Object,java.lang.String)
@@ -2947,59 +2947,59 @@ public class Phoenix {
 ./OpenCMSCore.java:47: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
     public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
                                        ^
-./OpenCMSCore.java:158: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.lang.String.trim())
+./OpenCMSCore.java:158: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.lang.String.trim())
                 if (line.trim().startsWith("#")) {
                              ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:158:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:158:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./OpenCMSCore.java:193: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.lang.Throwable.printStackTrace(java.io.PrintStream))
+./OpenCMSCore.java:193: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/PrintStream.jml:35:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.lang.Throwable.printStackTrace(java.io.PrintStream))
             t.printStackTrace(m_err);
                               ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./OpenCMSCore.java:193:
+/home/authors/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./OpenCMSCore.java:193:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
-./OpenCMSCore.java:608: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /home/mkellogg/openjml/specs/java/lang/String.jml:333:) in method execute
+./OpenCMSCore.java:608: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /home/authors/openjml/specs/java/lang/String.jml:333:) in method execute
 Note: Call stack
-  /home/mkellogg/openjml/specs/java/lang/String.jml:985: java.lang.String.charAt
+  /home/authors/openjml/specs/java/lang/String.jml:985: java.lang.String.charAt
   ./OpenCMSCore.java:158: java.lang.String.trim
-/home/mkellogg/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./OpenCMSCore.java:608:
+/home/authors/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./OpenCMSCore.java:608:
     public /*@ pure @*/ char charAt(int index)
                              ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+/home/authors/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
       @      requires 0 <= index < charArray.length;
                                  ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: The prover cannot establish an assertion (Invariant) in method execute
+/home/authors/openjml/specs/java/io/PrintStream.jml:35: verify: The prover cannot establish an assertion (Invariant) in method execute
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
-./OpenCMSCore.java:193: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.lang.Throwable.printStackTrace(java.io.PrintStream))
+./OpenCMSCore.java:193: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/io/PrintStream.jml:42:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.lang.Throwable.printStackTrace(java.io.PrintStream))
             t.printStackTrace(m_err);
                               ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./OpenCMSCore.java:193:
+/home/authors/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./OpenCMSCore.java:193:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
-./OpenCMSCore.java:193: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/lang/Throwable.jml:198:) in method execute
+./OpenCMSCore.java:193: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/lang/Throwable.jml:198:) in method execute
             t.printStackTrace(m_err);
                              ^
-/home/mkellogg/openjml/specs/java/lang/Throwable.jml:198: verify: Associated declaration: ./OpenCMSCore.java:193:
+/home/authors/openjml/specs/java/lang/Throwable.jml:198: verify: Associated declaration: ./OpenCMSCore.java:193:
     public void printStackTrace(/*@ non_null*/PrintStream s);
                 ^
-/home/mkellogg/openjml/specs/java/lang/Throwable.jml:195: verify: Precondition conjunct is false: s.isOpen
+/home/authors/openjml/specs/java/lang/Throwable.jml:195: verify: Precondition conjunct is false: s.isOpen
     //-RAC@   requires s.isOpen;
                         ^
-./OpenCMSCore.java:172: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.util.List.add(E))
+./OpenCMSCore.java:172: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.util.List.add(E))
                         parameters.add(st.sval);
                                        ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:172:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:172:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: The prover cannot establish an assertion (Invariant) in method execute
+/home/authors/openjml/specs/java/io/PrintStream.jml:42: verify: The prover cannot establish an assertion (Invariant) in method execute
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
-./OpenCMSCore.java:186: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/lang/Iterable.jml:10:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.util.List.get(int))
+./OpenCMSCore.java:186: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/lang/Iterable.jml:10:) in method execute: (Caller: OpenCMSCore.execute(java.io.Reader), Callee: java.util.List.get(int))
                 String command = parameters.get(0);
                                                ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./OpenCMSCore.java:186:
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./OpenCMSCore.java:186:
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 ./OpenCMSCore.java:235: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method generateContent: overflow in int difference
@@ -3008,10 +3008,10 @@ Note: Call stack
 ./OpenCMSCore.java:235: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method generateContent: underflow in int difference
                 numberOfFiles - numberOfBinaryFiles,
                               ^
-./OpenCMSCore.java:223: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method generateContent: (Caller: OpenCMSCore.generateContent(OpenCMSCore.CmsObject,java.lang.String,int,double), Callee: OpenCMSCore.generateResources(OpenCMSCore.CmsObject,java.lang.String,java.lang.String,int,java.lang.Object,int,double))
+./OpenCMSCore.java:223: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method generateContent: (Caller: OpenCMSCore.generateContent(OpenCMSCore.CmsObject,java.lang.String,int,double), Callee: OpenCMSCore.generateResources(OpenCMSCore.CmsObject,java.lang.String,java.lang.String,int,java.lang.Object,int,double))
                 "org/opencms/search/pdf-test-112.pdf",
                 ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:223:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./OpenCMSCore.java:223:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 ./OpenCMSCore.java:231: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method generateContent: underflow in int sum
@@ -3020,16 +3020,16 @@ Note: Call stack
 ./OpenCMSCore.java:231: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method generateContent: overflow in int sum
         writtenFiles += generateResources(
                      ^
-./OpenCMSCore.java:240: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method generateContent: (Caller: OpenCMSCore.generateContent(OpenCMSCore.CmsObject,java.lang.String,int,double), Callee: java.io.PrintStream.println(java.lang.String))
+./OpenCMSCore.java:240: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/PrintStream.jml:35:) in method generateContent: (Caller: OpenCMSCore.generateContent(OpenCMSCore.CmsObject,java.lang.String,int,double), Callee: java.io.PrintStream.println(java.lang.String))
         System.out.println("" + writtenFiles + " files written in Folder " + vfsFolder);
                           ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./OpenCMSCore.java:240:
+/home/authors/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./OpenCMSCore.java:240:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
-./OpenCMSCore.java:240: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method generateContent: (Caller: OpenCMSCore.generateContent(OpenCMSCore.CmsObject,java.lang.String,int,double), Callee: java.io.PrintStream.println(java.lang.String))
+./OpenCMSCore.java:240: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/PrintStream.jml:42:) in method generateContent: (Caller: OpenCMSCore.generateContent(OpenCMSCore.CmsObject,java.lang.String,int,double), Callee: java.io.PrintStream.println(java.lang.String))
         System.out.println("" + writtenFiles + " files written in Folder " + vfsFolder);
                           ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./OpenCMSCore.java:240:
+/home/authors/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./OpenCMSCore.java:240:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
 ./OpenCMSCore.java:300: verify: The prover cannot establish an assertion (PossiblyNullReturn: ./OpenCMSCore.java:300:) in method getConfirmationMessage: getConfirmationMessage
