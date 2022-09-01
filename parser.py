@@ -230,7 +230,7 @@ def openJMLWriteData(data, warning, message, line, timeouts):
 def openJMLHandleTimeouts(timeouts):
     ###SET THIS TO CHANGE HOW TIMEOUTS ARE HANDLED###
     #0 = max, 1 = zero, 2 = completely remove the snippet
-    handleType = 2
+    handleType = 0
 
     df = pd.read_csv("data/openjml_data.csv")
     df.set_index("Snippet")
