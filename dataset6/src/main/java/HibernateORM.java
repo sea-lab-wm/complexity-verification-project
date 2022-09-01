@@ -12,7 +12,7 @@ public class HibernateORM {
     private Update queryString;
     private Object dialect;
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     public void runAll() {
         getOverriddenColumn("propertyName");
         new TimesTenDialect();

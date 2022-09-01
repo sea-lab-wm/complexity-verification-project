@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World");
 
-        //ADDED BY KOBI
+        //ADDED BY AUTHORS
         Antlr4Master antlr4Master = new Antlr4Master();
         antlr4Master.runAll();
 

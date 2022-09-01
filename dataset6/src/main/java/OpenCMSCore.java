@@ -12,7 +12,7 @@ public class OpenCMSCore {
     private OpenCMSWriter m_out;
     private PrintStream m_err;
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     public void runAll() {
         createContextMenu(new CmsSitemapHoverbar());
         try {

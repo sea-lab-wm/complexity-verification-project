@@ -136,7 +136,7 @@ package weka.estimators;
  */
 public class CheckEstimator implements OptionHandler, RevisionHandler {
 
-  //ADDED BY KOBI
+  //ADDED BY AUTHORS
   public void runAll() {
     printAttributeSummary(1, 1);
   }

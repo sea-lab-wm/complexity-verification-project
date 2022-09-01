@@ -27,7 +27,7 @@ public class MyExpenses {
         PRINT
     }
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     public void runAll() {
         contribFeatureCalled(ContribFeature.DISTRIBUTION, new Serializable() {});
         getContentProviderOperationsForCreate(new TransactionChange(), 1, 1);
