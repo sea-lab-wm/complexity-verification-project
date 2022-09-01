@@ -1,4 +1,0 @@
-[root] - ---   JayHorn : Static Analyzer for Java Programs   --- 
-[root] - Horn solver: eldarica
-[root] - Building CFG  ... 
-UNKNOWN
