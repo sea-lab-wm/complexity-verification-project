@@ -257,7 +257,7 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.j
                     b[cols[j]], coltypes[cols[j]]);
                                         ^
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java:808: warning: Cannot call annotationType on null
-                    if (annotation.annotationType().getClass() == Parameters.class) //.getClass() ADDED BY KOBI
+                    if (annotation.annotationType().getClass() == Parameters.class) //.getClass() ADDED BY AUTHORS
                                   ^
 simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_3.java:862: warning: Cannot access [javax.swing.Action.SMALL_ICON]
         action.putValue(Action.SMALL_ICON, createImageIcon("mimetypes", "video-x-generic", 16));

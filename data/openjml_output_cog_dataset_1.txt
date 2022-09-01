@@ -8,17 +8,17 @@ cog_complexity_validation_datasets/One/Tasks.java:268: error: A catastrophic JML
                     array2[i][j] += array[i][k]*array1[k][j];
                            ^
   Reason: Double rewriting of ident: i i_8543_8543___109 i_8543_8557___112
-cog_complexity_validation_datasets/One/Tasks.java:414: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:57:) in method main17
+cog_complexity_validation_datasets/One/Tasks.java:414: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/authors/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:57:) in method main17
 }
 ^
 Note: Call stack
-  /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/String.jml:753: java.lang.CharSequence.equal
-  /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/String.jml:730: java.lang.String.indexOf
+  /Users/authors/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/String.jml:753: java.lang.CharSequence.equal
+  /Users/authors/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/String.jml:730: java.lang.String.indexOf
   cog_complexity_validation_datasets/One/Tasks.java:296: java.lang.String.indexOf
-/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:57: verify: Associated declaration: cog_complexity_validation_datasets/One/Tasks.java:414:
+/Users/authors/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:57: verify: Associated declaration: cog_complexity_validation_datasets/One/Tasks.java:414:
         public static pure helper model boolean equal(char[] a, \bigint astart, char[] b, \bigint bstart, \bigint len);
                                                 ^
-/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:52: verify: Precondition conjunct is false: astart >= 0
+/Users/authors/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:52: verify: Precondition conjunct is false: astart >= 0
         requires a != null && b!= null && astart >= 0 && bstart >= 0 &&
                                                  ^
 cog_complexity_validation_datasets/One/Tasks.java:325: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method main18: int multiply overflow
@@ -30,10 +30,10 @@ cog_complexity_validation_datasets/One/Tasks.java:326: verify: The prover cannot
 cog_complexity_validation_datasets/One/Tasks.java:345: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method main19
             result.append(Character.toUpperCase(words[i].charAt(0)))
                                                      ^
-cog_complexity_validation_datasets/One/Tasks.java:345: verify: The prover cannot establish an assertion (InvariantEntrance: /Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30:) in method main19: (Caller: cog_complexity_validation_datasets.One.Tasks.main19(java.lang.String[]), Callee: java.lang.String.charAt(int))
+cog_complexity_validation_datasets/One/Tasks.java:345: verify: The prover cannot establish an assertion (InvariantEntrance: /Users/authors/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30:) in method main19: (Caller: cog_complexity_validation_datasets.One.Tasks.main19(java.lang.String[]), Callee: java.lang.String.charAt(int))
             result.append(Character.toUpperCase(words[i].charAt(0)))
                                                                ^
-/Users/kelloggm/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/One/Tasks.java:345:
+/Users/authors/Downloads/openjml-macos-10.15-0.17.0-alpha-15/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/One/Tasks.java:345:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 cog_complexity_validation_datasets/One/Tasks.java:70: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method main2: overflow in int sum

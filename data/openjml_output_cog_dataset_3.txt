@@ -1,7 +1,7 @@
 cog_complexity_validation_datasets/Three/Tasks_1.java:622: warning: [dep-ann] deprecated item is not annotated with @Deprecated
     public void Date(int daysSince1970) { // return type void added to allow compilation
                 ^
-/home/mkellogg/openjml/specs/java/util/Calendar.jml:185: warning: A non-pure method is being called where it is not permitted: java.text.DateFormat.getAvailableLocales()
+/home/authors/openjml/specs/java/util/Calendar.jml:185: warning: A non-pure method is being called where it is not permitted: java.text.DateFormat.getAvailableLocales()
        @                \result.equals(DateFormat.getAvailableLocales());
                                                                      ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:361: warning: No visible specifications for this call site: cog_complexity_validation_datasets.Three.Tasks_1.3.() called from cog_complexity_validation_datasets.Three.Tasks_1.runAllSnippets()
@@ -161,7 +161,7 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:19: warning: Use a static_
 import java.util.concurrent.CountDownLatch;
                          ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:20: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.pathSeparator
-import java.util.logging.*;     //CHANGED BY KOBI
+import java.util.logging.*;     //CHANGED BY AUTHORS
                                            ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:24: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.separator
  * Note: method names were changed from 'main' to main + their task number
@@ -307,67 +307,67 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:565: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_1.java:565: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compactString: overflow in int difference
         String result = DELTA_START + source.substring(fPrefix, source.length() - fSuffix + 1) + DELTA_END;
                                                                                 ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:564: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String) (parameter source)
+cog_complexity_validation_datasets/Three/Tasks_1.java:564: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String) (parameter source)
     private String compactString(String source) {
                                         ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:564:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:564:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:567: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_1.java:567: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
             result = computeCommonPrefix() + result;
                                              ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:567:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:567:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:564: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String) (parameter source)
+cog_complexity_validation_datasets/Three/Tasks_1.java:564: verify: The prover cannot establish an assertion (InvariantExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String) (parameter source)
     private String compactString(String source) {
                                         ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:564:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:564:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:569: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_1.java:569: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
             result = result + computeCommonSuffix();
                      ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:569:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:569:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:570: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String) (for result type)
+cog_complexity_validation_datasets/Three/Tasks_1.java:570: verify: The prover cannot establish an assertion (InvariantExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method compactString: cog_complexity_validation_datasets.Three.Tasks_1.compactString(java.lang.String) (for result type)
         return result; // had to be added to allow compilation
         ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:570:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:570:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method compactString
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant 0 <= elementCount;
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method compactString
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method compactString
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method compactString
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:1099: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:1099:) in method computeCommonPrefix: computeCommonPrefix
@@ -487,17 +487,17 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:806: verify: Validity is u
 cog_complexity_validation_datasets/Three/Tasks_1.java:1126: verify: The prover cannot establish an assertion (NullField) in method Database
         public Object collation;
                       ^
-/home/mkellogg/openjml/specs/java/util/Calendar.jml:238: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex: /home/mkellogg/openjml/specs/java/util/Calendar.jml:497:) in method Date
+/home/authors/openjml/specs/java/util/Calendar.jml:238: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex: /home/authors/openjml/specs/java/util/Calendar.jml:497:) in method Date
        @        ensures \result == fields[field];
                                          ^
-/home/mkellogg/openjml/specs/java/util/Calendar.jml:497: verify: Associated declaration: /home/mkellogg/openjml/specs/java/util/Calendar.jml:238:
+/home/authors/openjml/specs/java/util/Calendar.jml:497: verify: Associated declaration: /home/authors/openjml/specs/java/util/Calendar.jml:238:
 cog_complexity_validation_datasets/Three/Tasks_1.java:937: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method Date: overflow in int sum
         mMonth = mCalendar.get(Calendar.MONTH) + 1;
                                                ^
-/home/mkellogg/openjml/specs/java/util/Calendar.jml:238: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex: /home/mkellogg/openjml/specs/java/util/Calendar.jml:497:) in method Date
+/home/authors/openjml/specs/java/util/Calendar.jml:238: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex: /home/authors/openjml/specs/java/util/Calendar.jml:497:) in method Date
        @        ensures \result == fields[field];
                                          ^
-/home/mkellogg/openjml/specs/java/util/Calendar.jml:497: verify: Associated declaration: /home/mkellogg/openjml/specs/java/util/Calendar.jml:238:
+/home/authors/openjml/specs/java/util/Calendar.jml:497: verify: Associated declaration: /home/authors/openjml/specs/java/util/Calendar.jml:238:
 cog_complexity_validation_datasets/Three/Tasks_1.java:1550: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:1550:) in method getId: getId
         public static Object getId() {
                       ^
@@ -606,22 +606,22 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:1497: verify: Associated d
 cog_complexity_validation_datasets/Three/Tasks_1.java:1498: verify: Associated method exit
             return null;
             ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method filter
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method filter
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method filter
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method filter
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method filter
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method filter
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method filter
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method filter
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method filter
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method filter
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method filter
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method filter
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:1632: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:1632:) in method findProgramTreeNode: findProgramTreeNode
@@ -987,7 +987,7 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:84: verify: The prover can
 cog_complexity_validation_datasets/Three/Tasks_1.java:78: verify: The prover cannot establish an assertion (NullField) in method moveUnit
     private Ftest fTest;
                   ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:98: verify: The prover cannot establish an assertion (NullField) in method moveUnit
@@ -999,16 +999,16 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:88: verify: The prover can
 cog_complexity_validation_datasets/Three/Tasks_1.java:102: verify: The prover cannot establish an assertion (NullField) in method moveUnit
     private Object sourceFileInfo;
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:142: verify: The prover cannot establish an assertion (NullField) in method moveUnit
@@ -1017,7 +1017,7 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:142: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_1.java:122: verify: The prover cannot establish an assertion (NullField) in method moveUnit
     private CapturePluginPanel mPanel;
                                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:106: verify: The prover cannot establish an assertion (NullField) in method moveUnit
@@ -1059,19 +1059,19 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:128: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_1.java:126: verify: The prover cannot establish an assertion (NullField) in method moveUnit
     private Object player;
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method moveUnit
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:155: verify: The prover cannot establish an assertion (NullField) in method moveUnit
@@ -1230,10 +1230,10 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:1879: verify: Associated d
 cog_complexity_validation_datasets/Three/Tasks_1.java:1880: verify: Associated method exit
             return null;
             ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:397: verify: The prover cannot establish an assertion (Diverges: cog_complexity_validation_datasets/Three/Tasks_1.java:1:) in method quit
+/home/authors/openjml/specs/java/lang/System.jml:397: verify: The prover cannot establish an assertion (Diverges: cog_complexity_validation_datasets/Three/Tasks_1.java:1:) in method quit
       @    diverges true;
            ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:1: verify: Associated declaration: /home/mkellogg/openjml/specs/java/lang/System.jml:397:
+cog_complexity_validation_datasets/Three/Tasks_1.java:1: verify: Associated declaration: /home/authors/openjml/specs/java/lang/System.jml:397:
 package cog_complexity_validation_datasets.Three;
  ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:598: verify: The prover cannot establish an assertion (NullFormal: cog_complexity_validation_datasets/Three/Tasks_1.java:943:) in method quit: w in setFullScreenWindow(java.awt.Window)
@@ -1251,49 +1251,49 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:1489: verify: Associated d
 cog_complexity_validation_datasets/Three/Tasks_1.java:1490: verify: Associated method exit
             return null;
             ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:710: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method removeName: cog_complexity_validation_datasets.Three.Tasks_1.removeName(java.lang.String) (parameter name)
+cog_complexity_validation_datasets/Three/Tasks_1.java:710: verify: The prover cannot establish an assertion (InvariantExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method removeName: cog_complexity_validation_datasets.Three.Tasks_1.removeName(java.lang.String) (parameter name)
     Object removeName (String name) throws HsqlException {
                               ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:710:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:710:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:710: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method removeName: cog_complexity_validation_datasets.Three.Tasks_1.removeName(java.lang.String) (parameter name)
+cog_complexity_validation_datasets/Three/Tasks_1.java:710: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method removeName: cog_complexity_validation_datasets.Three.Tasks_1.removeName(java.lang.String) (parameter name)
     Object removeName (String name) throws HsqlException {
                               ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:710:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:710:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method removeName
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant 0 <= elementCount;
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method removeName
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method removeName
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method removeName
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:1818: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:1818:) in method errorReport: errorReport
@@ -1416,22 +1416,22 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:244: verify: Associated de
 cog_complexity_validation_datasets/Three/Tasks_1.java:246: verify: Associated method exit
                 return null;
                 ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:271: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:230:) in method clear
+cog_complexity_validation_datasets/Three/Tasks_1.java:271: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:230:) in method clear
             public void clear() {
                         ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:230: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:271:
+/home/authors/openjml/specs/java/util/Map.jml:230: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:271:
       @    ensures isEmpty();
            ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:315: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:113:) in method containsKey
+cog_complexity_validation_datasets/Three/Tasks_1.java:315: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:113:) in method containsKey
                 return false;
                 ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:113: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:315:
+/home/authors/openjml/specs/java/util/Map.jml:113: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:315:
       @    ensures keys[key.uniqueHash] <==> \result;
            ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:279: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:125:) in method containsValue
+cog_complexity_validation_datasets/Three/Tasks_1.java:279: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:125:) in method containsValue
                 return false;
                 ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:125: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:279:
+/home/authors/openjml/specs/java/util/Map.jml:125: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:279:
       @    ensures \result <==> ((nullPresent && nullValue.uniqueHash == value.uniqueHash) || \exists \bigint i;; keys[i] && modelMap[i].uniqueHash == value.uniqueHash);
            ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:283: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:283:) in method entrySet: entrySet
@@ -1452,10 +1452,10 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:319: verify: Associated de
 cog_complexity_validation_datasets/Three/Tasks_1.java:321: verify: Associated method exit
                 return null;
                 ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:291: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:107:) in method isEmpty
+cog_complexity_validation_datasets/Three/Tasks_1.java:291: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:107:) in method isEmpty
                 return false;
                 ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:107: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:291:
+/home/authors/openjml/specs/java/util/Map.jml:107: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:291:
       @    ensures \result <==> (_size == 0); 
            ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:295: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:295:) in method keySet: keySet
@@ -1485,10 +1485,10 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:337: verify: Associated de
 cog_complexity_validation_datasets/Three/Tasks_1.java:339: verify: Associated method exit
                 return null;
                 ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:303: verify: The prover cannot establish an assertion (Postcondition: /home/mkellogg/openjml/specs/java/util/Map.jml:101:) in method size
+cog_complexity_validation_datasets/Three/Tasks_1.java:303: verify: The prover cannot establish an assertion (Postcondition: /home/authors/openjml/specs/java/util/Map.jml:101:) in method size
                 return 0;
                 ^
-/home/mkellogg/openjml/specs/java/util/Map.jml:101: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:303:
+/home/authors/openjml/specs/java/util/Map.jml:101: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:303:
     //-RAC@   ensures \result == _size;
               ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:307: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:307:) in method values: values
@@ -1502,28 +1502,28 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:309: verify: Associated me
                 ^
 error: An error while executing a proof script for runAllSnippets: (error "line 102450 column 48: unknown constant <anonymous cog_complexity_validation_dat-163234528")
   >>>(define-fun BL_10164_throw_640__A116 () Bool (= |<anonymous cog_complexity_validation_dat-163234528| |<anonymous cog_complexity_validation_dat-205173544|))
-cog_complexity_validation_datasets/Three/Tasks_1.java:759: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method runMain: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.runMain(java.lang.String...), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_1.java:759: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method runMain: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.runMain(java.lang.String...), Callee: java.lang.String.concat(@org.jmlspecs.annotation.Nullable java.lang.String,@org.jmlspecs.annotation.Nullable java.lang.String))
         System.out.println("JUnit version " + Version.id());
                                             ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:759:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:759:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:759: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:35:) in method runMain: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.runMain(java.lang.String...), Callee: java.io.PrintStream.println(java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_1.java:759: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/PrintStream.jml:35:) in method runMain: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.runMain(java.lang.String...), Callee: java.io.PrintStream.println(java.lang.String))
         System.out.println("JUnit version " + Version.id());
                           ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:759:
+/home/authors/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:759:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:759: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/mkellogg/openjml/specs/java/io/PrintStream.jml:42:) in method runMain: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.runMain(java.lang.String...), Callee: java.io.PrintStream.println(java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_1.java:759: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/authors/openjml/specs/java/io/PrintStream.jml:42:) in method runMain: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.runMain(java.lang.String...), Callee: java.io.PrintStream.println(java.lang.String))
         System.out.println("JUnit version " + Version.id());
                           ^
-/home/mkellogg/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:759:
+/home/authors/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:759:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method runMain
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method runMain
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method runMain
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method runMain
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:758: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -1541,10 +1541,10 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:1379: verify: Associated m
 cog_complexity_validation_datasets/Three/Tasks_1.java:537: error: Switch on string is not yet implemented
                 case RETURN:
                 ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:689: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method s12: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.s12(), Callee: cog_complexity_validation_datasets.Three.Tasks_1.BtPanel.add(cog_complexity_validation_datasets.Three.Tasks_1.BtPanel,java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_1.java:689: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method s12: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.s12(), Callee: cog_complexity_validation_datasets.Three.Tasks_1.BtPanel.add(cog_complexity_validation_datasets.Three.Tasks_1.BtPanel,java.lang.String))
         panel.add(btPanel, BorderLayout.SOUTH);
                            ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:689:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:689:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:726: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method s15: underflow in int difference
@@ -1556,37 +1556,37 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:726: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_1.java:749: verify: The prover cannot establish an assertion (PossiblyBadCast) in method s17: a java.lang.Object cannot be proved to be a java.lang.String
             String classname = (String) in.readObject();
                                ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s17
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant 0 <= elementCount;
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s17
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant 0 <= elementCount;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s17
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s17
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:555: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method s2
@@ -1601,91 +1601,91 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:546: verify: Associated de
 cog_complexity_validation_datasets/Three/Tasks_1.java:551: verify: Associated method exit
                 return null;
                 ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s21
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant 0 <= elementCount;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s21
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s21
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s21
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:853: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method s26: overflow in int difference
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
                                             ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:853: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/lang/System.jml:312:) in method s26
+cog_complexity_validation_datasets/Three/Tasks_1.java:853: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/lang/System.jml:312:) in method s26
             System.arraycopy(buffer, bufpos - len + 1, ret, 0, len);
                             ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:312: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:853:
+/home/authors/openjml/specs/java/lang/System.jml:312: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:853:
     public static native void arraycopy(/*@nullable*/ Object src,
                               ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:147: verify: Precondition conjunct is false: src == null || dest == null
+/home/authors/openjml/specs/java/lang/System.jml:147: verify: Precondition conjunct is false: src == null || dest == null
       @    requires src == null || dest == null;
                                 ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:153: verify: Precondition conjunct is false: (dest instanceof byte[])
+/home/authors/openjml/specs/java/lang/System.jml:153: verify: Precondition conjunct is false: (dest instanceof byte[])
                  (dest instanceof byte[]) &&
                  ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:204: verify: Precondition conjunct is false: !(srcPos < 0 || destPos < 0 || length_ < 0)
+/home/authors/openjml/specs/java/lang/System.jml:204: verify: Precondition conjunct is false: !(srcPos < 0 || destPos < 0 || length_ < 0)
     @    requires !(    srcPos < 0 || destPos < 0 || length_ < 0 );
                   ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:218: verify: Precondition conjunct is false: (src instanceof int[])
+/home/authors/openjml/specs/java/lang/System.jml:218: verify: Precondition conjunct is false: (src instanceof int[])
         requires (src instanceof int[]) &&
                  ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:229: verify: Precondition conjunct is false: (src instanceof long[])
+/home/authors/openjml/specs/java/lang/System.jml:229: verify: Precondition conjunct is false: (src instanceof long[])
         requires (src instanceof long[]) &&
                  ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:240: verify: Precondition conjunct is false: (src instanceof char[])
+/home/authors/openjml/specs/java/lang/System.jml:240: verify: Precondition conjunct is false: (src instanceof char[])
         requires (src instanceof char[]) &&
                  ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:855: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method s26: underflow in int difference
             System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
                                                              ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:855: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/lang/System.jml:312:) in method s26
+cog_complexity_validation_datasets/Three/Tasks_1.java:855: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/lang/System.jml:312:) in method s26
             System.arraycopy(buffer, bufsize - (len - bufpos - 1), ret, 0,
                             ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:312: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:855:
+/home/authors/openjml/specs/java/lang/System.jml:312: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:855:
     public static native void arraycopy(/*@nullable*/ Object src,
                               ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:147: verify: Precondition conjunct is false: src == null || dest == null
+/home/authors/openjml/specs/java/lang/System.jml:147: verify: Precondition conjunct is false: src == null || dest == null
       @    requires src == null || dest == null;
                                 ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:152: verify: Precondition conjunct is false: (src instanceof byte[])
+/home/authors/openjml/specs/java/lang/System.jml:152: verify: Precondition conjunct is false: (src instanceof byte[])
            requires (src instanceof byte[]) &&
                     ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:204: verify: Precondition conjunct is false: !(srcPos < 0 || destPos < 0 || length_ < 0)
+/home/authors/openjml/specs/java/lang/System.jml:204: verify: Precondition conjunct is false: !(srcPos < 0 || destPos < 0 || length_ < 0)
     @    requires !(    srcPos < 0 || destPos < 0 || length_ < 0 );
                   ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:218: verify: Precondition conjunct is false: (src instanceof int[])
+/home/authors/openjml/specs/java/lang/System.jml:218: verify: Precondition conjunct is false: (src instanceof int[])
         requires (src instanceof int[]) &&
                  ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:229: verify: Precondition conjunct is false: (src instanceof long[])
+/home/authors/openjml/specs/java/lang/System.jml:229: verify: Precondition conjunct is false: (src instanceof long[])
         requires (src instanceof long[]) &&
                  ^
-/home/mkellogg/openjml/specs/java/lang/System.jml:240: verify: Precondition conjunct is false: (src instanceof char[])
+/home/authors/openjml/specs/java/lang/System.jml:240: verify: Precondition conjunct is false: (src instanceof char[])
         requires (src instanceof char[]) &&
                  ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:855: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method s26: underflow in int difference
@@ -1700,10 +1700,10 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:855: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_1.java:851: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
     public void s26() {
                 ^
-cog_complexity_validation_datasets/Three/Tasks_1.java:914: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method s31: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.s31(), Callee: java.lang.String.toCharArray())
+cog_complexity_validation_datasets/Three/Tasks_1.java:914: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method s31: (Caller: cog_complexity_validation_datasets.Three.Tasks_1.s31(), Callee: java.lang.String.toCharArray())
             return createEnumeration(((String) iterateOverMe).toCharArray());
                                                                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:914:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_1.java:914:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:2169: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_1.java:2169:) in method executeScript: executeScript
@@ -1778,7 +1778,7 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:94: verify: The prover can
 cog_complexity_validation_datasets/Three/Tasks_1.java:90: verify: The prover cannot establish an assertion (NullField) in method setMapTransform
     private Object asClass;
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:106: verify: The prover cannot establish an assertion (NullField) in method setMapTransform
@@ -1790,16 +1790,16 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:102: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_1.java:96: verify: The prover cannot establish an assertion (NullField) in method setMapTransform
     private Object ok;
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
+/home/authors/openjml/specs/java/util/Vector.jml:54: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
     //-RAC@ public invariant elementData.length >= maxCapacity;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:122: verify: The prover cannot establish an assertion (NullField) in method setMapTransform
@@ -1811,7 +1811,7 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:118: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_1.java:116: verify: The prover cannot establish an assertion (NullField) in method setMapTransform
     private Object returnType;
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method setMapTransform
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_1.java:98: verify: The prover cannot establish an assertion (NullField) in method setMapTransform
@@ -1914,10 +1914,10 @@ cog_complexity_validation_datasets/Three/Tasks_1.java:1222: verify: Associated m
             return null;
             ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:17: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.pathSeparatorChar
-import java.util.logging.*;     //CHANGED BY KOBI
+import java.util.logging.*;     //CHANGED BY AUTHORS
                                              ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:18: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.separatorChar
-import java.util.Map.Entry;     //ADDED BY KOBI
+import java.util.Map.Entry;     //ADDED BY AUTHORS
                                            ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:21: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.pathSeparator
  * Note: method names were changed from 'main' to main + their task number
@@ -2024,46 +2024,46 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:1537: verify: Associated d
 cog_complexity_validation_datasets/Three/Tasks_2.java:1538: verify: Associated method exit
             return null;
             ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method close
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method close
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method close
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method close
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method close
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method close
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method close
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method close
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method close
+/home/authors/openjml/specs/java/util/Vector.jml:53: verify: The prover cannot establish an assertion (Invariant) in method close
     //-RAC@ public invariant elementData.__owner == this; 
                    ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:523: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
     public void close() {
                 ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter actual)
+cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter actual)
         public ComparisonFailure (String message, String expected, String actual) {
                                                                           ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter expected)
+cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExceptionExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter expected)
         public ComparisonFailure (String message, String expected, String actual) {
                                                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter actual)
+cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter actual)
         public ComparisonFailure (String message, String expected, String actual) {
                                                                           ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExit: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter expected)
+cog_complexity_validation_datasets/Three/Tasks_2.java:514: verify: The prover cannot establish an assertion (InvariantExit: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method ComparisonFailure: cog_complexity_validation_datasets.Three.Tasks_2.ComparisonFailure.ComparisonFailure(java.lang.String,java.lang.String,java.lang.String) (parameter expected)
         public ComparisonFailure (String message, String expected, String actual) {
                                                          ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:514:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:932: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -2318,17 +2318,17 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:1667: verify: Associated d
 cog_complexity_validation_datasets/Three/Tasks_2.java:1668: verify: Associated method exit
         return null;
         ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:1108: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:57:) in method getBaseName
+cog_complexity_validation_datasets/Three/Tasks_2.java:1108: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /home/authors/openjml/specs/java/lang/CharSequence.jml:57:) in method getBaseName
         }
      ^
 Note: Call stack
-  /home/mkellogg/openjml/specs/java/lang/String.jml:753: java.lang.CharSequence.equal
-  /home/mkellogg/openjml/specs/java/lang/String.jml:730: java.lang.String.indexOf
+  /home/authors/openjml/specs/java/lang/String.jml:753: java.lang.CharSequence.equal
+  /home/authors/openjml/specs/java/lang/String.jml:730: java.lang.String.indexOf
   cog_complexity_validation_datasets/Three/Tasks_2.java:556: java.lang.String.indexOf
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:57: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:1108:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:57: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:1108:
         public static pure helper model boolean equal(char[] a, \bigint astart, char[] b, \bigint bstart, \bigint len);
                                                 ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:52: verify: Precondition conjunct is false: astart >= 0
+/home/authors/openjml/specs/java/lang/CharSequence.jml:52: verify: Precondition conjunct is false: astart >= 0
         requires a != null && b!= null && astart >= 0 && bstart >= 0 &&
                                                  ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:922: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_2.java:922:) in method getConnectController: getConnectController
@@ -2802,16 +2802,16 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:401: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_2.java:399: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
     public void s39() {
                 ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s41
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s41
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s41
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s41
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s41
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s41
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s41
+/home/authors/openjml/specs/java/util/Vector.jml:58: verify: The prover cannot establish an assertion (Invariant) in method s41
     //-RAC@ public invariant 0 <= elementCount;
                    ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:426: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -2853,16 +2853,16 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:582: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_2.java:576: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
     public void s53() throws Exception{
                 ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s55
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s55
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s55
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s55
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s55
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s55
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s55
+/home/authors/openjml/specs/java/util/Vector.jml:44: verify: The prover cannot establish an assertion (Invariant) in method s55
       @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
                ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:602: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -2874,10 +2874,10 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:630: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_2.java:631: verify: The prover cannot establish an assertion (PossiblyBadCast) in method s57: a java.lang.Object cannot be proved to be a java.lang.String
         String devname = (String)in.readObject();
                          ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:633: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method s57: (Caller: cog_complexity_validation_datasets.Three.Tasks_2.s57(), Callee: cog_complexity_validation_datasets.Three.Tasks_2.DriverFactory.createDevice(java.lang.String,java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_2.java:633: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method s57: (Caller: cog_complexity_validation_datasets.Three.Tasks_2.s57(), Callee: cog_complexity_validation_datasets.Three.Tasks_2.DriverFactory.createDevice(java.lang.String,java.lang.String))
         DeviceIf dev = DriverFactory.getInstance().createDevice(classname, devname);
                                                                 ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:633:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:633:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:631: verify: The prover cannot establish an assertion (PossiblyNullDeReference) in method s57
@@ -2925,37 +2925,37 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:666: verify: Validity is u
 cog_complexity_validation_datasets/Three/Tasks_2.java:683: verify: The prover cannot establish an assertion (PossiblyBadCast) in method s62: a java.lang.Object cannot be proved to be a java.lang.String
             dataServiceId = (String) in.readObject();
                             ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s62
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s62
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s62
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s62
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:684: verify: The prover cannot establish an assertion (PossiblyNullDeReference) in method s62
             channelId = "" + in.readInt();
                                ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s62
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s62
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:679: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
     public void s62() {
                 ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:705: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method s64: (Caller: cog_complexity_validation_datasets.Three.Tasks_2.s64(), Callee: cog_complexity_validation_datasets.Three.Tasks_2.Ns.getCatalogName(java.lang.String))
+cog_complexity_validation_datasets/Three/Tasks_2.java:705: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method s64: (Caller: cog_complexity_validation_datasets.Three.Tasks_2.s64(), Callee: cog_complexity_validation_datasets.Three.Tasks_2.Ns.getCatalogName(java.lang.String))
             clsCat = ns.getCatalogName(clsName);
                                        ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:705:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:705:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:704: verify: The prover cannot establish an assertion (PossiblyBadCast) in method s64: a java.lang.Object cannot be proved to be a java.lang.String
             clsName = (String) classNames.next();
                       ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s64
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s64
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s64
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s64
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s64
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s64
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:702: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -2964,13 +2964,13 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:702: verify: Validity is u
 cog_complexity_validation_datasets/Three/Tasks_2.java:716: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method s65
             String ID = messages[i].getMessageID();
                                 ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s65
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s65
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s65
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s65
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s65
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s65
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:712: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -3057,13 +3057,13 @@ cog_complexity_validation_datasets/Three/Tasks_2.java:1576: verify: Associated m
 cog_complexity_validation_datasets/Three/Tasks_2.java:622: verify: The prover cannot establish an assertion (PossiblyBadCast) in method swap: a java.lang.Object cannot be proved to be a cog_complexity_validation_datasets.Three.Tasks_2.NameSpace
         NameSpace oldTop = (NameSpace)(stack.elementAt(0));
                            ^
-cog_complexity_validation_datasets/Three/Tasks_2.java:622: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/util/Vector.jml:242:) in method swap
+cog_complexity_validation_datasets/Three/Tasks_2.java:622: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/util/Vector.jml:242:) in method swap
         NameSpace oldTop = (NameSpace)(stack.elementAt(0));
                                                       ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:242: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:622:
+/home/authors/openjml/specs/java/util/Vector.jml:242: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_2.java:622:
     public /*@ pure @*/ synchronized E elementAt(int index);
                                        ^
-/home/mkellogg/openjml/specs/java/util/Vector.jml:236: verify: Precondition conjunct is false: index < elementCount
+/home/authors/openjml/specs/java/util/Vector.jml:236: verify: Precondition conjunct is false: index < elementCount
       @    requires 0 <= index && index < elementCount;
                                         ^
 cog_complexity_validation_datasets/Three/Tasks_2.java:1828: verify: The prover cannot establish an assertion (PossiblyNullReturn: cog_complexity_validation_datasets/Three/Tasks_2.java:1828:) in method convertPoint: convertPoint
@@ -3166,10 +3166,10 @@ cog_complexity_validation_datasets/Three/Tasks_3.java:559: warning: Use a static
             g.setColor(Color.WHITE);
                             ^
 cog_complexity_validation_datasets/Three/Tasks_3.java:17: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.pathSeparatorChar
-import java.util.logging.*;     //CHANGED BY KOBI
+import java.util.logging.*;     //CHANGED BY AUTHORS
                                              ^
 cog_complexity_validation_datasets/Three/Tasks_3.java:18: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.separatorChar
-import java.util.Map.Entry;     //ADDED BY KOBI
+import java.util.Map.Entry;     //ADDED BY AUTHORS
                                            ^
 cog_complexity_validation_datasets/Three/Tasks_3.java:21: warning: Use a static_initializer clause to specify the values of static final fields: java.io.File.pathSeparator
  * Note: method names were changed from 'main' to main + their task number
@@ -3330,10 +3330,10 @@ cog_complexity_validation_datasets/Three/Tasks_3.java:2002: verify: The prover c
 cog_complexity_validation_datasets/Three/Tasks_3.java:1199: verify: The prover cannot establish an assertion (NullField) in method ConstraintCore
         public ConstraintCore mainColArray;
                               ^
-/home/mkellogg/openjml/specs/java/util/Date.jml:144: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/util/Calendar.jml:125:) in method correctTimeZone: (Caller: cog_complexity_validation_datasets.Three.Tasks_3.correctTimeZone(java.util.Date), Callee: java.util.Calendar.getTimeInMillis())
+/home/authors/openjml/specs/java/util/Date.jml:144: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/util/Calendar.jml:125:) in method correctTimeZone: (Caller: cog_complexity_validation_datasets.Three.Tasks_3.correctTimeZone(java.util.Date), Callee: java.util.Calendar.getTimeInMillis())
        @   ensures \result == cal.getTimeInMillis();
                                                  ^
-/home/mkellogg/openjml/specs/java/util/Calendar.jml:125: verify: Associated declaration: /home/mkellogg/openjml/specs/java/util/Date.jml:144:
+/home/authors/openjml/specs/java/util/Calendar.jml:125: verify: Associated declaration: /home/authors/openjml/specs/java/util/Date.jml:144:
     /*@ public invariant zone != null;
                ^
 cog_complexity_validation_datasets/Three/Tasks_3.java:716: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method correctTimeZone: overflow in long sum
@@ -3664,19 +3664,19 @@ cog_complexity_validation_datasets/Three/Tasks_3.java:1688: verify: Associated d
 cog_complexity_validation_datasets/Three/Tasks_3.java:1689: verify: Associated method exit
             return null;
             ^
-cog_complexity_validation_datasets/Three/Tasks_3.java:558: verify: The prover cannot establish an assertion (Precondition: /home/mkellogg/openjml/specs/java/lang/Object.jml:92:) in method loadColorChip
+cog_complexity_validation_datasets/Three/Tasks_3.java:558: verify: The prover cannot establish an assertion (Precondition: /home/authors/openjml/specs/java/lang/Object.jml:92:) in method loadColorChip
         if (c.equals(Color.BLACK)) {
                     ^
-/home/mkellogg/openjml/specs/java/lang/Object.jml:92: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_3.java:558:
+/home/authors/openjml/specs/java/lang/Object.jml:92: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_3.java:558:
       @     requires obj == null;
             ^
-/home/mkellogg/openjml/specs/java/lang/Object.jml:84: verify: Precondition conjunct is false: this == obj
+/home/authors/openjml/specs/java/lang/Object.jml:84: verify: Precondition conjunct is false: this == obj
       @     requires this == obj;
                           ^
-/home/mkellogg/openjml/specs/java/lang/Object.jml:88: verify: Precondition conjunct is false: \typeof(this) == \type(Object)
+/home/authors/openjml/specs/java/lang/Object.jml:88: verify: Precondition conjunct is false: \typeof(this) == \type(Object)
       @     requires obj != null && \typeof(this) == \type(Object);
                                                   ^
-/home/mkellogg/openjml/specs/java/lang/Object.jml:92: verify: Precondition conjunct is false: obj == null
+/home/authors/openjml/specs/java/lang/Object.jml:92: verify: Precondition conjunct is false: obj == null
       @     requires obj == null;
                          ^
 cog_complexity_validation_datasets/Three/Tasks_3.java:2215: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -3922,10 +3922,10 @@ cog_complexity_validation_datasets/Three/Tasks_3.java:1337: verify: Associated d
 cog_complexity_validation_datasets/Three/Tasks_3.java:1338: verify: Associated method exit
             return null;
             ^
-cog_complexity_validation_datasets/Three/Tasks_3.java:542: verify: The prover cannot establish an assertion (InvariantEntrance: /home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30:) in method s74: (Caller: cog_complexity_validation_datasets.Three.Tasks_3.s74(), Callee: cog_complexity_validation_datasets.Three.Tasks_3.iterateRoutineMethods(java.lang.String,java.lang.Object))
+cog_complexity_validation_datasets/Three/Tasks_3.java:542: verify: The prover cannot establish an assertion (InvariantEntrance: /home/authors/openjml/specs/java/lang/CharSequence.jml:30:) in method s74: (Caller: cog_complexity_validation_datasets.Three.Tasks_3.s74(), Callee: cog_complexity_validation_datasets.Three.Tasks_3.iterateRoutineMethods(java.lang.String,java.lang.Object))
             methods = iterateRoutineMethods(className, andAliases);
                                             ^
-/home/mkellogg/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_3.java:542:
+/home/authors/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: cog_complexity_validation_datasets/Three/Tasks_3.java:542:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
 cog_complexity_validation_datasets/Three/Tasks_3.java:537: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
@@ -3946,7 +3946,7 @@ cog_complexity_validation_datasets/Three/Tasks_3.java:596: verify: The prover ca
 cog_complexity_validation_datasets/Three/Tasks_3.java:594: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
     public int s79() {
                ^
-/home/mkellogg/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s82
+/home/authors/openjml/specs/java/lang/Iterable.jml:10: verify: The prover cannot establish an assertion (Invariant) in method s82
     //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
                    ^
 cog_complexity_validation_datasets/Three/Tasks_3.java:641: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
