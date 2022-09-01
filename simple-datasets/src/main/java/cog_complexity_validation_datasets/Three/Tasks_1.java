@@ -17,8 +17,8 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.logging.*;     //CHANGED BY KOBI
-import java.util.Map.Entry;     //ADDED BY KOBI
+import java.util.logging.*;     //CHANGED BY AUTHORS
+import java.util.Map.Entry;     //ADDED BY AUTHORS
 
 /**
  * Note: method names were changed from 'main' to main + their task number
@@ -170,7 +170,7 @@ public class Tasks_1 {
 
     }
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     @SuppressWarnings("all")
     public void runAllSnippets() {
         /*------------------------------------------------------
@@ -938,20 +938,20 @@ public class Tasks_1 {
     } // Added to allow compilation
     //SNIPPETS_END
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     public class GraphicsDevice {
         public void setFullScreenWindow(Window w) {
 
         }
     }
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     @SuppressWarnings("all")
     public @interface SuiteClasses {
         Class<?>[] value();
     }
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     @SuppressWarnings("all")
     private class None {
 
@@ -1086,7 +1086,7 @@ public class Tasks_1 {
 
     @SuppressWarnings("all")
     private ConnectController getConnectController() {
-        //ALTERED BY KOBI
+        //ALTERED BY AUTHORS
         return new ConnectController();     //return null;
     }
 
@@ -1154,7 +1154,7 @@ public class Tasks_1 {
             return new Annotation[0];
         }
 
-        //ADDED BY KOBI
+        //ADDED BY AUTHORS
         @SuppressWarnings("all")
         public Test getAnnotation(Class <?> c) {
             return new Test();
@@ -1754,7 +1754,7 @@ public class Tasks_1 {
 
     @SuppressWarnings("all")
     private class Test {
-        //ADDED BY KOBI
+        //ADDED BY AUTHORS
         public Class expected() {
             return null;
         }

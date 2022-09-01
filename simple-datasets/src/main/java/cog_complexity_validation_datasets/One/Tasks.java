@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class Tasks {
 
-    //ADDED BY KOBI
+    //ADDED BY AUTHORS
     @SuppressWarnings("all")
     public static void runAllSnippets() {
         main1(new String[2]);
