@@ -300,6 +300,27 @@ def setFMRIStudyDatapoints(warningsPerSnippet, data):
 
     return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataBA31), pd.DataFrame(dataBA32), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
 
+def removeSnippetsWithTimeouts(dfDictCorrelationDatapoints):
+    print(dfDictCorrelationDatapoints)
+
+    dfTimeouts = pd.read_csv("data/timeouts.csv")
+
+    for key, df in dfDictCorrelationDatapoints.items():
+        rowsToRemove = []
+        for i in range(len(dfTimeouts.index)):
+            snippetToRemove = dfTimeouts.iloc[i, 1].split("--")[1].strip()
+            dataset = dfTimeouts.iloc[i, 1].split("--")[0].strip()
+            if dataset in str(key[1]):
+                rowsToRemove.append(df.iloc[[int(snippetToRemove) - 1]].index[0])
+                #temp = dfDictCorrelationDatapoints[key].drop(temp2)
+                #dfDictCorrelationDatapoints[key] = temp
+
+        dfDictCorrelationDatapoints[key] = df.drop(rowsToRemove)
+
+    print(dfDictCorrelationDatapoints)
+
+    return dfDictCorrelationDatapoints
+
 ##################################
 #   Retrieve Data From Studies   #
 ##################################
@@ -647,7 +668,6 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
 
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
-        print(warningsPerSnippetPerDataset)
         return warningsPerSnippetPerDataset
 
     # Loop through the analysis tool output dataframes
@@ -777,6 +797,9 @@ if __name__ == "__main__":
     dfDictCorrelationDatapointsInfer = setupCorrelationData(warningsPerSnippetPerDatasetInfer)
     dfDictCorrelationDatapointsOpenJML = setupCorrelationData(warningsPerSnippetPerDatasetOpenJML)
     
+    # Remove any snippets with timeouts before running correlations if applicable.
+    dfDictCorrelationDatapointsOpenJML = removeSnippetsWithTimeouts(dfDictCorrelationDatapointsOpenJML)
+
     # Update correlation analyis data frame 
     correlationAnalysisDFAllTools = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsAllTools, correlationAnalysisDFAllTools)
     correlationAnalysisDFCheckerFramework = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsCheckerFramework, correlationAnalysisDFCheckerFramework)
