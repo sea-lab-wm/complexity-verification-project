@@ -227,7 +227,7 @@ def openJMLWriteData(data, warning, message, line, timeouts):
 
     data["Warning Type"].append(warning.strip())
 
-def openJMLHandleTimeouts(timeouts):
+def openJMLHandleTimeouts(timeouts, numTimeoutsPerDataset):
     ###SET THIS TO CHANGE HOW TIMEOUTS ARE HANDLED###
     #0 = max, 1 = zero, 2 = completely remove the snippet
     handleType = 0
@@ -263,9 +263,13 @@ def openJMLHandleTimeouts(timeouts):
             if (df.loc[df["Snippet"] == message, "timeout"] == 0).all():
                 if handleType == 1:
                     if (df.loc[df["Snippet"] == message].sum(axis=1, numeric_only=True) == 0).all():
-                        df = df.drop(df.loc[df["Snippet"] == message].index)
-                else:
-                    df = df.drop(df.loc[df["Snippet"] == message].index)
+                        #df = df.drop(df.loc[df["Snippet"] == message].index)
+                        timeouts.remove(message)
+
+    if handleType == 2:
+        createTimeoutFile(timeouts, numTimeoutsPerDataset, 2)
+    elif handleType == 1:
+        createTimeoutFile(timeouts, numTimeoutsPerDataset, 1)
 
     df.to_csv("data/openjml_data.csv", index=False)
 
@@ -286,21 +290,34 @@ def findMaxNumWarnings(dataset, df):
 
 def getNumTimeoutsPerDataset(timeouts):
     counts = {
-        "dataset_1": 0,
-        "dataset_2": 0,
-        "dataset_3": 0,
-        "dataset_6": 0,
-        "dataset_9": 0,
-        "dataset_f": 0
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "6": 0,
+        "9": 0,
+        "f": 0
     }
 
     timeouts = list(set(timeouts))
 
     for snippet in timeouts:
-        if f"dataset_{snippet.split('--')[0].strip()}" in counts:
-            counts[f"dataset_{snippet.split('--')[0].strip()}"] += 1
+        if f"{snippet.split('--')[0].strip()}" in counts:
+            counts[f"{snippet.split('--')[0].strip()}"] += 1
 
-    print(counts)
+    return counts
+
+def createTimeoutFile(timeouts, numTimeoutsPerDataset, handleType):
+    data = {
+        #"timeouts": pd.Series(timeouts),
+        "timeouts": timeouts
+        #"datasets": pd.Series(numTimeoutsPerDataset.keys()),
+        #"num_timeouts_per_dataset": pd.Series(numTimeoutsPerDataset.values()),
+        #"handle_type": pd.Series(handleType)
+    }
+
+    df = pd.DataFrame(data)
+
+    df.to_csv(f"data/timeouts.csv")
 
 # Parses the analysis tool output of the Checker Framework, Typestate Checker, and Infer.
 def parseAll(data, lines, allSnippetNums, endSnippet):
@@ -402,19 +419,42 @@ def setupCSVSheets(allAnalysisToolData):
 
         df.to_csv(f"data/{data[0]}.csv")
 
-def csvAllSnippetNames(allSnippetNums):
-    info = {
-        "dataset": [],
-        "snippet": []
-    }
+#def setupNumSnippetsJudgedCol(numTimeoutsPerDataset):
+#    defaults = {
+#        "1": 23,
+#        "2": 12,
+#        "3": 100,
+#        "6": 50,
+#        "9": 10,
+#        "f": 16
+#    }
 
-    for dataset in allSnippetNums:
-        pass
+#    dfs = pd.read_excel("data/correlation_analysis.xlsx", sheet_name=None)
+
+#    for key1, sheet in dfs.items():
+#        if key1 == "openjml":
+#            for i in range(len(sheet.index)):
+#                currDataset = str(sheet.iloc[i, 1])
+
+#                for key, dataset in defaults.items():
+#                    if key in currDataset:
+#                        sheet.iloc[i, 4] = dataset - numTimeoutsPerDataset[key]
+
+#    with pd.ExcelWriter("data/correlation_analysis.xlsx") as writer:
+#        for key, sheet in dfs.items():
+#            print(key)
+#            print(sheet)
+#            sheet.to_excel(writer, sheet_name=key, index=False)
+
+        # Auto-adjust columns' width
+        #for column in df:
+        #    column_width = max(df[column].astype(str).map(len).max(), len(column))
+        #    col_idx = df.columns.get_loc(column)
+        #    writer.sheets[df].set_column(col_idx, col_idx, column_width)
+
 
 if __name__ == "__main__":
     allSnippetNums = getAllSnippets()
-
-    #csvAllSnippetNames(allSnippetNums)
 
     # Data output structure as a dictionary
     data = {
@@ -432,6 +472,6 @@ if __name__ == "__main__":
 
     setupCSVSheets(allAnalysisToolData)
 
-    getNumTimeoutsPerDataset(openJMLTimeouts)
+    numTimeoutsPerDataset = getNumTimeoutsPerDataset(openJMLTimeouts)
 
-    openJMLHandleTimeouts(openJMLTimeouts)
+    openJMLHandleTimeouts(openJMLTimeouts, numTimeoutsPerDataset)

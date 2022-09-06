@@ -3,6 +3,13 @@ import scipy.stats as scpy
 import copy
 import numpy as np
 
+# OSCAR: I think, overall, it is easier to process data with data frames:
+# read data from the excel files into DFs, then processing it to get results as more DFs, and then writing this DFs
+# to either an excel or CSV file
+# RESOURCES:
+# https://www.geeksforgeeks.org/python-pandas-dataframe/
+# https://pandas.pydata.org/docs/user_guide/indexing.html
+
 ###############################################
 #   Interact with correlation_analysis.xlsx   #
 ###############################################
@@ -293,6 +300,27 @@ def setFMRIStudyDatapoints(warningsPerSnippet, data):
 
     return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataBA31), pd.DataFrame(dataBA32), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
 
+def removeSnippetsWithTimeouts(dfDictCorrelationDatapoints):
+    print(dfDictCorrelationDatapoints)
+
+    dfTimeouts = pd.read_csv("data/timeouts.csv")
+
+    for key, df in dfDictCorrelationDatapoints.items():
+        rowsToRemove = []
+        for i in range(len(dfTimeouts.index)):
+            snippetToRemove = dfTimeouts.iloc[i, 1].split("--")[1].strip()
+            dataset = dfTimeouts.iloc[i, 1].split("--")[0].strip()
+            if dataset in str(key[1]):
+                rowsToRemove.append(df.iloc[[int(snippetToRemove) - 1]].index[0])
+                #temp = dfDictCorrelationDatapoints[key].drop(temp2)
+                #dfDictCorrelationDatapoints[key] = temp
+
+        dfDictCorrelationDatapoints[key] = df.drop(rowsToRemove)
+
+    print(dfDictCorrelationDatapoints)
+
+    return dfDictCorrelationDatapoints
+
 ##################################
 #   Retrieve Data From Studies   #
 ##################################
@@ -347,6 +375,10 @@ def readCOGDataset2StudyMetrics():
 
 # Reads the results of the cog data set 3 study. It contains 121 people who rated 100 snippets on a scale of 1-5.
 # 1 being less readable and 5 being more readable.
+# TODO:
+# OSCAR: where are we filtering out the 4 snippets that are commented out?
+# OSCAR: in cog_dataset_3.csv, are the snippets identified by column index?
+
 def readCOGDataset3StudyMetrics():
     df = pd.read_csv("data/cog_dataset_3.csv")
     
@@ -636,7 +668,6 @@ def getNumWarningsPerSnippetPerDataset(dfListAnalysisTools, correlationAnalysisD
 
             warningsPerSnippetPerDataset[snippetDataset][int(snippetNumber) - 1] += numWarnings[i]
 
-        print(warningsPerSnippetPerDataset)
         return warningsPerSnippetPerDataset
 
     # Loop through the analysis tool output dataframes
@@ -766,6 +797,9 @@ if __name__ == "__main__":
     dfDictCorrelationDatapointsInfer = setupCorrelationData(warningsPerSnippetPerDatasetInfer)
     dfDictCorrelationDatapointsOpenJML = setupCorrelationData(warningsPerSnippetPerDatasetOpenJML)
     
+    # Remove any snippets with timeouts before running correlations if applicable.
+    dfDictCorrelationDatapointsOpenJML = removeSnippetsWithTimeouts(dfDictCorrelationDatapointsOpenJML)
+
     # Update correlation analyis data frame 
     correlationAnalysisDFAllTools = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsAllTools, correlationAnalysisDFAllTools)
     correlationAnalysisDFCheckerFramework = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsCheckerFramework, correlationAnalysisDFCheckerFramework)
