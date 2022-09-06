@@ -71,21 +71,26 @@ def no_outliers(data):
 if __name__ == "__main__":
     # -----------------
 
+
     remove_outliers = False
-    input_correlation_excel_file = "data/correlation_analysis.xlsx"
+    input_correlation_excel_file = "data/correlation_analysis.xlsx" # this file is only used to extract metric types
     suffix_files = "_no_outliers" if remove_outliers else ""
 
-    #aggregate # of warnings (ablation)
-    input_file = f"data/raw_correlation_data_ablation.csv"
-    output_folder = f"scatter_plots_ablation{suffix_files}"
+    timeout_approach = "_timeout_max"
+    #timeout_approach = "_timeout_removed"
+    #timeout_approach = "_timeout_zero"
 
-    #aggregate # of warnings (avg)
-    #input_file = f"data/raw_correlation_data_avg.csv"
-    #output_folder = f"scatter_plots_avg{suffix_files}"
+    #aggregate # of warnings (ablation)
+    input_file = f"data/raw_correlation_data_ablation{timeout_approach}.csv"
+    output_folder = f"scatter_plots_ablation{suffix_files}{timeout_approach}"
 
     #aggregate # of warnings (sum)
-    #input_file = f"data/raw_correlation_data.csv"
-    #output_folder = f"scatter_plots{suffix_files}"
+    #input_file = f"data/raw_correlation_data{timeout_approach}.csv"
+    #output_folder = f"scatter_plots{suffix_files}{timeout_approach}"
+
+    #aggregate # of warnings (avg)
+    #input_file = f"data/raw_correlation_data_avg{timeout_approach}.csv"
+    #output_folder = f"scatter_plots_avg{suffix_files}{timeout_approach}"
 
     # -----------------
 
@@ -95,8 +100,6 @@ if __name__ == "__main__":
     #read data
     data = pd.read_csv(input_file)
 
-    
-    
     #read data for metric types
     correlation_data = pd.read_excel(input_correlation_excel_file, sheet_name="all_tools")
 

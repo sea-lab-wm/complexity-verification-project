@@ -7,8 +7,12 @@ import seaborn as sns
 
 if __name__ == "__main__":
 
+    suffix = "_timeout_max"
+    #suffix = "_timeout_removed"
+    #suffix = "_timeout_zero"
+
     #read data
-    data = pd.read_csv(f"data/raw_correlation_data.csv")
+    data = pd.read_csv(f"data/raw_correlation_data{suffix}.csv")
 
     #--------------
 
@@ -53,7 +57,7 @@ if __name__ == "__main__":
 
 
     avg_cor_data = avg_cor_data.convert_dtypes()
-    avg_cor_data.to_csv("data/raw_correlation_data_avg.csv", index=False)
+    avg_cor_data.to_csv(f"data/raw_correlation_data_avg{suffix}.csv", index=False)
 
     #---------------
     #data generation for ablation analysis
@@ -81,4 +85,4 @@ if __name__ == "__main__":
             ablation_cor_data = pd.concat([ablation_cor_data, df_record], ignore_index=True, axis=0)
     
     ablation_cor_data = ablation_cor_data.convert_dtypes()
-    ablation_cor_data.to_csv("data/raw_correlation_data_ablation.csv", index=False)
+    ablation_cor_data.to_csv(f"data/raw_correlation_data_ablation{suffix}.csv", index=False)
