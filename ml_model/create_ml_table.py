@@ -1,11 +1,12 @@
 import pandas as pd
 
-def get_num_warnings(file):
+def get_num_warnings(file, tool):
     """Returns a dataframe where each entry is a dataset, snippet, and number of warnings from a single tool."""
 
     dict_df = {
         "dataset_id":[],
         "snippet_id":[],
+        "tool": [],
         "num_warnings":[]
     }
 
@@ -13,20 +14,13 @@ def get_num_warnings(file):
 
     df = pd.read_csv(file)
 
-    num_warnings = df.sum(axis=1, numeric_only=True).tolist()
+    data["num_warnings"] = df.sum(axis=1, numeric_only=True).tolist()
 
-    for index, row in df.iterrows():
-        dataset_id = row["Snippet"].split("--")[0].strip()
-        snippet_id = row["Snippet"].split("--")[1].strip()
-        num_warning = num_warnings[index]
+    new = df["Snippet"].str.split("--", expand = True)
+    data["dataset_id"] = new[0]
+    data["snippet_id"] = new[1]
 
-        record = {
-            "dataset_id": [dataset_id],
-            "snippet_id": [snippet_id],
-            "num_warnings": [num_warning]
-        }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+    data = data.assign(tool=tool)
 
     return data
 
@@ -81,17 +75,19 @@ def read_cog_dataset_1_metrics():
     return records
 
 if __name__ == "__main__":
-    warning_data_files = [
-        "data/checker_framework_data.csv",
-        "data/typestate_checker_data.csv",
-        "data/infer_data.csv",
-        "data/openjml_data.csv"
-    ]
+    warning_data_files = {
+        "checker_framework": "data/checker_framework_data.csv",
+        "typestate_checker": "data/typestate_checker_data.csv",
+        "infer": "data/infer_data.csv",
+        "openjml": "data/openjml_data.csv"
+    }
+    warning_data = []
 
-    #for file in warning_data_files:
-    #    print(get_num_warnings(file))
-
-    # TODO: Add a set of data where all tools are combined?
+    for name, file in warning_data_files.items():
+        warning_data.append(get_num_warnings(file, name))
+        
+    # Add a set of data where all tools are combined
+    warning_data.append(pd.concat(warning_data))
 
     data = get_metrics()
     print(data)
