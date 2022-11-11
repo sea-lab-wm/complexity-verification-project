@@ -29,10 +29,11 @@ def get_metrics():
 
     metric_data = []
 
-    metric_data.append(read_dataset_1_metrics())
-    metric_data.append(read_dataset_3_metrics())
+    #metric_data.append(read_dataset_1_metrics())
+    #metric_data.append(read_dataset_3_metrics())
+    metric_data.append(read_dataset_6_metrics())
 
-    return pd.concat(metric_data)
+    #return pd.concat(metric_data)
 
 def read_dataset_1_metrics():
     """Reads the results of the first pilot study for COG dataset 1. It contains 41 people who looked at 23 snippets.
@@ -103,6 +104,26 @@ def read_dataset_3_metrics():
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
 
     return data
+
+def read_dataset_6_metrics():
+    """Reads the results of the cog data set 6 study. It contains 63 people who looked at 50 snippets with metrics based on time, correctness, and rating.
+    IMPORTANT: Each participant was assigned randomly assigned about 8 snippets out of the 50. So not every person looked at every snippet.
+    The metrics were Time Needed for Perceived Understandability (TNPU), Actual Understanding (AU), and Perceived Binary Understandability (PBU).
+    """
+    
+    dict_df = {
+        "dataset_id": [],
+        "snippet_id": [],
+        "person_id": [],
+        "metric": [],
+        "metric_type": []
+    }
+    data = pd.DataFrame(dict_df)
+
+    df = pd.read_csv("data/cog_dataset_6.csv")
+
+    df_cols = df.iloc[:, [0, 2, 123, 124, 125]]
+    print(df_cols)
 
 if __name__ == "__main__":
     warning_data_files = {
