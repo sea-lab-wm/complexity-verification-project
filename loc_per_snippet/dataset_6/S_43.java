@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected Chunk processChar(char[] cc, int k, StringBuffer sb) throws DocumentException, IOException {
         Chunk newChunk = null;
         char c = cc[k];
@@ -44,9 +43,3 @@
         }
         return newChunk;
     }
-
-    private Font getFont(int f) {
-        return null;
-    }
-
-    // se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)

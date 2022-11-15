@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public ActionMenu getButtonAction() {
         AbstractAction action = new AbstractAction() {
 
@@ -12,5 +11,3 @@
         return new ActionMenu();                                                                                                    /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s98

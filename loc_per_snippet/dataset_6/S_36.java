@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void testArtifactUniqueness() throws Exception {
         JobExecution jobExecution = runJob("jsrUniqueInstanceTests", new Properties(), 10000L);
         String exitStatus = jobExecution.getExitStatus();
@@ -29,6 +28,3 @@
 
         assertTrue("exitStatus must be empty", "".equals(exitStatus));
     }
-
-    // org.springframework.batch.item.database.ExtendedConnectionDataSourceProxyTests.testOperationWithDirectCloseCall()
-//    @Test // removed to allow compilation

@@ -85,7 +85,7 @@ public class MyExpenses {
                 break;
         }
     }
-
+    //SNIPPET_END
     // org.totschnig.myexpenses.sync.SyncAdapter.getContentProviderOperationsForCreate(org.totschnig.myexpenses.sync.json.TransactionChange,int,int)
     //SNIPPET_STARTS
 private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreate(
@@ -152,7 +152,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
     return t.buildSaveOperations(offset, parentOffset, true);
 }
-
+    //SNIPPET_END
     private long extractMethodId(Dummy methodLabel) {
         return 0;
     }
@@ -217,7 +217,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         }
         return builder.setTimeStamp(System.currentTimeMillis()).build();
     }
-
+    //SNIPPET_END
     // org.totschnig.myexpenses.util.LazyFontSelector.processChar(char[],int,java.lang.StringBuffer)
     //SNIPPET_STARTS
     protected Chunk processChar(char[] cc, int k, StringBuffer sb) throws DocumentException, IOException {
@@ -265,7 +265,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         }
         return newChunk;
     }
-
+    //SNIPPET_END
     private Font getFont(int f) {
         return null;
     }
@@ -303,6 +303,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
         updateHeader(headerPosition);
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private void clearHeader() {

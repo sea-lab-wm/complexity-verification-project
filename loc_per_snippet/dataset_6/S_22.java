@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void configure(Context context) {
 
         this.createTableDdl = context.getString(FlumeConstants.CONFIG_TABLE_DDL);
@@ -47,6 +46,3 @@
         doConfigure(context);
 
     }
-
-    // org.apache.phoenix.flume.sink.PhoenixSink.process()
-//    @Override // removed to allow compilation

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void	importPackage(String name)
     {
         if(importedPackages == null)
@@ -10,5 +9,3 @@
 
         importedPackages.addElement(name);
     } // Added to allow compilation
-
-    // Snippet s82

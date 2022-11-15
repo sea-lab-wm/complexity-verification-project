@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main17(String[] args) {
         String word = "Programming in Java";
         String key1 = "Java";
@@ -16,6 +15,3 @@
         else
             System.out.println("Substring is not contained: " + key2);
     }
-    //DATASET2END
-
-    // 18. Least common multiple                                /*Only in the first pilot study*/

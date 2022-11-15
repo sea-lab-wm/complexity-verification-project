@@ -259,6 +259,7 @@ public class CheckEstimator implements OptionHandler, RevisionHandler {
 
     print(str);
   }
+  //SNIPPET_END
   //SNIPPETS_END
 
   private class AttrTypes {

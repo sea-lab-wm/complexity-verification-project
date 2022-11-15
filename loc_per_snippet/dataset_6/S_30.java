@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
 
         List<A_CmsSitemapMenuEntry> result = Lists.newArrayList();
@@ -40,6 +39,3 @@
 
         return result;
     }
-
-    // org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
-//    @Override // Removed to allow compilation

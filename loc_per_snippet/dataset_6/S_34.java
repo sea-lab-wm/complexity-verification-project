@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public String buttonHtml(CmsWorkplace wp) {
 
         if (!isVisible()) {

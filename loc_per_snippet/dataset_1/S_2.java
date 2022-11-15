@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main3(int number1, int number2) {
         int temp; // Note: a ";" had to be added here to allow compilation
         do {
@@ -15,5 +14,3 @@
         } while (temp != 0);
         System.out.println(number2);
     }
-
-    // 4. BubbleSort                                                        /*Only in the first pilot study*/

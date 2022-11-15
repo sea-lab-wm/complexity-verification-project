@@ -1,4 +1,3 @@
-  //SNIPPET_STARTS
   protected void printAttributeSummary(int attrType, int classType) {
 
     String str = "";

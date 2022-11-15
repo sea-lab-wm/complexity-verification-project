@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void contribFeatureCalled(ContribFeature feature, Serializable tag) {
         switch (feature) {
             case DISTRIBUTION:
@@ -40,5 +39,3 @@
                 break;
         }
     }
-
-    // org.totschnig.myexpenses.sync.SyncAdapter.getContentProviderOperationsForCreate(org.totschnig.myexpenses.sync.json.TransactionChange,int,int)

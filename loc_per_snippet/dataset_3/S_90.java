@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private final int jjMoveStringLiteralDfa18_0(long old1, long active1, long old2, long active2)
     {
         if (((active1 &= old1) | (active2 &= old2)) == 0L)
@@ -9,10 +8,3 @@
         }
         return 0; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s92
-    /**
-     * Get the List of all available Channels
-     *
-     * @return All available Channels
-     */

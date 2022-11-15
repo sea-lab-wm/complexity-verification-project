@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main10(String[] args) {
         int num1 = 5;
         int num2 = 3;
@@ -11,6 +10,3 @@
         else if (num3 > num1 && num3 > num2)
             System.out.println(num3);
     }
-    //DATASET2END
-
-    // 11. Power                                                                /*Tasks for fMRI-Setting*/

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class TimesTenDialect extends Dialect {
         // org.hibernate.dialect.TimesTenDialect.TimesTenDialect()
         /**
@@ -39,6 +38,3 @@
             registerFunction("nvl", new StandardSQLFunction("nvl"));
         }
     }
-
-    // org.hibernate.hql.spi.id.TableBasedUpdateHandlerImpl.execute(org.hibernate.engine.spi.SharedSessionContractImplementor,org.hibernate.engine.spi.QueryParameters)
-//    @Override // Removed to allow compilation

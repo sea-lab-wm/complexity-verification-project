@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public ElgatoChannel[] getAvailableChannels() {
         ArrayList<ElgatoChannel> list = new ArrayList<ElgatoChannel>();
 
@@ -11,5 +10,3 @@
         return new ElgatoChannel[0];                                                /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s93                                                                  /*ORIGINALLY COMMENTED OUT*/

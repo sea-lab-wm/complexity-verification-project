@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private void handleFABClick(final int edit, final int otherType) {
         closeFABMenu();
 
@@ -29,5 +28,3 @@
                     .show();
         }
     }
-
-    // me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)

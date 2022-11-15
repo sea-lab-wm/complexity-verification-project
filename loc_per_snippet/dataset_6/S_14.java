@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void downloadFile() throws SyncIoException, SyncParseException {
         File localFile = getLocalFile();
         File tempFile = new File(Application.getContext().getCacheDir(), getClass().getSimpleName());

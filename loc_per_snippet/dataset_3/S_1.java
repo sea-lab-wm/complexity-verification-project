@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static Object s2() {
         if (actionList.size() == 1) {
             ActionMenu menu = actionList.get(0);
@@ -14,5 +13,3 @@
         return new Object();                                                /*Altered return*/
         //return null; // had to be added to allow compilation
     }
-
-    // Snippet s3

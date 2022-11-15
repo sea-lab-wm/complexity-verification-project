@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public Object s99() {
         if (expression.exprType != VALUE && expression.exprType != COLUMN
                 && expression.exprType != FUNCTION
@@ -12,5 +11,3 @@
 
         return ddl;
     } // Added to allow compilation
-
-    // Snippet s100                                                                     /*ORGINALLY COMMENTED OUT*/

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class DisbandUnitAction extends Tasks_2{ // Wrapped in a class to allow compilation
         /**
          * Creates a new <code>DisbandUnitAction</code>.
@@ -13,5 +12,3 @@
                     ImageLibrary.UNIT_BUTTON_DISBAND, 1));
         }
     }
-
-    // Snippet s36

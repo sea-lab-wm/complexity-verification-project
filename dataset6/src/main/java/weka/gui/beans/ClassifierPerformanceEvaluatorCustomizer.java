@@ -94,6 +94,7 @@ public class ClassifierPerformanceEvaluatorCustomizer extends JPanel {
       }
     });
   }
+  //SNIPPET_END
   //SNIPPETS_END
 
   private void customizerClosing() {

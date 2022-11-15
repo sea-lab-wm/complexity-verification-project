@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void open_withXoauth2Extension_shouldThrowOnMultipleFailure() throws Exception {
         MockSmtpServer server = new MockSmtpServer();
         server.output("220 localhost Simple Mail Transfer Service Ready");
@@ -29,14 +28,3 @@
         server.verifyConnectionStillOpen();
         server.verifyInteractionCompleted();
     }
-
-    private static class DualHashMap<T, T1> {
-        public T1 get(T uri) {
-            return null;
-        }
-
-        public void put(T uri, T1 store) {
-
-        }
-    }
-

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class StorageManager {
         private final Context context;
         // com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
@@ -42,6 +41,3 @@
 
         }
     }
-
-    // com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
-//    @Test // Removed to allow compilation

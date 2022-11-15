@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void s77() throws FileNotFoundException, IOException{
         File data = new File(Plugin.getPluginManager().getTvBrowserSettings().getTvBrowserUserHome()  + File.separator +
                 "CaptureDevices" + File.separator + mCount + ".dat");
@@ -7,5 +6,3 @@
 
         dev.writeData(stream);
     } // Added to allow compilation
-
-    // Snippet s78                                                                                      /*ORIGINALLY COMMENTED OUT*/

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main13(String[] args) {
         int var1 = 23;
         int var2 = 42;

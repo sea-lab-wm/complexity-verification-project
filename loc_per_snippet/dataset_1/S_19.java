@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main20(String[] args) {
         int i=14;
         String result="";
@@ -12,6 +11,3 @@
         }
 
         System.out.println(result); }
-    //DATASET2END
-    
-    // 21. Reverse entries of array                                                 /*Tasks for fMRI-Setting*/

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
         if (getView() == null) {
             return;
@@ -65,6 +64,3 @@
         set.start();
         mFullScreenChartAnimator = set;
     }
-
-    // me.kuehle.carreport.util.sync.provider.DropboxSyncProvider.downloadFile()
-    //    @Override // Removed to allow compilation

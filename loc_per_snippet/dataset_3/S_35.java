@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public Object s36() {
         Class clas = object.getClass();
         Field field = Reflect.resolveJavaField(
@@ -9,5 +8,3 @@
         return object;                                                                    /*Altered return*/
         //return null; // Added to allow compilation
     }
-
-    // Snippet s37

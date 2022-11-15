@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void s94() {
         Node r = x.getRight();
 
@@ -8,5 +7,3 @@
             Node l = x.getLeft();
         }
     } // Added to allow compilation
-
-    // Snippet s95

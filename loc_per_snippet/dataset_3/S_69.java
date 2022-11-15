@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void mousePressed(MouseEvent e) {
         if (f.getDesktopPane() == null || f.getDesktopPane().getDesktopManager() == null) {
             return;

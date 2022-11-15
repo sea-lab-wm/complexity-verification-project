@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected void printFailures(Result result) {
         if (result.getFailureCount() == 0)
             return;
@@ -7,5 +6,3 @@
         else
             getWriter().println("There were " + result.getFailureCount() + " failures:");
     } // Added to allow compilation
-
-    // Snippet s24

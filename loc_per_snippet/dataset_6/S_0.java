@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void testFetchResponse() throws Exception {
         ImapResponseParser parser = createParser("* 1 FETCH (" +
                 "UID 23 " +
@@ -30,8 +29,3 @@
         assertEquals(1, response.getList(2).getList(10).size());
         assertEquals("\\Seen", response.getList(2).getList(10).getString(0));
     }
-
-    // com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
-    /**
-     * Get an instance of a remote mail store.
-     */

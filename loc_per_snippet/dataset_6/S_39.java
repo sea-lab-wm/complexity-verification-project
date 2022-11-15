@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private void initWriterForSimpleCallbackTests() throws Exception {
         writer = createItemWriter();
         writer.setHeaderCallback(new StaxWriterCallback() {

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private MetaDataMutationResult doDropSchema(long clientTimeStamp, String schemaName, byte[] key,
                                                 List<Mutation> schemaMutations, List<ImmutableBytesPtr> invalidateList) throws Exception {
         PSchema schema = loadSchema(env, key, new ImmutableBytesPtr(key), clientTimeStamp, clientTimeStamp);
@@ -37,11 +36,3 @@
                 null);
 
     }
-
-    private PSchema loadSchema(Dummy env, byte[] key, ImmutableBytesPtr immutableBytesPtr, long clientTimeStamp, long clientTimeStamp1) {
-        return null;
-    }
-
-    // org.apache.phoenix.expression.ModulusExpression.evaluate(org.apache.phoenix.schema.tuple.Tuple,org.apache.hadoop.hbase.io.ImmutableBytesWritable)
-
-//    @Override // removed to allow compilation

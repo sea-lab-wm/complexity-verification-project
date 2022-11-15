@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public boolean removeFast(T obj) {
         if (obj == null) {
             return false;
@@ -29,5 +28,3 @@
 
         return false;
     }
-    // org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
-//    @Test // Removed to allow compilation

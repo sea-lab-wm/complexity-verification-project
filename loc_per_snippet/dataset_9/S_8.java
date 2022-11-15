@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void apply213(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -29,9 +28,3 @@
     }
     }
     }
-
-    // S2_2:1 resolved method chains, good comments
-    /**
-    * Apply the transmitted notifications (“nStore”) to the project so that
-    * acknowledged notifications are deleted and other ones added.
-    */

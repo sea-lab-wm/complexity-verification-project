@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class HealthReport implements Serializable, Comparable<HealthReport> {
         private String iconClassName;
         private int score;
@@ -62,4 +61,3 @@
             setLocalizibleDescription(description);
         }
     }
-

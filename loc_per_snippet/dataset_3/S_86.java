@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private static Date correctTimeZone(final Date date) {
         Date ret=date;
         if(java.util.TimeZone.getDefault().useDaylightTime()){
@@ -7,6 +6,3 @@
         }
         return ret;
     } // Added to allow compilation
-
-    // Snippet s88
-//    @Override // Remvoed to allow compilation

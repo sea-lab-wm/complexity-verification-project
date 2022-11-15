@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void testTextQuoteToHtmlBlockquote() {
         String message = "Panama!\r\n" +
                 "\r\n" +

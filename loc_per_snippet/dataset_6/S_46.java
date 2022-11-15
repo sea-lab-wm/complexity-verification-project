@@ -1,4 +1,3 @@
-  //SNIPPET_STARTS
   public static int getMinMax(Instances inst, int attrIndex, double[] minMax)
           throws Exception {
     double min = Double.NaN;

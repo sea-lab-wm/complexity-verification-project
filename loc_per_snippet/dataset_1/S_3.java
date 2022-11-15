@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main4(String[] args) {
         int array[] = {14,5,7};
         for (int counter1 = 0; counter1 < array.length; counter1++) {
@@ -14,5 +13,3 @@
         for (int counter3 = 0; counter3 < array.length; counter3++)
             System.out.println(array[counter3]);
     }
-
-    // 5. Binary search                                     /*Only in the first pilot study*/

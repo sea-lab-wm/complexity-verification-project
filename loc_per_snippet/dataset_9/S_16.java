@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected Table writeUTable(UTable uTable)
     {
     /* Define local variables. */
@@ -40,8 +39,3 @@
     }
     return table;
     }
-
-    // S3_2:3 (Revision 1) Fully resolved method chains, no comments
-    /**
-    * The images of a unified table are copied to a simplified “yes/no” table.
-    */

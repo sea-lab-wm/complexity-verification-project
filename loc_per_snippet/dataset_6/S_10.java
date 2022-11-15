@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private boolean save() {
         FormValidator validator = new FormValidator();
         validator.add(new FormFieldNotEmptyValidator(mEdtName));
@@ -33,10 +32,3 @@
             return false;
         }
     }
-
-    private static class Utils {
-        public String getCacheDir() {
-            return null;
-        }
-    }
-

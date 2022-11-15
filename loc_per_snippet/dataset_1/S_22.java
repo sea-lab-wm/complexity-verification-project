@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main23(String[] args) {
         int[] array = { 1, 3, 11, 7, 4 };
 

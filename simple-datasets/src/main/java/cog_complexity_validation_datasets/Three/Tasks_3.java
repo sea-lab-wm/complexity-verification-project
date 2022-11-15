@@ -496,7 +496,7 @@ public class Tasks_3 {
             mods += ACC_PUBLIC;
         return 0; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s72
     //SNIPPET_STARTS
     public class Component extends Tasks_3{ // Added class wrapper to allow compilation
@@ -518,7 +518,7 @@ public class Tasks_3 {
             //return null; // Added to allow compilation
         } // Added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s73
     //SNIPPET_STARTS
     public String compact(String message) {
@@ -531,7 +531,7 @@ public class Tasks_3 {
         return message;                                                                 /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s74
     //SNIPPET_STARTS
     public void s74() {
@@ -542,7 +542,7 @@ public class Tasks_3 {
             methods = iterateRoutineMethods(className, andAliases);
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s75
     //SNIPPET_STARTS
     /**
@@ -559,7 +559,7 @@ public class Tasks_3 {
             g.setColor(Color.WHITE);
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s76
     //SNIPPET_STARTS
     public void s76() throws IOException{
@@ -568,7 +568,7 @@ public class Tasks_3 {
 
         device.writeData(out);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s77
     //SNIPPET_STARTS
     public void s77() throws FileNotFoundException, IOException{
@@ -579,7 +579,7 @@ public class Tasks_3 {
 
         dev.writeData(stream);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s78                                                                                      /*ORIGINALLY COMMENTED OUT*/
     //SNIPPET_STARTS
     private static Class<?>[] getAnnotatedClasses(Class<?> klass) throws InitializationError {
@@ -588,7 +588,7 @@ public class Tasks_3 {
                 throw new Tasks_3("message").new InitializationError(String.format("class '%s' must have a SuiteClasses annotation", klass.getName()));
             return annotation.value();
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s79
     //SNIPPET_STARTS
     public int s79() {
@@ -603,7 +603,7 @@ public class Tasks_3 {
 
         return 0;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s80
     //SNIPPET_STARTS
     /**
@@ -618,7 +618,7 @@ public class Tasks_3 {
         removeInGameComponents();
         showMainPanel();
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s81
     //SNIPPET_STARTS
     /**
@@ -635,7 +635,7 @@ public class Tasks_3 {
 
         importedPackages.addElement(name);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s82
     //SNIPPET_STARTS
     public boolean s82() {
@@ -653,7 +653,7 @@ public class Tasks_3 {
         return new String();                                            /*Altered return*/
         //return null;
     }
-
+    //SNIPPET_END
     // Snippet s83
     //SNIPPET_STARTS
     public void filter2(Filter filter) throws NoTestsRemainException { // Renamed to allow compilation
@@ -665,7 +665,7 @@ public class Tasks_3 {
         if (fTestMethods.isEmpty())
             throw new NoTestsRemainException();
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s84
     //SNIPPET_STARTS
     public void s84() {
@@ -677,7 +677,7 @@ public class Tasks_3 {
         core.colLen       = core.mainColArray.length;
         core.refColArray  = refCols;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s85
     //SNIPPET_STARTS
     /**
@@ -692,7 +692,7 @@ public class Tasks_3 {
 
         freeColClient.getCanvas().repaint(0, 0, getWidth(), getHeight());
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s86
     //SNIPPET_STARTS
     private static final boolean jjCanMove_1(int hiByte, int i1, int i2, long l1, long l2)
@@ -706,7 +706,7 @@ public class Tasks_3 {
                 return false;
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s87
     //SNIPPET_STARTS
     private static Date correctTimeZone(final Date date) {
@@ -717,7 +717,7 @@ public class Tasks_3 {
         }
         return ret;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s88
 //    @Override // Remvoed to allow compilation
     //SNIPPET_STARTS
@@ -730,7 +730,7 @@ public class Tasks_3 {
         return new String();                                                            /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s89
     //SNIPPET_STARTS
     String getStateString() {
@@ -748,7 +748,7 @@ public class Tasks_3 {
         return new String();                                                           /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s90
     //SNIPPET_STARTS
     public boolean displayTileCursor(Tile tile, int canvasX, int canvasY) {
@@ -764,7 +764,7 @@ public class Tasks_3 {
         } // Added to allow compilation
         return false; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s91
     //SNIPPET_STARTS
     private final int jjMoveStringLiteralDfa18_0(long old1, long active1, long old2, long active2)
@@ -777,7 +777,7 @@ public class Tasks_3 {
         }
         return 0; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s92
     //SNIPPET_STARTS
     /**
@@ -797,7 +797,7 @@ public class Tasks_3 {
         return new ElgatoChannel[0];                                                /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s93                                                                  /*ORIGINALLY COMMENTED OUT*/
     //SNIPPET_STARTS
     private Method getParametersMethod() throws Exception {
@@ -813,7 +813,7 @@ public class Tasks_3 {
         throw new Exception("No public static parameters method on class "
                 + getName());
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s94
     //SNIPPET_STARTS
     public void s94() {
@@ -825,7 +825,7 @@ public class Tasks_3 {
             Node l = x.getLeft();
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s95
     //SNIPPET_STARTS
     public void s95() {
@@ -834,7 +834,7 @@ public class Tasks_3 {
         freeColClient.getClient().setMessageHandler(inGameInputHandler);
         gui.setInGame(true);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s96
     //SNIPPET_STARTS
     /**
@@ -848,7 +848,7 @@ public class Tasks_3 {
 
         Parameters p = showParametersDialog();
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s97
     //SNIPPET_STARTS
     public ActionMenu getButtonAction() {
@@ -864,7 +864,7 @@ public class Tasks_3 {
         return new ActionMenu();                                                                                                    /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s98
     //SNIPPET_STARTS
     public void s98() {
@@ -873,7 +873,7 @@ public class Tasks_3 {
         for (int i= 0; i < n; i++)
             description.addChild(makeDescription(ts.testAt(i)));
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s99
     //SNIPPET_STARTS
     public Object s99() {
@@ -889,7 +889,7 @@ public class Tasks_3 {
 
         return ddl;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s100                                                                     /*ORGINALLY COMMENTED OUT*/
     //SNIPPET_STARTS
     private synchronized void purgeOldMessagesFromMessagesToIgnore(int thisTurn) {
@@ -903,6 +903,7 @@ public class Tasks_3 {
             }
         }
     } // Added to allow compilation
+    //SNIPPET_END
     //SNIPPETS_END
 
     //ADDED BY KOBI

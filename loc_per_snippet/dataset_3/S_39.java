@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private Element deliverGift(Element element) {
         Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
 
@@ -7,5 +6,3 @@
         return unitElement;                                                                                 /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s41

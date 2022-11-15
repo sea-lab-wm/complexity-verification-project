@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected Table copyUTable311(UTable uTable)
     {
     /* Create a new table with the same size and color as uTable. */
@@ -35,8 +34,3 @@
     }
     return table;
     }
-
-    // S3_1:2 (Revision 1) method chains, bad comments
-    /**
-    * The images of a unified table are copied to a simplified “yes/no” table.
-    */

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void process() throws Exception {
 //		System.out.println("exec "+grammarName+"."+startRuleName);
         String lexerName = grammarName+"Lexer";
@@ -59,5 +58,3 @@
             process(lexer, parserClass, parser, charStream);
         }
     }
-
-    // org.antlr.v4.runtime.atn.PredictionMode.hasSLLConflictTerminatingPrediction(org.antlr.v4.runtime.atn.PredictionMode,org.antlr.v4.runtime.atn.ATNConfigSet)

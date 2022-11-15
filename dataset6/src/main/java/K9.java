@@ -64,7 +64,7 @@ public class K9 {
         assertEquals(1, response.getList(2).getList(10).size());
         assertEquals("\\Seen", response.getList(2).getList(10).getString(0));
     }
-
+    //SNIPPET_END
     // com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
     //SNIPPET_STARTS
     /**
@@ -103,7 +103,7 @@ public class K9 {
 
         return store;
     }
-
+    //SNIPPET_END
     // com.fsck.k9.mail.transport.SmtpTransportTest.open_withXoauth2Extension_shouldThrowOnMultipleFailure()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
@@ -137,7 +137,7 @@ public class K9 {
         server.verifyConnectionStillOpen();
         server.verifyInteractionCompleted();
     }
-
+    //SNIPPET_END
     private static class DualHashMap<T, T1> {
         public T1 get(T uri) {
             return null;
@@ -192,7 +192,7 @@ public class K9 {
 
         }
     }
-
+    //SNIPPET_END
     // com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
@@ -236,6 +236,7 @@ public class K9 {
                 + "</blockquote>"
                 + "</pre>", result);
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private void writeToFile(String result) {

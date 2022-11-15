@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main5(String[] args) {
         int array[] = { 2, 4, 5, 6, 8, 10, 13 };
         int key = 5;
@@ -16,5 +15,3 @@
             }
         }
     }
-
-    // 6. Sum from 1 to n                                                          /*First and second pilot study*/

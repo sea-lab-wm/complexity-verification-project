@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public String getMessage() {
         StringBuilder builder= new StringBuilder();
         if (fMessage != null)
@@ -8,5 +7,3 @@
         return new String();                                                            /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s89

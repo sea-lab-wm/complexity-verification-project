@@ -100,7 +100,7 @@ public class Phoenix {
                 null);
 
     }
-
+    //SNIPPET_END
     private PSchema loadSchema(Dummy env, byte[] key, ImmutableBytesPtr immutableBytesPtr, long clientTimeStamp, long clientTimeStamp1) {
         return null;
     }
@@ -139,7 +139,7 @@ public class Phoenix {
         ptr.set(resultPtr);
         return true;
     }
-
+    //SNIPPET_END
     private Expression getDataType() {
         return null;
     }
@@ -203,7 +203,7 @@ public class Phoenix {
         doConfigure(context);
 
     }
-
+    //SNIPPET_END
     // org.apache.phoenix.flume.sink.PhoenixSink.process()
 //    @Override // removed to allow compilation
     //SNIPPET_STARTS
@@ -276,7 +276,7 @@ public class Phoenix {
         }
         return status;
     }
-
+    //SNIPPET_END
     private Channel getChannel() {
         return null;
     }
@@ -323,6 +323,7 @@ public class Phoenix {
 
         return cmdLine;
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private void doConfigure(Context context) {

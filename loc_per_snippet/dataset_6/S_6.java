@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private class ViewJob {
         // hudson.model.ViewJob._getRuns()
         protected SortedMap<Integer,RunT> _getRuns() {
@@ -36,5 +35,3 @@
             return runs;
         }
     }
-
-    // hudson.os.PosixAPI.get()

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void testFailureAndRecovery() throws Exception {
         final RetryTemplate retryTemplate = new RetryTemplate();
         retryTemplate.setRetryPolicy(new NeverRetryPolicy());
@@ -43,6 +42,3 @@
         assertEquals("foo", processed.poll(5, TimeUnit.SECONDS));
         assertEquals("foo", recovered.poll(5, TimeUnit.SECONDS));
     }
-
-    // org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
-//    @Test // removed to allow compilation

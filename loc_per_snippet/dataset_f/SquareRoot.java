@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static String compute(int[] numbers) {
         double[] result = new double[numbers.length];
 

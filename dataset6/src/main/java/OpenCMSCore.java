@@ -85,7 +85,7 @@ public class OpenCMSCore {
 
         return result;
     }
-
+    //SNIPPET_END
     // org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
@@ -120,7 +120,7 @@ public class OpenCMSCore {
             throw new IOException(e);
         }
     }
-
+    //SNIPPET_END
     // org.opencms.main.CmsShell.execute(java.io.Reader)
     //SNIPPET_STARTS
     /**
@@ -193,7 +193,7 @@ public class OpenCMSCore {
             t.printStackTrace(m_err);
         }
     }
-
+    //SNIPPET_END
     // org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
     //SNIPPET_STARTS
     /**
@@ -241,7 +241,7 @@ public class OpenCMSCore {
 
         return writtenFiles;
     }
-
+    //SNIPPET_END
     // org.opencms.workplace.list.CmsListRadioMultiAction.buttonHtml(org.opencms.workplace.CmsWorkplace)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
@@ -275,6 +275,7 @@ public class OpenCMSCore {
         }
         return "";
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private void load(boolean b) {

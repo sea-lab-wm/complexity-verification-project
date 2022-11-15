@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static boolean compute(String word1, String word2) {
         boolean result = false;
 

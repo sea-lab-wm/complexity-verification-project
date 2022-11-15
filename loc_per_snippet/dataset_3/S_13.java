@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     Object removeName (String name) throws HsqlException {
 
         Object owner = nameList.remove(name);
@@ -11,5 +10,3 @@
 
         return owner;
     }// added to allow compilation
-
-    // Snippet s15

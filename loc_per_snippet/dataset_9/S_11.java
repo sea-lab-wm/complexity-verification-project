@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void apply223(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -29,13 +28,3 @@
     }
     }
     }
-
-    // Snippet 3
-    // org.unicase.docExport.docWriter.ITextWriter.writeUTable
-    // http://unicase.googlecode.com/svn/trunk/core/org.unicase.docExport/src/org/unicase/docExport/docWriter/
-    // ITextWriter.java
-
-    // S3_1:1 (Revision 1) method chains, good comments
-    /**
-    * The images of a unified table are copied to a simplified “yes/no” table.
-    */

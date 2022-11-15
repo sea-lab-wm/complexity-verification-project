@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private Method getParametersMethod() throws Exception {
         for (Method each : fKlass.getMethods()) {
             if (Modifier.isStatic(each.getModifiers())) {
@@ -12,5 +11,3 @@
         throw new Exception("No public static parameters method on class "
                 + getName());
     } // Added to allow compilation
-
-    // Snippet s94

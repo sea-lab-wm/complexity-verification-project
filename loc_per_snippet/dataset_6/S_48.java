@@ -1,4 +1,3 @@
-  //SNIPPET_STARTS
   public void performRequest(String request) {
     if (request.compareTo("Show chart") == 0) {
       try {

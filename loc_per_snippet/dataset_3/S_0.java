@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static Object s1() throws ScriptException {
         Object ret = body.eval(callstack, interpreter);
 
@@ -13,5 +12,3 @@
         } // had to be added to allow compilation
         return ret; // had to be added to allow compilation
     }
-
-    // Snippet s2

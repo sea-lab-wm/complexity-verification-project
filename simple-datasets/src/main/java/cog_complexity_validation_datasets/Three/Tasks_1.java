@@ -540,7 +540,7 @@ public class Tasks_1 {
         } // had to be added to allow compilation
         return ret; // had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s2
     //SNIPPET_STARTS
     public static Object s2() {
@@ -558,7 +558,7 @@ public class Tasks_1 {
         return new Object();                                                /*Altered return*/
         //return null; // had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s3
     //SNIPPET_STARTS
     private String compactString(String source) {
@@ -569,7 +569,7 @@ public class Tasks_1 {
             result = result + computeCommonSuffix();
         return result; // had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s4
     //SNIPPET_STARTS
     /**
@@ -586,7 +586,7 @@ public class Tasks_1 {
         granteeName = name;
         granteeManager = man;
     }
-
+    //SNIPPET_END
     // Snippet s5
     //SNIPPET_STARTS
     /**
@@ -599,7 +599,7 @@ public class Tasks_1 {
         }
         System.exit(0);
     }   // had to be added to allow compilation
-
+    //SNIPPET_END
     // Snippet s6
     //SNIPPET_STARTS
     private boolean s6() {
@@ -610,7 +610,7 @@ public class Tasks_1 {
         } // had to be added to allow compilation
         return true; // had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s7
     //SNIPPET_STARTS
     /**
@@ -625,7 +625,7 @@ public class Tasks_1 {
         java.util.Date d = new java.util.Date(l);
         Calendar cal = Calendar.getInstance();
     } // added to allow compilation
-
+    //SNIPPET_END
     // Snippet s8
     //SNIPPET_STARTS
     public void TestMethodRunner(Object test, Method method, RunNotifier notifier, Description description) {
@@ -633,7 +633,7 @@ public class Tasks_1 {
         fTest= (Ftest) test; // Type cast to Ftest to allow compilation
         fMethod= method;
     } // added to allow compilation
-
+    //SNIPPET_END
     // Snippet s9
     //SNIPPET_STARTS
     /**
@@ -650,7 +650,7 @@ public class Tasks_1 {
         return v;                                                       /*Altered return*/
         //return null; // added to allow compilation
     } // added to allow compilation
-
+    //SNIPPET_END
     // Snippet s10
     //SNIPPET_STARTS
     private void moveUnit(KeyEvent e) {
@@ -667,7 +667,7 @@ public class Tasks_1 {
                 inGameController.moveActiveUnit(Map.SW);
         }
     }
-
+    //SNIPPET_END
     // Snippet s11
     //SNIPPET_STARTS
     private Object s11() throws ClassNotFoundException {
@@ -678,7 +678,7 @@ public class Tasks_1 {
         asClass = clas;
         return asClass;
     }
-
+    //SNIPPET_END
     // Snippet s12
     //SNIPPET_STARTS
     private void s12() {
@@ -688,7 +688,7 @@ public class Tasks_1 {
 
         panel.add(btPanel, BorderLayout.SOUTH);
     }
-
+    //SNIPPET_END
     // Snippet s13
     //SNIPPET_STARTS
     /*
@@ -704,7 +704,7 @@ public class Tasks_1 {
             String cleanMessage = message == null ? "" : message;
         } // added to allow compilation
     } // added to allow compilation
-
+    //SNIPPET_END
     // Snippet s14
     //SNIPPET_STARTS
     Object removeName (String name) throws HsqlException {
@@ -719,7 +719,7 @@ public class Tasks_1 {
 
         return owner;
     }// added to allow compilation
-
+    //SNIPPET_END
     // Snippet s15
     //SNIPPET_STARTS
     public static void s15() {
@@ -728,7 +728,7 @@ public class Tasks_1 {
                 option.getMaximumValue(), Math.max(1, stepSize)));
         spinner.setToolTipText(option.toString()); // rename getShortDescription to toString to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s16
     //SNIPPET_STARTS
     public void s16() {
@@ -737,7 +737,7 @@ public class Tasks_1 {
         this.sourceFileInfo = sourceFileInfo;
         BshClassManager bcm = BshClassManager.createClassManager( this );
     }
-
+    //SNIPPET_END
     // Snippet s17
     //SNIPPET_STARTS
     public void s17() {
@@ -749,7 +749,7 @@ public class Tasks_1 {
             String classname = (String) in.readObject();
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s18
     //SNIPPET_STARTS
     /**
@@ -762,7 +762,7 @@ public class Tasks_1 {
         return new Result();                                                        /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s19
     //SNIPPET_STARTS
     /**
@@ -775,7 +775,7 @@ public class Tasks_1 {
         constName         = name;
         constType         = type;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s20
     //SNIPPET_STARTS
     public void s20() {
@@ -784,7 +784,7 @@ public class Tasks_1 {
 
         fireActionEvent(blinkEvent);
     }
-
+    //SNIPPET_END
     // Snippet s21
     //SNIPPET_STARTS
     public void s21() {
@@ -796,7 +796,7 @@ public class Tasks_1 {
             String meth;
         } // Added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s22
     //SNIPPET_STARTS
     /**
@@ -810,7 +810,7 @@ public class Tasks_1 {
         return new JPanel();                                                                                    /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s23
     //SNIPPET_STARTS
     protected void printFailures(Result result) {
@@ -821,7 +821,7 @@ public class Tasks_1 {
         else
             getWriter().println("There were " + result.getFailureCount() + " failures:");
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s24
     //SNIPPET_STARTS
     public static long getNormalisedTime(long t) {
@@ -833,7 +833,7 @@ public class Tasks_1 {
             return getTimeInMillis(tempCalDefault);
         }  // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s25
     //SNIPPET_STARTS
     public boolean check(Unit u, PathNode p) {
@@ -845,7 +845,7 @@ public class Tasks_1 {
         }  // Added to allow compilation
         return false; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s26
     //SNIPPET_STARTS
     public void s26() {
@@ -857,7 +857,7 @@ public class Tasks_1 {
             System.arraycopy(buffer, 0, ret, len - bufpos - 1, bufpos + 1);
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s27
     //SNIPPET_STARTS
     /**
@@ -870,7 +870,7 @@ public class Tasks_1 {
         return new Point(x, y);                                                     /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s28
     //SNIPPET_STARTS
     public void filter(Filter filter) throws NoTestsRemainException {
@@ -882,7 +882,7 @@ public class Tasks_1 {
                 iter.remove();
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s29
     //SNIPPET_STARTS
     public void s29() {
@@ -891,7 +891,7 @@ public class Tasks_1 {
         outlen = parameters.length;
         offset = 0;
     }
-
+    //SNIPPET_END
     // Snippet s30
     //SNIPPET_STARTS
     /**
@@ -906,7 +906,7 @@ public class Tasks_1 {
             mca.getMapControls().update(mt);
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s31
     //SNIPPET_STARTS
     public String s31() {
@@ -925,7 +925,7 @@ public class Tasks_1 {
         return new String();                                                            /*Altered return*/
         //return null;
     }
-
+    //SNIPPET_END
     // Snippet s32
     //SNIPPET_STARTS
     /**
@@ -936,8 +936,8 @@ public class Tasks_1 {
         mYear = mCalendar.get(Calendar.YEAR);
         mMonth = mCalendar.get(Calendar.MONTH) + 1;
     } // Added to allow compilation
+    //SNIPPET_END
     //SNIPPETS_END
-
     //ADDED BY KOBI
     public class GraphicsDevice {
         public void setFullScreenWindow(Window w) {

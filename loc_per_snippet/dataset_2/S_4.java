@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main10(String[] args) {
         int num1 = 5;
         int num2 = 3;

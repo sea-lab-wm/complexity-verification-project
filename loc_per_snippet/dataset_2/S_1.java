@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main2(String[] args) {
         String string1 = "Magdeburg";
         String string2 = "Hamburg";

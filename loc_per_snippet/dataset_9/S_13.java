@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected Table copyUTable312(UTable uTable)
     {
     /* Define local variables. */
@@ -36,8 +35,3 @@
     }
     return table;
     }
-
-    // S3_1:3 (Revision 1) method chains, no comments
-    /**
-    * The images of a unified table are copied to a simplified “yes/no” table.
-    */

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static String collectionInfoString(
             CollectionPersister persister,
             PersistentCollection collection,

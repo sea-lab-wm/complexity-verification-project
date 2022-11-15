@@ -77,7 +77,7 @@ public class HibernateORM {
         }
         return result;
     }
-
+    //SNIPPET_END
     private static class CollectionPersister {
         public char[] getRole() {
             return new char[0];
@@ -155,7 +155,7 @@ public class HibernateORM {
             registerFunction("nvl", new StandardSQLFunction("nvl"));
         }
     }
-
+    //SNIPPET_END
     // org.hibernate.hql.spi.id.TableBasedUpdateHandlerImpl.execute(org.hibernate.engine.spi.SharedSessionContractImplementor,org.hibernate.engine.spi.QueryParameters)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
@@ -221,7 +221,7 @@ public class HibernateORM {
             releaseFromUse( targetedPersister, session );
         }
     }
-
+    //SNIPPET_END
     private void handleAddedParametersOnUpdate(PreparedStatement ps, SharedSessionContractImplementor session, int position) {
 
     }
@@ -270,7 +270,7 @@ public class HibernateORM {
         ((Session) sessionImpl).doWork( work );
         return work.value;
     }
-
+    //SNIPPET_END
     // org.hibernate.pretty.MessageHelper.collectionInfoString(org.hibernate.persister.collection.CollectionPersister,org.hibernate.collection.spi.PersistentCollection,java.io.Serializable,org.hibernate.engine.spi.SharedSessionContractImplementor)
     //SNIPPET_STARTS
     /**
@@ -320,6 +320,7 @@ public class HibernateORM {
 
         return s.toString();
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private class Dialect {

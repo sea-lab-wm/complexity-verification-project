@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class SetupWebDavSyncDialogActivity extends Activity {
         // me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
     //    @Override // Removed to allow compilation
@@ -51,5 +50,3 @@
             });
         }
     }
-
-    // me.kuehle.carreport.gui.MainActivity.handleFABClick(int,int)

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main20(String[] args) {
         int i=14;
         String result="";

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected CommandLine parseOptions(String[] args) {
 
         Options options = getOptions();

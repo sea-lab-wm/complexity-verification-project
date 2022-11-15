@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public boolean evaluate(Tuple tuple, ImmutableBytesWritable ptr) {
         // get the dividend
         Expression dividendExpression = getDividendExpression();
@@ -29,18 +28,3 @@
         ptr.set(resultPtr);
         return true;
     }
-
-    private Expression getDataType() {
-        return null;
-    }
-
-    private Expression getDivisorExpression() {
-        return null;
-    }
-
-    private Expression getDividendExpression() {
-        return null;
-    }
-
-    // org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
-//    @Override // removed to allow compilation

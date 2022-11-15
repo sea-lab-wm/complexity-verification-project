@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     String getStateString() {
 
         int state = getState();
@@ -14,5 +13,3 @@
         return new String();                                                           /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s90

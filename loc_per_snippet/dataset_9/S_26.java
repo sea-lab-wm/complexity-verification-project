@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static String shortenText513(String textValue, Control control)
     {
     GraphicsContext gc = new GraphicsContext(control);
@@ -21,11 +20,3 @@
     }
     return null; // Had to be added to allow compilation
     }
-
-    // S5_2:1 resolved method chains, good comments
-    /**
-    * Shortens the given text textValue so that its width in pixels does
-    * not exceed the width of the given control. To do that, shortenText
-    * overrides as many as necessary characters in the center of the original
-    * text with an ellipsis character (constant ELLIPSIS = "...").
-    */

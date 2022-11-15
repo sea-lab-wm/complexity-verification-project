@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class Component extends Tasks_3{ // Added class wrapper to allow compilation
         public Component(String message) {
             super(message);
@@ -18,5 +17,3 @@
             //return null; // Added to allow compilation
         } // Added to allow compilation
     }
-
-    // Snippet s73

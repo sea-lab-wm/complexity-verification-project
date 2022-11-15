@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static int compute(String word) {
         char[] letters = {'a', 'e', 'i', 'o', 'u'};
         int result = 0;

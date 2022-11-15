@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public boolean displayTileCursor(Tile tile, int canvasX, int canvasY) {
         if (currentMode == ViewMode.VIEW_TERRAIN_MODE) {
 
@@ -12,5 +11,3 @@
         } // Added to allow compilation
         return false; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s91

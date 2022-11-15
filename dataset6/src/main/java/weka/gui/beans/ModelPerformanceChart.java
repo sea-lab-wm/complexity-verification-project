@@ -111,6 +111,7 @@ public class ModelPerformanceChart extends JPanel implements Serializable, BeanC
         + " not supported (Model Performance Chart)");
     }
   }
+  //SNIPPET_END
   //SNIPPETS_END
 
   @Override

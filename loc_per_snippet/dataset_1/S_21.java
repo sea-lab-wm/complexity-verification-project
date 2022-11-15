@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main22(String[] args) {
         int[] array={1,2,4,5,6,10};
 
@@ -12,6 +11,3 @@
         
         System.out.println(b);
     }
-    //DATASET2END
-
-    // 23. Double entries of array                              /*First and second pilot study*/

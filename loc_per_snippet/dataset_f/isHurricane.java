@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static String compute(int value) {
         String result;
 

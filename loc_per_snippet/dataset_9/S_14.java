@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected Table copyUTable313(UTable uTable)
     {
     Table table = new Table(uTable.getColumnsCount());
@@ -29,8 +28,3 @@
     }
     return table;
     }
-
-    // S3_2:1 (Revision 1) Fully resolved method chains, good comments
-    /**
-    * The images of a unified table are copied to a simplified “yes/no” table.
-    */

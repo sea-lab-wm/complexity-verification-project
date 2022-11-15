@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main18(String[] args) {
         int number1 = 23;
         int number2 = 42;
@@ -21,5 +20,3 @@
         else
             System.out.println("Error!");
     }
-
-    // 19. Capitalize first letter of word                          /*Only in the first pilot study*/

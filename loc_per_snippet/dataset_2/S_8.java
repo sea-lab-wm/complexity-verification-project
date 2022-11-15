@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main17(String[] args) {
         String word = "Programming in Java";
         String key1 = "Java";

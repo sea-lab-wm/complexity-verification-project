@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     static Boolean compute(String input) {
         input = input.toLowerCase();
 

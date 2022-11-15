@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static int compute(int number) {
         if (number <= 1) {
             return 1;

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public boolean check(Unit u, PathNode p) {
         if (p.getTile().getSettlement() != null && p.getTile().getSettlement().getOwner() == player
                 && p.getTile().getSettlement() != inSettlement) {
@@ -8,5 +7,3 @@
         }  // Added to allow compilation
         return false; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s26

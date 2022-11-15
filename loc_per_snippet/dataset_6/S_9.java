@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected synchronized Class loadClass(String classname, boolean resolve)
             throws ClassNotFoundException {
         // 'sync' is needed - otherwise 2 threads can load the same class

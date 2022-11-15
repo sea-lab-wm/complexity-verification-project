@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class GrammarDependencies {
         // org.antlr.mojo.antlr4.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,org.antlr.v4.Tool)
 
@@ -53,5 +52,3 @@
             return this;
         }
     }
-
-    // org.antlr.v4.gui.TestRig.process()

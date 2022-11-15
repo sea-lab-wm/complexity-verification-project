@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main8(String[] args) {
         int number = 323;
         int result = 0;

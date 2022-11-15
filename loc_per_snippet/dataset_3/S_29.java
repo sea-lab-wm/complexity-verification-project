@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void setMapTransform(MapTransform mt) {
         currentMapTransform = mt;
         MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
@@ -6,5 +5,3 @@
             mca.getMapControls().update(mt);
         } // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s31

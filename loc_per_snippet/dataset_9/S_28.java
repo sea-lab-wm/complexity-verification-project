@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static String shortenText522(String textValue, Control control)
     {
     /* Define local variables. */
@@ -29,11 +28,3 @@
     }
     return null; // Had to be added to allow compilation
     }
-
-    // S5_2:3 resolved method chains, no comments
-    /**
-    * Shortens the given text textValue so that its width in pixels does
-    * not exceed the width of the given control. To do that, shortenText
-    * overrides as many as necessary characters in the center of the original
-    * text with an ellipsis character (constant ELLIPSIS = "...").
-    */

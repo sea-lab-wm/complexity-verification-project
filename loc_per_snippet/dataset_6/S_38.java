@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void testCustomRecordSeparatorMultilineBlankLineAfterEnd() throws Exception {
 
         reader.setRecordSeparatorPolicy(new RecordSeparatorPolicy() {
@@ -32,5 +31,3 @@
         assertEquals(null, reader.read());
 
     }
-
-    // org.springframework.batch.item.xml.StaxEventItemWriterTests.initWriterForSimpleCallbackTests()

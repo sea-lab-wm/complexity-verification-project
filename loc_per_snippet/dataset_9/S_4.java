@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS122(Throwable ex, HttpServletRequest aRequest)
     {
     /* Define local variable. */
@@ -15,9 +14,3 @@
     context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     troubleTicket.toString();// changed to allow compilation
     }
-
-    // S1_2:3 resolved method chains, no comments
-    /**
-    * Informs the webmaster of an unexpected problem (Exception “ex”)
-    * with the deployed application (indicated by “aRequest”).
-    */

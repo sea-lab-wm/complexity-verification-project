@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main12(String[] args) {
         String word = "otto";
         boolean result = true;
@@ -11,5 +10,3 @@
         }
         System.out.println(result);
     }
-
-    // 13. Swap                                                             /*Tasks for fMRI-Setting*/

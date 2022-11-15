@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static int compute(int[] numbers) {
         Arrays.sort(numbers);
 

@@ -82,13 +82,13 @@ public class CarReport {
             return false;
         }
     }
-
+    //SNIPPET_END
     private static class Utils {
         public String getCacheDir() {
             return null;
         }
     }
-
+    
     //SNIPPET_STARTS
     public class SetupWebDavSyncDialogActivity extends Activity {
         // me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
@@ -142,7 +142,7 @@ public class CarReport {
             });
         }
     }
-
+    //SNIPPET_END
     // me.kuehle.carreport.gui.MainActivity.handleFABClick(int,int)
     //SNIPPET_STARTS
     private void handleFABClick(final int edit, final int otherType) {
@@ -175,7 +175,7 @@ public class CarReport {
                     .show();
         }
     }
-
+    //SNIPPET_END
     // me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
     //SNIPPET_STARTS
     private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
@@ -244,7 +244,7 @@ public class CarReport {
         set.start();
         mFullScreenChartAnimator = set;
     }
-
+    //SNIPPET_END
     // me.kuehle.carreport.util.sync.provider.DropboxSyncProvider.downloadFile()
     //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
@@ -279,6 +279,7 @@ public class CarReport {
             }
         }
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private File getLocalFile() {

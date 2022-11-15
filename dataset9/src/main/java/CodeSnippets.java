@@ -447,7 +447,7 @@ public class CodeSnippets {
     setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     troubleTicket.toString();// changed to allow compilation
     }
-
+    //SNIPPET_END
     // S1_1:2 method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -468,7 +468,7 @@ public class CodeSnippets {
     aRequest.getSession().getServletContext().
     setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     }
-
+    //SNIPPET_END
     // S1_1:3 method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -486,7 +486,7 @@ public class CodeSnippets {
     setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     troubleTicket.toString(); // changed to allow compilation
     }
-
+    //SNIPPET_END
     // S1_2:1 resolved method chains, good comments
     //SNIPPET_STARTS
     /**
@@ -509,7 +509,7 @@ public class CodeSnippets {
     context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     troubleTicket.toString(); // changed to allow compilation
     }
-
+    //SNIPPET_END
     // S1_2:2 resolved method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -532,7 +532,7 @@ public class CodeSnippets {
     context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     troubleTicket.toString();// changed to allow compilation
     }
-
+    //SNIPPET_END
     // S1_2:3 resolved method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -551,7 +551,7 @@ public class CodeSnippets {
     context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     troubleTicket.toString();// changed to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet 2
     // org.unicase.dashboard.impl.NotificationOperationImpl.apply
     // http://unicase.googlecode.com/svn/trunk/core/org.unicase.dashboard/src/org/unicase/dashboard/impl/Notif
@@ -603,7 +603,7 @@ public class CodeSnippets {
     }
     }
     }
-
+    //SNIPPET_END
     // S2_1:2 method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -649,7 +649,7 @@ public class CodeSnippets {
     }
     }
     }
-
+    //SNIPPET_END
     // S2_1:3 method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -686,7 +686,7 @@ public class CodeSnippets {
     }
     }
     }
-
+    //SNIPPET_END
     // S2_2:1 resolved method chains, good comments
     //SNIPPET_STARTS
     /**
@@ -733,7 +733,7 @@ public class CodeSnippets {
     }
     }
     }
-
+    //SNIPPET_END
     // S2_2:2 resolved method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -779,7 +779,7 @@ public class CodeSnippets {
     }
     }
     }
-
+    //SNIPPET_END
     // S2_2:3 resolved method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -816,7 +816,7 @@ public class CodeSnippets {
     }
     }
     }
-
+    //SNIPPET_END
     // Snippet 3
     // org.unicase.docExport.docWriter.ITextWriter.writeUTable
     // http://unicase.googlecode.com/svn/trunk/core/org.unicase.docExport/src/org/unicase/docExport/docWriter/
@@ -863,7 +863,7 @@ public class CodeSnippets {
     }
     return table;
     }
-
+    //SNIPPET_END
     // S3_1:2 (Revision 1) method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -906,7 +906,7 @@ public class CodeSnippets {
     }
     return table;
     }
-
+    //SNIPPET_END
     // S3_1:3 (Revision 1) method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -942,7 +942,7 @@ public class CodeSnippets {
     }
     return table;
     }
-
+    //SNIPPET_END
     // S3_2:1 (Revision 1) Fully resolved method chains, good comments
     //SNIPPET_STARTS
     /**
@@ -988,7 +988,7 @@ public class CodeSnippets {
     }
     return table;
     }
-
+    //SNIPPET_END
     // S3_2:2 (Revision 1) Fully resolved method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -1035,7 +1035,7 @@ public class CodeSnippets {
     }
     return table;
     }
-
+    //SNIPPET_END
     // S3_2:3 (Revision 1) Fully resolved method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -1075,7 +1075,7 @@ public class CodeSnippets {
     }
     return table;
     }
-
+    //SNIPPET_END
     // Snippet 4
     // raptor.chess.pgn.PgnUtils.getMove
     // http://code.google.com/p/raptor‐chess‐interface/source/browse/tags/v.92/src/raptor/chess/pgn/PgnUtils.jav
@@ -1112,7 +1112,7 @@ public class CodeSnippets {
     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
     return result;
     }
-
+    //SNIPPET_END
     // S4_1:2 method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -1144,7 +1144,7 @@ public class CodeSnippets {
     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
     return result;
     }
-
+    //SNIPPET_END
     // S4_1:3 method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -1171,7 +1171,7 @@ public class CodeSnippets {
     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
     return result;
     }
-
+    //SNIPPET_END
     // S4_2:1 resolved method chains, good comments
     //SNIPPET_STARTS
     /**
@@ -1210,7 +1210,7 @@ public class CodeSnippets {
     builder.append("}");
     return result;
     }
-
+    //SNIPPET_END
     // S4_2:2 resolved method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -1249,7 +1249,7 @@ public class CodeSnippets {
     builder.append("}");
     return result;
     }
-
+    //SNIPPET_END
     // S4_2:3 resolved method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -1283,7 +1283,7 @@ public class CodeSnippets {
     builder.append("}");
     return result;
     }
-
+    //SNIPPET_END
     // Snippet 5
     // org.eclipse.jface.dialogs.Dialog.shortenText
     // http://www.docjar.com/html/api/org/eclipse/jface/dialogs/Dialog.java.html
@@ -1323,7 +1323,7 @@ public class CodeSnippets {
     }
     return null; // Had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // S5_1:2 method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -1359,7 +1359,7 @@ public class CodeSnippets {
     }
     return null; // Had to be added to allow compilation
     }
-
+    //SNIPPET_END
 // S5_1:3 method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -1390,7 +1390,7 @@ public class CodeSnippets {
     }
     return null; // Had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // S5_2:1 resolved method chains, good comments
     //SNIPPET_STARTS
     /**
@@ -1429,7 +1429,7 @@ public class CodeSnippets {
     }
     return null; // Had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // S5_2:2 resolved method chains, bad comments
     //SNIPPET_STARTS
     /**
@@ -1468,7 +1468,7 @@ public class CodeSnippets {
     }
     return null; // Had to be added to allow compilation
     }
-
+    //SNIPPET_END
     // S5_2:3 resolved method chains, no comments
     //SNIPPET_STARTS
     /**
@@ -1502,6 +1502,7 @@ public class CodeSnippets {
     }
     return null; // Had to be added to allow compilation
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private static class Move {

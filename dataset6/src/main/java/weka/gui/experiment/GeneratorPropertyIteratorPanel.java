@@ -108,6 +108,7 @@ public class GeneratorPropertyIteratorPanel extends JPanel implements
       }
     }
   }
+  //SNIPPET_END
   //SNIPPETS_END
 
   private void selectProperty() {

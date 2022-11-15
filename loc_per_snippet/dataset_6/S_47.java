@@ -1,4 +1,3 @@
-  //SNIPPET_STARTS
   private void addButtons() {
     JButton okBut = new JButton("OK");
     JButton cancelBut = new JButton("Cancel");

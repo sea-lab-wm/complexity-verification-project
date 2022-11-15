@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static Vector getDatabaseURIs() {
 
         Vector v = new Vector();
@@ -10,5 +9,3 @@
         return v;                                                       /*Altered return*/
         //return null; // added to allow compilation
     } // added to allow compilation
-
-    // Snippet s10

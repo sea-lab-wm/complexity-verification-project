@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static long getNormalisedTime(long t) {
 
         synchronized (tempCalDefault) {
@@ -8,5 +7,3 @@
             return getTimeInMillis(tempCalDefault);
         }  // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s25

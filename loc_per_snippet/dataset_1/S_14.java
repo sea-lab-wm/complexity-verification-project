@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main15(String[] args) {
         int array[][] = {{5,6,7},{4,8,9}};
         int array1[][] = {{6,4},{5,7},{1,1}};
@@ -21,5 +20,3 @@
             }
         }
     }
-
-    // 16. Arithmetic mean                                  /*Only in the first pilot study*/

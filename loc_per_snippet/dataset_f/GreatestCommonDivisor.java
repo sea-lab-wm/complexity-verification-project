@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static int compute(int number1, int number2) {
         int temp = number1;
 

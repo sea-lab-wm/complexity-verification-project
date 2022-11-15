@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main19(String[] args) {
         String s = "here are a bunch of words";
 
@@ -12,5 +11,3 @@
         }
         System.out.println(result);
     }
-
-    // 20. Decimal to binary                                                                /*Tasks for fMRI-Setting*/

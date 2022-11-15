@@ -1,4 +1,3 @@
-  //SNIPPET_STARTS
   @Override
   public void actionPerformed(ActionEvent e) {
 

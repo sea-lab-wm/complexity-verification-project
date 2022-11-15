@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public Status process() throws EventDeliveryException {
 
         Status status = Status.READY;
@@ -68,16 +67,3 @@
         }
         return status;
     }
-
-    private Channel getChannel() {
-        return null;
-    }
-
-    // org.apache.phoenix.mapreduce.AbstractBulkLoadTool.parseOptions(java.lang.String[])
-    /**
-     * Parses the commandline arguments, throws IllegalStateException if mandatory arguments are
-     * missing.
-     *
-     * @param args supplied command line arguments
-     * @return the parsed command line
-     */

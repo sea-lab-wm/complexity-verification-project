@@ -322,7 +322,7 @@ public class Tasks_2 {
         fExpected = expected;
         fActual = actual;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s34
     //SNIPPET_STARTS
     public Object s34() {
@@ -340,7 +340,7 @@ public class Tasks_2 {
         return new Object();                                                                    /*Altered return*/
         //return null; // added return statement to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s35
     //SNIPPET_STARTS
     public class DisbandUnitAction extends Tasks_2{ // Wrapped in a class to allow compilation
@@ -357,7 +357,7 @@ public class Tasks_2 {
                     ImageLibrary.UNIT_BUTTON_DISBAND, 1));
         }
     }
-
+    //SNIPPET_END
     // Snippet s36
     //SNIPPET_STARTS
     public Object s36() {
@@ -370,7 +370,7 @@ public class Tasks_2 {
         return object;                                                                    /*Altered return*/
         //return null; // Added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s37
     //SNIPPET_STARTS
     public Object s37() {
@@ -383,7 +383,7 @@ public class Tasks_2 {
 
         return list.toArray(new ProgramReceiveTarget[list.size()]);
     }
-
+    //SNIPPET_END
     // Snippet s38                                                                      /*ORIGINALLY COMMENTED OUT, ALTERED METHOD*/
     //SNIPPET_STARTS
     Class<? extends Throwable> expectedException(Method method){
@@ -393,7 +393,7 @@ public class Tasks_2 {
         else
             return annotation.expected();
     }
-
+    //SNIPPET_END
     // Snippet s39
     //SNIPPET_STARTS
     public void s39() {
@@ -403,7 +403,7 @@ public class Tasks_2 {
 
         t.insertSys(row);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s40
     //SNIPPET_STARTS
     /**
@@ -420,7 +420,7 @@ public class Tasks_2 {
         return unitElement;                                                                                 /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s41
     //SNIPPET_STARTS
     public void s41() {
@@ -432,7 +432,7 @@ public class Tasks_2 {
                 t = jj_consume_token(NE);
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s42
     //SNIPPET_STARTS
     public synchronized void removeProgram(Program program) {
@@ -444,7 +444,7 @@ public class Tasks_2 {
             } // Added to allow compilation
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s43
     //SNIPPET_STARTS
     public class TestClassRunnerForParameters extends Tasks_2{ // Added class wrapper to allow compilation
@@ -454,7 +454,7 @@ public class Tasks_2 {
             fParameterSetNumber= i;
         } // Added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s44
     //SNIPPET_STARTS
     void link(IndexRowIterator other) {
@@ -463,7 +463,7 @@ public class Tasks_2 {
         other.last = this;
         next.last  = other;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s45
     //SNIPPET_STARTS
     public void s45() {
@@ -472,7 +472,7 @@ public class Tasks_2 {
         final JTextField inputWidth = new JTextField(Integer.toString(DEFAULT_WIDTH), COLUMNS);
         final JTextField inputHeight = new JTextField(Integer.toString(DEFAULT_HEIGHT), COLUMNS);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s46
     //SNIPPET_STARTS
     /**
@@ -487,7 +487,7 @@ public class Tasks_2 {
         else
             return getThis( declaringInterpreter );
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s47
     //SNIPPET_STARTS
     /**
@@ -501,7 +501,7 @@ public class Tasks_2 {
         mNumber = stream.readInt();
         mName = stream.readUTF();
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s48
     //SNIPPET_STARTS
     public class ComparisonFailure extends Tasks_2{ // Class wrapper to allow compilation
@@ -517,7 +517,7 @@ public class Tasks_2 {
             fActual= actual;
         } // Added to allow compilation
     }
-
+    //SNIPPET_END
     // Snippet s49
     //SNIPPET_STARTS
     public void close() {
@@ -535,7 +535,7 @@ public class Tasks_2 {
             // Added to allow compilation
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s50
     //SNIPPET_STARTS
     public void actionPerformed(ActionEvent evt) {
@@ -548,7 +548,7 @@ public class Tasks_2 {
             blinkOn = false;
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s51
     //SNIPPET_STARTS
     private static String getBaseName( String className )
@@ -559,7 +559,7 @@ public class Tasks_2 {
 
         return className.substring(i+1);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s52
     //SNIPPET_STARTS
     public void s52() {
@@ -570,7 +570,7 @@ public class Tasks_2 {
         panel.add(mTimePanel, cc.xy(1,3));
 
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s53
     //SNIPPET_STARTS
     public void s53() throws Exception{
@@ -585,7 +585,7 @@ public class Tasks_2 {
             // Added to allow compilation
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s54
     //SNIPPET_STARTS
     public void s54() {
@@ -596,7 +596,7 @@ public class Tasks_2 {
         addColumn(t, "PROCEDURE_SCHEM", Types.VARCHAR);
         addColumn(t, "PROCEDURE_NAME", Types.VARCHAR, false);    // not null
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s55
     //SNIPPET_STARTS
     public void s55() {
@@ -610,7 +610,7 @@ public class Tasks_2 {
             } // Added to allow compilation
         } // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
 
     // Snippet s56
     //SNIPPET_STARTS
@@ -623,7 +623,7 @@ public class Tasks_2 {
         stack.setElementAt( newTop, 0 );
         return oldTop;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s57
     //SNIPPET_STARTS
     public void s57() {
@@ -632,7 +632,7 @@ public class Tasks_2 {
 
         DeviceIf dev = DriverFactory.getInstance().createDevice(classname, devname);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s58
     //SNIPPET_STARTS
     public Object s58() {
@@ -641,7 +641,7 @@ public class Tasks_2 {
                 CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
         return Request.errorReport(fTestClass, error).getRunner();
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s59
     //SNIPPET_STARTS
     public boolean isReadOnly() throws HsqlException {
@@ -652,7 +652,7 @@ public class Tasks_2 {
 
         return isReadOnly;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s60
     //SNIPPET_STARTS
     public Object s60() {
@@ -660,7 +660,7 @@ public class Tasks_2 {
         remove(warehouseDialog);
         return response;
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s61
     //SNIPPET_STARTS
     public void s61() {
@@ -673,7 +673,7 @@ public class Tasks_2 {
 
         cv.visitInsn(opcode);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s62
     //SNIPPET_STARTS
     public void s62() {
@@ -684,7 +684,7 @@ public class Tasks_2 {
             channelId = "" + in.readInt();
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s63
     // @Override // Removed to allow compilation
     //SNIPPET_STARTS
@@ -696,7 +696,7 @@ public class Tasks_2 {
 
         return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s64
     //SNIPPET_STARTS
     public void s64() {
@@ -706,7 +706,7 @@ public class Tasks_2 {
             clsSchem = ns.getSchemaName(clsName);
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s65
     //SNIPPET_STARTS
     public void s65() {
@@ -716,7 +716,7 @@ public class Tasks_2 {
             String ID = messages[i].getMessageID();
         }
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s66
     //SNIPPET_STARTS
     public void s66() {
@@ -727,7 +727,7 @@ public class Tasks_2 {
         JPopupMenu menu = devplugin.Plugin.getPluginManager().createPluginContextMenu(p, CapturePlugin.getInstance());
 
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s67
     //SNIPPET_STARTS
     /**
@@ -746,7 +746,7 @@ public class Tasks_2 {
         return builder;                                                                            /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s68
     // @Override // Removed to allow compilation
     //SNIPPET_STARTS
@@ -755,7 +755,7 @@ public class Tasks_2 {
         result.addListener(createAdaptingListener(notifier));
         fTest.run(result);
     } // Added to allow compilation
-
+    //SNIPPET_END
 
     // Snippet s69
     //SNIPPET_STARTS
@@ -766,7 +766,7 @@ public class Tasks_2 {
 
         TableWorks tableWorks = new TableWorks(session, t);
     } // Added to allow compilation
-
+    //SNIPPET_END
     // Snippet s70
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
@@ -777,6 +777,7 @@ public class Tasks_2 {
         loc = SwingUtilities.convertPoint((Component) e.getSource(), e.getX(), e.getY(), null);
         f.getDesktopPane().getDesktopManager().beginDraggingFrame(f);
     } // Added to allow compilation
+    //SNIPPET_END
     //SNIPPETS_END
 
     //ADDED BY KOBI

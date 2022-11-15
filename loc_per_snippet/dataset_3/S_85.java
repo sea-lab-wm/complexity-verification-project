@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private static final boolean jjCanMove_1(int hiByte, int i1, int i2, long l1, long l2)
     {
         switch(hiByte) {
@@ -10,5 +9,3 @@
                 return false;
         } // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s87

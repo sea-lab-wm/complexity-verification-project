@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void execute(Reader reader) {
 
         try {
@@ -58,17 +57,3 @@
             t.printStackTrace(m_err);
         }
     }
-
-    // org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
-    /**
-     * Generates a sub tree of folders with files.<p>
-     *
-     * @param cms the cms context
-     * @param vfsFolder name of the folder
-     * @param numberOfFiles the number of files to generate
-     * @param fileTypeDistribution a percentage: x% binary files and (1-x)% text files
-     *
-     * @return the number of files generated
-     *
-     * @throws Exception if something goes wrong
-     */

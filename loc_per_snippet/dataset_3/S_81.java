@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public boolean s82() {
         if(dataServiceId.compareTo(cmpDataServiceId) != 0) {
             return false;
@@ -14,5 +13,3 @@
         return new String();                                            /*Altered return*/
         //return null;
     }
-
-    // Snippet s83

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     static int compute(String s, int number) {
         if (number < 0) {
             return 0;

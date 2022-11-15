@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private void moveUnit(KeyEvent e) {
         if (!parent.isMapboardActionsEnabled()) {
             return;
@@ -13,5 +12,3 @@
                 inGameController.moveActiveUnit(Map.SW);
         }
     }
-
-    // Snippet s11

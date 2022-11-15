@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static boolean hasSLLConflictTerminatingPrediction(PredictionMode mode, ATNConfigSet configs) {
         /* Configs in rule stop states indicate reaching the end of the decision
          * rule (local context) or end of start rule (full context). If all
@@ -33,5 +32,3 @@
                 hasConflictingAltSet(altsets) && !hasStateAssociatedWithOneAlt(configs);
         return heuristic;
     }
-
-    // org.antlr.v4.runtime.misc.Array2DHashSet.removeFast(T)

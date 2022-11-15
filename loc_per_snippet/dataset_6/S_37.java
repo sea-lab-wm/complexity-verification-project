@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void testOperationWithDirectCloseCall() throws SQLException {
         Connection con = mock(Connection.class);
         DataSource ds = mock(DataSource.class);
@@ -30,10 +29,3 @@
 
 
     }
-
-    private <T> T mock(Class<T> connectionClass) {
-        return null;
-    }
-
-    // org.springframework.batch.item.file.FlatFileItemReaderTests.testCustomRecordSeparatorMultilineBlankLineAfterEnd()
-//    @Test // removed to allow compilation

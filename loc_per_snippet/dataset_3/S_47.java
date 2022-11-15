@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public class ComparisonFailure extends Tasks_2{ // Class wrapper to allow compilation
         /**
          * Constructs a comparison failure.
@@ -12,5 +11,3 @@
             fActual= actual;
         } // Added to allow compilation
     }
-
-    // Snippet s49

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public String compact(String message) {
         if (fExpected == null || fActual == null || areStringsEqual())
             return Assert.format(message, fExpected, fActual);
@@ -9,5 +8,3 @@
         return message;                                                                 /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s74

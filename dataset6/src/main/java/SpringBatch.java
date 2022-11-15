@@ -103,7 +103,7 @@ public class SpringBatch {
         assertEquals("foo", processed.poll(5, TimeUnit.SECONDS));
         assertEquals("foo", recovered.poll(5, TimeUnit.SECONDS));
     }
-
+    //SNIPPET_END
     // org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
@@ -137,7 +137,7 @@ public class SpringBatch {
 
         assertTrue("exitStatus must be empty", "".equals(exitStatus));
     }
-
+    //SNIPPET_END
     // org.springframework.batch.item.database.ExtendedConnectionDataSourceProxyTests.testOperationWithDirectCloseCall()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
@@ -172,7 +172,7 @@ public class SpringBatch {
 
 
     }
-
+    //SNIPPET_END
     private <T> T mock(Class<T> connectionClass) {
         return null;
     }
@@ -213,7 +213,7 @@ public class SpringBatch {
         assertEquals(null, reader.read());
 
     }
-
+    //SNIPPET_END
     // org.springframework.batch.item.xml.StaxEventItemWriterTests.initWriterForSimpleCallbackTests()
     //SNIPPET_STARTS
     private void initWriterForSimpleCallbackTests() throws Exception {
@@ -250,6 +250,7 @@ public class SpringBatch {
         writer.setRootTagName("{https://www.springframework.org/test}ns:testroot");
         writer.afterPropertiesSet();
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private ItmWriter createItemWriter() {

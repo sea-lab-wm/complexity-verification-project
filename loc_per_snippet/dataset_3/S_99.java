@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private synchronized void purgeOldMessagesFromMessagesToIgnore(int thisTurn) {
         List<String> keysToRemove = new ArrayList<String>();
         for (Entry<String, Integer> entry : messagesToIgnore.entrySet()) {

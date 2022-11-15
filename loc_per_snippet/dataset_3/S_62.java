@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public Description getDescription() {
         Description spec = Description.createSuiteDescription(getName());
         List<Method> testMethods = fTestMethods;
@@ -7,5 +6,3 @@
 
         return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s64

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void testToStringStartStop2() throws Exception {
         LexerGrammar g = new LexerGrammar(
                 "lexer grammar T;\n"+

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     @Deprecated
     public static synchronized org.jruby.ext.posix.POSIX get() {
         if (jnaPosix == null) {
@@ -54,11 +53,3 @@
         }
         return jnaPosix;
     }
-
-    // hudson.util.Iterators.limit(java.util.Iterator<? extends T>,hudson.util.Iterators.CountingPredicate<? super T>)
-    /**
-     * Returns the elements in the base iterator until it hits any element that doesn't satisfy the filter.
-     * Then the rest of the elements in the base iterator gets ignored.
-     *
-     * @since 1.485
-     */

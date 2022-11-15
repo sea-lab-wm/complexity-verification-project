@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static void main9(String[] args){
         int number = 11;
         boolean result = true;
@@ -10,5 +9,3 @@
         }
         System.out.println(result);
     }
-
-    // 10. Find largest number of three numbers                                      /*Tasks for fMRI-Setting*/

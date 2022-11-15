@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private void updateOrClearHeader(int firstVisiblePosition) {
         final int adapterCount = mAdapter == null ? 0 : mAdapter.getCount();
         if (adapterCount == 0 || !mAreHeadersSticky) {

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS111(Throwable ex, HttpServletRequest aRequest)
     {
     /* Create trouble ticket with context reference. */
@@ -14,9 +13,3 @@
     setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
     troubleTicket.toString();// changed to allow compilation
     }
-
-    // S1_1:2 method chains, bad comments
-    /**
-    * Informs the webmaster of an unexpected problem (Exception “ex”)
-    * with the deployed application (indicated by “aRequest”).
-    */

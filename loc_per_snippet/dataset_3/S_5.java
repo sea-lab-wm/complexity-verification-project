@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private boolean s6() {
         xsp = jj_scanpos;
         if (jj_scan_token(100)) {
@@ -7,5 +6,3 @@
         } // had to be added to allow compilation
         return true; // had to be added to allow compilation
     }
-
-    // Snippet s7

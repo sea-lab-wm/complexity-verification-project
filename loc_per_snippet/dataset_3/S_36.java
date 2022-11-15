@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public Object s37() {
         for(AbstractPluginProgramFormating config : mConfigs)
             if(config != null && config.isValid())
@@ -9,5 +8,3 @@
 
         return list.toArray(new ProgramReceiveTarget[list.size()]);
     }
-
-    // Snippet s38                                                                      /*ORIGINALLY COMMENTED OUT, ALTERED METHOD*/

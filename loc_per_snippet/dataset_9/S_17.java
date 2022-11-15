@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     protected Table writeUTable323(UTable uTable)
     {
     Table table = new Table(uTable.getColumnsCount());
@@ -33,14 +32,3 @@
     }
     return table;
     }
-
-    // Snippet 4
-    // raptor.chess.pgn.PgnUtils.getMove
-    // http://code.google.com/p/raptor‐chess‐interface/source/browse/tags/v.92/src/raptor/chess/pgn/PgnUtils.jav
-    // a
-
-    // S4_1:1 method chains, good comments
-    /**
-    * Generates a string (“builder”) for a given chess move in PGN (Portable
-    * Game Notation). This includes the move number and all NAG annotations.
-    */

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public int execute(SharedSessionContractImplementor session, QueryParameters queryParameters) throws Exception { // throws Exception added to allow compilation
         prepareForUse( targetedPersister, session );
         try {
@@ -61,21 +60,3 @@
             releaseFromUse( targetedPersister, session );
         }
     }
-
-    private void handleAddedParametersOnUpdate(PreparedStatement ps, SharedSessionContractImplementor session, int position) {
-
-    }
-
-    private int handlePrependedParametersOnIdSelection(PreparedStatement ps, SharedSessionContractImplementor session, int position) {
-        return 0;
-    }
-
-    private void prepareForUse(Object targetedPersister, SharedSessionContractImplementor session) {
-
-    }
-
-    private void releaseFromUse(Object targetedPersister, SharedSessionContractImplementor session) {
-
-    }
-
-    // org.hibernate.id.SequenceValueExtractor.extractSequenceValue(org.hibernate.engine.spi.SessionImplementor)

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void close() {
 
         if (isClosed) {
@@ -14,5 +13,3 @@
             // Added to allow compilation
         }
     } // Added to allow compilation
-
-    // Snippet s50

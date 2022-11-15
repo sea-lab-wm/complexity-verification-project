@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private TransactionChange mergeUpdate(TransactionChange initial, TransactionChange change) {
         if (!(change.isCreateOrUpdate() && initial.isCreateOrUpdate())) {
             throw new IllegalStateException("Can only merge creates and updates");
@@ -45,5 +44,3 @@
         }
         return builder.setTimeStamp(System.currentTimeMillis()).build();
     }
-
-    // org.totschnig.myexpenses.util.LazyFontSelector.processChar(char[],int,java.lang.StringBuffer)

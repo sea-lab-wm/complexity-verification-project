@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static int generateContent(CmsObject cms, String vfsFolder, int numberOfFiles, double fileTypeDistribution)
             throws Exception {
 
@@ -32,6 +31,3 @@
 
         return writtenFiles;
     }
-
-    // org.opencms.workplace.list.CmsListRadioMultiAction.buttonHtml(org.opencms.workplace.CmsWorkplace)
-//    @Override // Removed to allow compilation

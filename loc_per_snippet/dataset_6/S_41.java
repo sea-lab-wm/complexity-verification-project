@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
 private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreate(
         TransactionChange change, int offset, int parentOffset) {
     if (!change.isCreate()) throw new AssertionError();
@@ -63,21 +62,3 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
     return t.buildSaveOperations(offset, parentOffset, true);
 }
-
-    private long extractMethodId(Dummy methodLabel) {
-        return 0;
-    }
-
-    private long extractTransferAccount(Dummy transferAccount, Dummy label) {
-        return 0;
-    }
-
-    private long extractCatId(Dummy label) {
-        return 0;
-    }
-
-    private Dummy getAccount() {
-        return null;
-    }
-
-    // org.totschnig.myexpenses.sync.SyncAdapter.mergeUpdate(org.totschnig.myexpenses.sync.json.TransactionChange,org.totschnig.myexpenses.sync.json.TransactionChange)

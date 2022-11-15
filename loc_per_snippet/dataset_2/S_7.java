@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main14(String[] args) {
         String word = "Hello";
         String result = new String();

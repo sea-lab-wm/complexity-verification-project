@@ -104,7 +104,7 @@ public class Pom {
             setLocalizibleDescription(description);
         }
     }
-
+    //SNIPPET_END
     //SNIPPET_STARTS
     private class ViewJob {
         // hudson.model.ViewJob._getRuns()
@@ -143,7 +143,7 @@ public class Pom {
             return runs;
         }
     }
-
+    //SNIPPET_END
     // hudson.os.PosixAPI.get()
     //SNIPPET_STARTS
     @Deprecated
@@ -201,7 +201,7 @@ public class Pom {
         }
         return jnaPosix;
     }
-
+    //SNIPPET_END
     // hudson.util.Iterators.limit(java.util.Iterator<? extends T>,hudson.util.Iterators.CountingPredicate<? super T>)
     //SNIPPET_STARTS
     /**
@@ -246,7 +246,7 @@ public class Pom {
             }
         };
     }
-
+    //SNIPPET_END
     // jenkins.util.AntClassLoader.loadClass(java.lang.String,boolean)
     //SNIPPET_STARTS
     /**
@@ -306,6 +306,7 @@ public class Pom {
         }
         return theClass;
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private Class findClass(String classname) throws ClassNotFoundException{

@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static String shortenText523(String textValue, Control control)
     {
     GraphicsContext gc = new GraphicsContext(control);

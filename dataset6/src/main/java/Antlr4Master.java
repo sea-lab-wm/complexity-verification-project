@@ -104,7 +104,7 @@ public class Antlr4Master {
             return this;
         }
     }
-
+    //SNIPPET_END
     // org.antlr.v4.gui.TestRig.process()
     //SNIPPET_STARTS
     public void process() throws Exception {
@@ -167,7 +167,7 @@ public class Antlr4Master {
             process(lexer, parserClass, parser, charStream);
         }
     }
-
+    //SNIPPET_END
     // org.antlr.v4.runtime.atn.PredictionMode.hasSLLConflictTerminatingPrediction(org.antlr.v4.runtime.atn.PredictionMode,org.antlr.v4.runtime.atn.ATNConfigSet)
     //SNIPPET_STARTS
     public static boolean hasSLLConflictTerminatingPrediction(PredictionMode mode, ATNConfigSet configs) {
@@ -204,7 +204,7 @@ public class Antlr4Master {
                 hasConflictingAltSet(altsets) && !hasStateAssociatedWithOneAlt(configs);
         return heuristic;
     }
-
+    //SNIPPET_END
     // org.antlr.v4.runtime.misc.Array2DHashSet.removeFast(T)
     //SNIPPET_STARTS
     public boolean removeFast(T obj) {
@@ -237,6 +237,7 @@ public class Antlr4Master {
 
         return false;
     }
+    //SNIPPET_END
     // org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
@@ -296,6 +297,7 @@ public class Antlr4Master {
         expecting = "x = 0";
         assertEquals(expecting, result);
     }
+    //SNIPPET_END
     //SNIPPETS_END
 
     private void assertEquals(String expecting, String result) {

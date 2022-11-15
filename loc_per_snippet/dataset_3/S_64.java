@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void s65() {
         String[] texts = new String[messages.length];
         ImageIcon[] images = new ImageIcon[messages.length];
@@ -6,5 +5,3 @@
             String ID = messages[i].getMessageID();
         }
     } // Added to allow compilation
-
-    // Snippet s66

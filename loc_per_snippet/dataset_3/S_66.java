@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     private CharSequence addZero(int number) {
         StringBuilder builder = new StringBuilder();
 
@@ -10,6 +9,3 @@
         return builder;                                                                            /*Altered return*/
         //return null; // Added to allow compilation
     } // Added to allow compilation
-
-    // Snippet s68
-    // @Override // Removed to allow compilation

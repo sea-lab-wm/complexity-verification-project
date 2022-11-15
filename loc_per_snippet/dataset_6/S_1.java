@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static synchronized Store getInstance(Context context, StoreConfig storeConfig) throws MessagingException {
         String uri = storeConfig.getStoreUri();
 
@@ -32,6 +31,3 @@
 
         return store;
     }
-
-    // com.fsck.k9.mail.transport.SmtpTransportTest.open_withXoauth2Extension_shouldThrowOnMultipleFailure()
-//    @Test // Removed to allow compilation

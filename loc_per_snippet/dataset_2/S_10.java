@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS    DATASET2START
     public static void main21(String[] args) {
         int[] array = { 1, 6, 4, 10, 2 };
 

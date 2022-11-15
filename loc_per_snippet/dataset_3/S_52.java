@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public void s53() throws Exception{
         try {
             suiteMethod= klass.getMethod("suite");
@@ -11,5 +10,3 @@
             // Added to allow compilation
         }
     } // Added to allow compilation
-
-    // Snippet s54

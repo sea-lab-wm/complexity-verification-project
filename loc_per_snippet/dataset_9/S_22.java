@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public static boolean getMove422(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -31,9 +30,3 @@
     builder.append("}");
     return result;
     }
-
-    // S4_2:3 resolved method chains, no comments
-    /**
-    * Generates a string (“builder”) for a given chess move in PGN (Portable
-    * Game Notation). This includes the move number and all NAG annotations.
-    */

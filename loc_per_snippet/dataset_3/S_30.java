@@ -1,4 +1,3 @@
-    //SNIPPET_STARTS
     public String s31() {
         if (iterateOverMe instanceof String)
             return createEnumeration(((String) iterateOverMe).toCharArray());
@@ -15,8 +14,3 @@
         return new String();                                                            /*Altered return*/
         //return null;
     }
-
-    // Snippet s32
-    /**
-     * Constructs a new Date object, initialized with the current date.
-     */
