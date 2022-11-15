@@ -66,10 +66,10 @@ public class K9 {
     }
 
     // com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
+    //SNIPPET_STARTS
     /**
      * Get an instance of a remote mail store.
      */
-    //SNIPPET_STARTS
     public static synchronized Store getInstance(Context context, StoreConfig storeConfig) throws MessagingException {
         String uri = storeConfig.getStoreUri();
 

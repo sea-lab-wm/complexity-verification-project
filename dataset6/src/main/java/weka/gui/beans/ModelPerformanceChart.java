@@ -63,14 +63,14 @@ public class ModelPerformanceChart extends JPanel implements Serializable, BeanC
     return "Visualize performance charts (such as ROC).";
   }
 
+  //  @Override // removed to allow compilation
+  //SNIPPET_STARTS
   /**
    * Describe <code>performRequest</code> method here.
    * 
    * @param request a <code>String</code> value
    * @exception IllegalArgumentException if an error occurs
    */
-//  @Override // removed to allow compilation
-  //SNIPPET_STARTS
   public void performRequest(String request) {
     if (request.compareTo("Show chart") == 0) {
       try {

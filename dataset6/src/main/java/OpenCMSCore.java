@@ -122,6 +122,7 @@ public class OpenCMSCore {
     }
 
     // org.opencms.main.CmsShell.execute(java.io.Reader)
+    //SNIPPET_STARTS
     /**
      * Executes the commands from the given reader in this shell.<p>
      *
@@ -133,7 +134,6 @@ public class OpenCMSCore {
      *
      * @param reader the reader from which the commands are read
      */
-    //SNIPPET_STARTS
     public void execute(Reader reader) {
 
         try {
@@ -195,6 +195,7 @@ public class OpenCMSCore {
     }
 
     // org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
+    //SNIPPET_STARTS
     /**
      * Generates a sub tree of folders with files.<p>
      *
@@ -207,7 +208,6 @@ public class OpenCMSCore {
      *
      * @throws Exception if something goes wrong
      */
-    //SNIPPET_STARTS
     public static int generateContent(CmsObject cms, String vfsFolder, int numberOfFiles, double fileTypeDistribution)
             throws Exception {
 

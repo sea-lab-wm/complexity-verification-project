@@ -427,11 +427,11 @@ public class CodeSnippets {
     private static final String NOTIFICATION_COMPOSITE = "";
 
     // S1_1:1 method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Informs the webmaster of an unexpected problem (Exception "ex")
     * with the deployed application (indicated by “aRequest”).
     */
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS111(Throwable ex, HttpServletRequest aRequest)
     {
     /* Create trouble ticket with context reference. */
@@ -449,11 +449,11 @@ public class CodeSnippets {
     }
 
     // S1_1:2 method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Informs the webmaster of an unexpected problem (Exception “ex”)
     * with the deployed application (indicated by “aRequest”).
     */
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS112(Throwable ex, HttpServletRequest aRequest)
     {
     /* Define local variable. */
@@ -470,11 +470,11 @@ public class CodeSnippets {
     }
 
     // S1_1:3 method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Informs the webmaster of an unexpected problem (Exception “ex”)
     * with the deployed application (indicated by “aRequest”).
     */
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS113(Throwable ex, HttpServletRequest aRequest)
     {
     TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
@@ -488,11 +488,11 @@ public class CodeSnippets {
     }
 
     // S1_2:1 resolved method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Informs the webmaster of an unexpected problem (Exception “ex”)
     * with the deployed application (indicated by “aRequest”).
     */
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS121(Throwable ex, HttpServletRequest aRequest)
     {
     /* Create trouble ticket with context reference. */
@@ -511,11 +511,11 @@ public class CodeSnippets {
     }
 
     // S1_2:2 resolved method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Informs the webmaster of an unexpected problem (Exception “ex”)
     * with the deployed application (indicated by “aRequest”).
     */
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS122(Throwable ex, HttpServletRequest aRequest)
     {
     /* Define local variable. */
@@ -534,11 +534,11 @@ public class CodeSnippets {
     }
 
     // S1_2:3 resolved method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Informs the webmaster of an unexpected problem (Exception “ex”)
     * with the deployed application (indicated by “aRequest”).
     */
-    //SNIPPET_STARTS
     public void logAndEmailSeriousProblemS123(Throwable ex, HttpServletRequest aRequest)
     {
     TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
@@ -558,11 +558,11 @@ public class CodeSnippets {
     // icationOperationImpl.java
 
     // S2_1:1 method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Apply the transmitted notifications (“nStore”) to the project so that
     * acknowledged notifications are deleted and other ones added.
     */
-    //SNIPPET_STARTS
     public void apply211(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -605,11 +605,11 @@ public class CodeSnippets {
     }
 
     // S2_1:2 method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Apply the transmitted notifications (“nStore”) to the project so that
     * acknowledged notifications are deleted and other ones added.
     */
-    //SNIPPET_STARTS
     public void apply212(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -651,11 +651,11 @@ public class CodeSnippets {
     }
 
     // S2_1:3 method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Apply the transmitted notifications (“nStore”) to the project so that
     * acknowledged notifications are deleted and other ones added.
     */
-    //SNIPPET_STARTS
     public void apply213(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -688,11 +688,11 @@ public class CodeSnippets {
     }
 
     // S2_2:1 resolved method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Apply the transmitted notifications (“nStore”) to the project so that
     * acknowledged notifications are deleted and other ones added.
     */
-    //SNIPPET_STARTS
     public void apply(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -735,11 +735,11 @@ public class CodeSnippets {
     }
 
     // S2_2:2 resolved method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Apply the transmitted notifications (“nStore”) to the project so that
     * acknowledged notifications are deleted and other ones added.
     */
-    //SNIPPET_STARTS
     public void apply222(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -781,11 +781,11 @@ public class CodeSnippets {
     }
 
     // S2_2:3 resolved method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Apply the transmitted notifications (“nStore”) to the project so that
     * acknowledged notifications are deleted and other ones added.
     */
-    //SNIPPET_STARTS
     public void apply223(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();
@@ -823,10 +823,10 @@ public class CodeSnippets {
     // ITextWriter.java
 
     // S3_1:1 (Revision 1) method chains, good comments
+    //SNIPPET_STARTS
     /**
     * The images of a unified table are copied to a simplified “yes/no” table.
     */
-    //SNIPPET_STARTS
     protected Table copyUTable311(UTable uTable)
     {
     /* Create a new table with the same size and color as uTable. */
@@ -865,10 +865,10 @@ public class CodeSnippets {
     }
 
     // S3_1:2 (Revision 1) method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * The images of a unified table are copied to a simplified “yes/no” table.
     */
-    //SNIPPET_STARTS
     protected Table copyUTable312(UTable uTable)
     {
     /* Define local variables. */
@@ -908,10 +908,10 @@ public class CodeSnippets {
     }
 
     // S3_1:3 (Revision 1) method chains, no comments
+    //SNIPPET_STARTS
     /**
     * The images of a unified table are copied to a simplified “yes/no” table.
     */
-    //SNIPPET_STARTS
     protected Table copyUTable313(UTable uTable)
     {
     Table table = new Table(uTable.getColumnsCount());
@@ -944,10 +944,10 @@ public class CodeSnippets {
     }
 
     // S3_2:1 (Revision 1) Fully resolved method chains, good comments
+    //SNIPPET_STARTS
     /**
     * The images of a unified table are copied to a simplified “yes/no” table.
     */
-    //SNIPPET_STARTS
     protected Table writeUTable321(UTable uTable)
     {
     /* Create a new table with the same size and color as uTable. */
@@ -990,10 +990,10 @@ public class CodeSnippets {
     }
 
     // S3_2:2 (Revision 1) Fully resolved method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * The images of a unified table are copied to a simplified “yes/no” table.
     */
-    //SNIPPET_STARTS
     protected Table writeUTable(UTable uTable)
     {
     /* Define local variables. */
@@ -1037,10 +1037,10 @@ public class CodeSnippets {
     }
 
     // S3_2:3 (Revision 1) Fully resolved method chains, no comments
+    //SNIPPET_STARTS
     /**
     * The images of a unified table are copied to a simplified “yes/no” table.
     */
-    //SNIPPET_STARTS
     protected Table writeUTable323(UTable uTable)
     {
     Table table = new Table(uTable.getColumnsCount());
@@ -1082,11 +1082,11 @@ public class CodeSnippets {
     // a
 
     // S4_1:1 method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Generates a string (“builder”) for a given chess move in PGN (Portable
     * Game Notation). This includes the move number and all NAG annotations.
     */
-    //SNIPPET_STARTS
     public static boolean getMove411(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -1114,11 +1114,11 @@ public class CodeSnippets {
     }
 
     // S4_1:2 method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Generates a string (“builder”) for a given chess move in PGN (Portable
     * Game Notation). This includes the move number and all NAG annotations.
     */
-    //SNIPPET_STARTS
     public static boolean getMove412(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -1146,11 +1146,11 @@ public class CodeSnippets {
     }
 
     // S4_1:3 method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Generates a string (“builder”) for a given chess move in PGN (Portable
     * Game Notation). This includes the move number and all NAG annotations.
     */
-    //SNIPPET_STARTS
     public static boolean getMove413(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -1173,11 +1173,11 @@ public class CodeSnippets {
     }
 
     // S4_2:1 resolved method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Generates a string (“builder”) for a given chess move in PGN (Portable
     * Game Notation). This includes the move number and all NAG annotations.
     */
-    //SNIPPET_STARTS
     public static boolean getMove421(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -1212,11 +1212,11 @@ public class CodeSnippets {
     }
 
     // S4_2:2 resolved method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Generates a string (“builder”) for a given chess move in PGN (Portable
     * Game Notation). This includes the move number and all NAG annotations.
     */
-    //SNIPPET_STARTS
     public static boolean getMove422(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -1251,11 +1251,11 @@ public class CodeSnippets {
     }
 
     // S4_2:3 resolved method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Generates a string (“builder”) for a given chess move in PGN (Portable
     * Game Notation). This includes the move number and all NAG annotations.
     */
-    //SNIPPET_STARTS
     public static boolean getMove(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -1289,13 +1289,13 @@ public class CodeSnippets {
     // http://www.docjar.com/html/api/org/eclipse/jface/dialogs/Dialog.java.html
 
     // S5_1:1 method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Shortens the given text textValue so that its width in pixels does
     * not exceed the width of the given control. To do that, shortenText
     * overrides as many as necessary characters in the center of the original
     * text with an ellipsis character (constant ELLIPSIS = "...").
     */
-    //SNIPPET_STARTS
     public static String shortenText511(String textValue, Control control)
     {
     GraphicsContext gc = new GraphicsContext(control);
@@ -1325,13 +1325,13 @@ public class CodeSnippets {
     }
 
     // S5_1:2 method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Shortens the given text textValue so that its width in pixels does
     * not exceed the width of the given control. To do that, shortenText
     * overrides as many as necessary characters in the center of the original
     * text with an ellipsis character (constant ELLIPSIS = "...").
     */
-    //SNIPPET_STARTS
     public static String shortenText512(String textValue, Control control)
     {
     /* Define local variables. */
@@ -1361,13 +1361,13 @@ public class CodeSnippets {
     }
 
 // S5_1:3 method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Shortens the given text textValue so that its width in pixels does
     * not exceed the width of the given control. To do that, shortenText
     * overrides as many as necessary characters in the center of the original
     * text with an ellipsis character (constant ELLIPSIS = "...").
     */
-    //SNIPPET_STARTS
     public static String shortenText513(String textValue, Control control)
     {
     GraphicsContext gc = new GraphicsContext(control);
@@ -1392,13 +1392,13 @@ public class CodeSnippets {
     }
 
     // S5_2:1 resolved method chains, good comments
+    //SNIPPET_STARTS
     /**
     * Shortens the given text textValue so that its width in pixels does
     * not exceed the width of the given control. To do that, shortenText
     * overrides as many as necessary characters in the center of the original
     * text with an ellipsis character (constant ELLIPSIS = "...").
     */
-    //SNIPPET_STARTS
     public static String shortenText521(String textValue, Control control)
     {
     GraphicsContext gc = new GraphicsContext(control);
@@ -1431,13 +1431,13 @@ public class CodeSnippets {
     }
 
     // S5_2:2 resolved method chains, bad comments
+    //SNIPPET_STARTS
     /**
     * Shortens the given text textValue so that its width in pixels does
     * not exceed the width of the given control. To do that, shortenText
     * overrides as many as necessary characters in the center of the original
     * text with an ellipsis character (constant ELLIPSIS = "...").
     */
-    //SNIPPET_STARTS
     public static String shortenText522(String textValue, Control control)
     {
     /* Define local variables. */
@@ -1470,13 +1470,13 @@ public class CodeSnippets {
     }
 
     // S5_2:3 resolved method chains, no comments
+    //SNIPPET_STARTS
     /**
     * Shortens the given text textValue so that its width in pixels does
     * not exceed the width of the given control. To do that, shortenText
     * overrides as many as necessary characters in the center of the original
     * text with an ellipsis character (constant ELLIPSIS = "...").
     */
-    //SNIPPET_STARTS
     public static String shortenText523(String textValue, Control control)
     {
     GraphicsContext gc = new GraphicsContext(control);

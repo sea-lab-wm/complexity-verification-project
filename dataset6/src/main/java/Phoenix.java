@@ -282,6 +282,7 @@ public class Phoenix {
     }
 
     // org.apache.phoenix.mapreduce.AbstractBulkLoadTool.parseOptions(java.lang.String[])
+    //SNIPPET_STARTS
     /**
      * Parses the commandline arguments, throws IllegalStateException if mandatory arguments are
      * missing.
@@ -289,7 +290,6 @@ public class Phoenix {
      * @param args supplied command line arguments
      * @return the parsed command line
      */
-    //SNIPPET_STARTS
     protected CommandLine parseOptions(String[] args) {
 
         Options options = getOptions();

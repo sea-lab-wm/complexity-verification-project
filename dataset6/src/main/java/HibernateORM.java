@@ -27,6 +27,7 @@ public class HibernateORM {
     }
 
     // org.hibernate.cfg.AbstractPropertyHolder.getOverriddenColumn(java.lang.String)
+    //SNIPPET_STARTS
     /**
      * Get column overriding, property first, then parent, then holder
      * replace the placeholder 'collection&&element' with nothing
@@ -34,7 +35,6 @@ public class HibernateORM {
      * These rules are here to support both JPA 2 and legacy overriding rules.
      */
 //    @Override // Removed to allow compilation
-    //SNIPPET_STARTS
     public Column[] getOverriddenColumn(String propertyName) {
         Column[] result = getExactOverriddenColumn( propertyName );
         if (result == null) {
@@ -272,6 +272,7 @@ public class HibernateORM {
     }
 
     // org.hibernate.pretty.MessageHelper.collectionInfoString(org.hibernate.persister.collection.CollectionPersister,org.hibernate.collection.spi.PersistentCollection,java.io.Serializable,org.hibernate.engine.spi.SharedSessionContractImplementor)
+    //SNIPPET_STARTS
     /**
      * Generate an info message string relating to a particular managed
      * collection.  Attempts to intelligently handle property-refs issues
@@ -283,7 +284,6 @@ public class HibernateORM {
      * @param session The session
      * @return An info string, in the form [Foo.bars#1]
      */
-    //SNIPPET_STARTS
     public static String collectionInfoString(
             CollectionPersister persister,
             PersistentCollection collection,

@@ -310,13 +310,13 @@ public class Tasks_2 {
     }
 
     // Snippet s33
+    //SNIPPET_STARTS
     /**
      * @param contextLength the maximum length for <code>expected</code> and <code>actual</code>. When contextLength
      * is exceeded, the Strings are shortened
      * @param expected the expected string value
      * @param actual the actual string value
      */
-    //SNIPPET_STARTS
     public void ComparisonCompactor(int contextLength, String expected, String actual) { // return type void added to allow compilation
         fContextLength = contextLength;
         fExpected = expected;
@@ -405,13 +405,13 @@ public class Tasks_2 {
     } // Added to allow compilation
 
     // Snippet s40
+    //SNIPPET_STARTS
     /**
      * Handles an "deliverGift"-request.
      *
      * @param element The element (root element in a DOM-parsed XML tree) that
      *            holds all the information.
      */
-    //SNIPPET_STARTS
     private Element deliverGift(Element element) {
         Element unitElement = Message.getChildElement(element, Unit.getXMLElementTagName());
 
@@ -474,12 +474,12 @@ public class Tasks_2 {
     } // Added to allow compilation
 
     // Snippet s46
+    //SNIPPET_STARTS
     /**
      Get the top level namespace or this namespace if we are the top.
      Note: this method should probably return type bsh.This to be consistent
      with getThis();
      */
-    //SNIPPET_STARTS
     public This getGlobal( Interpreter declaringInterpreter )
     {
         if ( parent != null )
@@ -489,13 +489,13 @@ public class Tasks_2 {
     } // Added to allow compilation
 
     // Snippet s47
+    //SNIPPET_STARTS
     /**
      * Read Settings
      * @param stream
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    //SNIPPET_STARTS
     public void readData(ObjectInputStream stream) throws IOException, ClassNotFoundException {
         int version = stream.readInt();
         mNumber = stream.readInt();
@@ -613,11 +613,11 @@ public class Tasks_2 {
 
 
     // Snippet s56
+    //SNIPPET_STARTS
     /**
      Swap in the value as the new top of the stack and return the old
      value.
      */
-    //SNIPPET_STARTS
     public NameSpace swap( NameSpace newTop ) {
         NameSpace oldTop = (NameSpace)(stack.elementAt(0));
         stack.setElementAt( newTop, 0 );
@@ -729,12 +729,12 @@ public class Tasks_2 {
     } // Added to allow compilation
 
     // Snippet s67
+    //SNIPPET_STARTS
     /**
      * Add one zero if neccessary
      * @param number
      * @return
      */
-    //SNIPPET_STARTS
     private CharSequence addZero(int number) {
         StringBuilder builder = new StringBuilder();
 

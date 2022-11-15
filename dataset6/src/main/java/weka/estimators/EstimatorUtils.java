@@ -42,6 +42,7 @@ public class EstimatorUtils implements RevisionHandler {
     }
   }
 
+  //SNIPPET_STARTS
   /**
    * Find the minimum and the maximum of the attribute and return it in the last
    * parameter..
@@ -52,7 +53,6 @@ public class EstimatorUtils implements RevisionHandler {
    * @return number of not missing values
    * @throws Exception if parameter minMax wasn't initialized properly
    */
-  //SNIPPET_STARTS
   public static int getMinMax(Instances inst, int attrIndex, double[] minMax)
           throws Exception {
     double min = Double.NaN;

@@ -482,10 +482,10 @@ public class Tasks_3 {
     }
 
     // Snippet s71
+    //SNIPPET_STARTS
     /**
      Translate bsh.Modifiers into ASM modifier bitflags.
      */
-    //SNIPPET_STARTS
     static int getASMModifiers( Modifiers modifiers )
     {
         int mods = 0;
@@ -544,6 +544,7 @@ public class Tasks_3 {
     } // Added to allow compilation
 
     // Snippet s75
+    //SNIPPET_STARTS
     /**
      * Generates a color chip image and stores it in memory.
      *
@@ -551,7 +552,6 @@ public class Tasks_3 {
      *            compatible with the local environment.
      * @param c The color of the color chip to create.
      */
-    //SNIPPET_STARTS
     private void loadColorChip(GraphicsConfiguration gc, Color c) {
         BufferedImage tempImage = gc.createCompatibleImage(11, 17);
         Graphics g = tempImage.getGraphics();
@@ -605,10 +605,10 @@ public class Tasks_3 {
     } // Added to allow compilation
 
     // Snippet s80
+    //SNIPPET_STARTS
     /**
      * Closes all panels, changes the background and shows the main menu.
      */
-    //SNIPPET_STARTS
     public void returnToTitle() {
         // TODO: check if the GUI object knows that we're not
         // inGame. (Retrieve value of GUI::inGame.)  If GUI thinks
@@ -620,10 +620,10 @@ public class Tasks_3 {
     } // Added to allow compilation
 
     // Snippet s81
+    //SNIPPET_STARTS
     /**
      subsequent imports override earlier ones
      */
-    //SNIPPET_STARTS
     public void	importPackage(String name)
     {
         if(importedPackages == null)
@@ -679,11 +679,11 @@ public class Tasks_3 {
     } // Added to allow compilation
 
     // Snippet s85
+    //SNIPPET_STARTS
     /**
      * Adds a message to the list of messages that need to be displayed on the GUI.
      * @param message The message to add.
      */
-    //SNIPPET_STARTS
     public synchronized void addMessage(GUIMessage message) {
         if (getMessageCount() == MESSAGE_COUNT) {
             messages2.remove(0); // Renamed to allow compilation
@@ -779,12 +779,12 @@ public class Tasks_3 {
     } // Added to allow compilation
 
     // Snippet s92
+    //SNIPPET_STARTS
     /**
      * Get the List of all available Channels
      *
      * @return All available Channels
      */
-    //SNIPPET_STARTS
     public ElgatoChannel[] getAvailableChannels() {
         ArrayList<ElgatoChannel> list = new ArrayList<ElgatoChannel>();
 
@@ -836,12 +836,12 @@ public class Tasks_3 {
     } // Added to allow compilation
 
     // Snippet s96
+    //SNIPPET_STARTS
     /**
      * Applies this action.
      *
      * @param e The <code>ActionEvent</code>.
      */
-    //SNIPPET_STARTS
     public void actionPerformed2(ActionEvent e) { // Renamed to allow compilation
         final Game game = freeColClient.getGame();
         final Map map = game.getMap();

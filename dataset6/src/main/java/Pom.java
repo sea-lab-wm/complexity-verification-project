@@ -203,13 +203,13 @@ public class Pom {
     }
 
     // hudson.util.Iterators.limit(java.util.Iterator<? extends T>,hudson.util.Iterators.CountingPredicate<? super T>)
+    //SNIPPET_STARTS
     /**
      * Returns the elements in the base iterator until it hits any element that doesn't satisfy the filter.
      * Then the rest of the elements in the base iterator gets ignored.
      *
      * @since 1.485
      */
-    //SNIPPET_STARTS
     public static <T> Iterator<T> limit(final Iterator<? extends T> base, final CountingPredicate<? super T> filter) {
         return new Iterator<T>() {
             private T next;
@@ -248,6 +248,7 @@ public class Pom {
     }
 
     // jenkins.util.AntClassLoader.loadClass(java.lang.String,boolean)
+    //SNIPPET_STARTS
     /**
      * Loads a class with this class loader.
      *
@@ -268,7 +269,6 @@ public class Pom {
      * on the system classpath (when not in isolated mode) or this loader's
      * classpath.
      */
-    //SNIPPET_STARTS
     protected synchronized Class loadClass(String classname, boolean resolve)
             throws ClassNotFoundException {
         // 'sync' is needed - otherwise 2 threads can load the same class

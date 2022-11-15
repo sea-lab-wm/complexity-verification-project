@@ -571,6 +571,7 @@ public class Tasks_1 {
     }
 
     // Snippet s4
+    //SNIPPET_STARTS
     /**
      * Constructor, with a argument reference to the PUBLIC User Object which
      * is null if this is the SYS or PUBLIC user.
@@ -578,7 +579,6 @@ public class Tasks_1 {
      * The dependency upon a GranteeManager is undesirable.  Hopefully we
      * can get rid of this dependency with an IOC or Listener re-design.
      */
-    //SNIPPET_STARTS
     public void Grantee(String name, Grantee inGrantee, // public void added to allow compilation
             GranteeManager man) throws HsqlException {
 
@@ -588,10 +588,10 @@ public class Tasks_1 {
     }
 
     // Snippet s5
+    //SNIPPET_STARTS
     /**
      * Quits the application without any questions.
      */
-    //SNIPPET_STARTS
     public void quit() {
         getConnectController().quitGame(true);
         if (!windowed) {
@@ -635,10 +635,10 @@ public class Tasks_1 {
     } // added to allow compilation
 
     // Snippet s9
+    //SNIPPET_STARTS
     /**
      * Returns a vector containing the URI (type + path) for all the databases.
      */
-    //SNIPPET_STARTS
     public static Vector getDatabaseURIs() {
 
         Vector v = new Vector();
@@ -690,11 +690,11 @@ public class Tasks_1 {
     }
 
     // Snippet s13
+    //SNIPPET_STARTS
     /*
      * @param expected expected value
 	 * @param actual actual value
 	 */
-    //SNIPPET_STARTS
     static public void assertEquals(String message, Object expected, Object actual) {
         if (expected == null && actual == null)
             return;
@@ -751,10 +751,10 @@ public class Tasks_1 {
     } // Added to allow compilation
 
     // Snippet s18
+    //SNIPPET_STARTS
     /**
      * Do not use. Testing purposes only.
      */
-    //SNIPPET_STARTS
     public Result runMain(String... args) {
         System.out.println("JUnit version " + Version.id());
         List<Class<?>> classes = new ArrayList<Class<?>>();
@@ -764,10 +764,10 @@ public class Tasks_1 {
     } // Added to allow compilation
 
     // Snippet s19
+    //SNIPPET_STARTS
     /**
      * temp constraint constructor
      */
-    //SNIPPET_STARTS
     void Constraint(HsqlName name, int[] mainCols, Table refTable, int[] refCols, // Added return type void to allow compilation
                int type, int deleteAction, int updateAction) {
 
@@ -798,11 +798,11 @@ public class Tasks_1 {
     }
 
     // Snippet s22
+    //SNIPPET_STARTS
     /**
      * Returns the PluginPanel
      * @return Panel
      */
-    //SNIPPET_STARTS
     public JPanel createSettingsPanel() {
         mPanel = new CapturePluginPanel(mOwner, mCloneData);
         mPanel.setBorder(Borders.createEmptyBorder(Sizes.DLUY5, Sizes.DLUX5, Sizes.DLUY5, Sizes.DLUX5));
@@ -859,10 +859,10 @@ public class Tasks_1 {
     } // Added to allow compilation
 
     // Snippet s27
+    //SNIPPET_STARTS
     /**
      * Compute the proper position for a centered window
      */
-    //SNIPPET_STARTS
     private Point comuteDisplayPointCentre(Dimension dim) {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width - dim.width) / 2;
@@ -893,12 +893,12 @@ public class Tasks_1 {
     }
 
     // Snippet s30
+    //SNIPPET_STARTS
     /**
      * Sets the currently chosen <code>MapTransform</code>.
      * @param mt The transform that should be applied to a
      *      <code>Tile</code> that is clicked on the map.
      */
-    //SNIPPET_STARTS
     public void setMapTransform(MapTransform mt) {
         currentMapTransform = mt;
         MapControlsAction mca = (MapControlsAction) freeColClient.getActionManager().getFreeColAction(MapControlsAction.ID);
@@ -927,10 +927,10 @@ public class Tasks_1 {
     }
 
     // Snippet s32
+    //SNIPPET_STARTS
     /**
      * Constructs a new Date object, initialized with the current date.
      */
-    //SNIPPET_STARTS
     public void Date() { // Return type void added to allow compilation
         Calendar mCalendar = Calendar.getInstance();
         mYear = mCalendar.get(Calendar.YEAR);
