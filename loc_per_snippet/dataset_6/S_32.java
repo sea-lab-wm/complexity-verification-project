@@ -1,3 +1,14 @@
+    /**
+     * Executes the commands from the given reader in this shell.<p>
+     *
+     * <ul>
+     * <li>Commands in the must be separated with a line break '\n'.
+     * <li>Only one command per line is allowed.
+     * <li>String parameters must be quoted like this: <code>'string value'</code>.
+     * </ul>
+     *
+     * @param reader the reader from which the commands are read
+     */
     public void execute(Reader reader) {
 
         try {

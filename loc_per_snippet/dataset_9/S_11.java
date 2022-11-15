@@ -1,3 +1,7 @@
+    /**
+    * Apply the transmitted notifications (“nStore”) to the project so that
+    * acknowledged notifications are deleted and other ones added.
+    */
     public void apply223(Project project, NotificationStore nStore)
     {
     ProjectSpace projectSpace = project.eContainer();

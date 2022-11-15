@@ -1,3 +1,9 @@
+    /**
+     * Attention: DO NOT USE THIS!
+     * Under Os/2 it has some problems with calculating the real Date!
+     *
+     * @deprecated
+     */
     public void Date(int daysSince1970) { // return type void added to allow compilation
 
         long l = (long) daysSince1970 * 24 * 60 * 60 * 1000;

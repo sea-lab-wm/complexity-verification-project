@@ -1,3 +1,10 @@
+    /**
+     * Parses the commandline arguments, throws IllegalStateException if mandatory arguments are
+     * missing.
+     *
+     * @param args supplied command line arguments
+     * @return the parsed command line
+     */
     protected CommandLine parseOptions(String[] args) {
 
         Options options = getOptions();

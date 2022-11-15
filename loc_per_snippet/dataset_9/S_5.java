@@ -1,3 +1,7 @@
+    /**
+    * Informs the webmaster of an unexpected problem (Exception “ex”)
+    * with the deployed application (indicated by “aRequest”).
+    */
     public void logAndEmailSeriousProblemS123(Throwable ex, HttpServletRequest aRequest)
     {
     TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);

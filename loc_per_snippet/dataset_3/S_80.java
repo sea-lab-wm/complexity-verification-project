@@ -1,3 +1,6 @@
+    /**
+     subsequent imports override earlier ones
+     */
     public void	importPackage(String name)
     {
         if(importedPackages == null)

@@ -1,3 +1,8 @@
+    /**
+     * Add one zero if neccessary
+     * @param number
+     * @return
+     */
     private CharSequence addZero(int number) {
         StringBuilder builder = new StringBuilder();
 

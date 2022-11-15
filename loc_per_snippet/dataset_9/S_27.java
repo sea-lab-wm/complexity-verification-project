@@ -1,3 +1,9 @@
+    /**
+    * Shortens the given text textValue so that its width in pixels does
+    * not exceed the width of the given control. To do that, shortenText
+    * overrides as many as necessary characters in the center of the original
+    * text with an ellipsis character (constant ELLIPSIS = "...").
+    */
     public static String shortenText521(String textValue, Control control)
     {
     GraphicsContext gc = new GraphicsContext(control);

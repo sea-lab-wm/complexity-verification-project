@@ -1,3 +1,9 @@
+  /**
+   * Describe <code>performRequest</code> method here.
+   * 
+   * @param request a <code>String</code> value
+   * @exception IllegalArgumentException if an error occurs
+   */
   public void performRequest(String request) {
     if (request.compareTo("Show chart") == 0) {
       try {

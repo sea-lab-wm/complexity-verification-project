@@ -1,3 +1,6 @@
+    /**
+     * temp constraint constructor
+     */
     void Constraint(HsqlName name, int[] mainCols, Table refTable, int[] refCols, // Added return type void to allow compilation
                int type, int deleteAction, int updateAction) {
 

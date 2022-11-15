@@ -1,3 +1,7 @@
+    /**
+    * Generates a string (“builder”) for a given chess move in PGN (Portable
+    * Game Notation). This includes the move number and all NAG annotations.
+    */
     public static boolean getMove(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();

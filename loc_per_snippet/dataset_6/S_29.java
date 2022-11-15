@@ -1,3 +1,14 @@
+    /**
+     * Generate an info message string relating to a particular managed
+     * collection.  Attempts to intelligently handle property-refs issues
+     * where the collection key is not the same as the owner key.
+     *
+     * @param persister The persister for the collection
+     * @param collection The collection itself
+     * @param collectionKey The collection key
+     * @param session The session
+     * @return An info string, in the form [Foo.bars#1]
+     */
     public static String collectionInfoString(
             CollectionPersister persister,
             PersistentCollection collection,

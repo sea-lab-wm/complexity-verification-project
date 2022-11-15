@@ -1,3 +1,6 @@
+    /**
+    * The images of a unified table are copied to a simplified “yes/no” table.
+    */
     protected Table writeUTable321(UTable uTable)
     {
     /* Create a new table with the same size and color as uTable. */

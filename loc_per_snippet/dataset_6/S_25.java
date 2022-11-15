@@ -1,3 +1,10 @@
+    /**
+     * Get column overriding, property first, then parent, then holder
+     * replace the placeholder 'collection&&element' with nothing
+     *
+     * These rules are here to support both JPA 2 and legacy overriding rules.
+     */
+//    @Override // Removed to allow compilation
     public Column[] getOverriddenColumn(String propertyName) {
         Column[] result = getExactOverriddenColumn( propertyName );
         if (result == null) {

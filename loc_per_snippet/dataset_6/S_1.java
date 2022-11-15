@@ -1,3 +1,6 @@
+    /**
+     * Get an instance of a remote mail store.
+     */
     public static synchronized Store getInstance(Context context, StoreConfig storeConfig) throws MessagingException {
         String uri = storeConfig.getStoreUri();
 

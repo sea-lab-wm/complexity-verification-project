@@ -1,3 +1,13 @@
+  /**
+   * Find the minimum and the maximum of the attribute and return it in the last
+   * parameter..
+   *
+   * @param inst      instances used to build the estimator
+   * @param attrIndex index of the attribute
+   * @param minMax    the array to return minimum and maximum in
+   * @return number of not missing values
+   * @throws Exception if parameter minMax wasn't initialized properly
+   */
   public static int getMinMax(Instances inst, int attrIndex, double[] minMax)
           throws Exception {
     double min = Double.NaN;

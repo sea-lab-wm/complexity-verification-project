@@ -1,3 +1,15 @@
+    /**
+     * Generates a sub tree of folders with files.<p>
+     *
+     * @param cms the cms context
+     * @param vfsFolder name of the folder
+     * @param numberOfFiles the number of files to generate
+     * @param fileTypeDistribution a percentage: x% binary files and (1-x)% text files
+     *
+     * @return the number of files generated
+     *
+     * @throws Exception if something goes wrong
+     */
     public static int generateContent(CmsObject cms, String vfsFolder, int numberOfFiles, double fileTypeDistribution)
             throws Exception {
 

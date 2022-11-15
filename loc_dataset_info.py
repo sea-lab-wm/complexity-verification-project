@@ -10,7 +10,7 @@ def readCLOCOutput(include_comments):
         "dataset_f": []
     }
 
-    df = pd.read_csv("loc_per_snippet/output_without_javadoc.csv")
+    df = pd.read_csv("loc_per_snippet_without_javadoc/output_without_javadoc.csv")
 
     if include_comments:
         for row in df.itertuples():
@@ -26,10 +26,25 @@ def readCLOCOutput(include_comments):
     return datasets
 
 def compute_average(results):
+    """Get the average LOC for each dataset"""
+
     for key, value in results.items():
         results[key] = sum(value) / len(value)
 
     return results
+
+def compute_average_all(results):
+    """Get the average LOC across all datasets"""
+
+    sum = 0
+    count = 0
+
+    for ds, loc_data in results.items():
+        for loc in loc_data:
+            count += 1
+            sum += loc
+
+    return sum / count
 
 def compute_min_max(results):
     for key, value in results.items():
@@ -46,3 +61,6 @@ if __name__ == "__main__":
 
     print("LOC Average: " + str(compute_average(readCLOCOutput(True))))
     print("LOC Min/Max: " + str(compute_min_max(readCLOCOutput(True))))
+
+    print("NCLOC Average ALL: " + str(compute_average_all(readCLOCOutput(False))))
+    print("LOC Average ALL: " + str(compute_average_all(readCLOCOutput(True))))

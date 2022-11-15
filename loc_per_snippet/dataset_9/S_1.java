@@ -1,3 +1,7 @@
+    /**
+    * Informs the webmaster of an unexpected problem (Exception “ex”)
+    * with the deployed application (indicated by “aRequest”).
+    */
     public void logAndEmailSeriousProblemS112(Throwable ex, HttpServletRequest aRequest)
     {
     /* Define local variable. */

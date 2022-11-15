@@ -1,3 +1,6 @@
+    /**
+    * The images of a unified table are copied to a simplified “yes/no” table.
+    */
     protected Table copyUTable312(UTable uTable)
     {
     /* Define local variables. */

@@ -1,3 +1,7 @@
+    /**
+    * Informs the webmaster of an unexpected problem (Exception “ex”)
+    * with the deployed application (indicated by “aRequest”).
+    */
     public void logAndEmailSeriousProblemS121(Throwable ex, HttpServletRequest aRequest)
     {
     /* Create trouble ticket with context reference. */

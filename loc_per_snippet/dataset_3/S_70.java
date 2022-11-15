@@ -1,3 +1,6 @@
+    /**
+     Translate bsh.Modifiers into ASM modifier bitflags.
+     */
     static int getASMModifiers( Modifiers modifiers )
     {
         int mods = 0;
