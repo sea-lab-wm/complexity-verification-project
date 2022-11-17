@@ -1,6 +1,6 @@
 import pandas as pd
 
-def readCLOCOutput(include_comments):
+def readCLOCOutput(include_comments_and_blanks):
     datasets = {
         "dataset_1": [],
         "dataset_2": [],
@@ -10,13 +10,13 @@ def readCLOCOutput(include_comments):
         "dataset_f": []
     }
 
-    df = pd.read_csv("loc_per_snippet_without_javadoc/output_without_javadoc.csv")
+    df = pd.read_csv("loc_per_snippet/output_with_javadoc.csv")
 
-    if include_comments:
+    if include_comments_and_blanks:
         for row in df.itertuples():
             for key, value in datasets.items():
                 if isinstance(row[2], str) and key in row[2]:
-                    value.append(row[5] + row[4])
+                    value.append(row[5] + row[4] + row[3])
     else:
         for row in df.itertuples():
             for key, value in datasets.items():
