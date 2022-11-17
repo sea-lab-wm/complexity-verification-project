@@ -184,111 +184,7 @@ def parseOpenJML(data, allSnippetNums, timeouts):
 
                 snippetNums = allSnippetNums[4][fileName]
 
-                addToI = 0
-                if fileName == "Pom":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                elif fileName == "CarReport":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                elif fileName == "Antlr4Master":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                elif fileName == "Phoenix":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                elif fileName == "HibernateORM":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                elif fileName == "OpenCMSCore":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                elif fileName == "SpringBatch":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                    addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                elif fileName == "MyExpenses":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                    addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                    addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                elif fileName == "CheckEstimator":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                    addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                    addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                    addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                elif fileName == "EstimatorUtils":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                    addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                    addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                    addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                    addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-                elif fileName == "ClassifierPerformanceEvaluatorCustomizer":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                    addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                    addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                    addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                    addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-                    addToI += len(allSnippetNums[4]["EstimatorUtils"]) - 1
-                elif fileName == "ModelPerformanceChart":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                    addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                    addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                    addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                    addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-                    addToI += len(allSnippetNums[4]["EstimatorUtils"]) - 1
-                    addToI += len(allSnippetNums[4]["ClassifierPerformanceEvaluatorCustomizer"]) - 1
-                elif fileName == "GeneratorPropertyIteratorPanel":
-                    addToI = len(allSnippetNums[4]["K9"]) - 1
-                    addToI += len(allSnippetNums[4]["Pom"]) - 1
-                    addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                    addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                    addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                    addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                    addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                    addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                    addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                    addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-                    addToI += len(allSnippetNums[4]["EstimatorUtils"]) - 1
-                    addToI += len(allSnippetNums[4]["ClassifierPerformanceEvaluatorCustomizer"]) - 1
-                    addToI += len(allSnippetNums[4]["ModelPerformanceChart"]) - 1
+                addToI = computeDS6AddToI(fileName)
     
                 for i in range(len(snippetNums) - 1):
                     if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum: 
@@ -318,6 +214,19 @@ def parseOpenJML(data, allSnippetNums, timeouts):
                     break
 
     return ("openjml_data", data)
+
+def computeDS6AddToI(fileName):
+    addToI = 0
+    # the order of these file names is important
+    ds6snippetFiles = [ "K9", "Pom", "CarReport", "Antlr4Master", "Phoenix", "HibernateORM", "OpenCMSCore",
+                        "SpringBatch", "MyExpenses", "CheckEstimator", "EstimatorUtils",
+                        "ClassifierPerformanceEvaluatorCustomizer", "ModelPerformanceChart", "GeneratorPropertyIteratorPanel" ]
+    for i in range(len(ds6snippetFiles)):
+        if fileName == ds6snippetFiles[i]:
+            return addToI
+        addToI += len(allSnippetNums[4][ds6snippetFiles[i]]) - 1
+
+    raise Exception("Unexpected fileName for DS6 snippets: " + fileName)
 
 def openJMLWriteData(data, warning, message, line, timeouts):
     startWarning = "assertion"
@@ -485,111 +394,7 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
 
             snippetNums = allSnippetNums[4][fileName]
 
-            addToI = 0
-            if fileName == "Pom":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-            elif fileName == "CarReport":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-            elif fileName == "Antlr4Master":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-            elif fileName == "Phoenix":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-            elif fileName == "HibernateORM":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-            elif fileName == "OpenCMSCore":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-            elif fileName == "SpringBatch":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-            elif fileName == "MyExpenses":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-            elif fileName == "CheckEstimator":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-            elif fileName == "EstimatorUtils":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-            elif fileName == "ClassifierPerformanceEvaluatorCustomizer":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-                addToI += len(allSnippetNums[4]["EstimatorUtils"]) - 1
-            elif fileName == "ModelPerformanceChart":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-                addToI += len(allSnippetNums[4]["EstimatorUtils"]) - 1
-                addToI += len(allSnippetNums[4]["ClassifierPerformanceEvaluatorCustomizer"]) - 1
-            elif fileName == "GeneratorPropertyIteratorPanel":
-                addToI = len(allSnippetNums[4]["K9"]) - 1
-                addToI += len(allSnippetNums[4]["Pom"]) - 1
-                addToI += len(allSnippetNums[4]["CarReport"]) - 1
-                addToI += len(allSnippetNums[4]["Antlr4Master"]) - 1
-                addToI += len(allSnippetNums[4]["Phoenix"]) - 1
-                addToI += len(allSnippetNums[4]["HibernateORM"]) - 1
-                addToI += len(allSnippetNums[4]["OpenCMSCore"]) - 1
-                addToI += len(allSnippetNums[4]["SpringBatch"]) - 1
-                addToI += len(allSnippetNums[4]["MyExpenses"]) - 1
-                addToI += len(allSnippetNums[4]["CheckEstimator"]) - 1
-                addToI += len(allSnippetNums[4]["EstimatorUtils"]) - 1
-                addToI += len(allSnippetNums[4]["ClassifierPerformanceEvaluatorCustomizer"]) - 1
-                addToI += len(allSnippetNums[4]["ModelPerformanceChart"]) - 1
+            addToI = computeDS6addToI(fileName)
  
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
