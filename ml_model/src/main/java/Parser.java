@@ -4,7 +4,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.github.javaparser.ast.CompilationUnit;
 
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.expr.ConditionalExpr;
+import com.github.javaparser.ast.stmt.IfStmt;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -22,12 +22,10 @@ public class Parser {
         methodNameCollector.visit(cu, methodNames);
         methodNames.forEach(n -> System.out.println("Method Name Collected: " + n));
 
-        List<String> conditionals = new ArrayList<>();
-        VoidVisitor<List<String>> conditionalCollector = new ConditionalCollector();
-        System.out.println("TEST2");
-        conditionalCollector.visit(cu, conditionals);
-        System.out.println("TEST3");
-        conditionals.forEach(n -> System.out.println("Conditional Collected: " + n));
+        List<String> ifs = new ArrayList<>();
+        VoidVisitor<List<String>> ifsCollector = new IfsCollector();
+        ifsCollector.visit(cu, ifs);
+        ifs.forEach(n -> System.out.println("Conditional Collected: " + n));
     }
 
     private static class MethodNameCollector extends VoidVisitorAdapter<List<String>> {
@@ -39,13 +37,12 @@ public class Parser {
         }
     }
 
-    private static class ConditionalCollector extends VoidVisitorAdapter<List<String>> {
+    private static class IfsCollector extends VoidVisitorAdapter<List<String>> {
 
         @Override
-        public void visit(ConditionalExpr ce, List<String> collector) {
-            super.visit(ce, collector);
-            collector.add(ce.getCondition().toString());
-            System.out.println("TEST");
+        public void visit(IfStmt ifs, List<String> collector) {
+            super.visit(ifs, collector);
+            collector.add(ifs.getCondition().toString());
         }
     }
 }
