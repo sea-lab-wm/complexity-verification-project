@@ -394,7 +394,7 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
 
             snippetNums = allSnippetNums[4][fileName]
 
-            addToI = computeDS6addToI(fileName)
+            addToI = computeDS6AddToI(fileName)
  
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
