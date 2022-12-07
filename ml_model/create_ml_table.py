@@ -29,11 +29,12 @@ def get_metrics():
 
     metric_data = []
 
-    #metric_data.append(read_dataset_1_metrics())
-    #metric_data.append(read_dataset_3_metrics())
+    metric_data.append(read_dataset_1_metrics())
+    metric_data.append(read_dataset_3_metrics())
     metric_data.append(read_dataset_6_metrics())
+    metric_data.append(read_dataset_9_metrics())
 
-    #return pd.concat(metric_data)
+    return pd.concat(metric_data, ignore_index=True)
 
 def read_dataset_1_metrics():
     """Reads the results of the first pilot study for COG dataset 1. It contains 41 people who looked at 23 snippets.
@@ -45,8 +46,8 @@ def read_dataset_1_metrics():
         "dataset_id": [],
         "snippet_id": [],
         "person_id": [],
-        "metric": [],
-        "metric_type": []
+        "metric_id": [],
+        "metric": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -61,12 +62,24 @@ def read_dataset_1_metrics():
 
     for rowIndex, row in df_cols.iterrows(): #iterate over rows
         for columnIndex, value in row.items():
+            metric_type = columnIndex.split("::")[1].lower()
+            metric_id = None
+
+            if "time" in metric_type:
+                metric_id = "time_to_give_output"
+            elif "correct" in metric_type:
+                metric_id = "correct_output_rating"
+            elif "difficulty" in metric_type:
+                metric_id = "output_difficulty"
+            else:
+                raise Exception("read_dataset_1_metrics: could not determine metric_id")
+
             record = {
                     "dataset_id": ["1"],
                     "snippet_id": [columnIndex.split("::")[0]],
                     "person_id": [rowIndex],
-                    "metric": [value],
-                    "metric_type": [columnIndex.split("::")[1].lower()]
+                    "metric_id": [metric_id],
+                    "metric": [value]
                 }
             df_record = pd.DataFrame(record)
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -82,8 +95,8 @@ def read_dataset_3_metrics():
         "dataset_id": [],
         "snippet_id": [],
         "person_id": [],
-        "metric": [],
-        "metric_type": []
+        "metric_id": [],
+        "metric": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -97,8 +110,8 @@ def read_dataset_3_metrics():
                     "dataset_id": ["3"],
                     "snippet_id": [columnIndex],
                     "person_id": [rowIndex],
-                    "metric": [value],
-                    "metric_type": ["rating"]
+                    "metric_id": ["readability_level"],
+                    "metric": [value]
                 }
             df_record = pd.DataFrame(record)
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -115,15 +128,120 @@ def read_dataset_6_metrics():
         "dataset_id": [],
         "snippet_id": [],
         "person_id": [],
-        "metric": [],
-        "metric_type": []
+        "metric_id": [],
+        "metric": []
     }
     data = pd.DataFrame(dict_df)
 
     df = pd.read_csv("data/cog_dataset_6.csv")
 
     df_cols = df.iloc[:, [0, 2, 123, 124, 125]]
-    print(df_cols)
+
+    for _, row in df_cols.iterrows():
+        record = {
+                "dataset_id": ["6"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["binary_understandability"],
+                "metric": [row[2]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": ["6"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["time_to_understand"],
+                "metric": [row[3]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": ["6"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["correct_verif_questions"],
+                "metric": [row[4]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+    return data
+
+def read_dataset_9_metrics():
+    """Reads the results of the cog data set 9 study. It contains 104 participants and 30 unique snippets (5 snippets each with varying quality of comments).
+    Correlation data is split into 3 categories of 10 snippets each: Good comments, bad comments, and no comments. Then further split into the metrics:
+    Time, correctness, and rating.
+    """
+    
+    dict_df = {
+        "dataset_id": [],
+        "snippet_id": [],
+        "person_id": [],
+        "metric_id": [],
+        "metric": []
+    }
+    data = pd.DataFrame(dict_df)
+
+    df = pd.read_excel("data/cog_dataset_9.xlsx")
+
+    df_cols = df.iloc[:520, [0, 18, 24, 61, 81, 82, 85]]
+
+    for _, row in df_cols.iterrows():
+        dataset_id = None
+        if "1" in row[1].split(":")[1]:
+            dataset_id = "9_gc"
+        elif "2" in row[1].split(":")[1]:
+            dataset_id = "9_bc"
+        elif "3" in row[1].split(":")[1]:
+            dataset_id = "9_nc"
+        else:
+            raise Exception("read_dataset_9_metrics: could not determine dataset_id")
+
+        record = {
+                "dataset_id": [dataset_id],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["gap_accuracy"],
+                "metric": [row[6]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": [dataset_id],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["readability_level_ba"],
+                "metric": [row[2] + row[3]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": [dataset_id],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["readability_level_before"],
+                "metric": [row[2]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": [dataset_id],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["time_to_read_complete"],
+                "metric": [row[4] + row[5]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+    
+    return data
+
 
 if __name__ == "__main__":
     warning_data_files = {
