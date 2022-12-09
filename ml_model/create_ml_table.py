@@ -1,6 +1,7 @@
 import pandas as pd
+import numpy as np
 
-def get_num_warnings(file, tool):
+def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
     """Returns a dataframe where each entry is a dataset, snippet, and number of warnings from a single tool."""
 
     dict_df = {
@@ -12,7 +13,7 @@ def get_num_warnings(file, tool):
 
     data = pd.DataFrame(dict_df)
 
-    df = pd.read_csv(file)
+    df = pd.read_csv(file_path)
 
     data["num_warnings"] = df.sum(axis=1, numeric_only=True).tolist()
 
@@ -24,19 +25,7 @@ def get_num_warnings(file, tool):
 
     return data
 
-def get_metrics():
-    """Returns a dataframe containing metric data for each dataset."""
-
-    metric_data = []
-
-    metric_data.append(read_dataset_1_metrics())
-    metric_data.append(read_dataset_3_metrics())
-    metric_data.append(read_dataset_6_metrics())
-    metric_data.append(read_dataset_9_metrics())
-
-    return pd.concat(metric_data, ignore_index=True)
-
-def read_dataset_1_metrics():
+def read_dataset_1_metrics() -> pd.DataFrame:
     """Reads the results of the first pilot study for COG dataset 1. It contains 41 people who looked at 23 snippets.
     Metrics include time to solve (in sec.), correctness where 0 = completely wrong, 1 = in part correct, 2 = completely correct, and
     Subjective rating is on a scale of 0 through 4 where 0 = very difficult, 1 = difficult, 2 = medium, 3 = easy, 4 = very easy.
@@ -60,9 +49,9 @@ def read_dataset_1_metrics():
     cols.extend([df.columns.get_loc(f"{str(snippetNum)}::Difficulty") for snippetNum in range(1, 24)])
     df_cols = df.iloc[:41, cols]
 
-    for rowIndex, row in df_cols.iterrows(): #iterate over rows
-        for columnIndex, value in row.items():
-            metric_type = columnIndex.split("::")[1].lower()
+    for row_index, row in df_cols.iterrows(): #iterate over rows
+        for column_index, value in row.items():
+            metric_type = column_index.split("::")[1].lower()
             metric_id = None
 
             if "time" in metric_type:
@@ -76,8 +65,8 @@ def read_dataset_1_metrics():
 
             record = {
                     "dataset_id": ["1"],
-                    "snippet_id": [columnIndex.split("::")[0]],
-                    "person_id": [rowIndex],
+                    "snippet_id": [column_index.split("::")[0]],
+                    "person_id": [row_index],
                     "metric_id": [metric_id],
                     "metric": [value]
                 }
@@ -86,7 +75,7 @@ def read_dataset_1_metrics():
 
     return data  
 
-def read_dataset_3_metrics():
+def read_dataset_3_metrics() -> pd.DataFrame:
     """Reads the results of the cog data set 3 study. It contains 121 people who rated 100 snippets on a scale of 1-5.
     1 being less readable and 5 being more readable.
     """
@@ -104,12 +93,12 @@ def read_dataset_3_metrics():
 
     df_cols = df.iloc[:, 2:102]
 
-    for rowIndex, row in df_cols.iterrows():
-        for columnIndex, value in row.items():
+    for row_index, row in df_cols.iterrows():
+        for column_index, value in row.items():
             record = {
                     "dataset_id": ["3"],
-                    "snippet_id": [columnIndex],
-                    "person_id": [rowIndex],
+                    "snippet_id": [column_index],
+                    "person_id": [row_index],
                     "metric_id": ["readability_level"],
                     "metric": [value]
                 }
@@ -118,7 +107,7 @@ def read_dataset_3_metrics():
 
     return data
 
-def read_dataset_6_metrics():
+def read_dataset_6_metrics() -> pd.DataFrame:
     """Reads the results of the cog data set 6 study. It contains 63 people who looked at 50 snippets with metrics based on time, correctness, and rating.
     IMPORTANT: Each participant was assigned randomly assigned about 8 snippets out of the 50. So not every person looked at every snippet.
     The metrics were Time Needed for Perceived Understandability (TNPU), Actual Understanding (AU), and Perceived Binary Understandability (PBU).
@@ -170,7 +159,7 @@ def read_dataset_6_metrics():
 
     return data
 
-def read_dataset_9_metrics():
+def read_dataset_9_metrics() -> pd.DataFrame:
     """Reads the results of the cog data set 9 study. It contains 104 participants and 30 unique snippets (5 snippets each with varying quality of comments).
     Correlation data is split into 3 categories of 10 snippets each: Good comments, bad comments, and no comments. Then further split into the metrics:
     Time, correctness, and rating.
@@ -242,6 +231,96 @@ def read_dataset_9_metrics():
     
     return data
 
+def read_dataset_f_metrics() -> pd.DataFrame:
+    """Reads the results of the fmri study. It contains 19 people who looked at 16 snippets.
+    Correctness (in %), time to solve (in sec.), and a subjective rating were all measured.
+    Subjective rating of low, medium, or high.
+    """
+
+    dict_df = {
+        "dataset_id": [],
+        "snippet_id": [],
+        "person_id": [],
+        "metric_id": [],
+        "metric": []
+    }
+    data = pd.DataFrame(dict_df)
+
+    df_physiological = pd.read_csv("data/fmri_dataset_physiological.csv")
+    df_physiological = df_physiological.set_index("condition", drop=False)
+
+    df_behavioral = pd.read_csv("data/fmri_dataset_behavioral.csv")
+    df_subjective = pd.read_csv("data/fmri_dataset_subjective.csv")
+    combined = pd.merge(df_behavioral, df_subjective, on=["Participant", "Snippet"])
+
+    def convert_phsyiological(row: pd.Series, mode: str ):  # mode = "BA31" OR "BA32"
+        result = df_physiological.loc[row[3], :]
+
+        if "BA31" in mode:
+            return result.loc["BA31"]
+        elif "BA32" in mode:
+            return result.loc["BA32"]
+        else:
+            raise Exception("convert_phsyiological: invalid type")
+
+    combined["BA31"] = combined.apply(lambda row: convert_phsyiological(row, "BA31"), axis=1)
+    combined["BA32"] = combined.apply(lambda row: convert_phsyiological(row, "BA32"), axis=1)
+
+    df_cols = combined.iloc[:, [0, 3, 7, 12, 14, 15, 16]]
+
+    for _, row in df_cols.iterrows():
+        record = {
+                "dataset_id": ["f"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["perc_correct_output"],
+                "metric": [row[2]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": ["f"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["time_to_understand"],
+                "metric": [float(row[3]) / 1000]    # Converting from milliseconds to seconds
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": ["f"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["complexity_level"],
+                "metric": [row[4]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": ["f"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["brain_deact_31"],
+                "metric": [row[5]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+        record = {
+                "dataset_id": ["f"],
+                "snippet_id": [row[1]],
+                "person_id": [row[0]],
+                "metric_id": ["brain_deact_32"],
+                "metric": [row[6]]
+            }
+        df_record = pd.DataFrame(record)
+        data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+    return data
+
 
 if __name__ == "__main__":
     warning_data_files = {
@@ -258,5 +337,13 @@ if __name__ == "__main__":
     # Add a set of data where all tools are combined
     warning_data.append(pd.concat(warning_data))
 
-    metric_data = get_metrics()
-    print(metric_data)
+    # read and combine all metric data
+    metric_data = []
+    metric_data.append(read_dataset_1_metrics())
+    metric_data.append(read_dataset_3_metrics())
+    metric_data.append(read_dataset_6_metrics())
+    metric_data.append(read_dataset_9_metrics())
+    metric_data.append(read_dataset_f_metrics())
+    metric_df = pd.concat(metric_data, ignore_index=True)
+
+    print(metric_df)
