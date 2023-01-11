@@ -91,6 +91,7 @@ def read_dataset_3_metrics() -> pd.DataFrame:
 
     df = pd.read_csv("data/cog_dataset_3.csv", header=None)
 
+    # Simplifies down to only the necessary data
     df_cols = df.iloc[:, 2:102]
 
     for row_index, row in df_cols.iterrows():
@@ -124,8 +125,10 @@ def read_dataset_6_metrics() -> pd.DataFrame:
 
     df = pd.read_csv("data/cog_dataset_6.csv")
 
+    # Simplifies down to only the necessary data
     df_cols = df.iloc[:, [0, 2, 123, 124, 125]]
 
+    # loops through each row of data, creating a new record for each metric in that row separatly
     for _, row in df_cols.iterrows():
         record = {
                 "dataset_id": ["6"],
@@ -176,9 +179,12 @@ def read_dataset_9_metrics() -> pd.DataFrame:
 
     df = pd.read_excel("data/cog_dataset_9.xlsx")
 
+    # Simplifies down to only the necessary data
     df_cols = df.iloc[:520, [0, 18, 24, 61, 81, 82, 85]]
 
+    # loops through each row of data, creating a new record for each metric in that row separatly
     for _, row in df_cols.iterrows():
+        # determines if the current row represents a snippet with good comments, bad comments, or no comments.
         dataset_id = None
         if "1" in row[1].split(":")[1]:
             dataset_id = "9_gc"
@@ -254,20 +260,28 @@ def read_dataset_f_metrics() -> pd.DataFrame:
     combined = pd.merge(df_behavioral, df_subjective, on=["Participant", "Snippet"])
 
     def convert_phsyiological(row: pd.Series, mode: str ):  # mode = "BA31" OR "BA32"
-        result = df_physiological.loc[row[3], :]
+        """Gets the physiological metric that corresponds to the given snippet name in 'row'.
+        Important Note: The physiological metrics are already averaged for all participants and thus the average is being used for each participants individual result.
+        """
+
+        row_given_snippet = df_physiological.loc[row[3], :]
 
         if "BA31" in mode:
-            return result.loc["BA31"]
+            return row_given_snippet.loc["BA31"]
         elif "BA32" in mode:
-            return result.loc["BA32"]
+            return row_given_snippet.loc["BA32"]
         else:
-            raise Exception("convert_phsyiological: invalid type")
+            raise Exception("convert_phsyiological: invalid mode")
 
+    # Create columns for the physiological data applying each metric for a given snippet to every instance of that snippet.
+    # i.e. same result for every participant for the given snippet.
     combined["BA31"] = combined.apply(lambda row: convert_phsyiological(row, "BA31"), axis=1)
     combined["BA32"] = combined.apply(lambda row: convert_phsyiological(row, "BA32"), axis=1)
 
+    # Simplifies down to only the necessary data
     df_cols = combined.iloc[:, [0, 3, 7, 12, 14, 15, 16]]
 
+    # loops through each row of data, creating a new record for each metric in that row separatly
     for _, row in df_cols.iterrows():
         record = {
                 "dataset_id": ["f"],
