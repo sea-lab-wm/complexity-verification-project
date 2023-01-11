@@ -11,7 +11,7 @@ public class SumscoresSemanticNormal
     // roll: roll
     // lastIndex: lastIndex
 
-    public static List<Integer> SumScores(String[] games)//dont know ab this 
+    public static List<Integer> SumScores(String[] games)
     {
         List<Integer> result = new ArrayList<Integer>();
         for(String playerScores: games)
@@ -21,7 +21,7 @@ public class SumscoresSemanticNormal
             for(String roll: scores)
             {
                 int lastIndex = result.size() - 1;
-                games[lastIndex] += Integer.parseInt(roll);// dont know ab this line
+                games[lastIndex] += Integer.parseInt(roll);
             }
         }
         return result;

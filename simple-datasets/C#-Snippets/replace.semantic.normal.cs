@@ -1,6 +1,4 @@
-import java.util.*;
-import java.io.*;
-//Look into this: using System.Collections.Generic;
+using System.Collections.Generic;
 public class ReplaceSemanticNormal
 {
     // Replace: Replaces all occurences of a value in a collection
@@ -12,10 +10,10 @@ public class ReplaceSemanticNormal
     // index: index
     // replace: replace
 
-    public static int[] Replace(int[] target, int exclude, int replacement)
+    public static IEnumerable<int> Replace(int[] target, int exclude, int replacement)
     {
-        int[] result = new int[target.length];
-        int length = target.length;
+        int[] result = new int[target.Length];
+        int length = target.Length;
         for (int index = 0; index != length; index++)
         {
             int replace = replacement;

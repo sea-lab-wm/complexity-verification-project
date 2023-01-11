@@ -26,8 +26,6 @@ public class MergelistsSemanticNormal
             merged.add(length);
             merged.add(second);
         }
-	int[] arr = new int[merged.size()];
-	for(int i =0; i < merged.size(); i++) arr[i] = merged.get(i);	
-        return arr;//might cause only problem
+	return merged.toArray(new int[0]);
     }
 }

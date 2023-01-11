@@ -1,5 +1,3 @@
-import java.util.*;
-import java.io.*;
 public class ReverseSemanticNormal
 {
     // Reverse: Reverses the items of a collection
@@ -11,9 +9,9 @@ public class ReverseSemanticNormal
 
     public static int[] Reverse(int[] array)
     {
-        int[] result = new int[array.length];
+        int[] result = new int[array.Length];
         int left = 0;
-        int right = (array.length - 1);
+        int right = (array.Length - 1);
         while (left <= right)
         {
             int auxiliary = array[left];

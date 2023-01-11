@@ -13,7 +13,7 @@ public class ReadiniSemanticNormal
     // identifier: identifier
     // property: property
 
-    public static HashMap<String, String> ReadIni(List<String> lines)//Look up IEnumerable
+    public static HashMap<String, String> ReadIni(List<String> lines)
     {
         HashMap<String, String> settings = new HashMap<String, String>();
         for(String rawLine: lines)

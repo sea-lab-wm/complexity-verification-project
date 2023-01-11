@@ -1,6 +1,3 @@
-import java.util.*;
-import java.io.*;
-
 public class ConcatListsSemanticNormal
 {
     // ConcatLists: Concatenates two lists of the same length
@@ -14,8 +11,8 @@ public class ConcatListsSemanticNormal
 
     public static int[] ConcatLists(int[] start, int[] end)
     {
-        int length = start.length;
-        int[] result = new int[length * 2];
+        int length = start.Length;
+        var result = new int[length * 2];
 
         for (int index = 0; index < length; index++)
         {

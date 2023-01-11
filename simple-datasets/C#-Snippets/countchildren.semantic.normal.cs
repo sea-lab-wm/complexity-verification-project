@@ -1,5 +1,3 @@
-import java.util.*;
-import java.io.*;
 public class CountchildrenSemanticNormal
 {
     // CountChildren: Returns the number of children within a list of people's ages
@@ -12,14 +10,14 @@ public class CountchildrenSemanticNormal
     // personAge: personAge
     // withinRange: withinRange
 
-    public static int CountChildren(String people, int lower, int upper)
+    public static int CountChildren(string people, int lower, int upper)
     {
         int children = 0;
-        String[] numbers = people.trim().split("\\s+");
-        for (int index = 0; index < numbers.length; index++)
+        string[] numbers = people.Split(' ');
+        for (int index = 0; index < numbers.Length; index++)
         {
-            int personAge = Integer.parseInt(numbers[children]);
-            boolean withinRange = (personAge >= lower && personAge <= upper);
+            int personAge = int.Parse(numbers[children]);
+            bool withinRange = (personAge >= lower && personAge <= upper);
             if (withinRange)
             {
                 children += 1;

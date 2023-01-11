@@ -18,7 +18,7 @@ public class HistogramSemanticNormal
             char character = corpus.charAt(index);
             if (!frequencies.containsKey(character))
             {
-                frequencies.put(character, 0);//dont know if this 0 is 0 or is 0 a polaceholder
+                frequencies.put(character, 0);
             }
 	    frequencies.put(character, frequencies.get(character)+1);            
         }
