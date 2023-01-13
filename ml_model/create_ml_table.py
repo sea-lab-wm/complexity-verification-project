@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
     """Returns a dataframe where each entry is a dataset, snippet, and number of warnings from a single tool."""
@@ -74,6 +73,76 @@ def read_dataset_1_metrics() -> pd.DataFrame:
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
 
     return data  
+
+def read_dataset_2_metrics() -> pd.DataFrame:
+    """Reads the results of the study for COG dataset 2. It contains 16 people who looked at 12 snippets.
+    Metrics include time to solve, as well as 3 physiological metrics: BA32, BA31post, and BA31ant.
+
+    **Note: Dataset 2 is a subset of dataset 1. All snippets in dataset 2 are also in dataset 1.
+    **Note: For the physiological metrics, only the averages across all participants are recorded and thus the average is copied for each individual participant.
+    """
+
+    dict_df = {
+        "dataset_id": [],
+        "snippet_id": [],
+        "person_id": [],
+        "metric_id": [],
+        "metric": []
+    }
+    data = pd.DataFrame(dict_df)
+
+    df_physiological = pd.read_csv("data/cog_dataset_2_physiological.csv", header=0)
+    df_response_times = pd.read_csv("data/cog_dataset_2_response_times.csv", header=0)
+
+    df_cols = df_physiological.iloc[:, [0, 5, 6, 7]]
+    
+    for _, row in df_cols.iterrows():
+        for p in range(1, 17):
+            record = {
+                    "dataset_id": ["2"],
+                    "snippet_id": [row[0]],
+                    "person_id": [p],
+                    "metric_id": ["brain_deact_31ant"],
+                    "metric": [row[3]]
+                }
+            df_record = pd.DataFrame(record)
+            data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+            record = {
+                    "dataset_id": ["2"],
+                    "snippet_id": [row[0]],
+                    "person_id": [p],
+                    "metric_id": ["brain_deact_31post"],
+                    "metric": [row[2]]
+                }
+            df_record = pd.DataFrame(record)
+            data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+            record = {
+                    "dataset_id": ["2"],
+                    "snippet_id": [row[0]],
+                    "person_id": [p],
+                    "metric_id": ["brain_deact_32"],
+                    "metric": [row[1]]
+                }
+            df_record = pd.DataFrame(record)
+            data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+    df_cols = df_response_times.iloc[1:, 1:-1:2]
+
+    for row_index, row in df_cols.iterrows():
+        for column_index, value in row.items():
+            record = {
+                    "dataset_id": ["2"],
+                    "snippet_id": [column_index],
+                    "person_id": [row_index],
+                    "metric_id": ["time_to_understand"],
+                    "metric": [value]
+                }
+            df_record = pd.DataFrame(record)
+            data = pd.concat([data, df_record], ignore_index=True, axis=0)
+
+    return data
 
 def read_dataset_3_metrics() -> pd.DataFrame:
     """Reads the results of the cog data set 3 study. It contains 121 people who rated 100 snippets on a scale of 1-5.
@@ -354,6 +423,7 @@ if __name__ == "__main__":
     # read and combine all metric data
     metric_data = []
     metric_data.append(read_dataset_1_metrics())
+    metric_data.append(read_dataset_2_metrics())
     metric_data.append(read_dataset_3_metrics())
     metric_data.append(read_dataset_6_metrics())
     metric_data.append(read_dataset_9_metrics())
