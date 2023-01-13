@@ -13,7 +13,10 @@ public class MergelistsSemanticNormal
     // first: first
     // second: second
 
-    public static int[] MergeLists(int[] left, int[] right)
+    //Note: this snippet was not compiling with Java 17
+    // then, I made the change to return Integer[] (before it was int[])
+
+    public static Integer[] MergeLists(int[] left, int[] right) //before: public static int[] MergeLists(int[] left, int[] right)
     {
         List<Integer>  merged = new ArrayList<Integer>();
         int length = left.length;
@@ -26,6 +29,6 @@ public class MergelistsSemanticNormal
             merged.add(length);
             merged.add(second);
         }
-	return merged.toArray(new int[0]);
+	return merged.toArray(new Integer[0]); //before: return merged.toArray(new int[0]);
     }
 }
