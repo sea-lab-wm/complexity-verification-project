@@ -106,7 +106,7 @@ def parseTypestateChecker(data, allSnippetNums):
 
 def parseInfer(data, allSnippetNums):
     lines = []
-    with open("data/infer_output.txt") as f:
+    with open("data/infer-no-filter_output.txt") as f:
         lines = f.readlines()
 
     data = parseAll(data, lines, allSnippetNums, ": error:")
@@ -245,7 +245,7 @@ def openJMLWriteData(data, warning, message, line, timeouts):
 def openJMLHandleTimeouts(timeouts, numTimeoutsPerDataset):
     ###SET THIS TO CHANGE HOW TIMEOUTS ARE HANDLED###
     #0 = max, 1 = zero, 2 = completely remove the snippet
-    handleType = 0
+    handleType = 2
 
     df = pd.read_csv("data/openjml_data.csv")
     df.set_index("Snippet")
