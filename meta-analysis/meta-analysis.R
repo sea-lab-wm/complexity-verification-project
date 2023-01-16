@@ -23,6 +23,64 @@ convert_to_pearson <- function(tau) {
 }
 
 
+print_meta_analysis_overall <- function(data_in, sheet_in){
+
+  #filter by expected correlation
+  correlation_data_pos = select(subset(data_in, expected_cor == "positive"), 
+                            c('dataset_metric', 
+                               "num_snippets_for_correlation",
+                               "pearson_r",
+                               "kendalls_p_value"))
+  correlation_data_neg = select(subset(data_in, expected_cor == "negative"), 
+                            c('dataset_metric', 
+                               "num_snippets_for_correlation",
+                               "pearson_r",
+                               "kendalls_p_value"))
+
+  file_name = paste(sheet_in, "_positive", sep = "")
+  print_meta_analysis_generic(correlation_data_pos, file_name, 2.8)
+
+  file_name = paste(sheet_in, "_negative", sep = "")
+  print_meta_analysis_generic(correlation_data_neg, file_name, 4.3)
+
+  #flip the correlation scores of the positve instances
+  correlation_data = correlation_data_pos
+  correlation_data$pearson_r = correlation_data$pearson_r*-1
+  correlation_data = rbind(correlation_data_neg, correlation_data)
+
+  file_name = sheet_in
+  print_meta_analysis_generic(correlation_data, file_name, 5.5)
+}
+
+# Performs a correlation meta analysis on the given data and saves the forestplot to file
+print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name, chart_height=2.5) {
+
+  #run the meta analysis
+  meta_analysis_result <- metacor(pearson_r, num_snippets_for_correlation, 
+                                  data = correlation_data,
+                                  studlab = correlation_data$dataset_metric,
+                                  sm = "ZCOR", comb.fixed=FALSE,
+                                  method.tau = "SJ")
+  print(meta_analysis_result)
+  path = "./forest-plot/"
+  dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
+  # png(file = paste(path, forest_plot_file_name, ".png", sep = ""), 
+  #     width = 1535, 
+  #     height = 575, res = 180)
+  pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
+      , 
+      width = 8, 
+      height = chart_height
+      )
+  forest_plot <- forest(meta_analysis_result, 
+                        leftlabs = c("DS_Metric", "Snippets"),
+                        rightlabs = c("r value", "95% CI   ", "Weight")
+                        )
+  dev.off()
+  print(forest_plot)
+}
+
+
 # Performs a correlation meta analysis on the given data and saves the forestplot to file
 print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, expected_cor_in, sheet_in) {
 
@@ -106,10 +164,13 @@ run_meta_analysis <- function(data_file_in, sheet_in){
 
   #run the metanalysis for all the metric types
   apply(metric_types_expected_cor, 1, function (metric_type_expected_cor){print_meta_analysis(all_data2, TRUE, metric_type_expected_cor[1], metric_type_expected_cor[2], sheet_in)})
+
+  #run overall meta-analyses
+  print_meta_analysis_overall(all_data2, sheet_in)
 }
 
 #data_file = "correlation_analysis_for_meta_analysis.xlsx"
-data_file = "../data/correlation_analysis.xlsx"
+data_file = "../data/correlation_analysis_timeout_max.xlsx"
 sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
 #sheets = c("all_tools")
 lapply(sheets, function(sheet_in){run_meta_analysis(data_file, sheet_in)})

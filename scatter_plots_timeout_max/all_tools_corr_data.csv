@@ -7,9 +7,9 @@ brain_deact_31post,2,physiological,negative,12,-0.4526019054848143,0.05748353173
 brain_deact_32,2,physiological,negative,12,-0.3829708431025352,0.10797380145746664,*,medium,
 time_to_understand,2,time,positive,12,0.13926212476455826,0.5588858290416201,*,small,
 readability_level,3,rating,negative,100,-0.16799308498171925,0.01571209940531982,*,small,*
-binary_understandability,6,rating,negative,50,-0.017889603976091347,0.8831700141519032,*,none,
-correct_verif_questions,6,correctness,negative,50,-0.031906673122880196,0.7837672300250216,*,none,
-time_to_understand,6,time,positive,50,-0.24415707877143122,0.03455416553919029,,small,*
+binary_understandability,6,rating,negative,50,-0.004414751593059719,0.9661430518463994,*,none,
+correct_verif_questions,6,correctness,negative,50,0.0,1.0,,none,
+time_to_understand,6,time,positive,50,0.04719010357797921,0.632959082865391,*,none,
 gap_accuracy,9_nc,correctness,negative,10,-0.4535394202249742,0.08070214265077501,*,medium,
 readability_level_ba,9_nc,rating,negative,10,0.11935247900657214,0.6457756768370824,,small,
 readability_level_before,9_nc,rating,negative,10,0.167093470609201,0.5199036173455835,,small,

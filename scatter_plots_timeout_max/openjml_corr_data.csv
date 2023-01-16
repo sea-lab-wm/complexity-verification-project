@@ -6,10 +6,10 @@ brain_deact_31ant,2,physiological,negative,12,-0.20184335693983277,0.40657129403
 brain_deact_31post,2,physiological,negative,12,-0.23854214911071142,0.32667108863875705,*,small,
 brain_deact_32,2,physiological,negative,12,-0.49543369430686224,0.0416368567827736,*,medium,*
 time_to_understand,2,time,positive,12,0.3486385256233475,0.15170441973059706,*,medium,
-readability_level,3,rating,negative,100,-0.15089325778511042,0.03976539977998658,*,small,*
-binary_understandability,6,rating,negative,50,-0.02584053907657639,0.8319012317886401,*,none,
-correct_verif_questions,6,correctness,negative,50,-0.024399220623378976,0.8337884478927275,*,none,
-time_to_understand,6,time,positive,50,-0.25161225674918486,0.029400043358656994,,small,*
+readability_level,3,rating,negative,61,-0.10040646002774185,0.3197996198904468,*,small,
+binary_understandability,6,rating,negative,48,-0.21345694123055245,0.053832487040281325,*,small,
+correct_verif_questions,6,correctness,negative,48,-0.14995450162140436,0.15643348293864076,*,small,
+time_to_understand,6,time,positive,48,0.16705541930055537,0.11233171031704708,*,small,
 gap_accuracy,9_nc,correctness,negative,10,-0.14907119849998599,0.5730251193553904,*,small,
 readability_level_ba,9_nc,rating,negative,10,0.3975231959999626,0.13285495573105377,,medium,
 readability_level_before,9_nc,rating,negative,10,0.29814239699997197,0.2596563563704499,,small,
