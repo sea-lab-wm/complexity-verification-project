@@ -410,10 +410,21 @@ def handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, handleType):
     elif handleType == "zero":
         print("setting timeouts with zero")
 
+        openJMLTimeoutsKeep = []
+
         # Set the value of each instance of a timeout to zero in the dataframe
         # This is necessary because it will default to one
         for snippet in openJMLTimeouts:
             openJMLDF.loc[openJMLDF["Snippet"] == snippet, "timeout"] = 0
+
+            # Remove the snippets that had timeouts but didn't have warnings
+            # Note: This is important because the # of snippets with warnings that is computed in correlation.py will be inaccurate if left in here
+            if (openJMLDF.loc[openJMLDF["Snippet"] == snippet].sum(axis=1, numeric_only=True) == 0).all():
+                openJMLDF = openJMLDF.drop(index=openJMLDF.index[openJMLDF["Snippet"] == snippet].to_list())
+            else:
+                openJMLTimeoutsKeep.append(snippet)
+
+        openJMLTimeouts = openJMLTimeoutsKeep
     else:
         raise Exception("handleOpenJMLTimeouts: error: invalid handle type")
 
@@ -463,7 +474,7 @@ if __name__ == "__main__":
     allAnalysisToolDFS = setupDataframes(allAnalysisToolData)
 
     # Timeout handling
-    allAnalysisToolDFS[3] = handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, "max")
+    allAnalysisToolDFS[3] = handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, "zero")
 
     # Create a CSV file for each dataframe
     for df in allAnalysisToolDFS:
