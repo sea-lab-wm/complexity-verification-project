@@ -474,7 +474,7 @@ if __name__ == "__main__":
     allAnalysisToolDFS = setupDataframes(allAnalysisToolData)
 
     # Timeout handling
-    allAnalysisToolDFS[3] = handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, "zero")
+    allAnalysisToolDFS[3] = handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, "max")
 
     # Create a CSV file for each dataframe
     for df in allAnalysisToolDFS:
