@@ -371,6 +371,7 @@ def handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, handleType):
     pd.DataFrame(openJMLTimeouts).to_csv(f"data/timeouts_copy_before_handling.csv")
 
     # find the column for timeouts and simplify its name to make parsing it easier
+    # rename the timeout column to something more readable ("timeout")
     found = False
     for col in openJMLDF.columns:
         if "timeout" in col:
@@ -439,6 +440,7 @@ def findMaxNumWarnings(df, maxNumWarnings):
     Result: maxNumWarnings = A dictionary in the following format: { "ds" : max_value}
     """
 
+    #creating a column called "sum" with the sum of the columns for each row
     df["sum"] = df.drop("Snippet", axis=1).sum(axis=1)
 
     for _, row in df.iterrows(): #iterate over rows

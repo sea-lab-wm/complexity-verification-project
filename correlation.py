@@ -798,6 +798,7 @@ if __name__ == "__main__":
     dfDictCorrelationDatapointsOpenJML = setupCorrelationData(warningsPerSnippetPerDatasetOpenJML)
     
     # Remove any snippets with timeouts before running correlations if applicable.
+    #if argfument is there:
     #dfDictCorrelationDatapointsOpenJML = removeSnippetsWithTimeouts(dfDictCorrelationDatapointsOpenJML)
 
     # Update correlation analyis data frame 
