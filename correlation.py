@@ -227,9 +227,9 @@ def setCogDataset6Datapoints(warningsPerSnippet, data):
     return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataRating), pd.DataFrame(dataTime))
 
 def setCogDataset9Datapoints(warningsPerSnippetPerDataset, data):
-    print(warningsPerSnippetPerDataset["9_gc"])
-    print(warningsPerSnippetPerDataset["9_bc"])
-    print(warningsPerSnippetPerDataset["9_nc"])
+    #print(warningsPerSnippetPerDataset["9_gc"])
+    #print(warningsPerSnippetPerDataset["9_bc"])
+    #print(warningsPerSnippetPerDataset["9_nc"])
     if warningsPerSnippetPerDataset["9_gc"] != warningsPerSnippetPerDataset["9_bc"] or warningsPerSnippetPerDataset["9_bc"] != warningsPerSnippetPerDataset["9_nc"] or warningsPerSnippetPerDataset["9_gc"] != warningsPerSnippetPerDataset["9_nc"]:
         raise Exception("Inconsistency in warnings per snippet for Dataset 9!")
 
