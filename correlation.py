@@ -304,7 +304,7 @@ def setFMRIStudyDatapoints(warningsPerSnippet, data):
 def removeSnippetsWithTimeouts(dfDictCorrelationDatapoints):
     """Removes any snippets from the correlation datapoints (only OpenJML) that recieved a timeout before conducting the correlation analysis."""
 
-    print(dfDictCorrelationDatapoints)
+    #print(dfDictCorrelationDatapoints)
 
     # File listing all snippets that recieved a timeout
     dfTimeouts = pd.read_csv("data/timeouts.csv")
@@ -321,7 +321,7 @@ def removeSnippetsWithTimeouts(dfDictCorrelationDatapoints):
 
         dfDictCorrelationDatapoints[key] = df.drop(rowsToRemove)
 
-    print(dfDictCorrelationDatapoints)
+    #print(dfDictCorrelationDatapoints)
 
     return dfDictCorrelationDatapoints
 
@@ -765,6 +765,8 @@ if __name__ == "__main__":
         if sys.argv[1].lower() == "true": remove = True
         elif sys.argv[1].lower() == "false": remove = False
         else: raise Exception("correlation.py: invalid argument. Options: true, false")
+
+    print(f"remove = {remove}")
 
     # STEP 1 is in parser.py
 
