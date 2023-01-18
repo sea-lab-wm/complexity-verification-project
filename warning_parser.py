@@ -1,6 +1,8 @@
-import pandas as pd
 import copy
 import os
+import sys
+
+import pandas as pd
 
 #########################
 #   Get Snippet Names   #
@@ -456,6 +458,17 @@ def findMaxNumWarnings(df, maxNumWarnings):
     df.drop("sum", axis=1, inplace=True)
 
 if __name__ == "__main__":
+    # Get args
+    openJMLTimeoutHandleType = None
+    if len(sys.argv) != 2:
+        raise Exception("warning_parser.py: missing 1 arg for OpenJML timeout handle type. Options: max, remove, zero")
+    else:
+        if sys.argv[1] == "max" or sys.argv[1] == "remove" or sys.argv[1] == "zero":
+            openJMLTimeoutHandleType = sys.argv[1]
+        else:
+            raise Exception("warning_parser.py: invalid argument. Options: max, remove, zero")
+
+    # Get the line #s of each snippet
     allSnippetNums = getAllSnippets()
 
     # Data output structure as a dictionary
@@ -476,7 +489,7 @@ if __name__ == "__main__":
     allAnalysisToolDFS = setupDataframes(allAnalysisToolData)
 
     # Timeout handling
-    allAnalysisToolDFS[3] = handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, "max")
+    allAnalysisToolDFS[3] = handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, openJMLTimeoutHandleType)
 
     # Create a CSV file for each dataframe
     for df in allAnalysisToolDFS:

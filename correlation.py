@@ -1,7 +1,8 @@
+import copy
+import sys
+
 import pandas as pd
 import scipy.stats as scpy
-import copy
-import numpy as np
 
 # OSCAR: I think, overall, it is easier to process data with data frames:
 # read data from the excel files into DFs, then processing it to get results as more DFs, and then writing this DFs
@@ -301,19 +302,22 @@ def setFMRIStudyDatapoints(warningsPerSnippet, data):
     return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataBA31), pd.DataFrame(dataBA32), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
 
 def removeSnippetsWithTimeouts(dfDictCorrelationDatapoints):
+    """Removes any snippets from the correlation datapoints (only OpenJML) that recieved a timeout before conducting the correlation analysis."""
+
     print(dfDictCorrelationDatapoints)
 
+    # File listing all snippets that recieved a timeout
     dfTimeouts = pd.read_csv("data/timeouts.csv")
 
+    # Each df is for a single metric type and dataset and contains 2 rows: Metric and Warning Count
     for key, df in dfDictCorrelationDatapoints.items():
-        rowsToRemove = []
+        rowsToRemove = []   # The rows that need to be removed from the dataframe
+        # 
         for i in range(len(dfTimeouts.index)):
             snippetToRemove = dfTimeouts.iloc[i, 1].split("--")[1].strip()
             dataset = dfTimeouts.iloc[i, 1].split("--")[0].strip()
             if dataset in str(key[1]):
                 rowsToRemove.append(df.iloc[[int(snippetToRemove) - 1]].index[0])
-                #temp = dfDictCorrelationDatapoints[key].drop(temp2)
-                #dfDictCorrelationDatapoints[key] = temp
 
         dfDictCorrelationDatapoints[key] = df.drop(rowsToRemove)
 
@@ -753,6 +757,15 @@ def writeRawCorrelationData(allCorrelationData):
 ###########################
 
 if __name__ == "__main__":
+    # Get args
+    remove = None
+    if len(sys.argv) != 2:
+        raise Exception("correlation.py: missing 1 arg to remove snippets with timeouts. Options: true, false")
+    else:
+        if sys.argv[1].lower() == "true": remove = True
+        elif sys.argv[1].lower() == "false": remove = False
+        else: raise Exception("correlation.py: invalid argument. Options: true, false")
+
     # STEP 1 is in parser.py
 
     # STEP 2:
@@ -798,8 +811,8 @@ if __name__ == "__main__":
     dfDictCorrelationDatapointsOpenJML = setupCorrelationData(warningsPerSnippetPerDatasetOpenJML)
     
     # Remove any snippets with timeouts before running correlations if applicable.
-    #if argfument is there:
-    #dfDictCorrelationDatapointsOpenJML = removeSnippetsWithTimeouts(dfDictCorrelationDatapointsOpenJML)
+    if remove:
+        dfDictCorrelationDatapointsOpenJML = removeSnippetsWithTimeouts(dfDictCorrelationDatapointsOpenJML)
 
     # Update correlation analyis data frame 
     correlationAnalysisDFAllTools = setNumDatapointsForCorrelationColumn(dfDictCorrelationDatapointsAllTools, correlationAnalysisDFAllTools)
