@@ -46,9 +46,25 @@ print_meta_analysis_overall <- function(data_in, sheet_in){
   #flip the correlation scores of the positve instances
   correlation_data = correlation_data_pos
   correlation_data$pearson_r = correlation_data$pearson_r*-1
+  correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (+)", sep = "")
   correlation_data = rbind(correlation_data_neg, correlation_data)
+  attach(correlation_data)
+  correlation_data = correlation_data[order(dataset_metric),]
+  detach(correlation_data)
 
-  file_name = sheet_in
+  file_name = paste(sheet_in, "_positive_negated", sep = "")
+  print_meta_analysis_generic(correlation_data, file_name, 5.5)
+
+  #flip the correlation scores of the negative instances
+  correlation_data = correlation_data_neg
+  correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (-)", sep = "")
+  correlation_data$pearson_r = correlation_data$pearson_r*-1
+  correlation_data = rbind(correlation_data_pos, correlation_data)
+  attach(correlation_data)
+  correlation_data = correlation_data[order(dataset_metric),]
+  detach(correlation_data)
+
+  file_name = paste(sheet_in, "_negative_negated", sep = "")
   print_meta_analysis_generic(correlation_data, file_name, 5.5)
 }
 
