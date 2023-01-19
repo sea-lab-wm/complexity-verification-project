@@ -78,8 +78,8 @@ if __name__ == "__main__":
     suffix_files = "_no_outliers" if remove_outliers else ""
 
     timeout_approach = "_timeout_max"
-    #timeout_approach = "_timeout_removed"
-    #timeout_approach = "_timeout_zero"
+    # timeout_approach = "_timeout_remove"
+    # timeout_approach = "_timeout_zero"
 
     #aggregate # of warnings (ablation)
     #input_file = f"data/raw_correlation_data_ablation{timeout_approach}.csv"
