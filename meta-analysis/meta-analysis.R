@@ -23,7 +23,7 @@ convert_to_pearson <- function(tau) {
 }
 
 
-print_meta_analysis_overall <- function(data_in, sheet_in){
+print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
 
   #filter by expected correlation
   correlation_data_pos = select(subset(data_in, expected_cor == "positive"), 
@@ -38,10 +38,10 @@ print_meta_analysis_overall <- function(data_in, sheet_in){
                                "kendalls_p_value"))
 
   file_name = paste(sheet_in, "_positive", sep = "")
-  print_meta_analysis_generic(correlation_data_pos, file_name, 2.8)
+  print_meta_analysis_generic(correlation_data_pos, file_name, 2.8, out_dir_in)
 
   file_name = paste(sheet_in, "_negative", sep = "")
-  print_meta_analysis_generic(correlation_data_neg, file_name, 4.3)
+  print_meta_analysis_generic(correlation_data_neg, file_name, 4.3, out_dir_in)
 
   #flip the correlation scores of the positve instances
   correlation_data = correlation_data_pos
@@ -53,7 +53,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in){
   detach(correlation_data)
 
   file_name = paste(sheet_in, "_positive_negated", sep = "")
-  print_meta_analysis_generic(correlation_data, file_name, 5.5)
+  print_meta_analysis_generic(correlation_data, file_name, 5.5, out_dir_in)
 
   #flip the correlation scores of the negative instances
   correlation_data = correlation_data_neg
@@ -65,11 +65,11 @@ print_meta_analysis_overall <- function(data_in, sheet_in){
   detach(correlation_data)
 
   file_name = paste(sheet_in, "_negative_negated", sep = "")
-  print_meta_analysis_generic(correlation_data, file_name, 5.5)
+  print_meta_analysis_generic(correlation_data, file_name, 5.5, out_dir_in)
 }
 
 # Performs a correlation meta analysis on the given data and saves the forestplot to file
-print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name, chart_height=2.5) {
+print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name, chart_height=2.5, out_dir_in = ".") {
 
   #run the meta analysis
   meta_analysis_result <- metacor(pearson_r, num_snippets_for_correlation, 
@@ -78,7 +78,10 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
                                   sm = "ZCOR", comb.fixed=FALSE,
                                   method.tau = "SJ")
   print(meta_analysis_result)
-  path = "./forest-plot/"
+  if(out_dir_in == ""){
+    out_dir_in = "."
+  }
+  path = paste(out_dir_in, "/forest-plot/", sep = "")
   dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
   # png(file = paste(path, forest_plot_file_name, ".png", sep = ""), 
   #     width = 1535, 
@@ -140,6 +143,45 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
   }
 }
 
+run_ablation_meta_analysis <- function(ablation_data_folder_in, tool_in){
+  #read data from CSV file
+  file_path = paste(ablation_data_folder_in, "/", "no_", tool_in, "_corr_data.csv", sep = "")
+  all_data = read.csv(file_path)
+
+  #set column names to lower case
+  column_names = names(all_data)
+  new_column_names = lapply(column_names,  tolower)
+  colnames(all_data) <- new_column_names
+
+  #select columns that I need
+  all_data2 = select(all_data, c('dataset_id', 'metric', 'metric_type', 
+                                 #'higher_warnings',
+                                 "num_snippets_for_correlation",
+                                 "kendalls_tau",
+                                 "kendalls_p_value", 
+                                 "expected_cor", "expected_cor"))   
+ 
+ all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
+
+  #keep only DS9 with no comments
+  all_data2 = subset(all_data2, (dataset_id != "9_gc") & (dataset_id != "9_bc"))
+  all_data2$dataset_id[all_data2$dataset_id == "9_nc"] <- "9"
+
+  #concatenate the dataset ID and the metric
+  all_data2$dataset_metric = paste(all_data2$dataset_id, "_", all_data2$metric, sep = "")
+  
+  #transform Kendall's tau into Pearson's r (cor)
+  all_data2$pearson_r <- sapply(all_data2$kendalls_tau, convert_to_pearson)
+
+  #create output directory if it does not exit
+  out_dir = "ablation"
+  dir.create(out_dir, showWarnings = FALSE)
+
+  #run overall meta-analyses
+  no_tool_in = paste("no_", tool_in, sep = "")
+  print_meta_analysis_overall(all_data2, no_tool_in, out_dir)
+}
+
 #-----------------------------------
 
 #run the meta-analysis on the data found in sheet_in
@@ -188,6 +230,9 @@ run_meta_analysis <- function(data_file_in, sheet_in){
 #data_file = "correlation_analysis_for_meta_analysis.xlsx"
 data_file = "../data/correlation_analysis_timeout_max.xlsx"
 sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
-#sheets = c("all_tools")
+# #sheets = c("all_tools")
 lapply(sheets, function(sheet_in){run_meta_analysis(data_file, sheet_in)})
 
+ablation_data_folder = "../scatter_plots_ablation_timeout_max"
+tools = c("checker_framework", "typestate_checker", "infer", "openjml")
+lapply(tools, function(tool_in){run_ablation_meta_analysis(ablation_data_folder, tool_in)})
