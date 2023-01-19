@@ -191,4 +191,3 @@ sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "open
 #sheets = c("all_tools")
 lapply(sheets, function(sheet_in){run_meta_analysis(data_file, sheet_in)})
 
-  
