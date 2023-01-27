@@ -431,3 +431,4 @@ if __name__ == "__main__":
     metric_df = pd.concat(metric_data, ignore_index=True)
 
     print(metric_df)
+    metric_df.to_csv("ml_model/metric_data.csv")
