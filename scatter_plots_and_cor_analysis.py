@@ -273,7 +273,7 @@ if __name__ == "__main__":
                 "pearsons_r": [r_corr],
                 "pearsons_p_value": [r_p_value],
                 "fisher_z" : [z_corr],
-                "fizher_z_sqrt_se": [z_sqrt_se]
+                "fizher_z_sqrd_se": [z_sqrt_se]
             }
             df_record = pd.DataFrame(record)
             tool_cor_data = pd.concat([tool_cor_data, df_record], ignore_index=True, axis=0)  
@@ -349,7 +349,6 @@ if __name__ == "__main__":
                                 ax1.get_xticklabels() + ax1.get_yticklabels()):
                 item.set_fontsize(14)
 
-         
         tool_cor_data_by_dm = tool_cor_data.groupby(["dataset_id"])
         tool_cor_data["fisher_z_var"] = numpy.nan
 
