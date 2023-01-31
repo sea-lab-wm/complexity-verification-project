@@ -25,23 +25,23 @@ convert_to_pearson <- function(tau) {
 }
 
 
-print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
+print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_in = ""){
 
   #filter by expected correlation
   correlation_data_pos = select(subset(data_in, expected_cor == "positive"), 
                             c('dataset_metric',
                               'dataset_id',
                               'metric',
-                              'z',
-                              'z.var',
+                              'fisher_z',
+                              'fisher_z_var',
                                "num_snippets_for_correlation"))
   correlation_data_neg = select(subset(data_in, expected_cor == "negative"), 
                             c('dataset_metric', 
                                "num_snippets_for_correlation",
                               'dataset_id',
                               'metric',
-                              'z',
-                              'z.var'))
+                              'fisher_z',
+                              'fisher_z_var'))
 
   file_name = paste(sheet_in, "_positive", sep = "")
   print_meta_analysis_generic(correlation_data_pos, file_name, 2.8, out_dir_in)
@@ -51,7 +51,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
 
   #flip the correlation scores of the positve instances
   correlation_data = correlation_data_pos
-  correlation_data$z = correlation_data$z*-1
+  correlation_data$fisher_z = correlation_data$fisher_z*-1
   correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (+)", sep = "")
   correlation_data = rbind(correlation_data_neg, correlation_data)
   attach(correlation_data)
@@ -64,7 +64,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
   #flip the correlation scores of the negative instances
   correlation_data = correlation_data_neg
   correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (-)", sep = "")
-  correlation_data$z = correlation_data$z*-1
+  correlation_data$fisher_z = correlation_data$fisher_z*-1
   correlation_data = rbind(correlation_data_pos, correlation_data)
   attach(correlation_data)
   correlation_data = correlation_data[order(dataset_metric),]
@@ -79,8 +79,8 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
 
   #run the meta analysis
   meta_analysis_result <- rma.mv(
-    yi = z, # TODO: check name, should be the correlation column
-    V = z.var, # TODO: check name
+    yi = fisher_z, # TODO: check name, should be the correlation column
+    V = fisher_z_var, # TODO: check name
     slab = dataset_id,
     data = correlation_data,
     random = ~ 1 | dataset_id/metric,
@@ -118,7 +118,7 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
 
   #filter by metric type and select the columns needed
   correlation_data = select(subset(data_in, metric_type == metric_type_in & expected_cor == expected_cor_in), 
-                            c('dataset_id', 'metric', 'z', 'z.var'))
+                            c('dataset_id', 'metric', 'fisher_z', 'fisher_z_var'))
 
   #run the meta analysis
   # This version is wrong: it does not account for the Unit-of-Analysis problem.
@@ -132,8 +132,8 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
 
 
   meta_analysis_result <- rma.mv(
-  		       yi = z, # TODO: check name, should be the correlation column
-		       V = z.var, # TODO: check name
+  		       yi = fisher_z, # TODO: check name, should be the correlation column
+		       V = fisher_z_var, # TODO: check name
 		       slab = dataset_id,
 		       data = correlation_data,
 		       random = ~ 1 | dataset_id/metric,
@@ -212,10 +212,10 @@ run_ablation_meta_analysis <- function(ablation_data_folder_in, tool_in){
 #-----------------------------------
 
 #run the meta-analysis on the data found in sheet_in
-run_meta_analysis <- function(data_file_in, sheet_in){
+run_meta_analysis <- function(data_file_in){
   
   #read data
-  all_data = read_excel(data_file_in, sheet = sheet_in)
+  all_data = read.csv(data_file_in)
   
   #select columns that I need
   all_data2 = select(all_data, c('dataset_id', 'metric', 'metric_type', 
@@ -223,8 +223,8 @@ run_meta_analysis <- function(data_file_in, sheet_in){
                                  "num_snippets_for_correlation",
                                  "kendalls_tau",
                                  "kendalls_p_value",
-				  "z",
-				  "z.var",				
+				  "fisher_z",
+				  "fisher_z_var",				
                                  "expected_cor", "expected_cor"))                      
   all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
 
@@ -253,14 +253,15 @@ run_meta_analysis <- function(data_file_in, sheet_in){
   # apply(metric_types_expected_cor, 1, function (metric_type_expected_cor){print_meta_analysis(all_data2, TRUE, metric_type_expected_cor[1], metric_type_expected_cor[2], sheet_in)})
 
   #run overall meta-analyses
-  print_meta_analysis_overall(all_data2, sheet_in)
+  print_meta_analysis_overall(all_data2)
 }
 
 #data_file = "correlation_analysis_for_meta_analysis.xlsx"
-data_file = "~/Research/complexity-verification/complexity-verification-project/data/correlation_analysis_timeout_max.xlsx"
+data_file = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/all_tools_corr_data.csv"
 # sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
 sheets = c("all_tools")
-lapply(sheets, function(sheet_in){run_meta_analysis(data_file, sheet_in)})
+
+run_meta_analysis(data_file)
 
 # ablation_data_folder = "../scatter_plots_ablation_timeout_max"
 # tools = c("checker_framework", "typestate_checker", "infer", "openjml")
