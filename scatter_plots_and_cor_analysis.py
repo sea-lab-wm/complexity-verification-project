@@ -236,8 +236,10 @@ if __name__ == "__main__":
 
             z_corr = numpy.arctan(r_corr)
 
-            z_sqrt_se = 1 / (num_snippets_for_correlation - 3)
+            # this is the variance, which is the squared standard error
+            z_sqrd_se = 1 / (num_snippets_for_correlation - 3) 
 
+            #z_var =  1 / numpy.sqrt(num_snippets_for_correlation - 3)
 
             #-----------------------
             dataset = key[0]
@@ -273,7 +275,7 @@ if __name__ == "__main__":
                 "pearsons_r": [r_corr],
                 "pearsons_p_value": [r_p_value],
                 "fisher_z" : [z_corr],
-                "fizher_z_sqrd_se": [z_sqrt_se]
+                "fizher_z_sqrd_se": [z_sqrd_se]
             }
             df_record = pd.DataFrame(record)
             tool_cor_data = pd.concat([tool_cor_data, df_record], ignore_index=True, axis=0)  
@@ -349,18 +351,18 @@ if __name__ == "__main__":
                                 ax1.get_xticklabels() + ax1.get_yticklabels()):
                 item.set_fontsize(14)
 
-        tool_cor_data_by_dm = tool_cor_data.groupby(["dataset_id"])
-        tool_cor_data["fisher_z_var"] = numpy.nan
+        # tool_cor_data_by_dm = tool_cor_data.groupby(["dataset_id"])
+        # tool_cor_data["fisher_z_var"] = numpy.nan
 
-        for key2, group_df in tool_cor_data_by_dm:
+        # for key2, group_df in tool_cor_data_by_dm:
 
-            dataset2 = key2
+        #     dataset2 = key2
 
-            z_corr = group_df.loc[:, ["fisher_z"]]
-            var = numpy.var(z_corr)
+        #     z_corr = group_df.loc[:, ["fisher_z"]]
+        #     var = numpy.var(z_corr)
             
-            tool_cor_data["fisher_z_var"] = numpy.where(
-                      (tool_cor_data["dataset_id"] == dataset2), var, tool_cor_data["fisher_z_var"])
+        #     tool_cor_data["fisher_z_var"] = numpy.where(
+        #               (tool_cor_data["dataset_id"] == dataset2), var, tool_cor_data["fisher_z_var"])
        
         #save correlation values
         tool_cor_data = tool_cor_data.convert_dtypes()
