@@ -17,6 +17,8 @@ library(ggplot2)
 library(ggpubr)
 library(meta)
 
+library(metafor)
+
 # Returns pearson's r for the given tau using Kendall's formula (1970)
 convert_to_pearson <- function(tau) {
   return(sin(0.5 * pi * tau))
@@ -27,15 +29,19 @@ print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
 
   #filter by expected correlation
   correlation_data_pos = select(subset(data_in, expected_cor == "positive"), 
-                            c('dataset_metric', 
-                               "num_snippets_for_correlation",
-                               "pearson_r",
-                               "kendalls_p_value"))
+                            c('dataset_metric',
+                              'dataset_id',
+                              'metric',
+                              'z',
+                              'z.var',
+                               "num_snippets_for_correlation"))
   correlation_data_neg = select(subset(data_in, expected_cor == "negative"), 
                             c('dataset_metric', 
                                "num_snippets_for_correlation",
-                               "pearson_r",
-                               "kendalls_p_value"))
+                              'dataset_id',
+                              'metric',
+                              'z',
+                              'z.var'))
 
   file_name = paste(sheet_in, "_positive", sep = "")
   print_meta_analysis_generic(correlation_data_pos, file_name, 2.8, out_dir_in)
@@ -45,7 +51,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
 
   #flip the correlation scores of the positve instances
   correlation_data = correlation_data_pos
-  correlation_data$pearson_r = correlation_data$pearson_r*-1
+  correlation_data$z = correlation_data$z*-1
   correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (+)", sep = "")
   correlation_data = rbind(correlation_data_neg, correlation_data)
   attach(correlation_data)
@@ -58,7 +64,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
   #flip the correlation scores of the negative instances
   correlation_data = correlation_data_neg
   correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (-)", sep = "")
-  correlation_data$pearson_r = correlation_data$pearson_r*-1
+  correlation_data$z = correlation_data$z*-1
   correlation_data = rbind(correlation_data_pos, correlation_data)
   attach(correlation_data)
   correlation_data = correlation_data[order(dataset_metric),]
@@ -72,31 +78,38 @@ print_meta_analysis_overall <- function(data_in, sheet_in, out_dir_in = ""){
 print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name, chart_height=2.5, out_dir_in = ".") {
 
   #run the meta analysis
-  meta_analysis_result <- metacor(pearson_r, num_snippets_for_correlation, 
-                                  data = correlation_data,
-                                  studlab = correlation_data$dataset_metric,
-                                  sm = "ZCOR", comb.fixed=FALSE,
-                                  method.tau = "SJ")
-  print(meta_analysis_result)
-  if(out_dir_in == ""){
-    out_dir_in = "."
-  }
-  path = paste(out_dir_in, "/forest-plot/", sep = "")
-  dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
-  # png(file = paste(path, forest_plot_file_name, ".png", sep = ""), 
-  #     width = 1535, 
-  #     height = 575, res = 180)
-  pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
-      , 
-      width = 8, 
-      height = chart_height
-      )
-  forest_plot <- forest(meta_analysis_result, 
-                        leftlabs = c("DS_Metric", "Snippets"),
-                        rightlabs = c("r value", "95% CI   ", "Weight")
-                        )
-  dev.off()
-  print(forest_plot)
+  meta_analysis_result <- rma.mv(
+    yi = z, # TODO: check name, should be the correlation column
+    V = z.var, # TODO: check name
+    slab = dataset_id,
+    data = correlation_data,
+    random = ~ 1 | dataset_id/metric,
+    test = "t",
+    method = "REML"
+  )
+  
+  summary(meta_analysis_result)
+  
+  # print(meta_analysis_result)
+  # if(out_dir_in == ""){
+  #   out_dir_in = "."
+  # }
+  # path = paste(out_dir_in, "/forest-plot/", sep = "")
+  # dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
+  # # png(file = paste(path, forest_plot_file_name, ".png", sep = ""), 
+  # #     width = 1535, 
+  # #     height = 575, res = 180)
+  # pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
+  #     , 
+  #     width = 8, 
+  #     height = chart_height
+  #     )
+  # forest_plot <- forest(meta_analysis_result, 
+  #                       leftlabs = c("DS_Metric", "Snippets"),
+  #                       rightlabs = c("r value", "95% CI   ", "Weight")
+  #                       )
+  # dev.off()
+  # print(forest_plot)
 }
 
 
@@ -105,17 +118,29 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
 
   #filter by metric type and select the columns needed
   correlation_data = select(subset(data_in, metric_type == metric_type_in & expected_cor == expected_cor_in), 
-                            c('dataset_metric', 
-                               "num_snippets_for_correlation",
-                               "pearson_r",
-                               "kendalls_p_value"))
+                            c('dataset_id', 'metric', 'z', 'z.var'))
 
   #run the meta analysis
-  meta_analysis_result <- metacor(pearson_r, num_snippets_for_correlation, 
-                                  data = correlation_data,
-                                  studlab = correlation_data$dataset_metric,
-                                  sm = "ZCOR", comb.fixed=FALSE,
-                                  method.tau = "SJ")
+  # This version is wrong: it does not account for the Unit-of-Analysis problem.
+  # See https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/effects.html#unit-of-analysis
+  # for a description of the problem.
+  #   meta_analysis_result <- metacor(pearson_r, num_snippets_for_correlation, 
+  #                                  data = correlation_data,
+  #                                studlab = correlation_data$dataset_metric,
+  #                                sm = "ZCOR", comb.fixed=FALSE,
+  #                                method.tau = "SJ")
+
+
+  meta_analysis_result <- rma.mv(
+  		       yi = z, # TODO: check name, should be the correlation column
+		       V = z.var, # TODO: check name
+		       slab = dataset_id,
+		       data = correlation_data,
+		       random = ~ 1 | dataset_id/metric,
+		       test = "t",
+		       method = "REML"
+  )
+
   print(meta_analysis_result)
   if (generateForestPlot) {
     path = "./forest-plot/"
@@ -152,6 +177,8 @@ run_ablation_meta_analysis <- function(ablation_data_folder_in, tool_in){
   column_names = names(all_data)
   new_column_names = lapply(column_names,  tolower)
   colnames(all_data) <- new_column_names
+
+  # TODO: update this to work with the new meta-analysis method
 
   #select columns that I need
   all_data2 = select(all_data, c('dataset_id', 'metric', 'metric_type', 
@@ -195,7 +222,9 @@ run_meta_analysis <- function(data_file_in, sheet_in){
                                  #'higher_warnings',
                                  "num_snippets_for_correlation",
                                  "kendalls_tau",
-                                 "kendalls_p_value", 
+                                 "kendalls_p_value",
+				  "z",
+				  "z.var",				
                                  "expected_cor", "expected_cor"))                      
   all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
 
@@ -221,18 +250,18 @@ run_meta_analysis <- function(data_file_in, sheet_in){
   metric_types_expected_cor = unique(select(all_data2, c("metric_type", "expected_cor")))
 
   #run the metanalysis for all the metric types
-  apply(metric_types_expected_cor, 1, function (metric_type_expected_cor){print_meta_analysis(all_data2, TRUE, metric_type_expected_cor[1], metric_type_expected_cor[2], sheet_in)})
+  # apply(metric_types_expected_cor, 1, function (metric_type_expected_cor){print_meta_analysis(all_data2, TRUE, metric_type_expected_cor[1], metric_type_expected_cor[2], sheet_in)})
 
   #run overall meta-analyses
   print_meta_analysis_overall(all_data2, sheet_in)
 }
 
 #data_file = "correlation_analysis_for_meta_analysis.xlsx"
-data_file = "../data/correlation_analysis_timeout_max.xlsx"
-sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
-# #sheets = c("all_tools")
+data_file = "~/Research/complexity-verification/complexity-verification-project/data/correlation_analysis_timeout_max.xlsx"
+# sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
+sheets = c("all_tools")
 lapply(sheets, function(sheet_in){run_meta_analysis(data_file, sheet_in)})
 
-ablation_data_folder = "../scatter_plots_ablation_timeout_max"
-tools = c("checker_framework", "typestate_checker", "infer", "openjml")
-lapply(tools, function(tool_in){run_ablation_meta_analysis(ablation_data_folder, tool_in)})
+# ablation_data_folder = "../scatter_plots_ablation_timeout_max"
+# tools = c("checker_framework", "typestate_checker", "infer", "openjml")
+# lapply(tools, function(tool_in){run_ablation_meta_analysis(ablation_data_folder, tool_in)})
