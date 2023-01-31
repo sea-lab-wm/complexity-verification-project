@@ -7,52 +7,52 @@ import scipy
 import seaborn as sns
 import scipy.stats as scpy
 
-#Deprecated
-def plot_data(df, xlabel, ylabel, file_prefix, save_file = True): 
-    color = "#1f78b4"
-    graph_label = dict(color='#101010', alpha=0.95)
+# #Deprecated
+# def plot_data(df, xlabel, ylabel, file_prefix, save_file = True): 
+#     color = "#1f78b4"
+#     graph_label = dict(color='#101010', alpha=0.95)
 
-    #draw the scatter plot, figsize is in inches
-    ax1 = df.plot(kind='scatter', x='metric_value', y="#_of_warnings", s=30, c=color, figsize=(7, 5))
+#     #draw the scatter plot, figsize is in inches
+#     ax1 = df.plot(kind='scatter', x='metric_value', y="#_of_warnings", s=30, c=color, figsize=(7, 5))
 
-    # least squares polynomial fit (linear)
-    z = numpy.polyfit(df['metric_value'], df["#_of_warnings"], 1)
-    p = numpy.poly1d(z)
+#     # least squares polynomial fit (linear)
+#     z = numpy.polyfit(df['metric_value'], df["#_of_warnings"], 1)
+#     p = numpy.poly1d(z)
 
-    # plot the line
-    plt.plot(df['metric_value'], p(df['metric_value']), linewidth=1)
+#     # plot the line
+#     plt.plot(df['metric_value'], p(df['metric_value']), linewidth=1)
     
-    #lot labels
-    plt.ylabel(ylabel)
-    plt.xlabel(xlabel)
+#     #lot labels
+#     plt.ylabel(ylabel)
+#     plt.xlabel(xlabel)
 
-    #compute correlation measures
-    corr = df['metric_value'].corr(df["#_of_warnings"], method='kendall')
-    #print('metric_value: ~  "#_of_warnings"')
-    #print('Kendall corr:', corr)
+#     #compute correlation measures
+#     corr = df['metric_value'].corr(df["#_of_warnings"], method='kendall')
+#     #print('metric_value: ~  "#_of_warnings"')
+#     #print('Kendall corr:', corr)
 
-    #linear least-squares regression
-    #r_value = the Pearson correlation coefficient. The square of rvalue is equal to the coefficient of determination.
-    slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(df['metric_value'], df["#_of_warnings"])
-    #print('r squared:', r_value ** 2)
+#     #linear least-squares regression
+#     #r_value = the Pearson correlation coefficient. The square of rvalue is equal to the coefficient of determination.
+#     slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(df['metric_value'], df["#_of_warnings"])
+#     #print('r squared:', r_value ** 2)
     
-    #add the correlation to the plots
-    left, right = plt.xlim()
-    bottom, top = plt.ylim()
-    # text(x, y, ...)
-    ax1.text(left + ((right - left) / 40), bottom + ((top - bottom) / 15), "Kendall's τ: " + format(corr, '.2f'), fontdict=graph_label)
-    ax1.text(left + ((right - left) / 40), bottom + ((top - bottom) / 40), 'r squared: ' + format(r_value ** 2, '.2f'), fontdict=graph_label)
+#     #add the correlation to the plots
+#     left, right = plt.xlim()
+#     bottom, top = plt.ylim()
+#     # text(x, y, ...)
+#     ax1.text(left + ((right - left) / 40), bottom + ((top - bottom) / 15), "Kendall's τ: " + format(corr, '.2f'), fontdict=graph_label)
+#     ax1.text(left + ((right - left) / 40), bottom + ((top - bottom) / 40), 'r squared: ' + format(r_value ** 2, '.2f'), fontdict=graph_label)
 
-    #additional cosmetic changes
-    sns.despine()
-    plt.tight_layout()
+#     #additional cosmetic changes
+#     sns.despine()
+#     plt.tight_layout()
     
-    #save plot
-    if save_file:
-        plt.savefig(os.path.join("scatter_plots", str(file_prefix) + '.pdf'), dpi=300, bbox_inches='tight', pad_inches=0)
+#     #save plot
+#     if save_file:
+#         plt.savefig(os.path.join("scatter_plots", str(file_prefix) + '.pdf'), dpi=300, bbox_inches='tight', pad_inches=0)
     
-    #clear plot
-    plt.clf()
+#     #clear plot
+#     plt.clf()
 
 
 def no_outliers(data):
@@ -81,12 +81,12 @@ if __name__ == "__main__":
     # timeout_approach = "_timeout_zero"
 
     #aggregate # of warnings (ablation)
-    input_file = f"data/raw_correlation_data_ablation{timeout_approach}.csv"
-    output_folder = f"scatter_plots_ablation{suffix_files}{timeout_approach}"
+    # input_file = f"data/raw_correlation_data_ablation{timeout_approach}.csv"
+    # output_folder = f"scatter_plots_ablation{suffix_files}{timeout_approach}"
 
     #aggregate # of warnings (sum)
-    #input_file = f"data/raw_correlation_data{timeout_approach}.csv"
-    #output_folder = f"scatter_plots{suffix_files}{timeout_approach}"
+    input_file = f"data/raw_correlation_data{timeout_approach}.csv"
+    output_folder = f"scatter_plots{suffix_files}{timeout_approach}"
 
     #aggregate # of warnings (avg)
     #input_file = f"data/raw_correlation_data_avg{timeout_approach}.csv"
@@ -115,7 +115,7 @@ if __name__ == "__main__":
     ds_metrics = ds_metrics.convert_dtypes(infer_objects=False)
 
     #keep only DS9 with no comments
-    data = data[(data.dataset != "9_gc") & (data.dataset != "9_bc")]
+    #data = data[(data.dataset != "9_gc") & (data.dataset != "9_bc")]
 
     #assign metric type to data
     data = data.merge(ds_metrics, on=['dataset','metric'], how='left')
@@ -230,6 +230,11 @@ if __name__ == "__main__":
 
             corr, p_value = scpy.kendalltau(df['metric_value'], df["#_of_warnings"])
 
+            r_corr, r_p_value = scpy.pearsonr(df['metric_value'], df["#_of_warnings"])
+
+            z_corr = numpy.arctan(r_corr)
+
+
             #-----------------------
             dataset = key[0]
             metric = key[1]
@@ -260,7 +265,10 @@ if __name__ == "__main__":
                 "kendalls_p_value": [kendalls_p_value],
                 "expected_cor?": [expected_cor_test],
                 "cor_intepretation": [cor_intepretation],
-                "stat_significant?": [stat_significant]
+                "stat_significant?": [stat_significant],
+                "pearsons_r": [r_corr],
+                "pearsons_p_value": [r_p_value],
+                "fisher_z" : [z_corr]
             }
             df_record = pd.DataFrame(record)
             tool_cor_data = pd.concat([tool_cor_data, df_record], ignore_index=True, axis=0)  
@@ -336,10 +344,23 @@ if __name__ == "__main__":
                                 ax1.get_xticklabels() + ax1.get_yticklabels()):
                 item.set_fontsize(14)
 
+         
+        tool_cor_data_by_dm = tool_cor_data.groupby(["dataset_id"])
+        tool_cor_data["fisher_z_var"] = numpy.nan
+
+        for key2, group_df in tool_cor_data_by_dm:
+
+            dataset2 = key2
+
+            z_corr = group_df.loc[:, ["fisher_z"]]
+            var = numpy.var(z_corr)
+            
+            tool_cor_data["fisher_z_var"] = numpy.where(
+                      (tool_cor_data["dataset_id"] == dataset2), var, tool_cor_data["fisher_z_var"])
+       
         #save correlation values
         tool_cor_data = tool_cor_data.convert_dtypes()
         tool_cor_data.to_csv(os.path.join(output_folder, str(tool) + '_corr_data.csv'), index=False)
-
 
         #save plot
         #fig.tight_layout()
