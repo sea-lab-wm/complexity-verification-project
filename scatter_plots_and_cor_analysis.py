@@ -224,6 +224,8 @@ if __name__ == "__main__":
             if remove_outliers:
                 df = df[no_outliers(df["metric_value"])]
 
+            num_snippets_for_correlation = len(df)
+
             #------------------------
 
             #corr = df['metric_value'].corr(df["#_of_warnings"], method='kendall')
@@ -234,6 +236,8 @@ if __name__ == "__main__":
 
             z_corr = numpy.arctan(r_corr)
 
+            z_sqrt_se = 1 / (num_snippets_for_correlation - 3)
+
 
             #-----------------------
             dataset = key[0]
@@ -242,7 +246,7 @@ if __name__ == "__main__":
             metric_type = df.metric_type.values[0]
             expected_cor = df.expected_cor.values[0]
             expected_cor_short = "neg" if "negative" == expected_cor else "pos"
-            num_snippets_for_correlation = len(df)
+            
             kendalls_tau = corr
             kendalls_p_value = p_value
             expected_cor_test= "" if numpy.isnan(corr) else \
@@ -268,7 +272,8 @@ if __name__ == "__main__":
                 "stat_significant?": [stat_significant],
                 "pearsons_r": [r_corr],
                 "pearsons_p_value": [r_p_value],
-                "fisher_z" : [z_corr]
+                "fisher_z" : [z_corr],
+                "fizher_z_sqrt_se": [z_sqrt_se]
             }
             df_record = pd.DataFrame(record)
             tool_cor_data = pd.concat([tool_cor_data, df_record], ignore_index=True, axis=0)  
