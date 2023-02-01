@@ -36,14 +36,14 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
                               'dataset_id',
                               'metric',
                               'fisher_z',
-                              'fizher_z_sqrt_se'))
+                              'fizher_z_sqrd_se'))
   correlation_data_neg = select(subset(data_in, expected_cor == "negative"), 
                             c('dataset_metric', 
                                "num_snippets_for_correlation",
                               'dataset_id',
                               'metric',
                               'fisher_z',
-                              'fizher_z_sqrt_se'))
+                              'fizher_z_sqrd_se'))
 
   file_name = paste(sheet_in, "_positive", sep = "")
   #print_meta_analysis_generic(correlation_data_pos, file_name, 2.8, out_dir_in)
@@ -84,7 +84,7 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
   #run the meta analysis
   meta_analysis_result <- rma.mv(
     yi = fisher_z, # TODO: check name, should be the correlation column
-    V = fizher_z_sqrt_se, # TODO: check name
+    V = fizher_z_sqrd_se, # TODO: check name
     slab = dataset_metric,
     data = correlation_data,
     random = ~ 1 | dataset_id/metric,
@@ -123,7 +123,7 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
 
   #filter by metric type and select the columns needed
   correlation_data = select(subset(data_in, metric_type == metric_type_in & expected_cor == expected_cor_in), 
-                            c('dataset_id', 'metric', 'fisher_z', 'fizher_z_sqrt_se'))
+                            c('dataset_id', 'metric', 'fisher_z', 'fizher_z_sqrd_se'))
 
   #run the meta analysis
   # This version is wrong: it does not account for the Unit-of-Analysis problem.
@@ -138,7 +138,7 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
 
   meta_analysis_result <- rma.mv(
   		       yi = fisher_z, # TODO: check name, should be the correlation column
-		       V = fizher_z_sqrt_se, # TODO: check name
+		       V = fizher_z_sqrd_se, # TODO: check name
 		       slab = dataset_id,
 		       data = correlation_data,
 		       random = ~ 1 | dataset_id/metric,
@@ -229,7 +229,7 @@ run_meta_analysis <- function(data_file_in){
                                  "kendalls_tau",
                                  "kendalls_p_value",
 				  "fisher_z",
-				  "fizher_z_sqrt_se",				
+				  "fizher_z_sqrd_se",				
                                  "expected_cor", "expected_cor"))                      
   all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
 
