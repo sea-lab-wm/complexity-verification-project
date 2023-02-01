@@ -186,6 +186,7 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
   forest_plot <- forest(meta_analysis_result, showweights=TRUE,
                         xlim=c(-5,5),
                         ylim=c(-2,plot_ht),
+                        atransf=transf.ztor,
                         cex=0.75)
   dev.off()
 }
@@ -255,8 +256,8 @@ run_meta_analysis(data_file_checker_framework, "checker_framework")
 run_meta_analysis(data_file_typestate_checker, "typestate_checker")
 run_meta_analysis(data_file_openjml, "openjml")
 
-# ablation studies: TODO: uncomment as soon as the relevant files are updated
-# run_meta_analysis(data_file_no_infer, "no_infer")
-# run_meta_analysis(data_file_no_checker_framework, "no_checker_framework")
-# run_meta_analysis(data_file_no_typestate_checker, "no_typestate_checker")
-# run_meta_analysis(data_file_no_openjml, "no_openjml")
+# ablation studies:
+run_meta_analysis(data_file_no_infer, "no_infer")
+run_meta_analysis(data_file_no_checker_framework, "no_checker_framework")
+run_meta_analysis(data_file_no_typestate_checker, "no_typestate_checker")
+run_meta_analysis(data_file_no_openjml, "no_openjml")

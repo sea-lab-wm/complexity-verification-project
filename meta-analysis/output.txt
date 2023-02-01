@@ -262,3 +262,131 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
  -0.12 -0.29  0.07 -0.29  0.07 
 
 [1] "==============================="
+pdf 
+  2 
+> 
+> # ablation studies:
+> run_meta_analysis(data_file_no_infer, "no_infer")
+[1] "==================no_infer_positive_negated_agg=================="
+
+Multivariate Meta-Analysis Model (k = 6; method: REML)
+
+  logLik  Deviance       AIC       BIC      AICc   
+ -0.4088    0.8175    4.8175    4.0364   10.8175   
+
+Variance Components:
+
+            estim    sqrt  nlvls  fixed      factor 
+sigma^2    0.0193  0.1388      6     no  dataset_id 
+
+Test for Heterogeneity:
+Q(df = 5) = 6.7442, p-val = 0.2404
+
+Model Results:
+
+estimate      se     tval  df    pval    ci.lb   ci.ub    
+ -0.2311  0.1015  -2.2773   5  0.0718  -0.4919  0.0298  . 
+
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+  pred ci.lb ci.ub pi.lb pi.ub 
+ -0.23 -0.46  0.03 -0.59  0.21 
+
+[1] "==============================="
+pdf 
+  2 
+> run_meta_analysis(data_file_no_checker_framework, "no_checker_framework")
+[1] "==================no_checker_framework_positive_negated_agg=================="
+
+Multivariate Meta-Analysis Model (k = 6; method: REML)
+
+  logLik  Deviance       AIC       BIC      AICc   
+ -0.3404    0.6807    4.6807    3.8996   10.6807   
+
+Variance Components:
+
+            estim    sqrt  nlvls  fixed      factor 
+sigma^2    0.0191  0.1382      6     no  dataset_id 
+
+Test for Heterogeneity:
+Q(df = 5) = 6.6396, p-val = 0.2489
+
+Model Results:
+
+estimate      se     tval  df    pval    ci.lb   ci.ub    
+ -0.2020  0.1013  -1.9947   5  0.1026  -0.4623  0.0583    
+
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+  pred ci.lb ci.ub pi.lb pi.ub 
+ -0.20 -0.43  0.06 -0.57  0.23 
+
+[1] "==============================="
+pdf 
+  2 
+> run_meta_analysis(data_file_no_typestate_checker, "no_typestate_checker")
+[1] "==================no_typestate_checker_positive_negated_agg=================="
+
+Multivariate Meta-Analysis Model (k = 6; method: REML)
+
+  logLik  Deviance       AIC       BIC      AICc   
+ -0.0476    0.0951    4.0951    3.3140   10.0951   
+
+Variance Components:
+
+            estim    sqrt  nlvls  fixed      factor 
+sigma^2    0.0000  0.0000      6     no  dataset_id 
+
+Test for Heterogeneity:
+Q(df = 5) = 5.5635, p-val = 0.3510
+
+Model Results:
+
+estimate      se     tval  df    pval    ci.lb    ci.ub    
+ -0.1996  0.0720  -2.7728   5  0.0392  -0.3846  -0.0146  * 
+
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+  pred ci.lb ci.ub pi.lb pi.ub 
+ -0.20 -0.37 -0.01 -0.37 -0.01 
+
+[1] "==============================="
+pdf 
+  2 
+> run_meta_analysis(data_file_no_openjml, "no_openjml")
+[1] "==================no_openjml_positive_negated_agg=================="
+
+Multivariate Meta-Analysis Model (k = 6; method: REML)
+
+  logLik  Deviance       AIC       BIC      AICc   
+  0.0113   -0.0225    3.9775    3.1964    9.9775   
+
+Variance Components:
+
+            estim    sqrt  nlvls  fixed      factor 
+sigma^2    0.0178  0.1334      6     no  dataset_id 
+
+Test for Heterogeneity:
+Q(df = 5) = 6.2338, p-val = 0.2841
+
+Model Results:
+
+estimate      se     tval  df    pval    ci.lb   ci.ub    
+ -0.2108  0.0998  -2.1133   5  0.0882  -0.4673  0.0456  . 
+
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+  pred ci.lb ci.ub pi.lb pi.ub 
+ -0.21 -0.44  0.05 -0.56  0.21 
+
+[1] "==============================="
+pdf 
+  2 
