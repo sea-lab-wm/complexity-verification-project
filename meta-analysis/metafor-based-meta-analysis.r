@@ -187,7 +187,23 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
                         xlim=c(-5,5),
                         ylim=c(-2,plot_ht),
                         atransf=transf.ztor,
+                        header="Dataset",
+                        xlab="Pearson's r (negative correlation supports our hypothesis)",
+                        ilab = cbind(num_snippets_for_correlation),
+                        ilab.xpos= c(-3),
+                        addpred=TRUE,
                         cex=0.75)
+  text(c(-3,8),     meta_analysis_result$k+2, c("Number of Snippets"), cex=.75, font=2)
+  text(c(3,8),     meta_analysis_result$k+2, c("Weights"), cex=.75, font=2)
+  text(3.75, -1.5, bquote(paste("p = ", .(formatC(meta_analysis_result$pval, digits = 2, format = "f")), sep="")), cex=0.75, font=2)
+  text(-3.1, -1.5, bquote(paste("Test for Heterogeneity: Q = ", .(formatC(meta_analysis_result$QE, digits=2, format="f")), 
+                                ", df = ", .(meta_analysis_result$k - meta_analysis_result$p),
+                                ", p = ", .(formatC(meta_analysis_result$QEp, digits=2, format="f")),
+                                sep="")), cex=0.75, font=2)
+                                              # "RE Model (Q = ",
+                                              # .(formatC(meta_analysis_result$QE, digits=2, format="f")), ", df = ", .(meta_analysis_result$k - meta_analysis_result$p),
+                                              # ", p = ", .(formatC(meta_analysis_result$QEp, digits=2, format="f")), "; ", I^2, " = ",
+                                              # .(formatC(meta_analysis_result$I2, digits=1, format="f")), "%)")))
   dev.off()
 }
 
