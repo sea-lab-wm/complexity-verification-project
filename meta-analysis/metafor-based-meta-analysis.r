@@ -21,11 +21,11 @@ library(ggpubr)
 
 library(metafor)
 
-if (!require("remotes")) {
-  install.packages("remotes")
-}
-remotes::install_github("MathiasHarrer/dmetar")
+# for aggregated meta-analysis
 library(dmetar)
+
+# for CHE meta-analysis
+library(clubSandwich)
 
 # Returns pearson's r for the given tau using Kendall's formula (1970)
 convert_to_pearson <- function(tau) {
@@ -44,8 +44,8 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
                               'metric',
                               'fisher_z',
                               'fisher_z_sqrd_se'))
-  correlation_data_neg = select(subset(data_in, expected_cor == "negative"), 
-                            c('dataset_metric', 
+  correlation_data_neg = select(subset(data_in, expected_cor == "negative"),
+                            c('dataset_metric',
                                "num_snippets_for_correlation",
                               'dataset_id',
                               'metric_id',
@@ -56,152 +56,142 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
   file_name = paste(sheet_in, "_positive", sep = "")
   #print_meta_analysis_generic(correlation_data_pos, file_name, 2.8, out_dir_in)
 
-  file_name = paste(sheet_in, "_negative", sep = "")
+  # file_name = paste(sheet_in, "_negative", sep = "")
   #print_meta_analysis_generic(correlation_data_neg, file_name, 4.3, out_dir_in)
 
-  #flip the correlation scores of the positive instances
-  correlation_data = correlation_data_pos
-  correlation_data$fisher_z = correlation_data$fisher_z*-1
-  correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (+)", sep = "")
-  correlation_data = rbind(correlation_data_neg, correlation_data)
-  attach(correlation_data)
-  correlation_data = correlation_data[order(dataset_metric),]
-  detach(correlation_data)
-
-  file_name = paste(sheet_in, "_positive_negated", sep = "")
-  print_meta_analysis_generic(correlation_data, file_name, 5.5, out_dir_in)
+  if (nrow(correlation_data_pos) != 0) {
+    #flip the correlation scores of the positive instances
+    correlation_data = correlation_data_pos
+    correlation_data$fisher_z = correlation_data$fisher_z*-1
+    correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (+)", sep = "")
+    correlation_data = rbind(correlation_data_neg, correlation_data)
+    attach(correlation_data)
+    correlation_data = correlation_data[order(dataset_metric),]
+    detach(correlation_data)
+  } else {
+    # no positive expectations (e.g., for correctness metric type), so this is easy
+    correlation_data = correlation_data_neg
+  }
+  
+  file_name = paste(sheet_in, "_positive_negated_agg", sep = "")
+  print_meta_analysis_generic(correlation_data, file_name, out_dir_in)
 
   #flip the correlation scores of the negative instances
-  correlation_data = correlation_data_neg
-  correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (-)", sep = "")
-  correlation_data$fisher_z = correlation_data$fisher_z*-1
-  correlation_data = rbind(correlation_data_pos, correlation_data)
-  attach(correlation_data)
-  correlation_data = correlation_data[order(dataset_metric),]
-  detach(correlation_data)
-
-  file_name = paste(sheet_in, "_negative_negated", sep = "")
+  # correlation_data = correlation_data_neg
+  # correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (-)", sep = "")
+  # correlation_data$fisher_z = correlation_data$fisher_z*-1
+  # correlation_data = rbind(correlation_data_pos, correlation_data)
+  # attach(correlation_data)
+  # correlation_data = correlation_data[order(dataset_metric),]
+  # detach(correlation_data)
+  # 
+  # file_name = paste(sheet_in, "_negative_negated", sep = "")
   #print_meta_analysis_generic(correlation_data, file_name, 5.5, out_dir_in)
 }
 
-# Performs a correlation meta analysis on the given data and saves the forestplot to file
-print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name, chart_height=2.5, out_dir_in = ".") {
-
-  #print(correlation_data)
-  
-  #run the meta analysis
-  # meta_analysis_result <- rma.mv(
-  #   yi = fisher_z, # TODO: check name, should be the correlation column
-  #   V = fisher_z_sqrd_se, # TODO: check name
-  #   slab = dataset_metric,
-  #   data = correlation_data,
-  #   random = ~ 1 | dataset_id/metric_id,
-  #   test = "t",
-  #   method = "REML"
-  # )
-  
+# uses the methodology in https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/es-calc.html#aggregate-es
+# to combine studies
+run_meta_analysis_agg <- function(correlation_data) {
   correlation_data_escalc = escalc(yi = fisher_z,           # Effect size
                                    sei = sqrt(fisher_z_sqrd_se),       # Standard error
                                    data = correlation_data)
   
   correlation_data.agg <- aggregate(correlation_data_escalc, 
-                             cluster = dataset_id,
-                             rho = 0.6)
+                                    cluster = dataset_id,
+                                    rho = 0.6)
   
-  print(correlation_data.agg)
+  # print(correlation_data.agg)
   
-
+  
   # run the meta analysis
   meta_analysis_result <- rma.mv(
-      yi = fisher_z, # TODO: check name, should be the correlation column
-      V = fisher_z_sqrd_se, # TODO: check name
-      slab = dataset_id,
-      data = correlation_data.agg,
-      random = ~ 1 | dataset_id,
-      test = "t",
-      method = "REML"
-    )
+    yi = fisher_z, # TODO: check name, should be the correlation column
+    V = fisher_z_sqrd_se, # TODO: check name
+    slab = dataset_id,
+    data = correlation_data.agg,
+    random = ~ 1 | dataset_id,
+    test = "t",
+    method = "REML"
+  )
+  return(meta_analysis_result)
+}
+
+run_meta_analysis_multi <- function(correlation_data) {
+  #run the meta analysis
+  meta_analysis_result <- rma.mv(
+    yi = fisher_z, # TODO: check name, should be the correlation column
+    V = fisher_z_sqrd_se, # TODO: check name
+    slab = dataset_metric,
+    data = correlation_data,
+    random = ~ metric_id | dataset_id,
+    test = "t",
+    method = "REML"
+  )
+  return(meta_analysis_result)
+}
+
+# based on this https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/multilevel-ma.html#fit-rve
+run_meta_analysis_che <- function(correlation_data) {
+  
+  # constant sampling correlation assumption
+  rho <- 0.3 # TODO: if we use this model, we need to run a sensitivity analysis on rho
+  # higher rho seems to result in more weight to the studies with more metrics;
+  # low rho leads to more weight to the studies with bigger sample sizes.
+  # the overall conclusions don't change that much either way, though.
+  
+  V <- with(correlation_data,
+            impute_covariance_matrix(vi = fisher_z_sqrd_se,
+                                     cluster = dataset_id,
+                                     r = rho))
+  
+  #run the meta analysis
+  meta_analysis_result <- rma.mv(
+    yi = fisher_z, # TODO: check name, should be the correlation column
+    V = V, # TODO: check name
+    slab = dataset_metric,
+    data = correlation_data,
+    random = ~ 1 | metric_id,
+    # sparse = TRUE
+  )
+  
+  return(meta_analysis_result)
+}
+
+# Performs a correlation meta analysis on the given data and saves the forestplot to file
+print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name, out_dir_in = ".", agg=TRUE) {
+
+  #print(correlation_data)
+  if (agg) {
+    meta_analysis_result <- run_meta_analysis_agg(correlation_data)
+  } else {
+    meta_analysis_result <- run_meta_analysis_che(correlation_data)
+  }
+  
   print(summary(meta_analysis_result))
   
   print(predict(meta_analysis_result, transf=transf.ztor, digits=2))
   
-  # print(meta_analysis_result)
-  # if(out_dir_in == ""){
-  #   out_dir_in = "."
-  # }
   path = paste(out_dir_in, "~/Research/complexity-verification/complexity-verification-project/forest-plot/", sep = "")
   dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
-  # png(file = paste(path, forest_plot_file_name, ".png", sep = ""),
-  #     width = 1535,
-  #     height = 575, res = 180)
+
   pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
       ,
       width = 8,
-      height = chart_height
+      height = 5.5
       )
   par(mar=c(5,4,1,2))
+  
+  if (agg) {
+    plot_ht <- 9
+  } else {
+    plot_ht <- 23
+  } 
+  
   forest_plot <- forest(meta_analysis_result, showweights=TRUE,
                         xlim=c(-5,5),
-                        ylim=c(-2,10),
+                        ylim=c(-2,plot_ht),
                         cex=0.75)
   dev.off()
-  # print(forest_plot)
-}
-
-
-# Performs a correlation meta analysis on the given data and saves the forestplot to file
-print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, expected_cor_in, sheet_in) {
-
-  #filter by metric type and select the columns needed
-  correlation_data = select(subset(data_in, metric_type == metric_type_in & expected_cor == expected_cor_in), 
-                            c('dataset_id', 'metric', 'fisher_z', 'fisher_z_sqrd_se'))
-
-  #run the meta analysis
-  # This version is wrong: it does not account for the Unit-of-Analysis problem.
-  # See https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/effects.html#unit-of-analysis
-  # for a description of the problem.
-  #   meta_analysis_result <- metacor(pearson_r, num_snippets_for_correlation, 
-  #                                  data = correlation_data,
-  #                                studlab = correlation_data$dataset_metric,
-  #                                sm = "ZCOR", comb.fixed=FALSE,
-  #                                method.tau = "SJ")
-
-
-  meta_analysis_result <- rma.mv(
-  		       yi = fisher_z, # TODO: check name, should be the correlation column
-		       V = fisher_z_sqrd_se, # TODO: check name
-		       slab = dataset_id,
-		       data = correlation_data,
-		       random = ~ 1 | dataset_id/metric,
-		       test = "t",
-		       method = "REML"
-  )
-
-  print(meta_analysis_result)
-  if (generateForestPlot) {
-    path = "./forest-plot/"
-    dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
-    # png(file = paste(path, sheet_in, "_", metric_type_in, "_", expected_cor_in, ".png", sep = ""), 
-    #     width = 1535, 
-    #     height = 575, res = 180)
-    pdf(file = paste(path, sheet_in, "_", metric_type_in, "_", expected_cor_in, ".pdf", sep = "")
-        , 
-        width = 8, 
-        height = 2.5
-        #, res = 180
-        )
-    #pdf(file = paste(path, metric_type_in, "_forestplot.pdf", sep = ""))
-    forest_plot <- forest(meta_analysis_result, 
-                          #prediction = TRUE, 
-                          #smlab = "Correlation meta-analysis",
-                          #smlab = "",
-                          leftlabs = c("DS_Metric", "Snippets"),
-                          rightlabs = c("r value", "95% CI   ", "Weight")
-                          )
-    dev.off()
-    #dev.off()
-    print(forest_plot)
-  }
 }
 
 run_ablation_meta_analysis <- function(ablation_data_folder_in, tool_in){
@@ -222,6 +212,8 @@ run_ablation_meta_analysis <- function(ablation_data_folder_in, tool_in){
                                  "num_snippets_for_correlation",
                                  "kendalls_tau",
                                  "kendalls_p_value", 
+                                 "fisher_z",
+                                 "fisher_z_sqrd_se",
                                  "expected_cor", "expected_cor"))   
  
  all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
@@ -242,7 +234,7 @@ run_ablation_meta_analysis <- function(ablation_data_folder_in, tool_in){
 
   #run overall meta-analyses
   no_tool_in = paste("no_", tool_in, sep = "")
-  print_meta_analysis_overall(all_data2, no_tool_in, out_dir)
+  print_meta_analysis_generic(all_data2, no_tool_in, out_dir_in = out_dir)
 }
 
 #-----------------------------------
@@ -284,11 +276,15 @@ run_meta_analysis <- function(data_file_in){
   
   #get all the metric types
   metric_types_expected_cor = unique(select(all_data2, c("metric_type", "expected_cor")))
-
-  #run the metanalysis for all the metric types
-  # apply(metric_types_expected_cor, 1, function (metric_type_expected_cor){print_meta_analysis(all_data2, TRUE, metric_type_expected_cor[1], metric_type_expected_cor[2], sheet_in)})
-
   all_data2$metric_id <- 1:nrow(all_data2)
+  
+  #run the metanalysis for each metric type
+  metric_types <- c("correctness", "rating", "time", "physiological")
+  for (mt in metric_types) {
+    mt_data <- subset(all_data2, metric_type == mt)
+    print(mt_data)
+    print_meta_analysis_overall(mt_data, sheet_in = mt)
+  }
   
   #run overall meta-analyses
   print_meta_analysis_overall(all_data2)
