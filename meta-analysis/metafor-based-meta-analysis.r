@@ -240,21 +240,25 @@ run_ablation_meta_analysis <- function(ablation_data_folder_in, tool_in){
 #-----------------------------------
 
 #run the meta-analysis on the data found in sheet_in
-run_meta_analysis <- function(data_file_in){
+run_meta_analysis <- function(data_file_in, name){
   
   #read data
   all_data = read.csv(data_file_in)
   
   #select columns that I need
   all_data2 = select(all_data, c('dataset_id', 'metric', 'metric_type', 
-                                 #'higher_warnings',
                                  "num_snippets_for_correlation",
                                  "kendalls_tau",
                                  "kendalls_p_value",
-				  "fisher_z",
-				  "fisher_z_sqrd_se",				
-                                 "expected_cor", "expected_cor"))                      
-  all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
+				                         "fisher_z",
+				                         "fisher_z_sqrd_se",				
+                                 "expected_cor", "expected_cor"))  
+  
+  # remove metrics for datasets on which no considered tools
+  # issue a warning
+  all_data2 = subset(all_data2, kendalls_tau != "")
+  
+  print(all_data2)
 
 
   #keep only DS9 with no comments
@@ -278,24 +282,30 @@ run_meta_analysis <- function(data_file_in){
   metric_types_expected_cor = unique(select(all_data2, c("metric_type", "expected_cor")))
   all_data2$metric_id <- 1:nrow(all_data2)
   
-  #run the metanalysis for each metric type
-  metric_types <- c("correctness", "rating", "time", "physiological")
-  for (mt in metric_types) {
-    mt_data <- subset(all_data2, metric_type == mt)
-    print(mt_data)
-    print_meta_analysis_overall(mt_data, sheet_in = mt)
+  #run the metanalysis for each metric type, if and only if we're considering all_tools
+  if (name == "all_tools") {
+    metric_types <- c("correctness", "rating", "time", "physiological")
+    for (mt in metric_types) {
+      mt_data <- subset(all_data2, metric_type == mt)
+      print_meta_analysis_overall(mt_data, sheet_in = paste(name, "_", mt, sep = ""))
+    }
   }
   
   #run overall meta-analyses
-  print_meta_analysis_overall(all_data2)
+  print_meta_analysis_overall(all_data2, sheet_in = name)
 }
 
-#data_file = "correlation_analysis_for_meta_analysis.xlsx"
-data_file = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/all_tools_corr_data.csv"
-# sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
-sheets = c("all_tools")
+data_file_all_tools = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/all_tools_corr_data.csv"
+data_file_infer = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/infer_corr_data.csv"
+data_file_checker_framework = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/checker_framework_corr_data.csv"
+data_file_typestate_checker = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/typestate_checker_corr_data.csv"
+data_file_openjml = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/openjml_corr_data.csv"
 
-run_meta_analysis(data_file)
+run_meta_analysis(data_file_all_tools, "all_tools")
+run_meta_analysis(data_file_infer, "infer")
+run_meta_analysis(data_file_checker_framework, "checker_framework")
+run_meta_analysis(data_file_typestate_checker, "typestate_checker")
+run_meta_analysis(data_file_openjml, "openjml")
 
 # ablation_data_folder = "../scatter_plots_ablation_timeout_max"
 # tools = c("checker_framework", "typestate_checker", "infer", "openjml")
