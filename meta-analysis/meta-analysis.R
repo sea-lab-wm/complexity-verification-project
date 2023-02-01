@@ -15,7 +15,7 @@ library(writexl)
 library(dplyr)
 library(ggplot2)
 library(ggpubr)
-library(meta)
+#library(meta)
 
 library(metafor)
 
@@ -33,7 +33,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
                               'dataset_id',
                               'metric',
                               'fisher_z',
-                              'fisher_z_var',
+                              'fisher_z_sqrd_se',
                                "num_snippets_for_correlation"))
   correlation_data_neg = select(subset(data_in, expected_cor == "negative"), 
                             c('dataset_metric', 
@@ -41,15 +41,15 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
                               'dataset_id',
                               'metric',
                               'fisher_z',
-                              'fisher_z_var'))
+                              'fisher_z_sqrd_se'))
 
   file_name = paste(sheet_in, "_positive", sep = "")
-  print_meta_analysis_generic(correlation_data_pos, file_name, 2.8, out_dir_in)
+  #print_meta_analysis_generic(correlation_data_pos, file_name, 2.8, out_dir_in)
 
   file_name = paste(sheet_in, "_negative", sep = "")
-  print_meta_analysis_generic(correlation_data_neg, file_name, 4.3, out_dir_in)
+  #print_meta_analysis_generic(correlation_data_neg, file_name, 4.3, out_dir_in)
 
-  #flip the correlation scores of the positve instances
+  #flip the correlation scores of the positive instances
   correlation_data = correlation_data_pos
   correlation_data$fisher_z = correlation_data$fisher_z*-1
   correlation_data$dataset_metric = paste(correlation_data$dataset_metric, " (+)", sep = "")
@@ -71,7 +71,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
   detach(correlation_data)
 
   file_name = paste(sheet_in, "_negative_negated", sep = "")
-  print_meta_analysis_generic(correlation_data, file_name, 5.5, out_dir_in)
+  #print_meta_analysis_generic(correlation_data, file_name, 5.5, out_dir_in)
 }
 
 # Performs a correlation meta analysis on the given data and saves the forestplot to file
@@ -80,36 +80,43 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
   #run the meta analysis
   meta_analysis_result <- rma.mv(
     yi = fisher_z, # TODO: check name, should be the correlation column
-    V = fisher_z_var, # TODO: check name
-    slab = dataset_id,
+    V = fisher_z_sqrd_se, # TODO: check name
+    slab = dataset_metric,
     data = correlation_data,
-    random = ~ 1 | dataset_id/metric,
+    # random = list(~ 1 | dataset_id, ~ 1 | metric) 
+    # random = ~ 1 | dataset_id/metric,
+    random = ~ dataset_id | metric,
     test = "t",
     method = "REML"
   )
   
-  summary(meta_analysis_result)
+  #print(correlation_data)
+  #print("Printing meta-analysis")
+  print(summary(meta_analysis_result))
   
-  # print(meta_analysis_result)
-  # if(out_dir_in == ""){
-  #   out_dir_in = "."
-  # }
-  # path = paste(out_dir_in, "/forest-plot/", sep = "")
-  # dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
-  # # png(file = paste(path, forest_plot_file_name, ".png", sep = ""), 
-  # #     width = 1535, 
-  # #     height = 575, res = 180)
-  # pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
-  #     , 
-  #     width = 8, 
-  #     height = chart_height
-  #     )
-  # forest_plot <- forest(meta_analysis_result, 
-  #                       leftlabs = c("DS_Metric", "Snippets"),
-  #                       rightlabs = c("r value", "95% CI   ", "Weight")
-  #                       )
-  # dev.off()
-  # print(forest_plot)
+  #print(meta_analysis_result)
+  if(out_dir_in == ""){
+    out_dir_in = "."
+  }
+  path = paste(out_dir_in, "/forest-plot/", sep = "")
+  dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
+  # png(file = paste(path, forest_plot_file_name, ".png", sep = ""), 
+  #     width = 1535, 
+  #     height = 575, res = 180)
+  pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
+      , 
+      width = 8, 
+      height = chart_height
+      )
+
+  par(mar=c(5,4,1,2))
+ forest_plot <- forest(meta_analysis_result, showweights=TRUE,
+                        xlim=c(-5,5),
+                        ylim=c(-2,23),
+                        cex=0.75, header = TRUE
+                        )
+  dev.off()
+  #print(forest_plot)
 }
 
 
@@ -118,7 +125,7 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
 
   #filter by metric type and select the columns needed
   correlation_data = select(subset(data_in, metric_type == metric_type_in & expected_cor == expected_cor_in), 
-                            c('dataset_id', 'metric', 'fisher_z', 'fisher_z_var'))
+                            c('dataset_id', 'metric', 'fisher_z', 'fisher_z_sqrd_se'))
 
   #run the meta analysis
   # This version is wrong: it does not account for the Unit-of-Analysis problem.
@@ -133,7 +140,7 @@ print_meta_analysis <- function(data_in, generateForestPlot, metric_type_in, exp
 
   meta_analysis_result <- rma.mv(
   		       yi = fisher_z, # TODO: check name, should be the correlation column
-		       V = fisher_z_var, # TODO: check name
+		       V = fisher_z_sqrd_se, # TODO: check name
 		       slab = dataset_id,
 		       data = correlation_data,
 		       random = ~ 1 | dataset_id/metric,
@@ -216,6 +223,8 @@ run_meta_analysis <- function(data_file_in){
   
   #read data
   all_data = read.csv(data_file_in)
+
+  #print(all_data)
   
   #select columns that I need
   all_data2 = select(all_data, c('dataset_id', 'metric', 'metric_type', 
@@ -224,7 +233,7 @@ run_meta_analysis <- function(data_file_in){
                                  "kendalls_tau",
                                  "kendalls_p_value",
 				  "fisher_z",
-				  "fisher_z_var",				
+				  "fisher_z_sqrd_se",				
                                  "expected_cor", "expected_cor"))                      
   all_data2 = subset(all_data2, !is.na(all_data2[,5])) 
 
@@ -257,7 +266,7 @@ run_meta_analysis <- function(data_file_in){
 }
 
 #data_file = "correlation_analysis_for_meta_analysis.xlsx"
-data_file = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/all_tools_corr_data.csv"
+data_file = "../scatter_plots_timeout_max/all_tools_corr_data.csv"
 # sheets = c("all_tools", "checker_framework", "typestate_checker", "infer", "openjml")
 sheets = c("all_tools")
 

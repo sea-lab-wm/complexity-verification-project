@@ -1,4 +1,4 @@
-metric,dataset_id,metric_type,expected_cor,num_snippets_for_correlation,kendalls_tau,kendalls_p_value,expected_cor?,cor_intepretation,stat_significant?,pearsons_r,pearsons_p_value,fisher_z,fizher_z_sqrd_se
+metric,dataset_id,metric_type,expected_cor,num_snippets_for_correlation,kendalls_tau,kendalls_p_value,expected_cor?,cor_intepretation,stat_significant?,pearsons_r,pearsons_p_value,fisher_z,fisher_z_sqrd_se
 correct_output_rating,1,correctness,negative,23,-0.1707825127659933,0.3368221511559395,*,small,,-0.41429243031432733,0.049365530498764236,-0.39276639782022577,0.05
 output_difficulty,1,rating,negative,23,-0.2155727271443866,0.21897277919349822,*,small,,-0.516597858802503,0.011607544029599735,-0.4768375560536763,0.05
 time_to_give_output,1,time,positive,23,0.18217857500000703,0.2956465760209075,*,small,,0.5358741109686754,0.008400371793187455,0.49193335305828445,0.05

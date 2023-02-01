@@ -275,7 +275,7 @@ if __name__ == "__main__":
                 "pearsons_r": [r_corr],
                 "pearsons_p_value": [r_p_value],
                 "fisher_z" : [z_corr],
-                "fizher_z_sqrd_se": [z_sqrd_se]
+                "fisher_z_sqrd_se": [z_sqrd_se]
             }
             df_record = pd.DataFrame(record)
             tool_cor_data = pd.concat([tool_cor_data, df_record], ignore_index=True, axis=0)  
