@@ -21,6 +21,12 @@ library(ggpubr)
 
 library(metafor)
 
+if (!require("remotes")) {
+  install.packages("remotes")
+}
+remotes::install_github("MathiasHarrer/dmetar")
+library(dmetar)
+
 # Returns pearson's r for the given tau using Kendall's formula (1970)
 convert_to_pearson <- function(tau) {
   return(sin(0.5 * pi * tau))
@@ -34,6 +40,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
                             c('dataset_metric',
                               "num_snippets_for_correlation",
                               'dataset_id',
+                              'metric_id',
                               'metric',
                               'fisher_z',
                               'fizher_z_sqrd_se'))
@@ -41,6 +48,7 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
                             c('dataset_metric', 
                                "num_snippets_for_correlation",
                               'dataset_id',
+                              'metric_id',
                               'metric',
                               'fisher_z',
                               'fizher_z_sqrd_se'))
@@ -79,20 +87,43 @@ print_meta_analysis_overall <- function(data_in, sheet_in="all_tools", out_dir_i
 # Performs a correlation meta analysis on the given data and saves the forestplot to file
 print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name, chart_height=2.5, out_dir_in = ".") {
 
-  print(correlation_data)
+  #print(correlation_data)
   
   #run the meta analysis
-  meta_analysis_result <- rma.mv(
-    yi = fisher_z, # TODO: check name, should be the correlation column
-    V = fizher_z_sqrd_se, # TODO: check name
-    slab = dataset_metric,
-    data = correlation_data,
-    random = ~ 1 | dataset_id/metric,
-    test = "t",
-    method = "REML"
-  )
+  # meta_analysis_result <- rma.mv(
+  #   yi = fisher_z, # TODO: check name, should be the correlation column
+  #   V = fizher_z_sqrd_se, # TODO: check name
+  #   slab = dataset_metric,
+  #   data = correlation_data,
+  #   random = ~ 1 | dataset_id/metric_id,
+  #   test = "t",
+  #   method = "REML"
+  # )
   
+  correlation_data_escalc = escalc(yi = fisher_z,           # Effect size
+                                   sei = sqrt(fizher_z_sqrd_se),       # Standard error
+                                   data = correlation_data)
+  
+  correlation_data.agg <- aggregate(correlation_data_escalc, 
+                             cluster = dataset_id,
+                             rho = 0.6)
+  
+  print(correlation_data.agg)
+  
+
+  # run the meta analysis
+  meta_analysis_result <- rma.mv(
+      yi = fisher_z, # TODO: check name, should be the correlation column
+      V = fizher_z_sqrd_se, # TODO: check name
+      slab = dataset_id,
+      data = correlation_data.agg,
+      random = ~ 1 | dataset_id,
+      test = "t",
+      method = "REML"
+    )
   print(summary(meta_analysis_result))
+  
+  print(predict(meta_analysis_result, transf=transf.ztor, digits=2))
   
   # print(meta_analysis_result)
   # if(out_dir_in == ""){
@@ -111,7 +142,7 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
   par(mar=c(5,4,1,2))
   forest_plot <- forest(meta_analysis_result, showweights=TRUE,
                         xlim=c(-5,5),
-                        ylim=c(-2,23),
+                        ylim=c(-2,10),
                         cex=0.75)
   dev.off()
   # print(forest_plot)
@@ -257,6 +288,8 @@ run_meta_analysis <- function(data_file_in){
   #run the metanalysis for all the metric types
   # apply(metric_types_expected_cor, 1, function (metric_type_expected_cor){print_meta_analysis(all_data2, TRUE, metric_type_expected_cor[1], metric_type_expected_cor[2], sheet_in)})
 
+  all_data2$metric_id <- 1:nrow(all_data2)
+  
   #run overall meta-analyses
   print_meta_analysis_overall(all_data2)
 }
