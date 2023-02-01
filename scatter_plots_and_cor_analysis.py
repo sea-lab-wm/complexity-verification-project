@@ -81,12 +81,12 @@ if __name__ == "__main__":
     # timeout_approach = "_timeout_zero"
 
     #aggregate # of warnings (ablation)
-    # input_file = f"data/raw_correlation_data_ablation{timeout_approach}.csv"
-    # output_folder = f"scatter_plots_ablation{suffix_files}{timeout_approach}"
+    input_file = f"data/raw_correlation_data_ablation{timeout_approach}.csv"
+    output_folder = f"scatter_plots_ablation{suffix_files}{timeout_approach}"
 
     #aggregate # of warnings (sum)
-    input_file = f"data/raw_correlation_data{timeout_approach}.csv"
-    output_folder = f"scatter_plots{suffix_files}{timeout_approach}"
+    # input_file = f"data/raw_correlation_data{timeout_approach}.csv"
+    # output_folder = f"scatter_plots{suffix_files}{timeout_approach}"
 
     #aggregate # of warnings (avg)
     #input_file = f"data/raw_correlation_data_avg{timeout_approach}.csv"
