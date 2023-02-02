@@ -165,7 +165,7 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
   
   print("===============================")
   
-  path = paste(out_dir_in, "~/Research/complexity-verification/complexity-verification-project/forest-plot/", sep = "")
+  path = paste(out_dir_in, "../forest-plot/", sep = "")
   dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
 
   pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
@@ -255,16 +255,16 @@ run_meta_analysis <- function(data_file_in, name){
   print_meta_analysis_overall(all_data2, sheet_in = name)
 }
 
-data_file_all_tools = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/all_tools_corr_data.csv"
-data_file_infer = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/infer_corr_data.csv"
-data_file_checker_framework = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/checker_framework_corr_data.csv"
-data_file_typestate_checker = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/typestate_checker_corr_data.csv"
-data_file_openjml = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_timeout_max/openjml_corr_data.csv"
+data_file_all_tools = "../scatter_plots_timeout_max/all_tools_corr_data.csv"
+data_file_infer = "../scatter_plots_timeout_max/infer_corr_data.csv"
+data_file_checker_framework = "../scatter_plots_timeout_max/checker_framework_corr_data.csv"
+data_file_typestate_checker = "../scatter_plots_timeout_max/typestate_checker_corr_data.csv"
+data_file_openjml = "../scatter_plots_timeout_max/openjml_corr_data.csv"
 
-data_file_no_infer = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_ablation_timeout_max/no_infer_corr_data.csv"
-data_file_no_checker_framework = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_ablation_timeout_max/no_checker_framework_corr_data.csv"
-data_file_no_typestate_checker = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_ablation_timeout_max/no_typestate_checker_corr_data.csv"
-data_file_no_openjml = "~/Research/complexity-verification/complexity-verification-project/scatter_plots_ablation_timeout_max/no_openjml_corr_data.csv"
+data_file_no_infer = "../scatter_plots_ablation_timeout_max/no_infer_corr_data.csv"
+data_file_no_checker_framework = "../scatter_plots_ablation_timeout_max/no_checker_framework_corr_data.csv"
+data_file_no_typestate_checker = "../scatter_plots_ablation_timeout_max/no_typestate_checker_corr_data.csv"
+data_file_no_openjml = "../scatter_plots_ablation_timeout_max/no_openjml_corr_data.csv"
 
 run_meta_analysis(data_file_all_tools, "all_tools")
 run_meta_analysis(data_file_infer, "infer")
