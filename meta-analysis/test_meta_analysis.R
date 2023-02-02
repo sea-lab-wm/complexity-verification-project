@@ -1,5 +1,5 @@
 write.csv(time_correlation_data, 
-          "/Users/ojcchar/repositories/Projects/complexity-verification-project/test.csv"
+          "../test.csv"
           , row.names = FALSE)
 
 #----------------
@@ -65,7 +65,7 @@ print(meta_analysis_result_temp)
 #---------------
 
 
-path = "/Users/ojcchar/repositories/Projects/complexity-verification-project/"
+path = "../"
 dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
 png(file = paste(path, "test", "_forestplot.png", sep = ""), width = 1235, height = 575, res = 180)
 pdf(file = paste(path, "test", "_forestplot.pdf", sep = ""))
