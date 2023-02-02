@@ -45,7 +45,7 @@ public class ClassifierPerformanceEvaluatorCustomizer extends JPanel {
   private ModifyListener m_cpe;
   private ModifyListener m_parent;
 
-  //ADDED BY KOBI
+  //ADDED BY US
   public void runAll() {
     addButtons();
   }

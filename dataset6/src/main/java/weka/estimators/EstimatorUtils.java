@@ -32,7 +32,7 @@ import java.util.Enumeration;
  */
 public class EstimatorUtils implements RevisionHandler {
 
-  //ADDED BY KOBI
+  //ADDED BY US
   public void runAll() {
     try {
       getMinMax(new Instances(), 1, new double[5]);

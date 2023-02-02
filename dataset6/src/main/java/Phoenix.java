@@ -14,7 +14,7 @@ import org.apache.hbase.thirdparty.org.apache.commons.cli.*;
 import java.sql.SQLException;
 import java.util.List;
 
-//ADDED BY KOBI
+//ADDED BY US
 import java.util.ArrayList;
 
 public class Phoenix {
@@ -41,7 +41,7 @@ public class Phoenix {
     private Dummy sinkCounter;
     private Dummy serializer;
 
-    //ADDED BY KOBI
+    //ADDED BY US
     public void runAll() {
         try {
             doDropSchema(1, "schemaName", new byte[5], new ArrayList<Mutation>(), new ArrayList<ImmutableBytesPtr>());

@@ -32,7 +32,7 @@ public class CarReport {
     private ComboLineColumnChartView mAppBarLayout;
     private View mDbxClient;
 
-    //ADDED BY KOBI
+    //ADDED BY US
     public void runAll() {
         save();
         new SetupWebDavSyncDialogActivity().onCreate(new Bundle());

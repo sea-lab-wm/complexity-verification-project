@@ -32,7 +32,7 @@ public class Pom {
     private static org.jruby.ext.posix.POSIX jnaPosix;
     private boolean ignoreBase;
 
-    //ADDED BY KOBI
+    //ADDED BY US
     public void runAll() {
         new HealthReport(1, "iconUrl", new Localizable());
         new ViewJob()._getRuns();

@@ -25,7 +25,7 @@ public class Antlr4Master {
     private T[][] buckets;
     private Comparador comparator;
 
-    //ADDED BY KOBI
+    //ADDED BY US
     public void runAll() {
         try {
             new GrammarDependencies().analyze(new HashSet<File> (), new HashSet<File> (), new Tool());

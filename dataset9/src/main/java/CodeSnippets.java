@@ -30,7 +30,7 @@ import javax.servlet.http.Part;
 
 public class CodeSnippets {
 
-    //ADDED BY KOBI
+    //ADDED BY US
     public void runAll() {
         /*HttpServletRequest h = new HttpServletRequest() {
             @Override

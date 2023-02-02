@@ -14,8 +14,8 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.logging.*;     //CHANGED BY KOBI
-import java.util.Map.Entry;     //ADDED BY KOBI
+import java.util.logging.*;     //CHANGED BY US
+import java.util.Map.Entry;     //ADDED BY US
 
 /**
  * Note: method names were changed from 'main' to main + their task number
@@ -182,7 +182,7 @@ public class Tasks_2 {
 
     }
 
-    //ADDED BY KOBI
+    //ADDED BY US
     @SuppressWarnings("all")
     public void runAllSnippets() {
         /*------------------------------------------------------
@@ -779,13 +779,13 @@ public class Tasks_2 {
     } // Added to allow compilation
     //SNIPPETS_END
 
-    //ADDED BY KOBI
+    //ADDED BY US
     @SuppressWarnings("all")
     public @interface SuiteClasses {
         Class<?>[] value();
     }
 
-    //ADDED BY KOBI
+    //ADDED BY US
     @SuppressWarnings("all")
     private class None {
 
@@ -987,7 +987,7 @@ public class Tasks_2 {
             return new Annotation[0];
         }
 
-        //ADDED BY KOBI
+        //ADDED BY US
         @SuppressWarnings("all")
         public Test getAnnotation(Class <?> c) {
             return new Test();
@@ -1587,7 +1587,7 @@ public class Tasks_2 {
 
     @SuppressWarnings("all")
     private class Test {
-        //ADDED BY KOBI
+        //ADDED BY US
         public Class expected() {
             return null;
         }
