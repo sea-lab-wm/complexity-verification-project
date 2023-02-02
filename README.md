@@ -10,4 +10,6 @@ The key parts are:
 * the `tool-execution` folder, which contains the scripts we used to run the verifiers
 * the various gradle subprojects (`simple-datasets`, `dataset6`, `dataset9`), which contain the raw code snippets
 
-TODO: give more details about how to reproduce the experiments, and remove all the stuff that isn't really needed
+More details about how to run the verifiers/reproduce the results are given in the document `how-to-run-the-verifiers.pdf`.
+
+TODO: clean up this repo and remove everything that wasn't actually used in the paper
