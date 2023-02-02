@@ -1,5 +1,13 @@
 # Measuring code complexity via ease of verification
 This repo contains code, data, results, etc. of our project.
 
+The key parts are:
+* `correlation.py`: used to compute the individual correlations (i.e., RQ1 answers)
+* the `data/` folder, which contains the raw output of the verification tools,
+* the script `meta-analysis/metafor-based-meta-analysis.r`, which was used to compute the RQ2-4 results,
+* the `forest-plot/` folder, which contains forest plots for all meta-analyses (including those mentioned in but
+  elided from the paper)
+* the `tool-execution` folder, which contains the scripts we used to run the verifiers
+* the various gradle subprojects (`simple-datasets`, `dataset6`, `dataset9`), which contain the raw code snippets
 
-The project description is found here: [https://docs.google.com/document/d/1kkj1Mk4Hp2f0QnLIQ0oVjpjlbUus_BKNdOsFU3jVGEg/edit](https://docs.google.com/document/d/1kkj1Mk4Hp2f0QnLIQ0oVjpjlbUus_BKNdOsFU3jVGEg/edit)
+TODO: give more details about how to reproduce the experiments, and remove all the stuff that isn't really needed
