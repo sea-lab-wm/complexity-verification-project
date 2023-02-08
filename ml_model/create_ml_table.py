@@ -33,9 +33,7 @@ def read_dataset_1_metrics() -> pd.DataFrame:
     dict_df = {
         "dataset_id": [],
         "snippet_id": [],
-        "person_id": [],
-        "metric_id": [],
-        "metric": []
+        "person_id": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -66,8 +64,7 @@ def read_dataset_1_metrics() -> pd.DataFrame:
                     "dataset_id": ["1"],
                     "snippet_id": [column_index.split("::")[0]],
                     "person_id": [row_index],
-                    "metric_id": [metric_id],
-                    "metric": [value]
+                    metric_id: [value]
                 }
             df_record = pd.DataFrame(record)
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -85,9 +82,7 @@ def read_dataset_2_metrics() -> pd.DataFrame:
     dict_df = {
         "dataset_id": [],
         "snippet_id": [],
-        "person_id": [],
-        "metric_id": [],
-        "metric": []
+        "person_id": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -102,28 +97,9 @@ def read_dataset_2_metrics() -> pd.DataFrame:
                     "dataset_id": ["2"],
                     "snippet_id": [row[0]],
                     "person_id": [p],
-                    "metric_id": ["brain_deact_31ant"],
-                    "metric": [row[3]]
-                }
-            df_record = pd.DataFrame(record)
-            data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-            record = {
-                    "dataset_id": ["2"],
-                    "snippet_id": [row[0]],
-                    "person_id": [p],
-                    "metric_id": ["brain_deact_31post"],
-                    "metric": [row[2]]
-                }
-            df_record = pd.DataFrame(record)
-            data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-            record = {
-                    "dataset_id": ["2"],
-                    "snippet_id": [row[0]],
-                    "person_id": [p],
-                    "metric_id": ["brain_deact_32"],
-                    "metric": [row[1]]
+                    "brain_deact_31ant": [row[3]],
+                    "brain_deact_31post": [row[2]],
+                    "brain_deact_32": [row[1]]
                 }
             df_record = pd.DataFrame(record)
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -136,8 +112,7 @@ def read_dataset_2_metrics() -> pd.DataFrame:
                     "dataset_id": ["2"],
                     "snippet_id": [column_index],
                     "person_id": [row_index],
-                    "metric_id": ["time_to_understand"],
-                    "metric": [value]
+                    "time_to_understand": [value]
                 }
             df_record = pd.DataFrame(record)
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -152,9 +127,7 @@ def read_dataset_3_metrics() -> pd.DataFrame:
     dict_df = {
         "dataset_id": [],
         "snippet_id": [],
-        "person_id": [],
-        "metric_id": [],
-        "metric": []
+        "person_id": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -167,10 +140,9 @@ def read_dataset_3_metrics() -> pd.DataFrame:
         for column_index, value in row.items():
             record = {
                     "dataset_id": ["3"],
-                    "snippet_id": [column_index],
+                    "snippet_id": [column_index - 1],
                     "person_id": [row_index],
-                    "metric_id": ["readability_level"],
-                    "metric": [value]
+                    "readability_level": [value]
                 }
             df_record = pd.DataFrame(record)
             data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -186,9 +158,7 @@ def read_dataset_6_metrics() -> pd.DataFrame:
     dict_df = {
         "dataset_id": [],
         "snippet_id": [],
-        "person_id": [],
-        "metric_id": [],
-        "metric": []
+        "person_id": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -203,28 +173,9 @@ def read_dataset_6_metrics() -> pd.DataFrame:
                 "dataset_id": ["6"],
                 "snippet_id": [row[1]],
                 "person_id": [row[0]],
-                "metric_id": ["binary_understandability"],
-                "metric": [row[2]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": ["6"],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["time_to_understand"],
-                "metric": [row[3]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": ["6"],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["correct_verif_questions"],
-                "metric": [row[4]]
+                "binary_understandability": [row[2]],
+                "time_to_understand": [row[3]],
+                "correct_verif_questions": [row[4]]
             }
         df_record = pd.DataFrame(record)
         data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -240,9 +191,7 @@ def read_dataset_9_metrics() -> pd.DataFrame:
     dict_df = {
         "dataset_id": [],
         "snippet_id": [],
-        "person_id": [],
-        "metric_id": [],
-        "metric": []
+        "person_id": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -268,38 +217,10 @@ def read_dataset_9_metrics() -> pd.DataFrame:
                 "dataset_id": [dataset_id],
                 "snippet_id": [row[1]],
                 "person_id": [row[0]],
-                "metric_id": ["gap_accuracy"],
-                "metric": [row[6]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": [dataset_id],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["readability_level_ba"],
-                "metric": [row[2] + row[3]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": [dataset_id],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["readability_level_before"],
-                "metric": [row[2]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": [dataset_id],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["time_to_read_complete"],
-                "metric": [row[4] + row[5]]
+                "gap_accuracy": [row[6]],
+                "readability_level_ba": [row[2] + row[3]],
+                "readability_level_before": [row[2]],
+                "time_to_read_complete": [row[4] + row[5]]
             }
         df_record = pd.DataFrame(record)
         data = pd.concat([data, df_record], ignore_index=True, axis=0)
@@ -315,9 +236,7 @@ def read_dataset_f_metrics() -> pd.DataFrame:
     dict_df = {
         "dataset_id": [],
         "snippet_id": [],
-        "person_id": [],
-        "metric_id": [],
-        "metric": []
+        "person_id": []
     }
     data = pd.DataFrame(dict_df)
 
@@ -356,48 +275,11 @@ def read_dataset_f_metrics() -> pd.DataFrame:
                 "dataset_id": ["f"],
                 "snippet_id": [row[1]],
                 "person_id": [row[0]],
-                "metric_id": ["perc_correct_output"],
-                "metric": [row[2]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": ["f"],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["time_to_understand"],
-                "metric": [float(row[3]) / 1000]    # Converting from milliseconds to seconds
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": ["f"],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["complexity_level"],
-                "metric": [row[4]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": ["f"],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["brain_deact_31"],
-                "metric": [row[5]]
-            }
-        df_record = pd.DataFrame(record)
-        data = pd.concat([data, df_record], ignore_index=True, axis=0)
-
-        record = {
-                "dataset_id": ["f"],
-                "snippet_id": [row[1]],
-                "person_id": [row[0]],
-                "metric_id": ["brain_deact_32"],
-                "metric": [row[6]]
+                "perc_correct_output": [row[2]],
+                "time_to_understand": [float(row[3]) / 1000],    # Converting from milliseconds to seconds
+                "complexity_level": [row[4]],
+                "brain_deact_31": [row[5]],
+                "brain_deact_32": [row[6]]
             }
         df_record = pd.DataFrame(record)
         data = pd.concat([data, df_record], ignore_index=True, axis=0)
