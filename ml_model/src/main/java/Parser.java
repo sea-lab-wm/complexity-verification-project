@@ -3,6 +3,7 @@ import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.github.javaparser.ast.CompilationUnit;
 
+import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.expr.BooleanLiteralExpr;
@@ -16,11 +17,12 @@ import java.util.List;
 
 public class Parser {
     
-    private static final String FILE_PATH = "src/main/java/ReversePolishNotation.java";
+    private static final String FILE_PATH = "ml_model/src/main/java/ReversePolishNotation.java";
 
     private static CompilationUnit cu;
 
     public static void main(String[] args) throws Exception {
+        /*
         cu = StaticJavaParser.parse(new FileInputStream(FILE_PATH));
 
         List<Integer> methodNames = new ArrayList<>();
@@ -52,16 +54,56 @@ public class Parser {
         VoidVisitor<List<Integer>> ileCollector = new IntegerLiteralExprCollector();
         ileCollector.visit(cu, ile);
         ile.forEach(n -> System.out.println("Conditional Collected: " + n));
+        */
+
+        ParseFile(FILE_PATH);
     }
 
-    private static class MethodNameCollector extends VoidVisitorAdapter<List<Integer>> {
+    /*
+     * Parses a given file. Splits the file up by block statements (defined as anything between {}).
+     * Determines which block statements represent a snippet (can be classes or methods). -> Assumes each snippet contains a comment identifying it directly above the method or class declaration.
+     * Parses each snippet block individually for all features.
+     * 
+     * @return not sure
+     */
+    private static void ParseFile(String file_path) throws Exception {
+        cu = StaticJavaParser.parse(new FileInputStream("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java"));
+        //cu = StaticJavaParser.parse(new FileInputStream("ml_model/src/main/java/Test.java"));
+        //cu = StaticJavaParser.parse(new FileInputStream(file_path));
+
+        List<MethodDeclaration> methodNames = new ArrayList<>();
+        VoidVisitor<List<MethodDeclaration>> methodNameCollector = new MethodNameCollector();
+        methodNameCollector.visit(cu, methodNames);
+        //methodNames.forEach(n -> System.out.println("Method Name Collected at Line: " + n));
+
+        for (MethodDeclaration md : methodNames) {
+            //if (md.getBody().toString())
+            CompilationUnit cu_md = StaticJavaParser.parse(md.getBody().toString());
+            System.out.println(md.getBody().toString());
+
+            List<String> ifs = new ArrayList<>();
+            VoidVisitor<List<String>> ifsCollector = new IfsCollector();
+            ifsCollector.visit(cu_md, ifs);
+            ifs.forEach(n -> System.out.println("Conditional Collected: " + n));
+        }
+    }
+
+    /*
+     * Features
+     */
+
+    //
+    private static class MethodNameCollector extends VoidVisitorAdapter<List<MethodDeclaration>> {
 
         @Override
-        public void visit(MethodDeclaration md, List<Integer> collector) {
+        public void visit(MethodDeclaration md, List<MethodDeclaration> collector) {
             super.visit(md, collector);
 
-            int startLineNum = md.getRange().get().begin.line;
-            collector.add(startLineNum);
+            //int startLineNum = md.getRange().get().begin.line;
+            //collector.add(startLineNum);
+
+            if (md.getComment().toString().contains("SNIPPET_STARTS"))
+                collector.add(md);
         }
     }
 
