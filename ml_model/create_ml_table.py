@@ -16,9 +16,13 @@ def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
 
     data["num_warnings"] = df.sum(axis=1, numeric_only=True).tolist()
 
-    new = df["Snippet"].str.split("--", expand=True)
+    new = df["Snippet"].str.split("--", expand=True, n=1)
+
     data["dataset_id"] = new[0]
     data["snippet_id"] = new[1]
+
+    data.dataset_id = [d.strip() for d in data.dataset_id]
+    data.snippet_id = [s.strip() for s in data.snippet_id]
 
     data = data.assign(tool=tool)
 
@@ -62,7 +66,7 @@ def read_dataset_1_metrics() -> pd.DataFrame:
 
             record = {
                     "dataset_id": ["1"],
-                    "snippet_id": [column_index.split("::")[0]],
+                    "snippet_id": [column_index.split("::")[0].strip()],
                     "person_id": [row_index],
                     metric_id: [value]
                 }
@@ -168,10 +172,10 @@ def read_dataset_6_metrics() -> pd.DataFrame:
     df_cols = df.iloc[:, [0, 2, 123, 124, 125]]
 
     # loops through each row of data, creating a new record for each metric in that row separatly
-    for _, row in df_cols.iterrows():
+    for i, row in df_cols.iterrows():
         record = {
                 "dataset_id": ["6"],
-                "snippet_id": [row[1]],
+                "snippet_id": [f"{i} -- {row[1]}"],
                 "person_id": [row[0]],
                 "binary_understandability": [row[2]],
                 "time_to_understand": [row[3]],
@@ -315,19 +319,12 @@ if __name__ == "__main__":
     metric_df = pd.concat(metric_data, ignore_index=True)
     len_check = len(metric_df.index)
 
-    all_data = pd.merge(
-        metric_df.assign(
-            dataset_id=metric_df.dataset_id.astype(str), 
-            snippet_id=metric_df.snippet_id.astype(str)), 
-        warning_df.assign(
-            dataset_id=warning_df.dataset_id.astype(str), 
-            snippet_id=warning_df.snippet_id.astype(str)), 
-        on=["dataset_id", "snippet_id"])
+    all_data = pd.merge(metric_df, warning_df, on=["dataset_id", "snippet_id"])
 
     print(all_data)
 
-    #if len_check != len(all_data.index):
-    #    raise Exception("create_ml_table: length mismatch.")
+    if len_check != len(all_data.index):
+        raise Exception("create_ml_table: length mismatch.")
 
 
     #print(all_data)
