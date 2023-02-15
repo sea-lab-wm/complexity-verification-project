@@ -16,7 +16,7 @@ def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
 
     data["num_warnings"] = df.sum(axis=1, numeric_only=True).tolist()
 
-    new = df["Snippet"].str.split("--", expand = True)
+    new = df["Snippet"].str.split("--", expand=True)
     data["dataset_id"] = new[0]
     data["snippet_id"] = new[1]
 
@@ -310,7 +310,25 @@ if __name__ == "__main__":
     metric_data.append(read_dataset_6_metrics())
     metric_data.append(read_dataset_9_metrics())
     metric_data.append(read_dataset_f_metrics())
-    metric_df = pd.concat(metric_data, ignore_index=True)
 
-    print(metric_df)
-    metric_df.to_csv("ml_model/metric_data.csv")
+    warning_df = pd.concat(warning_data, ignore_index=True)
+    metric_df = pd.concat(metric_data, ignore_index=True)
+    len_check = len(metric_df.index)
+
+    all_data = pd.merge(
+        metric_df.assign(
+            dataset_id=metric_df.dataset_id.astype(str), 
+            snippet_id=metric_df.snippet_id.astype(str)), 
+        warning_df.assign(
+            dataset_id=warning_df.dataset_id.astype(str), 
+            snippet_id=warning_df.snippet_id.astype(str)), 
+        on=["dataset_id", "snippet_id"])
+
+    print(all_data)
+
+    #if len_check != len(all_data.index):
+    #    raise Exception("create_ml_table: length mismatch.")
+
+
+    #print(all_data)
+    #all_data.to_csv("ml_model/metric_data.csv")
