@@ -5,5 +5,7 @@ public class Parser_New {
     public static void main(String[] args) {
         File projectDir = new File(FILE_PATH);
         FeatureExtractor.listIfStatements(projectDir);
+        FeatureExtractor.listParameters(projectDir);
+        FeatureExtractor.listLoopStatements(projectDir);
     }
 }
