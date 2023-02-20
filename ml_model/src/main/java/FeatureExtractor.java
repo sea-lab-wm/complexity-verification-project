@@ -19,6 +19,10 @@ public class FeatureExtractor {
 
     public static class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
+        private static final String NUM_OF_PARAMETERS = "#parameters";
+        private static final String IF_STATEMENTS = "ifStmts";
+        private static final String LOOPS = "loops";
+
         // keep all the features
         Map<String,Object> features = new HashMap<>();
 
@@ -38,18 +42,6 @@ public class FeatureExtractor {
 
                 // get #parameters of method
                 numOfParameters = md.getParameters().size();
-
-                md.getBody().get().getStatements().forEach(s -> {
-                    if (s.isIfStmt()) {
-                        visit(s.asIfStmt(), arg);
-                    }
-                    if (s.isForStmt()) {
-                        visit(s.asForStmt(), arg);
-                    }
-                    if (s.isWhileStmt()) {
-                        visit(s.asWhileStmt(), arg);
-                    }
-                });
             }
         }
 
@@ -72,9 +64,9 @@ public class FeatureExtractor {
         }
 
         public Map<String,Object> getFeatures() {
-            features.put("#parameters", numOfParameters);
-            features.put("ifStmts", ifStatements);
-            features.put("loops", loops);
+            features.put(NUM_OF_PARAMETERS, numOfParameters);
+            features.put(IF_STATEMENTS, ifStatements);
+            features.put(LOOPS, loops);
             return features;
         }
     }
@@ -98,10 +90,13 @@ public class FeatureExtractor {
             // Uncomment If need to get the  individual features list
             // features = featureVisitor.getFeatures();
 
+            System.out.println(file.getName());
+            System.out.println("Number of if statements: "+featureVisitor.ifStatements.size());
+            System.out.println("Number of loops: "+featureVisitor.loops.size());
+
         }).explore(projectDir);
 
-        System.out.println("Number of if statements: "+featureVisitor.ifStatements.size());
-        System.out.println("Number of loops: "+featureVisitor.loops.size());
+        
     }
 
 }
