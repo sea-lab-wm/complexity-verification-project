@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
     """Returns a dataframe where each entry is a dataset, snippet, and number of warnings from a single tool."""
@@ -6,15 +7,14 @@ def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
     dict_df = {
         "dataset_id":[],
         "snippet_id":[],
-        "tool": [],
-        "num_warnings":[]
+        f"warnings_{tool}":[]
     }
 
     data = pd.DataFrame(dict_df)
 
     df = pd.read_csv(file_path)
 
-    data["num_warnings"] = df.sum(axis=1, numeric_only=True).tolist()
+    data[f"warnings_{tool}"] = df.sum(axis=1, numeric_only=True).tolist()
 
     new = df["Snippet"].str.split("--", expand=True, n=1)
 
@@ -23,8 +23,6 @@ def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
 
     data.dataset_id = [d.strip() for d in data.dataset_id]
     data.snippet_id = [s.strip() for s in data.snippet_id]
-
-    data = data.assign(tool=tool)
 
     return data
 
@@ -67,7 +65,7 @@ def read_dataset_1_metrics() -> pd.DataFrame:
             record = {
                     "dataset_id": ["1"],
                     "snippet_id": [column_index.split("::")[0].strip()],
-                    "person_id": [row_index],
+                    "person_id": [row_index + 1],
                     metric_id: [value]
                 }
             df_record = pd.DataFrame(record)
@@ -99,7 +97,7 @@ def read_dataset_2_metrics() -> pd.DataFrame:
         for p in range(1, 17):
             record = {
                     "dataset_id": ["2"],
-                    "snippet_id": [row[0]],
+                    "snippet_id": [row[0].split("_")[0]],
                     "person_id": [p],
                     "brain_deact_31ant": [row[3]],
                     "brain_deact_31post": [row[2]],
@@ -114,7 +112,7 @@ def read_dataset_2_metrics() -> pd.DataFrame:
         for column_index, value in row.items():
             record = {
                     "dataset_id": ["2"],
-                    "snippet_id": [column_index],
+                    "snippet_id": [column_index.split("_")[0]],
                     "person_id": [row_index],
                     "time_to_understand": [value]
                 }
@@ -144,8 +142,8 @@ def read_dataset_3_metrics() -> pd.DataFrame:
         for column_index, value in row.items():
             record = {
                     "dataset_id": ["3"],
-                    "snippet_id": [column_index - 1],
-                    "person_id": [row_index],
+                    "snippet_id": [str(column_index - 1)],
+                    "person_id": [row_index + 1],
                     "readability_level": [value]
                 }
             df_record = pd.DataFrame(record)
@@ -166,16 +164,19 @@ def read_dataset_6_metrics() -> pd.DataFrame:
     }
     data = pd.DataFrame(dict_df)
 
-    df = pd.read_csv("data/cog_dataset_6.csv")
+    df = pd.read_csv("data/metric_sheets_with_snippet_names/cog_dataset_6_with_snippet_names.csv")
 
     # Simplifies down to only the necessary data
-    df_cols = df.iloc[:, [0, 2, 123, 124, 125]]
+    df_cols = df.iloc[:, [0, 2, 124, 125, 126]]
+    print(df_cols)
 
+    tmpcount = 0
     # loops through each row of data, creating a new record for each metric in that row separatly
-    for i, row in df_cols.iterrows():
+    for _, row in df_cols.iterrows():
+        tmpcount += 1
         record = {
                 "dataset_id": ["6"],
-                "snippet_id": [f"{i} -- {row[1]}"],
+                "snippet_id": [row[1]],
                 "person_id": [row[0]],
                 "binary_understandability": [row[2]],
                 "time_to_understand": [row[3]],
@@ -184,6 +185,7 @@ def read_dataset_6_metrics() -> pd.DataFrame:
         df_record = pd.DataFrame(record)
         data = pd.concat([data, df_record], ignore_index=True, axis=0)
 
+    print(tmpcount)
     return data
 
 def read_dataset_9_metrics() -> pd.DataFrame:
@@ -204,8 +206,14 @@ def read_dataset_9_metrics() -> pd.DataFrame:
     # Simplifies down to only the necessary data
     df_cols = df.iloc[:520, [0, 18, 24, 61, 81, 82, 85]]
 
+    j = 0
+    prev = None
     # loops through each row of data, creating a new record for each metric in that row separatly
     for _, row in df_cols.iterrows():
+        if prev != row[1].split(":")[0].split("_")[1]:
+            j += 1
+            prev = row[1].split(":")[0].split("_")[1]
+
         # determines if the current row represents a snippet with good comments, bad comments, or no comments.
         dataset_id = None
         if "1" in row[1].split(":")[1]:
@@ -219,7 +227,7 @@ def read_dataset_9_metrics() -> pd.DataFrame:
 
         record = {
                 "dataset_id": [dataset_id],
-                "snippet_id": [row[1]],
+                "snippet_id": [str(j)],
                 "person_id": [row[0]],
                 "gap_accuracy": [row[6]],
                 "readability_level_ba": [row[2] + row[3]],
@@ -249,7 +257,7 @@ def read_dataset_f_metrics() -> pd.DataFrame:
 
     df_behavioral = pd.read_csv("data/fmri_dataset_behavioral.csv")
     df_subjective = pd.read_csv("data/fmri_dataset_subjective.csv")
-    combined = pd.merge(df_behavioral, df_subjective, on=["Participant", "Snippet"])
+    combined = pd.merge(df_behavioral, df_subjective, on=["Participant", "Snippet"], how="left")
 
     def convert_phsyiological(row: pd.Series, mode: str ):  # mode = "BA31" OR "BA32"
         """Gets the physiological metric that corresponds to the given snippet name in 'row'.
@@ -273,11 +281,17 @@ def read_dataset_f_metrics() -> pd.DataFrame:
     # Simplifies down to only the necessary data
     df_cols = combined.iloc[:, [0, 3, 7, 12, 14, 15, 16]]
 
+    j = 0
+    prev = None
     # loops through each row of data, creating a new record for each metric in that row separatly
     for _, row in df_cols.iterrows():
+        if prev != row[1]:
+            j += 1
+            prev = row[1]
+
         record = {
                 "dataset_id": ["f"],
-                "snippet_id": [row[1]],
+                "snippet_id": [f"{j} -- {row[1]}"],
                 "person_id": [row[0]],
                 "perc_correct_output": [row[2]],
                 "time_to_understand": [float(row[3]) / 1000],    # Converting from milliseconds to seconds
@@ -303,9 +317,6 @@ if __name__ == "__main__":
     for name, file in warning_data_files.items():
         warning_data.append(get_num_warnings(file, name))
 
-    # Add a set of data where all tools are combined
-    warning_data.append(pd.concat(warning_data))
-
     # read and combine all metric data
     metric_data = []
     metric_data.append(read_dataset_1_metrics())
@@ -316,16 +327,35 @@ if __name__ == "__main__":
     metric_data.append(read_dataset_f_metrics())
 
     warning_df = pd.concat(warning_data, ignore_index=True)
+    warning_df.to_csv("ml_model/test_warning_df.csv")
     metric_df = pd.concat(metric_data, ignore_index=True)
-    len_check = len(metric_df.index)
+    metric_df.to_csv("ml_model/test_metric_df.csv")
 
-    all_data = pd.merge(metric_df, warning_df, on=["dataset_id", "snippet_id"])
+    # Combine rows with duplicate keys
+    metric_df = metric_df.replace('', np.nan).groupby(["dataset_id", "snippet_id", "person_id"]).first().reset_index()
+    warning_df = warning_df.replace('', np.nan).groupby(["dataset_id", "snippet_id"]).first().reset_index()
 
-    print(all_data)
+    # Merge the two dataframes
+    all_df = pd.merge(metric_df, warning_df, on=["dataset_id", "snippet_id"], how="left")
 
-    if len_check != len(all_data.index):
+    # Fill empty warning cells with zeros
+    all_df.update(all_df[["warnings_checker_framework", "warnings_typestate_checker", "warnings_infer", "warnings_openjml"]].fillna(0))
+
+    # Create column for the sum of warnings across all tools
+    all_df["warning_sum"] = all_df["warnings_checker_framework"] + all_df["warnings_typestate_checker"] + all_df["warnings_infer"] + all_df["warnings_openjml"]
+
+    print(all_df)
+
+    # Number of total metrics we should be getting per dataset
+    # ds 1: 23 * 41 = 943
+    # ds 2: 12 * 16 = 192
+    # ds 3: 100 * 121 = 12,100
+    # ds 6: 444 but there are some duplicates so it merges to 437
+    # ds 9: 520
+    # ds f: 19 * 16 = 304
+    # total: 14,496
+
+    if len(all_df.index) != 14496:
         raise Exception("create_ml_table: length mismatch.")
 
-
-    #print(all_data)
-    #all_data.to_csv("ml_model/metric_data.csv")
+    all_df.to_csv("ml_model/metric_data.csv")
