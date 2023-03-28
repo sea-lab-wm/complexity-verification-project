@@ -1,8 +1,8 @@
 package data;
 
-public class TestSnippet_1 {
+public class TestSnippet_2 {
 
-    public void TestLoops(int x, int y){
+    public void TestLoops(int x, int y, int z){
         for (int i=0; i< 10; i++){
             System.out.println("single_for");
         }
@@ -26,24 +26,8 @@ public class TestSnippet_1 {
             }
         }
 
-        int i1 = 0;
-        while (i1<10){
-            for (int i2=0 ; i2<10l; i2++){
-                System.out.println("nested_while_for");
-                for (i1 = 1; i1<5 ;i1++) {
-                    System.out.println("nested_while_for_depth");
-                }
-            }
-        }
-
         if (true) {
             System.out.println("single_if");
-        }
-
-        if (true) {
-            if (true) {
-                System.out.println("nested_if");
-            }
         }
 
         if (true) {
