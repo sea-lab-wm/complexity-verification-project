@@ -1,4 +1,4 @@
-package FeatureExtraction;
+package edu.wm.sealab.featureextraction;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,16 +6,20 @@ import java.io.FileNotFoundException;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
-import FeatureExtraction.FeatureExtractor.FeatureVisitor;
+import edu.wm.sealab.featureextraction.FeatureExtractor.FeatureVisitor;
 
 public class Parser {
     public static void main(String[] args) {
         
         FeatureExtractor featureExtractor = new FeatureExtractor();
-        
-        String dirPath = args[1];
+
+        if (args.length != 1) {
+            System.out.println("Usage: java Parser <project_dir>");
+            System.exit(1);
+        }
+        String dirPath = args[0];
         File projectDir = new File(dirPath);
-        
+
         new DirExplorer((level, path, file) -> path.endsWith(".java"), (level, path, file) -> {
             FeatureVisitor featureVisitor = featureExtractor.new FeatureVisitor();
             CompilationUnit cu = null;
@@ -28,6 +32,6 @@ public class Parser {
 
             // TODO: Add the extracted features to the CSV file
 
-        }).explore(projectDir); 
+        }).explore(projectDir);
     }
 }
