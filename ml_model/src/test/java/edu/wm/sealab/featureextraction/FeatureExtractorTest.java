@@ -1,7 +1,10 @@
-package FeatureExtraction;
+package edu.wm.sealab.featureextraction;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+
+import edu.wm.sealab.featureextraction.FeatureExtractor.FeatureVisitor;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FeatureExtractorTest {
 
-    private FeatureExtractor.FeatureVisitor featureVisitor;
+    private FeatureVisitor featureVisitor;
 
     final int NUM_OF_LOOP_STATEMENTS = 9;
     final int NUM_OF_IF_STATEMENTS = 6;
@@ -20,7 +23,10 @@ public class FeatureExtractorTest {
 
     @BeforeEach
     public void setup(){
-        File file = new File(getClass().getResource("/data/TestSnippet_1.java").getFile());
+
+        String path = "src/test/resources/data";       
+        File file = new File(path + "/TestSnippet_1.java");
+
         CompilationUnit cu = null;
         try {
             cu = StaticJavaParser.parse(file);

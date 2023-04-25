@@ -1,4 +1,4 @@
-package FeatureExtraction;
+package edu.wm.sealab.featureextraction;
 
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.stmt.ForStmt;
