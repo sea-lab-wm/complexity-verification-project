@@ -16,12 +16,26 @@ def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
 
     data[f"warnings_{tool}"] = df.sum(axis=1, numeric_only=True).tolist()
 
-    new = df["Snippet"].str.split("--", expand=True, n=1)
+    new = df["Snippet"].str.split("--", expand=True)
 
     data["dataset_id"] = new[0]
-    data["snippet_id"] = new[1]
-
     data.dataset_id = [d.strip() for d in data.dataset_id]
+
+    snippet_ids = [row[1] if row[2] is None else f"{row[1].strip()}-{row[2].strip()}" for row_index, row in new.iterrows()]
+    data["snippet_id"] = snippet_ids
+
+    # Remove number from dataset f entries due to issue where they are read in different order from the JavaParser
+    print(data)
+    new_snippet_ids = []
+    for row_index, row in data.iterrows():
+        if row[0] == "f":
+            print("test")
+            new_snippet_ids.append(row[1].split("-")[1])
+        else:
+            new_snippet_ids.append(row[1])
+
+    data["snippet_id"] = new_snippet_ids
+    
     data.snippet_id = [s.strip() for s in data.snippet_id]
 
     return data
@@ -174,9 +188,11 @@ def read_dataset_6_metrics() -> pd.DataFrame:
     # loops through each row of data, creating a new record for each metric in that row separatly
     for _, row in df_cols.iterrows():
         tmpcount += 1
+        snip_name = row[1].split("--")
+        snip_name = str(snip_name[0]).strip() + "-" + str(snip_name[1]).strip()
         record = {
                 "dataset_id": ["6"],
-                "snippet_id": [row[1]],
+                "snippet_id": [snip_name],
                 "person_id": [row[0]],
                 "binary_understandability": [row[2]],
                 "time_to_understand": [row[3]],
@@ -291,7 +307,7 @@ def read_dataset_f_metrics() -> pd.DataFrame:
 
         record = {
                 "dataset_id": ["f"],
-                "snippet_id": [f"{j} -- {row[1]}"],
+                "snippet_id": [row[1]],
                 "person_id": [row[0]],
                 "perc_correct_output": [row[2]],
                 "time_to_understand": [float(row[3]) / 1000],    # Converting from milliseconds to seconds
@@ -358,4 +374,4 @@ if __name__ == "__main__":
     if len(all_df.index) != 14496:
         raise Exception("create_ml_table: length mismatch.")
 
-    all_df.to_csv("ml_model/metric_data.csv")
+    all_df.to_csv("ml_model/metric_data.csv", index=False)
