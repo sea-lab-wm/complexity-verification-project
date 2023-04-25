@@ -114,12 +114,12 @@ public class HibernateORM {
         }
     }
 
-    //SNIPPET_STARTS
     public class TimesTenDialect extends Dialect {
         // org.hibernate.dialect.TimesTenDialect.TimesTenDialect()
         /**
          * Constructs a TimesTenDialect
          */
+        //SNIPPET_STARTS
         public TimesTenDialect() {
             super();
             registerColumnType(Types.BIT, "TINYINT");

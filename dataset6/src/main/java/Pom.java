@@ -40,7 +40,6 @@ public class Pom {
         limit(null, null);
     }
 
-    //SNIPPET_STARTS
     public class HealthReport implements Serializable, Comparable<HealthReport> {
         private String iconClassName;
         private int score;
@@ -72,6 +71,7 @@ public class Pom {
          *                    will replace /32x32/ in the path with the appropriate size.
          * @param description The health icon's tool-tip.
          */
+        //SNIPPET_STARTS
         public HealthReport(int score, String iconUrl, Localizable description) {
             this.score = score;
             if (score <= 20) {
@@ -105,9 +105,9 @@ public class Pom {
         }
     }
 
-    //SNIPPET_STARTS
     private class ViewJob {
         // hudson.model.ViewJob._getRuns()
+        //SNIPPET_STARTS
         protected SortedMap<Integer,RunT> _getRuns() {
             if(notLoaded || runs==null) {
                 // if none is loaded yet, do so immediately.

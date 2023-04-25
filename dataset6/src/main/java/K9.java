@@ -148,7 +148,6 @@ public class K9 {
         }
     }
 
-    //SNIPPET_STARTS
     public class StorageManager {
         private final Context context;
         // com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
@@ -157,6 +156,7 @@ public class K9 {
          * @param context Never <code>null</code>.
          * @throws NullPointerException If <tt>context</tt> is <code>null</code>.
          */
+        //SNIPPET_STARTS
         protected StorageManager(final Context context) throws NullPointerException {
             if (context == null) {
                 throw new NullPointerException("No Context given");
