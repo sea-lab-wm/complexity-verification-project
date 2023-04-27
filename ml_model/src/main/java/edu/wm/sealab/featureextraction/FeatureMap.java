@@ -1,8 +1,9 @@
 package edu.wm.sealab.featureextraction;
 
-import lombok.Data;
+//import lombok.Data;
 
-public @Data class FeatureMap {
+//public @Data class FeatureMap {
+public class FeatureMap {
    
     // feature 1: #parameters of method
     private  int numOfParameters = 0;
@@ -53,7 +54,7 @@ public @Data class FeatureMap {
     public int getNumOfLoops() {
         return numOfLoops;
     }
-    
+
     public void setNumOfLoops(int numOfLoops) {
         this.numOfLoops = numOfLoops;
     }

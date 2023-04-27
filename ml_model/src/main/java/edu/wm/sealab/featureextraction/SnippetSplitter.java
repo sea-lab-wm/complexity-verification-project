@@ -1,4 +1,4 @@
-package FeatureExtraction;
+package edu.wm.sealab.featureextraction;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -46,14 +46,24 @@ public class SnippetSplitter {
             e.printStackTrace();
         }
 
+        // Recreate the directories
+        //try {
+        //    Files.createDirectories(Paths.get("/Your/Path/Here"));
+        //} catch (IOException e) {
+        //    e.printStackTrace();
+        //}
+
         // Copy the manually created files into the output directory
         new DirExplorer((level, path, file) -> path.endsWith(".java"), (level, path, file) -> {
             String snippet = file.getName();
             manuallyCreatedSnippets.add(snippet);
 
             try {
+                Files.createDirectories(Paths.get(OUTPUT_DIR + path.substring(0, path.lastIndexOf("/"))));
                 Files.copy(Paths.get(manualInputDir + path), Paths.get(OUTPUT_DIR + path), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
+                System.out.println(Paths.get(manualInputDir + path).toString());
+                System.out.println(Paths.get(OUTPUT_DIR + path).toString());
                 e.printStackTrace();
             }
         }).explore(new File(manualInputDir));      

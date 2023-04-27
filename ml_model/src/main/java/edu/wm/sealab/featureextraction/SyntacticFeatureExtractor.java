@@ -1,4 +1,4 @@
-package FeatureExtraction;
+package edu.wm.sealab.featureextraction;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

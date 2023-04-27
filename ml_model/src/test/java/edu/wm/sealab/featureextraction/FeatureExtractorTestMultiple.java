@@ -1,4 +1,4 @@
-package FeatureExtraction;
+package edu.wm.sealab.featureextraction;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;

@@ -29,7 +29,6 @@ def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
     new_snippet_ids = []
     for row_index, row in data.iterrows():
         if row[0] == "f":
-            print("test")
             new_snippet_ids.append(row[1].split("-")[1])
         else:
             new_snippet_ids.append(row[1])
@@ -182,7 +181,6 @@ def read_dataset_6_metrics() -> pd.DataFrame:
 
     # Simplifies down to only the necessary data
     df_cols = df.iloc[:, [0, 2, 124, 125, 126]]
-    print(df_cols)
 
     tmpcount = 0
     # loops through each row of data, creating a new record for each metric in that row separatly
@@ -201,7 +199,6 @@ def read_dataset_6_metrics() -> pd.DataFrame:
         df_record = pd.DataFrame(record)
         data = pd.concat([data, df_record], ignore_index=True, axis=0)
 
-    print(tmpcount)
     return data
 
 def read_dataset_9_metrics() -> pd.DataFrame:
