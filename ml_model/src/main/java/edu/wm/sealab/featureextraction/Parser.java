@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
-// import edu.wm.sealab.featureextraction.FeatureExtractor.FeatureVisitor;
-
 public class Parser {
     public static void main(String[] args) {
         
