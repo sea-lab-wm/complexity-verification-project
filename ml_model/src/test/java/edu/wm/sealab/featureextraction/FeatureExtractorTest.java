@@ -3,8 +3,6 @@ package edu.wm.sealab.featureextraction;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
-import edu.wm.sealab.featureextraction.FeatureExtractor.FeatureVisitor;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,19 +19,21 @@ public class FeatureExtractorTest {
     final int NUM_OF_IF_STATEMENTS = 6;
     final int NUM_OF_PARAMETERS = 2;
 
+    
+
     @BeforeEach
     public void setup(){
 
         String path = "src/test/resources/data";       
         File file = new File(path + "/TestSnippet_1.java");
-
         CompilationUnit cu = null;
+        
         try {
             cu = StaticJavaParser.parse(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        featureVisitor = new FeatureExtractor().new FeatureVisitor();
+        featureVisitor = new FeatureVisitor();
         featureVisitor.visit(cu,null);
     }
 
