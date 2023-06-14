@@ -51,7 +51,7 @@ public class Antlr4Master {
 
     //SNIPPET_STARTS
     public class GrammarDependencies {
-        // org.antlr.mojo.antlr4.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,org.antlr.v4.Tool)
+        // s16: org.antlr.mojo.antlr4.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,org.antlr.v4.Tool)
 
         /**
          * Performs dependency analysis for the given grammar files.
@@ -105,7 +105,7 @@ public class Antlr4Master {
         }
     }
 
-    // org.antlr.v4.gui.TestRig.process()
+    // s17: org.antlr.v4.gui.TestRig.process()
     //SNIPPET_STARTS
     public void process() throws Exception {
 //		System.out.println("exec "+grammarName+"."+startRuleName);
@@ -168,7 +168,7 @@ public class Antlr4Master {
         }
     }
 
-    // org.antlr.v4.runtime.atn.PredictionMode.hasSLLConflictTerminatingPrediction(org.antlr.v4.runtime.atn.PredictionMode,org.antlr.v4.runtime.atn.ATNConfigSet)
+    // s18: org.antlr.v4.runtime.atn.PredictionMode.hasSLLConflictTerminatingPrediction(org.antlr.v4.runtime.atn.PredictionMode,org.antlr.v4.runtime.atn.ATNConfigSet)
     //SNIPPET_STARTS
     public static boolean hasSLLConflictTerminatingPrediction(PredictionMode mode, ATNConfigSet configs) {
         /* Configs in rule stop states indicate reaching the end of the decision
@@ -205,7 +205,7 @@ public class Antlr4Master {
         return heuristic;
     }
 
-    // org.antlr.v4.runtime.misc.Array2DHashSet.removeFast(T)
+    // s19: org.antlr.v4.runtime.misc.Array2DHashSet.removeFast(T)
     //SNIPPET_STARTS
     public boolean removeFast(T obj) {
         if (obj == null) {
@@ -237,7 +237,7 @@ public class Antlr4Master {
 
         return false;
     }
-    // org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
+    // s20: org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
     public void testToStringStartStop2() throws Exception {

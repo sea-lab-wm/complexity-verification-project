@@ -26,7 +26,7 @@ public class HibernateORM {
         collectionInfoString(new CollectionPersister(), new PersistentCollection(), new Serializable() {}, new SharedSessionContractImplementor());
     }
 
-    // org.hibernate.cfg.AbstractPropertyHolder.getOverriddenColumn(java.lang.String)
+    // s26: org.hibernate.cfg.AbstractPropertyHolder.getOverriddenColumn(java.lang.String)
     /**
      * Get column overriding, property first, then parent, then holder
      * replace the placeholder 'collection&&element' with nothing
@@ -116,7 +116,7 @@ public class HibernateORM {
 
     //SNIPPET_STARTS
     public class TimesTenDialect extends Dialect {
-        // org.hibernate.dialect.TimesTenDialect.TimesTenDialect()
+        // s27: org.hibernate.dialect.TimesTenDialect.TimesTenDialect()
         /**
          * Constructs a TimesTenDialect
          */
@@ -156,7 +156,7 @@ public class HibernateORM {
         }
     }
 
-    // org.hibernate.hql.spi.id.TableBasedUpdateHandlerImpl.execute(org.hibernate.engine.spi.SharedSessionContractImplementor,org.hibernate.engine.spi.QueryParameters)
+    // s28: org.hibernate.hql.spi.id.TableBasedUpdateHandlerImpl.execute(org.hibernate.engine.spi.SharedSessionContractImplementor,org.hibernate.engine.spi.QueryParameters)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
     public int execute(SharedSessionContractImplementor session, QueryParameters queryParameters) throws Exception { // throws Exception added to allow compilation
@@ -238,7 +238,7 @@ public class HibernateORM {
 
     }
 
-    // org.hibernate.id.SequenceValueExtractor.extractSequenceValue(org.hibernate.engine.spi.SessionImplementor)
+    // s29: org.hibernate.id.SequenceValueExtractor.extractSequenceValue(org.hibernate.engine.spi.SessionImplementor)
     //SNIPPET_STARTS
     public long extractSequenceValue(final SessionImplementor sessionImpl) {
         class WorkImpl implements Work {
@@ -271,7 +271,7 @@ public class HibernateORM {
         return work.value;
     }
 
-    // org.hibernate.pretty.MessageHelper.collectionInfoString(org.hibernate.persister.collection.CollectionPersister,org.hibernate.collection.spi.PersistentCollection,java.io.Serializable,org.hibernate.engine.spi.SharedSessionContractImplementor)
+    // s30: org.hibernate.pretty.MessageHelper.collectionInfoString(org.hibernate.persister.collection.CollectionPersister,org.hibernate.collection.spi.PersistentCollection,java.io.Serializable,org.hibernate.engine.spi.SharedSessionContractImplementor)
     /**
      * Generate an info message string relating to a particular managed
      * collection.  Attempts to intelligently handle property-refs issues

@@ -41,7 +41,7 @@ public class MyExpenses {
         updateOrClearHeader(1);
     }
 
-    // org.totschnig.myexpenses.activity.MyExpenses.contribFeatureCalled(org.totschnig.myexpenses.model.ContribFeature,java.io.Serializable)
+    // s41: org.totschnig.myexpenses.activity.MyExpenses.contribFeatureCalled(org.totschnig.myexpenses.model.ContribFeature,java.io.Serializable)
 //  @Override // removed to allow compilation
     //SNIPPET_STARTS
     public void contribFeatureCalled(ContribFeature feature, Serializable tag) {
@@ -86,7 +86,7 @@ public class MyExpenses {
         }
     }
 
-    // org.totschnig.myexpenses.sync.SyncAdapter.getContentProviderOperationsForCreate(org.totschnig.myexpenses.sync.json.TransactionChange,int,int)
+    // s42: org.totschnig.myexpenses.sync.SyncAdapter.getContentProviderOperationsForCreate(org.totschnig.myexpenses.sync.json.TransactionChange,int,int)
     //SNIPPET_STARTS
 private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreate(
         TransactionChange change, int offset, int parentOffset) {
@@ -169,7 +169,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         return null;
     }
 
-    // org.totschnig.myexpenses.sync.SyncAdapter.mergeUpdate(org.totschnig.myexpenses.sync.json.TransactionChange,org.totschnig.myexpenses.sync.json.TransactionChange)
+    // s43: org.totschnig.myexpenses.sync.SyncAdapter.mergeUpdate(org.totschnig.myexpenses.sync.json.TransactionChange,org.totschnig.myexpenses.sync.json.TransactionChange)
     //SNIPPET_STARTS
     private TransactionChange mergeUpdate(TransactionChange initial, TransactionChange change) {
         if (!(change.isCreateOrUpdate() && initial.isCreateOrUpdate())) {
@@ -218,7 +218,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         return builder.setTimeStamp(System.currentTimeMillis()).build();
     }
 
-    // org.totschnig.myexpenses.util.LazyFontSelector.processChar(char[],int,java.lang.StringBuffer)
+    // s44: org.totschnig.myexpenses.util.LazyFontSelector.processChar(char[],int,java.lang.StringBuffer)
     //SNIPPET_STARTS
     protected Chunk processChar(char[] cc, int k, StringBuffer sb) throws DocumentException, IOException {
         Chunk newChunk = null;
@@ -270,7 +270,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         return null;
     }
 
-    // se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
+    // s45: se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
     //SNIPPET_STARTS
     private void updateOrClearHeader(int firstVisiblePosition) {
         final int adapterCount = mAdapter == null ? 0 : mAdapter.getCount();

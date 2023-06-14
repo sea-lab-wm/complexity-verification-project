@@ -46,7 +46,7 @@ public class CarReport {
         }
     }
 
-    // me.kuehle.carreport.gui.dialog.EditFuelTypeDialogFragment.save()
+    // s11: me.kuehle.carreport.gui.dialog.EditFuelTypeDialogFragment.save()
     //SNIPPET_STARTS
     private boolean save() {
         FormValidator validator = new FormValidator();
@@ -91,7 +91,7 @@ public class CarReport {
 
     //SNIPPET_STARTS
     public class SetupWebDavSyncDialogActivity extends Activity {
-        // me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
+        // s12: me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
     //    @Override // Removed to allow compilation
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -143,7 +143,7 @@ public class CarReport {
         }
     }
 
-    // me.kuehle.carreport.gui.MainActivity.handleFABClick(int,int)
+    // s13: me.kuehle.carreport.gui.MainActivity.handleFABClick(int,int)
     //SNIPPET_STARTS
     private void handleFABClick(final int edit, final int otherType) {
         closeFABMenu();
@@ -176,7 +176,7 @@ public class CarReport {
         }
     }
 
-    // me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
+    // s14: me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
     //SNIPPET_STARTS
     private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
         if (getView() == null) {
@@ -245,7 +245,7 @@ public class CarReport {
         mFullScreenChartAnimator = set;
     }
 
-    // me.kuehle.carreport.util.sync.provider.DropboxSyncProvider.downloadFile()
+    // s15: me.kuehle.carreport.util.sync.provider.DropboxSyncProvider.downloadFile()
     //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
     public void downloadFile() throws SyncIoException, SyncParseException {

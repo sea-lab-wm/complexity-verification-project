@@ -57,7 +57,7 @@ public class Pom {
             return 0;
         }
 
-        // hudson.model.HealthReport.HealthReport(int,java.lang.String,org.jvnet.localizer.Localizable)
+        // s6: hudson.model.HealthReport.HealthReport(int,java.lang.String,org.jvnet.localizer.Localizable)
         /**
          * Create a new HealthReport.
          *
@@ -107,7 +107,7 @@ public class Pom {
 
     //SNIPPET_STARTS
     private class ViewJob {
-        // hudson.model.ViewJob._getRuns()
+        // s7: hudson.model.ViewJob._getRuns()
         protected SortedMap<Integer,RunT> _getRuns() {
             if(notLoaded || runs==null) {
                 // if none is loaded yet, do so immediately.
@@ -144,7 +144,7 @@ public class Pom {
         }
     }
 
-    // hudson.os.PosixAPI.get()
+    // s8: hudson.os.PosixAPI.get()
     //SNIPPET_STARTS
     @Deprecated
     public static synchronized org.jruby.ext.posix.POSIX get() {
@@ -202,7 +202,7 @@ public class Pom {
         return jnaPosix;
     }
 
-    // hudson.util.Iterators.limit(java.util.Iterator<? extends T>,hudson.util.Iterators.CountingPredicate<? super T>)
+    // s9: hudson.util.Iterators.limit(java.util.Iterator<? extends T>,hudson.util.Iterators.CountingPredicate<? super T>)
     /**
      * Returns the elements in the base iterator until it hits any element that doesn't satisfy the filter.
      * Then the rest of the elements in the base iterator gets ignored.
@@ -247,7 +247,7 @@ public class Pom {
         };
     }
 
-    // jenkins.util.AntClassLoader.loadClass(java.lang.String,boolean)
+    // s10: jenkins.util.AntClassLoader.loadClass(java.lang.String,boolean)
     /**
      * Loads a class with this class loader.
      *

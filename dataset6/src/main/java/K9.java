@@ -30,7 +30,7 @@ public class K9 {
         testTextQuoteToHtmlBlockquote();
     }
 
-    // com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
+    // S1: com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
     public void testFetchResponse() throws Exception {
@@ -65,7 +65,7 @@ public class K9 {
         assertEquals("\\Seen", response.getList(2).getList(10).getString(0));
     }
 
-    // com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
+    // S2: com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
     /**
      * Get an instance of a remote mail store.
      */
@@ -104,7 +104,7 @@ public class K9 {
         return store;
     }
 
-    // com.fsck.k9.mail.transport.SmtpTransportTest.open_withXoauth2Extension_shouldThrowOnMultipleFailure()
+    // S3: com.fsck.k9.mail.transport.SmtpTransportTest.open_withXoauth2Extension_shouldThrowOnMultipleFailure()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
     public void open_withXoauth2Extension_shouldThrowOnMultipleFailure() throws Exception {
@@ -151,7 +151,7 @@ public class K9 {
     //SNIPPET_STARTS
     public class StorageManager {
         private final Context context;
-        // com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
+        // s4: com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
 
         /**
          * @param context Never <code>null</code>.
@@ -193,7 +193,7 @@ public class K9 {
         }
     }
 
-    // com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
+    // s5: com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
     public void testTextQuoteToHtmlBlockquote() {

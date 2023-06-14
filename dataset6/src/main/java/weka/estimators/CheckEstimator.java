@@ -214,7 +214,7 @@ public class CheckEstimator implements OptionHandler, RevisionHandler {
    * 
    * @param attrType the attribute type (NUMERIC, NOMINAL, etc.)
    * @param classType the class type (NUMERIC, NOMINAL, etc.)
-   */
+   */ // s46
   //SNIPPET_STARTS
   protected void printAttributeSummary(int attrType, int classType) {
 

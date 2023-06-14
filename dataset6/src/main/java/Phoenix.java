@@ -60,7 +60,7 @@ public class Phoenix {
         parseOptions(new String[5]);
     }
 
-    // org.apache.phoenix.coprocessor.MetaDataEndpointImpl.doDropSchema(long,java.lang.String,byte[],java.util.List<org.apache.hadoop.hbase.client.Mutation>,java.util.List<org.apache.phoenix.hbase.index.util.ImmutableBytesPtr>)
+    // s21: org.apache.phoenix.coprocessor.MetaDataEndpointImpl.doDropSchema(long,java.lang.String,byte[],java.util.List<org.apache.hadoop.hbase.client.Mutation>,java.util.List<org.apache.phoenix.hbase.index.util.ImmutableBytesPtr>)
     //SNIPPET_STARTS
     private MetaDataMutationResult doDropSchema(long clientTimeStamp, String schemaName, byte[] key,
                                                 List<Mutation> schemaMutations, List<ImmutableBytesPtr> invalidateList) throws Exception {
@@ -105,7 +105,7 @@ public class Phoenix {
         return null;
     }
 
-    // org.apache.phoenix.expression.ModulusExpression.evaluate(org.apache.phoenix.schema.tuple.Tuple,org.apache.hadoop.hbase.io.ImmutableBytesWritable)
+    // s22: org.apache.phoenix.expression.ModulusExpression.evaluate(org.apache.phoenix.schema.tuple.Tuple,org.apache.hadoop.hbase.io.ImmutableBytesWritable)
 
 //    @Override // removed to allow compilation
     //SNIPPET_STARTS
@@ -152,7 +152,7 @@ public class Phoenix {
         return null;
     }
 
-    // org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
+    // s23: org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
 //    @Override // removed to allow compilation
     //SNIPPET_STARTS
     public void configure(Context context) {
@@ -204,7 +204,7 @@ public class Phoenix {
 
     }
 
-    // org.apache.phoenix.flume.sink.PhoenixSink.process()
+    // s24: org.apache.phoenix.flume.sink.PhoenixSink.process()
 //    @Override // removed to allow compilation
     //SNIPPET_STARTS
     public Status process() throws EventDeliveryException {
@@ -281,7 +281,7 @@ public class Phoenix {
         return null;
     }
 
-    // org.apache.phoenix.mapreduce.AbstractBulkLoadTool.parseOptions(java.lang.String[])
+    // s25: org.apache.phoenix.mapreduce.AbstractBulkLoadTool.parseOptions(java.lang.String[])
     /**
      * Parses the commandline arguments, throws IllegalStateException if mandatory arguments are
      * missing.

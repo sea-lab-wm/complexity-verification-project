@@ -42,7 +42,7 @@ public class OpenCMSCore {
         buttonHtml(new CmsWorkplace());
     }
 
-    // org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
+    // s31: org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
     //SNIPPET_STARTS
     public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
 
@@ -86,7 +86,7 @@ public class OpenCMSCore {
         return result;
     }
 
-    // org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
+    // s32: org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
     public long seekFile(long pos, int typ) throws IOException {
@@ -121,7 +121,7 @@ public class OpenCMSCore {
         }
     }
 
-    // org.opencms.main.CmsShell.execute(java.io.Reader)
+    // s33: org.opencms.main.CmsShell.execute(java.io.Reader)
     /**
      * Executes the commands from the given reader in this shell.<p>
      *
@@ -194,7 +194,7 @@ public class OpenCMSCore {
         }
     }
 
-    // org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
+    // s34: org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
     /**
      * Generates a sub tree of folders with files.<p>
      *
@@ -242,7 +242,7 @@ public class OpenCMSCore {
         return writtenFiles;
     }
 
-    // org.opencms.workplace.list.CmsListRadioMultiAction.buttonHtml(org.opencms.workplace.CmsWorkplace)
+    // s35: org.opencms.workplace.list.CmsListRadioMultiAction.buttonHtml(org.opencms.workplace.CmsWorkplace)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
     public String buttonHtml(CmsWorkplace wp) {

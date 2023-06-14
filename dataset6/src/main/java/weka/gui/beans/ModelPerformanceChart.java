@@ -69,7 +69,7 @@ public class ModelPerformanceChart extends JPanel implements Serializable, BeanC
    * @param request a <code>String</code> value
    * @exception IllegalArgumentException if an error occurs
    */
-//  @Override // removed to allow compilation
+//  @Override // removed to allow compilation // s49
   //SNIPPET_STARTS
   public void performRequest(String request) {
     if (request.compareTo("Show chart") == 0) {
