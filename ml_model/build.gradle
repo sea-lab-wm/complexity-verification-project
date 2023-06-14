@@ -8,19 +8,31 @@ plugins {
   //id "org.sonarqube" version "2.7"
   //id 'org.checkerframework' version '0.6.9'
   id "application"
+  id "com.diffplug.gradle.spotless" version "4.5.1"
 }
 
 apply plugin: 'java'
+apply plugin: 'com.diffplug.gradle.spotless'
 
 repositories {
   mavenCentral()
 }
+
 
 dependencies {
   implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.24.7'
   implementation 'com.github.javaparser:javaparser-core:3.24.7'
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+  
+  compileOnly 'org.projectlombok:lombok:1.18.26'
+	annotationProcessor 'org.projectlombok:lombok:1.18.26'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.26'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+  implementation("com.diffplug.spotless:spotless-lib:2.38.0")
+  implementation("com.diffplug.spotless:spotless-plugin-gradle:6.19.0")
 }
 
 compileJava.options.encoding = 'UTF-8'

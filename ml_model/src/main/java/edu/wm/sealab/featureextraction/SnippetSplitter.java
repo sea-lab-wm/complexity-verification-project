@@ -19,9 +19,10 @@ import com.github.javaparser.ast.comments.LineComment;
 public class SnippetSplitter {
 
     private final String OUTPUT_DIR;
-    private int count;  // added to snippet file name to prevent overriding incase of duplicate snippet names
+    private int count; // added to snippet file name to prevent overriding incase of duplicate snippet
+                       // names
 
-    // Define which snippets were manually created 
+    // Define which snippets were manually created
     private ArrayList<String> manuallyCreatedSnippets;
 
     public SnippetSplitter(String manualInputDir, String outputDir) {
@@ -31,7 +32,9 @@ public class SnippetSplitter {
     }
 
     /**
-     * Deletes all previously generated files and then inserts the manually created files.
+     * Deletes all previously generated files and then inserts the manually created
+     * files.
+     * 
      * @param manualInputDir
      */
     private void cleanOutputDir(String manualInputDir) {
@@ -47,11 +50,11 @@ public class SnippetSplitter {
         }
 
         // Recreate the directories
-        //try {
-        //    Files.createDirectories(Paths.get("/Your/Path/Here"));
-        //} catch (IOException e) {
-        //    e.printStackTrace();
-        //}
+        // try {
+        // Files.createDirectories(Paths.get("/Your/Path/Here"));
+        // } catch (IOException e) {
+        // e.printStackTrace();
+        // }
 
         // Copy the manually created files into the output directory
         new DirExplorer((level, path, file) -> path.endsWith(".java"), (level, path, file) -> {
@@ -60,20 +63,24 @@ public class SnippetSplitter {
 
             try {
                 Files.createDirectories(Paths.get(OUTPUT_DIR + path.substring(0, path.lastIndexOf("/"))));
-                Files.copy(Paths.get(manualInputDir + path), Paths.get(OUTPUT_DIR + path), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(Paths.get(manualInputDir + path), Paths.get(OUTPUT_DIR + path),
+                        StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 System.out.println(Paths.get(manualInputDir + path).toString());
                 System.out.println(Paths.get(OUTPUT_DIR + path).toString());
                 e.printStackTrace();
             }
-        }).explore(new File(manualInputDir));      
+        }).explore(new File(manualInputDir));
     }
 
     /**
-     * Explores and splits the snippets out of a directory pertaining to a single specified dataset.
+     * Explores and splits the snippets out of a directory pertaining to a single
+     * specified dataset.
+     * 
      * @param datasetDir
      * @param dataset
-     * @param commentText is used to differentiate the start of a snippet from a non snippet method
+     * @param commentText is used to differentiate the start of a snippet from a non
+     *                    snippet method
      */
     public void run(File datasetDir, String dataset, String commentText) {
         System.out.println("running on: " + datasetDir.getAbsolutePath());
@@ -84,11 +91,13 @@ public class SnippetSplitter {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }).explore(datasetDir); 
+        }).explore(datasetDir);
     }
 
     /**
-     * Given a single Java file, extracts its snippets and copies them to individual files.
+     * Given a single Java file, extracts its snippets and copies them to individual
+     * files.
+     * 
      * @param inputFile
      * @param outputDir
      * @param dataset
@@ -112,35 +121,41 @@ public class SnippetSplitter {
             Comment comment = method.getComment().orElse(null);
 
             if (comment instanceof LineComment && comment.getContent().contains(commentText)) {
-                // If the comment matches, create a new file and write the method surrounded by a dummy class
+                // If the comment matches, create a new file and write the method surrounded by
+                // a dummy class
                 String methodName = method.getNameAsString();
                 String fileName;
-                countWithinFile++;  // current snippet within a single file
-                count++;    // current snippet within a single dataset
+                countWithinFile++; // current snippet within a single file
+                count++; // current snippet within a single dataset
 
-                // Construct the file name and check if counter already exists in manuallyCreatedSnippets, if so, the counter needs to be skipped
+                // Construct the file name and check if counter already exists in
+                // manuallyCreatedSnippets, if so, the counter needs to be skipped
                 if (dataset.equals("6")) {
-                    if (checkForFile(Integer.toString(countWithinFile) + "$" + inputFile.getName().split("\\.")[0], dataset))
+                    if (checkForFile(Integer.toString(countWithinFile) + "$" + inputFile.getName().split("\\.")[0], dataset)) {
                         countWithinFile++;
-                    fileName = "ds_" + dataset + "_" + "snip_" + Integer.toString(countWithinFile) + "$" + inputFile.getName().split("\\.")[0] + "_" + methodName;
-                }
-                else if (dataset.equals("f"))
+                    }
+                    fileName = "ds_" + dataset + "_" + "snip_" + Integer.toString(countWithinFile) + "$"
+                            + inputFile.getName().split("\\.")[0] + "_" + methodName;
+                } else if (dataset.equals("f")) {
                     fileName = "ds_" + dataset + "_" + "snip_" + inputFile.getName().split("\\.")[0] + "_" + methodName;
+                }
                 else {
-                    if (checkForFile(Integer.toString(count), dataset))
+                    if (checkForFile(Integer.toString(count), dataset)){
                         count++;
+                    }
                     fileName = "ds_" + dataset + "_" + "snip_" + Integer.toString(count) + "_" + methodName;
                 }
 
                 File outputFile = new File(OUTPUT_DIR + "ds_" + dataset + "/" + fileName + ".java");
 
-                if (outputFile.exists())
+                if (outputFile.exists()) {
                     System.out.println("Warning: file already exists");
+                }
 
                 // Surround the method with a dummy class
                 String methodString = method.toString();
-                String fullString = "package FeatureExtraction.snippet_splitter_out;\n" + 
-                                    "public class " + fileName + " {\n" + methodString + "\n}";
+                String fullString = "package FeatureExtraction.snippet_splitter_out;\n" +
+                        "public class " + fileName + " {\n" + methodString + "\n}";
 
                 // Create directory for the dataset if it does not exist
                 Files.createDirectories(Paths.get(OUTPUT_DIR + "ds_" + dataset));
@@ -156,15 +171,19 @@ public class SnippetSplitter {
     }
 
     /**
-     * Checks if a file exists for a given snippet number already. This is to accomodate for the couple snippets which cannot be automatically split using the JavaParser.
+     * Checks if a file exists for a given snippet number already. This is to
+     * accomodate for the couple snippets which cannot be automatically split using
+     * the JavaParser.
+     * 
      * @return true if the target file exists, false otherwise
      */
     private boolean checkForFile(String snippet, String dataset) {
-        //System.out.println("test");
-        //System.out.println(snippet);
+        // System.out.println("test");
+        // System.out.println(snippet);
         for (int i = 0; i < manuallyCreatedSnippets.size(); i++) {
-            //System.out.println(manuallyCreatedSnippets.get(i));
-            if (manuallyCreatedSnippets.get(i).split("_")[3].equals(snippet) && manuallyCreatedSnippets.get(i).split("_")[1].equals(dataset)) {
+            // System.out.println(manuallyCreatedSnippets.get(i));
+            if (manuallyCreatedSnippets.get(i).split("_")[3].equals(snippet)
+                    && manuallyCreatedSnippets.get(i).split("_")[1].equals(dataset)) {
                 System.out.println("manually created snippet found: " + manuallyCreatedSnippets.get(i));
                 System.out.println(snippet);
                 return true;

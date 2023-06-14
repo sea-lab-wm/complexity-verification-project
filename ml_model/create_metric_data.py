@@ -24,8 +24,6 @@ def get_num_warnings(file_path: str, tool: str) -> pd.DataFrame:
     snippet_ids = [row[1] if row[2] is None else f"{row[1].strip()}-{row[2].strip()}" for row_index, row in new.iterrows()]
     data["snippet_id"] = snippet_ids
 
-    # Remove number from dataset f entries due to issue where they are read in different order from the JavaParser
-    print(data)
     new_snippet_ids = []
     for row_index, row in data.iterrows():
         if row[0] == "f":

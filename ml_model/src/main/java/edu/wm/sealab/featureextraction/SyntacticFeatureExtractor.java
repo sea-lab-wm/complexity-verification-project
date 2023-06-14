@@ -17,10 +17,10 @@ public class SyntacticFeatureExtractor {
      * @return the filled in Feature Map
      */
     public FeatureMap extract(String snippet) {
-        featureMap.setNumOfCommas(count(snippet, ","));
-        featureMap.setNumOfPeriods(count(snippet, "\\.") - 1);
-        featureMap.setNumOfSpaces(count(snippet, " "));
-        featureMap.setNumOfParenthesis(count(snippet, "\\("));
+        featureMap.setCommas(count(snippet, ","));
+        featureMap.setPeriods(count(snippet, "\\.") - 1);
+        featureMap.setSpaces(count(snippet, " "));
+        featureMap.setParenthesis(count(snippet, "\\("));
 
         return featureMap;
     }

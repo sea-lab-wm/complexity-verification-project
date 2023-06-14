@@ -41,10 +41,9 @@ public class FeatureExtractor {
         @Override
         public void visit(MethodDeclaration md, Void arg){
             super.visit(md, arg);
-            if (md.getBody().isPresent()) {
-                // set #parameters of method
-                featureMap.setNumOfParameters(md.getParameters().size());
-            }
+            
+            featureMap.setNumOfParameters(md.getParameters().size());
+            
         }
 
         /**
@@ -110,7 +109,7 @@ public class FeatureExtractor {
         @Override
         public void visit(AssignExpr assignExpr, Void arg) {
             super.visit(assignExpr, arg);
-            featureMap.setNumOfAssignExprs(featureMap.getNumOfAssignExprs() + 1);
+            featureMap.setAssignExprs(featureMap.getAssignExprs() + 1);
         }
 
         /**
@@ -122,7 +121,7 @@ public class FeatureExtractor {
         public void visit(BinaryExpr n, Void arg) {
             super.visit(n, arg);
             if (n.getOperator() == Operator.EQUALS || n.getOperator() == Operator.NOT_EQUALS || n.getOperator() == Operator.LESS || n.getOperator() == Operator.LESS_EQUALS || n.getOperator() == Operator.GREATER || n.getOperator() == Operator.GREATER_EQUALS) {
-                featureMap.setNumOfComparisons(featureMap.getNumOfComparisons() + 1);
+                featureMap.setComparisons(featureMap.getComparisons() + 1);
             }
         }
 
@@ -134,7 +133,7 @@ public class FeatureExtractor {
         @Override
         public void visit(BooleanLiteralExpr ble, Void arg) {
             super.visit(ble, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
@@ -145,7 +144,7 @@ public class FeatureExtractor {
         @Override
         public void visit(CharLiteralExpr cle, Void arg) {
             super.visit(cle, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
@@ -156,7 +155,7 @@ public class FeatureExtractor {
         @Override
         public void visit(IntegerLiteralExpr ile, Void arg) {
             super.visit(ile, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
@@ -167,7 +166,7 @@ public class FeatureExtractor {
         @Override
         public void visit(LongLiteralExpr lle, Void arg) {
             super.visit(lle, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
@@ -178,7 +177,7 @@ public class FeatureExtractor {
         @Override
         public void visit(NullLiteralExpr nle, Void arg) {
             super.visit(nle, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
@@ -189,7 +188,7 @@ public class FeatureExtractor {
         @Override
         public void visit(StringLiteralExpr sle, Void arg) {
             super.visit(sle, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
@@ -200,7 +199,7 @@ public class FeatureExtractor {
         @Override
         public void visit(TextBlockLiteralExpr tble, Void arg) {
             super.visit(tble, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
@@ -211,7 +210,7 @@ public class FeatureExtractor {
         @Override
         public void visit(DoubleLiteralExpr dle, Void arg) {
             super.visit(dle, arg);
-            featureMap.setNumOfLiterals(featureMap.getNumOfLiterals() + 1);
+            featureMap.setLiterals(featureMap.getLiterals() + 1);
         }
 
         /**
