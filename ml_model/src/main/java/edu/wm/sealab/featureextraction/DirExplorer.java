@@ -1,4 +1,7 @@
+package edu.wm.sealab.featureextraction;
+
 import java.io.File;
+
 
 public class DirExplorer {
     public interface FileHandler {
