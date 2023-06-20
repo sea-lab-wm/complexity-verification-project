@@ -120,13 +120,13 @@ public class GeneratorPropertyIteratorPanel extends JPanel implements
     }
 
     public Object getPropertyArray() {
-      return null;
+      throw new Error();
     }
   }
 
   private class GenericArrayEditor {
     public Component getCustomEditor() {
-      return null;
+      throw new Error();
     }
 
     public void setValue(Object o) {

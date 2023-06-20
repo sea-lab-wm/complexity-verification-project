@@ -10,8 +10,8 @@ public class MyExpenses {
     public static final int TYPE_SPLIT = 2;
     public static final long TRESHOLD_REMIND_CONTRIB = 113L;
     private static final String KEY_ACCOUNTID = "";
-    private static final Object TASK_PRINT = null;
-    private static final Dummy KEY_ROWID = null;
+    private static final Object TASK_PRINT = new Object();
+    private static final Dummy KEY_ROWID = new Dummy();
     private StickyListHeadersAdapter mDrawerListAdapter;
     private long mAccountId = 0;
     private Dummy mList;
@@ -267,7 +267,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
 
     private Font getFont(int f) {
-        return null;
+        throw new Error();
     }
 
     // s45: se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
@@ -322,7 +322,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
 
         public static Account getInstanceFromDb(long mAccountId) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -352,7 +352,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         public static final Object KEY_FILTER = null;
 
         public Object getFilterCriteria() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -370,7 +370,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         public static final Object TASK_SPLIT = null;
 
         public static Object newInstanceWithBundle(Bundle args, Object taskPrint) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -381,7 +381,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
     private static class ProgressDialogFragment {
         public static Object newInstance(Dummy progress_dialog_printing) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -395,59 +395,59 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         }
 
         public Long amount() {
-            return null;
+            throw new Error();
         }
 
         public Dummy splitParts() {
-            return null;
+            throw new Error();
         }
 
         public Dummy transferAccount() {
-            return null;
+            throw new Error();
         }
 
         public Dummy parentUuid() {
-            return null;
+            throw new Error();
         }
 
         public Dummy comment() {
-            return null;
+            throw new Error();
         }
 
         public Dummy methodLabel() {
-            return null;
+            throw new Error();
         }
 
         public Dummy label() {
-            return null;
+            throw new Error();
         }
 
         public Dummy uuid() {
-            return null;
+            throw new Error();
         }
 
         public Long date() {
-            return null;
+            throw new Error();
         }
 
         public Dummy payeeName() {
-            return null;
+            throw new Error();
         }
 
         public Dummy crStatus() {
-            return null;
+            throw new Error();
         }
 
         public Dummy pictureUri() {
-            return null;
+            throw new Error();
         }
 
         public Dummy referenceNumber() {
-            return null;
+            throw new Error();
         }
 
         public Builder toBuilder() {
-            return null;
+            throw new Error();
         }
 
         public boolean isCreateOrUpdate() {
@@ -505,7 +505,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
             }
 
             public Dummy setTimeStamp(long currentTimeMillis) {
-                return null;
+                throw new Error();
             }
         }
     }
@@ -544,7 +544,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         }
 
         public ArrayList<ContentProviderOperation> buildSaveOperations(int offset, int parentOffset, boolean b) {
-            return null;
+            throw new Error();
         }
 
         public void setPictureUri(Object parse) {
@@ -553,7 +553,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
         public static class CrStatus {
             public static Dummy valueOf(Dummy crStatus) {
-                return null;
+                throw new Error();
             }
         }
     }
@@ -575,7 +575,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
     private class Font {
         public Dummy getBaseFont() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -595,19 +595,19 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         }
     }
 
-    public class Dummy implements Comparable {
+    public static class Dummy implements Comparable {
         public Dummy progress_dialog_printing;
 
         public View getChildAt(int i) {
-            return null;
+            throw new Error();
         }
 
         public Dummy beginTransaction() {
-            return null;
+            throw new Error();
         }
 
         public Dummy add(Object newInstanceWithBundle, Dummy asyncTag) {
-            return null;
+            throw new Error();
         }
 
         public void commit() {
@@ -615,11 +615,11 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         }
 
         public Dummy getId() {
-            return null;
+            throw new Error();
         }
 
         public TransactionChange build() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -667,7 +667,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
 
     private Dummy getSupportFragmentManager() {
-        return null;
+        throw new Error();
     }
 
     private void startTaskExecution(Object taskSplit, Object[] tag, Object o, int i) {
@@ -675,7 +675,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     }
 
     private TransactionList getCurrentFragment() {
-        return null;
+        throw new Error();
     }
 
     private void startActivity(Intent i) {
@@ -694,7 +694,7 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
 
     private static class Uri {
         public static Object parse(Dummy pictureUri) {
-            return null;
+            throw new Error();
         }
     }
 }

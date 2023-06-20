@@ -120,7 +120,7 @@ public class ModelPerformanceChart extends JPanel implements Serializable, BeanC
 
   @Override
   public BeanContext getBeanContext() {
-    return null;
+    throw new Error();
   }
 
   @Override
