@@ -365,7 +365,7 @@ def readCOGDataset2StudyMetrics():
     dfTime = pd.read_csv("data/cog_dataset_2_response_times.csv")
     dfPhysiological = pd.read_csv("data/cog_dataset_2_physiological.csv")
 
-    # Get time column for each snippet
+    # Get time column for each snippet (take only the Comp values for each snippet)
     timeCols = dfTime.iloc[1:18, [val for val in range(1, 25, 2)]]
 
     # Average the values of each column
@@ -420,7 +420,7 @@ def readCOGDataset6StudyMetrics():
         
         # Still on same snippet, on first snippet, or starting new snippet after getting the averages for the previous one.
         participantsPerSnippet += 1
-        #124 = PBU, 125 = TNPU, 126 = AU
+        #124 = PBU (Perceived Binary Understandability), 125 = TNPU (Time Needed for Perceived Understandability), 126 = AU (Actual Understanding)
         if not pd.isnull(row[125]):
             participantsPerSnippetTNPU += 1
             sumTNPU += row[125]
