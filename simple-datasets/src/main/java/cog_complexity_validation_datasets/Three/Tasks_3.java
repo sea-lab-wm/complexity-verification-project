@@ -28,9 +28,9 @@ public class Tasks_3 {
     @SuppressWarnings("all")
     private static final int IRETURN = 0;
     @SuppressWarnings("all")
-    private static final Object BUTTON_IMAGE = null;
+    private static final Object BUTTON_IMAGE = new Object();
     @SuppressWarnings("all")
-    private static final Object BUTTON_ROLLOVER_IMAGE = null;
+    private static final Object BUTTON_ROLLOVER_IMAGE = new Object();
     @SuppressWarnings("all")
     private static final int EQ = 0;
     @SuppressWarnings("all")
@@ -42,17 +42,17 @@ public class Tasks_3 {
     @SuppressWarnings("all")
     private static final int DEFAULT_HEIGHT = 2;
     @SuppressWarnings("all")
-    private static final Locale CONSTRUCTOR_ERROR_FORMAT = null;
+    private static final Locale CONSTRUCTOR_ERROR_FORMAT = new Locale("en");
     @SuppressWarnings("all")
     private static final int ACC_PUBLIC = 0;
     @SuppressWarnings("all")
-    private static final Object MESSAGE_COUNT = null;
+    private static final Object MESSAGE_COUNT = new Object();
     @SuppressWarnings("all")
     private static final int DATABASE_CLOSING = 0;
     @SuppressWarnings("all")
     private static final int DATABASE_ONLINE = 1;
     @SuppressWarnings("all")
-    private static final Object CHANNELLIST = null;
+    private static final Object CHANNELLIST = new Object();
     @SuppressWarnings("all")
     private static final boolean COLUMN = false;
     @SuppressWarnings("all")
@@ -88,7 +88,7 @@ public class Tasks_3 {
     @SuppressWarnings("all")
     private int fParameterSetNumber;
     @SuppressWarnings("all")
-    private Object fParameters = null;
+    private Object fParameters = new Object();
     @SuppressWarnings("all")
     private int constType;
     @SuppressWarnings("all")
@@ -934,7 +934,7 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private PrintWriter getWriter() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -990,7 +990,7 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object toArray(ProgramReceiveTarget[] programReceiveTargets) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1025,12 +1025,12 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object getStrictJava() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public This getGlobal(Interpreter declaringInterpreter) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1046,17 +1046,17 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private ConnectController getConnectController() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private String computeCommonSuffix() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private String computeCommonPrefix() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1105,7 +1105,7 @@ public class Tasks_3 {
     private class Method {
         @SuppressWarnings("all")
         public Object getModifiers() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1128,7 +1128,7 @@ public class Tasks_3 {
     private static class Description {
         @SuppressWarnings("all")
         public static Description createSuiteDescription(Object name) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1149,7 +1149,7 @@ public class Tasks_3 {
     private static class BshClassManager {
         @SuppressWarnings("all")
         public static BshClassManager createClassManager(Tasks_3 tasks) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1165,12 +1165,12 @@ public class Tasks_3 {
     private class In {
         @SuppressWarnings("all")
         public Object readObject() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public String readInt() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1178,7 +1178,7 @@ public class Tasks_3 {
     private static class Version {
         @SuppressWarnings("all")
         public static String id() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1230,7 +1230,7 @@ public class Tasks_3 {
     private static class Borders {
         @SuppressWarnings("all")
         public static Object createEmptyBorder(Object dluy5, Object dlux5, Object dluy51, Object dlux51) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1250,7 +1250,7 @@ public class Tasks_3 {
     private class PathNode {
         @SuppressWarnings("all")
         public Tile getTile() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1263,12 +1263,12 @@ public class Tasks_3 {
     private static class Unit {
         @SuppressWarnings("all")
         public static Object getXMLElementTagName() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object getFreeColGameObject(Object id) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1278,7 +1278,7 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public BtPanel createHelpTextArea(Object msg) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1286,7 +1286,7 @@ public class Tasks_3 {
     private class Tile {
         @SuppressWarnings("all")
         public Settlement getSettlement() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1304,7 +1304,7 @@ public class Tasks_3 {
     private class Settlement {
         @SuppressWarnings("all")
         public Object getOwner() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1335,7 +1335,7 @@ public class Tasks_3 {
     private class Runner {
         @SuppressWarnings("all")
         public Object getDescription() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1347,27 +1347,27 @@ public class Tasks_3 {
     private class FreeColClient {
         @SuppressWarnings("all")
         public FreeColClient getActionManager() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object getFreeColAction(Object id) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public FreeColClient getImageLibrary() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object getUnitButtonImageIcon(int unitButtonDisband, int i) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public FreeColClient getCanvas() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1377,17 +1377,17 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public InGameInputHandler getInGameInputHandler() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public AbstractTranslet getClient() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Game getGame() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1414,17 +1414,17 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private Object executeCallStatement(Object cs) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private Object executeDDLStatement(Object cs) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private Object executeDeleteStatement(Object cs) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1446,7 +1446,7 @@ public class Tasks_3 {
     private static class Reflect {
         @SuppressWarnings("all")
         public static Field resolveJavaField(Class clas, Object name, boolean b) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1454,7 +1454,7 @@ public class Tasks_3 {
     private class Field {
         @SuppressWarnings("all")
         public Object getType() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1482,12 +1482,12 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object getId() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object getName() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1502,12 +1502,12 @@ public class Tasks_3 {
     private static class DEFAULT_CONFIG {
         @SuppressWarnings("all")
         public static Object getName() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public static Object getId() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1515,7 +1515,7 @@ public class Tasks_3 {
     private class Ns {
         @SuppressWarnings("all")
         public Boolean getCatalogName(Boolean aBoolean) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1525,12 +1525,12 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object getSchemaName(String clsName) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Boolean getCatalogName(String clsName) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1543,7 +1543,7 @@ public class Tasks_3 {
     private class Element {
         @SuppressWarnings("all")
         public Object getAttribute(String id) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1551,23 +1551,23 @@ public class Tasks_3 {
     private static class Message {
         @SuppressWarnings("all")
         public static Element getChildElement(Element element, Object xmlElementTagName) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public String getMessageID() {
-            return null;
+            throw new Error();
         }
     }
 
     @SuppressWarnings("all")
     private Unit getGame() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private Ns jj_consume_token(int eq) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1589,7 +1589,7 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private PluginTreeNode findProgramTreeNode(Program program, boolean b) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1607,7 +1607,7 @@ public class Tasks_3 {
     private static class Messages {
         @SuppressWarnings("all")
         public static String message(String height) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1621,7 +1621,7 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private This getThis(Interpreter declaringInterpreter) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1633,7 +1633,7 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object readUTF() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1661,12 +1661,12 @@ public class Tasks_3 {
     private class Cc {
         @SuppressWarnings("all")
         public String xy(int i, int i1) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object msg(String help, String no_endtime_defined) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1681,12 +1681,12 @@ public class Tasks_3 {
     private class Klass {
         @SuppressWarnings("all")
         public SuiteMethod getMethod(String suite) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public String getName() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1694,12 +1694,12 @@ public class Tasks_3 {
     private class SuiteMethod {
         @SuppressWarnings("all")
         public Object getModifiers() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object invoke(Object o) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1715,7 +1715,7 @@ public class Tasks_3 {
     private class Test {
         //ADDED BY KOBI
         public Class expected() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1738,7 +1738,7 @@ public class Tasks_3 {
     private class MissionChip {
         @SuppressWarnings("all")
         public Object get(Object color) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1755,12 +1755,12 @@ public class Tasks_3 {
     private static class DriverFactory {
         @SuppressWarnings("all")
         public static DriverFactory getInstance() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public DeviceIf createDevice(String classname, String devname) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1775,12 +1775,12 @@ public class Tasks_3 {
     private static class Request {
         @SuppressWarnings("all")
         public static Request errorReport(Object fTestClass, InitializationError error) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object getRunner() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1791,7 +1791,7 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private Object getAttribute(int infoConnectionReadonly) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1817,12 +1817,12 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private Object methodDescription(Method method) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private Object getName() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1836,17 +1836,17 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object getValueAt(Boolean[] row, int i) {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public ProgramTable getPluginManager() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public JPopupMenu createPluginContextMenu(Program p, Object instance) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1854,7 +1854,7 @@ public class Tasks_3 {
     private static class CapturePlugin {
         @SuppressWarnings("all")
         public static Object getInstance() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1876,7 +1876,7 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private Object createAdaptingListener(RunNotifier notifier) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -1908,7 +1908,7 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object getSource() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1922,14 +1922,14 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private Object getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private static class Assert {
         @SuppressWarnings("all")
         public static String format(String message, String fExpected, String fActual) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1952,25 +1952,25 @@ public class Tasks_3 {
     public static class SwingUtilities {
         @SuppressWarnings("all")
         public static Point convertPoint(Component source, int x, int y, Object o) {
-            return null;
+            throw new Error();
         }
     }
 
     @SuppressWarnings("all")
     private Object iterateRoutineMethods(String className, Object andAliases) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private class Device {
         @SuppressWarnings("all")
         public Object getDriver() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Object getName() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -1983,17 +1983,17 @@ public class Tasks_3 {
     private static class Plugin {
         @SuppressWarnings("all")
         public static Plugin getPluginManager() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Plugin getTvBrowserSettings() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public File getTvBrowserUserHome() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -2050,17 +2050,17 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private Object getWidth() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private Object getHeight() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
     private Object getMessageCount() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -2077,12 +2077,12 @@ public class Tasks_3 {
     private class Gui {
         @SuppressWarnings("all")
         public Position getSelectedTile() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public TerrainCursor getCursor() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
@@ -2126,7 +2126,7 @@ public class Tasks_3 {
     private class Script {
         @SuppressWarnings("all")
         public String executeScript(Object channellist) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -2142,7 +2142,7 @@ public class Tasks_3 {
     private class Annotation {
         @SuppressWarnings("all")
         public Parameters annotationType() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -2154,12 +2154,12 @@ public class Tasks_3 {
     private class Node {
         @SuppressWarnings("all")
         public Node getRight() {
-            return null;
+            throw new Error();
         }
 
         @SuppressWarnings("all")
         public Node getLeft() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -2171,13 +2171,13 @@ public class Tasks_3 {
     private class Game {
         @SuppressWarnings("all")
         public Map getMap() {
-            return null;
+            throw new Error();
         }
     }
 
     @SuppressWarnings("all")
     private Parameters showParametersDialog() {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -2190,7 +2190,7 @@ public class Tasks_3 {
 
     @SuppressWarnings("all")
     private Object createImageIcon(String mimetypes, String s, int i) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
@@ -2207,13 +2207,13 @@ public class Tasks_3 {
 
         @SuppressWarnings("all")
         public Object testAt(int i) {
-            return null;
+            throw new Error();
         }
     }
 
     @SuppressWarnings("all")
     private Object makeDescription(Object testAt) {
-        return null;
+        throw new Error();
     }
 
     @SuppressWarnings("all")
