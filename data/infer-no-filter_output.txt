@@ -1,0 +1,83 @@
+
+dataset6/src/main/java/Pom.java:137: error: Null Dereference
+  object `reloadQueue` last assigned on line 135 could be null and is dereferenced at line 137.
+  135.                           reloadQueue = reloadThread.reloadQueue;
+  136.                       }
+  137. >                     synchronized(reloadQueue) {
+  138.                           reloadQueue.add(this);
+  139.                           reloadQueue.notify();
+
+simple-datasets/src/main/java/fMRI_Study_Classes/ArrayAverage.java:19: error: Divide By Zero
+  Expression `number1` could be zero at line 19.
+  17.           }
+  18.   
+  19. >         float result = number2 / (float) number1;
+  20.           return result;
+  21.       }
+
+dataset6/src/main/java/HibernateORM.java:186: error: Dangling Pointer Dereference
+  uninitialized object `e` could be dangling and is dereferenced or freed at line 186.
+  184.               }
+  185.               catch( SQLException e ) {
+  186. >                 throw session.getJdbcServices().getSqlExceptionHelper().convert( e, "could not insert/select ids for bulk update", idInsertSelect );
+  187.               }
+  188.   
+
+dataset6/src/main/java/SpringBatch.java:221: error: Null Dereference
+  object `writer` last assigned on line 220 could be null and is dereferenced at line 221.
+  219.       private void initWriterForSimpleCallbackTests() throws Exception {
+  220.           writer = createItemWriter();
+  221. >         writer.setHeaderCallback(new StaxWriterCallback() {
+  222.   
+  223.               @Override
+
+dataset6/src/main/java/SpringBatch.java:112: error: Null Dereference
+  object `jobExecution` last assigned on line 111 could be null and is dereferenced at line 112.
+  110.       public void testArtifactUniqueness() throws Exception {
+  111.           JobExecution jobExecution = runJob("jsrUniqueInstanceTests", new Properties(), 10000L);
+  112. >         String exitStatus = jobExecution.getExitStatus();
+  113.   
+  114.           assertTrue("Exit status must contain listener3", exitStatus.contains("listener3"));
+
+dataset6/src/main/java/SpringBatch.java:148: error: Null Dereference
+  object `ds` last assigned on line 146 could be null and is dereferenced at line 148.
+  146.           DataSource ds = mock(DataSource.class);
+  147.   
+  148. >         when(ds.getConnection()).thenReturn(con); // con1
+  149.           con.close();
+  150.           when(ds.getConnection()).thenReturn(con); // con2
+
+dataset6/src/main/java/Pom.java:112: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Pom$ViewJob._getRuns()` reads without synchronization from `this.this$0.notLoaded`. Potentially races with write in method `Pom$ViewJob._getRuns()`.
+ Reporting because this access may occur on a background thread.
+  110.           // s7: hudson.model.ViewJob._getRuns()
+  111.           protected SortedMap<Integer,RunT> _getRuns() {
+  112. >             if(notLoaded || runs==null) {
+  113.                   // if none is loaded yet, do so immediately.
+  114.                   synchronized(this) {
+
+dataset6/src/main/java/Pom.java:143: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Pom$ViewJob._getRuns()` reads without synchronization from `this.this$0.runs`. Potentially races with write in method `Pom$ViewJob._getRuns()`.
+ Reporting because this access may occur on a background thread.
+  141.                   }
+  142.               }
+  143. >             return runs;
+  144.           }
+  145.       }
+
+simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:829: warning: Thread Safety Violation
+  Read/Write race. Non-private method `Tasks_1.getNormalisedTime(...)` reads without synchronization from `Three.Tasks_1.tempCalDefault`. Potentially races with write in method `Tasks_1.runAllSnippets()`.
+ Reporting because this access may occur on a background thread.
+  827.       public static long getNormalisedTime(long t) {
+  828.   
+  829. >         synchronized (tempCalDefault) {
+  830.               setTimeInMillis(tempCalDefault, t);
+  831.               resetToTime(tempCalDefault);
+
+
+Found 9 issues
+                                  Issue Type(ISSUED_TYPE_ID): #
+                          Null Dereference(NULL_DEREFERENCE): 4
+            Thread Safety Violation(THREAD_SAFETY_VIOLATION): 3
+                              Divide By Zero(DIVIDE_BY_ZERO): 1
+  Dangling Pointer Dereference(DANGLING_POINTER_DEREFERENCE): 1
