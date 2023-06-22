@@ -694,7 +694,7 @@ public class Tasks_2 {
         for (Method method : testMethods)
             spec.addChild(methodDescription(method));
 
-        return spec; // Added to allow compilation
+        return null; // Added to allow compilation
     } // Added to allow compilation
 
     // Snippet s64
