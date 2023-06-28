@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_f;
 public class ds_f_snip_ArrayAverage_compute {
 // SNIPPET_STARTS
 public static float compute(int[] numbers) {

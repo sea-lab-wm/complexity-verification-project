@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_9_main9 {
 // DATASET2END
 // 9. Prime test                                                       /*Tasks for fMRI-Setting*/

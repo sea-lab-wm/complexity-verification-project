@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FeatureExtractorTestMultiple {
 
-    private FeatureExtractor.FeatureVisitor featureVisitor1;
-    private FeatureExtractor.FeatureVisitor featureVisitor2;
+    private FeatureVisitor featureVisitor1;
+    private FeatureVisitor featureVisitor2;
 
     final int NUM_OF_LOOP_STATEMENTS_1 = 9;
     final int NUM_OF_IF_STATEMENTS_1 = 6;
@@ -43,10 +43,10 @@ public class FeatureExtractorTestMultiple {
             }
 
             if (file.getName().equals("TestSnippet_1.java")) {
-                featureVisitor1 = new FeatureExtractor().new FeatureVisitor();
+                featureVisitor1 = new FeatureVisitor();
                 featureVisitor1.visit(cu,null);
             } else if (file.getName().equals("TestSnippet_2.java")) {
-                featureVisitor2 = new FeatureExtractor().new FeatureVisitor();
+                featureVisitor2 = new FeatureVisitor();
                 featureVisitor2.visit(cu,null);
             }
         }).explore(projectDir);

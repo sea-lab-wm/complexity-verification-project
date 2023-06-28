@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_9$nc;
 public class ds_9$nc_snip_7_getMove413 {
 // SNIPPET_END_2
 // S4_1:3 method chains, no comments

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_2;
 public class ds_2_snip_10_main20 {
 // 20. Decimal to binary                                                                /*Tasks for fMRI-Setting*/
 // SNIPPET_STARTS    DATASET2START

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_23_main23 {
 // DATASET2END
 // 23. Double entries of array                              /*First and second pilot study*/

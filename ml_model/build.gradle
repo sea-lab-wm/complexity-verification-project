@@ -8,11 +8,11 @@ plugins {
   //id "org.sonarqube" version "2.7"
   //id 'org.checkerframework' version '0.6.9'
   id "application"
-  id "com.diffplug.gradle.spotless" version "4.5.1"
+  // id "com.diffplug.spotless" version "6.19.0"
 }
 
 apply plugin: 'java'
-apply plugin: 'com.diffplug.gradle.spotless'
+// apply plugin: 'com.diffplug.spotless'
 
 repositories {
   mavenCentral()
@@ -30,9 +30,6 @@ dependencies {
 	
 	testCompileOnly 'org.projectlombok:lombok:1.18.26'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
-
-  implementation("com.diffplug.spotless:spotless-lib:2.38.0")
-  implementation("com.diffplug.spotless:spotless-plugin-gradle:6.19.0")
 }
 
 compileJava.options.encoding = 'UTF-8'
@@ -47,6 +44,15 @@ application {
 task printClasspath {
     println "${sourceSets.main.compileClasspath.asPath}"
 }
+
+// Extracted from : https://github.com/diffplug/spotless/blob/main/plugin-gradle/README.md#java
+// spotless {
+//   java {
+//     importOrder()
+//     removeUnusedImports()
+//     googleJavaFormat("1.8")
+//   }
+// }
 
 test {
     useJUnitPlatform()

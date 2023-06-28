@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_2$MyExpenses_getContentProviderOperationsForCreate {
 // org.totschnig.myexpenses.sync.SyncAdapter.getContentProviderOperationsForCreate(org.totschnig.myexpenses.sync.json.TransactionChange,int,int)
 // SNIPPET_STARTS

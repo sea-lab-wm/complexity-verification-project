@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_2$SpringBatch_testArtifactUniqueness {
 // org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
 // @Test // removed to allow compilation

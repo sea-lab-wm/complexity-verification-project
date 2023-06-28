@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_1_main1 {
 /*REORDERED THE METHODS*/
 // 1. Faculty (Factorial)                                        /*Tasks for fMRI-Setting*/

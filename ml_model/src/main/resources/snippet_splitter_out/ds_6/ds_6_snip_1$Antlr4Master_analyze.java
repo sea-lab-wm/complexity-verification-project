@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_1$Antlr4Master_analyze {
 // org.antlr.mojo.antlr4.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,org.antlr.v4.Tool)
 /**

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_4$Antlr4Master_removeFast {
 // org.antlr.v4.runtime.misc.Array2DHashSet.removeFast(T)
 // SNIPPET_STARTS

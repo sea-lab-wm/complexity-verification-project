@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_12_main12 {
 // DATASET2END
 // 12. Check palindrom                                          /*First and second pilot study*/

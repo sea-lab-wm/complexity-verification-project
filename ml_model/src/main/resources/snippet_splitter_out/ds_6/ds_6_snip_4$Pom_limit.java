@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_4$Pom_limit {
 // hudson.util.Iterators.limit(java.util.Iterator<? extends T>,hudson.util.Iterators.CountingPredicate<? super T>)
 /**

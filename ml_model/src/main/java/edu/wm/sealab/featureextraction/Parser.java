@@ -7,8 +7,6 @@ import java.io.PrintWriter;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
-import edu.wm.sealab.featureextraction.FeatureExtractor.FeatureVisitor;
-import edu.wm.sealab.featureextraction.FeatureExtractor.StringLiteralReplacer;
 
 public class Parser {
 	public static void main(String[] args) {
@@ -26,8 +24,6 @@ public class Parser {
 		ss.run(new File("dataset9/src/main/java/"), "9$nc", "SNIPPET_STARTS_3");
 		ss.run(new File("simple-datasets/src/main/java/fMRI_Study_Classes/"), "f", "SNIPPET_STARTS");
 
-		// Parsing
-		FeatureExtractor featureExtractor = new FeatureExtractor();
 
 		// String dirPath = args[1];
 		String dirPath = "ml_model/src/main/resources/snippet_splitter_out/";
@@ -69,7 +65,7 @@ public class Parser {
 			new DirExplorer((level, path, file) -> path.endsWith(".java"), (level, path, file) -> {
 				// Compute the features on a single java file. The java file should contain a
 				// single class surrounding a single method.
-				FeatureVisitor featureVisitor = featureExtractor.new FeatureVisitor();
+				FeatureVisitor featureVisitor = new FeatureVisitor();
 				CompilationUnit cu = null;
 				CompilationUnit cuNoComm = null;
 				try {
@@ -82,12 +78,12 @@ public class Parser {
 				featureVisitor.visit(cu, null);
 
 				// Modify the CU to compute syntactic features i.e. parenthesis, commas, etc
-				StringLiteralReplacer stringLiteralReplacer = featureExtractor.new StringLiteralReplacer();
+				StringLiteralReplacer stringLiteralReplacer = new StringLiteralReplacer();
 				stringLiteralReplacer.visit(cuNoComm, null);
 
 				// Extract syntactic features (non JavaParser extraction)
 				SyntacticFeatureExtractor sfe = new SyntacticFeatureExtractor(featureVisitor.getFeatures());
-				FeatureMap featureMap = sfe.extract(cuNoComm.toString());
+				Features features = sfe.extract(cuNoComm.toString());
 
 				// Add the extracted features to the CSV file
 				String[] parts = file.getName().split("_");
@@ -100,25 +96,25 @@ public class Parser {
 				pw.append(",");
 				pw.append(file.getName());
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getNumOfParameters()));
+				pw.append(Integer.toString(features.getNumOfParameters()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getNumOfIfStatements()));
+				pw.append(Integer.toString(features.getNumOfIfStatements()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getNumOfLoops()));
+				pw.append(Integer.toString(features.getNumOfLoops()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getAssignExprs()));
+				pw.append(Integer.toString(features.getAssignExprs()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getCommas()));
+				pw.append(Integer.toString(features.getCommas()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getPeriods()));
+				pw.append(Integer.toString(features.getPeriods()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getSpaces()));
+				pw.append(Integer.toString(features.getSpaces()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getComparisons()));
+				pw.append(Integer.toString(features.getComparisons()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getParenthesis()));
+				pw.append(Integer.toString(features.getParenthesis()));
 				pw.append(",");
-				pw.append(Integer.toString(featureMap.getLiterals()));
+				pw.append(Integer.toString(features.getLiterals()));
 				pw.append("\n");
 			}).explore(projectDir);
 		} catch (FileNotFoundException e) {

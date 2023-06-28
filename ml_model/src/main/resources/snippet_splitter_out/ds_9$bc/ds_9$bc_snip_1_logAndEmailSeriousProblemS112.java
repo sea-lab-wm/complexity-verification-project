@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_9$bc;
 public class ds_9$bc_snip_1_logAndEmailSeriousProblemS112 {
 // SNIPPET_END_1
 // S1_1:2 method chains, bad comments

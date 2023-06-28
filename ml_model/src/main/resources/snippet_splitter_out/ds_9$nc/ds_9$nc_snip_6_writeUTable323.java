@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_9$nc;
 public class ds_9$nc_snip_6_writeUTable323 {
 // SNIPPET_END_2
 // S3_2:3 (Revision 1) Fully resolved method chains, no comments

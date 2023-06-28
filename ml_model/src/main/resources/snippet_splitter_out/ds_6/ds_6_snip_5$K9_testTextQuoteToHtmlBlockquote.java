@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_5$K9_testTextQuoteToHtmlBlockquote {
 // com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
 // @Test // Removed to allow compilation

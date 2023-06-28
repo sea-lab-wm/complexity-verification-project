@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_7_main7 {
 // 7. Find max in list of numbers                                           /*Tasks for fMRI-Setting*/
 // SNIPPET_STARTS    DATASET2START

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_3$Antlr4Master_hasSLLConflictTerminatingPrediction {
 // org.antlr.v4.runtime.atn.PredictionMode.hasSLLConflictTerminatingPrediction(org.antlr.v4.runtime.atn.PredictionMode,org.antlr.v4.runtime.atn.ATNConfigSet)
 // SNIPPET_STARTS

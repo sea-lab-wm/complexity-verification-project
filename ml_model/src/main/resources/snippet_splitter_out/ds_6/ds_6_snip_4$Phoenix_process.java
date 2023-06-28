@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_4$Phoenix_process {
 // org.apache.phoenix.flume.sink.PhoenixSink.process()
 // @Override // removed to allow compilation

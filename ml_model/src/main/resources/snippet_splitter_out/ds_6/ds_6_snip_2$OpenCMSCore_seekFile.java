@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_2$OpenCMSCore_seekFile {
 // org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
 // @Override // Removed to allow compilation

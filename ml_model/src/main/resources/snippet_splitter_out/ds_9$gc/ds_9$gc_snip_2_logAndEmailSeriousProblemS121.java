@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_9$gc;
 public class ds_9$gc_snip_2_logAndEmailSeriousProblemS121 {
 // SNIPPET_END_3
 // S1_2:1 resolved method chains, good comments

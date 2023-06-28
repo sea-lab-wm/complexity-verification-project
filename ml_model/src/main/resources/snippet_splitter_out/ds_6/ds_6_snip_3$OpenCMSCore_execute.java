@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_3$OpenCMSCore_execute {
 // org.opencms.main.CmsShell.execute(java.io.Reader)
 /**

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_8_main8 {
 // DATASET2END
 // 8. Cross sum                                                         /*Tasks for fMRI-Setting*/

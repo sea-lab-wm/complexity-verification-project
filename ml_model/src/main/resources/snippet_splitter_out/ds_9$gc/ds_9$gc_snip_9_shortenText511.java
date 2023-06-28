@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_9$gc;
 public class ds_9$gc_snip_9_shortenText511 {
 // SNIPPET_END_3
 // Snippet 5

@@ -154,7 +154,7 @@ public class SnippetSplitter {
 
                 // Surround the method with a dummy class
                 String methodString = method.toString();
-                String fullString = "package FeatureExtraction.snippet_splitter_out;\n" +
+                String fullString = "package snippet_splitter_out.ds_"+ dataset + ";\n" +
                         "public class " + fileName + " {\n" + methodString + "\n}";
 
                 // Create directory for the dataset if it does not exist

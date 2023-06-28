@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_13_main13 {
 // 13. Swap                                                             /*Tasks for fMRI-Setting*/
 // SNIPPET_STARTS    DATASET2START

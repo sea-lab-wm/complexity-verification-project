@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_3$MyExpenses_mergeUpdate {
 // org.totschnig.myexpenses.sync.SyncAdapter.mergeUpdate(org.totschnig.myexpenses.sync.json.TransactionChange,org.totschnig.myexpenses.sync.json.TransactionChange)
 // SNIPPET_STARTS

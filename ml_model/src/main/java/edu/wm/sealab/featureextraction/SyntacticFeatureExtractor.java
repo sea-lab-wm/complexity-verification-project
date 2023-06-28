@@ -5,10 +5,10 @@ import java.util.regex.Pattern;
 
 public class SyntacticFeatureExtractor {
 
-    private FeatureMap featureMap = new FeatureMap();
+    private Features features = new Features();
 
-    public SyntacticFeatureExtractor(FeatureMap featureMap) {
-        this.featureMap = featureMap;
+    public SyntacticFeatureExtractor(Features features) {
+        this.features = features;
     }
 
     /**
@@ -16,13 +16,13 @@ public class SyntacticFeatureExtractor {
      * @param snippet
      * @return the filled in Feature Map
      */
-    public FeatureMap extract(String snippet) {
-        featureMap.setCommas(count(snippet, ","));
-        featureMap.setPeriods(count(snippet, "\\.") - 1);
-        featureMap.setSpaces(count(snippet, " "));
-        featureMap.setParenthesis(count(snippet, "\\("));
+    public Features extract(String snippet) {
+        features.setCommas(count(snippet, ","));
+        features.setPeriods(count(snippet, "\\.") - 1);
+        features.setSpaces(count(snippet, " "));
+        features.setParenthesis(count(snippet, "\\("));
 
-        return featureMap;
+        return features;
     }
 
     /**

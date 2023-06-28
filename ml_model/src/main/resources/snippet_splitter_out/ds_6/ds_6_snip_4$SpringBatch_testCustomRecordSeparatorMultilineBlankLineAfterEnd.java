@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_4$SpringBatch_testCustomRecordSeparatorMultilineBlankLineAfterEnd {
 // org.springframework.batch.item.file.FlatFileItemReaderTests.testCustomRecordSeparatorMultilineBlankLineAfterEnd()
 // @Test // removed to allow compilation

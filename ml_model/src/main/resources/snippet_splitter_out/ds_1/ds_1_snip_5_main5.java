@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_5_main5 {
 // 5. Binary search                                     /*Only in the first pilot study*/
 // SNIPPET_STARTS

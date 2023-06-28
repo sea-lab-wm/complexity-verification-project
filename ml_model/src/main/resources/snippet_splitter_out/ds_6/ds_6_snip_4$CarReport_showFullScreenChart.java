@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_4$CarReport_showFullScreenChart {
 // me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
 // SNIPPET_STARTS

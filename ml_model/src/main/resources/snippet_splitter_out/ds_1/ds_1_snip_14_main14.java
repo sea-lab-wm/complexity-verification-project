@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_14_main14 {
 // DATASET2END
 // 14. Reverse string                                                       /*Tasks for fMRI-Setting*/

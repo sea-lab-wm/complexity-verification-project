@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_3$Phoenix_configure {
 // org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
 // @Override // removed to allow compilation

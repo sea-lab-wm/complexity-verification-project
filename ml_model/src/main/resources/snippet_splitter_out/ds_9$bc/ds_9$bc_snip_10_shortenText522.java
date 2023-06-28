@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_9$bc;
 public class ds_9$bc_snip_10_shortenText522 {
 // SNIPPET_END_1
 // S5_2:2 resolved method chains, bad comments

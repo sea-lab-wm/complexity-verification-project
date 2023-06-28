@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_5$MyExpenses_updateOrClearHeader {
 // se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
 // SNIPPET_STARTS

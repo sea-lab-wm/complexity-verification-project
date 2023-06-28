@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_5$Antlr4Master_testToStringStartStop2 {
 // org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
 // @Test // Removed to allow compilation

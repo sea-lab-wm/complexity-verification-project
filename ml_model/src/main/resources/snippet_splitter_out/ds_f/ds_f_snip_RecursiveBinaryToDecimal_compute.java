@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_f;
 public class ds_f_snip_RecursiveBinaryToDecimal_compute {
 // SNIPPET_STARTS
 static int compute(String s, int number) {

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_2$K9_getInstance {
 // com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
 /**

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_4_main4 {
 // 4. BubbleSort                                                        /*Only in the first pilot study*/
 // SNIPPET_STARTS

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_15_main15 {
 // DATASET2END
 // 15. Matrix multiplication                                    /*Only in the first pilot study*/

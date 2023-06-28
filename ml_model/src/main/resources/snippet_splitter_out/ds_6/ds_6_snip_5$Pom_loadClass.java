@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_5$Pom_loadClass {
 // jenkins.util.AntClassLoader.loadClass(java.lang.String,boolean)
 /**

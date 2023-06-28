@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_9$bc;
 public class ds_9$bc_snip_5_copyUTable312 {
 // SNIPPET_END_1
 // S3_1:2 (Revision 1) method chains, bad comments

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_1$CarReport_save {
 // me.kuehle.carreport.gui.dialog.EditFuelTypeDialogFragment.save()
 // SNIPPET_STARTS

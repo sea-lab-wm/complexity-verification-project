@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_11_main11 {
 // DATASET2END
 // 11. Power                                                                /*Tasks for fMRI-Setting*/

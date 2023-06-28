@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_1;
 public class ds_1_snip_6_main6 {
 // 6. Sum from 1 to n                                                          /*First and second pilot study*/
 // SNIPPET_STARTS

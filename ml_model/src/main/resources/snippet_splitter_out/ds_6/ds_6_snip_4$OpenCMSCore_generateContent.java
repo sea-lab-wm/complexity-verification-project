@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_4$OpenCMSCore_generateContent {
 // org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
 /**

@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_5$SpringBatch_initWriterForSimpleCallbackTests {
 // org.springframework.batch.item.xml.StaxEventItemWriterTests.initWriterForSimpleCallbackTests()
 // SNIPPET_STARTS

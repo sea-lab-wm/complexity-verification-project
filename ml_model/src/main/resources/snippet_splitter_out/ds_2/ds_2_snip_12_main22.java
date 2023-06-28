@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_2;
 public class ds_2_snip_12_main22 {
 // DATASET2END
 // 22. Median on sorted data                                                /*Tasks for fMRI-Setting*/

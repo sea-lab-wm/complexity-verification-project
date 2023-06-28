@@ -3,29 +3,34 @@ package edu.wm.sealab.featureextraction;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
-import edu.wm.sealab.featureextraction.FeatureExtractor.FeatureVisitor;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FeatureExtractorTest {
 
     private FeatureVisitor featureVisitor;
+    SyntacticFeatureExtractor syntacticFeatureExtractor;
 
     final int NUM_OF_LOOP_STATEMENTS = 9;
     final int NUM_OF_IF_STATEMENTS = 6;
     final int NUM_OF_PARAMETERS = 2;
+    final int NUM_OF_PARANTHESIS = 27;
 
     @BeforeEach
     public void setup(){
 
-        String path = "src/test/resources/data";       
-        File file = new File(path + "/TestSnippet_1.java");
+        String filePath = "src/test/resources/data/TestSnippet_1.java"; 
+        Path path = Paths.get(filePath);      
+        File file = new File(filePath);
 
         CompilationUnit cu = null;
         try {
@@ -33,8 +38,24 @@ public class FeatureExtractorTest {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        featureVisitor = new FeatureExtractor().new FeatureVisitor();
+        
+        featureVisitor = new FeatureVisitor();
+       
+        syntacticFeatureExtractor = new SyntacticFeatureExtractor(featureVisitor.getFeatures());
+
+        String codeSnippet = null;
+        try {
+            codeSnippet = Files.readAllLines(path).toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         
+        // Capture Java Parser related features eg: #ifstmts
         featureVisitor.visit(cu,null);
+
+        // Captures non-Java Parser related features eg: #parenthesis
+        syntacticFeatureExtractor.extract(codeSnippet);
+
     }
 
     @Test
@@ -52,4 +73,8 @@ public class FeatureExtractorTest {
         assertEquals(NUM_OF_PARAMETERS, featureVisitor.getFeatures().getNumOfParameters());
     }
 
+    @Test
+    public void testParenthesis() {
+        assertEquals(NUM_OF_PARANTHESIS, featureVisitor.getFeatures().getParenthesis());
+    }
 }

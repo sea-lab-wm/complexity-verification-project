@@ -25,13 +25,13 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 /**
  * This class to extract features from a java file
  * Input : Java file with a Single Method (Note: if want to use all the features)
- * Output: FeatureMap
+ * Output: Features
  * */ 
 public class FeatureExtractor {
 
     public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
-        private FeatureMap featureMap = new FeatureMap();
+        private Features features = new Features();
 
         /**
          * This method to compute #parameters of a java method
@@ -42,7 +42,7 @@ public class FeatureExtractor {
         public void visit(MethodDeclaration md, Void arg){
             super.visit(md, arg);
             
-            featureMap.setNumOfParameters(md.getParameters().size());
+            features.setNumOfParameters(md.getParameters().size());
             
         }
 
@@ -54,7 +54,7 @@ public class FeatureExtractor {
         @Override
         public void visit(ConstructorDeclaration cd, Void arg){
             super.visit(cd, arg);
-            featureMap.setNumOfParameters(cd.getParameters().size());
+            features.setNumOfParameters(cd.getParameters().size());
         }
 
         /**
@@ -65,7 +65,7 @@ public class FeatureExtractor {
         @Override
         public void visit(IfStmt ifStmt, Void arg) {
             super.visit(ifStmt, arg);
-            featureMap.setNumOfIfStatements(featureMap.getNumOfIfStatements() + 1);
+            features.setNumOfIfStatements(features.getNumOfIfStatements() + 1);
         }
 
         /**
@@ -76,7 +76,7 @@ public class FeatureExtractor {
         @Override
         public void visit(ForStmt forStmt, Void arg) {
             super.visit(forStmt, arg);
-            featureMap.setNumOfLoops(featureMap.getNumOfLoops() + 1);
+            features.setNumOfLoops(features.getNumOfLoops() + 1);
         }
 
         /**
@@ -87,7 +87,7 @@ public class FeatureExtractor {
         @Override
         public void visit(WhileStmt whileStmt, Void arg) {
             super.visit(whileStmt, arg);
-            featureMap.setNumOfLoops(featureMap.getNumOfLoops() + 1);
+            features.setNumOfLoops(features.getNumOfLoops() + 1);
         }
 
         /**
@@ -98,7 +98,7 @@ public class FeatureExtractor {
         @Override
         public void visit(ForEachStmt forEachStmt, Void arg) {
             super.visit(forEachStmt, arg);
-            featureMap.setNumOfLoops(featureMap.getNumOfLoops() + 1);
+            features.setNumOfLoops(features.getNumOfLoops() + 1);
         }
 
         /**
@@ -109,7 +109,7 @@ public class FeatureExtractor {
         @Override
         public void visit(AssignExpr assignExpr, Void arg) {
             super.visit(assignExpr, arg);
-            featureMap.setAssignExprs(featureMap.getAssignExprs() + 1);
+            features.setAssignExprs(features.getAssignExprs() + 1);
         }
 
         /**
@@ -121,7 +121,7 @@ public class FeatureExtractor {
         public void visit(BinaryExpr n, Void arg) {
             super.visit(n, arg);
             if (n.getOperator() == Operator.EQUALS || n.getOperator() == Operator.NOT_EQUALS || n.getOperator() == Operator.LESS || n.getOperator() == Operator.LESS_EQUALS || n.getOperator() == Operator.GREATER || n.getOperator() == Operator.GREATER_EQUALS) {
-                featureMap.setComparisons(featureMap.getComparisons() + 1);
+                features.setComparisons(features.getComparisons() + 1);
             }
         }
 
@@ -133,7 +133,7 @@ public class FeatureExtractor {
         @Override
         public void visit(BooleanLiteralExpr ble, Void arg) {
             super.visit(ble, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -144,7 +144,7 @@ public class FeatureExtractor {
         @Override
         public void visit(CharLiteralExpr cle, Void arg) {
             super.visit(cle, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -155,7 +155,7 @@ public class FeatureExtractor {
         @Override
         public void visit(IntegerLiteralExpr ile, Void arg) {
             super.visit(ile, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -166,7 +166,7 @@ public class FeatureExtractor {
         @Override
         public void visit(LongLiteralExpr lle, Void arg) {
             super.visit(lle, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -177,7 +177,7 @@ public class FeatureExtractor {
         @Override
         public void visit(NullLiteralExpr nle, Void arg) {
             super.visit(nle, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -188,7 +188,7 @@ public class FeatureExtractor {
         @Override
         public void visit(StringLiteralExpr sle, Void arg) {
             super.visit(sle, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -199,7 +199,7 @@ public class FeatureExtractor {
         @Override
         public void visit(TextBlockLiteralExpr tble, Void arg) {
             super.visit(tble, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -210,7 +210,7 @@ public class FeatureExtractor {
         @Override
         public void visit(DoubleLiteralExpr dle, Void arg) {
             super.visit(dle, arg);
-            featureMap.setLiterals(featureMap.getLiterals() + 1);
+            features.setLiterals(features.getLiterals() + 1);
         }
 
         /**
@@ -222,15 +222,16 @@ public class FeatureExtractor {
         //@Override
         //public void visit(EnclosedExpr enclosedExpr, Void arg) {
         //    super.visit(enclosedExpr, arg);
-        //    featureMap.setNumOfParenthesis(featureMap.getNumOfParenthesis() + 1);
+        //    features.setNumOfParenthesis(features.getNumOfParenthesis() + 1);
         //}
 
         /**
-         * This method to get the computed features
-         * @return FeatureMap
+         * This method is to get the computed features
+         * After one/more visit method is/are called, the features will be updated and then use this method to get the updated features
+         * @return features
          */
-        public FeatureMap getFeatures() {
-            return featureMap;
+        public Features getFeatures() {
+            return features;
         }
     }
 

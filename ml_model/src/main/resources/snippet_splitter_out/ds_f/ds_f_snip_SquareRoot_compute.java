@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_f;
 public class ds_f_snip_SquareRoot_compute {
 // SNIPPET_STARTS
 public static String compute(int[] numbers) {

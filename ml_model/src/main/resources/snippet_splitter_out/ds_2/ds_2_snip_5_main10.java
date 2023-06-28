@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_2;
 public class ds_2_snip_5_main10 {
 // 10. Find largest number of three numbers                                      /*Tasks for fMRI-Setting*/
 // SNIPPET_STARTS    DATASET2START

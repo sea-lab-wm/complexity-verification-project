@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_6;
 public class ds_6_snip_1$K9_testFetchResponse {
 // com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
 // @Test // Removed to allow compilation

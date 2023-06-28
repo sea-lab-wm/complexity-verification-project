@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_2;
 public class ds_2_snip_2_main2 {
 // DATASET2END
 // 2. Count same chars at same positions in String              /*First and second pilot study*/

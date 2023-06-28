@@ -1,4 +1,4 @@
-package FeatureExtraction.snippet_splitter_out;
+package snippet_splitter_out.ds_2;
 public class ds_2_snip_9_main17 {
 // 17. Check whether substring is contained                                             /*Tasks for fMRI-Setting*/
 // SNIPPET_STARTS    DATASET2START
