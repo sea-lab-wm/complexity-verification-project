@@ -49,7 +49,7 @@ public class ClassifierPerformanceEvaluatorCustomizer extends JPanel {
   public void runAll() {
     addButtons();
   }
-
+// s48
   //SNIPPET_STARTS
   private void addButtons() {
     JButton okBut = new JButton("OK");

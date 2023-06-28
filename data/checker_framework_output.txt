@@ -2112,9 +2112,6 @@ Note: Recompile with -Xlint:unchecked for details.
                                       ^
   found   : @UnknownVal String @ArrayLenRange(from=1) []
   required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-[removed for anonymous submission]/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:622: warning: [dep-ann] deprecated item is not annotated with @Deprecated
-    public void Date(int daysSince1970) { // return type void added to allow compilation
-                ^
 [removed for anonymous submission]/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.java:551: warning: [return] incompatible types in return.
                 return null;
                        ^
@@ -2416,4 +2413,4 @@ Note: Recompile with -Xlint:unchecked for details.
   required: @IndexFor("result") or @LTLengthOf("result") -- an integer less than result's length
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-80 warnings
+79 warnings

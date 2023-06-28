@@ -9,7 +9,7 @@ import java.util.List;
 public class CarReport {
 
     private static final int REQUEST_ADD_DATA = 0;
-    private static final Object TAG = null;
+    private static final Object TAG = new Object();
     private Save mFuelType;
     private Save mEdtCategory;
     private Save mEdtName;
@@ -46,7 +46,7 @@ public class CarReport {
         }
     }
 
-    // me.kuehle.carreport.gui.dialog.EditFuelTypeDialogFragment.save()
+    // s11: me.kuehle.carreport.gui.dialog.EditFuelTypeDialogFragment.save()
     //SNIPPET_STARTS
     private boolean save() {
         FormValidator validator = new FormValidator();
@@ -85,13 +85,13 @@ public class CarReport {
 
     private static class Utils {
         public String getCacheDir() {
-            return null;
+            throw new Error();
         }
     }
 
     //SNIPPET_STARTS
     public class SetupWebDavSyncDialogActivity extends Activity {
-        // me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
+        // s12: me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
     //    @Override // Removed to allow compilation
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -143,7 +143,7 @@ public class CarReport {
         }
     }
 
-    // me.kuehle.carreport.gui.MainActivity.handleFABClick(int,int)
+    // s13: me.kuehle.carreport.gui.MainActivity.handleFABClick(int,int)
     //SNIPPET_STARTS
     private void handleFABClick(final int edit, final int otherType) {
         closeFABMenu();
@@ -176,7 +176,7 @@ public class CarReport {
         }
     }
 
-    // me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
+    // s14: me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
     //SNIPPET_STARTS
     private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
         if (getView() == null) {
@@ -245,7 +245,7 @@ public class CarReport {
         mFullScreenChartAnimator = set;
     }
 
-    // me.kuehle.carreport.util.sync.provider.DropboxSyncProvider.downloadFile()
+    // s15: me.kuehle.carreport.util.sync.provider.DropboxSyncProvider.downloadFile()
     //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
     public void downloadFile() throws SyncIoException, SyncParseException {
@@ -282,15 +282,15 @@ public class CarReport {
     //SNIPPETS_END
 
     private File getLocalFile() {
-        return null;
+        throw new Error();
     }
 
     private View getResources() {
-        return null;
+        throw new Error();
     }
 
     private ComboLineColumnChartView getView() {
-        return null;
+        throw new Error();
     }
 
     private void applyViewport(View mFullScreenChart, boolean b) {
@@ -298,30 +298,30 @@ public class CarReport {
     }
 
     private ReportChartOptions loadReportChartOptions(Object context, AbstractReport report) {
-        return null;
+        throw new Error();
     }
 
     private Save getContext() {
-        return null;
+        throw new Error();
     }
 
     private Save getActivity() {
-        return null;
+        throw new Error();
     }
 
     private class Save {
         public int validate_error_fuel_type_exists;
 
         public Save getContentResolver() {
-            return null;
+            throw new Error();
         }
 
         public Object getId() {
-            return null;
+            throw new Error();
         }
 
         public Object getText() {
-            return null;
+            throw new Error();
         }
 
         public void getCacheDir() {
@@ -349,7 +349,7 @@ public class CarReport {
 
     private class FuelTypeSelection {
         public FuelTypeSelection id(Object id) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -440,7 +440,7 @@ public class CarReport {
         }
 
         public CarCursor query(Object contentResolver, Object allColumns, String s) {
-            return null;
+            throw new Error();
         }
 
         public void cancel() {
@@ -452,19 +452,19 @@ public class CarReport {
         }
 
         public View getInteger(Object config_longAnimTime) {
-            return null;
+            throw new Error();
         }
 
         public View files() throws NetworkIOException, DbxException {
-            return null;
+            throw new Error();
         }
 
         public View download(String s) {
-            return null;
+            throw new Error();
         }
 
         public View download(FileOutputStream outputStream) {
-            return null;
+            throw new Error();
         }
 
         public static class OnClickListener {
@@ -502,7 +502,7 @@ public class CarReport {
     }
 
     private View getWindow() {
-        return null;
+        throw new Error();
     }
 
     private void setResult(Object resultCanceled) {
@@ -514,7 +514,7 @@ public class CarReport {
     }
 
     private View findViewById(Object edt_url) {
-        return null;
+        throw new Error();
     }
 
     private void finish() {
@@ -555,11 +555,11 @@ public class CarReport {
         }
 
         public Builder setItems(String[] carNames, DialogInterface.OnClickListener onClickListener) {
-            return null;
+            throw new Error();
         }
 
         public Builder create() {
-            return null;
+            throw new Error();
         }
 
         public void show() {
@@ -569,7 +569,7 @@ public class CarReport {
 
     private class CarSelection {
         public View suspendedSince(Date date) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -579,7 +579,7 @@ public class CarReport {
         }
 
         public String getName() {
-            return null;
+            throw new Error();
         }
 
         public int getCount() {
@@ -596,7 +596,7 @@ public class CarReport {
     }
 
     private Object getContentResolver() {
-        return null;
+        throw new Error();
     }
 
     private void startActivityForResult(Intent intent, int i) {
@@ -604,7 +604,7 @@ public class CarReport {
     }
 
     private Intent getDetailActivityIntent(int edit, long carId, int otherType) {
-        return null;
+        throw new Error();
     }
 
     private void closeFABMenu() {
@@ -635,7 +635,7 @@ public class CarReport {
 
     private class AbstractReport {
         public Object getChartData(ReportChartOptions options) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -673,7 +673,7 @@ public class CarReport {
         }
 
         public Temporal play(Object ofFloat) {
-            return null;
+            throw new Error();
         }
 
         public void cancel() {
@@ -683,7 +683,7 @@ public class CarReport {
 
     private static class ObjectAnimator {
         public static TemporalAdjuster ofFloat(ComboLineColumnChartView mFullScreenChartHolder, Object y, Object top, Object top1) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -711,7 +711,7 @@ public class CarReport {
 
     private static class Application {
         public static Utils getContext() {
-            return null;
+            throw new Error();
         }
     }
 

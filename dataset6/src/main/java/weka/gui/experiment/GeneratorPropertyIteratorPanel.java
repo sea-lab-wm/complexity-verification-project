@@ -71,7 +71,7 @@ public class GeneratorPropertyIteratorPanel extends JPanel implements
    * Handles the various button clicking type activities.
    * 
    * @param e a value of type 'ActionEvent'
-   */
+   */ // s50
   //SNIPPET_STARTS
   @Override
   public void actionPerformed(ActionEvent e) {
@@ -120,13 +120,13 @@ public class GeneratorPropertyIteratorPanel extends JPanel implements
     }
 
     public Object getPropertyArray() {
-      return null;
+      throw new Error();
     }
   }
 
   private class GenericArrayEditor {
     public Component getCustomEditor() {
-      return null;
+      throw new Error();
     }
 
     public void setValue(Object o) {

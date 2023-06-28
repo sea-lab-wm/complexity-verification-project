@@ -1345,7 +1345,7 @@ public class CodeSnippets {
     start--;
     end++;
     }
-    return null; // Had to be added to allow compilation
+    throw new Error(); // Had to be added to allow compilation
     }
     //SNIPPET_END_1
 
@@ -1382,7 +1382,7 @@ public class CodeSnippets {
     start--;
     end++;
     }
-    return null; // Had to be added to allow compilation
+    throw new Error(); // Had to be added to allow compilation
     }
     //SNIPPET_END_2
 
@@ -1414,7 +1414,7 @@ public class CodeSnippets {
     start--;
     end++;
     }
-    return null; // Had to be added to allow compilation
+    throw new Error(); // Had to be added to allow compilation
     }
     //SNIPPET_END_3
 
@@ -1454,7 +1454,7 @@ public class CodeSnippets {
     start--;
     end++;
     }
-    return null; // Had to be added to allow compilation
+    throw new Error(); // Had to be added to allow compilation
     }
     //SNIPPET_END_1
 
@@ -1494,7 +1494,7 @@ public class CodeSnippets {
     start--;
     end++;
     }
-    return null; // Had to be added to allow compilation
+    throw new Error(); // Had to be added to allow compilation
     }
     //SNIPPET_END_2
 
@@ -1529,7 +1529,7 @@ public class CodeSnippets {
     start--;
     end++;
     }
-    return null; // Had to be added to allow compilation
+    throw new Error(); // Had to be added to allow compilation
     }
     //SNIPPET_END_3
 
@@ -1557,7 +1557,7 @@ public class CodeSnippets {
         }
 
         public TimeTakenForMove getTimeTakenForMove() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1569,7 +1569,7 @@ public class CodeSnippets {
 
     private static class Control {
         public Bounds getBounds() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1578,7 +1578,7 @@ public class CodeSnippets {
         }
 
         public Extent textExtent(String textValue) {
-            return null;
+            throw new Error();
         }
 
         public void dispose() {
@@ -1612,13 +1612,13 @@ public class CodeSnippets {
 
     private class Project {
         public ProjectSpace eContainer() {
-            return null;
+            throw new Error();
         }
     }
 
     private class ProjectSpace {
         public PropertyManager getPropertyManager() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1628,13 +1628,13 @@ public class CodeSnippets {
         }
 
         public Collection getNotifications() {
-            return null;
+            throw new Error();
         }
     }
 
     private class PropertyManager {
         public StoreProperty getLocalProperty(String notificationComposite) {
-            return null;
+            throw new Error();
         }
 
         public void setLocalProperty(String notificationComposite, NotificationComposite nComposite) {
@@ -1644,7 +1644,7 @@ public class CodeSnippets {
 
     private class StoreProperty {
         public Value getValue() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1653,13 +1653,13 @@ public class CodeSnippets {
 
     private class NotificationComposite {
         public <E> NotificationList getNotifications() {
-            return null;
+            throw new Error();
         }
     }
 
     private static class Factory {
         public static NotificationComposite createNotificationComposite() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1681,7 +1681,7 @@ public class CodeSnippets {
 
         @Override
         public Iterator iterator() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -1744,11 +1744,11 @@ public class CodeSnippets {
 
     private class UTable {
         public Object getColumnsCount() {
-            return null;
+            throw new Error();
         }
 
         public BoxModelOption getBoxModel() {
-            return null;
+            throw new Error();
         }
 
         public UTableCell[] getEntries() {
@@ -1772,11 +1772,11 @@ public class CodeSnippets {
 
     private class BoxModelOption {
         public UColor getBorderColor() {
-            return null;
+            throw new Error();
         }
 
         public UColor getBackgroundColor() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1796,23 +1796,23 @@ public class CodeSnippets {
 
     private class UTableCell {
         public UParagraph getContent() {
-            return null;
+            throw new Error();
         }
 
         public BoxModelOption getBoxModel() {
-            return null;
+            throw new Error();
         }
     }
 
     private class UParagraph {
         public UChildren getChildren() {
-            return null;
+            throw new Error();
         }
     }
 
     private class UImage {
         public Path getPath() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -1832,7 +1832,7 @@ public class CodeSnippets {
 
     private class UChildren {
         public UImage get(int i) {
-            return null;
+            throw new Error();
         }
 
         public int size() {
@@ -1842,7 +1842,7 @@ public class CodeSnippets {
 
     private class Path {
         public USegment lastSegment() {
-            return null;
+            throw new Error();
         }
     }
 

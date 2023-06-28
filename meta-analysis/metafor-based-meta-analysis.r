@@ -4,10 +4,14 @@
 ##                Load libraries and import data                 ##
 ##---------------------------------------------------------------##
 
+
 #setwd("meta-analysis")
 
 #delete all variables
 rm(list = ls())
+
+#base_path = "~/Research/complexity-verification/complexity-verification-project/"
+base_path = "~/repositories/Projects/complexity-verification-project/"
 
 # Load libraries
 library(readxl)
@@ -22,7 +26,7 @@ library(ggpubr)
 library(metafor)
 
 # for aggregated meta-analysis
-library(dmetar)
+library(dmetar) #see this for installing dmetar: https://dmetar.protectlab.org/
 
 # for CHE meta-analysis
 library(clubSandwich)
@@ -165,7 +169,7 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
   
   print("===============================")
   
-  path = paste(out_dir_in, "../forest-plot/", sep = "")
+  path = paste(out_dir_in, base_path, "forest-plot/", sep = "")
   dir.create(path, showWarnings = FALSE) # Create directory if it doesn't exist
 
   pdf(file = paste(path, forest_plot_file_name, ".pdf", sep = "")
@@ -183,6 +187,27 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
     plot_ht <- 23
   } 
   
+  #------- VERSION FOR MAKING THE PLOT PRETTY FOR THE PAPER ---------#
+  # forest_plot <- forest(meta_analysis_result, showweights=TRUE,
+  #                       xlim=c(-5,5),
+  #                       ylim=c(-2,plot_ht),
+  #                       atransf=transf.ztor,
+  #                       header="Dataset",
+  #                       xlab="Pearson's r (negative correlation supports our hypothesis)",
+  #                       ilab = cbind(num_snippets_for_correlation),
+  #                       ilab.xpos= c(-3),
+  #                       addpred=TRUE,
+  #                       cex=1)
+
+  # text(c(-3,8),     meta_analysis_result$k+2, c("# of Snippets"), cex=1, font=2)
+  # text(2.3, 8, c("Weight"), cex=1, font=2)
+  # text(3.75, -1.7, bquote(paste("p = ", .(formatC(meta_analysis_result$pval, digits = 2, format = "f")), sep="")), cex=1, font=2)
+  # text(-2.7, -1.7, bquote(paste("Heterogeneity test: Q = ", .(formatC(meta_analysis_result$QE, digits=2, format="f")), 
+  #                               ", df = ", .(meta_analysis_result$k - meta_analysis_result$p),
+  #                               ", p = ", .(formatC(meta_analysis_result$QEp, digits=2, format="f")),
+  #                               sep="")), cex=1, font=2)
+  #------------------------------------------------------------------#
+
   forest_plot <- forest(meta_analysis_result, showweights=TRUE,
                         xlim=c(-5,5),
                         ylim=c(-2,plot_ht),
@@ -200,6 +225,8 @@ print_meta_analysis_generic <- function(correlation_data, forest_plot_file_name,
                                 ", df = ", .(meta_analysis_result$k - meta_analysis_result$p),
                                 ", p = ", .(formatC(meta_analysis_result$QEp, digits=2, format="f")),
                                 sep="")), cex=0.75, font=2)
+
+
                                               # "RE Model (Q = ",
                                               # .(formatC(meta_analysis_result$QE, digits=2, format="f")), ", df = ", .(meta_analysis_result$k - meta_analysis_result$p),
                                               # ", p = ", .(formatC(meta_analysis_result$QEp, digits=2, format="f")), "; ", I^2, " = ",
@@ -255,16 +282,16 @@ run_meta_analysis <- function(data_file_in, name){
   print_meta_analysis_overall(all_data2, sheet_in = name)
 }
 
-data_file_all_tools = "../scatter_plots_timeout_max/all_tools_corr_data.csv"
-data_file_infer = "../scatter_plots_timeout_max/infer_corr_data.csv"
-data_file_checker_framework = "../scatter_plots_timeout_max/checker_framework_corr_data.csv"
-data_file_typestate_checker = "../scatter_plots_timeout_max/typestate_checker_corr_data.csv"
-data_file_openjml = "../scatter_plots_timeout_max/openjml_corr_data.csv"
+data_file_all_tools = paste(base_path, "scatter_plots_timeout_max/all_tools_corr_data.csv", sep="")
+data_file_infer = paste(base_path, "scatter_plots_timeout_max/infer_corr_data.csv", sep="")
+data_file_checker_framework = paste(base_path, "scatter_plots_timeout_max/checker_framework_corr_data.csv", sep="")
+data_file_typestate_checker = paste(base_path, "scatter_plots_timeout_max/typestate_checker_corr_data.csv", sep="")
+data_file_openjml = paste(base_path, "scatter_plots_timeout_max/openjml_corr_data.csv", sep="")
 
-data_file_no_infer = "../scatter_plots_ablation_timeout_max/no_infer_corr_data.csv"
-data_file_no_checker_framework = "../scatter_plots_ablation_timeout_max/no_checker_framework_corr_data.csv"
-data_file_no_typestate_checker = "../scatter_plots_ablation_timeout_max/no_typestate_checker_corr_data.csv"
-data_file_no_openjml = "../scatter_plots_ablation_timeout_max/no_openjml_corr_data.csv"
+data_file_no_infer = paste(base_path, "scatter_plots_ablation_timeout_max/no_infer_corr_data.csv", sep="")
+data_file_no_checker_framework = paste(base_path, "scatter_plots_ablation_timeout_max/no_checker_framework_corr_data.csv", sep="")
+data_file_no_typestate_checker = paste(base_path, "scatter_plots_ablation_timeout_max/no_typestate_checker_corr_data.csv", sep="")
+data_file_no_openjml = paste(base_path, "scatter_plots_ablation_timeout_max/no_openjml_corr_data.csv", sep="")
 
 run_meta_analysis(data_file_all_tools, "all_tools")
 run_meta_analysis(data_file_infer, "infer")

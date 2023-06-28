@@ -51,7 +51,7 @@ public class EstimatorUtils implements RevisionHandler {
    * @param minMax    the array to return minimum and maximum in
    * @return number of not missing values
    * @throws Exception if parameter minMax wasn't initialized properly
-   */
+   */ // s47
   //SNIPPET_STARTS
   public static int getMinMax(Instances inst, int attrIndex, double[] minMax)
           throws Exception {
@@ -97,7 +97,7 @@ public class EstimatorUtils implements RevisionHandler {
 
   private static class Instances {
     public Enumeration<Instance> enumerateInstances() {
-      return null;
+      throw new Error();
     }
   }
 

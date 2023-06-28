@@ -30,7 +30,7 @@ public class K9 {
         testTextQuoteToHtmlBlockquote();
     }
 
-    // com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
+    // S1: com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
     public void testFetchResponse() throws Exception {
@@ -65,7 +65,7 @@ public class K9 {
         assertEquals("\\Seen", response.getList(2).getList(10).getString(0));
     }
 
-    // com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
+    // S2: com.fsck.k9.mail.store.RemoteStore.getInstance(android.content.Context,com.fsck.k9.mail.store.StoreConfig)
     /**
      * Get an instance of a remote mail store.
      */
@@ -104,7 +104,7 @@ public class K9 {
         return store;
     }
 
-    // com.fsck.k9.mail.transport.SmtpTransportTest.open_withXoauth2Extension_shouldThrowOnMultipleFailure()
+    // S3: com.fsck.k9.mail.transport.SmtpTransportTest.open_withXoauth2Extension_shouldThrowOnMultipleFailure()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
     public void open_withXoauth2Extension_shouldThrowOnMultipleFailure() throws Exception {
@@ -140,7 +140,7 @@ public class K9 {
 
     private static class DualHashMap<T, T1> {
         public T1 get(T uri) {
-            return null;
+            throw new Error();
         }
 
         public void put(T uri, T1 store) {
@@ -151,7 +151,7 @@ public class K9 {
     //SNIPPET_STARTS
     public class StorageManager {
         private final Context context;
-        // com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
+        // s4: com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
 
         /**
          * @param context Never <code>null</code>.
@@ -193,7 +193,7 @@ public class K9 {
         }
     }
 
-    // com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
+    // s5: com.fsck.k9.message.html.HtmlConverterTest.testTextQuoteToHtmlBlockquote()
 //    @Test // Removed to allow compilation
     //SNIPPET_STARTS
     public void testTextQuoteToHtmlBlockquote() {
@@ -243,14 +243,14 @@ public class K9 {
     }
 
     private SmtpTransport startServerAndCreateSmtpTransport(MockSmtpServer server, Object xoauth2, Object none) {
-        return null;
+        throw new Error();
     }
 
     private static class Context {
         public static final Object CONNECTIVITY_SERVICE = null;
 
         public Object getSystemService(Object connectivityService) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -279,7 +279,7 @@ public class K9 {
 
         @Override
         public String getId() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -297,7 +297,7 @@ public class K9 {
 
         @Override
         public String getId() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -313,7 +313,7 @@ public class K9 {
 
     private class ImapResponseParser {
         public ImapResponse readResponse() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -323,11 +323,11 @@ public class K9 {
         }
 
         public String getString(int i) {
-            return null;
+            throw new Error();
         }
 
         public ImapResponse getList(int i) {
-            return null;
+            throw new Error();
         }
 
         public int getNumber(int i) {
@@ -336,7 +336,7 @@ public class K9 {
     }
 
     private ImapResponseParser createParser(String s) {
-        return null;
+        throw new Error();
     }
 
 
@@ -346,7 +346,7 @@ public class K9 {
 
     private static class StoreConfig {
         public String getStoreUri() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -428,13 +428,13 @@ public class K9 {
 
     private class AuthenticationFailedException extends Exception{
         public String getMessage() {
-            return null;
+            throw new Error();
         }
     }
 
     private static class HtmlConverter {
         public static String textToHtml(String message) {
-            return null;
+            throw new Error();
         }
     }
 
