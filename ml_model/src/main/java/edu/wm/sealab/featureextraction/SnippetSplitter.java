@@ -23,7 +23,12 @@ public class SnippetSplitter {
 
   // Define which snippets were manually created
   private ArrayList<String> manuallyCreatedSnippets;
-
+    /*
+     * Constructs a SnippetSplitter object.
+     * 
+     * @param manualInputDir The relative path of the directory which should contain the manually created snippets
+     * @param outputDir The relative path of the directory which should contain the splitted snippets
+     */
   public SnippetSplitter(String manualInputDir, String outputDir) {
     OUTPUT_DIR = outputDir;
     manuallyCreatedSnippets = new ArrayList<>();
@@ -99,10 +104,10 @@ public class SnippetSplitter {
   /**
    * Given a single Java file, extracts its snippets and copies them to individual files.
    *
-   * @param inputFile
-   * @param outputDir
-   * @param dataset
-   * @param commentText
+   * @param inputFile The Java file to extract snippets from - may contain multiple methods
+   * @param outputDir The directory to write the splitted snippet to
+   * @param dataset The identifier of the dataset the file belongs to
+   * @param commentText is used to differentiate the start of a snippet from a non snippet method eg: SNIPPET_STARTS 
    * @throws IOException
    */
   private void extractMethods(File inputFile, String dataset, String commentText)
