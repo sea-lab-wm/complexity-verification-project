@@ -19,16 +19,15 @@ public class SnippetSplitter {
 
   private final String OUTPUT_DIR;
   private int count; // added to snippet file name to prevent overriding incase of duplicate snippet
-  // names
 
   // Define which snippets were manually created
   private ArrayList<String> manuallyCreatedSnippets;
-    /*
-     * Constructs a SnippetSplitter object.
-     * 
-     * @param manualInputDir The relative path of the directory which should contain the manually created snippets
-     * @param outputDir The relative path of the directory which should contain the splitted snippets
-     */
+  /*
+   * Constructs a SnippetSplitter object.
+   *
+   * @param manualInputDir The relative path of the directory which should contain the manually created snippets
+   * @param outputDir The relative path of the directory which should contain the splitted snippets
+   */
   public SnippetSplitter(String manualInputDir, String outputDir) {
     OUTPUT_DIR = outputDir;
     manuallyCreatedSnippets = new ArrayList<>();
@@ -48,13 +47,6 @@ public class SnippetSplitter {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
-    // Recreate the directories
-    // try {
-    // Files.createDirectories(Paths.get("/Your/Path/Here"));
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
 
     // Copy the manually created files into the output directory
     new DirExplorer(
@@ -107,7 +99,8 @@ public class SnippetSplitter {
    * @param inputFile The Java file to extract snippets from - may contain multiple methods
    * @param outputDir The directory to write the splitted snippet to
    * @param dataset The identifier of the dataset the file belongs to
-   * @param commentText is used to differentiate the start of a snippet from a non snippet method eg: SNIPPET_STARTS 
+   * @param commentText is used to differentiate the start of a snippet from a non snippet method
+   *     eg: SNIPPET_STARTS
    * @throws IOException
    */
   private void extractMethods(File inputFile, String dataset, String commentText)
@@ -207,10 +200,7 @@ public class SnippetSplitter {
    * @return true if the target file exists, false otherwise
    */
   private boolean checkForFile(String snippet, String dataset) {
-    // System.out.println("test");
-    // System.out.println(snippet);
     for (int i = 0; i < manuallyCreatedSnippets.size(); i++) {
-      // System.out.println(manuallyCreatedSnippets.get(i));
       if (manuallyCreatedSnippets.get(i).split("_")[3].equals(snippet)
           && manuallyCreatedSnippets.get(i).split("_")[1].equals(dataset)) {
         System.out.println("manually created snippet found: " + manuallyCreatedSnippets.get(i));
