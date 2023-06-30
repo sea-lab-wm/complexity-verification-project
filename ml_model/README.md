@@ -29,10 +29,34 @@ feature_data.csv and metric_data.csv are merged into collective table called ml_
 
 #### Tips to Decide whether To Use or Not to use JavaParser.
 
+1. When to use JavaParser
+
 * It is highly recommended to utilize JavaParser whenever possible due to its convenience and ease of use.
 
 * Please refer to the JavaParser documentation available at  https://javadoc.io/doc/com.github.javaparser/javaparser-core/latest/index.html to determine if it provides the necessary API for the desired code feature.
 
 * If you find an API that matches your needs, go ahead and use JavaParser. Means implement your feature by making changes in the FeatureVisitor class.
 
-* If you are unable to locate a direct method within the APIs, use the SyntacticFeatureExtractor to implement your desired logic. In this option, you may not need/can't use JavaParser.
+* Simply for all features that require deeper analysis based on the program's abstract syntax tree.
+
+Examples of features that can be extracted using JavaParser:
+
+* Number of ifstatements
+* Number of loops
+* Number of method parametemeters
+
+
+2. When to use SyntacticFeatureExtractor:
+
+* If the feature can be computed unambiguously using a regular expression or a similarly simple technique.
+
+* For features related to the source code format itself (rather than the underlying program).
+
+Examples of features that can be extracted using SyntacticFeatureExtractor:
+
+* Number of lines of non-comment, non-blank code.
+* Maximum line length.
+* Maximum indentation level.
+
+
+
