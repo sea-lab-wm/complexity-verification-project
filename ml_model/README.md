@@ -14,10 +14,25 @@ Both output the collected features to feature_data.csv
 
 1. Add the new feature to the ```Features.java```
 2. If the new code feature require JavaParser, implement it in the ```FeatureVisitor.java``` else implement it inside the  ```SyntacticFeatureExtractor.java```
+
+
+
+
 3. Change ```Parser.java``` to add the new feature in the ```features_data.csv```
-4. Add unit tests in either ```FeatureExtractortest.java``` (without using DirExplorer) or ```FeatureExtractorTestMultiple.java``` (with using DirExplorer)
+4. Add unit tests in either ```FeatureExtractortest.java``` or ```FeatureExtractorTestMultiple.java```
+If you only have one code snippet to test your feature, use FeatureExtractortest for unit testing. However, if you have multiple code snippets that require testing in a single execution, write the tests in FeatureExtractorTestMultiple.
 
 
 create_metric_data.py is responsible for collecting the metric and warning data. It outputs to metric_data.csv
 
 feature_data.csv and metric_data.csv are merged into collective table called ml_table.csv. This is done using join_tables.py
+
+#### Tips to Decide whether To Use or Not to use JavaParser.
+
+* It is highly recommended to utilize JavaParser whenever possible due to its convenience and ease of use.
+
+* Please refer to the JavaParser documentation available at  https://javadoc.io/doc/com.github.javaparser/javaparser-core/latest/index.html to determine if it provides the necessary API for the desired code feature.
+
+* If you find an API that matches your needs, go ahead and use JavaParser. Means implement your feature by making changes in the FeatureVisitor class.
+
+* If you are unable to locate a direct method within the APIs, use the SyntacticFeatureExtractor to implement your desired logic. In this option, you may not need/can't use JavaParser.
