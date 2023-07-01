@@ -342,13 +342,13 @@ public class Tasks_2 {
     }
 
     // Snippet s35
-    //SNIPPET_STARTS
     public class DisbandUnitAction extends Tasks_2{ // Wrapped in a class to allow compilation
         /**
          * Creates a new <code>DisbandUnitAction</code>.
          *
          * @param freeColClient The main controller object for the client.
          */
+        //SNIPPET_STARTS
         DisbandUnitAction(FreeColClient freeColClient) {
             super(freeColClient, "unit.state.8", null, KeyStroke.getKeyStroke('D', 0));
             putValue(BUTTON_IMAGE, freeColClient.getImageLibrary().getUnitButtonImageIcon(ImageLibrary.UNIT_BUTTON_DISBAND,
@@ -446,8 +446,8 @@ public class Tasks_2 {
     } // Added to allow compilation
 
     // Snippet s43
-    //SNIPPET_STARTS
     public class TestClassRunnerForParameters extends Tasks_2{ // Added class wrapper to allow compilation
+        //SNIPPET_STARTS
         private TestClassRunnerForParameters(Class<?> klass, Object[] parameters, int i) {
             super(klass);
             fParameters= parameters;
@@ -503,7 +503,6 @@ public class Tasks_2 {
     } // Added to allow compilation
 
     // Snippet s48
-    //SNIPPET_STARTS
     public class ComparisonFailure extends Tasks_2{ // Class wrapper to allow compilation
         /**
          * Constructs a comparison failure.
@@ -511,6 +510,7 @@ public class Tasks_2 {
          * @param expected the expected string value
          * @param actual the actual string value
          */
+        //SNIPPET_STARTS
         public ComparisonFailure (String message, String expected, String actual) {
             super (message);
             fExpected= expected;

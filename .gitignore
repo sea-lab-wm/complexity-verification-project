@@ -166,6 +166,7 @@ build
 
 #Ignore Python Virtual Environment Directory
 complexity_verification_project_venv
+venv
 
 #Ignore CogniCrypt Testing Stuff
 CryptoAnalysis
