@@ -15,9 +15,13 @@ To build and execute the project, execute:
 This would produce the file: `feature_data.csv`
 
 ## Split method into code snippets
-1. Create directory ```ml_model/src/main/resources/manually_created_snippets``` 
+
+Note: Code splitting should be performed only once! 
+If the snippet_spitter_out already contains the snippets (including the ones mentioned in Step 2), there is no need to proceed with the following steps. 
+
+1. Create a directory ```ml_model/src/main/resources/manually_created_snippets``` 
   
-2. Copy the manually created snippets into the above directory 
+2. Copy the manually created snippets into the above directory. Here are examples for some of the manually created snippets. 
 eg snippets: ```ds_3_snip_35_DisbandUnitAction```,```ds_3_snip_43_TestClassRunnerForParameters```, ```ds_3_snip_48_ComparisonFailure```, ```ds_6_snip_1$Pom_HealthReport```, ```ds_6_snip_2$HibernateORM_TimesTenDialect```, ```ds_6_snip_4$K9_StorageManager```
 
 3. Run ```edu.wm.sealab.featureextraction.SnippetSplitter.main()```
