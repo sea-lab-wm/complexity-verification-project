@@ -87,3 +87,4 @@ In general, this is the procedure you should follow to solve an issue assigned t
 * JavaParser book: shared on Slack
 * JavaParser API: https://www.javadoc.io/doc/com.github.javaparser/javaparser-core/latest/index.html
 * Regular expressions in Java: https://www.vogella.com/tutorials/JavaRegularExpressions/article.html
+* Useful VS code plugins: https://code.visualstudio.com/docs/sourcecontrol/github 
