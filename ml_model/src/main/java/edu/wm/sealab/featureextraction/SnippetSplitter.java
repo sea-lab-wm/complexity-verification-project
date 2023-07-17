@@ -212,15 +212,12 @@ public class SnippetSplitter {
     return false;
   }
 
-  /**
-   * How to Run
-   * 1. Create directory ml_model/src/main/resources/manually_created_snippets
-   *    eg: ds_3_snip_35_DisbandUnitAction,ds_3_snip_43_TestClassRunnerForParameters,
-   *        ds_3_snip_48_ComparisonFailure, ds_6_snip_1$Pom_HealthReport, 
-   *        ds_6_snip_2$HibernateORM_TimesTenDialect, ds_6_snip_4$K9_StorageManager
-   * 2. Copy the manually created snippets into the above directory
-   * 3. Run the main method
-   */
+  
+ 
+  /*
+  * Main method for splitting snippets
+  * Refer "Split method into code snippets" section in README.md
+  */ 
   public static void main(String[] args) {
     // Snippet splitting
     SnippetSplitter ss =
@@ -244,7 +241,5 @@ public class SnippetSplitter {
     ss.run(new File("dataset9/src/main/java/"), "9$bc", "SNIPPET_STARTS_2");
     ss.run(new File("dataset9/src/main/java/"), "9$nc", "SNIPPET_STARTS_3");
     ss.run(new File("simple-datasets/src/main/java/fMRI_Study_Classes/"), "f", "SNIPPET_STARTS");
-
   }
-
 }
