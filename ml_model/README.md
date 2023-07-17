@@ -69,16 +69,16 @@ Examples of features that can be extracted using SyntacticFeatureExtractor:
 In general, this is the procedure you should follow to solve an issue assigned to you:
 
 1. Fork this repository, if you haven't done so. See this: https://docs.github.com/en/get-started/quickstart/fork-a-repo 
-2. Clone your repository and check out the ml_model branch. See this: https://www.git-tower.com/learn/git/commands/git-checkout
-3. Create a new branch from the ml_model branch. This new branch will be used for addressing the issue (give it a name like "issue[issue_number]", e.g., issue2343).
-4. In your new branch, implement the code to solve the issue.
+2. Clone your repository and check out the `ml_model` branch. See this: https://www.git-tower.com/learn/git/commands/git-checkout
+3. Create a new branch from the `ml_model` branch. This new branch will be used for addressing the issue (give it a name like "issue[issue_number]", e.g., `issue2343`).
+4. In your new branch, implement the code to extract one feature or a small subset of features (specified in the issue you are solving). 
 5. If you need to talk to us or have any questions during your implementation, feel free to contact us on Slack
 6. Write unit test cases to test your implementation (via JUnit). See this: https://www.vogella.com/tutorials/JUnit/article.html
-7. Commit and push your code to your forked repository, referencing the issue in the commit message
+7. Commit and push your code to your forked repository, referencing the issue in the commit message (see this: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests).
 8. Create a pull request to this repository and assign Nadeeshan as the reviewer. Reference the issue in the pull request title or description. See this: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
-9. We will review your code and give you feedback on how to improve the code.
-10. If the code review requests code changes for you, make those changes in the code (in the same branch of the issue).
-11. Assign once again Nadeeshan as the code reviewer. 
+9. We will review your code and give you feedback on improving your implementation/tests.
+10. If the review requests code changes for you, make those changes in the code (in the same branch of the issue). Pushing those changes will automatically update the pull request.
+11. Assign Nadeeshan once again as the code reviewer. 
 12. If the code review gives the green light, we will merge your pull request into this repository and we will close the issue.
 
 ## Resources
