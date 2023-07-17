@@ -1,13 +1,14 @@
 package snippet_splitter_out.ds_9$bc;
+
 public class ds_9$bc_snip_1_logAndEmailSeriousProblemS112 {
-// SNIPPET_END_1
-// S1_1:2 method chains, bad comments
-/**
- * Informs the webmaster of an unexpected problem (Exception “ex”)
- * with the deployed application (indicated by “aRequest”).
- */
-// SNIPPET_STARTS_2
-public void logAndEmailSeriousProblemS112(Throwable ex, HttpServletRequest aRequest) {
+  // SNIPPET_END_1
+  // S1_1:2 method chains, bad comments
+  /**
+   * Informs the webmaster of an unexpected problem (Exception “ex”) with the deployed application
+   * (indicated by “aRequest”).
+   */
+  // SNIPPET_STARTS_2
+  public void logAndEmailSeriousProblemS112(Throwable ex, HttpServletRequest aRequest) {
     /* Define local variable. */
     TroubleTicket troubleTicket = new TroubleTicket(ex, aRequest);
     /* Log message. */
@@ -19,6 +20,9 @@ public void logAndEmailSeriousProblemS112(Throwable ex, HttpServletRequest aRequ
     // changed to allow compilation
     System.out.println(troubleTicket.toString());
     /* Update context and mail trouble ticket. */
-    aRequest.getSession().getServletContext().setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
-}
+    aRequest
+        .getSession()
+        .getServletContext()
+        .setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+  }
 }

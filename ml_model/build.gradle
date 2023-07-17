@@ -51,6 +51,7 @@ spotless {
     importOrder()
     removeUnusedImports()
     googleJavaFormat("1.8")
+    target 'src/**/*.java'
   }
 }
 

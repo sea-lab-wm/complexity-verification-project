@@ -1,9 +1,10 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_2$SpringBatch_testArtifactUniqueness {
-// org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
-// @Test // removed to allow compilation
-// SNIPPET_STARTS
-public void testArtifactUniqueness() throws Exception {
+  // org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
+  // @Test // removed to allow compilation
+  // SNIPPET_STARTS
+  public void testArtifactUniqueness() throws Exception {
     JobExecution jobExecution = runJob("jsrUniqueInstanceTests", new Properties(), 10000L);
     String exitStatus = jobExecution.getExitStatus();
     assertTrue("Exit status must contain listener3", exitStatus.contains("listener3"));
@@ -23,5 +24,5 @@ public void testArtifactUniqueness() throws Exception {
     assertTrue("Exit status must contain listener4", exitStatus.contains("listener4"));
     exitStatus = exitStatus.replace("listener4", "");
     assertTrue("exitStatus must be empty", "".equals(exitStatus));
-}
+  }
 }

@@ -1,10 +1,20 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_5$Antlr4Master_testToStringStartStop2 {
-// org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
-// @Test // Removed to allow compilation
-// SNIPPET_STARTS
-public void testToStringStartStop2() throws Exception {
-    LexerGrammar g = new LexerGrammar("lexer grammar T;\n" + "ID : 'a'..'z'+;\n" + "INT : '0'..'9'+;\n" + "SEMI : ';';\n" + "ASSIGN : '=';\n" + "PLUS : '+';\n" + "MULT : '*';\n" + "WS : ' '+;\n");
+  // org.antlr.v4.test.runtime.java.api.TestTokenStreamRewriter.testToStringStartStop2()
+  // @Test // Removed to allow compilation
+  // SNIPPET_STARTS
+  public void testToStringStartStop2() throws Exception {
+    LexerGrammar g =
+        new LexerGrammar(
+            "lexer grammar T;\n"
+                + "ID : 'a'..'z'+;\n"
+                + "INT : '0'..'9'+;\n"
+                + "SEMI : ';';\n"
+                + "ASSIGN : '=';\n"
+                + "PLUS : '+';\n"
+                + "MULT : '*';\n"
+                + "WS : ' '+;\n");
     // Tokens: 012345678901234567
     // Input:  x = 3 * 0 + 2 * 0;
     String input = "x = 3 * 0 + 2 * 0;";
@@ -42,5 +52,5 @@ public void testToStringStartStop2() throws Exception {
     // try again after insert at end
     expecting = "x = 0";
     assertEquals(expecting, result);
-}
+  }
 }

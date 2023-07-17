@@ -1,7 +1,8 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_1$ClassifierPerformanceEvaluatorCustomizer_addButtons {
-// SNIPPET_STARTS
-private void addButtons() {
+  // SNIPPET_STARTS
+  private void addButtons() {
     JButton okBut = new JButton("OK");
     JButton cancelBut = new JButton("Cancel");
     JPanel butHolder = new JPanel();
@@ -9,35 +10,38 @@ private void addButtons() {
     butHolder.add(okBut);
     butHolder.add(cancelBut);
     add(butHolder, BorderLayout.SOUTH);
-    okBut.addActionListener(new ActionListener() {
+    okBut.addActionListener(
+        new ActionListener() {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
+          @Override
+          public void actionPerformed(ActionEvent e) {
             if (m_modifyListener != null) {
-                m_modifyListener.setModifiedStatus(ClassifierPerformanceEvaluatorCustomizer.this, true);
+              m_modifyListener.setModifiedStatus(
+                  ClassifierPerformanceEvaluatorCustomizer.this, true);
             }
             if (m_evaluationMetrics.size() > 0) {
-                StringBuilder b = new StringBuilder();
-                for (String s : m_evaluationMetrics) {
-                    b.append(s).append(",");
-                }
-                String newList = b.substring(0, b.length() - 1);
-                m_cpe.setEvaluationMetricsToOutput(newList);
+              StringBuilder b = new StringBuilder();
+              for (String s : m_evaluationMetrics) {
+                b.append(s).append(",");
+              }
+              String newList = b.substring(0, b.length() - 1);
+              m_cpe.setEvaluationMetricsToOutput(newList);
             }
             if (m_parent != null) {
-                m_parent.dispose();
+              m_parent.dispose();
             }
-        }
-    });
-    cancelBut.addActionListener(new ActionListener() {
+          }
+        });
+    cancelBut.addActionListener(
+        new ActionListener() {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
+          @Override
+          public void actionPerformed(ActionEvent e) {
             customizerClosing();
             if (m_parent != null) {
-                m_parent.dispose();
+              m_parent.dispose();
             }
-        }
-    });
-}
+          }
+        });
+  }
 }

@@ -1,10 +1,18 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_1$K9_testFetchResponse {
-// com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
-// @Test // Removed to allow compilation
-// SNIPPET_STARTS
-public void testFetchResponse() throws Exception {
-    ImapResponseParser parser = createParser("* 1 FETCH (" + "UID 23 " + "INTERNALDATE \"01-Jul-2015 12:34:56 +0200\" " + "RFC822.SIZE 3456 " + "BODY[HEADER.FIELDS (date subject from)] \"<headers>\" " + "FLAGS (\\Seen))\r\n");
+  // com.fsck.k9.mail.store.imap.ImapResponseParserTest.testFetchResponse()
+  // @Test // Removed to allow compilation
+  // SNIPPET_STARTS
+  public void testFetchResponse() throws Exception {
+    ImapResponseParser parser =
+        createParser(
+            "* 1 FETCH ("
+                + "UID 23 "
+                + "INTERNALDATE \"01-Jul-2015 12:34:56 +0200\" "
+                + "RFC822.SIZE 3456 "
+                + "BODY[HEADER.FIELDS (date subject from)] \"<headers>\" "
+                + "FLAGS (\\Seen))\r\n");
     ImapResponse response = parser.readResponse();
     assertEquals(3, response.size());
     assertEquals("1", response.getString(0));
@@ -26,5 +34,5 @@ public void testFetchResponse() throws Exception {
     assertEquals("FLAGS", response.getList(2).getString(9));
     assertEquals(1, response.getList(2).getList(10).size());
     assertEquals("\\Seen", response.getList(2).getList(10).getString(0));
-}
+  }
 }

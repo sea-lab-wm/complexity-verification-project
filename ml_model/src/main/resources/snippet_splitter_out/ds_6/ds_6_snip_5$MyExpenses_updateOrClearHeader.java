@@ -1,30 +1,35 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_5$MyExpenses_updateOrClearHeader {
-// se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
-// SNIPPET_STARTS
-private void updateOrClearHeader(int firstVisiblePosition) {
+  // se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
+  // SNIPPET_STARTS
+  private void updateOrClearHeader(int firstVisiblePosition) {
     final int adapterCount = mAdapter == null ? 0 : mAdapter.getCount();
     if (adapterCount == 0 || !mAreHeadersSticky) {
-        return;
+      return;
     }
     final int headerViewCount = mList.getHeaderViewsCount();
     int headerPosition = firstVisiblePosition - headerViewCount;
     if (mList.getChildCount() > 0) {
-        View firstItem = mList.getChildAt(0);
-        if (firstItem.getBottom() < stickyHeaderTop()) {
-            headerPosition++;
-        }
+      View firstItem = mList.getChildAt(0);
+      if (firstItem.getBottom() < stickyHeaderTop()) {
+        headerPosition++;
+      }
     }
     // It is not a mistake to call getFirstVisiblePosition() here.
     // Most of the time getFixedFirstVisibleItem() should be called
     // but that does not work great together with getChildAt()
     final boolean doesListHaveChildren = mList.getChildCount() != 0;
-    final boolean isFirstViewBelowTop = doesListHaveChildren && mList.getFirstVisiblePosition() == 0 && mList.getChildAt(0).getTop() >= stickyHeaderTop();
-    final boolean isHeaderPositionOutsideAdapterRange = headerPosition > adapterCount - 1 || headerPosition < 0;
+    final boolean isFirstViewBelowTop =
+        doesListHaveChildren
+            && mList.getFirstVisiblePosition() == 0
+            && mList.getChildAt(0).getTop() >= stickyHeaderTop();
+    final boolean isHeaderPositionOutsideAdapterRange =
+        headerPosition > adapterCount - 1 || headerPosition < 0;
     if (!doesListHaveChildren || isHeaderPositionOutsideAdapterRange || isFirstViewBelowTop) {
-        clearHeader();
-        return;
+      clearHeader();
+      return;
     }
     updateHeader(headerPosition);
-}
+  }
 }

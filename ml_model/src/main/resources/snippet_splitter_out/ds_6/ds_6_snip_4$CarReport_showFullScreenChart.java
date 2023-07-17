@@ -1,13 +1,14 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_4$CarReport_showFullScreenChart {
-// me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
-// SNIPPET_STARTS
-private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
+  // me.kuehle.carreport.gui.ReportFragment.showFullScreenChart(me.kuehle.carreport.data.report.AbstractReport,lecho.lib.hellocharts.view.ComboLineColumnChartView)
+  // SNIPPET_STARTS
+  private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView v) {
     if (getView() == null) {
-        return;
+      return;
     }
     if (mFullScreenChartAnimator != null) {
-        mFullScreenChartAnimator.cancel();
+      mFullScreenChartAnimator.cancel();
     }
     mCurrentFullScreenChart = v;
     ReportChartOptions options = loadReportChartOptions(getContext(), report);
@@ -21,8 +22,10 @@ private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView
     getView().getGlobalVisibleRect(finalBounds, globalOffset);
     mCurrentFullScreenStartBounds.offset(-globalOffset.x, -globalOffset.y);
     finalBounds.offset(-globalOffset.x, -globalOffset.y);
-    mCurrentFullScreenStartScaleX = (float) mCurrentFullScreenStartBounds.width() / finalBounds.width();
-    mCurrentFullScreenStartScaleY = (float) mCurrentFullScreenStartBounds.height() / finalBounds.height();
+    mCurrentFullScreenStartScaleX =
+        (float) mCurrentFullScreenStartBounds.width() / finalBounds.width();
+    mCurrentFullScreenStartScaleY =
+        (float) mCurrentFullScreenStartBounds.height() / finalBounds.height();
     // Hide the small chart and show the zoomed-in view. When the animation
     // begins, it will position the zoomed-in view in the place of the small
     // chart.
@@ -36,17 +39,32 @@ private void showFullScreenChart(AbstractReport report, ComboLineColumnChartView
     // Construct and run the parallel animation of the four translation and
     // scale properties (X, Y, SCALE_X, and SCALE_Y).
     AnimatorSet set = new AnimatorSet();
-    set.play(ObjectAnimator.ofFloat(mFullScreenChartHolder, View.X, mCurrentFullScreenStartBounds.left, finalBounds.left)).with(ObjectAnimator.ofFloat(mFullScreenChartHolder, View.Y, mCurrentFullScreenStartBounds.top, finalBounds.top)).with(ObjectAnimator.ofFloat(mFullScreenChartHolder, View.SCALE_X, mCurrentFullScreenStartScaleX, 1f)).with(ObjectAnimator.ofFloat(mFullScreenChartHolder, View.SCALE_Y, mCurrentFullScreenStartScaleY, 1f));
+    set.play(
+            ObjectAnimator.ofFloat(
+                mFullScreenChartHolder,
+                View.X,
+                mCurrentFullScreenStartBounds.left,
+                finalBounds.left))
+        .with(
+            ObjectAnimator.ofFloat(
+                mFullScreenChartHolder, View.Y, mCurrentFullScreenStartBounds.top, finalBounds.top))
+        .with(
+            ObjectAnimator.ofFloat(
+                mFullScreenChartHolder, View.SCALE_X, mCurrentFullScreenStartScaleX, 1f))
+        .with(
+            ObjectAnimator.ofFloat(
+                mFullScreenChartHolder, View.SCALE_Y, mCurrentFullScreenStartScaleY, 1f));
     set.setDuration(getResources().getInteger(android.R.integer.config_longAnimTime));
-    set.addListener(new AnimatorListenerAdapter() {
+    set.addListener(
+        new AnimatorListenerAdapter() {
 
-        // @Override // Removed to allow compilation
-        public void onAnimationEnd(Animator animation) {
+          // @Override // Removed to allow compilation
+          public void onAnimationEnd(Animator animation) {
             mFullScreenChartAnimator = null;
             mAppBarLayout.setVisibility(View.INVISIBLE);
-        }
-    });
+          }
+        });
     set.start();
     mFullScreenChartAnimator = set;
-}
+  }
 }

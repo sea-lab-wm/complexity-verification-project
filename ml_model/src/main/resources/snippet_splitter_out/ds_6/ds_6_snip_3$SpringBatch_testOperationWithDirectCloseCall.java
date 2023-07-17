@@ -1,9 +1,10 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_3$SpringBatch_testOperationWithDirectCloseCall {
-// org.springframework.batch.item.database.ExtendedConnectionDataSourceProxyTests.testOperationWithDirectCloseCall()
-// @Test // removed to allow compilation
-// SNIPPET_STARTS
-public void testOperationWithDirectCloseCall() throws SQLException {
+  // org.springframework.batch.item.database.ExtendedConnectionDataSourceProxyTests.testOperationWithDirectCloseCall()
+  // @Test // removed to allow compilation
+  // SNIPPET_STARTS
+  public void testOperationWithDirectCloseCall() throws SQLException {
     Connection con = mock(Connection.class);
     DataSource ds = mock(DataSource.class);
     // con1
@@ -30,5 +31,5 @@ public void testOperationWithDirectCloseCall() throws SQLException {
     con1.close();
     assertTrue("should be able to close connection", csds.shouldClose(con2));
     con2.close();
-}
+  }
 }

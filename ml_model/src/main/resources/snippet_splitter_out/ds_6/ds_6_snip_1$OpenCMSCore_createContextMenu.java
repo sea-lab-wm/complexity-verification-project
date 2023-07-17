@@ -1,8 +1,9 @@
 package snippet_splitter_out.ds_6;
+
 public class ds_6_snip_1$OpenCMSCore_createContextMenu {
-// org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
-// SNIPPET_STARTS
-public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
+  // org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
+  // SNIPPET_STARTS
+  public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
     List<A_CmsSitemapMenuEntry> result = Lists.newArrayList();
     result.add(new CmsGotoMenuEntry(hoverbar));
     result.add(new CmsGotoExplorerMenuEntry(hoverbar));
@@ -26,9 +27,18 @@ public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar
     result.add(new CmsAddToNavMenuEntry(hoverbar));
     result.add(new CmsBumpDetailPageMenuEntry(hoverbar));
     result.add(new CmsRefreshMenuEntry(hoverbar));
-    result.add(new CmsAdvancedSubmenu(hoverbar, Arrays.asList(new CmsAvailabilityMenuEntry(hoverbar), new CmsLockReportMenuEntry(hoverbar), new CmsSeoMenuEntry(hoverbar), new CmsSubSitemapMenuEntry(hoverbar), new CmsMergeMenuEntry(hoverbar), new CmsRemoveMenuEntry(hoverbar))));
+    result.add(
+        new CmsAdvancedSubmenu(
+            hoverbar,
+            Arrays.asList(
+                new CmsAvailabilityMenuEntry(hoverbar),
+                new CmsLockReportMenuEntry(hoverbar),
+                new CmsSeoMenuEntry(hoverbar),
+                new CmsSubSitemapMenuEntry(hoverbar),
+                new CmsMergeMenuEntry(hoverbar),
+                new CmsRemoveMenuEntry(hoverbar))));
     result.add(new CmsModelPageLockReportMenuEntry(hoverbar));
     result.add(new CmsDeleteMenuEntry(hoverbar));
     return result;
-}
+  }
 }
