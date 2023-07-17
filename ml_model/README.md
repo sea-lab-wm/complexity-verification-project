@@ -84,6 +84,6 @@ In general, this is the procedure you should follow to solve an issue assigned t
 ## Resources
 
 * Abstract Syntax Tree: https://en.wikipedia.org/wiki/Abstract_syntax_tree
-* JavaParser book:
+* JavaParser book: shared on Slack
 * JavaParser API: https://www.javadoc.io/doc/com.github.javaparser/javaparser-core/latest/index.html
 * Regular expressions in Java: https://www.vogella.com/tutorials/JavaRegularExpressions/article.html
