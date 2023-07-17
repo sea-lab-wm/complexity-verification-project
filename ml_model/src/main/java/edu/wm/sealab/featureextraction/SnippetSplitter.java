@@ -211,4 +211,40 @@ public class SnippetSplitter {
 
     return false;
   }
+
+  /**
+   * How to Run
+   * 1. Create directory ml_model/src/main/resources/manually_created_snippets
+   *    eg: ds_3_snip_35_DisbandUnitAction,ds_3_snip_43_TestClassRunnerForParameters,
+   *        ds_3_snip_48_ComparisonFailure, ds_6_snip_1$Pom_HealthReport, 
+   *        ds_6_snip_2$HibernateORM_TimesTenDialect, ds_6_snip_4$K9_StorageManager
+   * 2. Copy the manually created snippets into the above directory
+   * 3. Run the main method
+   */
+  public static void main(String[] args) {
+    // Snippet splitting
+    SnippetSplitter ss =
+        new SnippetSplitter(
+            "ml_model/src/main/resources/manually_created_snippets/",
+            "ml_model/src/main/resources/snippet_splitter_out/");
+    ss.run(
+        new File("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/"),
+        "1",
+        "SNIPPET_STARTS");
+    ss.run(
+        new File("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/"),
+        "2",
+        "DATASET2START");
+    ss.run(
+        new File("simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/"),
+        "3",
+        "SNIPPET_STARTS");
+    ss.run(new File("dataset6/src/main/java/"), "6", "SNIPPET_STARTS");
+    ss.run(new File("dataset9/src/main/java/"), "9$gc", "SNIPPET_STARTS_1");
+    ss.run(new File("dataset9/src/main/java/"), "9$bc", "SNIPPET_STARTS_2");
+    ss.run(new File("dataset9/src/main/java/"), "9$nc", "SNIPPET_STARTS_3");
+    ss.run(new File("simple-datasets/src/main/java/fMRI_Study_Classes/"), "f", "SNIPPET_STARTS");
+
+  }
+
 }
