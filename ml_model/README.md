@@ -16,7 +16,7 @@ This would produce the file: `feature_data.csv`
 
 ## Split method into code snippets
 
-Note: Code splitting should be performed only once! 
+**Note: Code splitting should be performed only once!** 
 If the snippet_spitter_out already contains the snippets (including the ones mentioned in Step 2), there is no need to proceed with the following steps. 
 
 1. Create a directory ```ml_model/src/main/resources/manually_created_snippets``` 
