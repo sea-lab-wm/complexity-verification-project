@@ -212,12 +212,10 @@ public class SnippetSplitter {
     return false;
   }
 
-  
- 
   /*
-  * Main method for splitting snippets
-  * Refer "Split method into code snippets" section in README.md
-  */ 
+   * Main method for splitting snippets
+   * Refer "Split method into code snippets" section in README.md
+   */
   public static void main(String[] args) {
     // Snippet splitting
     SnippetSplitter ss =
