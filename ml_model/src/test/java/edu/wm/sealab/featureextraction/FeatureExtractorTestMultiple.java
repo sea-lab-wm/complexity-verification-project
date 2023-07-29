@@ -17,10 +17,12 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_LOOP_STATEMENTS_1 = 9;
   final int NUM_OF_IF_STATEMENTS_1 = 6;
   final int NUM_OF_PARAMETERS_1 = 2;
+  final int NUM_OF_COMMENTS_1 = 7;
 
   final int NUM_OF_LOOP_STATEMENTS_2 = 6;
   final int NUM_OF_IF_STATEMENTS_2 = 4;
   final int NUM_OF_PARAMETERS_2 = 3;
+  final int NUM_OF_COMMENTS_2 = 3;
 
   @BeforeEach
   public void setup() {
@@ -70,6 +72,11 @@ public class FeatureExtractorTestMultiple {
   }
 
   @Test
+  public void testComments1() {
+    assertEquals(NUM_OF_COMMENTS_1, featureVisitor1.getFeatures().getNumOfComments());
+  }
+
+  @Test
   public void testLoops2() {
     assertEquals(NUM_OF_LOOP_STATEMENTS_2, featureVisitor2.getFeatures().getNumOfLoops());
   }
@@ -82,5 +89,10 @@ public class FeatureExtractorTestMultiple {
   @Test
   public void testMethodParameters2() {
     assertEquals(NUM_OF_PARAMETERS_2, featureVisitor2.getFeatures().getNumOfParameters());
+  }
+
+  @Test
+  public void testComments2() {
+    assertEquals(NUM_OF_COMMENTS_2, featureVisitor2.getFeatures().getNumOfComments());
   }
 }

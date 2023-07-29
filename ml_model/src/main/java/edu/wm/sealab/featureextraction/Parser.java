@@ -44,6 +44,8 @@ public class Parser {
       pw.append("parenthesis");
       pw.append(",");
       pw.append("literals");
+      pw.append(",");
+      pw.append("comments");
       pw.append("\n");
 
       new DirExplorer(
@@ -102,6 +104,8 @@ public class Parser {
                 pw.append(Integer.toString(features.getParenthesis()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
+                pw.append(",");
+                pw.append(Integer.toString(features.getNumOfComments()));
                 pw.append("\n");
               })
           .explore(projectDir);

@@ -18,6 +18,9 @@ import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.ast.comments.BlockComment;
+import com.github.javaparser.ast.comments.JavadocComment;
+import com.github.javaparser.ast.comments.LineComment;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -233,6 +236,45 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(dle, arg);
     features.incrementNumOfLiterals();
   }
+
+  /**
+   * This method identifies block comments in a java method and sums them up to the total number of
+   * comments
+   *
+   * @param BlockComment
+   * @param Void
+   */
+  @Override
+  public void visit(BlockComment comm, Void arg) {
+    super.visit(comm, arg);
+    features.incrementNumOfComments();
+  } 
+
+  /**
+   * This method identifies block comments in a java method and sums them up to the total number of
+   * comments
+   *
+   * @param JavadocComment
+   * @param Void
+   */
+  @Override
+  public void visit(JavadocComment comm, Void arg) {
+    super.visit(comm, arg);
+    features.incrementNumOfComments();
+  } 
+  
+  /**
+   * This method identifies block comments in a java method and sums them up to the total number of
+   * comments
+   *
+   * @param LineComment
+   * @param Void
+   */
+  @Override
+  public void visit(LineComment comm, Void arg) {
+    super.visit(comm, arg);
+    features.incrementNumOfComments();
+  } 
 
   /**
    * This method is to get the computed features After one/more visit method is/are called, the

@@ -22,6 +22,7 @@ public class FeatureExtractorTest {
   final int NUM_OF_IF_STATEMENTS = 6;
   final int NUM_OF_PARAMETERS = 2;
   final int NUM_OF_PARANTHESIS = 27;
+  final int NUM_OF_COMMENTS = 7;
 
   @BeforeEach
   public void setup() {
@@ -73,5 +74,10 @@ public class FeatureExtractorTest {
   @Test
   public void testParenthesis() {
     assertEquals(NUM_OF_PARANTHESIS, featureVisitor.getFeatures().getParenthesis());
+  }
+
+  @Test
+  public void testComments() {
+    assertEquals(NUM_OF_COMMENTS, featureVisitor.getFeatures().getNumOfComments());
   }
 }
