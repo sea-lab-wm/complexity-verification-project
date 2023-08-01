@@ -50,7 +50,7 @@ spotless {
   java {
     importOrder()
     removeUnusedImports()
-    googleJavaFormat("1.8.0")
+    googleJavaFormat("1.8")
     target 'src/**/*.java'
   }
 }
