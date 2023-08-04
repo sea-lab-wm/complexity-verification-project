@@ -22,6 +22,7 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_IF_STATEMENTS_2 = 4;
   final int NUM_OF_PARAMETERS_2 = 3;
 
+
   @BeforeEach
   public void setup() {
     System.out.println("Working Directory = " + System.getProperty("user.dir"));
@@ -83,4 +84,7 @@ public class FeatureExtractorTestMultiple {
   public void testMethodParameters2() {
     assertEquals(NUM_OF_PARAMETERS_2, featureVisitor2.getFeatures().getNumOfParameters());
   }
-}
+
+
+
+

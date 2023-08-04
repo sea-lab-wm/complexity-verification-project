@@ -34,6 +34,16 @@ public @Data class Features {
   // feature 10: #literals
   private int literals = 0;
 
+  // new features
+  private float avgCommas = 0.0f;
+  private float avgParenthesis = 0.0f;
+  private float avgPeriods = 0.0f;
+  private float avgSpaces = 0.0f;
+  private float avgLength = 0.0f;
+
+  private int maxLength = 0;
+
+
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }

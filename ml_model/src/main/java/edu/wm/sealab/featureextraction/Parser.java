@@ -2,6 +2,8 @@ package edu.wm.sealab.featureextraction;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.MethodDeclaration;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -44,6 +46,17 @@ public class Parser {
       pw.append("parenthesis");
       pw.append(",");
       pw.append("literals");
+      pw.append(",");
+      //new features
+      pw.append("avgCommas");
+      pw.append(",");
+      pw.append("avgParenthesis");
+      pw.append(",");
+      pw.append("avgPeriods");
+      pw.append(",");
+      pw.append("avgSpaces");
+      pw.append(",");
+      pw.append("maxLength");
       pw.append("\n");
 
       new DirExplorer(
@@ -70,7 +83,13 @@ public class Parser {
                 // Extract syntactic features (non JavaParser extraction)
                 SyntacticFeatureExtractor sfe =
                     new SyntacticFeatureExtractor(featureVisitor.getFeatures());
-                Features features = sfe.extract(cuNoComm.toString());
+                    // String methodbody = cuNoComm.getMethod();
+
+                    //NEW CODE -- makes extracts the method in the snippet
+                String methodBody = cuNoComm.findFirst(MethodDeclaration.class)
+                            .map(method -> method.toString())
+                            .orElse("");
+                Features features = sfe.extract(methodBody);
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -102,7 +121,21 @@ public class Parser {
                 pw.append(Integer.toString(features.getParenthesis()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
+                pw.append(",");
+                // new features
+                pw.append(Float.toString(features.getAvgCommas()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgParenthesis()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgPeriods()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgSpaces()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgLength()));
+                pw.append(",");
+                pw.append(Float.toString(features.getMaxLength()));
                 pw.append("\n");
+
               })
           .explore(projectDir);
     } catch (FileNotFoundException e) {
