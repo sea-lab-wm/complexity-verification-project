@@ -5,6 +5,8 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.comments.Comment;
 import com.github.javaparser.ast.comments.LineComment;
+import com.github.javaparser.printer.lexicalpreservation.LexicalPreservingPrinter;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -109,6 +111,7 @@ public class SnippetSplitter {
 
     try {
       cu = StaticJavaParser.parse(inputFile);
+      LexicalPreservingPrinter.setup(cu); // preserve lexical information of the original file
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -169,7 +172,8 @@ public class SnippetSplitter {
         }
 
         // Surround the method with a dummy class
-        String methodString = method.toString();
+        // String methodString = method.toString();
+        String methodString = LexicalPreservingPrinter.print(method);// get the raw method string
         String fullString =
             "package snippet_splitter_out.ds_"
                 + dataset
@@ -221,7 +225,8 @@ public class SnippetSplitter {
     SnippetSplitter ss =
         new SnippetSplitter(
             "ml_model/src/main/resources/manually_created_snippets/",
-            "ml_model/src/main/resources/snippet_splitter_out/");
+            //"ml_model/src/main/resources/snippet_splitter_out/");
+            "ml_model/src/main/resources/raw_snippet_splitter_out/"); // raw method output
     ss.run(
         new File("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/"),
         "1",

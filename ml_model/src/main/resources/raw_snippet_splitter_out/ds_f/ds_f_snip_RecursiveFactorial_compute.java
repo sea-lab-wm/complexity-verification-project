@@ -1,0 +1,10 @@
+package snippet_splitter_out.ds_f;
+public class ds_f_snip_RecursiveFactorial_compute {
+public static int compute(int value) {
+        if (value == 1) {
+            return 1;
+        }
+
+        return compute(value - 1) * value;
+    }
+}

@@ -17,14 +17,41 @@ This would produce the file: `feature_data.csv`
 ## Split method into code snippets
 
 **Note: Code splitting should be performed only once!** 
+
+### Standardize Parsing + Formatting 
 If the snippet_spitter_out already contains the snippets (including the ones mentioned in Step 2), there is no need to proceed with the following steps. 
 
-1. Create a directory ```ml_model/src/main/resources/manually_created_snippets``` 
+1. Create directories ```ml_model/src/main/resources/manually_created_snippets/ds_3``` and ```ml_model/src/main/resources/manually_created_snippets/ds_6``` 
   
-2. Copy the manually created snippets into the above directory. Here are examples for some of the manually created snippets. 
-eg snippets: ```ds_3_snip_35_DisbandUnitAction```,```ds_3_snip_43_TestClassRunnerForParameters```, ```ds_3_snip_48_ComparisonFailure```, ```ds_6_snip_1$Pom_HealthReport```, ```ds_6_snip_2$HibernateORM_TimesTenDialect```, ```ds_6_snip_4$K9_StorageManager```
+2. Copy below manually created snippets into the above directories accordingly. ds_3 ones to ds_3 folder and ds_6 ones to ds_6 folder.
+snippets: ```ds_3_snip_35_DisbandUnitAction```,```ds_3_snip_43_TestClassRunnerForParameters```, ```ds_3_snip_48_ComparisonFailure```, ```ds_6_snip_1$Pom_HealthReport```, ```ds_6_snip_2$HibernateORM_TimesTenDialect```, ```ds_6_snip_4$K9_StorageManager```
 
 3. Run ```edu.wm.sealab.featureextraction.SnippetSplitter.main()```
+
+4. In order to format the splitted snippets, use spotless like below in the ml_model/build.gradle
+```
+spotless {
+   java {
+     importOrder()
+     removeUnusedImports()
+     googleJavaFormat("1.8")
+     target 'src/main/resources/snippet_splitter_out/*.java'
+   }
+ }
+```
+
+### Raw snippets
+1. Follow the steps (1,2) in the section above.
+
+2. Replace line 175 in the SnippetSplitter.java
+`String methodString = method.toString();`  
+with
+`String methodString = LexicalPreservingPrinter.print(method);`
+
+3. Run ```edu.wm.sealab.featureextraction.SnippetSplitter.main()```
+
+
+
 
 ## Feature Extraction
 Code features are extracted in two ways:
