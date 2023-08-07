@@ -1,13 +1,16 @@
-package raw_snippet_splitter_out.ds_6;
+package manually_created_snippets.ds_6;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class ds_6_snip_4$K9_StorageManager {
+    // com.fsck.k9.mailstore.StorageManager.StorageManager(android.content.Context)
+
     /**
      * @param context Never <code>null</code>.
      * @throws NullPointerException If <tt>context</tt> is <code>null</code>.
      */
+    //SNIPPET_STARTS
     protected StorageManager(final Context context) throws NullPointerException {
         if (context == null) {
             throw new NullPointerException("No Context given");
@@ -41,5 +44,5 @@ public class ds_6_snip_4$K9_StorageManager {
             }
         }
 
-    } 
+    }
 }

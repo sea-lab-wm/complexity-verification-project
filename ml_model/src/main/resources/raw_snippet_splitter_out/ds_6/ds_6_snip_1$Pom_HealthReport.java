@@ -1,6 +1,7 @@
-package raw_snippet_splitter_out.ds_6;
+package manually_created_snippets.ds_6;
 
 public class ds_6_snip_1$Pom_HealthReport {
+    // hudson.model.HealthReport.HealthReport(int,java.lang.String,org.jvnet.localizer.Localizable)
     /**
      * Create a new HealthReport.
      *
@@ -15,6 +16,7 @@ public class ds_6_snip_1$Pom_HealthReport {
      *                    will replace /32x32/ in the path with the appropriate size.
      * @param description The health icon's tool-tip.
      */
+    //SNIPPET_STARTS
     public HealthReport(int score, String iconUrl, Localizable description) {
         this.score = score;
         if (score <= 20) {

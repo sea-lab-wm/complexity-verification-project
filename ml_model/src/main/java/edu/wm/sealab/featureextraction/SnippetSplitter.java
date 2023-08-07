@@ -1,11 +1,11 @@
 package edu.wm.sealab.featureextraction;
 
-import com.github.javaparser.StaticJavaParser;
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.comments.Comment;
 import com.github.javaparser.ast.comments.LineComment;
-import com.github.javaparser.printer.lexicalpreservation.LexicalPreservingPrinter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -109,8 +109,8 @@ public class SnippetSplitter {
     CompilationUnit cu = null;
 
     try {
-      cu = StaticJavaParser.parse(inputFile);
-      LexicalPreservingPrinter.setup(cu); // preserve lexical information of the original file
+      JavaParser parser = new JavaParser(new ParserConfiguration().setLexicalPreservationEnabled(true));
+      cu = parser.parse(inputFile).getResult().get();
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -171,8 +171,7 @@ public class SnippetSplitter {
         }
 
         // Surround the method with a dummy class
-        // String methodString = method.toString();
-        String methodString = LexicalPreservingPrinter.print(method); // get the raw method string
+        String methodString = method.toString();
         String fullString =
             "package snippet_splitter_out.ds_"
                 + dataset

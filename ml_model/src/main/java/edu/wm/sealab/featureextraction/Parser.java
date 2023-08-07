@@ -10,11 +10,13 @@ public class Parser {
   public static void main(String[] args) {
 
     // String dirPath = args[1];
-    String dirPath = "ml_model/src/main/resources/snippet_splitter_out/";
+    // String dirPath = "ml_model/src/main/resources/snippet_splitter_out/";
+    String dirPath = "ml_model/src/main/resources/raw_snippet_splitter_out/";
     File projectDir = new File(dirPath);
 
     // Output features
-    File csvOutputFile = new File("ml_model/feature_data.csv");
+    File csvOutputFile = new File("ml_model/raw_feature_data.csv");
+    // File csvOutputFile = new File("ml_model/feature_data.csv");
     try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
       // write header row
       pw.append("dataset_id");

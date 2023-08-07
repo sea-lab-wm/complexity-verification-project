@@ -1,9 +1,11 @@
-package raw_snippet_splitter_out.ds_6;
+package manually_created_snippets.ds_6;
 
 public class ds_6_snip_2$HibernateORM_TimesTenDialect {
+    // org.hibernate.dialect.TimesTenDialect.TimesTenDialect()
     /**
      * Constructs a TimesTenDialect
      */
+    //SNIPPET_STARTS
     public TimesTenDialect() {
         super();
         registerColumnType(Types.BIT, "TINYINT");

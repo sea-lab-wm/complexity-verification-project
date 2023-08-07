@@ -1,5 +1,12 @@
 package snippet_splitter_out.ds_9$bc;
 public class ds_9$bc_snip_8_getMove422 {
+// SNIPPET_END_1
+// S4_2:2 resolved method chains, bad comments
+/**
+ * Generates a string (“builder”) for a given chess move in PGN (Portable
+ * Game Notation). This includes the move number and all NAG annotations.
+ */
+// SNIPPET_STARTS_2
 public static boolean getMove422(StringBuilder builder, Move move) {
     boolean result = false;
     int moveNumber = move.getFullMoveCount();
@@ -9,21 +16,21 @@ public static boolean getMove422(StringBuilder builder, Move move) {
     builder.append(move.toString());
     /* Add sublines. */
     for (SublineNode subline : move.getSublines()) {
-    result = true;
-    builder.append(" (");
-    appendSubline(builder, subline);
-    builder.append(")");
+        result = true;
+        builder.append(" (");
+        appendSubline(builder, subline);
+        builder.append(")");
     }
     /* Add comments. */
     for (Comment comment : move.getComments()) {
-    builder.append(" {");
-    builder.append(comment.getText());
-    builder.append("}");
+        builder.append(" {");
+        builder.append(comment.getText());
+        builder.append("}");
     }
     /* Add NAGs. */
     for (Nag nag : move.getNags()) {
-    builder.append(" ");
-    builder.append(nag.getNagString());
+        builder.append(" ");
+        builder.append(nag.getNagString());
     }
     /* Add time. */
     builder.append(" {");
@@ -31,5 +38,5 @@ public static boolean getMove422(StringBuilder builder, Move move) {
     builder.append(timeTaken.getText());
     builder.append("}");
     return result;
-    }
+}
 }
