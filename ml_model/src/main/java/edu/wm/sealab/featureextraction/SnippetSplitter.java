@@ -1,7 +1,6 @@
 package edu.wm.sealab.featureextraction;
 
-import com.github.javaparser.JavaParser;
-import com.github.javaparser.ParserConfiguration;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.comments.Comment;
@@ -109,8 +108,12 @@ public class SnippetSplitter {
     CompilationUnit cu = null;
 
     try {
-      JavaParser parser = new JavaParser(new ParserConfiguration().setLexicalPreservationEnabled(true));
-      cu = parser.parse(inputFile).getResult().get();
+      // Parse the input file with lexical preservation enabled
+      // uncomment below two lines when dealing with raw snippets
+      // JavaParser parser =
+      //     new JavaParser(new ParserConfiguration().setLexicalPreservationEnabled(true));
+      // cu = parser.parse(inputFile).getResult().get();
+      cu = StaticJavaParser.parse(inputFile); // comment this line when dealing with raw snippets
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
@@ -223,8 +226,8 @@ public class SnippetSplitter {
     SnippetSplitter ss =
         new SnippetSplitter(
             "ml_model/src/main/resources/manually_created_snippets/",
-            // "ml_model/src/main/resources/snippet_splitter_out/");
-            "ml_model/src/main/resources/raw_snippet_splitter_out/"); // raw method output
+            "ml_model/src/main/resources/snippet_splitter_out/");
+    // "ml_model/src/main/resources/raw_snippet_splitter_out/"); // raw method output
     ss.run(
         new File("simple-datasets/src/main/java/cog_complexity_validation_datasets/One/"),
         "1",
