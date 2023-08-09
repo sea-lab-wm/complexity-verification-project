@@ -1,0 +1,8 @@
+OS:
+Ubuntu 20.04 (for OpenJML experiments only); everything else should work on any unix system
+       - pre-collected data is available for OpenJML (and other tools), so the artifact can still be mostly evaluated even if you cannot run OpenJML
+
+Software:
+Python 3
+Java JDKs (all of versions 8, 11, and 17)
+R Studio (tested on version 2022.12.0.+353)

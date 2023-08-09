@@ -1,0 +1,4 @@
+We are applying for these badges:
+* AVAILABLE: the artifact is on Zenodo (todo: link), and is built from a GitHub repository (https://github.com/sea-lab-wm/complexity-verification-project). The artifact contains all the scripts and data, including the original metric data and the snippets.
+* FUNCTIONAL: the artifact should enable easy reproduction of almost all of our experiments (exception: long-running OpenJML experiments that also require a specific Ubuntu version). The artifact should enable reproduction of those, too, with the right environment and a bit of tinkering with timeouts, depending on your hardware.
+* REUSABLE: the artifact also includes checklists for extending it to add new datasets and new verification tools, both of which have been tested by undergrads without previous exposure to the project. All the source code is available and reasonably documented, and we expect it shouldn't be too hard to build on if another researcher so desires.
