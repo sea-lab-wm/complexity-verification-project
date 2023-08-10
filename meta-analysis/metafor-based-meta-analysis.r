@@ -10,6 +10,7 @@
 #delete all variables
 rm(list = ls())
 
+#TODO: set the base path to the project
 #base_path = "~/Research/complexity-verification/complexity-verification-project/"
 base_path = "~/repositories/Projects/complexity-verification-project/"
 
