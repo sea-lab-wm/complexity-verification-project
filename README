@@ -2,6 +2,10 @@ This is the replication package of our FSE'23 paper:
 
 > **Kobi Feldman, Martin Kellogg, and Oscar Chaparro, "Proceedings of the 31st ACM Joint Meeting on the Foundations of Software Engineering (ESEC/FSE'23)", (to appear), 2023**
 
+This package is stored on Zenodo: 
+
+[![DOI](https://zenodo.org/badge/474097539.svg)](https://zenodo.org/badge/latestdoi/474097539)
+
 This is Markdown document, use your favorite editor/IDE to render it or see the README.pdf for the rendered version.
 
 # Package Structure
