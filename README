@@ -1,7 +1,7 @@
 # Project Structure:
   * "complexity.pdf": a copy of our (almost) camera-ready paper
   * data folder
-    * All analysis tool output. (i.e., the results of running the tools. You can do the correlation analysis from these raw tool output files, if you just want to repeat our analysis and not our data collection.)
+    * All verification tool output. (i.e., the results of running the tools. You can do the correlation analysis from these raw tool output files, if you just want to repeat our analysis and not our data collection.)
     * All csv sheets created with the analysis tool output.
     * The file “correlation_analysis_timeout_zero.xlsx”, which stores an overview of data collected including correlation results for when openjml timeouts are treated as zeros
     * The file “correlation_analysis_timeout_max.xlsx” which stores an overview of data collected including correlation results for when openjml timeouts are treated as the max # of warnings openjml found on any snippet per dataset.
@@ -25,7 +25,7 @@
 # Kick-the-tires instructions:
 * follow the "setting up the project environment" instructions below after the full instructions (< 5 minutes).
 * run `./tool-execution/run_checker_framework.sh` to re-collect the Checker Framework data (about 5 minutes: should print "Checker Framework successfuly ran. View output in data/checker_framework_output.txt" when it finishes successfully).
-* run `./tool-execution/run_correlation_analysis.sh` to run the first part of the data analysis (< 5 minutes)
+* run `./tool-execution/run_correlation_analysis.sh` to run the first part of the data analysis: the individual correlations between each metric and verifiability (< 5 minutes)
 * open the file `meta-analysis/metafor-based-meta-analysis.r` in R Studio and execute it. Open the file `forest-plot/all_tools_positive_negated_agg.pdf`, which the R script should have re-generated; it should look very similar (hopefully identical!) to the plot in Figure 1 in the paper. (< 5 minutes)
 
 # Full instructions:
@@ -48,7 +48,7 @@
   * Install the required libraries to the virtual environment: `pip3 install -r requirements.txt`
     Note: you might have to give yourself permission to run the .sh scripts using chmod.
 
-# Checklist of all things to do when adding a new analysis tool to the project:
+# Checklist of all things to do when adding a new analysis tool to the project (only needed when extending the work, not when replicating our results):
   * Create new .bat and .sh scripts to run the analysis tool + add any other dependencies, files, etc that are needed to run the analysis tool.
   * Create a new function in warning_parser.py to parse the analysis tool’s output and convert it to a .csv.
   * Create a new sheet in “correlation_analysis.xlsx” named after the analysis tool and fill in its column titles as well as the first 2 columns worth of data (same as the other sheets).
@@ -56,7 +56,7 @@
     * Update the ‘if __name__ == “__main__”:’ section at the bottom so that correlations can be done on the new analysis tool isolated from the others.
     * Update the readAnalysisToolOutput() function to read in the .csv file created for this analysis tool.
 
-# Checklist of all things to do when adding a new dataset/metric to the project:
+# Checklist of all things to do when adding a new dataset/metric to the project (only needed when extending the work, not when replicating our results):
   * Add the dataset to the project
   * Add any relevant metric results from the previous study that used the dataset to the project to data folder in our repo
   * Update the .bat and .sh scripts that are used to run the analysis tools on all the datasets to include the new dataset:
@@ -77,7 +77,7 @@
     * Output: The Checker Framework outputs all of its warnings to “checker_framework_output.txt”
   * Run the Infer tool (version 1.1.0, Java version 17.0.3) on all the snippets. Collect all the warnings generated. Note that some warning types such as null dereferences cause the tool to stop analyzing the current method when spotted and move on to the next one.
     * First install infer (system-wide): https://github.com/facebook/infer/blob/main/INSTALL.md 
-    * How To: Run this command from the project root directory: `./tool-execution/run_infer.sh`
+    * How To: Run this command from the project root directory: `./tool-execution/run_infer-no-filter.sh` (note that there is also a `run_infer.sh` script; we did not use it for the paper, since it doesn't include the `--no-filter` argument to infer)
     * Output: Infer outputs all of its warnings to “infer_output.txt”
   * Manually swap to Java version 8.
   * Run the TypeState Checker (Checker Framework version 3.14.0, Java version 8 as recommended on the typestate Github) on a single folder of snippets. Collect all of the warnings generated. This differs from the Checker Framework in that the Checker Framework checks all snippets simultaneously while the Typestate Checker only operates on a single folder at a time.
@@ -91,7 +91,7 @@
 
 # Analyze the Data:
   * How to compute the results in table 3 (the individual metric correlation results): 
-    * Run the file “run_correlation_analysis.sh” to complete ALL steps 1-7 automatically. This document lays out how they work in detail, too, to explain how the process works. You probably don't need to read anything after this bullet if you don't want to modify the data analysis.
+    * Run the file “run_correlation_analysis.sh” to complete ALL steps 1-7 automatically. Therest of this section lays out how they work in detail, too, to explain how the process works. You probably don't need to read anything after this bullet if you don't want to modify the data analysis. **Skip the rest of this section and just run `run_correlation_analysis.sh` unless you want to understand how that script works.**
        * Run this command from the project root directory: `./tool-execution/run_correlation_analysis.sh`
     * The two scripts, “warning_parser.py” and “correlation.py” can alternatively be run manually and independently of each other if needed.
       * “warning_parser.py” is for Step 1
