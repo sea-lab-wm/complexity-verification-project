@@ -1,10 +1,14 @@
 package edu.wm.sealab.featureextraction;
 
 import com.github.javaparser.StaticJavaParser;
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class Parser {
   public static void main(String[] args) {
@@ -47,7 +51,19 @@ public class Parser {
       pw.append("parenthesis");
       pw.append(",");
       pw.append("literals");
+      pw.append(",");
+      pw.append("avgComments");
       pw.append("\n");
+
+      Scanner scan = null;
+      try {
+        scan = new Scanner(new File("ml_model/loc_data.csv"));
+        scan.useDelimiter("\n");
+      } catch (FileNotFoundException e) {
+        e.printStackTrace();
+      }
+      final Scanner sc = scan;
+      sc.next();
 
       new DirExplorer(
               (level, path, file) -> path.endsWith(".java"),
@@ -59,8 +75,8 @@ public class Parser {
                 CompilationUnit cuNoComm = null;
                 try {
                   cu = StaticJavaParser.parse(file);
-                  StaticJavaParser.getParserConfiguration().setAttributeComments(false);
-                  cuNoComm = StaticJavaParser.parse(file);
+                  JavaParser parser = new JavaParser(new ParserConfiguration().setAttributeComments(false));
+                  cuNoComm = parser.parse(file).getResult().get();
                 } catch (FileNotFoundException e) {
                   e.printStackTrace();
                 }
@@ -74,6 +90,12 @@ public class Parser {
                 SyntacticFeatureExtractor sfe =
                     new SyntacticFeatureExtractor(featureVisitor.getFeatures());
                 Features features = sfe.extract(cuNoComm.toString());
+
+                 String line;
+                line = sc.next();
+                String[] columns = line.split(",");
+                double numLines = Double.parseDouble(columns[3]);
+                double avgNumOfComments = features.getNumOfComments() / numLines;
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -105,9 +127,12 @@ public class Parser {
                 pw.append(Integer.toString(features.getParenthesis()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
+                pw.append(",");
+                pw.append(new DecimalFormat("#.##").format(avgNumOfComments));
                 pw.append("\n");
               })
           .explore(projectDir);
+          sc.close();
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }

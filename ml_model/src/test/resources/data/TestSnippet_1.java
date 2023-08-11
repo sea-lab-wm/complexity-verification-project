@@ -2,7 +2,11 @@ package data;
 
 public class TestSnippet_1 {
 
-  public void TestLoops(int x, int y) {
+    /**
+      * this is a javadoc comment! #1
+      * use this test snippet to create test cases
+      */
+    public void TestLoops(int x, int y) { //I think it's funny that x and y aren't actually used in the snippet. #2
     for (int i = 0; i < 10; i++) {
       System.out.println("single_for");
     }
@@ -12,13 +16,23 @@ public class TestSnippet_1 {
       System.out.println("single_while");
       i++;
     }
-
+    /*
+    This is a block comment!
+     * if (true)
+     * for ()
+     * TestLoops(int x, int y, intz)
+     * lines above shouldn't modify test results
+    #3
+    */
     for (int j = 0; j < 10; j++) {
       for (int k = 0; k < 10; k++) {
         System.out.println("nested_for");
       }
     }
 
+    //These first two comments are orphan comments, as they aren't assigned to any code. #4
+    //However, they will still count towards the total! #5
+    //#6    
     int k = 0, j = 0;
     while (k < 10) {
       while (j < 10) {
@@ -26,6 +40,7 @@ public class TestSnippet_1 {
       }
     }
 
+    //I'm adding parethesis here () #7
     int i1 = 0;
     while (i1 < 10) {
       for (int i2 = 0; i2 < 10l; i2++) {
@@ -37,7 +52,7 @@ public class TestSnippet_1 {
     }
 
     if (true) {
-      System.out.println("single_if");
+      System.out.println("single_if"); //And here () #8
     }
 
     if (true) {
@@ -50,7 +65,7 @@ public class TestSnippet_1 {
       if (true) {
         System.out.println("nested_if");
       } else if (true) {
-        System.out.println("nested_if");
+        System.out.println("nested_if"); //This is dead code and will never execute. #9
       } else {
         System.out.println("else_if");
       }

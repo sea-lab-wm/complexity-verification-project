@@ -3,6 +3,8 @@ package edu.wm.sealab.featureextraction;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.github.javaparser.StaticJavaParser;
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,6 +24,9 @@ public class FeatureExtractorTest {
   final int NUM_OF_IF_STATEMENTS = 6;
   final int NUM_OF_PARAMETERS = 2;
   final int NUM_OF_PARANTHESIS = 27;
+  final int NUM_OF_COMMENTS = 9;
+
+  static Features features = null;
 
   @BeforeEach
   public void setup() {
@@ -31,29 +36,28 @@ public class FeatureExtractorTest {
     File file = new File(filePath);
 
     CompilationUnit cu = null;
+    CompilationUnit cuNoComm = null;
     try {
       cu = StaticJavaParser.parse(file);
+      JavaParser parser = new JavaParser(new ParserConfiguration().setAttributeComments(false));
+      cuNoComm = parser.parse(file).getResult().get();
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
 
     featureVisitor = new FeatureVisitor();
 
-    syntacticFeatureExtractor = new SyntacticFeatureExtractor(featureVisitor.getFeatures());
-
-    String codeSnippet = null;
-    try {
-      codeSnippet = Files.readAllLines(path).toString();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
     // Capture Java Parser related features eg: #ifstmts
     featureVisitor.visit(cu, null);
 
-    // Captures non-Java Parser related features eg: #parenthesis
-    syntacticFeatureExtractor.extract(codeSnippet);
-  }
+    // Modify the CU to compute syntactic features i.e. parenthesis, commas, etc
+    StringLiteralReplacer stringLiteralReplacer = new StringLiteralReplacer();
+    stringLiteralReplacer.visit(cuNoComm, null);
+    
+    // Extract syntactic features (non JavaParser extraction)
+    SyntacticFeatureExtractor sfe =
+      new SyntacticFeatureExtractor(featureVisitor.getFeatures());
+    FeatureExtractorTest.features = sfe.extract(cuNoComm.toString());  }
 
   @Test
   public void testLoops() {
@@ -72,6 +76,11 @@ public class FeatureExtractorTest {
 
   @Test
   public void testParenthesis() {
-    assertEquals(NUM_OF_PARANTHESIS, featureVisitor.getFeatures().getParenthesis());
+    assertEquals(NUM_OF_PARANTHESIS, features.getParenthesis());
+  }
+    
+  @Test
+  public void testComments() {
+    assertEquals(NUM_OF_COMMENTS, featureVisitor.getFeatures().getNumOfComments());
   }
 }

@@ -18,6 +18,7 @@ import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -232,6 +233,19 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(DoubleLiteralExpr dle, Void arg) {
     super.visit(dle, arg);
     features.incrementNumOfLiterals();
+  }
+
+  /**
+   * This method identifies block comments in a java method and sums them up to the total number of
+   * comments
+   *
+   * @param ClassOrInterfaceDeclaration
+   * @param Void
+   */
+  @Override
+  public void visit(ClassOrInterfaceDeclaration cu, Void arg) {
+    super.visit(cu, arg);
+    features.setNumOfComments(cu.getAllContainedComments().size());
   }
 
   /**
