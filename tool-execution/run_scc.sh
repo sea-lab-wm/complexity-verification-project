@@ -5,44 +5,28 @@
 ## SETUP ##
 ###########
 ## checks if the environment variable SCC is set
-if [ -d ~/scc ]; then
-    echo "scc is already setup on this machine. Set your SCC variable by running:"
-    echo "export SCC=$(realpath ~/scc/scc)"
-    exit 0
-fi
+if ! command -v scc &> /dev/null ; then
+    echo "cannot find scc on this machine."
+    echo "run the script tool-execution/scc-setup.sh if you are on an Ubuntu 20.04 machine or Mac OS 11+. Otherwise, read the instructions in that script on how to adapt it for other platforms, then follow them for yours."
+    ## run scc-setup.sh to setup scc
+    ./scc-setup.sh
 
-SCC_DIR=../scc
+    SCC_DIR=../scc
+    export SCC=$(realpath ${SCC_DIR}/scc)
 
-## create scc dir if not exists
-mkdir -p ${SCC_DIR}
+    #############
+    ## RUN SCC ##
+    ## ##########
+    echo "running scc on the raw snippets..."
+    ${SCC} --by-file -f csv -o ../ml_model/raw_loc_data.csv '../ml_model/src/main/resources/raw_snippet_splitter_out'
 
-## navigate to scc directory
-cd ${SCC_DIR}
+    echo "running scc on the processed snippets..."
+    ${SCC} --by-file -f csv -o ../ml_model/loc_data.csv '../ml_model/src/main/resources/snippet_splitter_out'
 
-# Check OS version
-OS=$(uname -a | grep -o '\w*' | head -1)
-
-if [ "$OS" == "Darwin" ]; then
-    echo "MacOS detected"
-    echo "Downloading SCC for MacOS..."
-    wget https://github.com/boyter/scc/releases/download/v3.1.0/scc_3.1.0_Darwin_arm64.tar.gz
-elif [ "$OS" == "Linux" ]; then
-    echo "Ubuntu detected"
-    echo "Downloading SCC for Ubuntu..."
-    wget https://github.com/boyter/scc/releases/download/v3.1.0/scc_3.1.0_Linux_arm64.tar.gz
 else
-    echo "OS not supported"
-    exit 1
-fi  
-
-## extract scc, move to scc directory
-tar -xvf scc_3.1.0_*.tar.gz -C ${SCC_DIR}
-
-## remove the tar file
-rm scc_3.1.0_*.tar.gz
-
-#############
-## RUN SCC ##
-#############
-./scc --by-file -f csv -o ../raw_loc_data.csv '../ml_model/src/main/resources/raw_snippet_splitter_out'
-./scc --by-file -f csv -o ../loc_data.csv '../ml_model/src/main/resources/snippet_splitter_out'
+    echo "scc installation found on this machine."
+    echo "running scc on the raw snippets..."
+    scc --by-file -f csv -o ../ml_model/raw_loc_data.csv ../ml_model/src/main/resources/raw_snippet_splitter_out
+    echo "running scc on the processed snippets..."
+    scc --by-file -f csv -o ../ml_model/loc_data.csv ../ml_model/src/main/resources/snippet_splitter_out
+fi
