@@ -1,5 +1,6 @@
 package edu.wm.sealab.featureextraction;
 
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AssignExpr;
@@ -16,9 +17,9 @@ import com.github.javaparser.ast.expr.TextBlockLiteralExpr;
 import com.github.javaparser.ast.stmt.ForEachStmt;
 import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
+import com.github.javaparser.ast.stmt.SwitchStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -62,6 +63,19 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(IfStmt ifStmt, Void arg) {
     super.visit(ifStmt, arg);
     features.incrementNumOfIfStatements();
+    features.setConditionals(features.getConditionals() + 1);
+  }
+
+  /**
+   * This method to compute # switch statements of a java method (not entries)
+   *
+   * @param SwitchStmt
+   * @param Void
+   */
+  @Override
+  public void visit(SwitchStmt swStmt, Void arg) {
+    super.visit(swStmt, arg);
+    features.setConditionals(features.getConditionals() + 1);
   }
 
   /**
@@ -113,7 +127,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * This method computes # comparisons in a java method
+   * This method computes # comparisons and operators in a java method
    *
    * @param BinaryExpr
    * @param Void
@@ -121,13 +135,20 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   @Override
   public void visit(BinaryExpr n, Void arg) {
     super.visit(n, arg);
-    if (n.getOperator() == Operator.EQUALS
-        || n.getOperator() == Operator.NOT_EQUALS
-        || n.getOperator() == Operator.LESS
-        || n.getOperator() == Operator.LESS_EQUALS
-        || n.getOperator() == Operator.GREATER
-        || n.getOperator() == Operator.GREATER_EQUALS) {
+    Operator operator = n.getOperator();
+    if (operator == Operator.EQUALS
+        || operator == Operator.NOT_EQUALS
+        || operator == Operator.LESS
+        || operator == Operator.LESS_EQUALS
+        || operator == Operator.GREATER
+        || operator == Operator.GREATER_EQUALS) {
       features.setComparisons(features.getComparisons() + 1);
+    } else if (operator == Operator.PLUS
+        || operator == Operator.MINUS
+        || operator == Operator.MULTIPLY
+        || operator == Operator.DIVIDE
+        || operator == Operator.REMAINDER) {
+      features.setArithmeticOperators(features.getArithmeticOperators() + 1);
     }
   }
 
@@ -236,7 +257,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * This method identifies block comments in a java method and sums them up to the total number of
+   * This method identifies comments in a java method and sums them up to the total number of
    * comments
    *
    * @param ClassOrInterfaceDeclaration

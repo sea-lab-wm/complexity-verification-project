@@ -24,7 +24,7 @@ public class TestSnippet_2 {
     int i = 0;
     while (i < 10) {
       System.out.println("single_while");
-      i++;
+      i = i + 1;
     }
 
     // each #3
@@ -57,6 +57,13 @@ public class TestSnippet_2 {
       } else {
         System.out.println("else_if");
       }
+    }
+
+    switch (k) {
+      case 0: k = k + k;
+      case 1: k = k * k;
+      case 2: k = k / k;
+      default: k = k % k;
     }
   }
 }

@@ -14,7 +14,7 @@ public class TestSnippet_1 {
     int i = 0;
     while (i < 10) {
       System.out.println("single_while");
-      i++;
+      i = i + 1;
     }
     /*
     This is a block comment!
@@ -37,7 +37,9 @@ public class TestSnippet_1 {
     while (k < 10) {
       while (j < 10) {
         System.out.println("nested_while");
+        j = j + 1;
       }
+      k = k + 1;
     }
 
     //I'm adding parethesis here () #7
@@ -69,6 +71,12 @@ public class TestSnippet_1 {
       } else {
         System.out.println("else_if");
       }
+    }
+
+    switch (k) {
+      case 0:
+      case 1:
+      case 2:
     }
   }
 }

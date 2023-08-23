@@ -37,6 +37,12 @@ public @Data class Features {
   // feature 11: #comments
   private int numOfComments = 0;
 
+  // feature 12: #arithmeticOperators
+  private int arithmeticOperators;
+
+  // feature 13: #conditionals (if and switch statments)
+  private int conditionals;
+
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }

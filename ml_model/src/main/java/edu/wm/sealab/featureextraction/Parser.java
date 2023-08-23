@@ -1,14 +1,17 @@
 package edu.wm.sealab.featureextraction;
 
-import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParserConfiguration;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DecimalFormat;
-import java.util.Scanner;
+import java.util.List;
 
 public class Parser {
   public static void main(String[] args) {
@@ -53,18 +56,24 @@ public class Parser {
       pw.append("literals");
       pw.append(",");
       pw.append("avgComments");
+      pw.append(",");
+      pw.append("avgComparisons");
+      pw.append(",");
+      pw.append("avgOperators");
+      pw.append(",");
+      pw.append("avgConditionals");
       pw.append("\n");
 
-      Scanner scan = null;
-      try {
-        scan = new Scanner(new File("ml_model/loc_data.csv"));
-        scan.useDelimiter("\n");
-      } catch (FileNotFoundException e) {
+      List<String[]> lines = null;
+      // try ( FileReader fileReader = new FileReader("ml_model/raw_loc_data.csv"); // uncomment for raw features
+      //       CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build();) {
+      try (FileReader fileReader = new FileReader("ml_model/loc_data.csv");
+          CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build(); ) {
+        lines = csvReader.readAll();
+      } catch (IOException e) {
         e.printStackTrace();
       }
-      final Scanner sc = scan;
-      sc.next();
-
+      final List<String[]> allLines = lines;
       new DirExplorer(
               (level, path, file) -> path.endsWith(".java"),
               (level, path, file) -> {
@@ -75,7 +84,8 @@ public class Parser {
                 CompilationUnit cuNoComm = null;
                 try {
                   cu = StaticJavaParser.parse(file);
-                  JavaParser parser = new JavaParser(new ParserConfiguration().setAttributeComments(false));
+                  JavaParser parser =
+                      new JavaParser(new ParserConfiguration().setAttributeComments(false));
                   cuNoComm = parser.parse(file).getResult().get();
                 } catch (FileNotFoundException e) {
                   e.printStackTrace();
@@ -91,11 +101,19 @@ public class Parser {
                     new SyntacticFeatureExtractor(featureVisitor.getFeatures());
                 Features features = sfe.extract(cuNoComm.toString());
 
-                 String line;
-                line = sc.next();
-                String[] columns = line.split(",");
-                double numLines = Double.parseDouble(columns[3]);
-                double avgNumOfComments = features.getNumOfComments() / numLines;
+                // Locate and extract file data from loc_data.csv
+                int entryIndex = findCorrespondingEntry(allLines, file.toString());
+                String[] entryLine = allLines.get(entryIndex);
+                double entryNumLinesOfCode = Double.parseDouble(entryLine[4]);
+
+                allLines.remove(entryIndex);
+
+                // Calculate averages based on data from loc_data.csv
+                double avgNumOfComments = features.getNumOfComments() / entryNumLinesOfCode;
+                double avgNumOfComparisons = features.getComparisons() / entryNumLinesOfCode;
+                double avgNumOfArithmeticOperators =
+                    features.getArithmeticOperators() / entryNumLinesOfCode;
+                double avgNumOfConditionals = features.getConditionals() / entryNumLinesOfCode;
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -128,13 +146,32 @@ public class Parser {
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
                 pw.append(",");
-                pw.append(new DecimalFormat("#.##").format(avgNumOfComments));
+                pw.append(Double.toString(avgNumOfComments));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfComparisons));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfArithmeticOperators));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfConditionals));
                 pw.append("\n");
               })
           .explore(projectDir);
-          sc.close();
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+  }
+
+  private static int findCorrespondingEntry(List<String[]> lines, String fileName) {
+    int index = -1;
+    int ctr = 0;
+    fileName = fileName.replace("\\", "/");
+    for (String[] line : lines) {
+      if (line[1].endsWith(fileName)) {
+        index = ctr;
+        break;
+      }
+      ctr++;
+    }
+    return index;
   }
 }
