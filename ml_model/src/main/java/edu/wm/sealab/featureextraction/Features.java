@@ -58,4 +58,12 @@ public @Data class Features {
   public void incrementNumOfComments() {
     setNumOfComments(getNumOfComments() + 1);
   }
+
+  public void incrementNumOfArithmeticOperators() {
+    setArithmeticOperators(getArithmeticOperators() + 1);
+  }
+
+  public void incrementNumOfConditionals() {
+    setConditionals(getConditionals() + 1);
+  }
 }

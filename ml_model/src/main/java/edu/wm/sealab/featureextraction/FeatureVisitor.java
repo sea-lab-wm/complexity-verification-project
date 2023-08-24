@@ -63,7 +63,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(IfStmt ifStmt, Void arg) {
     super.visit(ifStmt, arg);
     features.incrementNumOfIfStatements();
-    features.setConditionals(features.getConditionals() + 1);
+    features.incrementNumOfConditionals();;
   }
 
   /**
@@ -75,7 +75,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   @Override
   public void visit(SwitchStmt swStmt, Void arg) {
     super.visit(swStmt, arg);
-    features.setConditionals(features.getConditionals() + 1);
+    features.incrementNumOfConditionals();;
   }
 
   /**
@@ -148,7 +148,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
         || operator == Operator.MULTIPLY
         || operator == Operator.DIVIDE
         || operator == Operator.REMAINDER) {
-      features.setArithmeticOperators(features.getArithmeticOperators() + 1);
+      features.incrementNumOfArithmeticOperators();;
     }
   }
 

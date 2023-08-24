@@ -4,6 +4,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.MethodDeclaration;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import java.io.File;
@@ -99,8 +100,14 @@ public class Parser {
                 // Extract syntactic features (non JavaParser extraction)
                 SyntacticFeatureExtractor sfe =
                     new SyntacticFeatureExtractor(featureVisitor.getFeatures());
-                Features features = sfe.extract(cuNoComm.toString());
+                    // String methodbody = cuNoComm.getMethod();
 
+                    //NEW CODE -- makes extracts the method in the snippet
+                String methodBody = cuNoComm.findFirst(MethodDeclaration.class)
+                            .map(method -> method.toString())
+                            .orElse("");
+                Features features = sfe.extract(methodBody);
+                
                 // Locate and extract file data from loc_data.csv
                 int entryIndex = findCorrespondingEntry(allLines, file.toString());
                 String[] entryLine = allLines.get(entryIndex);
