@@ -34,6 +34,15 @@ public @Data class Features {
   // feature 10: #literals
   private int literals = 0;
 
+  // feature 11: #comments
+  private int numOfComments = 0;
+
+  // feature 12: #arithmeticOperators
+  private int arithmeticOperators;
+
+  // feature 13: #conditionals (if and switch statments)
+  private int conditionals;
+
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }
@@ -44,5 +53,17 @@ public @Data class Features {
 
   public void incrementNumOfLiterals() {
     setLiterals(getLiterals() + 1);
+  }
+
+  public void incrementNumOfComments() {
+    setNumOfComments(getNumOfComments() + 1);
+  }
+
+  public void incrementNumOfArithmeticOperators() {
+    setArithmeticOperators(getArithmeticOperators() + 1);
+  }
+
+  public void incrementNumOfConditionals() {
+    setConditionals(getConditionals() + 1);
   }
 }

@@ -1,22 +1,27 @@
 package edu.wm.sealab.featureextraction;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class Parser {
   public static void main(String[] args) {
+    //This file reads from loc_data.csv and outputs to feature_data.csv. It does not handle raw data.
 
-    // String dirPath = args[1];
     String dirPath = "ml_model/src/main/resources/snippet_splitter_out/";
-    // String dirPath = "ml_model/src/main/resources/raw_snippet_splitter_out/"; // uncomment for
-    // raw features
     File projectDir = new File(dirPath);
 
     // Output features
-    // File csvOutputFile = new File("ml_model/raw_feature_data.csv"); // uncomment for raw features
     File csvOutputFile = new File("ml_model/feature_data.csv");
     try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
       // write header row
@@ -47,8 +52,24 @@ public class Parser {
       pw.append("parenthesis");
       pw.append(",");
       pw.append("literals");
+      pw.append(",");
+      pw.append("avgComments");
+      pw.append(",");
+      pw.append("avgComparisons");
+      pw.append(",");
+      pw.append("avgOperators");
+      pw.append(",");
+      pw.append("avgConditionals");
       pw.append("\n");
 
+      List<String[]> lines = null;
+      try (FileReader fileReader = new FileReader("ml_model/loc_data.csv");
+          CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build(); ) {
+        lines = csvReader.readAll();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      final List<String[]> allLines = lines;
       new DirExplorer(
               (level, path, file) -> path.endsWith(".java"),
               (level, path, file) -> {
@@ -59,8 +80,9 @@ public class Parser {
                 CompilationUnit cuNoComm = null;
                 try {
                   cu = StaticJavaParser.parse(file);
-                  StaticJavaParser.getParserConfiguration().setAttributeComments(false);
-                  cuNoComm = StaticJavaParser.parse(file);
+                  JavaParser parser =
+                      new JavaParser(new ParserConfiguration().setAttributeComments(false));
+                  cuNoComm = parser.parse(file).getResult().get();
                 } catch (FileNotFoundException e) {
                   e.printStackTrace();
                 }
@@ -73,7 +95,25 @@ public class Parser {
                 // Extract syntactic features (non JavaParser extraction)
                 SyntacticFeatureExtractor sfe =
                     new SyntacticFeatureExtractor(featureVisitor.getFeatures());
-                Features features = sfe.extract(cuNoComm.toString());
+
+                String methodBody = cuNoComm.findFirst(MethodDeclaration.class)
+                            .map(method -> method.toString())
+                            .orElse("");
+                Features features = sfe.extract(methodBody);
+                
+                // Locate and extract file data from loc_data.csv
+                int entryIndex = findCorrespondingEntry(allLines, file.toString());
+                String[] entryLine = allLines.get(entryIndex);
+                double entryNumLinesOfCode = Double.parseDouble(entryLine[4]);
+
+                allLines.remove(entryIndex);
+
+                // Calculate averages based on data from loc_data.csv
+                double avgNumOfComments = features.getNumOfComments() / entryNumLinesOfCode;
+                double avgNumOfComparisons = features.getComparisons() / entryNumLinesOfCode;
+                double avgNumOfArithmeticOperators =
+                    features.getArithmeticOperators() / entryNumLinesOfCode;
+                double avgNumOfConditionals = features.getConditionals() / entryNumLinesOfCode;
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -105,11 +145,37 @@ public class Parser {
                 pw.append(Integer.toString(features.getParenthesis()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfComments));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfComparisons));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfArithmeticOperators));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfConditionals));
                 pw.append("\n");
               })
           .explore(projectDir);
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+  }
+
+  /**
+   * Seaches through loc_data.csv (stored as a List of String arrays) to find the entry for the file currently being parsed.
+   * The path also has to be modified as it is written with "\" in the DirExplorer and with "/" in loc_data.csv.
+   */
+  private static int findCorrespondingEntry(List<String[]> lines, String fileName) {
+    int index = -1;
+    int ctr = 0;
+    fileName = fileName.replace("\\", "/");
+    for (String[] line : lines) {
+      if (line[1].endsWith(fileName)) {
+        index = ctr;
+        break;
+      }
+      ctr++;
+    }
+    return index;
   }
 }
