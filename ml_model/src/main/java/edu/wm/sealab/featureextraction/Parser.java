@@ -161,6 +161,10 @@ public class Parser {
     }
   }
 
+  /**
+   * Seaches through loc_data.csv (stored as a List of String arrays) to find the entry for the file currently being parsed.
+   * The path also has to be modified as it is written with "\" in the DirExplorer and with "/" in loc_data.csv.
+   */
   private static int findCorrespondingEntry(List<String[]> lines, String fileName) {
     int index = -1;
     int ctr = 0;
