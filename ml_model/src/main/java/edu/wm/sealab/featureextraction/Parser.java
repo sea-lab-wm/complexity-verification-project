@@ -16,15 +16,12 @@ import java.util.List;
 
 public class Parser {
   public static void main(String[] args) {
+    //This file reads from loc_data.csv and outputs to feature_data.csv. It does not handle raw data.
 
-    // String dirPath = args[1];
     String dirPath = "ml_model/src/main/resources/snippet_splitter_out/";
-    // String dirPath = "ml_model/src/main/resources/raw_snippet_splitter_out/"; // uncomment for
-    // raw features
     File projectDir = new File(dirPath);
 
     // Output features
-    // File csvOutputFile = new File("ml_model/raw_feature_data.csv"); // uncomment for raw features
     File csvOutputFile = new File("ml_model/feature_data.csv");
     try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
       // write header row
@@ -66,8 +63,6 @@ public class Parser {
       pw.append("\n");
 
       List<String[]> lines = null;
-      // try ( FileReader fileReader = new FileReader("ml_model/raw_loc_data.csv"); // uncomment for raw features
-      //       CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build();) {
       try (FileReader fileReader = new FileReader("ml_model/loc_data.csv");
           CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build(); ) {
         lines = csvReader.readAll();
@@ -100,9 +95,7 @@ public class Parser {
                 // Extract syntactic features (non JavaParser extraction)
                 SyntacticFeatureExtractor sfe =
                     new SyntacticFeatureExtractor(featureVisitor.getFeatures());
-                    // String methodbody = cuNoComm.getMethod();
 
-                    //NEW CODE -- makes extracts the method in the snippet
                 String methodBody = cuNoComm.findFirst(MethodDeclaration.class)
                             .map(method -> method.toString())
                             .orElse("");
