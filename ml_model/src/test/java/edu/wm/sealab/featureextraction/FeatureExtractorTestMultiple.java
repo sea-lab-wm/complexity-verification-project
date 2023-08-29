@@ -83,8 +83,4 @@ public class FeatureExtractorTestMultiple {
   public void testMethodParameters2() {
     assertEquals(NUM_OF_PARAMETERS_2, featureVisitor2.getFeatures().getNumOfParameters());
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a

@@ -62,8 +62,4 @@ test {
     afterTest { descriptor, result ->
         println "Finished test: ${descriptor.displayName}"
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a

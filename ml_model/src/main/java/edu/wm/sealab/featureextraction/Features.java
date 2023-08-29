@@ -34,7 +34,6 @@ public @Data class Features {
   // feature 10: #literals
   private int literals = 0;
 
-<<<<<<< HEAD
   // new features
   private float avgCommas = 0.0f;
   private float avgParenthesis = 0.0f;
@@ -50,8 +49,6 @@ public @Data class Features {
   private float avgBlankLines = 0;
 
 
-=======
->>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }

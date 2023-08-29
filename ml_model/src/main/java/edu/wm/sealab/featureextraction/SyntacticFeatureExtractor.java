@@ -17,7 +17,6 @@ public class SyntacticFeatureExtractor {
    * @param snippet
    * @return the filled in Feature Map
    */
-<<<<<<< HEAD
 
 
   public Features extract(String snippet) {
@@ -103,23 +102,13 @@ public class SyntacticFeatureExtractor {
     }
     float avgBlankLines = (float) blankLines / loc;
     features.setAvgBlankLines(avgBlankLines);
-=======
-  public Features extract(String snippet) {
-    features.setCommas(count(snippet, ","));
-    features.setPeriods(count(snippet, "\\.") - 1);
-    features.setSpaces(count(snippet, " "));
-    features.setParenthesis(count(snippet, "\\("));
->>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
 
     return features;
   }
 
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
   /**
    * Counts the occurences of the given character in the given string
    *
@@ -137,9 +126,6 @@ public class SyntacticFeatureExtractor {
 
     return res;
   }
-<<<<<<< HEAD
   
 
-=======
->>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
 }
