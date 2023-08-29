@@ -56,7 +56,7 @@ public class SpringBatch {
         }
     }
 
-    // org.springframework.batch.container.jms.BatchMessageListenerContainerIntegrationTests.testFailureAndRecovery()
+    // s36: org.springframework.batch.container.jms.BatchMessageListenerContainerIntegrationTests.testFailureAndRecovery()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
     public void testFailureAndRecovery() throws Exception {
@@ -104,7 +104,7 @@ public class SpringBatch {
         assertEquals("foo", recovered.poll(5, TimeUnit.SECONDS));
     }
 
-    // org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
+    // s37: org.springframework.batch.core.jsr.configuration.xml.JsrBeanDefinitionDocumentReaderTests.testArtifactUniqueness()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
     public void testArtifactUniqueness() throws Exception {
@@ -138,7 +138,7 @@ public class SpringBatch {
         assertTrue("exitStatus must be empty", "".equals(exitStatus));
     }
 
-    // org.springframework.batch.item.database.ExtendedConnectionDataSourceProxyTests.testOperationWithDirectCloseCall()
+    // s38: org.springframework.batch.item.database.ExtendedConnectionDataSourceProxyTests.testOperationWithDirectCloseCall()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
     public void testOperationWithDirectCloseCall() throws SQLException {
@@ -177,7 +177,7 @@ public class SpringBatch {
         return null;
     }
 
-    // org.springframework.batch.item.file.FlatFileItemReaderTests.testCustomRecordSeparatorMultilineBlankLineAfterEnd()
+    // s39: org.springframework.batch.item.file.FlatFileItemReaderTests.testCustomRecordSeparatorMultilineBlankLineAfterEnd()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
     public void testCustomRecordSeparatorMultilineBlankLineAfterEnd() throws Exception {
@@ -214,7 +214,7 @@ public class SpringBatch {
 
     }
 
-    // org.springframework.batch.item.xml.StaxEventItemWriterTests.initWriterForSimpleCallbackTests()
+    // s40: org.springframework.batch.item.xml.StaxEventItemWriterTests.initWriterForSimpleCallbackTests()
     //SNIPPET_STARTS
     private void initWriterForSimpleCallbackTests() throws Exception {
         writer = createItemWriter();

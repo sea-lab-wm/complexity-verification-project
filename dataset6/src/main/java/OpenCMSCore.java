@@ -42,7 +42,7 @@ public class OpenCMSCore {
         buttonHtml(new CmsWorkplace());
     }
 
-    // org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
+    // s31: org.opencms.ade.sitemap.client.hoverbar.CmsHoverbarContextMenuButton.createContextMenu(org.opencms.ade.sitemap.client.hoverbar.CmsSitemapHoverbar)
     //SNIPPET_STARTS
     public List<A_CmsSitemapMenuEntry> createContextMenu(CmsSitemapHoverbar hoverbar) {
 
@@ -86,7 +86,7 @@ public class OpenCMSCore {
         return result;
     }
 
-    // org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
+    // s32: org.opencms.jlan.CmsJlanNetworkFile.seekFile(long,int)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
     public long seekFile(long pos, int typ) throws IOException {
@@ -121,7 +121,7 @@ public class OpenCMSCore {
         }
     }
 
-    // org.opencms.main.CmsShell.execute(java.io.Reader)
+    // s33: org.opencms.main.CmsShell.execute(java.io.Reader)
     /**
      * Executes the commands from the given reader in this shell.<p>
      *
@@ -194,7 +194,7 @@ public class OpenCMSCore {
         }
     }
 
-    // org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
+    // s34: org.opencms.test.OpenCmsTestCase.generateContent(org.opencms.file.CmsObject,java.lang.String,int,double)
     /**
      * Generates a sub tree of folders with files.<p>
      *
@@ -242,7 +242,7 @@ public class OpenCMSCore {
         return writtenFiles;
     }
 
-    // org.opencms.workplace.list.CmsListRadioMultiAction.buttonHtml(org.opencms.workplace.CmsWorkplace)
+    // s35: org.opencms.workplace.list.CmsListRadioMultiAction.buttonHtml(org.opencms.workplace.CmsWorkplace)
 //    @Override // Removed to allow compilation
     //SNIPPET_STARTS
     public String buttonHtml(CmsWorkplace wp) {
@@ -282,31 +282,31 @@ public class OpenCMSCore {
     }
 
     private ConfirmationMessage getName() {
-        return null;
+        throw new Error();
     }
 
     private ConfirmationMessage getHelpText() {
-        return null;
+        throw new Error();
     }
 
     private Object getIconPath() {
-        return null;
+        throw new Error();
     }
 
     private String getRelatedActionIds() {
-        return null;
+        throw new Error();
     }
 
     private ConfirmationMessage getConfirmationMessage() {
-        return null;
+        throw new Error();
     }
 
     private String getId() {
-        return null;
+        throw new Error();
     }
 
     private String getListId() {
-        return null;
+        throw new Error();
     }
 
     private boolean isEnabled() {
@@ -334,13 +334,13 @@ public class OpenCMSCore {
 
     private static class CmsResourceTypeBinary {
         public static Object getStaticTypeId() {
-            return null;
+            throw new Error();
         }
     }
 
     private static class CmsResourceTypePlain {
         public static Object getStaticTypeId() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -352,7 +352,7 @@ public class OpenCMSCore {
 
     private static class Lists {
         public static List<A_CmsSitemapMenuEntry> newArrayList() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -571,23 +571,23 @@ public class OpenCMSCore {
 
     private class CmsWorkplace {
         public Object getLocale() {
-            return null;
+            throw new Error();
         }
 
         public Object resolveMacros(CmsWorkplace key) {
-            return null;
+            throw new Error();
         }
     }
 
     private class ConfirmationMessage {
         public CmsWorkplace key(Object locale) {
-            return null;
+            throw new Error();
         }
     }
 
     private static class CmsStringUtil {
         public static String escapeJavaScript(Object resolveMacros) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -597,7 +597,7 @@ public class OpenCMSCore {
 
     private static class A_CmsHtmlIconButton {
         public static String defaultButtonHtml(Object smallIconText, String id, CmsWorkplace key, CmsWorkplace key1, boolean enabled, Object iconPath, Object o, String onClic) {
-            return null;
+            throw new Error();
         }
     }
 

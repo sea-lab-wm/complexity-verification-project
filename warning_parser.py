@@ -1,6 +1,8 @@
-import pandas as pd
 import copy
 import os
+import sys
+
+import pandas as pd
 
 #########################
 #   Get Snippet Names   #
@@ -106,7 +108,7 @@ def parseTypestateChecker(data, allSnippetNums):
 
 def parseInfer(data, allSnippetNums):
     lines = []
-    with open("data/infer_output.txt") as f:
+    with open("data/infer-no-filter_output.txt") as f:
         lines = f.readlines()
 
     data = parseAll(data, lines, allSnippetNums, ": error:")
@@ -183,10 +185,12 @@ def parseOpenJML(data, allSnippetNums, timeouts):
                 fileName = line.split(".java:")[0].rsplit("/", 1)[1]
 
                 snippetNums = allSnippetNums[4][fileName]
+
+                addToI = computeDS6AddToI(fileName)
     
                 for i in range(len(snippetNums) - 1):
                     if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum: 
-                        openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1)} -- {fileName}", line, timeouts)
+                        openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1 + addToI)} -- {fileName}", line, timeouts)
 
                         break
             elif startSnippetCOG9 in line.split(".java:")[0] and endSnippet in line:
@@ -213,6 +217,19 @@ def parseOpenJML(data, allSnippetNums, timeouts):
 
     return ("openjml_data", data)
 
+def computeDS6AddToI(fileName):
+    addToI = 0
+    # the order of these file names is important
+    ds6snippetFiles = [ "K9", "Pom", "CarReport", "Antlr4Master", "Phoenix", "HibernateORM", "OpenCMSCore",
+                        "SpringBatch", "MyExpenses", "CheckEstimator", "EstimatorUtils",
+                        "ClassifierPerformanceEvaluatorCustomizer", "ModelPerformanceChart", "GeneratorPropertyIteratorPanel" ]
+    for i in range(len(ds6snippetFiles)):
+        if fileName == ds6snippetFiles[i]:
+            return addToI
+        addToI += len(allSnippetNums[4][ds6snippetFiles[i]]) - 1
+
+    raise Exception("Unexpected fileName for DS6 snippets: " + fileName)
+
 def openJMLWriteData(data, warning, message, line, timeouts):
     startWarning = "assertion"
     endWarning = "in method"
@@ -226,98 +243,6 @@ def openJMLWriteData(data, warning, message, line, timeouts):
         warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
 
     data["Warning Type"].append(warning.strip())
-
-def openJMLHandleTimeouts(timeouts, numTimeoutsPerDataset):
-    ###SET THIS TO CHANGE HOW TIMEOUTS ARE HANDLED###
-    #0 = max, 1 = zero, 2 = completely remove the snippet
-    handleType = 0
-
-    df = pd.read_csv("data/openjml_data.csv")
-    df.set_index("Snippet")
-
-    max3 = findMaxNumWarnings("3", df)
-    max6 = findMaxNumWarnings("6", df)
-
-    for col in df.columns:
-        if "timeout" in col:
-            df = df.rename(columns={col: "timeout"})
-
-    if handleType == 0:
-        for message in timeouts:
-            df.loc[df["Snippet"] == message, "timeout"] = "MAX"
-
-        for message in timeouts:
-            if (df.loc[df["Snippet"] == message, "timeout"] == "MAX").any():
-                if "3" in message.split("--")[0]:
-                    df.loc[df["Snippet"] == message, "timeout"] = max3
-                elif "6" in message.split("--")[0]:
-                    df.loc[df["Snippet"] == message, "timeout"] = max6
-                else:
-                    raise Exception("Issue handling timeouts!")
-    else:
-        for message in timeouts:
-            df.loc[df["Snippet"] == message, "timeout"] = 0
-
-        df.reset_index()
-        for message in timeouts:
-            if (df.loc[df["Snippet"] == message, "timeout"] == 0).all():
-                if handleType == 1:
-                    if (df.loc[df["Snippet"] == message].sum(axis=1, numeric_only=True) == 0).all():
-                        #df = df.drop(df.loc[df["Snippet"] == message].index)
-                        timeouts.remove(message)
-
-    if handleType == 2:
-        createTimeoutFile(timeouts, numTimeoutsPerDataset, 2)
-    elif handleType == 1:
-        createTimeoutFile(timeouts, numTimeoutsPerDataset, 1)
-
-    df.to_csv("data/openjml_data.csv", index=False)
-
-def findMaxNumWarnings(dataset, df):
-    numWarnings = df.sum(axis=1, numeric_only=True).tolist()
-    snippetNames = df["Snippet"].to_list()
-    maxNumWarnings = 0
-
-    for i, snippet in enumerate(snippetNames):
-        if pd.isnull(snippet):
-            continue
-
-        if dataset in snippet.split("--")[0]:
-            if numWarnings[i] > maxNumWarnings:
-                maxNumWarnings = numWarnings[i]
-
-    return maxNumWarnings
-
-def getNumTimeoutsPerDataset(timeouts):
-    counts = {
-        "1": 0,
-        "2": 0,
-        "3": 0,
-        "6": 0,
-        "9": 0,
-        "f": 0
-    }
-
-    timeouts = list(set(timeouts))
-
-    for snippet in timeouts:
-        if f"{snippet.split('--')[0].strip()}" in counts:
-            counts[f"{snippet.split('--')[0].strip()}"] += 1
-
-    return counts
-
-def createTimeoutFile(timeouts, numTimeoutsPerDataset, handleType):
-    data = {
-        #"timeouts": pd.Series(timeouts),
-        "timeouts": timeouts
-        #"datasets": pd.Series(numTimeoutsPerDataset.keys()),
-        #"num_timeouts_per_dataset": pd.Series(numTimeoutsPerDataset.values()),
-        #"handle_type": pd.Series(handleType)
-    }
-
-    df = pd.DataFrame(data)
-
-    df.to_csv(f"data/timeouts.csv")
 
 # Parses the analysis tool output of the Checker Framework, Typestate Checker, and Infer.
 def parseAll(data, lines, allSnippetNums, endSnippet):
@@ -378,10 +303,12 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
                 continue
 
             snippetNums = allSnippetNums[4][fileName]
+
+            addToI = computeDS6AddToI(fileName)
  
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
-                    data["Snippet"].append(f"6 -- {str(i + 1)} -- {fileName}")
+                    data["Snippet"].append(f"6 -- {str(i + 1 + addToI)} -- {fileName}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
 
                     break
@@ -404,11 +331,13 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
     return data
 
 ########################
-#   Setup CSV Sheets   #
+#   Setup Dataframes   #
 ########################
 
-# Creates csv files for each analysis tool"s warning output.
-def setupCSVSheets(allAnalysisToolData):
+# Creates dataframes for each analysis tool's warning output.
+def setupDataframes(allAnalysisToolData):
+    allAnalysisToolDFS = []
+
     for data in allAnalysisToolData:
         # Creates a table from the dictionary of data
         df = pd.DataFrame(data[1])
@@ -417,52 +346,138 @@ def setupCSVSheets(allAnalysisToolData):
         df["Warning Type Copy"] = df["Warning Type"]    # Must copy values to column with different name to use same column for "values" and "columns" when making a pivot table
         df = df.pivot_table(values="Warning Type", index="Snippet", columns="Warning Type Copy", aggfunc="count")
 
-        df.to_csv(f"data/{data[0]}.csv")
+        allAnalysisToolDFS.append((data[0], df))
 
-#def setupNumSnippetsJudgedCol(numTimeoutsPerDataset):
-#    defaults = {
-#        "1": 23,
-#        "2": 12,
-#        "3": 100,
-#        "6": 50,
-#        "9": 10,
-#        "f": 16
-#    }
+    return allAnalysisToolDFS
 
-#    dfs = pd.read_excel("data/correlation_analysis.xlsx", sheet_name=None)
+def handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, handleType):
+    """Handle the timeouts produced by OpenJML in 3 potential ways:
 
-#    for key1, sheet in dfs.items():
-#        if key1 == "openjml":
-#            for i in range(len(sheet.index)):
-#                currDataset = str(sheet.iloc[i, 1])
+    1. remove: delete all snippets from openjml_data.csv which recieved a timeout
+    2. max: treat the # of warnings for a snippet as the MAX # of warnings produced on any snippet in its dataset, disregard all other warnings produced on that snippet
+    3. zero: treat the timeout as having a warning value of zero, sum all other warnings on the snippet as usual
+    
+    the format of openJMLTimeouts is: [ "Snippet", ...]
+    Note: "Snippet" is really the dataset and snippet number in this format: "DS -- Snippet #
 
-#                for key, dataset in defaults.items():
-#                    if key in currDataset:
-#                        sheet.iloc[i, 4] = dataset - numTimeoutsPerDataset[key]
+    the data in this format:
+    "Snippet" = [], "Warning type" = []  
+    Note1: "Warning type"  is really the # of warnings
+    Note2: "Snippet" is really the dataset and snippet number in this format: "DS -- Snippet #"
+    """
 
-#    with pd.ExcelWriter("data/correlation_analysis.xlsx") as writer:
-#        for key, sheet in dfs.items():
-#            print(key)
-#            print(sheet)
-#            sheet.to_excel(writer, sheet_name=key, index=False)
+    openJMLDF = allAnalysisToolDFS[3][1].reset_index() # modifies this df by reference as the result of this function
 
-        # Auto-adjust columns' width
-        #for column in df:
-        #    column_width = max(df[column].astype(str).map(len).max(), len(column))
-        #    col_idx = df.columns.get_loc(column)
-        #    writer.sheets[df].set_column(col_idx, col_idx, column_width)
+    # Save copy of openJMLTimeouts and openjml_data.csv before making modifications
+    pd.DataFrame(openJMLDF).to_csv(f"data/openjml_data_copy_before_handling.csv")
+    pd.DataFrame(openJMLTimeouts).to_csv(f"data/timeouts_copy_before_handling.csv")
 
+    # find the column for timeouts and simplify its name to make parsing it easier
+    # rename the timeout column to something more readable ("timeout")
+    found = False
+    for col in openJMLDF.columns:
+        if "timeout" in col:
+            if found is True:
+                raise Exception("handleOpenJMLTimeouts: error: multiple columns with the word timeout")
+
+            openJMLDF = openJMLDF.rename(columns={col: "timeout"})
+            found = True
+
+    # Handle the timeouts with 3 different methods
+    if handleType == "remove":
+        print("removing timeouts")
+
+        # Remove rows in openJMLData that appear in openJMLTimeouts
+        for snippet in openJMLTimeouts:
+           openJMLDF = openJMLDF.drop(index=openJMLDF.index[openJMLDF["Snippet"] == snippet].to_list())
+    elif handleType == "max":
+        print("setting timeouts with max")
+
+        # for dataset, compute the max number of warnings, and create a dictionary with these max values
+        # { "ds" : max_value}
+        maxNumWarnings = {"1": 0,"2": 0,"3": 0,"6": 0,"9_bc": 0,"9_gc": 0,"9_nc": 0,"f": 0}
+        findMaxNumWarnings(openJMLDF, maxNumWarnings)
+        print(f"maxNumWarnings: {maxNumWarnings}")
+
+        # for each row in openJMLData that appears in openJMLTimeouts
+        for snippet in openJMLTimeouts:
+            row = openJMLDF.loc[openJMLDF["Snippet"] == snippet]
+            dataset = row["Snippet"].iloc[0].split("--")[0].strip() # get the dataset from the row
+            
+            # set the other columns (i.e., all except timeout) to zero
+            openJMLDF.iloc[row.index, 1:-1] = 0
+
+            # fetch the max # of warnings for this dataset
+            # set the timeout column for this row as the max value
+            openJMLDF.loc[openJMLDF["Snippet"] == snippet, "timeout"] = maxNumWarnings[dataset]
+    elif handleType == "zero":
+        print("setting timeouts with zero")
+
+        openJMLTimeoutsKeep = []
+
+        # Set the value of each instance of a timeout to zero in the dataframe
+        # This is necessary because it will default to one
+        for snippet in openJMLTimeouts:
+            openJMLDF.loc[openJMLDF["Snippet"] == snippet, "timeout"] = 0
+
+            # Remove the snippets that had timeouts but didn't have warnings
+            # Note: This is important because the # of snippets with warnings that is computed in correlation.py will be inaccurate if left in here
+            if (openJMLDF.loc[openJMLDF["Snippet"] == snippet].sum(axis=1, numeric_only=True) == 0).all():
+                openJMLDF = openJMLDF.drop(index=openJMLDF.index[openJMLDF["Snippet"] == snippet].to_list())
+            else:
+                openJMLTimeoutsKeep.append(snippet)
+
+        openJMLTimeouts = openJMLTimeoutsKeep
+    else:
+        raise Exception("handleOpenJMLTimeouts: error: invalid handle type")
+
+    pd.DataFrame(openJMLTimeouts).to_csv(f"data/timeouts.csv")
+
+    openJMLDF = openJMLDF.set_index("Snippet")
+    return (allAnalysisToolDFS[3][0], openJMLDF)
+        
+def findMaxNumWarnings(df, maxNumWarnings):
+    """Finds the maximum number of warnings that any snippet has for each dataset.
+    
+    Result: maxNumWarnings = A dictionary in the following format: { "ds" : max_value}
+    """
+
+    #creating a column called "sum" with the sum of the columns for each row
+    df["sum"] = df.drop("Snippet", axis=1).sum(axis=1)
+
+    for _, row in df.iterrows(): #iterate over rows
+        dataset = row["Snippet"].split("--")[0].strip()
+
+        if dataset in maxNumWarnings:
+            if row["sum"] > maxNumWarnings[dataset]:
+                maxNumWarnings[dataset] = row["sum"]
+        else:
+            raise Exception(f"findMaxNumWarnings: error: invalid dataset: {row[0]}")
+
+    # Get rid of the sum column now that we don't need it
+    df.drop("sum", axis=1, inplace=True)
 
 if __name__ == "__main__":
+    # Get args
+    openJMLTimeoutHandleType = None
+    if len(sys.argv) != 2:
+        raise Exception("warning_parser.py: missing 1 arg for OpenJML timeout handle type. Options: max, remove, zero")
+    else:
+        if sys.argv[1] == "max" or sys.argv[1] == "remove" or sys.argv[1] == "zero":
+            openJMLTimeoutHandleType = sys.argv[1]
+        else:
+            raise Exception("warning_parser.py: invalid argument. Options: max, remove, zero")
+
+    # Get the line #s of each snippet
     allSnippetNums = getAllSnippets()
 
     # Data output structure as a dictionary
     data = {
-        "Snippet": [],
+        "Snippet": [], #dataset -- snippet #
         "Warning Type": []
     }
     allAnalysisToolData = []
-    openJMLTimeouts = []
+    openJMLTimeouts = [] # list of snippets with timeouts (for all the datasets)
 
     #TODO: All analysis tools go here
     allAnalysisToolData.append(parseCheckerFramework(copy.deepcopy(data), allSnippetNums))
@@ -470,8 +485,12 @@ if __name__ == "__main__":
     allAnalysisToolData.append(parseInfer(copy.deepcopy(data), allSnippetNums))
     allAnalysisToolData.append(parseOpenJML(copy.deepcopy(data), allSnippetNums, openJMLTimeouts))
 
-    setupCSVSheets(allAnalysisToolData)
+    # Create dataframes with warning data
+    allAnalysisToolDFS = setupDataframes(allAnalysisToolData)
 
-    numTimeoutsPerDataset = getNumTimeoutsPerDataset(openJMLTimeouts)
+    # Timeout handling
+    allAnalysisToolDFS[3] = handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, openJMLTimeoutHandleType)
 
-    openJMLHandleTimeouts(openJMLTimeouts, numTimeoutsPerDataset)
+    # Create a CSV file for each dataframe
+    for df in allAnalysisToolDFS:
+        df[1].to_csv(f"data/{df[0]}.csv")

@@ -1,56 +1,7 @@
-Snippet,Divide By Zero,Null Dereference
-3 -- 35,,1.0
-3 -- 40,,1.0
-3 -- 53,,1.0
-3 -- 57,,1.0
-3 -- 58,,1.0
-3 -- 59,,1.0
-3 -- 63,,1.0
-3 -- 66,,1.0
-3 -- 76,,1.0
-3 -- 77,,1.0
-3 -- 85,,1.0
-3 -- 95,,1.0
-3 -- 96,,1.0
-6 -- 1 -- CarReport,,1.0
-6 -- 1 -- EstimatorUtils,,1.0
-6 -- 1 -- GeneratorPropertyIteratorPanel,,1.0
-6 -- 1 -- K9,,1.0
-6 -- 1 -- OpenCMSCore,,1.0
-6 -- 2 -- CarReport,,1.0
-6 -- 2 -- HibernateORM,,1.0
-6 -- 2 -- K9,,1.0
-6 -- 2 -- Phoenix,,1.0
-6 -- 2 -- Pom,,1.0
-6 -- 2 -- SpringBatch,,1.0
-6 -- 3 -- Antlr4Master,,1.0
-6 -- 3 -- CarReport,,1.0
-6 -- 3 -- HibernateORM,,1.0
-6 -- 3 -- K9,,1.0
-6 -- 3 -- SpringBatch,,1.0
-6 -- 4 -- HibernateORM,,1.0
-6 -- 4 -- MyExpenses,,1.0
-6 -- 4 -- Phoenix,,1.0
-6 -- 5 -- Antlr4Master,,1.0
-6 -- 5 -- CarReport,,1.0
-6 -- 5 -- HibernateORM,,2.0
-6 -- 5 -- SpringBatch,,1.0
-9_bc -- 10,,1.0
-9_bc -- 5,,1.0
-9_bc -- 6,,1.0
-9_bc -- 7,,1.0
-9_bc -- 8,,1.0
-9_bc -- 9,,1.0
-9_gc -- 10,,1.0
-9_gc -- 5,,1.0
-9_gc -- 6,,1.0
-9_gc -- 7,,1.0
-9_gc -- 8,,1.0
-9_gc -- 9,,1.0
-9_nc -- 10,,1.0
-9_nc -- 5,,1.0
-9_nc -- 6,,1.0
-9_nc -- 7,,1.0
-9_nc -- 8,,1.0
-9_nc -- 9,,1.0
-f -- 1 -- ArrayAverage,1.0,
+Snippet,Dangling Pointer Dereference,Divide By Zero,Null Dereference
+6 -- 28 -- HibernateORM,1.0,,
+6 -- 37 -- SpringBatch,,,1.0
+6 -- 38 -- SpringBatch,,,1.0
+6 -- 40 -- SpringBatch,,,1.0
+6 -- 7 -- Pom,,,1.0
+f -- 1 -- ArrayAverage,,1.0,

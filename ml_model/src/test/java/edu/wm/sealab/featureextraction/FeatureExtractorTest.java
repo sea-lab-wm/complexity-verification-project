@@ -20,8 +20,18 @@ public class FeatureExtractorTest {
 
   final int NUM_OF_LOOP_STATEMENTS = 9;
   final int NUM_OF_IF_STATEMENTS = 6;
+
+  final int loc = 58;
   final int NUM_OF_PARAMETERS = 2;
-  final int NUM_OF_PARANTHESIS = 27;
+
+  final int NUM_OF_PARANTHESIS = 54;
+  final float AVG_PARANTHESIS = 0;
+
+  final int NUM_OF_PERIODS = 22;
+
+  final int NUM_OF_COMMAS = 2;
+
+  final int NUM_OF_SPACES = 414;
 
   @BeforeEach
   public void setup() {
@@ -73,5 +83,22 @@ public class FeatureExtractorTest {
   @Test
   public void testParenthesis() {
     assertEquals(NUM_OF_PARANTHESIS, featureVisitor.getFeatures().getParenthesis());
+  }
+
+  
+
+  @Test
+  public void testPeriods() {
+    assertEquals(NUM_OF_PERIODS, featureVisitor.getFeatures().getPeriods());
+  }
+
+  @Test
+  public void testCommas() {
+    assertEquals(NUM_OF_COMMAS, featureVisitor.getFeatures().getCommas());
+  }
+
+  @Test
+  public void testSpaces() {
+    assertEquals(NUM_OF_SPACES, featureVisitor.getFeatures().getSpaces());
   }
 }

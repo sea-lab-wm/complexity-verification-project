@@ -19,14 +19,14 @@ import java.util.ArrayList;
 
 public class Phoenix {
 
-    private static final org.apache.commons.cli.Option INPUT_PATH_OPT = null;
-    private static final Object MIN_TABLE_TIMESTAMP = null;
-    private static final Object CONFIG_COLUMN_NAMES = null;
-    private static final Object CONFIG_HEADER_NAMES = null;
-    private static final Object CONFIG_ROWKEY_TYPE_GENERATOR = null;
+    private static final org.apache.commons.cli.Option INPUT_PATH_OPT = new org.apache.commons.cli.Option("", "");
+    private static final Object MIN_TABLE_TIMESTAMP = new Object();
+    private static final Object CONFIG_COLUMN_NAMES = new Object();
+    private static final Object CONFIG_HEADER_NAMES = new Object();
+    private static final Object CONFIG_ROWKEY_TYPE_GENERATOR = new Object();
     private static final String DEFAULT_COLUMNS_DELIMITER = "";
-    private static final org.apache.commons.cli.Option TABLE_NAME_OPT = null;
-    private static final org.apache.commons.cli.Option HELP_OPT = null;
+    private static final org.apache.commons.cli.Option TABLE_NAME_OPT = new org.apache.commons.cli.Option("", "");
+    private static final org.apache.commons.cli.Option HELP_OPT = new org.apache.commons.cli.Option("", "");
     private Dummy env;
     private Dummy PLong;
     private String createTableDdl;
@@ -60,7 +60,7 @@ public class Phoenix {
         parseOptions(new String[5]);
     }
 
-    // org.apache.phoenix.coprocessor.MetaDataEndpointImpl.doDropSchema(long,java.lang.String,byte[],java.util.List<org.apache.hadoop.hbase.client.Mutation>,java.util.List<org.apache.phoenix.hbase.index.util.ImmutableBytesPtr>)
+    // s21: org.apache.phoenix.coprocessor.MetaDataEndpointImpl.doDropSchema(long,java.lang.String,byte[],java.util.List<org.apache.hadoop.hbase.client.Mutation>,java.util.List<org.apache.phoenix.hbase.index.util.ImmutableBytesPtr>)
     //SNIPPET_STARTS
     private MetaDataMutationResult doDropSchema(long clientTimeStamp, String schemaName, byte[] key,
                                                 List<Mutation> schemaMutations, List<ImmutableBytesPtr> invalidateList) throws Exception {
@@ -102,10 +102,10 @@ public class Phoenix {
     }
 
     private PSchema loadSchema(Dummy env, byte[] key, ImmutableBytesPtr immutableBytesPtr, long clientTimeStamp, long clientTimeStamp1) {
-        return null;
+        throw new Error();
     }
 
-    // org.apache.phoenix.expression.ModulusExpression.evaluate(org.apache.phoenix.schema.tuple.Tuple,org.apache.hadoop.hbase.io.ImmutableBytesWritable)
+    // s22: org.apache.phoenix.expression.ModulusExpression.evaluate(org.apache.phoenix.schema.tuple.Tuple,org.apache.hadoop.hbase.io.ImmutableBytesWritable)
 
 //    @Override // removed to allow compilation
     //SNIPPET_STARTS
@@ -141,18 +141,18 @@ public class Phoenix {
     }
 
     private Expression getDataType() {
-        return null;
+        throw new Error();
     }
 
     private Expression getDivisorExpression() {
-        return null;
+        throw new Error();
     }
 
     private Expression getDividendExpression() {
-        return null;
+        throw new Error();
     }
 
-    // org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
+    // s23: org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
 //    @Override // removed to allow compilation
     //SNIPPET_STARTS
     public void configure(Context context) {
@@ -204,7 +204,7 @@ public class Phoenix {
 
     }
 
-    // org.apache.phoenix.flume.sink.PhoenixSink.process()
+    // s24: org.apache.phoenix.flume.sink.PhoenixSink.process()
 //    @Override // removed to allow compilation
     //SNIPPET_STARTS
     public Status process() throws EventDeliveryException {
@@ -278,10 +278,10 @@ public class Phoenix {
     }
 
     private Channel getChannel() {
-        return null;
+        throw new Error();
     }
 
-    // org.apache.phoenix.mapreduce.AbstractBulkLoadTool.parseOptions(java.lang.String[])
+    // s25: org.apache.phoenix.mapreduce.AbstractBulkLoadTool.parseOptions(java.lang.String[])
     /**
      * Parses the commandline arguments, throws IllegalStateException if mandatory arguments are
      * missing.
@@ -338,7 +338,7 @@ public class Phoenix {
     }
 
     private Options getOptions() {
-        return null;
+        throw new Error();
     }
 
     private class MetaDataMutationResult {
@@ -360,7 +360,7 @@ public class Phoenix {
 
     private static class EnvironmentEdgeManager {
         public static Object currentTimeMillis() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -375,7 +375,7 @@ public class Phoenix {
 
     private class Expression {
         public Object getSortOrder() {
-            return null;
+            throw new Error();
         }
 
         public boolean evaluate(Tuple tuple, ImmutableBytesWritable ptr) {
@@ -383,11 +383,11 @@ public class Phoenix {
         }
 
         public Expression getCodec() {
-            return null;
+            throw new Error();
         }
 
         public Expression getDataType() {
-            return null;
+            throw new Error();
         }
 
         public void encodeLong(long remainder, byte[] resultPtr, int i) {
@@ -412,7 +412,7 @@ public class Phoenix {
 
     private class Region {
         public RegionScanner getScanner(Scan scan) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -420,7 +420,7 @@ public class Phoenix {
         public static final Dummy INSTANCE = null;
 
         public Region getRegion() {
-            return null;
+            throw new Error();
         }
 
         public int getByteSize() {
@@ -454,13 +454,13 @@ public class Phoenix {
 
     private static class SchemaUtil {
         public static Object getKeyForSchema(Object o, String schemaName) {
-            return null;
+            throw new Error();
         }
     }
 
     private static class MetaDataUtil {
         public static Scan newTableRowsScan(Object keyForSchema, Object minTableTimestamp, long clientTimeStamp) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -475,7 +475,7 @@ public class Phoenix {
 
     private class Context {
         public String getString(Object configTableDdl) {
-            return null;
+            throw new Error();
         }
 
         public int getInteger(Object configBatchsize, Object defaultBatchSize) {
@@ -485,17 +485,17 @@ public class Phoenix {
 
     private static class QueryUtil {
         public static Object getUrl(String zookeeperQuorum) {
-            return null;
+            throw new Error();
         }
     }
 
     private static class DefaultKeyGenerator {
         public static Object valueOf(String toUpperCase) {
-            return null;
+            throw new Error();
         }
 
         public static Object values() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -542,11 +542,11 @@ public class Phoenix {
 
     private class Channel {
         public Transaction getTransaction() {
-            return null;
+            throw new Error();
         }
 
         public Event take() {
-            return null;
+            throw new Error();
         }
     }
 }
