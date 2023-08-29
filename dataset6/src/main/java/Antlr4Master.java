@@ -49,7 +49,6 @@ public class Antlr4Master {
         }
     }
 
-    //SNIPPET_STARTS
     public class GrammarDependencies {
         // s16: org.antlr.mojo.antlr4.GrammarDependencies.analyze(java.util.Set<java.io.File>,java.util.Set<java.io.File>,org.antlr.v4.Tool)
 
@@ -61,6 +60,7 @@ public class Antlr4Master {
          * @param tool               the tool to use.
          * @return self-reference.
          */
+        //SNIPPET_STARTS
         public GrammarDependencies analyze(Set<File> grammarFiles,
                                            Set<File> importGrammarFiles, Tool tool) throws IOException {
             log.debug("Analysing grammar dependencies " + sourceDirectory);

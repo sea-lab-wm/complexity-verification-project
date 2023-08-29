@@ -89,10 +89,10 @@ public class CarReport {
         }
     }
 
-    //SNIPPET_STARTS
     public class SetupWebDavSyncDialogActivity extends Activity {
         // s12: me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
     //    @Override // Removed to allow compilation
+        //SNIPPET_STARTS
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_setup_webdav_sync);

@@ -498,12 +498,12 @@ public class Tasks_3 {
     } // Added to allow compilation
 
     // Snippet s72
-    //SNIPPET_STARTS
     public class Component extends Tasks_3{ // Added class wrapper to allow compilation
         public Component(String message) {
             super(message);
         }
 
+        //SNIPPET_STARTS
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 
             JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);

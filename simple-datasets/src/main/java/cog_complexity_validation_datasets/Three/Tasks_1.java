@@ -612,14 +612,18 @@ public class Tasks_1 {
     }
 
     // Snippet s7
-    //SNIPPET_STARTS
     /**
      * Attention: DO NOT USE THIS!
      * Under Os/2 it has some problems with calculating the real Date!
      *
      * @deprecated
      */
+<<<<<<< HEAD
     @Deprecated public void Date(int daysSince1970) { // return type void added to allow compilation
+=======
+    //SNIPPET_STARTS
+    public void Date(int daysSince1970) { // return type void added to allow compilation
+>>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
 
         long l = (long) daysSince1970 * 24 * 60 * 60 * 1000;
         java.util.Date d = new java.util.Date(l);

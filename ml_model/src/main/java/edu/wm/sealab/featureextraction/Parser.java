@@ -2,8 +2,11 @@ package edu.wm.sealab.featureextraction;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+<<<<<<< HEAD
 import com.github.javaparser.ast.body.MethodDeclaration;
 
+=======
+>>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -49,6 +52,7 @@ public class Parser {
       pw.append("parenthesis");
       pw.append(",");
       pw.append("literals");
+<<<<<<< HEAD
       pw.append(",");
       //new features
       pw.append("avgCommas");
@@ -68,6 +72,8 @@ public class Parser {
       pw.append("maxIndentation");
       pw.append(",");
       pw.append("avgBlankLines");
+=======
+>>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
       pw.append("\n");
 
       new DirExplorer(
@@ -94,6 +100,7 @@ public class Parser {
                 // Extract syntactic features (non JavaParser extraction)
                 SyntacticFeatureExtractor sfe =
                     new SyntacticFeatureExtractor(featureVisitor.getFeatures());
+<<<<<<< HEAD
                     // String methodbody = cuNoComm.getMethod();
 
                 //NEW CODE -- makes extracts the method in the snippet
@@ -101,6 +108,9 @@ public class Parser {
                             .map(method -> method.toString())
                             .orElse("");
                 Features features = sfe.extract(methodBody);
+=======
+                Features features = sfe.extract(cuNoComm.toString());
+>>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -132,6 +142,7 @@ public class Parser {
                 pw.append(Integer.toString(features.getParenthesis()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
+<<<<<<< HEAD
                 pw.append(",");
                 // new features
                 pw.append(Float.toString(features.getAvgCommas()));
@@ -153,6 +164,9 @@ public class Parser {
                 pw.append(Float.toString(features.getAvgBlankLines()));
                 pw.append("\n");
 
+=======
+                pw.append("\n");
+>>>>>>> 2624f3d5b8c60c0dda42a6e42af510440345845a
               })
           .explore(projectDir);
     } catch (FileNotFoundException e) {
