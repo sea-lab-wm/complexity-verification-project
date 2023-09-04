@@ -12,13 +12,16 @@ def process_cyclomatic_complexity_data(cyclomatic_complexity_df):
     file_name = cyclomatic_complexity_df['File'].str.split('/').str[-1]
     ## replace the file name with the new file name
     cyclomatic_complexity_df['File'] = file_name
-    ## split the description by "has a cyclomatic complexity of" and get cyclomatic complexity value
-    cyclomatic_complexity_description = cyclomatic_complexity_df['Description'].str.split('has a cyclomatic complexity of').str[-1].str.split('.').str[0]
-    ## replace the description with the new cyclomatic complexity value
-    cyclomatic_complexity_df['Description'] = cyclomatic_complexity_description
+
+    ## rename the column to cyclomatic_complexity
     cyclomatic_complexity_df.rename(columns={"Description": "cyclomatic_complexity"}, inplace=True)
+    ## split the cyclomatic complexity description by "has a cyclomatic complexity of" and get cyclomatic complexity value
+    cyclomatic_complexity = cyclomatic_complexity_df['cyclomatic_complexity'].str.split('has a cyclomatic complexity of').str[-1].str.split('.').str[0]
+    ## replace the column with the new cyclomatic complexity data
+    cyclomatic_complexity_df['cyclomatic_complexity'] = cyclomatic_complexity
     ## convert the cyclomatic_complexity column to numeric
     cyclomatic_complexity_df['cyclomatic_complexity'] = pd.to_numeric(cyclomatic_complexity_df['cyclomatic_complexity'])
+    
     ## merge similar File names and get the sum of cyclomatic complexity
     cyclomatic_complexity_df = cyclomatic_complexity_df.groupby(['File']).agg({'cyclomatic_complexity': 'sum'}).reset_index()
     ## remove the duplicate file names and keep the first one with the sum of cyclomatic complexity

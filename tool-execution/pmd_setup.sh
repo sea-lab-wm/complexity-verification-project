@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ## This script sets up PMD on an Ubuntu 20.04 or MacOS 11 machine.
 
 ###########
@@ -5,9 +7,9 @@
 ###########
 
 ## checks if the environment variable pmd is set
-if [ !command -v pmd &> /dev/null ]; then
+if command -v pmd &> /dev/null ; then
     echo "pmd already setup on this machine."
-    exit 2
+    exit 2  
 fi
 
 PMD_DIR=../pmd
@@ -16,7 +18,7 @@ PMD_DIR=../pmd
 mkdir -p ${PMD_DIR}
 
 ## navigate to pmd directory
-cd ${PMD_DIR}
+cd ${PMD_DIR} || exit
 
 ## Check OS version
 OS=$(uname -a | grep -o '\w*' | head -1)
@@ -24,15 +26,16 @@ OS=$(uname -a | grep -o '\w*' | head -1)
 if [ "$OS" == "Darwin" ]; then
     echo "MacOS detected"
     echo "Downloading PMD for MacOS..."
-    wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.0.0-rc3/pmd-dist-7.0.0-rc3-bin.zip
 elif [ "$OS" == "Linux" ]; then
     echo "Ubuntu detected"
     echo "Downloading PMD for Ubuntu..."
-    wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.0.0-rc3/pmd-dist-7.0.0-rc3-bin.zip
 else
     echo "OS not supported"
     exit 1
 fi
+
+## download pmd
+wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.0.0-rc3/pmd-dist-7.0.0-rc3-bin.zip
 
 ## extract pmd, move to pmd directory
 unzip pmd-dist-7.0.0-rc3-bin.zip -d ${PMD_DIR}
