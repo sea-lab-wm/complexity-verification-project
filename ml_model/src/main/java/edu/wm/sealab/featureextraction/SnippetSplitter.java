@@ -1,7 +1,10 @@
 package edu.wm.sealab.featureextraction;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.comments.Comment;
 import com.github.javaparser.ast.comments.LineComment;
@@ -217,6 +220,62 @@ public class SnippetSplitter {
     return false;
   }
 
+  /**
+   * Extracts the methods and constructors from a single Java file and copies them to individual
+   * files.
+   * @throws IOException
+   */
+  private void extractMethodsFromSnippet(File inputFile, String dataset, String outputDir) throws IOException {
+    CompilationUnit cu = null;
+    JavaParser parser = new JavaParser(new ParserConfiguration().setLexicalPreservationEnabled(true));
+    try {
+      cu = parser.parse(inputFile).getResult().get();
+      String constructor = cu.findFirst(ConstructorDeclaration.class)
+          .map(constBody -> constBody.toString())
+          .orElse("");
+      String methodBody = cu.findFirst(MethodDeclaration.class)
+          .map(method -> method.toString())
+          .orElse(constructor);
+
+      File outputFile = new File(outputDir + "ds_" + dataset + "/" + inputFile.getName() + ".java");
+
+      if (outputFile.exists()) {
+        System.out.println("Warning: file already exists");
+      }
+      // Create directory for the dataset if it does not exist
+      Files.createDirectories(Paths.get(outputDir + "ds_" + dataset));
+
+      // Write the dummy class to the output file
+      try (FileWriter fileWriter = new FileWriter(outputFile)) {
+        fileWriter.write(methodBody);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Navigating through a directory and extracting java files. Then call
+   * extractMethodsFromSnippet() to extract methods from each java file.
+   */
+  public void exploreDir(String dirPath, String outputDir) {
+    File projectDir = new File(dirPath);
+    new DirExplorer(
+        (level, path, file) -> path.endsWith(".java"),
+        (level, path, file) -> {
+          try {
+            // extract the dataset name from the path
+            String dataset_name = path.split("/")[path.split("/").length - 2].split("_")[1];
+            extractMethodsFromSnippet(file, dataset_name, outputDir);
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+        })
+        .explore(projectDir);
+  }
+
   /*
    * Main method for splitting snippets
    * Refer "Split method into code snippets" section in README.md
@@ -245,5 +304,9 @@ public class SnippetSplitter {
     ss.run(new File("dataset9/src/main/java/"), "9$bc", "SNIPPET_STARTS_2");
     ss.run(new File("dataset9/src/main/java/"), "9$nc", "SNIPPET_STARTS_3");
     ss.run(new File("simple-datasets/src/main/java/fMRI_Study_Classes/"), "f", "SNIPPET_STARTS");
+    
+    // extract methods from snippets
+    ss.exploreDir("ml_model/src/main/resources/snippet_splitter_out", "ml_model/src/main/resources/preprocessed_method_extract/");
+    ss.exploreDir("ml_model/src/main/resources/raw_snippet_splitter_out", "ml_model/src/main/resources/raw_method_extract/");
   }
 }

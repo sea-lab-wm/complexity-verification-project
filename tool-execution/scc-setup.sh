@@ -7,7 +7,7 @@
 ###########
 
 ## checks if the environment variable SCC is set
-if [ !command -v scc &> /dev/null ]; then
+if command -v scc &> /dev/null ; then
     echo "scc already setup on this machine."
     exit 2
 fi
@@ -18,7 +18,7 @@ SCC_DIR=../scc
 mkdir -p ${SCC_DIR}
 
 ## navigate to scc directory
-cd ${SCC_DIR}
+cd ${SCC_DIR} || exit
 
 # Check OS version
 OS=$(uname -a | grep -o '\w*' | head -1)
