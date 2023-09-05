@@ -237,7 +237,7 @@ public class SnippetSplitter {
           .map(method -> method.toString())
           .orElse(constructor);
 
-      File outputFile = new File(outputDir + "ds_" + dataset + "/" + inputFile.getName() + ".java");
+      File outputFile = new File(outputDir + "ds_" + dataset + "/" + inputFile.getName());
 
       if (outputFile.exists()) {
         System.out.println("Warning: file already exists");

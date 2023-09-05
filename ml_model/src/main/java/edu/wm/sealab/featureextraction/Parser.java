@@ -102,7 +102,7 @@ public class Parser {
                 Features features = sfe.extract(methodBody);
                 
                 // Locate and extract file data from loc_data.csv
-                int entryIndex = findCorrespondingEntry(allLines, file.toString());
+                int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
                 double entryNumLinesOfCode = Double.parseDouble(entryLine[4]);
 
