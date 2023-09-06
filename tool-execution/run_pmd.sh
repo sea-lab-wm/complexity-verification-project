@@ -34,6 +34,11 @@ if ! command -v pmd &> /dev/null ; then
     PMD_PATH="${PMD_DIR}/pmd-bin-7.0.0-rc3/bin/pmd"
     PMD=$(realpath "$PMD_PATH")
     export PMD
+
+    if ! command -v ${PMD} &> /dev/null ; then
+        echo "pmd installation failed."
+        exit 1
+    fi
 else
     PMD=pmd
     echo "pmd installation found on this machine."
