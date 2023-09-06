@@ -34,14 +34,20 @@ public @Data class Features {
   // feature 10: #literals
   private int literals = 0;
 
-  // feature 11: #comments
-  private int numOfComments = 0;
+  // new features
+  private float avgCommas = 0.0f;
+  private float avgParenthesis = 0.0f;
+  private float avgPeriods = 0.0f;
+  private float avgSpaces = 0.0f;
+  private float avgLength = 0.0f;
 
-  // feature 12: #arithmeticOperators
-  private int arithmeticOperators;
+  private int maxLength = 0;
 
-  // feature 13: #conditionals (if and switch statments)
-  private int conditionals;
+  private float avgIndentation = 0;
+  private int maxIndentation = 0;
+
+  private float avgBlankLines = 0;
+
 
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
@@ -53,17 +59,5 @@ public @Data class Features {
 
   public void incrementNumOfLiterals() {
     setLiterals(getLiterals() + 1);
-  }
-
-  public void incrementNumOfComments() {
-    setNumOfComments(getNumOfComments() + 1);
-  }
-
-  public void incrementNumOfArithmeticOperators() {
-    setArithmeticOperators(getArithmeticOperators() + 1);
-  }
-
-  public void incrementNumOfConditionals() {
-    setConditionals(getConditionals() + 1);
   }
 }
