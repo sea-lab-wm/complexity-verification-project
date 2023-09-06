@@ -20,7 +20,7 @@ public class SyntacticFeatureExtractor {
 
 
   public Features extract(String snippet) {
-
+    //test
     int commas = count(snippet, ",");
     int periods = count(snippet, "\\.");
     int spaces = count(snippet, " ");
