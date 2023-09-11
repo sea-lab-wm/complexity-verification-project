@@ -23,12 +23,29 @@ public class FeatureExtractorTest {
   final int NUM_OF_LOOP_STATEMENTS = 9;
   final int NUM_OF_IF_STATEMENTS = 6;
   final int NUM_OF_PARAMETERS = 2;
-  final int NUM_OF_PARANTHESIS = 28;
   final int NUM_OF_COMMENTS = 9;
   final int NUM_OF_LINES_OF_CODE = 50;
   final int NUM_OF_COMPARISONS = 9;
   final int NUM_OF_ARITHMETIC_OPERATORS = 3;
   final int NUM_OF_CONDITIONALS = 7;
+
+  //new tests
+  final int NUM_OF_PARANTHESIS = 56;
+  final double AVG_NUM_OF_PARENTHESIS = 0.9491525292396545;
+  final int NUM_OF_COMMAS = 2;
+  final double AVG_NUM_OF_COMMAS = 0.033898305147886276;
+  final int NUM_OF_PERIODS = 22;
+  final double AVG_NUM_OF_PERIODS = 0.37288135290145874;
+  final int NUM_OF_SPACES = 710;
+  final double AVG_NUM_OF_SPACES = 12.03389835357666;
+  //indentation length avg and max
+  final int MAX_INDENTATION_LENGTH = 20;
+  final double AVG_INDENTATION_LENGTH = 10.10169506072998;
+  //line length avg and max
+  final int MAX_LINE_LENGTH = 65;
+  final double AVG_LINE_LENGTH = 24.86440658569336;
+  //blank lines avg
+  final double AVG_BLANK_LINES = 0.033898305147886276;
 
   static Features features = null;
 
@@ -73,11 +90,6 @@ public class FeatureExtractorTest {
   public void testMethodParameters() {
     assertEquals(NUM_OF_PARAMETERS, featureVisitor.getFeatures().getNumOfParameters());
   }
-
-  @Test
-  public void testParenthesis() {
-    assertEquals(NUM_OF_PARANTHESIS, features.getParenthesis());
-  }
     
   @Test
   public void testComments() {
@@ -102,5 +114,71 @@ public class FeatureExtractorTest {
   @Test
   public void testConditionals() {
     assertEquals(NUM_OF_CONDITIONALS, featureVisitor.getFeatures().getConditionals());
+  }
+
+  //new tests
+  @Test
+  public void testParenthesis() {
+    assertEquals(NUM_OF_PARANTHESIS, features.getParenthesis());
+  }
+
+  @Test
+  public void testAvgParenthesis() {
+    assertEquals(AVG_NUM_OF_PARENTHESIS, features.getAvgParenthesis());
+  }
+
+  @Test
+  public void testCommas() {
+    assertEquals(NUM_OF_COMMAS, features.getCommas());
+  }
+
+  @Test
+  public void testAvgCommas() {
+    assertEquals(AVG_NUM_OF_COMMAS, features.getAvgCommas());
+  }
+
+  @Test
+  public void testPeriods() {
+    assertEquals(NUM_OF_PERIODS, features.getPeriods());
+  }
+
+  @Test
+  public void testAvgPeriods() {
+    assertEquals(AVG_NUM_OF_PERIODS, features.getAvgPeriods());
+  }
+
+  @Test
+  public void testSpaces() {
+    assertEquals(NUM_OF_SPACES, features.getSpaces());
+  }
+
+  @Test
+  public void testAvgSpaces() {
+    assertEquals(AVG_NUM_OF_SPACES, features.getAvgSpaces());
+  }
+
+  @Test
+  public void testMaxIndentationLength() {
+    assertEquals(MAX_INDENTATION_LENGTH, features.getMaxIndentation());
+  }
+
+  @Test
+  public void testAvgIndentationLength() {
+    assertEquals(AVG_INDENTATION_LENGTH, features.getAvgIndentation());
+  }
+
+  @Test
+  public void testMaxLineLength() {
+    assertEquals(MAX_LINE_LENGTH, features.getMaxLength());
+  }
+
+  @Test
+  public void testAvgLineLength() {
+    assertEquals(AVG_LINE_LENGTH, features.getAvgLength());
+  }
+
+  @Test
+  public void testAvgBlankLength() {
+    assertEquals(AVG_BLANK_LINES, features.getAvgBlankLines());
   }
 }

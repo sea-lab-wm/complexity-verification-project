@@ -18,10 +18,88 @@ public class SyntacticFeatureExtractor {
    * @return the filled in Feature Map
    */
   public Features extract(String snippet) {
-    features.setCommas(count(snippet, ","));
-    features.setPeriods(count(snippet, "\\.") - 1);
-    features.setSpaces(count(snippet, " "));
-    features.setParenthesis(count(snippet, "\\("));
+    //test
+    int commas = count(snippet, ",");
+    int periods = count(snippet, "\\.");
+    int spaces = count(snippet, " ");
+    int parenthesis = count(snippet, "\\(") * 2;
+
+    features.setCommas(commas);
+    features.setPeriods(periods);
+    features.setSpaces(spaces);
+    features.setParenthesis(parenthesis);
+
+    //get the number of lines of code
+    String[] lines = snippet.split("\n");
+    int loc = lines.length;
+
+    //average number of commas in each line
+    float avgCommas = (float) commas / loc;
+    features.setAvgCommas(avgCommas);
+    //average number of parenthesis in each line
+    float avgParenthesis = (float) parenthesis / loc;
+    features.setAvgParenthesis(avgParenthesis);
+    //average number of periods in each line
+    float avgPeriods = (float) periods / loc;
+    features.setAvgPeriods(avgPeriods);
+    //average number of spaces in each line
+    float avgSpaces = (float) spaces / loc;
+    features.setAvgSpaces(avgSpaces);
+    //average length in each line
+    int totalLength = 0;
+    for (String line : lines) {
+        totalLength += line.length();
+    }
+    float avgLength = (float) totalLength / loc;
+    features.setAvgLength(avgLength);
+    
+    // get the maximum length in any line
+    int maxLength = 0;
+    for (String line : lines) {
+      int lineLength = line.length();
+      if (lineLength > maxLength) {
+          maxLength = lineLength;
+      }
+    }
+    features.setMaxLength(maxLength);
+
+    //indentation length
+    int total_indentation = 0;
+    int maxIndentation = 0;
+    for (String line : lines) {
+      int line_indentation = 0;
+      for (int i = 0; i < line.length(); i++) {
+          char c = line.charAt(i);
+          if (c == ' ' || c == '\t') {
+              line_indentation++;
+          } else {
+              break;
+          }
+      }
+      total_indentation += line_indentation;
+      
+      // Update maximum indentation
+      if (line_indentation > maxIndentation) {
+          maxIndentation = line_indentation;
+      }
+    }
+  
+    // Average and maximum indentation
+    float avgIndentation = (float) total_indentation / loc;
+    features.setAvgIndentation(avgIndentation);
+    features.setMaxIndentation(maxIndentation);
+  
+    //character max length
+    
+    //blank line average
+    int blankLines = 0;
+    for (String line : lines) {
+        if (line.trim().isEmpty()) {
+            blankLines++;
+        }
+    }
+    float avgBlankLines = (float) blankLines / loc;
+    features.setAvgBlankLines(avgBlankLines);
 
     return features;
   }

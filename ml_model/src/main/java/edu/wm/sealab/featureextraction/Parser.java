@@ -60,6 +60,25 @@ public class Parser {
       pw.append("avgOperators");
       pw.append(",");
       pw.append("avgConditionals");
+      pw.append(",");
+      //new features
+      pw.append("avgCommas");
+      pw.append(",");
+      pw.append("avgParenthesis");
+      pw.append(",");
+      pw.append("avgPeriods");
+      pw.append(",");
+      pw.append("avgSpaces");
+      pw.append(",");
+      pw.append("avgLength");
+      pw.append(",");
+      pw.append("maxLength");
+      pw.append(",");
+      pw.append("avgIndentation");
+      pw.append(",");
+      pw.append("maxIndentation");
+      pw.append(",");
+      pw.append("avgBlankLines");
       pw.append("\n");
 
       List<String[]> lines = null;
@@ -153,6 +172,25 @@ public class Parser {
                 pw.append(Double.toString(avgNumOfArithmeticOperators));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfConditionals));
+                pw.append(",");
+                // new features
+                pw.append(Float.toString(features.getAvgCommas()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgParenthesis()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgPeriods()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgSpaces()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgLength()));
+                pw.append(",");
+                pw.append(Float.toString(features.getMaxLength()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgIndentation()));
+                pw.append(",");
+                pw.append(Float.toString(features.getMaxIndentation()));
+                pw.append(",");
+                pw.append(Float.toString(features.getAvgBlankLines()));
                 pw.append("\n");
               })
           .explore(projectDir);
