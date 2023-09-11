@@ -1,6 +1,5 @@
 package edu.wm.sealab.featureextraction;
 
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AssignExpr;
@@ -17,7 +16,6 @@ import com.github.javaparser.ast.expr.TextBlockLiteralExpr;
 import com.github.javaparser.ast.stmt.ForEachStmt;
 import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
-import com.github.javaparser.ast.stmt.SwitchStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
@@ -31,6 +29,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method to compute #parameters of a java method
+   *
+   * @param MethodDeclaration
+   * @param Void
    */
   @Override
   public void visit(MethodDeclaration md, Void arg) {
@@ -40,6 +41,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method to compute #parameters of a java method
+   *
+   * @param ConstructorDeclaration
+   * @param Void
    */
   @Override
   public void visit(ConstructorDeclaration cd, Void arg) {
@@ -49,25 +53,21 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method to compute #if statements of a java method
+   *
+   * @param IfStmt
+   * @param Void
    */
   @Override
   public void visit(IfStmt ifStmt, Void arg) {
     super.visit(ifStmt, arg);
     features.incrementNumOfIfStatements();
-    features.incrementNumOfConditionals();
-  }
-
-  /**
-   * This method to compute # switch statements of a java method (not entries)
-   */
-  @Override
-  public void visit(SwitchStmt swStmt, Void arg) {
-    super.visit(swStmt, arg);
-    features.incrementNumOfConditionals();
   }
 
   /**
    * This method to compute # for loops of a java method
+   *
+   * @param ForStmt
+   * @param Void
    */
   @Override
   public void visit(ForStmt forStmt, Void arg) {
@@ -77,6 +77,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method to compute # while loops of a java method
+   *
+   * @param WhileStmt
+   * @param Void
    */
   @Override
   public void visit(WhileStmt whileStmt, Void arg) {
@@ -86,6 +89,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method to compute # for each loops of a java method
+   *
+   * @param ForEachStmt
+   * @param Void
    */
   @Override
   public void visit(ForEachStmt forEachStmt, Void arg) {
@@ -95,6 +101,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method computes # assignment expressions in a java method
+   *
+   * @param AssignExpr
+   * @param Void
    */
   @Override
   public void visit(AssignExpr assignExpr, Void arg) {
@@ -103,31 +112,30 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * This method computes # comparisons and arithmetic operators in a java method
+   * This method computes # comparisons in a java method
+   *
+   * @param BinaryExpr
+   * @param Void
    */
   @Override
   public void visit(BinaryExpr n, Void arg) {
     super.visit(n, arg);
-    Operator operator = n.getOperator();
-    if (operator == Operator.EQUALS
-        || operator == Operator.NOT_EQUALS
-        || operator == Operator.LESS
-        || operator == Operator.LESS_EQUALS
-        || operator == Operator.GREATER
-        || operator == Operator.GREATER_EQUALS) {
+    if (n.getOperator() == Operator.EQUALS
+        || n.getOperator() == Operator.NOT_EQUALS
+        || n.getOperator() == Operator.LESS
+        || n.getOperator() == Operator.LESS_EQUALS
+        || n.getOperator() == Operator.GREATER
+        || n.getOperator() == Operator.GREATER_EQUALS) {
       features.setComparisons(features.getComparisons() + 1);
-    } else if (operator == Operator.PLUS
-        || operator == Operator.MINUS
-        || operator == Operator.MULTIPLY
-        || operator == Operator.DIVIDE
-        || operator == Operator.REMAINDER) {
-      features.incrementNumOfArithmeticOperators();
     }
   }
 
   /**
    * This method identifies boolean literals in a java method and sums them up to the total number
    * of literals
+   *
+   * @param BooleanLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(BooleanLiteralExpr ble, Void arg) {
@@ -138,6 +146,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   /**
    * This method identifies char literals in a java method and sums them up to the total number of
    * literals
+   *
+   * @param CHarLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(CharLiteralExpr cle, Void arg) {
@@ -148,6 +159,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   /**
    * This method identifies integer literals in a java method and sums them up to the total number
    * of literals
+   *
+   * @param IntegerLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(IntegerLiteralExpr ile, Void arg) {
@@ -158,6 +172,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   /**
    * This method identifies the long literals in a java method and sums them up to the total number
    * of literals
+   *
+   * @param LongLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(LongLiteralExpr lle, Void arg) {
@@ -168,6 +185,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   /**
    * This method identifies null literals in a java method and sums them up to the total number of
    * literals
+   *
+   * @param NullLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(NullLiteralExpr nle, Void arg) {
@@ -178,6 +198,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   /**
    * This method identifies string literals in a java method and sums them up to the total number of
    * literals
+   *
+   * @param StringLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(StringLiteralExpr sle, Void arg) {
@@ -188,6 +211,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   /**
    * This method identifies text block literals in a java method and sums them up to the total
    * number of literals
+   *
+   * @param TextBlockLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(TextBlockLiteralExpr tble, Void arg) {
@@ -198,6 +224,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   /**
    * This method identifies double literals in a java method and sums them up to the total number of
    * literals
+   *
+   * @param DoubleLiteralExpr
+   * @param Void
    */
   @Override
   public void visit(DoubleLiteralExpr dle, Void arg) {
@@ -206,19 +235,10 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * This method identifies comments in a java method and sums them up to the total number of
-   * comments. The ClassOrInterfaceDeclaration method getAllContainedComments() is used in order
-   * to prevent orphan comments from being ignored by the Parser.
-   */
-  @Override
-  public void visit(ClassOrInterfaceDeclaration cu, Void arg) {
-    super.visit(cu, arg);
-    features.setNumOfComments(cu.getAllContainedComments().size());
-  }
-
-  /**
    * This method is to get the computed features After one/more visit method is/are called, the
    * features will be updated and then use this method to get the updated features
+   *
+   * @return features
    */
   public Features getFeatures() {
     return features;
