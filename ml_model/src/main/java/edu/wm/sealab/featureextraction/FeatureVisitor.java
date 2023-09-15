@@ -20,6 +20,8 @@ import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.SwitchStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -149,10 +151,21 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
    * This method identifies integer literals in a java method and sums them up to the total number
    * of literals
    */
-  @Override
+@Override
   public void visit(IntegerLiteralExpr ile, Void arg) {
     super.visit(ile, arg);
     features.incrementNumOfLiterals();
+    features.incrementNumOfNumbers();
+    String lineNumber = ile.getRange().get().begin.line+"";
+    if(features.getLineNumberMap().containsKey(lineNumber)){
+      List<Integer> list = features.getLineNumberMap().get(lineNumber);
+      list.add(ile.asNumber().intValue());
+      features.getLineNumberMap().put(lineNumber,list);
+    }else{
+      List<Integer> list = new ArrayList<>();
+      list.add(ile.asNumber().intValue());
+      features.getLineNumberMap().put(lineNumber,list);
+    }
   }
 
   /**
