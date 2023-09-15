@@ -151,7 +151,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
    * This method identifies integer literals in a java method and sums them up to the total number
    * of literals
    */
-@Override
+  @Override
   public void visit(IntegerLiteralExpr ile, Void arg) {
     super.visit(ile, arg);
     features.incrementNumOfLiterals();
