@@ -18,7 +18,7 @@ public class SyntacticFeatureExtractor {
    * @return the filled in Feature Map
    */
   public Features extract(String snippet) {
-    //test
+    
     int commas = count(snippet, ",");
     int periods = count(snippet, "\\.");
     int spaces = count(snippet, " ");
@@ -46,24 +46,28 @@ public class SyntacticFeatureExtractor {
     float avgSpaces = (float) spaces / loc;
     features.setAvgSpaces(avgSpaces);
     //average length in each line
+    /* the line length counts all the characters of the given line 
+    (including the spaces/tabs/indentation in the beginning) */
     int totalLength = 0;
     for (String line : lines) {
         totalLength += line.length();
     }
-    float avgLength = (float) totalLength / loc;
-    features.setAvgLength(avgLength);
+    float avgLineLength = (float) totalLength / loc;
+    features.setAvgLineLength(avgLineLength);
     
     // get the maximum length in any line
-    int maxLength = 0;
+    int maxLineLength = 0;
     for (String line : lines) {
       int lineLength = line.length();
-      if (lineLength > maxLength) {
-          maxLength = lineLength;
+      if (lineLength > maxLineLength) {
+          maxLineLength = lineLength;
       }
     }
-    features.setMaxLength(maxLength);
+    features.setMaxLineLength(maxLineLength);
 
     //indentation length
+    /* iterates through each line character by character, 
+    counting spaces and tabs until it reaches a non-space, non-tab character */
     int total_indentation = 0;
     int maxIndentation = 0;
     for (String line : lines) {

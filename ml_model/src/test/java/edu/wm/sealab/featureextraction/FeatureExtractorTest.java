@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
 public class FeatureExtractorTest {
 
   private FeatureVisitor featureVisitor;
-  SyntacticFeatureExtractor syntacticFeatureExtractor;
 
   final int NUM_OF_LOOP_STATEMENTS = 9;
   final int NUM_OF_IF_STATEMENTS = 6;
@@ -29,7 +28,6 @@ public class FeatureExtractorTest {
   final int NUM_OF_ARITHMETIC_OPERATORS = 3;
   final int NUM_OF_CONDITIONALS = 7;
 
-  //new tests
   final int NUM_OF_PARANTHESIS = 56;
   final double AVG_NUM_OF_PARENTHESIS = 0.9491525292396545;
   final int NUM_OF_COMMAS = 2;
@@ -116,7 +114,6 @@ public class FeatureExtractorTest {
     assertEquals(NUM_OF_CONDITIONALS, featureVisitor.getFeatures().getConditionals());
   }
 
-  //new tests
   @Test
   public void testParenthesis() {
     assertEquals(NUM_OF_PARANTHESIS, features.getParenthesis());
@@ -169,12 +166,12 @@ public class FeatureExtractorTest {
 
   @Test
   public void testMaxLineLength() {
-    assertEquals(MAX_LINE_LENGTH, features.getMaxLength());
+    assertEquals(MAX_LINE_LENGTH, features.getMaxLineLength());
   }
 
   @Test
   public void testAvgLineLength() {
-    assertEquals(AVG_LINE_LENGTH, features.getAvgLength());
+    assertEquals(AVG_LINE_LENGTH, features.getAvgLineLength());
   }
 
   @Test

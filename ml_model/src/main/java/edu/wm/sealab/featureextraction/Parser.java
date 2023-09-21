@@ -70,9 +70,9 @@ public class Parser {
       pw.append(",");
       pw.append("avgSpaces");
       pw.append(",");
-      pw.append("avgLength");
+      pw.append("avgLineLength");
       pw.append(",");
-      pw.append("maxLength");
+      pw.append("maxLineLength");
       pw.append(",");
       pw.append("avgIndentation");
       pw.append(",");
@@ -182,9 +182,9 @@ public class Parser {
                 pw.append(",");
                 pw.append(Float.toString(features.getAvgSpaces()));
                 pw.append(",");
-                pw.append(Float.toString(features.getAvgLength()));
+                pw.append(Float.toString(features.getAvgLineLength()));
                 pw.append(",");
-                pw.append(Float.toString(features.getMaxLength()));
+                pw.append(Float.toString(features.getMaxLineLength()));
                 pw.append(",");
                 pw.append(Float.toString(features.getAvgIndentation()));
                 pw.append(",");
