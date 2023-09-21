@@ -97,6 +97,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method computes # assignment expressions in a java method
+   * Does not include declaration statements
    */
   @Override
   public void visit(AssignExpr assignExpr, Void arg) {
