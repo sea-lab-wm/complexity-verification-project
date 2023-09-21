@@ -133,6 +133,14 @@ public class Parser {
                 double avgNumOfArithmeticOperators =
                     features.getArithmeticOperators() / entryNumLinesOfCode;
                 double avgNumOfConditionals = features.getConditionals() / entryNumLinesOfCode;
+                
+                double avgCommas = features.getCommas() / entryNumLinesOfCode;
+                double avgParenthesis = features.getParenthesis() / entryNumLinesOfCode;
+                double avgPeriods = features.getPeriods() / entryNumLinesOfCode;
+                double avgSpaces = features.getSpaces() / entryNumLinesOfCode;
+                double avgLineLength = features.getTotalLineLength() / entryNumLinesOfCode;
+                double avgIndentationLength = features.getTotalIndentation() / entryNumLinesOfCode;
+                double avgBlankLines = features.getTotalBlankLines() / entryNumLinesOfCode;
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -174,23 +182,23 @@ public class Parser {
                 pw.append(Double.toString(avgNumOfConditionals));
                 pw.append(",");
                 // new features
-                pw.append(Float.toString(features.getAvgCommas()));
+                pw.append(Double.toString(avgCommas));
                 pw.append(",");
-                pw.append(Float.toString(features.getAvgParenthesis()));
+                pw.append(Double.toString(avgParenthesis));
                 pw.append(",");
-                pw.append(Float.toString(features.getAvgPeriods()));
+                pw.append(Double.toString(avgPeriods));
                 pw.append(",");
-                pw.append(Float.toString(features.getAvgSpaces()));
+                pw.append(Double.toString(avgSpaces));
                 pw.append(",");
-                pw.append(Float.toString(features.getAvgLineLength()));
+                pw.append(Double.toString(avgLineLength));
                 pw.append(",");
                 pw.append(Float.toString(features.getMaxLineLength()));
                 pw.append(",");
-                pw.append(Float.toString(features.getAvgIndentation()));
+                pw.append(Double.toString(avgIndentationLength));
                 pw.append(",");
                 pw.append(Float.toString(features.getMaxIndentation()));
                 pw.append(",");
-                pw.append(Float.toString(features.getAvgBlankLines()));
+                pw.append(Double.toString(avgBlankLines));
                 pw.append("\n");
               })
           .explore(projectDir);

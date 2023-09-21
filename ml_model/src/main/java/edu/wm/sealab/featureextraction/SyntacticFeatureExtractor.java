@@ -52,6 +52,8 @@ public class SyntacticFeatureExtractor {
     for (String line : lines) {
         totalLength += line.length();
     }
+    features.setTotalLineLength(totalLength);
+
     float avgLineLength = (float) totalLength / loc;
     features.setAvgLineLength(avgLineLength);
     
@@ -81,7 +83,7 @@ public class SyntacticFeatureExtractor {
           }
       }
       total_indentation += line_indentation;
-      
+      features.setTotalIndentation(total_indentation);
       // Update maximum indentation
       if (line_indentation > maxIndentation) {
           maxIndentation = line_indentation;
@@ -102,6 +104,9 @@ public class SyntacticFeatureExtractor {
             blankLines++;
         }
     }
+
+    features.setTotalBlankLines(blankLines);
+
     float avgBlankLines = (float) blankLines / loc;
     features.setAvgBlankLines(avgBlankLines);
 

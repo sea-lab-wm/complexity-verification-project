@@ -50,11 +50,14 @@ public @Data class Features {
   private float avgSpaces = 0.0f;
   private float avgLineLength = 0.0f;
 
+  private int totalLineLength = 0;
   private int maxLineLength = 0;
 
+  private int totalIndentation = 0;
   private float avgIndentation = 0;
   private int maxIndentation = 0;
 
+  private int TotalBlankLines = 0;
   private float avgBlankLines = 0;
 
   public void incrementNumOfIfStatements() {
