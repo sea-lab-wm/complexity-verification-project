@@ -51,6 +51,9 @@ public @Data class Features {
   // feature 14: #numbers
   private int numbers;
 
+  // feature 14 #statements
+  private int statements;
+
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }
@@ -77,6 +80,10 @@ public @Data class Features {
 
   public void incrementNumOfNumbers() {
     setNumbers(getNumbers() + 1);
+  }
+
+  public void incrementNumOfStatements() {
+    setStatements(getStatements() + 1);
   }
 
   /**

@@ -159,6 +159,8 @@ public class Parser {
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
                 pw.append(",");
+                pw.append(Integer.toString(features.getStatements()));
+                pw.append(",");
 
                 // Averages
                 pw.append(Double.toString(avgNumOfConditionals));    
