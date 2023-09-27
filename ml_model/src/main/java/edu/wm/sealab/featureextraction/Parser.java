@@ -53,6 +53,8 @@ public class Parser {
       pw.append(",");
       pw.append("literals");
       pw.append(",");
+      pw.append("statements");
+      pw.append(",");
       pw.append("avgConditionals");
       pw.append(",");
       pw.append("avgLoops");
