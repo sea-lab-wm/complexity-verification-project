@@ -134,13 +134,13 @@ public class Parser {
                     features.getArithmeticOperators() / entryNumLinesOfCode;
                 double avgNumOfConditionals = features.getConditionals() / entryNumLinesOfCode;
                 
-                double avgCommas = features.getCommas() / entryNumLinesOfCode;
-                double avgParenthesis = features.getParenthesis() / entryNumLinesOfCode;
-                double avgPeriods = features.getPeriods() / entryNumLinesOfCode;
-                double avgSpaces = features.getSpaces() / entryNumLinesOfCode;
-                double avgLineLength = features.getTotalLineLength() / entryNumLinesOfCode;
-                double avgIndentationLength = features.getTotalIndentation() / entryNumLinesOfCode;
-                double avgBlankLines = features.getTotalBlankLines() / entryNumLinesOfCode;
+                double avgCommas = features.getCommas() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgParenthesis = features.getParenthesis() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgPeriods = features.getPeriods() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgSpaces = features.getSpaces() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgLineLength = features.getTotalLineLength() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgIndentationLength = features.getTotalIndentation() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgBlankLines = features.getTotalBlankLines() / (features.getTotalBlankLines() + entryNumLinesOfCode);
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");

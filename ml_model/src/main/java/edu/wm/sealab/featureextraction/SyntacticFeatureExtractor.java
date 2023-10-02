@@ -29,33 +29,14 @@ public class SyntacticFeatureExtractor {
     features.setSpaces(spaces);
     features.setParenthesis(parenthesis);
 
-    //get the number of lines of code
-    String[] lines = snippet.split("\n");
-    int loc = lines.length;
-
-    //average number of commas in each line
-    float avgCommas = (float) commas / loc;
-    features.setAvgCommas(avgCommas);
-    //average number of parenthesis in each line
-    float avgParenthesis = (float) parenthesis / loc;
-    features.setAvgParenthesis(avgParenthesis);
-    //average number of periods in each line
-    float avgPeriods = (float) periods / loc;
-    features.setAvgPeriods(avgPeriods);
-    //average number of spaces in each line
-    float avgSpaces = (float) spaces / loc;
-    features.setAvgSpaces(avgSpaces);
-    //average length in each line
     /* the line length counts all the characters of the given line 
     (including the spaces/tabs/indentation in the beginning) */
+    String[] lines = snippet.split("\n");
     int totalLength = 0;
     for (String line : lines) {
         totalLength += line.length();
     }
     features.setTotalLineLength(totalLength);
-
-    float avgLineLength = (float) totalLength / loc;
-    features.setAvgLineLength(avgLineLength);
     
     // get the maximum length in any line
     int maxLineLength = 0;
@@ -90,14 +71,10 @@ public class SyntacticFeatureExtractor {
       }
     }
   
-    // Average and maximum indentation
-    float avgIndentation = (float) total_indentation / loc;
-    features.setAvgIndentation(avgIndentation);
+    // Maximum indentation
     features.setMaxIndentation(maxIndentation);
-  
-    //character max length
     
-    //blank line average
+    // Blank line
     int blankLines = 0;
     for (String line : lines) {
         if (line.trim().isEmpty()) {
@@ -106,9 +83,6 @@ public class SyntacticFeatureExtractor {
     }
 
     features.setTotalBlankLines(blankLines);
-
-    float avgBlankLines = (float) blankLines / loc;
-    features.setAvgBlankLines(avgBlankLines);
 
     return features;
   }

@@ -25,22 +25,23 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_ARITHMETIC_OPERATORS_1 = 3;
   final int NUM_OF_CONDITIONALS_1 = 7;
 
+  final double loc_1 = 59;
   final int NUM_OF_PARANTHESIS_1 = 56;
-  final double AVG_NUM_OF_PARENTHESIS_1 = 0.9491525292396545;
+  final double AVG_NUM_OF_PARENTHESIS_1 = 0.9491525423728814;
   final int NUM_OF_COMMAS_1 = 2;
-  final double AVG_NUM_OF_COMMAS_1 = 0.033898305147886276;
+  final double AVG_NUM_OF_COMMAS_1 = 0.03389830508474576;
   final int NUM_OF_PERIODS_1 = 22;
-  final double AVG_NUM_OF_PERIODS_1 = 0.37288135290145874;
+  final double AVG_NUM_OF_PERIODS_1 = 0.3728813559322034;
   final int NUM_OF_SPACES_1 = 710;
-  final double AVG_NUM_OF_SPACES_1 = 12.03389835357666;
+  final double AVG_NUM_OF_SPACES_1 = 12.033898305084746;
   //indentation length avg and max
   final int MAX_INDENTATION_LENGTH_1 = 20;
-  final double AVG_INDENTATION_LENGTH_1 = 10.10169506072998;
+  final double AVG_INDENTATION_LENGTH_1 = 10.101694915254237;
   //line length avg and max
   final int MAX_LINE_LENGTH_1 = 65;
-  final double AVG_LINE_LENGTH_1 = 24.86440658569336;
+  final double AVG_LINE_LENGTH_1 = 24.864406779661017;
   //blank lines avg
-  final double AVG_BLANK_LINES_1 = 0.033898305147886276;
+  final double AVG_BLANK_LINES_1 = 0.03389830508474576;
 
 
   final int NUM_OF_LOOP_STATEMENTS_2 = 6;
@@ -52,22 +53,23 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_ARITHMETIC_OPERATORS_2 = 5;
   final int NUM_OF_CONDITIONALS_2 = 5;
 
+  final double loc_2 = 48;
   final int NUM_OF_PARANTHESIS_2 = 40;
-  final double AVG_NUM_OF_PARENTHESIS_2 = 0.8333333134651184;
+  final double AVG_NUM_OF_PARENTHESIS_2 = 0.8333333333333334;
   final int NUM_OF_COMMAS_2 = 3;
   final double AVG_NUM_OF_COMMAS_2 = 0.0625;
   final int NUM_OF_PERIODS_2 = 16;
-  final double AVG_NUM_OF_PERIODS_2 = 0.3333333432674408;
+  final double AVG_NUM_OF_PERIODS_2 = 0.3333333333333333;
   final int NUM_OF_SPACES_2 = 568;
-  final double AVG_NUM_OF_SPACES_2 = 11.833333015441895;
+  final double AVG_NUM_OF_SPACES_2 = 11.833333333333334;
   //indentation length avg and max
   final int MAX_INDENTATION_LENGTH_2 = 16;
-  final double AVG_INDENTATION_LENGTH_2 = 9.833333015441895;
+  final double AVG_INDENTATION_LENGTH_2 = 9.833333333333334;
   //line length avg and max
   final int MAX_LINE_LENGTH_2 = 51;
-  final double AVG_LINE_LENGTH_2 = 23.85416603088379;
+  final double AVG_LINE_LENGTH_2 = 23.854166666666668;
   //blank lines avg
-  final double AVG_BLANK_LINES_2 = 0.0416666679084301;
+  final double AVG_BLANK_LINES_2 = 0.041666666666666664;
 
 
 
@@ -170,7 +172,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgParenthesis1() {
-    assertEquals(AVG_NUM_OF_PARENTHESIS_1, features1.getAvgParenthesis());
+    assertEquals(AVG_NUM_OF_PARENTHESIS_1, (double)features1.getParenthesis() / loc_1);
   }
 
   @Test
@@ -180,7 +182,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgCommas1() {
-    assertEquals(AVG_NUM_OF_COMMAS_1, features1.getAvgCommas());
+    assertEquals(AVG_NUM_OF_COMMAS_1, (double)features1.getCommas() / loc_1);
   }
 
   @Test
@@ -190,7 +192,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgPeriods1() {
-    assertEquals(AVG_NUM_OF_PERIODS_1, features1.getAvgPeriods());
+    assertEquals(AVG_NUM_OF_PERIODS_1, (double)features1.getPeriods() / loc_1);
   }
 
   @Test
@@ -200,7 +202,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgSpaces1() {
-    assertEquals(AVG_NUM_OF_SPACES_1, features1.getAvgSpaces());
+    assertEquals(AVG_NUM_OF_SPACES_1, (double)features1.getSpaces() / loc_1);
   }
 
   @Test
@@ -210,7 +212,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgIndentationLength1() {
-    assertEquals(AVG_INDENTATION_LENGTH_1, features1.getAvgIndentation());
+    assertEquals(AVG_INDENTATION_LENGTH_1, (double)features1.getTotalIndentation() / loc_1);
   }
 
   @Test
@@ -220,12 +222,12 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgLineLengt1h() {
-    assertEquals(AVG_LINE_LENGTH_1, features1.getAvgLineLength());
+    assertEquals(AVG_LINE_LENGTH_1, (double)features1.getTotalLineLength() / loc_1);
   }
 
   @Test
   public void testAvgBlankLength1() {
-    assertEquals(AVG_BLANK_LINES_1, features1.getAvgBlankLines());
+    assertEquals(AVG_BLANK_LINES_1, (double)features1.getTotalBlankLines() / loc_1);
   }
 
   @Test
@@ -275,7 +277,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgParenthesis2() {
-    assertEquals(AVG_NUM_OF_PARENTHESIS_2, features2.getAvgParenthesis());
+    assertEquals(AVG_NUM_OF_PARENTHESIS_2, (double)features2.getParenthesis() / loc_2);
   }
 
   @Test
@@ -285,7 +287,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgCommas2() {
-    assertEquals(AVG_NUM_OF_COMMAS_2, features2.getAvgCommas());
+    assertEquals(AVG_NUM_OF_COMMAS_2, (double)features2.getCommas() / loc_2);
   }
 
   @Test
@@ -295,7 +297,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgPeriods2() {
-    assertEquals(AVG_NUM_OF_PERIODS_2, features2.getAvgPeriods());
+    assertEquals(AVG_NUM_OF_PERIODS_2, (double)features2.getPeriods() / loc_2);
   }
 
   @Test
@@ -305,7 +307,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgSpaces2() {
-    assertEquals(AVG_NUM_OF_SPACES_2, features2.getAvgSpaces());
+    assertEquals(AVG_NUM_OF_SPACES_2, (double)features2.getSpaces() / loc_2);
   }
 
   @Test
@@ -315,7 +317,7 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgIndentationLength2() {
-    assertEquals(AVG_INDENTATION_LENGTH_2, features2.getAvgIndentation());
+    assertEquals(AVG_INDENTATION_LENGTH_2, (double)features2.getTotalIndentation() / loc_2);
   }
 
   @Test
@@ -325,12 +327,12 @@ public class FeatureExtractorTestMultiple {
 
   @Test
   public void testAvgLineLength2() {
-    assertEquals(AVG_LINE_LENGTH_2, features2.getAvgLineLength());
+    assertEquals(AVG_LINE_LENGTH_2, (double)features2.getTotalLineLength() / loc_2);
   }
 
   @Test
   public void testAvgBlankLength2() {
-    assertEquals(AVG_BLANK_LINES_2, features2.getAvgBlankLines());
+    assertEquals(AVG_BLANK_LINES_2, (double)features2.getTotalBlankLines() / loc_2);
   }
 }
 
