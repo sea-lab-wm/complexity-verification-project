@@ -27,6 +27,9 @@ public class FeatureExtractorTest {
   final int NUM_OF_COMPARISONS = 9;
   final int NUM_OF_ARITHMETIC_OPERATORS = 3;
   final int NUM_OF_CONDITIONALS = 7;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 4;
+  final int NUM_OF_NUMBERS = 24;
+  final int MAX_NUMBERS = 2;
 
   final double loc = 59;
   final int NUM_OF_PARANTHESIS = 56;
@@ -178,5 +181,25 @@ public class FeatureExtractorTest {
   @Test
   public void testAvgBlankLength() {
     assertEquals(AVG_BLANK_LINES, (double)features.getTotalBlankLines() / loc);
+  }
+  
+  @Test
+  public void testAvgLoops() {
+    assertEquals(1.0 * NUM_OF_LOOP_STATEMENTS / NUM_OF_LINES_OF_CODE, 1.0 * featureVisitor.getFeatures().getNumOfLoops() / NUM_OF_LINES_OF_CODE);
+  }
+
+  @Test
+  public void testAvgAssignExprs() {
+    assertEquals(1.0 * NUM_OF_ASSIGNMENT_EXPRESSIONS / NUM_OF_LINES_OF_CODE, 1.0 * featureVisitor.getFeatures().getAssignExprs() / NUM_OF_LINES_OF_CODE);
+  }
+
+  @Test
+  public void testAvgNumbers() {
+    assertEquals(1.0 * NUM_OF_NUMBERS / NUM_OF_LINES_OF_CODE, 1.0 * featureVisitor.getFeatures().getNumbers() / NUM_OF_LINES_OF_CODE);
+  }
+
+  @Test
+  public void testMaxNumbers() {
+    assertEquals(MAX_NUMBERS, featureVisitor.getFeatures().findMaxNumbers());
   }
 }

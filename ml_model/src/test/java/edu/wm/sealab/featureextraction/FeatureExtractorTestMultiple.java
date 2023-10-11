@@ -42,6 +42,9 @@ public class FeatureExtractorTestMultiple {
   final double AVG_LINE_LENGTH_1 = 24.864406779661017;
   //blank lines avg
   final double AVG_BLANK_LINES_1 = 0.03389830508474576;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 4;
+  final int NUM_OF_NUMBERS_1 = 24;
+  final int MAX_NUMBERS_1 = 2;
 
 
   final int NUM_OF_LOOP_STATEMENTS_2 = 6;
@@ -52,6 +55,9 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_COMPARISONS_2 = 6;
   final int NUM_OF_ARITHMETIC_OPERATORS_2 = 5;
   final int NUM_OF_CONDITIONALS_2 = 5;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_2 = 5;
+  final int NUM_OF_NUMBERS_2 = 16;
+  final int MAX_NUMBERS_2 = 2;
 
   final double loc_2 = 48;
   final int NUM_OF_PARANTHESIS_2 = 40;
@@ -156,13 +162,38 @@ public class FeatureExtractorTestMultiple {
   }
 
   @Test
-  public void testArithmeticOperators_1() {
+  public void testArithmeticOperators1() {
     assertEquals(NUM_OF_ARITHMETIC_OPERATORS_1, featureVisitor1.getFeatures().getArithmeticOperators());
   }
 
   @Test
-  public void testConditionals_1() {
+  public void testConditionals1() {
     assertEquals(NUM_OF_CONDITIONALS_1, featureVisitor1.getFeatures().getConditionals());
+  }
+  
+  @Test
+  public void testAvgLoops1() {
+    assertEquals(1.0 * NUM_OF_LOOP_STATEMENTS_1 / NUM_OF_LINES_OF_CODE_1, 1.0 * featureVisitor1.getFeatures().getNumOfLoops() / NUM_OF_LINES_OF_CODE_1);
+  }
+
+  @Test
+  public void testAvgAssignExprs1() {
+    assertEquals(1.0 * NUM_OF_ASSIGNMENT_EXPRESSIONS_1 / NUM_OF_LINES_OF_CODE_1, 1.0 * featureVisitor1.getFeatures().getAssignExprs() / NUM_OF_LINES_OF_CODE_1);
+  }
+
+  @Test
+  public void testAvgNumbers1() {
+    assertEquals(1.0 * NUM_OF_NUMBERS_1 / NUM_OF_LINES_OF_CODE_1, 1.0 * featureVisitor1.getFeatures().getNumbers() / NUM_OF_LINES_OF_CODE_1);
+  }
+
+  @Test
+  public void testMaxNumbers1() {
+    assertEquals(MAX_NUMBERS_1, featureVisitor1.getFeatures().findMaxNumbers());
+  }
+
+    @Test
+  public void testAvgConditionals1() {
+    assertEquals(1.0 * NUM_OF_CONDITIONALS_1 / NUM_OF_LINES_OF_CODE_1, 1.0 * featureVisitor1.getFeatures().getConditionals() / NUM_OF_LINES_OF_CODE_1);
   }
 
   @Test
@@ -261,12 +292,12 @@ public class FeatureExtractorTestMultiple {
   }
 
   @Test
-  public void testArithmeticOperators_2() {
+  public void testArithmeticOperators2() {
     assertEquals(NUM_OF_ARITHMETIC_OPERATORS_2, featureVisitor2.getFeatures().getArithmeticOperators());
   }
 
   @Test
-  public void testConditionals_2() {
+  public void testConditionals2() {
     assertEquals(NUM_OF_CONDITIONALS_2, featureVisitor2.getFeatures().getConditionals());
   }
 
@@ -333,6 +364,31 @@ public class FeatureExtractorTestMultiple {
   @Test
   public void testAvgBlankLength2() {
     assertEquals(AVG_BLANK_LINES_2, (double)features2.getTotalBlankLines() / loc_2);
+  }
+    
+  @Test
+  public void testAvgLoops2() {
+    assertEquals(1.0 * NUM_OF_LOOP_STATEMENTS_2 / NUM_OF_LINES_OF_CODE_2, 1.0 * featureVisitor2.getFeatures().getNumOfLoops() / NUM_OF_LINES_OF_CODE_2);
+  }
+
+  @Test
+  public void testAvgAssignExprs2() {
+    assertEquals(1.0 * NUM_OF_ASSIGNMENT_EXPRESSIONS_2 / NUM_OF_LINES_OF_CODE_2, 1.0 * featureVisitor2.getFeatures().getAssignExprs() / NUM_OF_LINES_OF_CODE_2);
+  }
+
+  @Test
+  public void testAvgNumbers2() {
+    assertEquals(1.0 * NUM_OF_NUMBERS_2 / NUM_OF_LINES_OF_CODE_2, 1.0 * featureVisitor2.getFeatures().getNumbers() / NUM_OF_LINES_OF_CODE_2);
+  }
+  
+  @Test
+  public void testAverageConditionals2() {
+    assertEquals(1.0 * NUM_OF_CONDITIONALS_2 / NUM_OF_LINES_OF_CODE_2, 1.0 * featureVisitor2.getFeatures().getConditionals() / NUM_OF_LINES_OF_CODE_2);
+  }
+
+  @Test
+  public void testMaxNumbers2() {
+    assertEquals(MAX_NUMBERS_2, featureVisitor2.getFeatures().findMaxNumbers());
   }
 }
 

@@ -1,8 +1,13 @@
 package edu.wm.sealab.featureextraction;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import lombok.Data;
 
 public @Data class Features {
+
+  private Map<String, List<Integer>> lineNumberMap = new HashMap<String, List<Integer>>();
 
   // feature 1: #parameters of method
   private int numOfParameters = 0;
@@ -59,6 +64,10 @@ public @Data class Features {
 
   private int TotalBlankLines = 0;
   private float avgBlankLines = 0;
+  
+  // feature 14: #numbers
+  private int numbers;
+
 
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
@@ -82,5 +91,23 @@ public @Data class Features {
 
   public void incrementNumOfConditionals() {
     setConditionals(getConditionals() + 1);
+  }
+
+  public void incrementNumOfNumbers() {
+    setNumbers(getNumbers() + 1);
+  }
+
+  /**
+   * Searches through features.lineNumberMap, a HashMap<String line_number, List<Integer> lineIntegers>
+   * to find the line with the most integers, or the List<Integer> with the largest size
+   */
+  public int findMaxNumbers() {
+    int max = 0;
+    for (List<Integer> line : lineNumberMap.values()) {
+      if (line.size() > max) {
+        max = line.size();
+      }
+    }
+    return max;
   }
 }

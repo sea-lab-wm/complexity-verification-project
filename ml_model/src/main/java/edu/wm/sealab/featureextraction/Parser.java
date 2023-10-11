@@ -53,11 +53,15 @@ public class Parser {
       pw.append(",");
       pw.append("literals");
       pw.append(",");
-      pw.append("avgComments");
+      pw.append("avgConditionals");
+      pw.append(",");
+      pw.append("avgLoops");
+      pw.append(",");
+      pw.append("avgAssignmentExpressions");
       pw.append(",");
       pw.append("avgComparisons");
       pw.append(",");
-      pw.append("avgOperators");
+      pw.append("avgComments");
       pw.append(",");
       pw.append("avgConditionals");
       pw.append(",");
@@ -79,6 +83,11 @@ public class Parser {
       pw.append("maxIndentation");
       pw.append(",");
       pw.append("avgBlankLines");
+      pw.append("avgArithmeticOperators");
+      pw.append(",");
+      pw.append("avgNumbers");
+      pw.append(",");
+      pw.append("maxNumbers");
       pw.append("\n");
 
       List<String[]> lines = null;
@@ -141,6 +150,9 @@ public class Parser {
                 double avgLineLength = features.getTotalLineLength() / (features.getTotalBlankLines() + entryNumLinesOfCode);
                 double avgIndentationLength = features.getTotalIndentation() / (features.getTotalBlankLines() + entryNumLinesOfCode);
                 double avgBlankLines = features.getTotalBlankLines() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgNumOfLoops = features.getNumOfLoops() / entryNumLinesOfCode;
+                double avgNumOfAssignmentExpressions = features.getAssignExprs() / entryNumLinesOfCode;
+                double avgNumOfNumbers = features.getNumbers() / entryNumLinesOfCode;
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -153,6 +165,8 @@ public class Parser {
                 pw.append(",");
                 pw.append(file.getName());
                 pw.append(",");
+
+                // Non-aggregated
                 pw.append(Integer.toString(features.getNumOfParameters()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getNumOfIfStatements()));
@@ -173,9 +187,17 @@ public class Parser {
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
                 pw.append(",");
-                pw.append(Double.toString(avgNumOfComments));
+
+                // Averages
+                pw.append(Double.toString(avgNumOfConditionals));    
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfLoops));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfAssignmentExpressions));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfComparisons));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfComments));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfArithmeticOperators));
                 pw.append(",");
@@ -199,6 +221,12 @@ public class Parser {
                 pw.append(Float.toString(features.getMaxIndentation()));
                 pw.append(",");
                 pw.append(Double.toString(avgBlankLines));
+                pw.append(Double.toString(avgNumOfNumbers));
+                pw.append(",");
+
+                // Maximums
+                pw.append(Integer.toString(features.findMaxNumbers()));
+
                 pw.append("\n");
               })
           .explore(projectDir);
@@ -208,8 +236,9 @@ public class Parser {
   }
 
   /**
-   * Seaches through loc_data.csv (stored as a List of String arrays) to find the entry for the file currently being parsed.
-   * The path also has to be modified as it is written with "\" in the DirExplorer and with "/" in loc_data.csv.
+   * Seaches through loc_data.csv (stored as a List of String arrays) to find the entry for the file 
+   * currently being parsed. The path also has to be modified as it is written with "\" in the 
+   * DirExplorer and with "/" in loc_data.csv.
    */
   private static int findCorrespondingEntry(List<String[]> lines, String fileName) {
     int index = -1;

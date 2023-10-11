@@ -45,7 +45,7 @@ public class TestSnippet_1 {
     //I'm adding parethesis here () #7
     int i1 = 0;
     while (i1 < 10) {
-      for (int i2 = 0; i2 < 10l; i2++) {
+      for (int i2 = 0; i2 < 10; i2++) {
         System.out.println("nested_while_for");
         for (i1 = 1; i1 < 5; i1++) {
           System.out.println("nested_while_for_depth");
