@@ -1,4 +1,0 @@
-model,target,experiment,auc_c,auc_cw
-knn_classifier,ABU50,exp1-Kendals-ABU50,0.5851778656126483,0.5899209486166008
-knn_classifier,BD50,exp1-Kendals-BD50,0.4943055555555555,0.4978968253968254
-knn_classifier,PBU,exp1-Kendals-PBU,0.5289406829729411,0.5290780456103037

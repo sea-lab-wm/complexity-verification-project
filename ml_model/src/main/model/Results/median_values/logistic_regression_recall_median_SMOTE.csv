@@ -1,4 +1,0 @@
-model,target,experiment,recall_c,recall_cw
-logistic_regression,ABU50,exp1-Kendals-ABU50,0.5650224215246636,0.5964125560538116
-logistic_regression,BD50,exp1-Kendals-BD50,0.6918604651162791,0.5988372093023255
-logistic_regression,PBU,exp1-Kendals-PBU,0.5825242718446602,0.5760517799352751

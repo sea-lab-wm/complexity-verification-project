@@ -1,4 +1,0 @@
-model,target,experiment,precision_c,precision_cw
-knn_classifier,ABU50,exp1-Kendals-ABU50,0.5915492957746479,0.5944700460829493
-knn_classifier,BD50,exp1-Kendals-BD50,0.2745098039215686,0.2949640287769784
-knn_classifier,PBU,exp1-Kendals-PBU,0.7393364928909952,0.7378640776699029

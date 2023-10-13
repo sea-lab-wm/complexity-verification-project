@@ -1,4 +1,0 @@
-model,target,experiment,recall_c,recall_cw
-mlp_classifier,ABU50,exp1-Kendals-ABU50,0.33408071748878915,0.4865470852017937
-mlp_classifier,BD50,exp1-Kendals-BD50,0.5232558139534884,0.6046511627906976
-mlp_classifier,PBU,exp1-Kendals-PBU,0.37378640776699024,0.488673139158576

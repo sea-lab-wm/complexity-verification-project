@@ -1,4 +1,0 @@
-model,target,experiment,recall_c,recall_cw
-randomForest_classifier,ABU50,exp1-Kendals-ABU50,0.5569506726457398,0.553811659192825
-randomForest_classifier,BD50,exp1-Kendals-BD50,0.009447674418604599,0.006540697674418575
-randomForest_classifier,PBU,exp1-Kendals-PBU,0.9398597626752966,0.9398597626752966

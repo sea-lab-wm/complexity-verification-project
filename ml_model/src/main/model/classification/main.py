@@ -284,7 +284,7 @@ if __name__ == "__main__":
         writer.writeheader()
 
     ## read json file
-    with open(ROOT_PATH + "ClassificationModels/experiments.jsonl") as jsonl_file:
+    with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
         experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
         
         model_names = ["SVC", "knn_classifier", "logistic_regression", "randomForest_classifier", "mlp_classifier"]
@@ -345,8 +345,7 @@ if __name__ == "__main__":
 
 
                     if experiment['use_SMOTE']:
-                        if experiment['target'] != "ABU50": # ABU50 is already balanced
-                            X_train_cw, y_train_cw = SMOTE(random_state=42).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
+                        X_train_cw, y_train_cw = SMOTE(random_state=42).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
 
                     ###################
                     ## Code features ##

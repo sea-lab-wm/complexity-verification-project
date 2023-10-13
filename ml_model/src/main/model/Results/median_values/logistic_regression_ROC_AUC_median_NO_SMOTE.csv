@@ -1,4 +1,0 @@
-model,target,experiment,auc_c,auc_cw
-logistic_regression,ABU50,exp1-Kendals-ABU50,0.5943675889328064,0.592490118577075
-logistic_regression,BD50,exp1-Kendals-BD50,0.498611111111111,0.4965277777777778
-logistic_regression,PBU,exp1-Kendals-PBU,0.5491569183504668,0.5527283469218954

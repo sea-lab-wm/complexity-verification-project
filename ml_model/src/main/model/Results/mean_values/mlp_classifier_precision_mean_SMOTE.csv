@@ -1,4 +1,0 @@
-model,target,experiment,precision_c,precision_cw
-mlp_classifier,ABU50,exp1-Kendals-ABU50,0.5791160593792173,0.6115211086045762
-mlp_classifier,BD50,exp1-Kendals-BD50,0.22726000258409057,0.22522845087402044
-mlp_classifier,PBU,exp1-Kendals-PBU,0.7167514677103718,0.7130687051022289
