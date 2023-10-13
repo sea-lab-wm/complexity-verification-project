@@ -9,7 +9,7 @@ from scipy.stats import wilcoxon
 from scipy.stats import normaltest
 
 
-df = pd.read_csv('ml_model/src/main/model/Results/raw_results_SMOTE.csv')
+df = pd.read_csv('ml_model/src/main/model/Results/raw_results_NO_SMOTE.csv')
 
 ROOT_PATH = "ml_model/src/main/model/"
 
@@ -17,21 +17,21 @@ ROOT_PATH = "ml_model/src/main/model/"
 ## FILTER OVERALL RESULTS ##
 ############################
 ## filter overall results
-overall_df = df.query("iteration == 'overall' and use_smote == True")
+overall_df = df.query("iteration == 'overall' and use_smote == False")
 ## remove duplicate rows ##
 # overall_df = overall_df.drop_duplicates(subset=['target','tp_c','tn_c','fp_c','fn_c','tp_cw','tn_cw','fp_cw','fn_cw','precision_c','recall_c','f1_c','precision_cw','recall_cw','f1_cw'], keep='first')
 ## save overall results
 
 
-overall_df.to_csv('ml_model/src/main/model/Results/overall_results_SMOTE.csv', index=False)
+overall_df.to_csv('ml_model/src/main/model/Results/overall_results_NO_SMOTE.csv', index=False)
 stats = overall_df[['f1_c','f1_cw']].describe()
 
 # Group the data by target and find the rows with the maximum F1-scores for each target 
 best_code_features = overall_df.loc[overall_df.groupby('target')['f1_c'].idxmax()]
 best_code_warning_features = overall_df.loc[overall_df.groupby('target')['f1_cw'].idxmax()]
 # Write the results to a CSV file
-best_code_features.to_csv('ml_model/src/main/model/Results/best_code_models_SMOTE.csv', index=False)
-best_code_warning_features.to_csv('ml_model/src/main/model/Results/best_code+warning_models_SMOTE.csv', index=False)
+best_code_features.to_csv('ml_model/src/main/model/Results/best_code_models_NO_SMOTE.csv', index=False)
+best_code_warning_features.to_csv('ml_model/src/main/model/Results/best_code+warning_models_NO_SMOTE.csv', index=False)
 
 
 ##############
@@ -52,7 +52,7 @@ header = {'model':'', 'target':'',
           'recall_c (mean)':'', 'recall_cw (mean)':'',
           'auc_c (mean)':'', 'auc_cw (mean)':''}
 ## write header
-with open('ml_model/src/main/model/Results/mean_median_SMOTE.csv', "w") as csv_file:
+with open('ml_model/src/main/model/Results/mean_median_NO_SMOTE.csv', "w") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=header.keys())
     writer.writeheader()
 
@@ -97,10 +97,10 @@ for model_name in models:
             plt.scatter(2, metric_cw_mean, marker='o', color='red', s=10)
             legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
             plt.legend(handles=legend_elements, loc='upper right')
-            plt.savefig('ml_model/src/main/model/Results/final-boxplots/' + target + '_' + model_name + '_' + metric +'_boxplot_SMOTE.png')
+            plt.savefig('ml_model/src/main/model/Results/final-boxplots/' + target + '_' + model_name + '_' + metric +'_boxplot_NO_SMOTE.png')
             plt.close() 
 
-        with open('ml_model/src/main/model/Results/mean_median_SMOTE.csv', 'a') as csv_file:
+        with open('ml_model/src/main/model/Results/mean_median_NO_SMOTE.csv', 'a') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=header.keys())
             writer.writerow(header)
 
@@ -109,7 +109,7 @@ for model_name in models:
 columns = ['diff_precision','diff_recall','diff_f1', 'diff_auc']
 for column in columns:
     hist = overall_df.hist(column=column)
-    plt.savefig('ml_model/src/main/model/Results/histograms/final_hist_' + column +'_SMOTE.png')
+    plt.savefig('ml_model/src/main/model/Results/histograms/final_hist_' + column +'_NO_SMOTE.png')
 
 ## draw histogram for all the input features in a single plot
 df_raw_features = pd.read_csv('ml_model/src/main/model/data/understandability_with_warnings.csv')
@@ -123,7 +123,7 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
         feature_X_c.hist(figsize=(10, 6), bins=len(feature_X_c.columns),  stacked=True)
         plt.suptitle('')
         plt.tight_layout()
-        plt.savefig('ml_model/src/main/model/Results/histograms/final_hist_code_features'+ experiment["target"] +'_SMOTE.png')
+        plt.savefig('ml_model/src/main/model/Results/histograms/final_hist_code_features'+ experiment["target"] +'_NO_SMOTE.png')
         plt.close()
 
 #######################
@@ -131,7 +131,7 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
 #######################
 tests = {'metric':'', 'model':'', 'target':'', 'wilcoxon_test(p-value)':''}
 ## write header
-with open('ml_model/src/main/model/Results/final_statistics_SMOTE.csv', "w") as csv_file:
+with open('ml_model/src/main/model/Results/final_statistics_NO_SMOTE.csv', "w") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=tests.keys())
     writer.writeheader()
 
@@ -163,6 +163,6 @@ for model_name in models:
             tests['target'] = target
             tests['wilcoxon_test(p-value)'] = wilcoxon_p
 
-            with open('ml_model/src/main/model/Results/final_statistics_SMOTE.csv', 'a') as csv_file:
+            with open('ml_model/src/main/model/Results/final_statistics_NO_SMOTE.csv', 'a') as csv_file:
                 writer = csv.DictWriter(csv_file, fieldnames=tests.keys())
                 writer.writerow(tests)
