@@ -18,8 +18,8 @@ ROOT_PATH = "ml_model/src/main/model/"
 ############################
 ## filter overall results
 overall_df = df.query("iteration == 'overall' and use_smote == False")
-## remove duplicate rows ##
-# overall_df = overall_df.drop_duplicates(subset=['target','tp_c','tn_c','fp_c','fn_c','tp_cw','tn_cw','fp_cw','fn_cw','precision_c','recall_c','f1_c','precision_cw','recall_cw','f1_cw'], keep='first')
+## remove duplicate configs ##
+overall_df = overall_df.drop_duplicates(subset=['target','tp_c','tn_c','fp_c','fn_c','tp_cw','tn_cw','fp_cw','fn_cw','precision_c','recall_c','f1_c','precision_cw','recall_cw','f1_cw'], keep='first')
 ## save overall results
 
 
