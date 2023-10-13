@@ -329,8 +329,7 @@ if __name__ == "__main__":
                     )
 
                     if experiment['use_SMOTE']: # if use SMOTE
-                        if experiment['target'] != "ABU50": # ABU50 is already balanced
-                            X_train_c, y_train_c = SMOTE(random_state=42).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
+                        X_train_c, y_train_c = SMOTE(random_state=42).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
 
                     ##############################
                     ## Code + warnings features ##

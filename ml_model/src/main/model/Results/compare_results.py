@@ -65,6 +65,7 @@ for model_name in models:
         header['target'] = target
 
         ## number of data points
+        ## we consider both hyperparameters obtained for code and code+warnings
         number_of_best_hyperparameters = model_data.shape[0]
 
         for metric in metrics.keys():
@@ -76,16 +77,13 @@ for model_name in models:
             
             ## median values
             print(model_data.groupby(['model','target'])[metrics[metric]].median())
-            header[f'{metrics[metric][0]} (median)'] = model_data.groupby(['model','target'])[metrics[metric][0]].median().values[0]
-            header[f'{metrics[metric][1]} (median)'] = model_data.groupby(['model','target'])[metrics[metric][1]].median().values[0]
-            # model_data.groupby(['model','target'])[metrics[metric]].median().to_csv('ml_model/src/main/model/Results/median_values/' + target + '_' + model_name +'_'+ metric + '_median_SMOTE.csv')
+            header[f'{c_metric} (median)'] = model_data.groupby(['model','target'])[c_metric].median().values[0]
+            header[f'{cw_metric} (median)'] = model_data.groupby(['model','target'])[cw_metric].median().values[0]
             
             ## mean values
             print(model_data.groupby(['model','target'])[metrics[metric]].mean())
-            # model_data.groupby(['model','target'])[metrics[metric]].mean().to_csv('ml_model/src/main/model/Results/mean_values/' + target + '_' + model_name +'_'+ metric + '_mean_SMOTE.csv')
-            ## write to mean_median_SMOTE.csv
-            header[f'{metrics[metric][0]} (mean)'] = model_data.groupby(['model','target'])[metrics[metric][0]].mean().values[0]
-            header[f'{metrics[metric][1]} (mean)'] = model_data.groupby(['model','target'])[metrics[metric][1]].mean().values[0]
+            header[f'{c_metric} (mean)'] = model_data.groupby(['model','target'])[c_metric].mean().values[0]
+            header[f'{cw_metric} (mean)'] = model_data.groupby(['model','target'])[cw_metric].mean().values[0]
 
             ## show the mean and median values as dots for both code and code+warnings in the boxplots
             plt.figure(figsize=(10, 6))
