@@ -1,0 +1,4 @@
+model,target,experiment,f1_c,f1_cw
+knn_classifier,ABU50,exp1-Kendals-ABU50,0.584227376315812,0.5870986077751784
+knn_classifier,BD50,exp1-Kendals-BD50,0.040016006402561005,0.031578947368421
+knn_classifier,PBU,exp1-Kendals-PBU,0.7905146150679292,0.7905146150679292

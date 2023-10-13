@@ -1,0 +1,4 @@
+model,target,experiment,recall_c,recall_cw
+knn_classifier,ABU50,exp1-Kendals-ABU50,0.5616591928251121,0.5678251121076233
+knn_classifier,BD50,exp1-Kendals-BD50,0.4883720930232558,0.4767441860465116
+knn_classifier,PBU,exp1-Kendals-PBU,0.5048543689320388,0.4919093851132686

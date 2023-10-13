@@ -1,0 +1,4 @@
+model,target,experiment,f1_c,f1_cw
+randomForest_classifier,ABU50,exp1-Kendals-ABU50,0.5767471221993948,0.5761067501647109
+randomForest_classifier,BD50,exp1-Kendals-BD50,0.028263887142605644,0.032379811438366816
+randomForest_classifier,PBU,exp1-Kendals-PBU,0.8098712618182465,0.8086557225960206

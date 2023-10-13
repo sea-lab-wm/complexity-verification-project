@@ -1,0 +1,4 @@
+model,target,experiment,f1_c,f1_cw
+mlp_classifier,ABU50,exp1-Kendals-ABU50,0.3319148936170212,0.5368993135011442
+mlp_classifier,BD50,exp1-Kendals-BD50,0.0222222222222222,0.061148166447079474
+mlp_classifier,PBU,exp1-Kendals-PBU,0.7585544334638743,0.7998143286317211
