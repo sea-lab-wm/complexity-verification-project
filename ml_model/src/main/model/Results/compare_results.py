@@ -150,9 +150,9 @@ for model_name in models:
             y = model_data[metrics[metric][1]] ## code+warnings
 
             ## 1. WILCOXON TEST ##
-            ## null hypothesis: x is greater than y
-            ## if p-value < 0.05, we reject the null hypothesis
-            ## Note: to handle ties, we use the zsplit method
+            ## null hypothesis: There is no statistically significant difference between x and y
+            ## if p-value <= 0.05, we reject the null hypothesis. i.e. there is a statistically significant difference between x and y
+            ## Note: to handle ties (x=y), we use the zsplit method
             _, wilcoxon_p = wilcoxon(x, y, alternative='greater', zero_method='zsplit')
 
             ## write results to csv
