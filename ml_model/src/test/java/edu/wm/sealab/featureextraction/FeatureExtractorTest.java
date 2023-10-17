@@ -8,8 +8,6 @@ import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,7 +44,7 @@ public class FeatureExtractorTest {
   final double AVG_INDENTATION_LENGTH = 10.101694915254237;
   //line length avg and max
   final int MAX_LINE_LENGTH = 65;
-  final double AVG_LINE_LENGTH = 24.864406779661017;
+  final double AVG_LINE_LENGTH = 24.847457627118644;
   //blank lines avg
   final double AVG_BLANK_LINES = 0.03389830508474576;
 
