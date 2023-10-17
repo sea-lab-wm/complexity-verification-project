@@ -18,10 +18,71 @@ public class SyntacticFeatureExtractor {
    * @return the filled in Feature Map
    */
   public Features extract(String snippet) {
-    features.setCommas(count(snippet, ","));
-    features.setPeriods(count(snippet, "\\.") - 1);
-    features.setSpaces(count(snippet, " "));
-    features.setParenthesis(count(snippet, "\\("));
+    
+    int commas = count(snippet, ",");
+    int periods = count(snippet, "\\.");
+    int spaces = count(snippet, " ");
+    int parenthesis = count(snippet, "\\(") * 2;
+
+    features.setCommas(commas);
+    features.setPeriods(periods);
+    features.setSpaces(spaces);
+    features.setParenthesis(parenthesis);
+
+    /* the line length counts all the characters of the given line 
+    (including the spaces/tabs/indentation in the beginning) */
+    String[] lines = snippet.split("\n");
+    int totalLength = 0;
+    for (String line : lines) {
+        totalLength += line.length();
+    }
+    features.setTotalLineLength(totalLength);
+    
+    // get the maximum length in any line
+    int maxLineLength = 0;
+    for (String line : lines) {
+      int lineLength = line.length();
+      if (lineLength > maxLineLength) {
+          maxLineLength = lineLength;
+      }
+    }
+    features.setMaxLineLength(maxLineLength);
+
+    //indentation length
+    /* iterates through each line character by character, 
+    counting spaces and tabs until it reaches a non-space, non-tab character */
+    int total_indentation = 0;
+    int maxIndentation = 0;
+    for (String line : lines) {
+      int line_indentation = 0;
+      for (int i = 0; i < line.length(); i++) {
+          char c = line.charAt(i);
+          if (c == ' ' || c == '\t') {
+              line_indentation++;
+          } else {
+              break;
+          }
+      }
+      total_indentation += line_indentation;
+      features.setTotalIndentation(total_indentation);
+      // Update maximum indentation
+      if (line_indentation > maxIndentation) {
+          maxIndentation = line_indentation;
+      }
+    }
+  
+    // Maximum indentation
+    features.setMaxIndentation(maxIndentation);
+    
+    // Blank line
+    int blankLines = 0;
+    for (String line : lines) {
+        if (line.trim().isEmpty()) {
+            blankLines++;
+        }
+    }
+
+    features.setTotalBlankLines(blankLines);
 
     return features;
   }
