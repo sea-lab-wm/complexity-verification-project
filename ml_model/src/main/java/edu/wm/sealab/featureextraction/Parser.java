@@ -53,6 +53,8 @@ public class Parser {
       pw.append(",");
       pw.append("literals");
       pw.append(",");
+      pw.append("statements");
+      pw.append(",");
       pw.append("avgConditionals");
       pw.append(",");
       pw.append("avgLoops");
@@ -62,6 +64,26 @@ public class Parser {
       pw.append("avgComparisons");
       pw.append(",");
       pw.append("avgComments");
+      pw.append(",");
+      pw.append("avgConditionals");
+      pw.append(",");
+      pw.append("avgCommas");
+      pw.append(",");
+      pw.append("avgParenthesis");
+      pw.append(",");
+      pw.append("avgPeriods");
+      pw.append(",");
+      pw.append("avgSpaces");
+      pw.append(",");
+      pw.append("avgLineLength");
+      pw.append(",");
+      pw.append("maxLineLength");
+      pw.append(",");
+      pw.append("avgIndentation");
+      pw.append(",");
+      pw.append("maxIndentation");
+      pw.append(",");
+      pw.append("avgBlankLines");
       pw.append(",");
       pw.append("avgArithmeticOperators");
       pw.append(",");
@@ -110,7 +132,7 @@ public class Parser {
                 Features features = sfe.extract(methodBody);
                 
                 // Locate and extract file data from loc_data.csv
-                int entryIndex = findCorrespondingEntry(allLines, file.toString());
+                int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
                 double entryNumLinesOfCode = Double.parseDouble(entryLine[4]);
 
@@ -122,6 +144,14 @@ public class Parser {
                 double avgNumOfArithmeticOperators =
                     features.getArithmeticOperators() / entryNumLinesOfCode;
                 double avgNumOfConditionals = features.getConditionals() / entryNumLinesOfCode;
+                
+                double avgCommas = features.getCommas() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgParenthesis = features.getParenthesis() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgPeriods = features.getPeriods() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgSpaces = features.getSpaces() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgLineLength = features.getTotalLineLength() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgIndentationLength = features.getTotalIndentation() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgBlankLines = features.getTotalBlankLines() / (features.getTotalBlankLines() + entryNumLinesOfCode);
                 double avgNumOfLoops = features.getNumOfLoops() / entryNumLinesOfCode;
                 double avgNumOfAssignmentExpressions = features.getAssignExprs() / entryNumLinesOfCode;
                 double avgNumOfNumbers = features.getNumbers() / entryNumLinesOfCode;
@@ -159,6 +189,8 @@ public class Parser {
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
                 pw.append(",");
+                pw.append(Integer.toString(features.getStatements()));
+                pw.append(",");
 
                 // Averages
                 pw.append(Double.toString(avgNumOfConditionals));    
@@ -172,6 +204,26 @@ public class Parser {
                 pw.append(Double.toString(avgNumOfComments));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfArithmeticOperators));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfConditionals));
+                pw.append(",");
+                pw.append(Double.toString(avgCommas));
+                pw.append(",");
+                pw.append(Double.toString(avgParenthesis));
+                pw.append(",");
+                pw.append(Double.toString(avgPeriods));
+                pw.append(",");
+                pw.append(Double.toString(avgSpaces));
+                pw.append(",");
+                pw.append(Double.toString(avgLineLength));
+                pw.append(",");
+                pw.append(Float.toString(features.getMaxLineLength()));
+                pw.append(",");
+                pw.append(Double.toString(avgIndentationLength));
+                pw.append(",");
+                pw.append(Float.toString(features.getMaxIndentation()));
+                pw.append(",");
+                pw.append(Double.toString(avgBlankLines));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfNumbers));
                 pw.append(",");

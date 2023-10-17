@@ -14,11 +14,29 @@ import com.github.javaparser.ast.expr.LongLiteralExpr;
 import com.github.javaparser.ast.expr.NullLiteralExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.expr.TextBlockLiteralExpr;
+import com.github.javaparser.ast.stmt.AssertStmt;
+import com.github.javaparser.ast.stmt.BlockStmt;
+import com.github.javaparser.ast.stmt.BreakStmt;
+import com.github.javaparser.ast.stmt.CatchClause;
+import com.github.javaparser.ast.stmt.ContinueStmt;
+import com.github.javaparser.ast.stmt.DoStmt;
+import com.github.javaparser.ast.stmt.EmptyStmt;
+import com.github.javaparser.ast.stmt.ExplicitConstructorInvocationStmt;
+import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.ForEachStmt;
 import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
+import com.github.javaparser.ast.stmt.LabeledStmt;
+import com.github.javaparser.ast.stmt.LocalClassDeclarationStmt;
+import com.github.javaparser.ast.stmt.LocalRecordDeclarationStmt;
+import com.github.javaparser.ast.stmt.ReturnStmt;
 import com.github.javaparser.ast.stmt.SwitchStmt;
+import com.github.javaparser.ast.stmt.SynchronizedStmt;
+import com.github.javaparser.ast.stmt.ThrowStmt;
+import com.github.javaparser.ast.stmt.TryStmt;
+import com.github.javaparser.ast.stmt.UnparsableStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
+import com.github.javaparser.ast.stmt.YieldStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +75,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(ifStmt, arg);
     features.incrementNumOfIfStatements();
     features.incrementNumOfConditionals();
+    features.incrementNumOfStatements();
   }
 
   /**
@@ -66,6 +85,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(SwitchStmt swStmt, Void arg) {
     super.visit(swStmt, arg);
     features.incrementNumOfConditionals();
+    features.incrementNumOfStatements();
   }
 
   /**
@@ -75,6 +95,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ForStmt forStmt, Void arg) {
     super.visit(forStmt, arg);
     features.incrementNumOfLoops();
+    features.incrementNumOfStatements();
   }
 
   /**
@@ -84,6 +105,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(WhileStmt whileStmt, Void arg) {
     super.visit(whileStmt, arg);
     features.incrementNumOfLoops();
+    features.incrementNumOfStatements();
   }
 
   /**
@@ -93,6 +115,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ForEachStmt forEachStmt, Void arg) {
     super.visit(forEachStmt, arg);
     features.incrementNumOfLoops();
+    features.incrementNumOfStatements();
   }
 
   /**
@@ -228,6 +251,186 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ClassOrInterfaceDeclaration cu, Void arg) {
     super.visit(cu, arg);
     features.setNumOfComments(cu.getAllContainedComments().size());
+  }
+
+  /**
+   * This method identifies Assert Statements in a java method to sum up the total number of
+   * all statements.
+   */
+  @Override
+  public void visit(AssertStmt ast, Void arg) {
+    super.visit(ast, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Block Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(BlockStmt bst, Void arg) {
+    super.visit(bst, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Break Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(BreakStmt brst, Void arg) {
+    super.visit(brst, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Catch Clauses in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(CatchClause cc, Void arg) {
+    super.visit(cc, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Continue Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(ContinueStmt cs, Void arg) {
+    super.visit(cs, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Do Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(DoStmt ds, Void arg) {
+    super.visit(ds, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Empty Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(EmptyStmt es, Void arg) {
+    super.visit(es, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Explicit Constructor Invocation Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(ExplicitConstructorInvocationStmt ecis, Void arg) {
+    super.visit(ecis, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Expression Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(ExpressionStmt es, Void arg) {
+    super.visit(es, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Labeled Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(LabeledStmt ls, Void arg) {
+    super.visit(ls, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Local Class Declaration Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(LocalClassDeclarationStmt lcds, Void arg) {
+    super.visit(lcds, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Local Record Declaration Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(LocalRecordDeclarationStmt lrds, Void arg) {
+    super.visit(lrds, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Return Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(ReturnStmt rs, Void arg) {
+    super.visit(rs, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Synchronized Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(SynchronizedStmt ss, Void arg) {
+    super.visit(ss, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Throw Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(ThrowStmt ts, Void arg) {
+    super.visit(ts, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Try Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(TryStmt ts, Void arg) {
+    super.visit(ts, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Unparsable Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(UnparsableStmt us, Void arg) {
+    super.visit(us, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Yield Statements in a java method to sum up the total number of 
+   * all statements.
+   */
+  @Override
+  public void visit(YieldStmt ys, Void arg) {
+    super.visit(ys, arg);
+    features.incrementNumOfStatements();
   }
 
   /**

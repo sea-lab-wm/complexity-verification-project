@@ -48,8 +48,44 @@ public @Data class Features {
   // feature 13: #conditionals (if and switch statments)
   private int conditionals;
 
-  // feature 14: #numbers
+  // feature 14: avg #commas
+  private float avgCommas = 0.0f;
+  
+  // feature 15: avg #parenthesis
+  private float avgParenthesis = 0.0f;
+  
+  // feature 16: avg #perriods
+  private float avgPeriods = 0.0f;
+  
+  // feature 17: avg #spaces
+  private float avgSpaces = 0.0f;
+  
+  // feature 18: avg line length (beginning spaces + characters)
+  private float avgLineLength = 0.0f;
+
+  private int totalLineLength = 0;
+  
+  // feature 19: max line length
+  private int maxLineLength = 0;
+  
+  private int totalIndentation = 0;
+  
+  // feature 20: avg indentation
+  private float avgIndentation = 0;
+  
+  // feature 21: max indentation
+  private int maxIndentation = 0;
+
+  private int TotalBlankLines = 0;
+  
+  // feature 22: avg blank lines
+  private float avgBlankLines = 0;
+  
+  // feature 23: #numbers
   private int numbers;
+
+  // feature 24 #statements
+  private int statements;
 
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
@@ -77,6 +113,10 @@ public @Data class Features {
 
   public void incrementNumOfNumbers() {
     setNumbers(getNumbers() + 1);
+  }
+
+  public void incrementNumOfStatements() {
+    setStatements(getStatements() + 1);
   }
 
   /**

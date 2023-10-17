@@ -8,8 +8,6 @@ import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,12 +16,10 @@ import org.junit.jupiter.api.Test;
 public class FeatureExtractorTest {
 
   private FeatureVisitor featureVisitor;
-  SyntacticFeatureExtractor syntacticFeatureExtractor;
 
   final int NUM_OF_LOOP_STATEMENTS = 9;
   final int NUM_OF_IF_STATEMENTS = 6;
   final int NUM_OF_PARAMETERS = 2;
-  final int NUM_OF_PARANTHESIS = 28;
   final int NUM_OF_COMMENTS = 9;
   final int NUM_OF_LINES_OF_CODE = 50;
   final int NUM_OF_COMPARISONS = 9;
@@ -32,6 +28,25 @@ public class FeatureExtractorTest {
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 4;
   final int NUM_OF_NUMBERS = 24;
   final int MAX_NUMBERS = 2;
+  final int NUM_OF_STATEMENTS = 50;
+
+  final double loc = 59;
+  final int NUM_OF_PARANTHESIS = 56;
+  final double AVG_NUM_OF_PARENTHESIS = 0.9491525423728814;
+  final int NUM_OF_COMMAS = 2;
+  final double AVG_NUM_OF_COMMAS = 0.03389830508474576;
+  final int NUM_OF_PERIODS = 22;
+  final double AVG_NUM_OF_PERIODS = 0.3728813559322034;
+  final int NUM_OF_SPACES = 710;
+  final double AVG_NUM_OF_SPACES = 12.033898305084746;
+  //indentation length avg and max
+  final int MAX_INDENTATION_LENGTH = 20;
+  final double AVG_INDENTATION_LENGTH = 10.101694915254237;
+  //line length avg and max
+  final int MAX_LINE_LENGTH = 65;
+  final double AVG_LINE_LENGTH = 24.847457627118644;
+  //blank lines avg
+  final double AVG_BLANK_LINES = 0.03389830508474576;
 
   static Features features = null;
 
@@ -76,11 +91,6 @@ public class FeatureExtractorTest {
   public void testMethodParameters() {
     assertEquals(NUM_OF_PARAMETERS, featureVisitor.getFeatures().getNumOfParameters());
   }
-
-  @Test
-  public void testParenthesis() {
-    assertEquals(NUM_OF_PARANTHESIS, features.getParenthesis());
-  }
     
   @Test
   public void testComments() {
@@ -108,6 +118,71 @@ public class FeatureExtractorTest {
   }
 
   @Test
+  public void testParenthesis() {
+    assertEquals(NUM_OF_PARANTHESIS, features.getParenthesis());
+  }
+
+  @Test
+  public void testAvgParenthesis() {
+    assertEquals(AVG_NUM_OF_PARENTHESIS, (double)features.getParenthesis() / loc);
+  }
+
+  @Test
+  public void testCommas() {
+    assertEquals(NUM_OF_COMMAS, features.getCommas());
+  }
+
+  @Test
+  public void testAvgCommas() {
+    assertEquals(AVG_NUM_OF_COMMAS, (double)features.getCommas() / loc);
+  }
+
+  @Test
+  public void testPeriods() {
+    assertEquals(NUM_OF_PERIODS, features.getPeriods());
+  }
+
+  @Test
+  public void testAvgPeriods() {
+    assertEquals(AVG_NUM_OF_PERIODS, (double)features.getPeriods() / loc);
+  }
+
+  @Test
+  public void testSpaces() {
+    assertEquals(NUM_OF_SPACES, features.getSpaces());
+  }
+
+  @Test
+  public void testAvgSpaces() {
+    assertEquals(AVG_NUM_OF_SPACES, (double)features.getSpaces() / loc);
+  }
+
+  @Test
+  public void testMaxIndentationLength() {
+    assertEquals(MAX_INDENTATION_LENGTH, features.getMaxIndentation());
+  }
+
+  @Test
+  public void testAvgIndentationLength() {
+    assertEquals(AVG_INDENTATION_LENGTH, (double)features.getTotalIndentation() / loc);
+  }
+
+  @Test
+  public void testMaxLineLength() {
+    assertEquals(MAX_LINE_LENGTH, features.getMaxLineLength());
+  }
+
+  @Test
+  public void testAvgLineLength() {
+    assertEquals(AVG_LINE_LENGTH, (double)features.getTotalLineLength() / loc);
+  }
+
+  @Test
+  public void testAvgBlankLength() {
+    assertEquals(AVG_BLANK_LINES, (double)features.getTotalBlankLines() / loc);
+  }
+  
+  @Test
   public void testAvgLoops() {
     assertEquals(1.0 * NUM_OF_LOOP_STATEMENTS / NUM_OF_LINES_OF_CODE, 1.0 * featureVisitor.getFeatures().getNumOfLoops() / NUM_OF_LINES_OF_CODE);
   }
@@ -125,5 +200,10 @@ public class FeatureExtractorTest {
   @Test
   public void testMaxNumbers() {
     assertEquals(MAX_NUMBERS, featureVisitor.getFeatures().findMaxNumbers());
+  }
+
+  @Test
+  public void testStatements() {
+    assertEquals(NUM_OF_STATEMENTS, featureVisitor.getFeatures().getStatements());
   }
 }
