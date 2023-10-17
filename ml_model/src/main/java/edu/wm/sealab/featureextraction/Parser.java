@@ -53,6 +53,8 @@ public class Parser {
       pw.append(",");
       pw.append("literals");
       pw.append(",");
+      pw.append("statements");
+      pw.append(",");
       pw.append("avgConditionals");
       pw.append(",");
       pw.append("avgLoops");
@@ -186,6 +188,8 @@ public class Parser {
                 pw.append(Integer.toString(features.getParenthesis()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
+                pw.append(",");
+                pw.append(Integer.toString(features.getStatements()));
                 pw.append(",");
 
                 // Averages

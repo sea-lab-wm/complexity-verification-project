@@ -30,6 +30,7 @@ public class FeatureExtractorTest {
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 4;
   final int NUM_OF_NUMBERS = 24;
   final int MAX_NUMBERS = 2;
+  final int NUM_OF_STATEMENTS = 50;
 
   final double loc = 59;
   final int NUM_OF_PARANTHESIS = 56;
@@ -201,5 +202,10 @@ public class FeatureExtractorTest {
   @Test
   public void testMaxNumbers() {
     assertEquals(MAX_NUMBERS, featureVisitor.getFeatures().findMaxNumbers());
+  }
+
+  @Test
+  public void testStatements() {
+    assertEquals(NUM_OF_STATEMENTS, featureVisitor.getFeatures().getStatements());
   }
 }
