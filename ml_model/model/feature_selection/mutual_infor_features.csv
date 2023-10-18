@@ -1,0 +1,4 @@
+input feature,output_feature
+"['Indentation length (avg)', '#comments (dft)', 'Line length (max)', 'Entropy', '#operators (dft)', 'Readability', '#aligned blocks', 'Comments (Visual Y)', 'warnings_openjml', 'CICsyn (avg)']",PBU
+"['EAP (min)', 'NM (avg)', 'Numbers (Visual Y)', 'Keywords (Visual Y)', 'CICsyn (avg)', '#spaces (avg)', 'TC (min)', 'CICsyn (max)', 'Operators (Visual Y)', 'Line length (dft)']",BD50
+"['#blank lines (avg)', '#spaces (avg)', 'Line length (avg)', 'ITID (avg)', 'Volume', 'Identifiers (Visual Y)', 'Identifiers (area)', 'NMI (avg)', '#characters (max)', 'Line length (max)']",ABU50
