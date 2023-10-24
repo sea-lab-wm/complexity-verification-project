@@ -1,4 +1,0 @@
-input feature,output_feature
-"['MIDQ (min)', 'NMI (avg)', 'NM (avg)', 'TC (avg)', 'Identifiers length (avg)', 'Line length (max)', '#conditionals (dft)', 'Line length (dft)', '#parameters', 'warnings_checker_framework']",PBU
-"['TC (avg)', 'TC (min)', 'TC (max)', '#conditionals (dft)', 'Literals (Visual X)', 'Literals (area)', 'Literals/identifiers (area)', 'Literals/keywords (area)', 'Extent of aligned blocks', '#nested blocks (avg)']",BD50
-"['MIDQ (min)', 'CICsyn (avg)', 'TC (avg)', 'TC (min)', 'TC (max)', '#comparisons (dft)', '#conditionals (dft)', '#nested blocks (avg)', '#parameters', 'warnings_checker_framework']",ABU50

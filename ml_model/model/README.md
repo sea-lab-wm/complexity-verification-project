@@ -11,6 +11,8 @@ conda activate ml_model
 ROOT_PATH=/Users/nadeeshan/Documents/Spring2023/ML-Experiments/complexity-verification-project/ml_model/src/main/model/
 ```
 
+3. Data - 
+
 3. Run classification/main.py generate raw results.
 ```
 python3 classification/main.py --output_file raw_results.csv

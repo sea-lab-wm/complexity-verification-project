@@ -1,27 +1,38 @@
+'''
+This script is for running the experiments with classification models.
+
+Classification models: SVC, KNN, Logistic Regression, Random Forest, MLP
+
+This requires the experiments.jsonl file to get the experiments, 
+and the understandability_with_warnings.csv file to get the data.
+After performing the GridSearchCV, it will find the best hyperparameters for each fold and train 
+the model with the best hyperparameters.
+'''
 
 import argparse
 import json
 import logging
-from statistics import LinearRegression
 import pandas as pd
 import csv
 import numpy as np
 import warnings
-from sklearn import naive_bayes
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
-from sklearn.svm import SVC, SVR
+from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
 
-## ignore all warnings comes from GridSearchCV
-warnings.filterwarnings('ignore')
+from mlxtend.feature_selection import SequentialFeatureSelector as SFS
+
+## ignore all warnings comes from GridSearchCV when models are not converging with the given hyperparameters
+## warnings.filterwarnings('ignore')
 
 from imblearn.over_sampling import SMOTE
 
-from sklearn.model_selection import GridSearchCV, LeaveOneOut, StratifiedKFold
+from sklearn.model_selection import GridSearchCV, StratifiedKFold
 
 ## Logger
 _LOG_FMT = '[%(asctime)s - %(levelname)s - %(name)s]-   %(message)s'
@@ -29,13 +40,15 @@ _DATE_FMT = '%m/%d/%Y %H:%M:%S'
 logging.basicConfig(format=_LOG_FMT, datefmt=_DATE_FMT, level=logging.INFO)
 LOGGER = logging.getLogger('__main__')
 
+RANDOM_SEED=42
+
 ## Num of folds for CV
 folds = 10
 ## output file name
 output_file =  "test.csv"
 
 ## CSV data format
-dict_data = {
+csv_data_dict = {
     "model": "",
     "iteration": "",
     "hyperparameters": "",
@@ -44,10 +57,16 @@ dict_data = {
     "tn_c": 0,
     "fp_c": 0,
     "fn_c": 0,
+    "n_instances_c": 0,
+    "n_positives_c": 0,
+    "n_negatives_c": 0,
     "tp_cw": 0,
     "tn_cw": 0,
     "fp_cw": 0,
     "fn_cw": 0,
+    "n_instances_cw": 0,
+    "n_positives_cw": 0,
+    "n_negatives_cw": 0,
     "precision_c": 0.0,
     "recall_c": 0.0,
     "f1_c": 0.0,
@@ -75,79 +94,83 @@ def model_initialisation(model_name, parameters):
 
     if model_name == "logistic_regression":
         ## parameters for grid search
+        ## We picked the parameters based on the following resources as believe those are the most important parameters to tune:
+       
+        ## https://medium.com/codex/do-i-need-to-tune-logistic-regression-hyperparameters-1cb2b81fca69
         param_grid = {
             "C": [1e8, 0.01, 0.1, 1, 5, 10, 15, 20],
             "penalty": ["l1", "l2"],
-            "solver": ["liblinear"],
-            "random_state": [42]
+            "solver": ["liblinear", "saga"],
+            "random_state": [RANDOM_SEED]
         }
         model = LogisticRegression() 
         if parameters:
             model = LogisticRegression(**parameters)
                
     elif model_name == "knn_classifier":
+        ## https://www.kaggle.com/code/arunimsamudra/k-nn-with-hyperparameter-tuning?scriptVersionId=32640489&cellId=42
         param_grid = {
             "n_neighbors": [3, 5, 7, 9, 11, 13, 15],
             "weights": ["uniform", "distance"],
+            "metric": ["minowski", "euclidean", "manhattan"],
         }
         model = KNeighborsClassifier()
         if parameters:
             model = KNeighborsClassifier(**parameters)
         
     elif model_name == "randomForest_classifier":
+        ## https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
         param_grid = {
             'n_estimators': [10, 50, 100],
             'max_features': ['sqrt', 'log2', 0.1, 0.5],
-            'max_depth': [5, 6, 7, 8, 9, 10],
-            'criterion': ['gini', 'entropy'],
-            "random_state": [42]
+            'max_depth': [5, 10, 20, 30, 50, 100],
+            'bootstrap': [True, False],
+            'min_samples_split': [2, 5, 10, 15],
+            'min_samples_leaf': [1, 2, 4, 5],
+            "random_state": [RANDOM_SEED]
         }
         model = RandomForestClassifier()
         if parameters:
             model = RandomForestClassifier(**parameters)
 
     elif model_name == "SVC":
+        ## https://medium.com/grabngoinfo/support-vector-machine-svm-hyperparameter-tuning-in-python-a65586289bcb#:~:text=The%20most%20critical%20hyperparameters%20for%20SVM%20are%20kernel%20%2C%20C%20%2C%20and,to%20make%20it%20linearly%20separable.
         param_grid = {
             "C": [0.1, 1, 10],
-            "kernel": ["rbf", "sigmoid"],
-            "random_state": [42],
+            "kernel": ["rbf", "sigmoid", "poly"],
+            "degree": [2, 3, 4],
+            "random_state": [RANDOM_SEED],
         }
         model = SVC()
         if parameters:
-            model = SVC(**parameters)           
+            model = SVC(**parameters)  
+
     elif model_name == "mlp_classifier":
+        ## https://datascience.stackexchange.com/questions/36049/how-to-adjust-the-hyperparameters-of-mlp-classifier-to-get-more-perfect-performa
         param_grid = {
             "hidden_layer_sizes": [(50,50,50), (50,100,50), (100,)],
             "activation": ["relu"],
-            "solver": ["adam"],
+            "solver": ["adam", "sgd"],
+            "momentum": [0.9, 0.95, 0.99],
             "alpha": [0.0001],
             "learning_rate": ["constant"],
-            "learning_rate_init": [0.001],
-            "random_state": [42],
+            "learning_rate_init": [0.001, 0.01, 0.1],
+            "random_state": [RANDOM_SEED],
             "max_iter": [200],
             "early_stopping": [True]
         }
         model = MLPClassifier()
         if parameters:
             model = MLPClassifier(**parameters)
+
     elif model_name == "bayes_network":
-        model = naive_bayes()
-        if parameters:
-            model = naive_bayes(**parameters)
-    elif model_name == "linear_regression":
+        ## https://coderzcolumn.com/tutorials/machine-learning/scikit-learn-sklearn-naive-bayes#3
         param_grid = {
-            "alpha": [0.0001, 0.001, 0.01, 0.1, 1]
+            "var_smoothing": [1e-05, 1e-09]
         }
-        model = LinearRegression()
+        model = GaussianNB()
         if parameters:
-            model = LinearRegression(**parameters)
-    elif model_name == "svr":
-        model = SVR()
-        param_grid = {
-            "C": [0.1, 1, 10],
-            "kernel": ["rbf", "sigmoid"],
-            "random_state": [42],
-        }
+            model = GaussianNB(**parameters)
     
     return model, param_grid
 
@@ -155,11 +178,32 @@ def model_initialisation(model_name, parameters):
 def get_best_hyperparameters(model_name, X_train, y_train):
     ## model initialisation
     model, param_grid = model_initialisation(model_name, parameters="")
-    ## GridSearchCV
-    grid = GridSearchCV(model, param_grid, cv=folds, scoring="roc_auc", n_jobs = -1)
+    ## GridSearchCV ##
+    '''
+    GridSearchCV does nested CV, all parameters are used for training on all the internal runs/splits, 
+    and they are tested on the test sets. 
+    The best hyperparameters are found by averaging the metric values on all the splits.
+    https://scikit-learn.org/stable/_images/grid_search_cross_validation.png
+    '''
+    grid = GridSearchCV(model, param_grid, cv=folds, scoring="f1", n_jobs = -1) ## F1 because it isrobust to imbalanced and balanced data (i.e., when using or not SMOTE)
     ## train the model on the train split
     grid.fit(X_train, y_train)
     return grid.best_params_
+
+# def linear_floating_forward_feature_selection(df_features_X, df_target_y, kFold):
+#     '''
+#     Perform linear floating forward selection with wrapper strategy 
+#     We select logistic regression as the wrapper
+#     We evaluate the performance of the model using 5-fold cross validation and F1 as the metric
+#     Sequential Forward Floating Selection
+#     https://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/#example-2-toggling-between-sfs-sbs-sffs-and-sbfs
+#     '''
+#     print('\nSequential Forward Floating Feature Selection (k=10)...')
+#     lr = LogisticRegression()
+#     sffs = SFS(lr, k_features=10, forward=True, floating=True, scoring='f1', cv=kFold, n_jobs=-1)
+#     sffs = sffs.fit(df_features_X, df_target_y.to_numpy().ravel())
+    
+#     return list(sffs.k_feature_names_)
 
 def train(model_name, best_hyperparams, X_train, y_train):
     model, _ = model_initialisation(model_name, parameters=dict(best_hyperparams))
@@ -183,63 +227,78 @@ def dict_to_csv(output_file_path, dict_data):
         writer.writerow(dict_data)
 
 def dict_data_generator(model_name, iteration, best_hyperparams, target, tp_c, tn_c, fp_c, fn_c, precision_c, recall_c, f1_c, tp_cw, tn_cw, fp_cw, fn_cw, precision_cw, recall_cw, f1_cw, auc_c, auc_cw, experiment):
-    dict_data["model"] = model_name
-    dict_data["iteration"] = iteration
-    dict_data["hyperparameters"] = best_hyperparams
-    dict_data["target"] = target
-    dict_data["tp_c"] = tp_c
-    dict_data["tn_c"] = tn_c
-    dict_data["fp_c"] = fp_c
-    dict_data["fn_c"] = fn_c
-    dict_data["tp_cw"] = tp_cw
-    dict_data["tn_cw"] = tn_cw
-    dict_data["fp_cw"] = fp_cw
-    dict_data["fn_cw"] = fn_cw
-    dict_data["precision_c"] = precision_c
-    dict_data["recall_c"] = recall_c
-    dict_data["f1_c"] = f1_c
-    dict_data["accuracy_c"] = (tp_c + tn_c) / (tp_c + tn_c + fp_c + fn_c)
-    dict_data["precision_cw"] = precision_cw
-    dict_data["recall_cw"] = recall_cw
-    dict_data["f1_cw"] = f1_cw
-    dict_data["accuracy_cw"] = (tp_cw + tn_cw) / (tp_cw + tn_cw + fp_cw + fn_cw)
-    dict_data["auc_c"] = auc_c
-    dict_data["auc_cw"] = auc_cw
-    dict_data["diff_precision"] = precision_cw - precision_c
-    dict_data["diff_recall"] = recall_cw - recall_c
-    dict_data["diff_f1"] = f1_cw - f1_c
-    dict_data["diff_accuracy"] = dict_data["accuracy_cw"] - dict_data["accuracy_c"]
-    dict_data["diff_auc"] = auc_cw - auc_c
-    dict_data["experiment"] = experiment['experiment_id']
-    dict_data["use_smote"] = experiment['use_SMOTE']
-    return dict_data
+    csv_data_dict["model"] = model_name
+    csv_data_dict["iteration"] = iteration
+    csv_data_dict["hyperparameters"] = best_hyperparams
+    csv_data_dict["target"] = target
+    csv_data_dict["tp_c"] = tp_c
+    csv_data_dict["tn_c"] = tn_c
+    csv_data_dict["fp_c"] = fp_c
+    csv_data_dict["fn_c"] = fn_c
+    csv_data_dict["n_instances_c"] = tp_c + tn_c + fp_c + fn_c
+    csv_data_dict["n_positives_c"] = tp_c + fn_c
+    csv_data_dict["n_negatives_c"] = tn_c + fp_c
+    csv_data_dict["tp_cw"] = tp_cw
+    csv_data_dict["tn_cw"] = tn_cw
+    csv_data_dict["fp_cw"] = fp_cw
+    csv_data_dict["fn_cw"] = fn_cw
+    csv_data_dict["n_instances_cw"] = tp_cw + tn_cw + fp_cw + fn_cw
+    csv_data_dict["n_positives_cw"] = tp_cw + fn_cw
+    csv_data_dict["n_negatives_cw"] = tn_cw + fp_cw
+    csv_data_dict["precision_c"] = precision_c
+    csv_data_dict["recall_c"] = recall_c
+    csv_data_dict["f1_c"] = f1_c
+    csv_data_dict["accuracy_c"] = (tp_c + tn_c) / (tp_c + tn_c + fp_c + fn_c)
+    csv_data_dict["precision_cw"] = precision_cw
+    csv_data_dict["recall_cw"] = recall_cw
+    csv_data_dict["f1_cw"] = f1_cw
+    csv_data_dict["accuracy_cw"] = (tp_cw + tn_cw) / (tp_cw + tn_cw + fp_cw + fn_cw)
+    csv_data_dict["auc_c"] = auc_c
+    csv_data_dict["auc_cw"] = auc_cw
+    csv_data_dict["diff_precision"] = precision_cw - precision_c
+    csv_data_dict["diff_recall"] = recall_cw - recall_c
+    csv_data_dict["diff_f1"] = f1_cw - f1_c
+    csv_data_dict["diff_accuracy"] = csv_data_dict["accuracy_cw"] - csv_data_dict["accuracy_c"]
+    csv_data_dict["diff_auc"] = auc_cw - auc_c
+    csv_data_dict["experiment"] = experiment['experiment_id']
+    csv_data_dict["use_smote"] = experiment['use_SMOTE']
+    return csv_data_dict
 
-def result_aggregation(result_dict, best_hyper_params, config_type):
+def result_aggregation(result_dict, best_hyper_params):
     tp_c_overall = 0
     tn_c_overall = 0
     fp_c_overall = 0
     fn_c_overall = 0
+    n_instances_c_overall = 0
+    n_positives_c_overall = 0
+    n_negatives_c_overall = 0
     tp_cw_overall = 0
     tn_cw_overall = 0
     fp_cw_overall = 0
     fn_cw_overall = 0
-    for c_result in result_dict[config_type + " - " + str(dict(best_hyper_params))]: #len(result_dict[<config>]) = 10 (10 folds)
+    n_instances_cw_overall = 0
+    n_positives_cw_overall = 0
+    n_negatives_cw_overall = 0
+    for c_result in result_dict[str(dict(best_hyper_params))]: #len(result_dict[<config>]) = 10 (10 folds)
         tp_c_overall += c_result["tp_c"]
         tn_c_overall += c_result["tn_c"]
         fp_c_overall += c_result["fp_c"]
         fn_c_overall += c_result["fn_c"]
+        n_instances_c_overall += (c_result["tp_c"] + c_result["tn_c"] + c_result["fp_c"] + c_result["fn_c"])
+        n_positives_c_overall += (c_result["tp_c"] + c_result["fn_c"])
+        n_negatives_c_overall += (c_result["tn_c"] + c_result["fp_c"])
         tp_cw_overall += c_result["tp_cw"]
         tn_cw_overall += c_result["tn_cw"]
         fp_cw_overall += c_result["fp_cw"]
         fn_cw_overall += c_result["fn_cw"]
+        n_instances_cw_overall += (c_result["tp_cw"] + c_result["tn_cw"] + c_result["fp_cw"] + c_result["fn_cw"])
+        n_positives_cw_overall += (c_result["tp_cw"] + c_result["fn_cw"])
+        n_negatives_cw_overall += (c_result["tn_cw"] + c_result["fp_cw"])
 
     ## mean auc
     # https://stats.stackexchange.com/questions/386326/appropriate-way-to-get-cross-validated-auc#:~:text=What%20is%20the%20correct%20way,get%20the%20cross%2Dvalidated%20AUC.
-    mean_auc_cw_c = np.mean(result_dict[config_type + " - " + str(dict(best_hyper_params))][0]["aucs_cw_c"])
-    mean_auc_c_c = np.mean(result_dict[config_type + " - " + str(dict(best_hyper_params))][0]["aucs_c_c"])
-    mean_auc_cw_cw = np.mean(result_dict[config_type + " - " + str(dict(best_hyper_params))][0]["aucs_cw_cw"])
-    mean_auc_c_cw = np.mean(result_dict[config_type + " - " + str(dict(best_hyper_params))][0]["aucs_c_cw"])
-
+    mean_auc_cw_c = np.mean(result_dict[str(dict(best_hyper_params))][0]["aucs_cw_c"])
+    mean_auc_c_c = np.mean(result_dict[str(dict(best_hyper_params))][0]["aucs_c_c"])
                             
     precision_c_overall = tp_c_overall / (tp_c_overall + fp_c_overall)
     recall_c_overall = tp_c_overall / (tp_c_overall + fn_c_overall)
@@ -251,17 +310,17 @@ def result_aggregation(result_dict, best_hyper_params, config_type):
     f1_cw_overall = 2 * (precision_cw_overall * recall_cw_overall) / (precision_cw_overall + recall_cw_overall)
     accuracy_overall_cw = (tp_cw_overall + tn_cw_overall) / (tp_cw_overall + tn_cw_overall + fp_cw_overall + fn_cw_overall)
 
-    return tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall, precision_c_overall, recall_c_overall, f1_c_overall, tp_cw_overall, tn_cw_overall, fp_cw_overall, fn_cw_overall, precision_cw_overall, recall_cw_overall, f1_cw_overall,accuracy_overall_c ,accuracy_overall_cw, mean_auc_cw_c, mean_auc_c_c, mean_auc_cw_cw, mean_auc_c_cw
+    return tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall, n_instances_c_overall, n_positives_c_overall, n_negatives_c_overall, precision_c_overall, recall_c_overall, f1_c_overall, tp_cw_overall, tn_cw_overall, fp_cw_overall, fn_cw_overall, n_instances_cw_overall, n_positives_cw_overall, n_negatives_cw_overall, precision_cw_overall, recall_cw_overall, f1_cw_overall,accuracy_overall_c ,accuracy_overall_cw, mean_auc_cw_c, mean_auc_c_c
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Run classification models")
-    # debug parameters
+    ## debug parameters
     parser.add_argument(
         "--debug", type=int, choices=[0, 1], default=0,
-        help="debug mode, output extra info & break all loops." "0: disable, 1 enable")
+        help="debug mode, output more information with debug logs" "0: disable, 1 enable")
     parser.add_argument(
-        "--folds", type=int, default=10,
+        "--folds", type=int, default=5,
         help="number of folds for cross validation (optional)")
     parser.add_argument(
         "--output_file", type=str, default=output_file,
@@ -276,47 +335,60 @@ if __name__ == "__main__":
         LOGGER.setLevel(logging.DEBUG)
         LOGGER.debug("Debug mode enabled")
 
-    df = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings.csv")
+    feature_df = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings.csv")
 
     ## write header
     with open(ROOT_PATH + "Results/" + output_file, "w") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=dict_data.keys())
+        writer = csv.DictWriter(csv_file, fieldnames=csv_data_dict.keys())
         writer.writeheader()
 
     ## read json file
     with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
         experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
         
-        model_names = ["SVC", "knn_classifier", "logistic_regression", "randomForest_classifier", "mlp_classifier"]
+        model_names = ["SVC", "knn_classifier", "logistic_regression", "randomForest_classifier", "mlp_classifier", "bayes_network"]
         
         for model_name in model_names:
             for experiment in experiments:
                 ## drop rows with missing values in the feature
-                full_dataset = df.dropna(subset=experiment["target"])
+                full_dataset = feature_df.dropna(subset=experiment["target"])
                 target_y = full_dataset[experiment["target"]]
                 
                 ## StratifiedKFold
-                kf = StratifiedKFold(n_splits=folds, shuffle=True, random_state=42)
-                # kf = LeaveOneOut()
+                kFold = StratifiedKFold(n_splits=folds, shuffle=True, random_state=RANDOM_SEED)
                 
                 ## for code + warning features
                 feature_X_cw = full_dataset[experiment["features"]]
                 
                 ## for code features
-                # drop the frist 1 column
+                ## drop the first 1 column because the first column is warning feature (control variable)
                 feature_X_c = full_dataset[experiment["features"]].iloc[:, 1:]
                 
+                
+                ## perform additional feature selection if model is not random forest
+                # if model_name != "randomForest_classifier":
+                #     ## perform linear floating forward feature selection
+                #     selected_features = linear_floating_forward_feature_selection(feature_X_c, target_y, kFold)
+                #     ## select the features
+                #     feature_X_c = feature_X_c[selected_features]
+                #     ## add the warning feature back
+                #     selected_features = [experiment["features"][0]] + selected_features
+                #     feature_X_cw = feature_X_cw[selected_features] 
+
+                #     ## write the selected features to a jsonl file
+                #     with open(ROOT_PATH + "classification/new_experiments.jsonl", "a") as jsonl_file:
+                #         json.dump({"experiment_id": experiment["experiment_id"], "features": selected_features, "target": experiment["target"], "use_SMOTE" :experiment["use_SMOTE"], "model": model_name }, jsonl_file)
+                #         jsonl_file.write("\n")
 
                 ite = 1
 
                 ## keep track of the best model for each fold
-                best_hyperparams_c = set()
-                best_hyperparams_cw = set()
+                best_hyperparams = set()
 
                 ########################################
                 ## BEST HYPERPARAMETERS FOR EACH FOLD ##
                 ########################################
-                for (train_index_c, test_index_c), (train_index_cw, test_index_cw) in zip(kf.split(feature_X_c, target_y), kf.split(feature_X_cw, target_y)):
+                for (train_index_c, test_index_c), (train_index_cw, test_index_cw) in zip(kFold.split(feature_X_c, target_y), kFold.split(feature_X_cw, target_y)):
                     ###################
                     ## Code features ##
                     ###################
@@ -328,8 +400,9 @@ if __name__ == "__main__":
                         pd.DataFrame(target_y).iloc[test_index_c]
                     )
 
+                    ## purpose of using SMOTE is to oversample the smaller class by creating synthetic samples.
                     if experiment['use_SMOTE']: # if use SMOTE
-                        X_train_c, y_train_c = SMOTE(random_state=42).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
+                        X_train_c, y_train_c = SMOTE(random_state=RANDOM_SEED).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
 
                     ##############################
                     ## Code + warnings features ##
@@ -344,7 +417,7 @@ if __name__ == "__main__":
 
 
                     if experiment['use_SMOTE']:
-                        X_train_cw, y_train_cw = SMOTE(random_state=42).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
+                        X_train_cw, y_train_cw = SMOTE(random_state=RANDOM_SEED).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
 
                     ###################
                     ## Code features ##
@@ -352,7 +425,7 @@ if __name__ == "__main__":
                     LOGGER.info("Best param searching for fold {} for code features...".format(ite))
                     best_hyperparams_code = get_best_hyperparameters(model_name, X_train_c, y_train_c)
                     ## since we are using a set, we need to convert the dict to a hashable type
-                    best_hyperparams_c.add((frozenset(best_hyperparams_code.items())))
+                    best_hyperparams.add((frozenset(best_hyperparams_code.items())))
 
                     ##############################
                     ## Code + warnings features ##
@@ -360,34 +433,21 @@ if __name__ == "__main__":
                     LOGGER.info("Best param searching for fold {} for code + warnings features...".format(ite))
                     best_hyperparams_code_warning = get_best_hyperparameters(model_name, X_train_cw, y_train_cw)
                     ## since we are using a set, we need to convert the dict to a hashable type
-                    best_hyperparams_cw.add((frozenset(best_hyperparams_code_warning.items())))
+                    best_hyperparams.add((frozenset(best_hyperparams_code_warning.items())))
 
                     ite += 1
                 
                 ##############################################
                 ## Train and Test with best hyperparameters ##
                 ##############################################
-                for (best_hyper_params_c), (best_hyper_params_cw) in zip(best_hyperparams_c, best_hyperparams_cw):
+                for best_hyper_params in best_hyperparams:
                         ite = 1
-                        
-                        fprs_cw_c = [] #code+warning feature - code config
-                        fprs_cw_cw = []
-                        fprs_c_c = []
-                        fprs_c_cw = []
 
-                        tprs_c_c = []
-                        tprs_c_cw = []
-                        tprs_cw_c = []
-                        tprs_cw_cw = []
+                        aucs_c_c = [] ## code features + best config
+                        aucs_cw_c = []  ## code + warnings features + best config
 
-                        aucs_c_c = []
-                        aucs_cw_c = []  
-
-                        aucs_c_cw = []
-                        aucs_cw_cw = [] 
-
-                        result_dict = {"c - " + str(dict(best_hyper_params_c)):[], "cw - " + str(dict(best_hyper_params_cw)):[]}
-                        for (train_index_c, test_index_c), (train_index_cw, test_index_cw) in zip(kf.split(feature_X_c, target_y), kf.split(feature_X_cw, target_y)):
+                        result_dict = {str(dict((best_hyper_params))):[]}
+                        for (train_index_c, test_index_c), (train_index_cw, test_index_cw) in zip(kFold.split(feature_X_c, target_y), kFold.split(feature_X_cw, target_y)):
                             ###################
                             ## Code features ##
                             ###################
@@ -401,7 +461,7 @@ if __name__ == "__main__":
 
 
                             if experiment['use_SMOTE']:
-                                X_train_c, y_train_c = SMOTE(random_state=42).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
+                                X_train_c, y_train_c = SMOTE(random_state=RANDOM_SEED).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
 
                             ##############################
                             ## Code + warnings features ##
@@ -416,38 +476,37 @@ if __name__ == "__main__":
 
 
                             if experiment['use_SMOTE']:
-                                X_train_cw, y_train_cw = SMOTE(random_state=42).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
+                                X_train_cw, y_train_cw = SMOTE(random_state=RANDOM_SEED).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
 
                             ############
                             ## PART 1 ##
                             ############
-                            #### code features wtih code config
-                            model = train(model_name, dict(best_hyper_params_c), X_train_c, y_train_c)
+                            #### code features wtih best config
+                            model = train(model_name, dict((best_hyper_params)), X_train_c, y_train_c)
+
                             y_pred_c, tn_c, fp_c, fn_c, tp_c, precision_c, recall_c, f1_c = evaluate(model, X_test_c, y_test_c)
                             
                             fpr, tpr, thresholds = roc_curve(y_test_c, y_pred_c, pos_label=1)
                             
-                            fprs_c_c.append(fpr)
-                            tprs_c_c.append(tpr)
                             auc_c_c = auc(fpr, tpr)
                             aucs_c_c.append(auc_c_c)
                             
-                            #### code + warnings features wtih code config
-                            model = train(model_name, dict(best_hyper_params_c), X_train_cw, y_train_cw)
+                            #### code + warnings features wtih best config
+                            model = train(model_name, dict((best_hyper_params)), X_train_cw, y_train_cw)
                             y_pred_cw, tn_cw, fp_cw, fn_cw, tp_cw, precision_cw, recall_cw, f1_cw = evaluate(model, X_test_cw, y_test_cw)
 
                             fpr, tpr, thresholds = roc_curve(y_test_cw, y_pred_cw, pos_label=1)
 
-                            fprs_cw_c.append(fpr)
-                            tprs_cw_c.append(tpr)
+                            # fprs_cw_c.append(fpr)
+                            # tprs_cw_c.append(tpr)
                             auc_cw_c = auc(fpr, tpr)
                             aucs_cw_c.append(auc_cw_c)
 
-                        
+                            ## putting the results in a dictionary
                             dict_data = dict_data_generator(
                                 model_name, 
                                 str(ite), 
-                                "c - "+str(dict(best_hyper_params_c)),
+                                str(dict((best_hyper_params))),
                                 experiment['target'], 
                                 tp_c, tn_c, fp_c, fn_c, precision_c, recall_c, f1_c,
                                 tp_cw, tn_cw, fp_cw, fn_cw, precision_cw, recall_cw, f1_cw, 
@@ -456,89 +515,27 @@ if __name__ == "__main__":
                             
                             dict_to_csv(ROOT_PATH + "Results/" + output_file, dict_data)
 
-                            result_dict["c - " + str(dict(best_hyper_params_c))].append({"ite": ite, "tp_c": tp_c, "tn_c": tn_c, "fp_c": fp_c, "fn_c": fn_c, 
-                                                                              "tp_cw": tp_cw, "tn_cw": tn_cw, "fp_cw": fp_cw, "fn_cw": fn_cw, 
+                            result_dict[str(dict((best_hyper_params)))].append({"ite": ite, "tp_c": tp_c, "tn_c": tn_c, "fp_c": fp_c, "fn_c": fn_c, 
+                                                                              "tp_cw": tp_cw, "tn_cw": tn_cw, "fp_cw": fp_cw, "fn_cw": fn_cw,
                                                                               "precision_c": precision_c, "recall_c": recall_c, "f1_c": f1_c, 
                                                                               "precision_cw": precision_cw, "recall_cw": recall_cw, "f1_cw": f1_cw, 
                                                                               "aucs_c_c": aucs_c_c, "aucs_cw_c": aucs_cw_c,
-                                                                              "aucs_c_cw": aucs_c_cw, "aucs_cw_cw": aucs_cw_cw,
-                                                                              })
-
-                            ############
-                            ## PART 2 ##
-                            ############
-                            #### code features with code+warnings config
-                            model = train(model_name, dict(best_hyper_params_cw), X_train_c, y_train_c)
-                            y_pred_c, tn_c, fp_c, fn_c, tp_c, precision_c, recall_c, f1_c = evaluate(model, X_test_c, y_test_c)
-
-                            fpr, tpr, thresholds = roc_curve(y_test_c, y_pred_c, pos_label=1)
-                            fprs_c_cw.append(fpr)
-                            tprs_c_cw.append(tpr)
-                            auc_c_cw = auc(fpr, tpr)
-                            aucs_c_cw.append(auc_c_cw)
-
-
-
-                            #### code+warnings features with code+warnings config
-                            model = train(model_name, dict(best_hyper_params_cw), X_train_cw, y_train_cw)
-                            y_pred_cw, tn_cw, fp_cw, fn_cw, tp_cw, precision_cw, recall_cw, f1_cw = evaluate(model, X_test_cw, y_test_cw)
-
-                            fpr, tpr, thresholds = roc_curve(y_test_cw, y_pred_cw, pos_label=1)
-                            fprs_cw_cw.append(fpr)
-                            tprs_cw_cw.append(tpr)
-                            auc_cw_cw = auc(fpr, tpr)
-                            aucs_cw_cw.append(auc_cw_cw)
-
-                            dict_data = dict_data_generator(
-                                model_name, 
-                                str(ite), 
-                                "cw - "+str(dict(best_hyper_params_cw)),
-                                experiment['target'], 
-                                tp_c, tn_c, fp_c, fn_c, precision_c, recall_c, f1_c,
-                                tp_cw, tn_cw, fp_cw, fn_cw, precision_cw, recall_cw, f1_cw,
-                                auc_c_cw, auc_cw_cw,   
-                                experiment)
-                            
-                            dict_to_csv(ROOT_PATH + "Results/" + output_file, dict_data)   
-
-
-                            result_dict["cw - " + str(dict(best_hyper_params_cw))].append({"ite": ite, "tp_c": tp_c, "tn_c": tn_c, "fp_c": fp_c, "fn_c": fn_c,
-                                                                                "tp_cw": tp_cw, "tn_cw": tn_cw, "fp_cw": fp_cw, "fn_cw": fn_cw, 
-                                                                                "precision_c": precision_c, "recall_c": recall_c, "f1_c": f1_c, 
-                                                                                "precision_cw": precision_cw, "recall_cw": recall_cw, "f1_cw": f1_cw, 
-                                                                                "aucs_c_c": aucs_c_c, "aucs_cw_c": aucs_cw_c,
-                                                                                "aucs_c_cw": aucs_c_cw, "aucs_cw_cw": aucs_cw_cw, 
-                                                                                })    
+                                                                              })  
                                
                             ite += 1 
 
-                        ## OVERALL RESULTS ACROSS ALL ITERATIONS For code configs
-                        tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall, precision_c_overall, recall_c_overall, f1_c_overall, tp_cw_overall, tn_cw_overall, fp_cw_overall, fn_cw_overall, precision_cw_overall, recall_cw_overall, f1_cw_overall, accuracy_overall_c ,accuracy_overall_cw, mean_auc_cw_c, mean_auc_c_c, _, _ = result_aggregation(result_dict, best_hyper_params_c, "c")
+                        ## OVERALL RESULTS ACROSS ALL ITERATIONS For all configs
+                        tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall, n_instances_c_overall, n_positives_c_overall, n_negatives_c_overall, precision_c_overall, recall_c_overall, f1_c_overall, tp_cw_overall, tn_cw_overall, fp_cw_overall, fn_cw_overall, n_instances_cw_overall, n_positives_cw_overall, n_negatives_cw_overall, precision_cw_overall, recall_cw_overall, f1_cw_overall, accuracy_overall_c ,accuracy_overall_cw, mean_auc_cw_c, mean_auc_c_c = result_aggregation(result_dict, (best_hyper_params))
                         
                         dict_data = dict_data_generator(
                             model_name, 
                             "overall", 
-                            "c - "+str(dict(best_hyper_params_c)),
+                            str(dict((best_hyper_params))),
                             experiment['target'], 
-                            tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall, precision_c_overall, recall_c_overall, f1_c_overall,
+                            tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall,
+                            precision_c_overall, recall_c_overall, f1_c_overall,
                             tp_cw_overall, tn_cw_overall, fp_cw_overall, fn_cw_overall, precision_cw_overall, recall_cw_overall, f1_cw_overall,
                             mean_auc_c_c, mean_auc_cw_c,
                             experiment)
 
-                        dict_to_csv(ROOT_PATH + "Results/" + output_file, dict_data)      
-
-
-                        ## OVERALL RESULTS ACROSS ALL ITERATIONS For code+word configs
-                        tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall, precision_c_overall, recall_c_overall, f1_c_overall, tp_cw_overall, tn_cw_overall, fp_cw_overall, fn_cw_overall, precision_cw_overall, recall_cw_overall, f1_cw_overall, accuracy_overall_c , accuracy_overall_cw, _, _, mean_auc_cw_cw, mean_auc_c_cw = result_aggregation(result_dict, best_hyper_params_cw, "cw")
-
-                        dict_data = dict_data_generator(
-                            model_name, 
-                            "overall", 
-                            "cw - "+str(dict(best_hyper_params_cw)),
-                            experiment['target'], 
-                            tp_c_overall, tn_c_overall, fp_c_overall, fn_c_overall, precision_c_overall, recall_c_overall, f1_c_overall, 
-                            tp_cw_overall, tn_cw_overall, fp_cw_overall, fn_cw_overall, precision_cw_overall, recall_cw_overall, f1_cw_overall,
-                            mean_auc_c_cw, mean_auc_cw_cw,    
-                            experiment)
-                        
-                        dict_to_csv(ROOT_PATH + "Results/" + output_file, dict_data)   
+                        dict_to_csv(ROOT_PATH + "Results/" + output_file, dict_data)  
