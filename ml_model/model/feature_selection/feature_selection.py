@@ -200,7 +200,7 @@ def linear_floating_forward_feature_selection(df_features_X, df_target_y, kFold)
     '''
     print('\nSequential Forward Floating Feature Selection (k=10)...')
     lr = LogisticRegression()
-    sffs = SFS(lr, k_features=20, forward=True, floating=True, scoring='f1', cv=kFold, n_jobs=-1)
+    sffs = SFS(lr, forward=True, floating=True, scoring='f1', cv=kFold, n_jobs=-1)
     sffs = sffs.fit(df_features_X, df_target_y.to_numpy().ravel())
     
     return list(sffs.k_feature_names_)

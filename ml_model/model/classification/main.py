@@ -190,21 +190,6 @@ def get_best_hyperparameters(model_name, X_train, y_train):
     grid.fit(X_train, y_train)
     return grid.best_params_
 
-# def linear_floating_forward_feature_selection(df_features_X, df_target_y, kFold):
-#     '''
-#     Perform linear floating forward selection with wrapper strategy 
-#     We select logistic regression as the wrapper
-#     We evaluate the performance of the model using 5-fold cross validation and F1 as the metric
-#     Sequential Forward Floating Selection
-#     https://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/#example-2-toggling-between-sfs-sbs-sffs-and-sbfs
-#     '''
-#     print('\nSequential Forward Floating Feature Selection (k=10)...')
-#     lr = LogisticRegression()
-#     sffs = SFS(lr, k_features=10, forward=True, floating=True, scoring='f1', cv=kFold, n_jobs=-1)
-#     sffs = sffs.fit(df_features_X, df_target_y.to_numpy().ravel())
-    
-#     return list(sffs.k_feature_names_)
-
 def train(model_name, best_hyperparams, X_train, y_train):
     model, _ = model_initialisation(model_name, parameters=dict(best_hyperparams))
     ## train the model on the train split
@@ -388,6 +373,7 @@ if __name__ == "__main__":
                 ########################################
                 ## BEST HYPERPARAMETERS FOR EACH FOLD ##
                 ########################################
+                ## The split will be same for both code and code + warnings features because we are using the same seed for both
                 for (train_index_c, test_index_c), (train_index_cw, test_index_cw) in zip(kFold.split(feature_X_c, target_y), kFold.split(feature_X_cw, target_y)):
                     ###################
                     ## Code features ##
@@ -486,7 +472,7 @@ if __name__ == "__main__":
 
                             y_pred_c, tn_c, fp_c, fn_c, tp_c, precision_c, recall_c, f1_c = evaluate(model, X_test_c, y_test_c)
                             
-                            fpr, tpr, thresholds = roc_curve(y_test_c, y_pred_c, pos_label=1)
+                            fpr, tpr, thresholds = roc_curve(y_test_c, y_pred_c, pos_label=1) ## fpr - false positive rate, tpr - true positive rate
                             
                             auc_c_c = auc(fpr, tpr)
                             aucs_c_c.append(auc_c_c)
@@ -497,8 +483,6 @@ if __name__ == "__main__":
 
                             fpr, tpr, thresholds = roc_curve(y_test_cw, y_pred_cw, pos_label=1)
 
-                            # fprs_cw_c.append(fpr)
-                            # tprs_cw_c.append(tpr)
                             auc_cw_c = auc(fpr, tpr)
                             aucs_cw_c.append(auc_cw_c)
 
@@ -515,6 +499,7 @@ if __name__ == "__main__":
                             
                             dict_to_csv(ROOT_PATH + "Results/" + output_file, dict_data)
 
+                            ## For each hyperparameter set, we append the list the results (in a dict)
                             result_dict[str(dict((best_hyper_params)))].append({"ite": ite, "tp_c": tp_c, "tn_c": tn_c, "fp_c": fp_c, "fn_c": fn_c, 
                                                                               "tp_cw": tp_cw, "tn_cw": tn_cw, "fp_cw": fp_cw, "fn_cw": fn_cw,
                                                                               "precision_c": precision_c, "recall_c": recall_c, "f1_c": f1_c, 
