@@ -177,10 +177,10 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
 
                     ## 1. WILCOXON TEST ##
                     ## x=code and y=code+warnings
-                    ## H0: x>y the performance (based on a metric) of the model using code features is greater than the performance when using code+warnings
+                    ## H0: x>=y the performance (based on a metric) of the model using code features is greater than the performance when using code+warnings
                     ## if p-value <= 0.05, we reject the H0.
                     ## Note: to handle ties (x=y), we use the zsplit method
-                    _, wilcoxon_p = wilcoxon(x, y, alternative='greater', zero_method='zsplit')
+                    _, wilcoxon_p = wilcoxon(x, y, alternative='less', zero_method='zsplit')
 
                     ## 2. CLIFF'S DELTA ##
                     ## delta_cliffs can be a continous value in between [-1,1]
