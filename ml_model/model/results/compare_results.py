@@ -26,7 +26,7 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
         '#best hyperparameters':'', 
         'use_smote':'', 
         'Model':'', 
-        'Target':'', 
+        'Target':'',
         'f1_c (median)':'', 'f1_cw (median)':'', 
         'precision_c (median)':'', 'precision_cw (median)':'',
         'recall_c (median)':'', 'recall_cw (median)':'', 
@@ -103,7 +103,12 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
         for model_name in models:
             for target in targets:
                 model_data = overall_df.query("model == '" + model_name + "' and target == '" + target + "'")
-                
+                ## remove nan values
+                model_data = model_data.dropna(subset=['f1_c', 'f1_cw'])
+                model_data = model_data.dropna(subset=['precision_c', 'precision_cw'])
+                model_data = model_data.dropna(subset=['recall_c', 'recall_cw'])
+                model_data = model_data.dropna(subset=['auc_c', 'auc_cw'])
+
                 ## number of data points
                 ## we consider both hyperparameters obtained for code and code+warnings
                 number_of_best_hyperparameters = model_data.shape[0]
@@ -148,8 +153,8 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
                     overall_result_header[f'{c_metric} (mean)']  = metric_c_mean
                     overall_result_header[f'{cw_metric} (mean)']  = metric_cw_mean
 
-                    overall_result_header[f'diff_{metric} (median)'] = metric_c_median - metric_cw_median ## diff = code - code+warnings
-                    overall_result_header[f'diff_{metric} (mean)'] = metric_c_mean - metric_cw_mean ## diff = code - code+warnings
+                    overall_result_header[f'diff_{metric} (median)'] = metric_cw_median - metric_c_median ## diff = code+warnings - code
+                    overall_result_header[f'diff_{metric} (mean)'] = metric_cw_mean - metric_c_mean ## diff = code+warnings - code
 
                     ##############
                     ## BOX PLOTS ##
@@ -194,7 +199,11 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
                     ## 0.33 <= |delta_cliffs| < 0.474 => res_cliffs incidicates medium difference
                     ## 0.474 <= |delta_cliffs| => res_cliffs incidicates large difference
                     ## source: https://www.researchgate.net/figure/Interpretation-of-Cliffs-delta-value_tbl2_335425733
-                    delta_cliffs, res_cliffs = cliffs_delta(x, y)
+                    if x.shape[0] == 0 or y.shape[0] == 0:
+                        delta_cliffs = 0
+                        res_cliffs = 'no data points'
+                    else:    
+                        delta_cliffs, res_cliffs = cliffs_delta(x, y)
 
                     ## write results to csv
                     overall_test_results['metric'] = 'diff_' + f'{metric}'
