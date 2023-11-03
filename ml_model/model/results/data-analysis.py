@@ -19,31 +19,30 @@ overall_result_header = {
     "use_smote": '',
     "#models_F1_mean_improved / 6": '',
     "#models_F1_median_improved / 6": '',
-    "#models_improved_both_F1_(median+mean) / 6": '',
-    "#models_AUC_mean_improved / 6": '',
-    "#models_AUC_median_improved / 6": '',
-    "#models_improved_both_AUC_(median+mean) / 6": '',
-    "#models_improved_in_F1(median+mean)+AUC(median+mean) / 12": '',
+    "#models_improved_both_F1(median+mean) / 6": '',
+    "#models_improved_F1_mean_with_statistical_significance / 6": '',
+    "#models_improved_F1_median_with_statistical_significance / 6": '',
+    "#models_improved_both_F1(mean+median)_with_statistical_significance / 6": '',
     "avg(mean_F1_improvement)": '',
     "median(mean_F1_improvement)": '',
     "q3(mean_F1_improvement)": '',
     "avg(median_F1_improvement)": '',
     "median(median_F1_improvement)": '',
     "q3(median_F1_improvement)": '',
-    "#models_improved_F1_mean_with_statistical_significance / 6": '',
-    "#models_improved_F1_median_with_statistical_significance / 6": '',
-    "#models_improved_both_F1(mean+median)_with_statistical_significance / 6": '',
+    "#models_AUC_mean_improved / 6": '',
+    "#models_AUC_median_improved / 6": '',
+    "#models_improved_both_AUC(median+mean) / 6": '',
+    "#models_improved_in_F1(median+mean)+AUC(median+mean) / 12": '',
+    "#models_improved_AUC_mean_with_statistical_significance / 6": '',
+    "#models_improved_AUC_median_with_statistical_significance / 6": '',
+    "#models_improved_both_AUC(mean+median)_with_statistical_significance / 6": '',
+    "#models_improved_F1(mean+median)+AUC(mean+median)_with_statistical_significance / 12": '',
     "avg(mean_AUC_improvement)": '',
     "median(mean_AUC_improvement)": '',
     "q3(mean_AUC_improvement)": '',
     "avg(median_AUC_improvement)": '',
     "median(median_AUC_improvement)": '',
     "q3(median_AUC_improvement)": '',
-    "#models_improved_AUC_mean_with_statistical_significance / 6": '',
-    "#models_improved_AUC_median_with_statistical_significance / 6": '',
-    "#models_improved_both_AUC(mean+median)_with_statistical_significance / 6": '',
-    "#models_improved_F1_mean_with_statistical_significance / 6": '',
-    "#models_improved_F1(mean+median)+AUC(mean+median)_with_statistical_significance / 12": ''
 }
 
 ## write header
@@ -133,32 +132,32 @@ for feature_set in feature_sets:
                 overall_result_header["warning_feature"] = warning_feature
                 overall_result_header["target"] = target
                 overall_result_header["use_smote"] = smote_value
-                overall_result_header["#models_F1_mean_improved"] = n_improved_f1_mean_models
-                overall_result_header["#models_F1_median_improved"] = n_improved_f1_median_models
-                overall_result_header["#models_improved_both_F1_(median+mean)"] = n_improved_f1_mean_median_models
-                overall_result_header["#models_AUC_mean_improved"] = n_improved_auc_mean_models
-                overall_result_header["#models_AUC_median_improved"] = n_improved_auc_median_models
-                overall_result_header["#models_improved_both_AUC_(median+mean)"] = n_improved_auc_mean_median_models
-                overall_result_header["#models_improved_in_F1(median+mean)+AUC(median+mean)"] = n_total_improved_models_both_mean_median_f1_auc
+                overall_result_header["#models_F1_mean_improved / 6"] = n_improved_f1_mean_models
+                overall_result_header["#models_F1_median_improved / 6"] = n_improved_f1_median_models
+                overall_result_header["#models_improved_both_F1(median+mean) / 6"] = n_improved_f1_mean_median_models
+                overall_result_header["#models_AUC_mean_improved / 6"] = n_improved_auc_mean_models
+                overall_result_header["#models_AUC_median_improved / 6"] = n_improved_auc_median_models
+                overall_result_header["#models_improved_both_AUC(median+mean) / 6"] = n_improved_auc_mean_median_models
+                overall_result_header["#models_improved_in_F1(median+mean)+AUC(median+mean) / 12"] = n_total_improved_models_both_mean_median_f1_auc
                 overall_result_header["avg(mean_F1_improvement)"] = avg_mean_f1_improvement
                 overall_result_header["median(mean_F1_improvement)"] = median_mean_f1_improvement
                 overall_result_header["q3(mean_F1_improvement)"] = q3_mean_f1_improvement
                 overall_result_header["avg(median_F1_improvement)"] = avg_median_f1_improvement
                 overall_result_header["median(median_F1_improvement)"] = median_median_f1_improvement
                 overall_result_header["q3(median_F1_improvement)"] = q3_median_f1_improvement
-                overall_result_header["#models_improved_F1_mean_with_statistical_significance"] = n_models_improved_F1_mean_with_statistical_significance
-                overall_result_header["#models_improved_F1_median_with_statistical_significance"] = n_models_improved_F1_median_with_statistical_significance
-                overall_result_header["#models_improved_F1_mean_median_with_statistical_significance"] = n_models_improved_F1_mean_median_with_statistical_significance
+                overall_result_header["#models_improved_F1_mean_with_statistical_significance / 6"] = n_models_improved_F1_mean_with_statistical_significance
+                overall_result_header["#models_improved_F1_median_with_statistical_significance / 6"] = n_models_improved_F1_median_with_statistical_significance
+                overall_result_header["#models_improved_both_F1(mean+median)_with_statistical_significance / 6"] = n_models_improved_F1_mean_median_with_statistical_significance
                 overall_result_header["avg(mean_AUC_improvement)"] = avg_mean_auc_improvement
                 overall_result_header["median(mean_AUC_improvement)"] = median_mean_auc_improvement
                 overall_result_header["q3(mean_AUC_improvement)"] = q3_mean_auc_improvement
                 overall_result_header["avg(median_AUC_improvement)"] = avg_median_auc_improvement
                 overall_result_header["median(median_AUC_improvement)"] = median_median_auc_improvement
                 overall_result_header["q3(median_AUC_improvement)"] = q3_median_auc_improvement
-                overall_result_header["#models_improved_AUC_mean_with_statistical_significance"] = n_models_improved_AUC_mean_with_statistical_significance
-                overall_result_header["#models_improved_AUC_median_with_statistical_significance"] = n_models_improved_AUC_median_with_statistical_significance
-                overall_result_header["#models_improved_AUC_mean_median_with_statistical_significance"] = n_models_improved_AUC_mean_median_with_statistical_significance
-                overall_result_header["#models_improved_F1_AUC_mean_median_with_statistical_significance"] = n_total_improved_models_both_mean_median_f1_auc_with_statistical_significance
+                overall_result_header["#models_improved_AUC_mean_with_statistical_significance / 6"] = n_models_improved_AUC_mean_with_statistical_significance
+                overall_result_header["#models_improved_AUC_median_with_statistical_significance / 6"] = n_models_improved_AUC_median_with_statistical_significance
+                overall_result_header["#models_improved_both_AUC(mean+median)_with_statistical_significance / 6"] = n_models_improved_AUC_mean_median_with_statistical_significance
+                overall_result_header["#models_improved_F1(mean+median)+AUC(mean+median)_with_statistical_significance / 12"] = n_total_improved_models_both_mean_median_f1_auc_with_statistical_significance
 
                 ## write results to csv file
                 with open(ROOT_PATH + 'results/Final_Results_New.csv', "a") as csv_file:

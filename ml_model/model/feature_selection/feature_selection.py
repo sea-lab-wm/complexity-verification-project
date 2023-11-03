@@ -127,12 +127,12 @@ features = [
     "Operators/literals (area).1"
 ]
 ## Feature set 1: Consider only the code features. Took Highly correlated features. Removed one of highly correlated ones which has the larget missing values or feature1
-## perfom SFFS to select the best features
-## final_features1.txt
+## perfom SBFS to select the best features
+## final_features1_bfs.txt
 
 ## Feature set 2: Consider only the code features. Took Highly correlated features. Removed one of highly correlated ones which has the larget missing values or feature2
-## perfom SFFS to select the best features
-## final_features1.txt
+## perfom SBFS to select the best features
+## final_features2_bfs.txt
 
 ## Feeature set 3 Consider only code features. Standard Features from the paper in the replication package.
 ## remove below features because they are not code features.
@@ -196,14 +196,47 @@ def linear_floating_forward_feature_selection(df_features_X, df_target_y, kFold)
     We select logistic regression as the wrapper
     We evaluate the performance of the model using cross validation and F1 as the metric
     Sequential Forward Floating Selection
+    How Sequential Forward Selection - SFS works?
+    1. Given 10 features originally
+    2. Algorithm starts with an empty subset.
+    3. First add one feature, train the classifier using cv and get the evaluation score F1. This is done for each feature.
+    4. After this round we pick the feature that gives the best F1 score.
+    5. Repeat this process upto (1, max_k_features)
+
+    How Floating Forward Feature Selection works?
+    1. Given 10 features originally.( a b c d e f g h i j)
+    2. Same as SFS lets assume after round 4, we have 4 features selected (say a.b,c,d). 
+    3. Floating basically removes a feature if removing improves performance.
+    4. In our example Floating is doing feature removal process in the round 5.
+    5. In Floating Round 5, it removes features one by one, train the classifier and get performance.
+    6. Only if removing a feature improves the perfromace compared to last round, we keep the new feature subset.
+    As example lets assume (a b d) improves the performace than using (a b c d). Then we keep (a b d ) for the round 5 of feature selection.
+    7. Now round 5 of feature selection is done with 3 features. 
     https://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/#example-2-toggling-between-sfs-sbs-sffs-and-sbfs
     '''
-    print('\nSequential Forward Floating Feature Selection (k=10)...')
+    print('\nSequential Forward Floating Feature Selection (for getting the best optinal subset of features k=1...max_k)')
+    ## max number of features
+    max_k = len(df_features_X.columns)
     lr = LogisticRegression()
-    sffs = SFS(lr, forward=True, floating=True, scoring='f1', cv=kFold, n_jobs=-1)
+    sffs = SFS(estimator=lr, forward=True, floating=True, scoring='f1', cv=kFold, n_jobs=-1, k_features=(1, max_k))
     sffs = sffs.fit(df_features_X, df_target_y.to_numpy().ravel())
     
     return list(sffs.k_feature_names_)
+
+def linear_floating_backward_feature_selection(df_features_X, df_target_y, kFold):
+    '''
+    This is same as Linear Floating Forward Selection. Only difference is starting with all the features
+    and remove one by one at a time. 
+    '''
+    print('\nSequential Backward Floating Feature Selection (for getting the best optinal subset of features k=1...max_k)')
+    ## max number of features
+    max_k = len(df_features_X.columns)
+    lr = LogisticRegression()
+    sffs = SFS(estimator=lr, forward=False, floating=True, scoring='f1', cv=kFold, n_jobs=-1, k_features=(1, max_k))
+    sffs = sffs.fit(df_features_X, df_target_y.to_numpy().ravel())
+    
+    return list(sffs.k_feature_names_)
+
 
 ## STEP 1 ##
 ## Remove redundent features
@@ -224,13 +257,19 @@ def remove_specific_feature(input_feature_file):
     df_remove_fea = df_remove_fea['feature to remove']
     features_to_remove = list(set(df_remove_fea.to_list())) 
     features_to_remove.append('Keywords/comments (area)') ## append the specific feature to remove
-    final_list_of_features = list(set(features) - set(features_to_remove))
+    final_list_of_features = list(set(features) - set(features_to_remove))        
 
     return final_list_of_features        
 
 features_part1 = remove_specific_feature('kendall_highly_correlated_features_part1.csv')
+# write the final_list_of_features after removing redeundent and specific features.
+with open(ROOT_PATH + 'feature_selection/unique_feature_set1.txt', 'w+') as f:
+    for feature in features_part1:
+        f.write("%s\n" % feature) 
 features_part2 = remove_specific_feature('kendall_highly_correlated_features_part2.csv')
-
+with open(ROOT_PATH + 'feature_selection/unique_feature_set2.txt', 'w+') as f:
+    for feature in features_part2:
+        f.write("%s\n" % feature) 
 
 ## STEP 3 ##
 ## Perform linear floating forward feature selection
@@ -250,12 +289,18 @@ with open(ROOT_PATH + 'feature_selection/final_features2.txt','w+') as file2:
 for target in categorical_target:
     final_features1 = linear_floating_forward_feature_selection(X[features_part1], y[target], kFold)
     final_features2 = linear_floating_forward_feature_selection(X[features_part2], y[target], kFold)
-    
     ## write to text file
-    with open(ROOT_PATH + 'feature_selection/final_features1.txt','a') as file1:
+    with open(ROOT_PATH + 'feature_selection/final_features1_lfs.txt','a') as file1:
         file1.write(target + json.dumps(final_features1) + '\n')
-    with open(ROOT_PATH + 'feature_selection/final_features2.txt','a') as file2:
-        file2.write(target + json.dumps(final_features2) + '\n')    
+    with open(ROOT_PATH + 'feature_selection/final_features2_lfs.txt','a') as file2:
+        file2.write(target + json.dumps(final_features2) + '\n') 
+
+    final_features1 = linear_floating_backward_feature_selection(X[features_part1], y[target], kFold) 
+    final_features2 = linear_floating_backward_feature_selection(X[features_part2], y[target], kFold) 
+    with open(ROOT_PATH + 'feature_selection/final_features1_bfs.txt','a') as file1:
+        file1.write(target + json.dumps(final_features1) + '\n')
+    with open(ROOT_PATH + 'feature_selection/final_features2_bfs.txt','a') as file2:
+        file2.write(target + json.dumps(final_features2) + '\n')      
 
 ## Kendals Tau
 # for feature in categorical_features:
