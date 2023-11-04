@@ -1,5 +1,8 @@
 import pandas as pd
 import csv
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+import os
 
 ROOT_PATH = "/Users/nadeeshan/Documents/Spring2023/ML-Experiments/complexity-verification-project/ml_model/model/"
 df = pd.read_csv(ROOT_PATH + 'results/mean_median_overall_results_new.csv')
@@ -59,7 +62,7 @@ for feature_set in feature_sets:
                 filtered_df = df.query("warning_feature == '" + warning_feature + "' and feature_set == '" + feature_set + "' and target == '" + target + "' and use_smote == " + str(smote_value))
                     
                 ## filtered by F1 metric
-                filtered_df_f1 = filtered_df.query("metric == 'f1'")    
+                filtered_df_f1 = filtered_df.query("metric == 'f1'").dropna()    
                 ## num of models_F1_mean_improved
                 n_improved_f1_mean_models = filtered_df_f1[filtered_df_f1["diff(mean)"] > 0].shape[0]
                 ## num of models_F1_median_improved
@@ -82,7 +85,7 @@ for feature_set in feature_sets:
                 q3_median_f1_improvement = filtered_df_f1["diff(median)"].quantile(0.75)
 
                 ## filtered by AUC metric
-                filtered_df_auc = filtered_df.query("metric == 'auc'")
+                filtered_df_auc = filtered_df.query("metric == 'auc'").dropna()
                 n_improved_auc_mean_models = filtered_df_auc[filtered_df_auc["diff(mean)"] > 0].shape[0]
                 n_improved_auc_median_models = filtered_df_auc[filtered_df_auc["diff(median)"] > 0].shape[0]
                 n_improved_auc_mean_median_models = filtered_df_auc[(filtered_df_auc["diff(median)"] > 0) & (filtered_df_auc["diff(mean)"] > 0)].shape[0]
@@ -159,7 +162,37 @@ for feature_set in feature_sets:
                 overall_result_header["#models_improved_both_AUC(mean+median)_with_statistical_significance / 6"] = n_models_improved_AUC_mean_median_with_statistical_significance
                 overall_result_header["#models_improved_F1(mean+median)+AUC(mean+median)_with_statistical_significance / 12"] = n_total_improved_models_both_mean_median_f1_auc_with_statistical_significance
 
-                ## write results to csv file
+                # ## write results to csv file
                 with open(ROOT_PATH + 'results/Final_Results_New.csv', "a") as csv_file:
                     writer = csv.DictWriter(csv_file, fieldnames=overall_result_header.keys())
                     writer.writerow(overall_result_header)
+
+                 
+                ## BOX PLOT FOR F1 IMPROVEMENT ##
+                plt.figure(figsize=(10, 6))
+                ## number of data points
+                n1 = filtered_df_f1["diff(mean)"].shape[0]
+                n2 = filtered_df_f1["diff(median)"].shape[0]
+                
+                plt.boxplot([filtered_df_f1["diff(median)"], filtered_df_f1["diff(mean)"]], labels=["Median(diff F1)", "Mean (diff F1)"])
+                if n1 == n2:
+                    plt.title("Distribution of F1 improvements | " + feature_set + " | " + warning_feature + " | " + target + " | SMOTE = " + str(smote_value) + " | #data points: " + str(n1))
+                else:
+                    plt.title("Distribution of F1 improvements for " + feature_set + " " + warning_feature + " " + target + " " + str(smote_value))    
+                
+                plt.ylabel("F1 Improvement")
+                plt.grid(True)
+                plt.scatter(1, avg_median_f1_improvement, marker='o', color='red', s=10)
+                plt.scatter(2, avg_mean_f1_improvement, marker='o', color='red', s=10)
+                legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
+                plt.legend(handles=legend_elements, loc='upper right')
+
+                ## create final-boxplots folder if it doesn't exist in results directory
+                if not os.path.exists(ROOT_PATH + 'results/all-results/result-distribution/' + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                    os.makedirs(ROOT_PATH + 'results/all-results/result-distribution/' + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                plt.savefig(ROOT_PATH + 'results/all-results/result-distribution/' + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/f1-improvement.png')
+                plt.clf()
+                plt.close()
+
+                    
+                     
