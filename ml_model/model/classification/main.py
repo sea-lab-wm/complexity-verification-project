@@ -40,7 +40,7 @@ _DATE_FMT = '%m/%d/%Y %H:%M:%S'
 logging.basicConfig(format=_LOG_FMT, datefmt=_DATE_FMT, level=logging.INFO)
 LOGGER = logging.getLogger('__main__')
 
-RANDOM_SEED=42
+RANDOM_SEED=1699304546
 
 ## Num of folds for CV
 folds = 10
@@ -137,7 +137,7 @@ def model_initialisation(model_name, parameters):
         ## https://medium.com/grabngoinfo/support-vector-machine-svm-hyperparameter-tuning-in-python-a65586289bcb#:~:text=The%20most%20critical%20hyperparameters%20for%20SVM%20are%20kernel%20%2C%20C%20%2C%20and,to%20make%20it%20linearly%20separable.
         param_grid = {
             "C": [0.1, 1, 10],
-            "kernel": ["rbf", "sigmoid", "poly"],
+            "kernel": ["rbf", "sigmoid"],
             "degree": [2, 3, 4],
             "random_state": [RANDOM_SEED],
         }
@@ -321,6 +321,9 @@ if __name__ == "__main__":
         LOGGER.debug("Debug mode enabled")
 
     feature_df = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings.csv")
+    feature_df_PBU = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_PBU.csv")
+    feature_df_BD50 = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_BD50.csv")
+    feature_df_ABU50 = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_ABU50.csv")
 
     ## write header
     with open(ROOT_PATH + "Results/" + output_file, "w") as csv_file:
@@ -331,10 +334,20 @@ if __name__ == "__main__":
     with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
         experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
         
-        model_names = ["SVC", "knn_classifier", "logistic_regression", "randomForest_classifier", "mlp_classifier", "bayes_network"]
+        model_names = ["SVC", "mlp_classifier", "logistic_regression", "knn_classifier", "randomForest_classifier", "bayes_network"]
         
         for model_name in model_names:
             for experiment in experiments:
+
+                ## feature data selection
+                if experiment["target"] == "PBU":
+                    feature_df = feature_df_PBU
+                elif experiment["target"] == "BD50":
+                    feature_df = feature_df_BD50
+                elif experiment["target"] == "ABU50":
+                    feature_df = feature_df_ABU50 
+                LOGGER.info("Loading data for {}...".format(experiment["target"]))       
+
                 ## drop rows with missing values in the feature
                 full_dataset = feature_df.dropna(subset=experiment["target"])
                 target_y = full_dataset[experiment["target"]]
@@ -386,9 +399,29 @@ if __name__ == "__main__":
                         pd.DataFrame(target_y).iloc[test_index_c]
                     )
 
-                    ## purpose of using SMOTE is to oversample the smaller class by creating synthetic samples.
+                    # import matplotlib.pyplot as plt
+                    # plt.figure(figsize=(10,6))
+                    
+                    # plt.hist(y_train_c)
+                    # plt.savefig(ROOT_PATH + "Results/" + "HIT_BEFORE_SMOTE_Y_Train_c.png")
+                    # plt.clf()
+                    # plt.close()
+
+
                     if experiment['use_SMOTE']: # if use SMOTE
                         X_train_c, y_train_c = SMOTE(random_state=RANDOM_SEED).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
+                    
+                    
+                    # # plt.hist(X_train_c)
+                    # # plt.savefig(ROOT_PATH + "Results/" + "HIT_AFTER_SMOTE_X_Train_c.png")
+                    # plt.figure(figsize=(10,6))
+                    # plt.hist(y_train_c)
+                    # plt.savefig(ROOT_PATH + "Results/" + "HIT_AFTER_SMOTE_Y_Train_c.png.png")
+                    # plt.clf()
+                    # plt.close()
+
+                    # ## Dump the y_train_c to a csv file
+                    # y_train_c.to_csv(ROOT_PATH + "Results/" + "HYPER_AFTER_SMOTE_y_train_c.csv")
 
                     ##############################
                     ## Code + warnings features ##
@@ -402,8 +435,20 @@ if __name__ == "__main__":
                     )
 
 
+                    ## daraw histogram and print the data
+                    # plt.hist(X_train_cw)
+                    # plt.savefig(ROOT_PATH + "Results/" + "HIT_BEFORE_SMOTE_X_Train_cw.png")
+                    # plt.hist(y_train_cw)
+                    # plt.savefig(ROOT_PATH + "Results/" + "HIT_BEFORE_SMOTE_Y_Train_cw.png")
+                
                     if experiment['use_SMOTE']:
                         X_train_cw, y_train_cw = SMOTE(random_state=RANDOM_SEED).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
+
+                    # plt.hist(X_train_cw)
+                    # plt.savefig(ROOT_PATH + "Results/" + "HIT_AFTER_SMOTE_X_Train_cw.png")
+                    # plt.hist(y_train_cw)
+                    # plt.savefig(ROOT_PATH + "Results/" + "HIT_AFTER_SMOTE_Y_Train_cw.png")
+
 
                     ###################
                     ## Code features ##
@@ -445,9 +490,22 @@ if __name__ == "__main__":
                                 pd.DataFrame(target_y).iloc[test_index_c]
                             )
 
+                            # plt.figure(figsize=(10,6))
+                            # plt.hist(y_train_c)
+                            # plt.savefig(ROOT_PATH + "Results/" + "HIT_BEFORE_SMOTE_Y_Train_c_TRAINING_PHASE.png")
+                            # plt.clf()
+                            # plt.close()
+                            # print("X TRAIN C {} | Y TEST C {}".format(X_test_c, y_test_c))
 
                             if experiment['use_SMOTE']:
                                 X_train_c, y_train_c = SMOTE(random_state=RANDOM_SEED).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
+
+                            # plt.figure(figsize=(10,6))
+                            # plt.hist(y_train_c)
+                            # plt.savefig(ROOT_PATH + "Results/" + "HIT_AFTER_SMOTE_Y_Train_c_TRAINING_PHASE.png")
+                            # plt.clf()
+                            # plt.close()
+
 
                             ##############################
                             ## Code + warnings features ##

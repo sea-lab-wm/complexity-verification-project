@@ -1,4 +1,13 @@
 feature1,feature2,tau,p-value,missing values in feature1,missing values in feature2,feature to remove
+CIC (avg),CIC (max),0.8010627544145619,2.902332837324469e-110,0,0,CIC (avg)
+CIC (avg),Comments (area),0.8167680704102529,6.379022135717908e-125,0,0,CIC (avg)
+CIC (max),Comments (area),0.7420325243476039,1.3744073000505426e-93,0,0,CIC (max)
+CIC (max),Operators/comments (area),-0.7076869743691526,4.3441558374353997e-60,0,140,Operators/comments (area)
+CICsyn (max),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+MIDQ (min),Operators/literals (area).1,0.816496580927726,1.843280069401823e-07,0,409,Operators/literals (area).1
+AEDQ (avg),AEDQ (max),0.7863268682694166,8.736673815492708e-124,0,0,AEDQ (avg)
+AEDQ (avg),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+EAP (avg),EAP (max),0.8622803374724969,2.2088435027746866e-143,0,0,EAP (avg)
 IMSQ (min),IMSQ (avg),0.7726420070111059,1.4955524855265048e-113,0,0,IMSQ (min)
 ITID (avg),Operators/literals (area).1,-1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
 #comments (avg),Identifiers/comments (area),-0.7052041162338928,3.0778208699973345e-71,0,140,Identifiers/comments (area)

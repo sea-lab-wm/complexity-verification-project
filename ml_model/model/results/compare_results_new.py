@@ -106,8 +106,6 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
                 c_metric = metrics[metric][0] ## eg. f1_c
                 cw_metric = metrics[metric][1]
 
-                x = model_data[c_metric] ## code data
-                y = model_data[cw_metric] ## code+warnings data
 
                 ## compute the mean of each metric
                 metric_c_mean = model_data[c_metric].mean() ## mean of code
@@ -124,6 +122,14 @@ with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
                 #######################
                 ## STATISTICAL TESTS ##
                 #######################
+                feature_set = experiment['experiment_id'].split('-')[3] ## eg: set1
+                smote_value = experiment['use_SMOTE']
+                warning_feature = experiment['features'][0]
+                model = model_name
+                specific_model_data_wilcoxon = df.query("feature_set == '" + feature_set + "' and iteration == 'overall' and target == '" + target + "'" + " and use_smote == " + str(smote_value) + " and warning_feature =='" + warning_feature + "' and model == '" + model + "'")
+
+                x = specific_model_data_wilcoxon[c_metric] ## code data
+                y = specific_model_data_wilcoxon[cw_metric] ## code+warnings data
 
                 ## 1. WILCOXON TEST ##
                 ## x=code and y=code+warnings

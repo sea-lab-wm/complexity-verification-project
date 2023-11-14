@@ -22,6 +22,21 @@ df = pd.read_csv('/Users/nadeeshan/Documents/Spring2023/ML-Experiments/complexit
 
 ## all code features 
 features = [
+    "CR",
+    "CIC (avg)",	
+    "CIC (max)",
+    "CICsyn (avg)",
+    "CICsyn (max)",
+    "MIDQ (min)",	
+    "MIDQ (avg)",
+    "MIDQ (max)",
+    "AEDQ (min)",
+    "AEDQ (avg)",
+    "AEDQ (max)",
+    "EAP (min)",
+    "EAP (avg)",
+    "EAP (max)",
+
     "Cyclomatic complexity", 
     "IMSQ (min)", 
     "IMSQ (avg)", 
@@ -126,6 +141,9 @@ features = [
     "Operators/comments (area)",
     "Operators/literals (area).1"
 ]
+
+dev_features = ["developer_position", "PE gen", "PE spec (java)"]
+
 ## Feature set 1: Consider only the code features. Took Highly correlated features. Removed one of highly correlated ones which has the larget missing values or feature1
 ## perfom SBFS to select the best features
 ## final_features1_bfs.txt
@@ -287,19 +305,28 @@ with open(ROOT_PATH + 'feature_selection/final_features2.txt','w+') as file2:
     file2.write('')
 
 for target in categorical_target:
-    final_features1 = linear_floating_forward_feature_selection(X[features_part1], y[target], kFold)
-    final_features2 = linear_floating_forward_feature_selection(X[features_part2], y[target], kFold)
+    # final_features1 = linear_floating_forward_feature_selection(X[features_part1], y[target], kFold)
+    # final_features2 = linear_floating_forward_feature_selection(X[features_part2], y[target], kFold)
     ## write to text file
-    with open(ROOT_PATH + 'feature_selection/final_features1_lfs.txt','a') as file1:
-        file1.write(target + json.dumps(final_features1) + '\n')
-    with open(ROOT_PATH + 'feature_selection/final_features2_lfs.txt','a') as file2:
-        file2.write(target + json.dumps(final_features2) + '\n') 
+    # with open(ROOT_PATH + 'feature_selection/final_features1_lfs.txt','a') as file1:
+    #     ## add dev_features to final_features1 
+    #     final_features1.extend(dev_features)
+    #     file1.write(target + json.dumps(final_features1) + '\n')
+    # with open(ROOT_PATH + 'feature_selection/final_features2_lfs.txt','a') as file2:
+    #     ## add dev_features to final_features2
+    #     final_features2.extend(dev_features)
+    #     file2.write(target + json.dumps(final_features2) + '\n') 
 
-    final_features1 = linear_floating_backward_feature_selection(X[features_part1], y[target], kFold) 
+    # final_features1 = linear_floating_backward_feature_selection(X[features_part1], y[target], kFold) 
     final_features2 = linear_floating_backward_feature_selection(X[features_part2], y[target], kFold) 
-    with open(ROOT_PATH + 'feature_selection/final_features1_bfs.txt','a') as file1:
-        file1.write(target + json.dumps(final_features1) + '\n')
+    # with open(ROOT_PATH + 'feature_selection/final_features1_bfs.txt','a') as file1:
+    #     ## add dev_features to final_features1 
+    #     final_features1.extend(dev_features)
+    #     file1.write(target + json.dumps(final_features1) + '\n')
+    #     file1.write(target + json.dumps(final_features1) + '\n')
     with open(ROOT_PATH + 'feature_selection/final_features2_bfs.txt','a') as file2:
+        ## add dev_features to final_features2
+        final_features2.extend(dev_features)
         file2.write(target + json.dumps(final_features2) + '\n')      
 
 ## Kendals Tau
