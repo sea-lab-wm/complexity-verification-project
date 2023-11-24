@@ -42,7 +42,7 @@ public class FeatureExtractorTestMultiple {
   final double AVG_LINE_LENGTH_1 = 24.847457627118644;
   //blank lines avg
   final double AVG_BLANK_LINES_1 = 0.03389830508474576;
-  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 4;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 11;
   final int NUM_OF_NUMBERS_1 = 24;
   final int MAX_NUMBERS_1 = 2;
   final int NUM_OF_STATEMENTS_1 = 50;
@@ -56,7 +56,7 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_COMPARISONS_2 = 6;
   final int NUM_OF_ARITHMETIC_OPERATORS_2 = 5;
   final int NUM_OF_CONDITIONALS_2 = 5;
-  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_2 = 5;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_2 = 10;
   final int NUM_OF_NUMBERS_2 = 16;
   final int MAX_NUMBERS_2 = 2;
   final int NUM_OF_STATEMENTS_2 = 38;

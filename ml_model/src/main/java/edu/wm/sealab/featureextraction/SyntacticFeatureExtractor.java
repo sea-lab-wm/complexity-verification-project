@@ -1,11 +1,27 @@
 package edu.wm.sealab.featureextraction;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SyntacticFeatureExtractor {
 
   private Features features = new Features();
+  
+  // source : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
+  private String [] java_keywords = 
+  {"abstract", "assert", "boolean", "break", "byte", 
+  "case", "catch", "char", "class", "const", "continue",
+  "default", "do", "double", "else", "enum", "extends",
+  "final", "finally", "float", "for", "goto", "if",
+  "implements", "import", "instanceof", "int", "interface",
+  "long", "native", "new", "package", "private", "protected",
+  "public", "return", "short", "static", "strictfp", "super",
+  "switch", "synchronized", "this", "throw", "throws", "transient",
+  "try", "void", "volatile", "while"};
 
   public SyntacticFeatureExtractor(Features features) {
     this.features = features;
@@ -29,12 +45,27 @@ public class SyntacticFeatureExtractor {
     features.setSpaces(spaces);
     features.setParenthesis(parenthesis);
 
+    features.setTokenEntropy(getTokenEntropy(snippet));
+    features.setKeywords(getKeywords(snippet));
+
+    extractLineWiseFeatures(snippet, ",");
+    extractLineWiseFeatures(snippet, "\\.");
+    extractLineWiseFeatures(snippet, " ");
+    extractLineWiseFeatures(snippet, "\\(");
+    extractLineWiseFeatures(snippet, "\\)");
+
     /* the line length counts all the characters of the given line 
     (including the spaces/tabs/indentation in the beginning) */
     String[] lines = snippet.split("\n");
     int totalLength = 0;
+
+    int lineNumber = 0;
     for (String line : lines) {
         totalLength += line.length();
+        if (line.length() > 0) {
+            features.getLineLineLengthMap().put(Integer.toString(lineNumber), (double)line.length());
+        }
+        lineNumber++;
     }
     features.setTotalLineLength(totalLength);
     
@@ -53,6 +84,8 @@ public class SyntacticFeatureExtractor {
     counting spaces and tabs until it reaches a non-space, non-tab character */
     int total_indentation = 0;
     int maxIndentation = 0;
+
+    lineNumber = 0;
     for (String line : lines) {
       int line_indentation = 0;
       for (int i = 0; i < line.length(); i++) {
@@ -64,6 +97,13 @@ public class SyntacticFeatureExtractor {
           }
       }
       total_indentation += line_indentation;
+
+      // Update indentation for each line
+      if (line_indentation > 0) {
+          features.getLineIndentationLengthMap().put(Integer.toString(lineNumber), (double)line_indentation);
+      }
+      lineNumber++;
+
       features.setTotalIndentation(total_indentation);
       // Update maximum indentation
       if (line_indentation > maxIndentation) {
@@ -85,6 +125,126 @@ public class SyntacticFeatureExtractor {
     features.setTotalBlankLines(blankLines);
 
     return features;
+  }
+
+  private void extractLineWiseFeatures(String snippet, String value) {
+    String[] lines = snippet.split("\n");
+    
+    for (int i = 0; i < lines.length; i++) {
+      // Use Matcher class of java.util.regex
+      // to match the character
+      String line = lines[i];
+      String lineNumber = Integer.toString(i);
+      Matcher matcher = Pattern.compile(value).matcher(line);
+      double res = 0.0;
+      while (matcher.find()) res++;
+      
+      switch (value) {
+        case ",":  
+          if (res > 0.0) {            
+              features.getLineCommaMap().put(lineNumber, res);
+          }
+          break;
+        case "\\.":
+          if (res > 0.0) {
+              features.getLinePeriodMap().put(lineNumber, res);
+          }
+          break;
+        case " ":
+          if (res > 0.0) {
+              features.getLineSpaceMap().put(lineNumber, res);
+          } 
+          break;
+        case "\\(":
+          if (res > 0.0) {
+            features.getLineParenthesisMap().put(lineNumber, res);
+          }
+          break; 
+        case "\\)":
+          if (res > 0.0) {
+            if(features.getLineParenthesisMap().containsKey(lineNumber)){
+              features.getLineParenthesisMap().put(lineNumber, features.getLineParenthesisMap().get(lineNumber) + res);
+            } else {
+              features.getLineParenthesisMap().put(lineNumber, res);
+            }
+          }
+          break;
+        default:
+          break;
+      }
+    }  
+  }
+
+  private Map<String, List<String>> getKeywords(String snippet) {
+    Map<String, List<String>> keywordList = new HashMap<>();
+    String[] lines = snippet.split("\n");
+    int lineNumber = 0;
+    for (String line : lines) {
+      String[] tokens = line.split(" ");
+      List<String> keywordsList = new ArrayList<>();
+      for (String token : tokens) {
+        for (String keyword : java_keywords) {
+          if (token.equals(keyword)) {
+            keywordsList.add(keyword);
+            break;
+          }
+        }
+      }
+      if (keywordsList.size() > 0) {
+        keywordList.put(Integer.toString(lineNumber), keywordsList);
+      }
+      lineNumber++;
+    }
+
+    return keywordList;
+  }
+
+  /**
+   * This method computes Token Entropy of a snippet
+   * 
+   * p(term in snippet) = count(term in snippet) / SUM{j=1 to n} (count(term in snippet))
+   * here count(term in snippet) is the number of occurences of a term in the snippet
+   * and n is the number of unique terms in the snippet 
+   * 
+   * H(snippet) = - SUM{j=1 to n} (p(term in snippet) * log2(p(term in snippet)))
+   * here H(snippet) is the token entropy of the snippet 
+   */
+  private double getTokenEntropy(String snippet) {
+    HashMap<String, Integer> tokenCount = tokenCounter(snippet);
+    double tokenEntropy = 0.0;
+    double tokenOccurenceSum = 0.0;
+
+    for (String token : tokenCount.keySet()) {
+      tokenOccurenceSum += tokenCount.get(token);
+    }
+
+    for (String token : tokenCount.keySet()) {
+      double p = tokenCount.get(token) / tokenOccurenceSum;
+      tokenEntropy += p * (Math.log(p) / Math.log(2));
+    }
+
+    return -tokenEntropy;
+  }
+
+
+  /**
+   * Tokenise the given string into a list of tokens
+   * and count the number of occurences of each token
+   * 
+   */
+  private HashMap<String, Integer> tokenCounter(String snippet) {
+    HashMap<String, Integer> tokens = new HashMap<String, Integer>();
+    String[] words = snippet.split(" ");
+
+    for (String word : words) {
+      if (tokens.containsKey(word)) {
+        tokens.put(word, tokens.get(word) + 1);
+      } else {
+        tokens.put(word, 1);
+      }
+    }
+
+    return tokens;
   }
 
   /**

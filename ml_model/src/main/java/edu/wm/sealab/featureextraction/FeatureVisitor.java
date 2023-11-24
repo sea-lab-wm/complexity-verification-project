@@ -12,8 +12,10 @@ import com.github.javaparser.ast.expr.DoubleLiteralExpr;
 import com.github.javaparser.ast.expr.IntegerLiteralExpr;
 import com.github.javaparser.ast.expr.LongLiteralExpr;
 import com.github.javaparser.ast.expr.NullLiteralExpr;
+import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.expr.TextBlockLiteralExpr;
+import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.stmt.AssertStmt;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.BreakStmt;
@@ -40,6 +42,7 @@ import com.github.javaparser.ast.stmt.YieldStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -48,6 +51,19 @@ import java.util.List;
 public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   private Features features = new Features();
+
+  /**
+   * This method creates a map of line number and count of given feature value
+   */
+  private Map<String, Double> constructLineNumberFeatureMap (Map<String, Double> map, String lineNumber) {
+    if (map.containsKey(lineNumber)) {
+      double numOfValues = map.get(lineNumber);
+      map.put(lineNumber, numOfValues + 1.0);
+    } else {
+      map.put(lineNumber, 1.0);
+    }
+    return map;
+  }
 
   /**
    * This method to compute #parameters of a java method
@@ -76,6 +92,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     features.incrementNumOfIfStatements();
     features.incrementNumOfConditionals();
     features.incrementNumOfStatements();
+
+    String lineNumber = ifStmt.getRange().get().begin.line+"";
+    features.setLineConditionalMap(constructLineNumberFeatureMap(features.getLineConditionalMap(), lineNumber));    
   }
 
   /**
@@ -86,6 +105,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(swStmt, arg);
     features.incrementNumOfConditionals();
     features.incrementNumOfStatements();
+
+    String lineNumber = swStmt.getRange().get().begin.line+"";
+    features.setLineConditionalMap(constructLineNumberFeatureMap(features.getLineConditionalMap(), lineNumber));
   }
 
   /**
@@ -96,6 +118,8 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(forStmt, arg);
     features.incrementNumOfLoops();
     features.incrementNumOfStatements();
+    String lineNumber = forStmt.getRange().get().begin.line+"";
+    features.setLineLoopMap(constructLineNumberFeatureMap(features.getLineLoopMap(), lineNumber));
   }
 
   /**
@@ -106,6 +130,8 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(whileStmt, arg);
     features.incrementNumOfLoops();
     features.incrementNumOfStatements();
+    String lineNumber = whileStmt.getRange().get().begin.line+"";
+    features.setLineLoopMap(constructLineNumberFeatureMap(features.getLineLoopMap(), lineNumber));
   }
 
   /**
@@ -116,6 +142,8 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(forEachStmt, arg);
     features.incrementNumOfLoops();
     features.incrementNumOfStatements();
+    String lineNumber = forEachStmt.getRange().get().begin.line+"";
+    features.setLineLoopMap(constructLineNumberFeatureMap(features.getLineLoopMap(), lineNumber));
   }
 
   /**
@@ -126,6 +154,20 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(AssignExpr assignExpr, Void arg) {
     super.visit(assignExpr, arg);
     features.setAssignExprs(features.getAssignExprs() + 1);
+    String lineNumber = assignExpr.getRange().get().begin.line+"";
+    features.setLineAssignmentExpressionMap(constructLineNumberFeatureMap(features.getLineAssignmentExpressionMap(), lineNumber));
+  }
+
+  /*
+   * This method computes # assignment expressions in a java method
+   * Includes declaration statements
+   */
+  @Override
+  public void visit(VariableDeclarationExpr vdExpr, Void arg) {
+    super.visit(vdExpr, arg);
+    features.setAssignExprs(features.getAssignExprs() + 1);
+    String lineNumber = vdExpr.getRange().get().begin.line+"";
+    features.setLineAssignmentExpressionMap(constructLineNumberFeatureMap(features.getLineAssignmentExpressionMap(), lineNumber));
   }
 
   /**
@@ -135,6 +177,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(BinaryExpr n, Void arg) {
     super.visit(n, arg);
     Operator operator = n.getOperator();
+    String lineNumber = n.getRange().get().begin.line+"";
     if (operator == Operator.EQUALS
         || operator == Operator.NOT_EQUALS
         || operator == Operator.LESS
@@ -142,12 +185,34 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
         || operator == Operator.GREATER
         || operator == Operator.GREATER_EQUALS) {
       features.setComparisons(features.getComparisons() + 1);
+
+      features.setLineComparisonMap(constructLineNumberFeatureMap(features.getLineComparisonMap(), lineNumber));
+    
+      features.setLineOperatorMap(constructLineNumberFeatureMap(features.getLineOperatorMap(), lineNumber));
+      
+      features.getOperators().add(operator.asString()); // add operators
+
     } else if (operator == Operator.PLUS
         || operator == Operator.MINUS
         || operator == Operator.MULTIPLY
         || operator == Operator.DIVIDE
         || operator == Operator.REMAINDER) {
       features.incrementNumOfArithmeticOperators();
+
+      features.setLineOperatorMap(constructLineNumberFeatureMap(features.getLineOperatorMap(), lineNumber));
+
+      features.getOperators().add(operator.asString()); // add operators
+
+    } else if (operator == Operator.AND
+        || operator == Operator.OR
+        || operator == Operator.BINARY_AND
+        || operator == Operator.BINARY_OR
+        || operator == Operator.XOR) {
+      features.incrementNumOfLogicalOperators();
+
+      features.setLineOperatorMap(constructLineNumberFeatureMap(features.getLineOperatorMap(), lineNumber));
+
+      features.getOperators().add(operator.asString()); // add operators
     }
   }
 
@@ -159,6 +224,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(BooleanLiteralExpr ble, Void arg) {
     super.visit(ble, arg);
     features.incrementNumOfLiterals();
+    features.getOperands().add(ble.toString()); // add operands
   }
 
   /**
@@ -169,6 +235,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(CharLiteralExpr cle, Void arg) {
     super.visit(cle, arg);
     features.incrementNumOfLiterals();
+    features.getOperands().add(cle.getValue()); // add operands
   }
 
   /**
@@ -180,6 +247,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(ile, arg);
     features.incrementNumOfLiterals();
     features.incrementNumOfNumbers();
+    features.getOperands().add(ile.getValue()); // add operands
     String lineNumber = ile.getRange().get().begin.line+"";
     if(features.getLineNumberMap().containsKey(lineNumber)){
       List<Integer> list = features.getLineNumberMap().get(lineNumber);
@@ -200,6 +268,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(LongLiteralExpr lle, Void arg) {
     super.visit(lle, arg);
     features.incrementNumOfLiterals();
+    features.getOperands().add(lle.getValue()); // add operands
   }
 
   /**
@@ -210,6 +279,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(NullLiteralExpr nle, Void arg) {
     super.visit(nle, arg);
     features.incrementNumOfLiterals();
+    features.getOperands().add(nle.toString()); // add operands
   }
 
   /**
@@ -220,6 +290,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(StringLiteralExpr sle, Void arg) {
     super.visit(sle, arg);
     features.incrementNumOfLiterals();
+    features.getOperands().add(sle.getValue()); // add operands
   }
 
   /**
@@ -230,6 +301,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(TextBlockLiteralExpr tble, Void arg) {
     super.visit(tble, arg);
     features.incrementNumOfLiterals();
+    features.getOperands().add(tble.getValue()); // add operands
   }
 
   /**
@@ -240,6 +312,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(DoubleLiteralExpr dle, Void arg) {
     super.visit(dle, arg);
     features.incrementNumOfLiterals();
+    features.getOperands().add(dle.getValue()); // add operands
   }
 
   /**
@@ -251,6 +324,28 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ClassOrInterfaceDeclaration cu, Void arg) {
     super.visit(cu, arg);
     features.setNumOfComments(cu.getAllContainedComments().size());
+  }
+
+  /**
+   * This method identifies identifiers in a java method and sums them up to the total number of
+   * operands
+   */
+  @Override
+  public void visit(SimpleName sn, Void arg) {
+    super.visit(sn, arg);
+    features.incrementNumOfIdentifiers();
+    features.getOperands().add(sn.getIdentifier()); // add operands
+    
+    String lineNumber = sn.getRange().get().begin.line+"";
+    if(features.getLineNumber_Identifier_Map().containsKey(lineNumber)){
+      List<String> identifierList = features.getLineNumber_Identifier_Map().get(lineNumber);
+      identifierList.add(sn.getIdentifier());
+      features.getLineNumber_Identifier_Map().put(lineNumber,identifierList);
+    }else{
+      List<String> identifierList = new ArrayList<String>();
+      identifierList.add(sn.getIdentifier());
+      features.getLineNumber_Identifier_Map().put(lineNumber,identifierList);
+    }
   }
 
   /**

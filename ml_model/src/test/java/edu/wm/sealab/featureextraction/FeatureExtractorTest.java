@@ -25,7 +25,7 @@ public class FeatureExtractorTest {
   final int NUM_OF_COMPARISONS = 9;
   final int NUM_OF_ARITHMETIC_OPERATORS = 3;
   final int NUM_OF_CONDITIONALS = 7;
-  final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 4;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 11;
   final int NUM_OF_NUMBERS = 24;
   final int MAX_NUMBERS = 2;
   final int NUM_OF_STATEMENTS = 50;
