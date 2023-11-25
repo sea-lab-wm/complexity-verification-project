@@ -120,6 +120,8 @@ public class Parser {
       pw.append(",");
       pw.append("#identifiers (max)");
       pw.append(",");
+      pw.append("#words (max)");
+      pw.append(",");
 
       // Minimums
       pw.append("#identifiers (min)");
@@ -291,7 +293,7 @@ public class Parser {
                 double avgParenthesis = features.getParenthesis() / (features.getTotalBlankLines() + entryNumLinesOfCode);
                 double avgPeriods = features.getPeriods() / (features.getTotalBlankLines() + entryNumLinesOfCode);
                 double avgSpaces = features.getSpaces() / (features.getTotalBlankLines() + entryNumLinesOfCode);
-                double avgLineLength = features.getTotalLineLength() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                
                 double avgIndentationLength = features.getTotalIndentation() / (features.getTotalBlankLines() + entryNumLinesOfCode);
                 double avgBlankLines = features.getTotalBlankLines() / (features.getTotalBlankLines() + entryNumLinesOfCode);
                 double avgNumOfLoops = features.getNumOfLoops() / entryNumLinesOfCode;
@@ -413,14 +415,24 @@ public class Parser {
                 }
                 long dft_indentationLength = Dorn_DFT_Feature.getDFTBandwith(numOfIndentationLengthArray);
 
+
+                /* Need to consider the strings and characters in the method body */
+                String methodBody_with_strings_charaters = cu.findFirst(MethodDeclaration.class)
+                            .map(method -> method.toString())
+                            .orElse("");
+                Features features_with_strings_chracters = sfe.extract(methodBody);
+                double avgLineLength = features_with_strings_chracters.getTotalLineLength() / (features_with_strings_chracters.getTotalBlankLines() + entryNumLinesOfCode);
+
                 // bandwidth of the number of line length
-                double [] numOfLineLengthArray = new double[methodBody.split("\n").length];
-                for (String lineNumber : features.getLineLineLengthMap().keySet()) {
-                  double numOfLineLength = features.getLineLineLengthMap().get(lineNumber);
+                double [] numOfLineLengthArray = new double[methodBody_with_strings_charaters.split("\n").length];
+                for (String lineNumber : features_with_strings_chracters.getLineLineLengthMap().keySet()) {
+                  double numOfLineLength = features_with_strings_chracters.getLineLineLengthMap().get(lineNumber);
                   numOfLineLengthArray[Integer.parseInt(lineNumber)] = numOfLineLength;
                 }
                 long dft_lineLength = Dorn_DFT_Feature.getDFTBandwith(numOfLineLengthArray);
 
+                // maximum number of words in a single line
+                int maxNumOfWords = features_with_strings_chracters.getMaxWords();
 
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
@@ -516,6 +528,8 @@ public class Parser {
                 pw.append(Integer.toString(maxNumberOfKeywords));
                 pw.append(",");
                 pw.append(Integer.toString(maxNumIdentifiers));
+                pw.append(",");
+                pw.append(Integer.toString(maxNumOfWords));
                 pw.append(",");
 
                 // Minimums

@@ -124,6 +124,9 @@ public @Data class Features {
   // feature 28: #nested blocks
   private int nestedBlocks;
 
+  // feature 29: #words
+  private int maxWords;
+
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }

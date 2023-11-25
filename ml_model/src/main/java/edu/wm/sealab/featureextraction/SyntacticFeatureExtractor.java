@@ -69,15 +69,25 @@ public class SyntacticFeatureExtractor {
     }
     features.setTotalLineLength(totalLength);
     
+    int maxNumOfWords = 0;
+
     // get the maximum length in any line
     int maxLineLength = 0;
     for (String line : lines) {
+      
       int lineLength = line.length();
       if (lineLength > maxLineLength) {
           maxLineLength = lineLength;
       }
+
+      String[] words = line.split(" ");
+      int numOfWords = words.length;
+      if (numOfWords > maxNumOfWords) {
+          maxNumOfWords = numOfWords;
+      }
     }
     features.setMaxLineLength(maxLineLength);
+    features.setMaxWords(maxNumOfWords);
 
     //indentation length
     /* iterates through each line character by character, 
