@@ -1,8 +1,10 @@
 package edu.wm.sealab.featureextraction;
 
+import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.comments.Comment;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.BinaryExpr.Operator;
@@ -324,7 +326,13 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ClassOrInterfaceDeclaration cu, Void arg) {
     super.visit(cu, arg);
     features.setNumOfComments(cu.getAllContainedComments().size());
+
+    for (Comment comment : cu.getAllContainedComments()) {
+      String lineNumber = comment.getRange().get().begin.line+"";
+      features.setLineCommentMap(constructLineNumberFeatureMap(features.getLineCommentMap(), lineNumber));
+    }
   }
+  
 
   /**
    * This method identifies identifiers in a java method and sums them up to the total number of
@@ -360,12 +368,68 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Block Statements in a java method to sum up the total number of 
-   * all statements.
+   * all statements. It also counts the number of nested blocks.
    */
   @Override
   public void visit(BlockStmt bst, Void arg) {
     super.visit(bst, arg);
     features.incrementNumOfStatements();
+    
+    // counting nested blocks
+    for (Node node : bst.getChildNodes()) {
+      
+      // Found {} block
+      if (node instanceof BlockStmt) {
+        features.incrementNumOfNestedBlocks();
+      }
+
+      if (node instanceof ForStmt) {
+        features.incrementNumOfNestedBlocks();
+      }
+      if (node instanceof ForEachStmt) {
+        features.incrementNumOfNestedBlocks();
+      }
+      if (node instanceof WhileStmt) {
+        features.incrementNumOfNestedBlocks();
+      }
+      // found do {} while() block
+      if (node instanceof DoStmt) {
+        features.incrementNumOfNestedBlocks();
+      }
+
+      if (node instanceof IfStmt) {
+        // Found else statement
+        if (((IfStmt) node).getElseStmt().isPresent()) {
+          features.incrementNumOfNestedBlocks();
+        }
+        // Found else if statement
+        if (((IfStmt) node).getElseStmt().isPresent() && ((IfStmt) node).getElseStmt().get() instanceof IfStmt) {
+          features.incrementNumOfNestedBlocks();
+        }
+        features.incrementNumOfNestedBlocks();
+      }
+      if (node instanceof SwitchStmt) {
+        features.incrementNumOfNestedBlocks();
+      }
+      
+      if (node instanceof TryStmt) {
+        // Found finally block
+        if (((TryStmt) node).getFinallyBlock().isPresent()) {
+          features.incrementNumOfNestedBlocks();
+        }
+        // Found catch block
+        if (((TryStmt) node).getCatchClauses().size() > 0) {
+          features.incrementNumOfNestedBlocks();
+        }
+        // Found try block
+        features.incrementNumOfNestedBlocks();
+      }
+
+      // found synchronized statement
+      if (node instanceof SynchronizedStmt) {
+        features.incrementNumOfNestedBlocks();
+      }
+    }
   }
 
   /**

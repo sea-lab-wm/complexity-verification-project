@@ -104,6 +104,8 @@ public class Parser {
       pw.append(",");
       pw.append("#identifiers (avg)");
       pw.append(",");
+      pw.append("#nested blocks (avg)");
+      pw.append(",");
 
       // Maximums
       pw.append("maxNumbers");
@@ -129,8 +131,8 @@ public class Parser {
       pw.append("#commas (dft)");
       pw.append(",");
       pw.append("#comparisons (dft)");
-      // pw.append(",");
-      // pw.append("#comments (dft)");
+      pw.append(",");
+      pw.append("#comments (dft)");
       pw.append(",");
       pw.append("#conditionals (dft)");
       pw.append(",");
@@ -246,6 +248,9 @@ public class Parser {
                 // average number of identifiers per line
                 double avgNumIdentifiers = totalNumIdentifiers / entryNumLinesOfCode;
 
+                // average number of nested blocks
+                double avgNumOfNestedBlocks = features.getNestedBlocks() / entryNumLinesOfCode;
+
                 avgIdentifierLength = totalIdentifierLength / features.getIdentifiers();
                 
                 // write the identifiers to files
@@ -319,6 +324,14 @@ public class Parser {
                   numOfComparisonsArray[Integer.parseInt(lineNumber)] = numOfComparisons;
                 }
                 long dft_comparisons = Dorn_DFT_Feature.getDFTBandwith(numOfComparisonsArray);
+
+                // bandwidth of the number of comments
+                double [] numOfCommentsArray = new double[cu.getEnd().get().line];
+                for (String lineNumber : features.getLineCommentMap().keySet()) {
+                  double numOfComments = features.getLineCommentMap().get(lineNumber);
+                  numOfCommentsArray[Integer.parseInt(lineNumber)] = numOfComments;
+                }
+                long dft_comments = Dorn_DFT_Feature.getDFTBandwith(numOfCommentsArray);
 
                 // bandwidth of the number of conditionals
                 double [] numOfConditionalsArray = new double[cu.getEnd().get().line];
@@ -488,6 +501,8 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(avgNumIdentifiers));
                 pw.append(",");
+                pw.append(Double.toString(avgNumOfNestedBlocks));
+                pw.append(",");
 
                 // Maximums
                 pw.append(Integer.toString(features.findMaxNumbers()));
@@ -513,6 +528,8 @@ public class Parser {
                 pw.append(Long.toString(dft_commas));
                 pw.append(",");
                 pw.append(Long.toString(dft_comparisons));
+                pw.append(",");
+                pw.append(Long.toString(dft_comments));
                 pw.append(",");
                 pw.append(Long.toString(dft_conditionals));
                 pw.append(",");

@@ -28,25 +28,28 @@ public class FeatureExtractorTest {
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 11;
   final int NUM_OF_NUMBERS = 24;
   final int MAX_NUMBERS = 2;
-  final int NUM_OF_STATEMENTS = 50;
+  final int NUM_OF_STATEMENTS = 64;
 
   final double loc = 59;
-  final int NUM_OF_PARANTHESIS = 56;
-  final double AVG_NUM_OF_PARENTHESIS = 0.9491525423728814;
+  final int NUM_OF_PARANTHESIS = 72;
+  final double AVG_NUM_OF_PARENTHESIS = 1.2203389830508475;
   final int NUM_OF_COMMAS = 2;
   final double AVG_NUM_OF_COMMAS = 0.03389830508474576;
-  final int NUM_OF_PERIODS = 22;
-  final double AVG_NUM_OF_PERIODS = 0.3728813559322034;
-  final int NUM_OF_SPACES = 710;
-  final double AVG_NUM_OF_SPACES = 12.033898305084746;
+  final int NUM_OF_PERIODS = 32;
+  final double AVG_NUM_OF_PERIODS = 0.5423728813559322;
+  final int NUM_OF_SPACES = 846;
+  final double AVG_NUM_OF_SPACES = 14.338983050847459;
   //indentation length avg and max
   final int MAX_INDENTATION_LENGTH = 20;
-  final double AVG_INDENTATION_LENGTH = 10.101694915254237;
+  final double AVG_INDENTATION_LENGTH = 12.203389830508474;
   //line length avg and max
   final int MAX_LINE_LENGTH = 65;
-  final double AVG_LINE_LENGTH = 24.847457627118644;
+  final double AVG_LINE_LENGTH = 30.864406779661017;
   //blank lines avg
   final double AVG_BLANK_LINES = 0.03389830508474576;
+  //# of nested blocks
+  final int NUM_OF_NESTED_BLOCKS = 22;
+
 
   static Features features = null;
 
@@ -205,5 +208,10 @@ public class FeatureExtractorTest {
   @Test
   public void testStatements() {
     assertEquals(NUM_OF_STATEMENTS, featureVisitor.getFeatures().getStatements());
+  }
+
+  @Test
+  public void testBlockStatements() {
+    assertEquals(NUM_OF_NESTED_BLOCKS, 1.0 * featureVisitor.getFeatures().getNestedBlocks());
   }
 }

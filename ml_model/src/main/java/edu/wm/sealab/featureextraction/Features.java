@@ -12,7 +12,7 @@ public @Data class Features {
 
   private Map<String, Double> lineAssignmentExpressionMap = new HashMap<String, Double>();
   private Map<String, Double> lineCommaMap = new HashMap<String, Double>();
-  private Map<String, Double> lineCommentsMap = new HashMap<String, Double>();
+  private Map<String, Double> lineCommentMap = new HashMap<String, Double>();
   private Map<String, Double> lineComparisonMap = new HashMap<String, Double>();
   private Map<String, Double> lineConditionalMap = new HashMap<String, Double>();
   private Map<String, Double> lineKeywordMap = new HashMap<String, Double>();
@@ -121,6 +121,9 @@ public @Data class Features {
   // feature 27: #token entropy
   private double tokenEntropy;
 
+  // feature 28: #nested blocks
+  private int nestedBlocks;
+
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }
@@ -159,6 +162,10 @@ public @Data class Features {
 
   public void incrementNumOfIdentifiers() {
     setIdentifiers(getIdentifiers() + 1);
+  }
+
+  public void incrementNumOfNestedBlocks() {
+    setNestedBlocks(getNestedBlocks() + 1);
   }
 
   /**
