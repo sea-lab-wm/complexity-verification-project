@@ -107,8 +107,8 @@ Current Status of the Feature Computation:
 
 |  | Code Feature  | Flavours |Description | Implementation |
 | -- | ------------- | -- | ------------- | -- |
-|1|Cyclomatic comp | - [x] Non aggregated | It is computed the program complexity using the Control Flow Graph of the program. | [PMD tool](https://github.com/pmd/pmd) |
-|2|#nested blocks | - [x] Avg (divided by code lines) | counts all the child nodes inside a block statement. Types of child nodes => block_stmt, for_stmt, foreach_stmt, while_stmt, do_stmt, if_stmt, if_else_stmt, switch_stmt, try_stmt, catch_stmt, synchronized_stmt  | AST (Java Parser) |
+|1|Cyclomatic comp | <ul><li>- [x] Non aggregated | It is computed the program complexity using the Control Flow Graph of the program. | [PMD tool](https://github.com/pmd/pmd) |
+|2|#nested blocks | <ul><li>- [x] Avg (divided by code lines) | counts all the child nodes inside a block statement. Types of child nodes => block_stmt, for_stmt, foreach_stmt, while_stmt, do_stmt, if_stmt, if_else_stmt, switch_stmt, try_stmt, catch_stmt, synchronized_stmt  | AST (Java Parser) |
 |3|#parameters
 |4|#statements
 |5|#assignments
