@@ -103,6 +103,51 @@ Examples of features that can be extracted using SyntacticFeatureExtractor:
 * Maximum line length.
 * Maximum indentation level.
 
+Current Status of the Feature Computation:
+
+|  | Code Feature  | Flavours |Description | Implementation |
+| -- | ------------- | -- | ------------- | -- |
+|1|Cyclomatic comp | - [x] Non aggregated | It is computed the program complexity using the Control Flow Graph of the program. | [PMD tool](https://github.com/pmd/pmd) |
+|2|#nested blocks | - [x] Avg (divided by code lines) | counts all the child nodes inside a block statement. Types of child nodes => block_stmt, for_stmt, foreach_stmt, while_stmt, do_stmt, if_stmt, if_else_stmt, switch_stmt, try_stmt, catch_stmt, synchronized_stmt  | AST (Java Parser) |
+|3|#parameters
+|4|#statements
+|5|#assignments
+|6|#blank lines
+|7|#characters
+|8|#commas
+|9|#comments
+|10|#comparisons
+|11|#conditionals
+|12|#identifiers
+|13|#keywords
+|14|#literals
+|15|#loops
+|16|#numbers
+|17|#operators
+|18|#parenthesis
+|19|#periods
+|20|#spaces
+|21|#strings
+|22|#words
+|23|Indentation length
+|24|Identifiers length
+|26|Line length
+|27|#aligned blocks
+|28|Extent of aligned blocks
+|29|Entropy
+|30|LOC
+|31|Volume
+|32|NMI (Narrow Meaning identifier)
+|33|NM
+|34|ITID
+|35|TC
+|36|Readability
+|37|IMSQ
+
+
+
+
+
 ## Procedure to Solve an Issue
 
 In general, this is the procedure you should follow to solve an issue assigned to you:
