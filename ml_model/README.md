@@ -111,7 +111,7 @@ Current Status of the Feature Computation:
 |2|#nested blocks | <ul><li>- [x] Avg (divided by code lines); We computed the lines of code using the [SCC tool](https://github.com/boyter/scc)  | counts all the child nodes inside a block statement. Types of child nodes => block_stmt, for_stmt, foreach_stmt, while_stmt, do_stmt, if_stmt, if_else_stmt, switch_stmt, try_stmt, catch_stmt, synchronized_stmt  | AST (Java Parser) |
 |3|#parameters | <ul><li>- [x] Non aggregated | compute #parameters of a java method | AST (Java Parser) |
 |4|#statements | <ul><li>- [x] Non aggregated | counts all if_stmts, switch_stmts, for_stmts, while_stmts, forEach_stmts, variable declaration stmts, assert stmts, block stmts, break stmt, catch clauses, continue stmts, do stmts, explicit constructor invocation stmts, empty stmts, expression stmts, labled stmts, Local Class Declaration stmts, Local Record Declaration stmts, retun stmts, Synchronized stmts, try, throw,  Unparsable Statements, yield | AST (Java Parser) |
-|5|#assignments | <ul><li>- [x] Avg </li>, <li>- [x] DFT </li></ul> | count assign statements and variable declarations| AST (Java Parser) | 
+|5|#assignments | <ul><li>- [x] Avg </li> <li>- [x] DFT </li></ul> | count assign statements and variable declarations| AST (Java Parser) | 
 |6|#blank lines
 |7|#characters
 |8|#commas
