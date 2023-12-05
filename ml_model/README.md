@@ -139,8 +139,8 @@ Ledgend: ✅ = Implemented, 🔄 = In Progress, ❗️ = Ambiguous (Not Started)
 |30|LOC | <ul><li>✅  Non aggregated </li></ul>| non commented, non-blank lines | SCC tool | 
 |31|Volume | <ul><li>✅  Non aggregated </li></ul>  |  | Regex |
 |32|NMI (Narrow Meaning identifier) | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>  | term_particularity = computes number of hops from the node containing term to the root node (entity) in the hypernym tree of term. For each term in the line we compute term_particularity and sum them up. This is the NMI for that line | [WordNet](https://wordnet.princeton.edu/), Regex |
-|33|NM | <ul><li> 🔄 Min </li> <li> 🔄  Avg </li> <li> 🔄 Max </li> </ul> | | WordNet, Regex |
-|34|ITID |<ul><li>✅  Min </li> <li>✅  Avg </li></ul> | | Regex |
+|33|NM | <ul><li> 🔄 Min </li> <li> 🔄  Avg </li> <li> 🔄 Max </li> </ul> | tokenized each line. It then iterates through each token to see the number of meanings a token has using WordNet. The total number of meanings is then added up for the line. | WordNet, Regex |
+|34|ITID |<ul><li>✅  Min </li> <li>✅  Avg </li></ul> | tokenizes each line and counts the total number of real words by checking if the token has any meanings from WordNet. It then divides the total number of real words by the total number of identifier terms in the line to get the ITID for the given line. | Regex |
 |35|TC | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>|  measures the term overlap between blocks. Refer: https://docs.google.com/document/d/1vWCc1QOBiTYM0JuzxUp2yQ4T9di4ZaMhF6PXLeulEjI/edit?usp=sharing| Regex|
 |36|Readability | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
 |37|IMSQ | <ul><li>❗️ Min</li><li>❗️ Avg</li> <li>❗️ Max</li></ul>  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
