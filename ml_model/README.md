@@ -124,18 +124,23 @@ Ledgend: ✅ = Implemented, 🔄 = In Progress, ❗️ = Ambiguous (Not Started)
 |14|#literals | <ul> <li> ✅ Non aggregated </li>  <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li>  </ul> | counts the java literals. literal types => boolean, character, integer, long, null, string, textblock, double | AST |
 |15|#loops | <ul><li> ✅ Avg </li> <li> ✅ DFT </li></ul>  | counts for and while loops | AST |
 |16|#numbers  | <ul><li> ✅ Avg</li> <li>✅  Max</li> <li>✅  DFT </li> <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li> </ul> | counts integers | AST |
-|17|#operators
-|18|#parenthesis
-|19|#periods
-|20|#spaces
-|21|#strings
-|22|#words
-|23|Indentation length
-|24|Identifiers length
-|26|Line length
-|27|#aligned blocks
-|28|Extent of aligned blocks
-|29|Entropy
+|17|#operators | <ul><li> ✅ Avg</li> <li>✅  DFT </li> <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li> </ul>  | counts operators. operator types => comparision operators (==, !=, <, <=,> ,>=), arithmetic operators (+, -, *, /, %) , boolean operators (&&, ||, ^, &, |) | AST |
+|18|#parenthesis | <ul><li> ✅ Avg</li> <li>✅  DFT </li> </ul> | counts "()". Note we are considering single bracket as one. Means not counting the pairs.  | Regex |
+|19|#periods | <ul><li> ✅ Avg</li> <li>✅  DFT </li> </ul> | counts "." | Regex |
+|20|#spaces | <ul><li> ✅ Avg</li> <li>✅  DFT </li> </ul> | counts spaces and tabs(4 spaces usually) | Regex |
+|21|#strings | <ul><li>  🔄 Visual X </li> <li> 🔄 Visual Y </li> </ul> | counts the number of strings. i.e. terms inside double quotes | Regex |
+|22|#words | <ul><li> ✅ Max</li> </ul> | counts the number of words. i.e. terms separated by spaces. Considers all the strings and java keywords. | Regex |
+|23|Indentation length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counting spaces and tabs until it reaches a non-space, non-tab character. Note: only considers the spaces/tabs before the line starts | Regex |
+|24|Identifiers length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li></ul> | counts the number of characters of the identifers in each line. | AST |
+|26|Line length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counts the number of character in each line | Regex | 
+|27|#aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|28|Extent of aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|29|Entropy | <ul><li>✅  Non aggregated </li></ul> | p(term in snippet) = count(term in snippet) / SUM{j=1 to n} (count(term in snippet))
+    here count(term in snippet) is the number of occurences of a term in the snippet
+    and n is the number of unique terms in the snippet 
+    
+    H(snippet) = - SUM{j=1 to n} (p(term in snippet) * log2(p(term in snippet)))
+    here H(snippet) is the token entropy of the snippet  | Regex |
 |30|LOC
 |31|Volume
 |32|NMI (Narrow Meaning identifier)
