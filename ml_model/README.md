@@ -132,7 +132,7 @@ Ledgend: ✅ = Implemented, 🔄 = In Progress, ❗️ = Ambiguous (Not Started)
 |22|#words | <ul><li> ✅ Max</li> </ul> | counts the number of words. i.e. terms separated by spaces. Considers all the strings and java keywords. | Regex |
 |23|Indentation length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counting spaces and tabs until it reaches a non-space, non-tab character. Note: only considers the spaces/tabs before the line starts | Regex |
 |24|Identifiers length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li></ul> | counts the number of characters of the identifers in each line. | AST |
-|26|Line length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counts the number of character in each line | Regex | 
+|26|Line length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counts the number of characters in each line | Regex | 
 |27|#aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
 |28|Extent of aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
 |29|Entropy | <ul><li>✅  Non aggregated </li></ul> |   | Regex |
@@ -140,16 +140,34 @@ Ledgend: ✅ = Implemented, 🔄 = In Progress, ❗️ = Ambiguous (Not Started)
 |31|Volume | <ul><li>✅  Non aggregated </li></ul>  |  | Regex |
 |32|NMI (Narrow Meaning identifier) | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>  | term_particularity = computes number of hops from the node containing term to the root node (entity) in the hypernym tree of term. For each term in the line we compute term_particularity and sum them up. This is the NMI for that line | [WordNet](https://wordnet.princeton.edu/), Regex |
 |33|NM | <ul><li> 🔄 Min </li> <li> 🔄  Avg </li> <li> 🔄 Max </li> </ul> | | WordNet, Regex |
-|34|ITID | | | |
+|34|ITID |<ul><li>✅  Min </li> <li>✅  Avg </li></ul> | | Regex |
 |35|TC | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>|  measures the term overlap between blocks. Refer: https://docs.google.com/document/d/1vWCc1QOBiTYM0JuzxUp2yQ4T9di4ZaMhF6PXLeulEjI/edit?usp=sharing| Regex|
-|36|Readability <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
-|37|IMSQ <ul><li>❗️ Min</li><li>❗️ Avg</li> <li>❗️ Max</li></ul>  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|36|Readability | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|37|IMSQ | <ul><li>❗️ Min</li><li>❗️ Avg</li> <li>❗️ Max</li></ul>  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
 
 ## DFT based features
+These features are based on https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=45FA47FC1EC8E13D605816AB08514077?doi=10.1.1.298.4749&rep=rep1&type=pdf
+(no replication package found)
 
+ * First we calculate the DFT of the signal. Signal can be a 1D array of doubles.(e.g. #numbers per line) 
+ * Then we calculate the standard deviation of the amplitudes of the DFT of the signal.
+ * Then we find the maximum frequency of the signal which is more than the standard deviation.
+ * Finally we calculate the bandwidth of the signal which is 2 * max_frequency + 1
+
+Assumptions: sampling_rate = 10 and #bins = amplitudes.length. we need this information to calculate the frequency of the signal.
 
 ## Visual based features
 
+These features are based on https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=45FA47FC1EC8E13D605816AB08514077?doi=10.1.1.298.4749&rep=rep1&type=pdf (no replication package found)
+
+For these metrics, a "virtual" color is assigned to
+each character in the code, based on the type of the token it
+belongs to (e.g., characters of identifiers have color 1, while
+characters of keywords have color 2), thus creating a matrix
+of colors for the snippet. Then, the variation of colors is
+computed both on the X and on the Y axis of such a matrix
+
+Refer to an example: https://docs.google.com/document/d/14GIxanNb4cd8AM-oKMcRHDW558x5aBtV04S4cPb3B1Y/edit?usp=sharing
 
 
 ## Procedure to Solve an Issue
