@@ -135,22 +135,18 @@ Ledgend: ✅ = Implemented, 🔄 = In Progress, ❗️ = Ambiguous (Not Started)
 |26|Line length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counts the number of character in each line | Regex | 
 |27|#aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
 |28|Extent of aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
-|29|Entropy | <ul><li>✅  Non aggregated </li></ul> | p(term in snippet) = count(term in snippet) / SUM{j=1 to n} (count(term in snippet))
-    here count(term in snippet) is the number of occurences of a term in the snippet
-    and n is the number of unique terms in the snippet 
-    
-    H(snippet) = - SUM{j=1 to n} (p(term in snippet) * log2(p(term in snippet)))
-    here H(snippet) is the token entropy of the snippet  | Regex |
-|30|LOC
-|31|Volume
-|32|NMI (Narrow Meaning identifier)
-|33|NM
-|34|ITID
-|35|TC
-|36|Readability
-|37|IMSQ
+|29|Entropy | <ul><li>✅  Non aggregated </li></ul> |   | Regex |
+|30|LOC | <ul><li>✅  Non aggregated </li></ul>| non commented, non-blank lines | SCC tool | 
+|31|Volume | <ul><li>✅  Non aggregated </li></ul>  |  | Regex |
+|32|NMI (Narrow Meaning identifier) | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>  | term_particularity = computes number of hops from the node containing term to the root node (entity) in the hypernym tree of term. For each term in the line we compute term_particularity and sum them up. This is the NMI for that line | [WordNet](https://wordnet.princeton.edu/), Regex |
+|33|NM | <ul><li> 🔄 Min </li> <li> 🔄  Avg </li> <li> 🔄 Max </li> </ul> | | WordNet, Regex |
+|34|ITID | | | |
+|35|TC | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>|  measures the term overlap between blocks. Refer: https://docs.google.com/document/d/1vWCc1QOBiTYM0JuzxUp2yQ4T9di4ZaMhF6PXLeulEjI/edit?usp=sharing| Regex|
+|36|Readability <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|37|IMSQ <ul><li>❗️ Min</li><li>❗️ Avg</li> <li>❗️ Max</li></ul>  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
 
 ## DFT based features
+
 
 ## Visual based features
 
