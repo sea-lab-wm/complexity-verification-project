@@ -104,25 +104,26 @@ Examples of features that can be extracted using SyntacticFeatureExtractor:
 * Maximum indentation level.
 
 Current Status of the Feature Computation:
+Ledgend: ✅ = Implemented, 🔄 = In Progress, ❗️ = Ambiguous (Not Started)
 
 |  | Code Feature  | Completed Flavours  |Description | Implementation |
 | -- | ------------- | -- | ------------- | -- |
-|1|Cyclomatic comp | <ul><li>- [x] Non aggregated | It is computed the program complexity using the Control Flow Graph of the program. | [PMD tool](https://github.com/pmd/pmd) |
-|2|#nested blocks | <ul><li>- [x] Avg (divided by code lines); We computed the lines of code using the [SCC tool](https://github.com/boyter/scc)  | counts all the child nodes inside a block statement. Types of child nodes => block_stmt, for_stmt, foreach_stmt, while_stmt, do_stmt, if_stmt, if_else_stmt, switch_stmt, try_stmt, catch_stmt, synchronized_stmt  | AST (Java Parser) |
-|3|#parameters | <ul><li>- [x] Non aggregated | counts the #parameters of a java method | AST (Java Parser) |
-|4|#statements | <ul><li>- [x] Non aggregated | counts all if_stmts, switch_stmts, for_stmts, while_stmts, forEach_stmts, variable declaration stmts, assert stmts, block stmts, break stmt, catch clauses, continue stmts, do stmts, explicit constructor invocation stmts, empty stmts, expression stmts, labled stmts, Local Class Declaration stmts, Local Record Declaration stmts, retun stmts, Synchronized stmts, try, throw,  Unparsable Statements, yield | AST (Java Parser) |
-|5|#assignments | <ul><li>- [x] Avg </li> <li>- [x] DFT </li></ul> | count assign statements and variable declarations| AST (Java Parser) | 
-|6|#blank lines | <ul><li>- [x] Avg | counts the empty lines | SCC Tool | 
-|7|#characters | <ul><li>- [] Max  | This is Ambiguous! Confusion between characters and line length | NOT IMPLEMENTED |
-|8|#commas | <ul><li>- [x] Avg </li> <li>- [x] DFT </li></ul> | counts the commas | Regex|
-|9|#comments | <ul><li>- [x] Avg </li> <li>- [x] DFT </li> <li>- [] Visual X </li> <li>- [] Visual Y </li> </ul> | counts line, block, javadoc and abandoned (not have code line directly after these comments) comments | AST |
-|10|#comparisons | <ul><li>- [x] Avg </li> <li>- [x] DFT </li></ul> |counts ==, !=, <, <=, >, >= |AST|
-|11|#conditionals | <ul><li>- [x] Avg </li> <li>- [x] DFT </li></ul> | counts if stmts and switch stmts | AST |
-|12|#identifiers | <ul>  <li>- [x]✅ Non aggregated </li>  <li>- [x] Min </li><li>- [x] Avg </li> <li>- [x] Max </li> <li>- [x] DFT </li>  <li>- [] Visual X </li> <li>- [] Visual Y </li>  </ul> |counts the java identifiers, eg: variable names, method names | AST |
-|13|#keywords | <ul> <li>- [x] Avg </li> <li>- [x] Max </li> <li>- [x] DFT </li> <li>- [] Visual X </li> <li>- [] Visual Y </li>  </ul> |counts java keywords. keywords are extracted from https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html | Regex |
-|14|#literals
-|15|#loops
-|16|#numbers
+|1|Cyclomatic comp | <ul><li>✅ Non aggregated | It is computed the program complexity using the Control Flow Graph of the program. | [PMD tool](https://github.com/pmd/pmd) |
+|2|#nested blocks | <ul><li>✅ Avg (divided by code lines); We computed the lines of code using the [SCC tool](https://github.com/boyter/scc)  | counts all the child nodes inside a block statement. Types of child nodes => block_stmt, for_stmt, foreach_stmt, while_stmt, do_stmt, if_stmt, if_else_stmt, switch_stmt, try_stmt, catch_stmt, synchronized_stmt  | AST (Java Parser) |
+|3|#parameters | <ul><li>✅ Non aggregated | counts the #parameters of a java method | AST (Java Parser) |
+|4|#statements | <ul><li>✅ Non aggregated | counts all if_stmts, switch_stmts, for_stmts, while_stmts, forEach_stmts, variable declaration stmts, assert stmts, block stmts, break stmt, catch clauses, continue stmts, do stmts, explicit constructor invocation stmts, empty stmts, expression stmts, labled stmts, Local Class Declaration stmts, Local Record Declaration stmts, retun stmts, Synchronized stmts, try, throw,  Unparsable Statements, yield | AST (Java Parser) |
+|5|#assignments | <ul><li>✅ Avg </li> <li>✅ DFT </li></ul> | count assign statements and variable declarations| AST (Java Parser) | 
+|6|#blank lines | <ul><li>✅ Avg | counts the empty lines | SCC Tool | 
+|7|#characters | <ul><li>❗️ Max  | This is Ambiguous! Confusion between characters and line length | NOT IMPLEMENTED |
+|8|#commas | <ul><li>✅ Avg </li> <li>✅ DFT </li></ul> | counts the commas | Regex|
+|9|#comments | <ul><li>✅ Avg </li> <li>✅ DFT </li> <li>🔄  Visual X </li> <li>🔄  Visual Y </li> </ul> | counts line, block, javadoc and abandoned (not have code line directly after these comments) comments | AST |
+|10|#comparisons | <ul><li>✅ Avg </li> <li>✅ DFT </li></ul> |counts ==, !=, <, <=, >, >= |AST|
+|11|#conditionals | <ul><li>✅  Avg </li> <li>✅  DFT </li></ul> | counts if stmts and switch stmts | AST |
+|12|#identifiers | <ul>  <li> ✅ Non aggregated </li>  <li> ✅ Min </li> <li> ✅ Avg </li> <li> ✅ Max </li> <li> ✅ DFT </li>  <li> 🔄 Visual X </li> <li> 🔄 Visual Y </li>  </ul> |counts the java identifiers, eg: variable names, method names | AST |
+|13|#keywords | <ul> <li>✅ Avg </li> <li>✅ Max </li> <li>✅ DFT </li> <li>🔄  Visual X </li> <li>🔄  Visual Y </li>  </ul> |counts java keywords. keywords are extracted from https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html | Regex |
+|14|#literals | <ul> <li> ✅ Non aggregated </li>  <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li>  </ul> | counts the java literals. literal types => boolean, character, integer, long, null, string, textblock, double | AST |
+|15|#loops | <ul><li> ✅ Avg </li> <li> ✅ DFT </li></ul>  | counts for and while loops | AST |
+|16|#numbers  | <ul><li> ✅ Avg</li> <li>✅  Max</li> <li>✅  DFT </li> <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li> </ul> | counts integers | AST |
 |17|#operators
 |18|#parenthesis
 |19|#periods
