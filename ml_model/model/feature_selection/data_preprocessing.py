@@ -1,6 +1,6 @@
 import pandas as pd
 
-ROOT_PATH = "/Users/nadeeshan/Documents/Spring2023/ML-Experiments/complexity-verification-project/ml_model/model/"
+ROOT_PATH = "/Users/nadeeshan/Documents/Spring2023/ML-Experiments/complexity-verification-project/ml_model/model"
 df = pd.read_csv(ROOT_PATH + 'data/understandability_with_warnings.csv')
 
 ## These are the columns where the values should be unique

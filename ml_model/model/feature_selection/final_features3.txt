@@ -1,3 +1,0 @@
-PBU["PE spec (java)", "MIDQ (max)", "CICsyn (max)", "NMI (avg)", "TC (avg)", "TC (max)", "Line length (max)", "LOC", "Line length (dft)", "Strings (area)"]
-ABU50["PE spec (java)", "NMI (avg)", "TC (avg)", "#conditionals (avg)", "#periods (avg)", "Identifiers length (max)", "#comparisons (dft)", "Indentation length (dft)","Literals (Visual X)", "#parameters"]
-BD50["PE spec (java)", "PE gen", "CR", "Cyclomatic complexity", "#assignments (avg)", "#words (max)", "#conditionals (dft)", "Numbers (Visual X)", "Literals (Visual Y)" , "#nested blocks (avg)"]

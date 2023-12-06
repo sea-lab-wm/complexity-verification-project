@@ -1,0 +1,3 @@
+TNPU["NM (max)", "Cyclomatic complexity", "Literals/keywords (area)", "TC (max)", "PE gen"]
+TAU["EAP (max)", "CICsyn (avg)", "#operators (dft)", "#spaces (dft)", "Volume", "#parameters", "PE gen", "developer_position"]
+AU["#identifiers (max)", "PE spec (java)", "NM (max)", "Operators (Visual Y)", "EAP (max)", "#numbers (dft)", "#spaces (dft)", "#comments (avg)", "developer_position"]

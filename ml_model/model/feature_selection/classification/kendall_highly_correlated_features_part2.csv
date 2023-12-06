@@ -1,0 +1,132 @@
+feature1,feature2,tau,p-value,missing values in feature1,missing values in feature2,feature to remove
+CIC (avg),CIC (max),0.8010627544145619,2.902332837324469e-110,0,0,CIC (max)
+CIC (avg),Comments (area),0.8167680704102529,6.379022135717908e-125,0,0,Comments (area)
+CIC (max),Comments (area),0.7420325243476039,1.3744073000505426e-93,0,0,Comments (area)
+CIC (max),Operators/comments (area),-0.7076869743691526,4.3441558374353997e-60,0,140,Operators/comments (area)
+CICsyn (max),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+MIDQ (min),Operators/literals (area).1,0.816496580927726,1.843280069401823e-07,0,409,Operators/literals (area).1
+AEDQ (avg),AEDQ (max),0.7863268682694166,8.736673815492708e-124,0,0,AEDQ (max)
+AEDQ (avg),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+EAP (avg),EAP (max),0.8622803374724969,2.2088435027746866e-143,0,0,EAP (max)
+IMSQ (min),IMSQ (avg),0.7726420070111059,1.4955524855265048e-113,0,0,IMSQ (avg)
+ITID (avg),Operators/literals (area).1,-1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#comments (avg),Identifiers/comments (area),-0.7052041162338928,3.0778208699973345e-71,0,140,Identifiers/comments (area)
+#comments (avg),Operators/comments (area),-0.7168633360949795,1.4975247871139124e-73,0,140,Operators/comments (area)
+Indentation length (avg),#spaces (avg),0.8869767643942676,5.808389157491416e-159,0,0,#spaces (avg)
+Indentation length (avg),Indentation length (max),0.8291890464931774,4.169951441037254e-125,0,0,Indentation length (max)
+#loops (avg),#loops (dft),0.7633879214536696,3.262325911459402e-79,0,0,#loops (dft)
+#numbers (avg),#numbers (max),0.7844298037468831,2.8109581807782833e-102,0,0,#numbers (max)
+#spaces (avg),Indentation length (max),0.7829206384558044,1.6526675550738468e-116,0,0,Indentation length (max)
+Line length (max),Identifiers (Visual X),0.7018121053435076,4.0643368414541524e-103,0,0,Identifiers (Visual X)
+Line length (max),Keywords (Visual X),0.7078957356223157,8.309128324522718e-105,0,0,Keywords (Visual X)
+Line length (max),Operators (Visual X),0.7021875732554167,3.1674118773685937e-103,0,0,Operators (Visual X)
+LOC,#comments (dft),0.7892628854682571,2.3326411072828446e-124,0,0,#comments (dft)
+LOC,Identifiers (Visual Y),0.978010132370676,4.678980878267773e-195,0,0,Identifiers (Visual Y)
+LOC,Keywords (Visual Y),0.9728502959774029,5.02336365688924e-193,0,0,Keywords (Visual Y)
+LOC,Operators (Visual Y),0.978010132370676,4.678980878267773e-195,0,0,Operators (Visual Y)
+#assignments (dft),#commas (dft),0.8319303332448803,5.06803522509808e-139,0,0,#commas (dft)
+#assignments (dft),#keywords (dft),0.8729567766690343,5.349435356912716e-153,0,0,#keywords (dft)
+#assignments (dft),#identifiers (dft),0.8989617280670364,9.743535443893092e-163,0,0,#identifiers (dft)
+#assignments (dft),#parenthesis (dft),0.924624551415236,2.6903348185093033e-171,0,0,#parenthesis (dft)
+#assignments (dft),#periods (dft),0.9172308745136696,1.5078687525321118e-168,0,0,#periods (dft)
+#assignments (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#commas (dft),#keywords (dft),0.8924237519020323,3.486506749748982e-160,0,0,#keywords (dft)
+#commas (dft),#identifiers (dft),0.7547958999117463,1.371764550093546e-115,0,0,#identifiers (dft)
+#commas (dft),#parenthesis (dft),0.8202472239196654,1.479239594944961e-135,0,0,#parenthesis (dft)
+#commas (dft),#periods (dft),0.8497767614961477,2.6716140246413988e-145,0,0,#periods (dft)
+#commas (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#comments (dft),Comments (Visual Y),0.8186297446854965,1.7217272064556373e-128,0,0,Comments (Visual Y)
+#comments (dft),Identifiers (Visual Y),0.7916470573094522,6.034074418571893e-129,0,0,Identifiers (Visual Y)
+#comments (dft),Keywords (Visual Y),0.7863504236506493,2.9768404462039168e-127,0,0,Keywords (Visual Y)
+#comments (dft),Operators (Visual Y),0.7918362227972666,5.247249342136242e-129,0,0,Operators (Visual Y)
+#comparisons (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#conditionals (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+Indentation length (dft),#spaces (dft),0.7372382901886565,1.7133008575642352e-107,0,0,#spaces (dft)
+#keywords (dft),#identifiers (dft),0.8002007799208876,8.853842955917348e-130,0,0,#identifiers (dft)
+#keywords (dft),#parenthesis (dft),0.860160292791525,5.37152658989832e-149,0,0,#parenthesis (dft)
+#keywords (dft),#periods (dft),0.9045901012764583,1.6119831080275421e-164,0,0,#periods (dft)
+#keywords (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#loops (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#identifiers (dft),#parenthesis (dft),0.8757462377262782,5.9417101955829405e-155,0,0,#parenthesis (dft)
+#identifiers (dft),#periods (dft),0.8307884113345612,1.307430961526948e-139,0,0,#periods (dft)
+#identifiers (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#numbers (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#operators (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#parenthesis (dft),#periods (dft),0.8886775890918642,9.239154852785566e-159,0,0,#periods (dft)
+#parenthesis (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#periods (dft),Operators/literals (area).1,1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+Identifiers (Visual X),Keywords (Visual X),0.9912384955383727,2.322351204873345e-206,0,0,Keywords (Visual X)
+Identifiers (Visual X),Operators (Visual X),0.9886328343375365,1.9762102715176969e-205,0,0,Operators (Visual X)
+Identifiers (Visual Y),Keywords (Visual Y),0.9669751744414767,1.2803501648589171e-196,0,0,Keywords (Visual Y)
+Identifiers (Visual Y),Operators (Visual Y),0.9867693645568048,1.1525232675912846e-204,0,0,Operators (Visual Y)
+Keywords (Visual X),Operators (Visual X),0.9899335802671652,8.00544854283528e-206,0,0,Operators (Visual X)
+Keywords (Visual Y),Operators (Visual Y),0.9667888274634036,1.5215971243423085e-196,0,0,Operators (Visual Y)
+Numbers (Visual X),Numbers (Visual Y),0.7596786085072447,2.754926553447638e-86,0,0,Numbers (Visual Y)
+Numbers (Visual X),Numbers (area),0.717969937256436,2.836560450944232e-77,0,0,Numbers (area)
+Numbers (Visual X),Numbers/identifiers (area),0.7222298328526737,4.2228424080996665e-78,0,0,Numbers/identifiers (area)
+Numbers (Visual X),Numbers/keywords (area),0.7291042867245451,1.248310389663026e-79,0,0,Numbers/keywords (area)
+Numbers (Visual Y),Numbers/keywords (area),0.7195347647492513,1.3298122816690579e-77,0,0,Numbers/keywords (area)
+Numbers (Visual Y),Numbers/comments (area),0.7120245957640629,2.335160768707346e-56,0,140,Numbers/comments (area)
+Literals (Visual X),Literals (Visual Y),0.9671043725463652,1.4085125254300954e-97,0,0,Literals (Visual Y)
+Literals (Visual X),Literals (area),0.9695410856910788,4.6363155222689637e-98,0,0,Literals (area)
+Literals (Visual X),Literals/identifiers (area),0.959794233112224,3.883920426586667e-96,0,0,Literals/identifiers (area)
+Literals (Visual X),Literals/keywords (area),0.9695410856910788,4.6363155222689637e-98,0,0,Literals/keywords (area)
+Literals (Visual X),Literals/comments (area),0.9790209790209791,5.911709126432969e-69,0,140,Literals/comments (area)
+Literals (Visual X),Literals/numbers (area),0.968647942521228,6.35855165034229e-45,0,250,Literals/numbers (area)
+Literals (Visual X),Literals/strings (area),0.9368421052631579,4.175909954780353e-63,0,141,Literals/strings (area)
+Literals (Visual Y),Literals (area),0.9585758765398673,6.734377587642874e-96,0,0,Literals (area)
+Literals (Visual Y),Literals/identifiers (area),0.9488290239610125,5.365802815908106e-94,0,0,Literals/identifiers (area)
+Literals (Visual Y),Literals/keywords (area),0.9585758765398673,6.734377587642874e-96,0,0,Literals/keywords (area)
+Literals (Visual Y),Literals/comments (area),0.958041958041958,4.1383499760316374e-66,0,140,Literals/comments (area)
+Literals (Visual Y),Literals/numbers (area),0.9333768778576094,7.763977584999758e-42,0,250,Literals/numbers (area)
+Literals (Visual Y),Literals/strings (area),1.0,1.2104773126855027e-71,0,141,Literals/strings (area)
+Comments (area),Identifiers/comments (area),-0.9096949696753478,1.2394055175113379e-117,0,140,Identifiers/comments (area)
+Comments (area),Operators/comments (area),-0.9293613985016054,1.0925854624621686e-122,0,140,Operators/comments (area)
+Numbers (area),Numbers/identifiers (area),0.9474929218079524,5.0572620859655804e-133,0,0,Numbers/identifiers (area)
+Numbers (area),Numbers/keywords (area),0.9455319661154661,1.335551210345187e-132,0,0,Numbers/keywords (area)
+Numbers (area),Numbers/comments (area),0.7616716010020497,3.149459600913582e-64,0,140,Numbers/comments (area)
+Numbers (area),Operators/numbers (area),-0.8015700684817104,2.4103814574105036e-57,0,250,Operators/numbers (area)
+Strings (area),Strings/identifiers (area),0.911934552454283,7.547426498412609e-153,0,0,Strings/identifiers (area)
+Strings (area),Strings/keywords (area),0.8597323433704569,4.4861085430854526e-136,0,0,Strings/keywords (area)
+Strings (area),Strings/comments (area),0.8286102924506914,5.829012710774902e-84,0,140,Strings/comments (area)
+Strings (area),Strings/numbers (area),0.7687511808048366,1.465446666949795e-45,0,250,Strings/numbers (area)
+Strings (area),Operators/strings (area),-0.7947612955356541,5.9387525967804486e-90,0,141,Operators/strings (area)
+Literals (area),Literals/identifiers (area),0.9902531474211451,3.2761554868039375e-102,0,0,Literals/identifiers (area)
+Literals (area),Literals/keywords (area),0.9999999999999999,3.4026460961974727e-104,0,0,Literals/keywords (area)
+Literals (area),Literals/comments (area),0.958041958041958,4.1383499760316374e-66,0,140,Literals/comments (area)
+Literals (area),Literals/numbers (area),0.9333768778576094,7.763977584999758e-42,0,250,Literals/numbers (area)
+Literals (area),Literals/strings (area),0.9578947368421052,6.859318083518898e-66,0,141,Literals/strings (area)
+Literals (area),Operators/literals (area).1,-1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+Keywords/identifiers (area),Operators/keywords (area),-0.7710830900470008,9.151887086846399e-126,0,0,Operators/keywords (area)
+Numbers/identifiers (area),Numbers/keywords (area),0.9163017215730328,1.5450050343294462e-124,0,0,Numbers/keywords (area)
+Numbers/identifiers (area),Operators/numbers (area),-0.7813610526751504,2.0507782788438358e-54,0,250,Operators/numbers (area)
+Strings/identifiers (area),Strings/keywords (area),0.8846876575461753,5.701109472058729e-144,0,0,Strings/keywords (area)
+Strings/identifiers (area),Strings/comments (area),0.7225119020630243,2.772425710480087e-64,0,140,Strings/comments (area)
+Strings/identifiers (area),Strings/numbers (area),0.7381447194407709,3.8430591197824744e-42,0,250,Strings/numbers (area)
+Strings/identifiers (area),Operators/strings (area),-0.8880883442192445,7.740454232357994e-112,0,141,Operators/strings (area)
+Literals/identifiers (area),Literals/keywords (area),0.9902531474211451,3.2761554868039375e-102,0,0,Literals/keywords (area)
+Literals/identifiers (area),Literals/comments (area),0.958041958041958,4.1383499760316374e-66,0,140,Literals/comments (area)
+Literals/identifiers (area),Literals/numbers (area),0.9333768778576094,7.763977584999758e-42,0,250,Literals/numbers (area)
+Literals/identifiers (area),Literals/strings (area),0.9578947368421052,6.859318083518898e-66,0,141,Literals/strings (area)
+Numbers/keywords (area),Numbers/comments (area),0.7401503074470508,9.428474476430655e-61,0,140,Numbers/comments (area)
+Numbers/keywords (area),Operators/numbers (area),-0.7563610043984188,2.9563078615722874e-51,0,250,Operators/numbers (area)
+Strings/keywords (area),Strings/comments (area),0.7265926093856269,5.438938308736928e-65,0,140,Strings/comments (area)
+Strings/keywords (area),Strings/numbers (area),0.7381447194407709,3.8430591197824744e-42,0,250,Strings/numbers (area)
+Strings/keywords (area),Operators/strings (area),-0.7349224519112069,3.4232079571085972e-77,0,141,Operators/strings (area)
+Literals/keywords (area),Literals/comments (area),0.958041958041958,4.1383499760316374e-66,0,140,Literals/comments (area)
+Literals/keywords (area),Literals/numbers (area),0.9333768778576094,7.763977584999758e-42,0,250,Literals/numbers (area)
+Literals/keywords (area),Literals/strings (area),0.9578947368421052,6.859318083518898e-66,0,141,Literals/strings (area)
+Literals/keywords (area),Operators/literals (area).1,-1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+Operators/keywords (area),Operators/literals (area).1,-1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+#aligned blocks,Extent of aligned blocks,0.7988272821169733,9.013633125147347e-132,0,0,Extent of aligned blocks
+#parameters,Operators/literals (area).1,-1.0,2.8210569271137134e-12,0,409,Operators/literals (area).1
+Strings/comments (area),Strings/numbers (area),0.7993138936535163,1.905227265647891e-39,140,250,Strings/numbers (area)
+Keywords/comments (area),Operators/literals (area).1,1.0,9.877731830097747e-09,140,409,Operators/literals (area).1
+Literals/comments (area),Literals/numbers (area),1.0,1.9875389669823878e-38,140,250,Literals/numbers (area)
+Literals/comments (area),Literals/strings (area),0.9333333333333333,9.894528718499414e-43,140,141,Literals/strings (area)
+Strings/numbers (area),Operators/literals (area).1,1.0,1.9183759386617496e-08,250,409,Operators/literals (area).1
+Numbers/comments (area),Operators/literals (area).1,1.0,9.877731830097747e-09,140,409,Operators/literals (area).1
+Operators/numbers (area),Operators/literals (area).1,1.0,1.9183759386617496e-08,250,409,Operators/literals (area).1
+Literals/numbers (area),Literals/strings (area),0.9192825112107623,2.889142565666716e-26,250,141,Literals/numbers (area)
+Identifiers/comments (area),Operators/comments (area),0.8896271851587585,1.380702478879217e-112,140,140,Operators/comments (area)
+Operators/comments (area),Operators/literals (area).1,1.0,9.877731830097747e-09,140,409,Operators/literals (area).1
