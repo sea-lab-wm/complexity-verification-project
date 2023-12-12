@@ -12,6 +12,7 @@ the model with the best hyperparameters.
 import argparse
 import json
 import logging
+import math
 from matplotlib.lines import Line2D
 import pandas as pd
 import csv
@@ -312,23 +313,38 @@ def evaluate(model, X_test, y_test):
     ## calculate the metrics for positive class ##
     tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
 
+    
     precision_positive = precision_score(y_test, y_pred) ## tp / (tp + fp)
     recall_positive = recall_score(y_test, y_pred) ## tp / (tp + fn)
     f1_positive = f1_score(y_test, y_pred) ## 2 * (precision_positive * recall_positive) / (precision_positive + recall_positive)
     
+    if tp == 0 and fp == 0:
+        precision_positive = 0
+    if tp == 0 and fn == 0:
+        recall_positive = 0
+    if precision_positive == 0 and recall_positive == 0:
+        f1_positive = 0
+
     ## calculate the metrics for negative class ##
     ## Negative predictive value https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values#Negative_predictive_value_(NPV)
     precision_negative = tn / (tn + fn) 
     recall_negative = tn / (tn + fp)
     f1_negative = 2 * (precision_negative * recall_negative) / (precision_negative + recall_negative)
     
+    if tn == 0 and fn == 0:
+        precision_negative = 0
+    if tn == 0 and fp == 0:
+        recall_negative = 0
+    if precision_negative == 0 and recall_negative == 0:
+        f1_negative = 0
+
     n_positives = tp + fn ## num positive instances
     n_negatives = tn + fp ## num negative instances
 
     ## calculate the weighted metrics ## 
     precision_weighted = (precision_positive * n_positives + precision_negative * n_negatives) / (n_positives + n_negatives)
     recall_weighted = (recall_positive * n_positives + recall_negative * n_negatives) / (n_positives + n_negatives)
-    ## https://www.v7labs.com/blog/f1-score-guideR 
+    ## https://www.v7labs.com/blog/f1-score-guideR  
     f1_weighted = (f1_positive * n_positives + f1_negative * n_negatives) / (n_positives + n_negatives)
 
     ## calculate the auc
@@ -483,20 +499,29 @@ def result_aggregation(result_dict, best_hyper_params):
     n_negatives_c_overall = tn_c_overall + fp_c_overall
 
     precision_positive_c_overall = tp_c_overall / (tp_c_overall + fp_c_overall)
+    if tp_c_overall == 0 and fp_c_overall == 0:
+        precision_positive_c_overall = 0
     precision_negative_c_overall = tn_c_overall / (tn_c_overall + fn_c_overall)
-    # precision_weighted_c_overall = np.mean(result_dict[str(dict(best_hyper_params))][0]["precision_weighted_c"])
+    if tn_c_overall == 0 and fn_c_overall == 0:
+        precision_negative_c_overall = 0
     precision_weighted_c_overall = (precision_positive_c_overall * n_positives_c_overall + precision_negative_c_overall * n_negatives_c_overall) / (n_positives_c_overall + n_negatives_c_overall)
     
     recall_positive_c_overall = tp_c_overall / (tp_c_overall + fn_c_overall)
+    if tp_c_overall == 0 and fn_c_overall == 0:
+        recall_positive_c_overall = 0
     recall_negative_c_overall = tn_c_overall / (tn_c_overall + fp_c_overall)
+    if tn_c_overall == 0 and fp_c_overall == 0:
+        recall_negative_c_overall = 0
     recall_weighted_c_overall = (recall_positive_c_overall * n_positives_c_overall + recall_negative_c_overall * n_negatives_c_overall) / (n_positives_c_overall + n_negatives_c_overall)
-    # recall_weighted_c_overall = np.mean(result_dict[str(dict(best_hyper_params))][0]["recall_weighted_c"])
-    
+         
     
     f1_positive_c_overall = 2 * (precision_positive_c_overall * recall_positive_c_overall) / (precision_positive_c_overall + recall_positive_c_overall)
-    # f1_weighted_c_overall = np.mean(result_dict[str(dict(best_hyper_params))][0]["f1_weighted_c"])
+    if precision_positive_c_overall == 0 and recall_positive_c_overall == 0:
+        f1_positive_c_overall = 0
     f1_negative_c_overall = 2 * (precision_negative_c_overall * recall_negative_c_overall) / (precision_negative_c_overall + recall_negative_c_overall)
-    f1_weighted_c_overall = (f1_positive_c_overall * n_positives_c_overall + f1_negative_c_overall * n_negatives_c_overall) / (n_positives_c_overall + n_negatives_c_overall)
+    if precision_negative_c_overall == 0 and recall_negative_c_overall == 0:
+        f1_negative_c_overall = 0
+    f1_weighted_c_overall = (f1_positive_c_overall * n_positives_c_overall + f1_negative_c_overall * n_negatives_c_overall) / (n_positives_c_overall + n_negatives_c_overall)                
 
     accuracy_overall_c = (tp_c_overall + tn_c_overall) / (tp_c_overall + tn_c_overall + fp_c_overall + fn_c_overall)
     
@@ -504,19 +529,28 @@ def result_aggregation(result_dict, best_hyper_params):
     n_negatives_cw_overall = tn_cw_overall + fp_cw_overall
 
     precision_positive_cw_overall = tp_cw_overall / (tp_cw_overall + fp_cw_overall)
-    # precision_weighted_cw_overall = np.mean(result_dict[str(dict(best_hyper_params))][0]["precision_weighted_cw"])
+    if tp_cw_overall == 0 and fp_cw_overall == 0:
+        precision_positive_cw_overall = 0
     precision_negative_cw_overall = tn_cw_overall / (tn_cw_overall + fn_cw_overall)
+    if tn_cw_overall == 0 and fn_cw_overall == 0:
+        precision_negative_cw_overall = 0
     precision_weighted_cw_overall = (precision_positive_cw_overall * n_positives_cw_overall + precision_negative_cw_overall * n_negatives_cw_overall) / (n_positives_cw_overall + n_negatives_cw_overall)
 
     recall_positive_cw_overall = tp_cw_overall / (tp_cw_overall + fn_cw_overall)
-    # recall_weighted_cw_overall = np.mean(result_dict[str(dict(best_hyper_params))][0]["recall_weighted_cw"])
+    if tp_cw_overall == 0 and fn_cw_overall == 0:
+        recall_positive_cw_overall = 0
     recall_negative_cw_overall = tn_cw_overall / (tn_cw_overall + fp_cw_overall)
+    if tn_cw_overall == 0 and fp_cw_overall == 0:
+        recall_negative_cw_overall = 0
     recall_weighted_cw_overall = (recall_positive_cw_overall * n_positives_cw_overall + recall_negative_cw_overall * n_negatives_cw_overall) / (n_positives_cw_overall + n_negatives_cw_overall)
     
     f1_positive_cw_overall = 2 * (precision_positive_cw_overall * recall_positive_cw_overall) / (precision_positive_cw_overall + recall_positive_cw_overall)
-    # f1_weighted_cw_overall = np.mean(result_dict[str(dict(best_hyper_params))][0]["f1_weighted_cw"])
+    if precision_positive_cw_overall == 0 and recall_positive_cw_overall == 0:
+        f1_positive_cw_overall = 0
     f1_negative_cw_overall = 2 * (precision_negative_cw_overall * recall_negative_cw_overall) / (precision_negative_cw_overall + recall_negative_cw_overall)
-    f1_weighted_cw_overall = (f1_positive_cw_overall * n_positives_cw_overall + f1_negative_cw_overall * n_negatives_cw_overall) / (n_positives_cw_overall + n_negatives_cw_overall)
+    if precision_negative_cw_overall == 0 and recall_negative_cw_overall == 0:
+        f1_negative_cw_overall = 0
+    f1_weighted_cw_overall = (f1_positive_cw_overall * n_positives_cw_overall + f1_negative_cw_overall * n_negatives_cw_overall) / (n_positives_cw_overall + n_negatives_cw_overall)   
 
     accuracy_overall_cw = (tp_cw_overall + tn_cw_overall) / (tp_cw_overall + tn_cw_overall + fp_cw_overall + fn_cw_overall)
     
@@ -550,6 +584,9 @@ if __name__ == "__main__":
     feature_df_BD50 = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_BD50.csv")
     feature_df_ABU50 = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_ABU50.csv")
 
+    feature_df_PBU_set3 = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_PBU_set3.csv")
+    feature_df_BD50_set3 = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_BD50_set3.csv")
+    feature_df_ABU50_set3 = pd.read_csv(ROOT_PATH + "data/understandability_with_warnings_ABU50_set3.csv")
     ## write header
     with open(ROOT_PATH + "Results/" + output_file, "w") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=csv_data_dict.keys())
@@ -564,19 +601,27 @@ if __name__ == "__main__":
         for model_name in model_names:
             for experiment in experiments:
 
-                ## feature data selection
-                if experiment["target"] == "PBU":
-                    feature_df = feature_df_PBU
-                elif experiment["target"] == "BD50":
-                    feature_df = feature_df_BD50
-                elif experiment["target"] == "ABU50":
-                    feature_df = feature_df_ABU50 
-                LOGGER.info("Loading data for {}...".format(experiment["target"]))       
-
                 ## warning feature
                 warning_feature = experiment["features"][0] ## eg: warnings_checker_framework
                 ## feature set
                 feature_set = experiment["experiment_id"].split("-")[3] ## eg: set1
+
+                ## feature data selection
+                if experiment["target"] == "PBU":
+                    feature_df = feature_df_PBU
+                    if feature_set == "set3":
+                        feature_df = feature_df_PBU_set3
+                elif experiment["target"] == "BD50":
+                    feature_df = feature_df_BD50
+                    if feature_set == "set3":
+                        feature_df = feature_df_BD50_set3
+                elif experiment["target"] == "ABU50":
+                    feature_df = feature_df_ABU50
+                    if feature_set == "set3":
+                        feature_df = feature_df_ABU50_set3 
+                LOGGER.info("Loading data for {}...".format(experiment["target"]))       
+
+                
 
                 ## drop rows with missing values in the feature
                 full_dataset = feature_df.dropna(subset=experiment["target"])
