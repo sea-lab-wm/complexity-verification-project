@@ -14,6 +14,7 @@ import json
 import logging
 import math
 from matplotlib.lines import Line2D
+import seaborn as sns
 import pandas as pd
 import csv
 import numpy as np
@@ -264,7 +265,7 @@ def model_initialisation(model_name, parameters, smote):
     return model, param_grid
 
 
-def get_best_hyperparameters(model, param_grid, X_train, y_train):
+def get_best_hyperparameters(model, param_grid, X_train, y_train, feature_set):
     ## model initialisation
     ## GridSearchCV ##
     '''
@@ -280,6 +281,14 @@ def get_best_hyperparameters(model, param_grid, X_train, y_train):
 
     target = y_train.columns[0] ## eg: PBU
 
+    warning_features = ["warnings_checker_framework", "warnings_typestate_checker", "warnings_infer", "warnings_openjml", "warning_sum"]
+    warning_feature = "NO-WARNING"
+    if X_train.columns[0] in warning_features:
+        warning_feature = X_train.columns[0]
+
+    ## generate histograms for each target in each feature set with and without warning
+    generate_histograms(X_train, target, feature_set, "False", warning_feature) 
+
     ## x_train distribution after Scaling before Resampling ##
     if hasattr(grid.best_estimator_, 'named_steps'):
         if hasattr(grid.best_estimator_.named_steps, 'scaler'):
@@ -291,12 +300,34 @@ def get_best_hyperparameters(model, param_grid, X_train, y_train):
         if hasattr(grid.best_estimator_.named_steps, 'scaler'):
             X_resampled = grid.best_estimator_.named_steps['scaler'].transform(X_train.values)
             y_resampled = y_train
+            
         if hasattr(grid.best_estimator_.named_steps, 'smote'):
             X_resampled, y_resampled = grid.best_estimator_.named_steps['smote'].fit_resample(X_resampled, y_resampled)
         
+        generate_histograms(pd.DataFrame(X_resampled), target, feature_set, "True", warning_feature) ## draw the data distribution after SMOTE
         draw_data_distributions(X_resampled, y_resampled, target, "True") ## draw the data distribution after SMOTE
 
     return grid.best_params_
+
+def generate_histograms(X_train, target, feature_set, transformed, warning_feature):
+    '''
+    Generate histograms for each feature in the training data
+    '''
+    plt.figure(figsize=(15, 15))
+
+    bins =  "fd" ## Freedman-Diaconis rule. which is less sensitive to outliers in the data and better for skewed data.
+    for feature in X_train.columns:
+        plt.hist(X_train[feature], bins, alpha=0.9, label=feature, 
+                         linewidth=1, edgecolor='black')
+        # # density probability distribution
+        # sns.kdeplot(X_train[feature], color='black', linewidth=1, alpha=0.9)
+        plt.legend(loc='upper right', ncol=3)
+             
+    plt.ylabel('Count')
+    plt.xlabel('Bins')
+    plt.savefig(ROOT_PATH + "results/classification/histograms/" + target + "-" + feature_set + "-" + warning_feature + "-Scaling-" +str(transformed) + ".png")
+    plt.clf()
+    plt.close()
 
 def train(model, X_train, y_train):
     ## train the model on the train split
@@ -596,8 +627,8 @@ if __name__ == "__main__":
     with open(ROOT_PATH + "classification/experiments.jsonl") as jsonl_file:
         experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
         
-        model_names = ["logisticregression", "knn_classifier", "svc", "mlp_classifier", "bayes_network", "randomForest_classifier"]
-        
+        # model_names = ["logisticregression", "knn_classifier", "svc", "mlp_classifier", "bayes_network", "randomForest_classifier"]
+        model_names = ["svc"]
         for model_name in model_names:
             for experiment in experiments:
 
@@ -697,7 +728,7 @@ if __name__ == "__main__":
                     ## Code features ##
                     ###################
                     LOGGER.info("Best param searching for fold {} for code features...".format(ite))
-                    best_hyperparams_code = get_best_hyperparameters(pipeline_c, param_grid_c,  X_train_c, y_train_c)
+                    best_hyperparams_code = get_best_hyperparameters(pipeline_c, param_grid_c,  X_train_c, y_train_c, feature_set)
                     ## remove the model name from the best hyperparameters keys
                     best_hyperparams_code = {key.replace(model_name + "__", ""):value for key, value in best_hyperparams_code.items()} 
 
@@ -710,7 +741,7 @@ if __name__ == "__main__":
                     ## Code + warnings features ##
                     ##############################
                     LOGGER.info("Best param searching for fold {} for code + warnings features...".format(ite))
-                    best_hyperparams_code_warning = get_best_hyperparameters(pipeline_cw, param_grid_cw, X_train_cw, y_train_cw)
+                    best_hyperparams_code_warning = get_best_hyperparameters(pipeline_cw, param_grid_cw, X_train_cw, y_train_cw, feature_set)
                     ## split from __ and keep the parameters
                     best_hyperparams_code_warning = {key.replace(model_name + "__", ""):value for key, value in best_hyperparams_code_warning.items()}
                     ## since we are using a set, we need to convert the dict to a hashable type

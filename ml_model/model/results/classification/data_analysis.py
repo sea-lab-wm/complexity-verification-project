@@ -1,9 +1,11 @@
 import pandas as pd
 import csv
+import os
+
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-import os
-import json
+import ptitprince as pt
+
 from scipy.stats import wilcoxon
 from cliffs_delta import cliffs_delta
 
@@ -63,40 +65,8 @@ overall_result_header_model_wise = {
         'cliffs_delta_result':'',
         'num_of_pairs':''
         }
-# overall_result_header = {
-#     "feature_set" : '',	
-#     "warning_feature": '',	
-#     "target": '',
-#     "use_smote": '',
-#     "#models_F1_mean_improved / 6": '',
-#     "#models_F1_median_improved / 6": '',
-#     "#models_improved_both_F1(median+mean) / 6": '',
-#     "#models_improved_F1_mean_with_statistical_significance / 6": '',
-#     "#models_improved_F1_median_with_statistical_significance / 6": '',
-#     "#models_improved_both_F1(mean+median)_with_statistical_significance / 6": '',
-#     "avg(mean_F1_improvement)": '',
-#     "median(mean_F1_improvement)": '',
-#     "q3(mean_F1_improvement)": '',
-#     "avg(median_F1_improvement)": '',
-#     "median(median_F1_improvement)": '',
-#     "q3(median_F1_improvement)": '',
-#     "#models_AUC_mean_improved / 6": '',
-#     "#models_AUC_median_improved / 6": '',
-#     "#models_improved_both_AUC(median+mean) / 6": '',
-#     "#models_improved_in_F1(median+mean)+AUC(median+mean) / 12": '',
-#     "#models_improved_AUC_mean_with_statistical_significance / 6": '',
-#     "#models_improved_AUC_median_with_statistical_significance / 6": '',
-#     "#models_improved_both_AUC(mean+median)_with_statistical_significance / 6": '',
-#     "#models_improved_F1(mean+median)+AUC(mean+median)_with_statistical_significance / 12": '',
-#     "avg(mean_AUC_improvement)": '',
-#     "median(mean_AUC_improvement)": '',
-#     "q3(mean_AUC_improvement)": '',
-#     "avg(median_AUC_improvement)": '',
-#     "median(median_AUC_improvement)": '',
-#     "q3(median_AUC_improvement)": '',
-# }
 
-INPUT_FILE_NAME='Final_raw_new_updated_f1.csv'
+INPUT_FILE_NAME='Final_raw_updated_f1.csv'
 OUTPUT_FILE_ACROSS_MODELS='Overall_results_across_model.csv'
 OUTPUT_FILE_PER_MODEL = 'Overall_results_per_model_new.csv'
 
@@ -193,10 +163,10 @@ for feature_set in feature_sets:
 
                     ## Individual box plots for code and code+warning metrics ##
                     ############################################################
-                    plt.figure(figsize=(10, 6))
+                    plt.figure(figsize=(15, 8))
                     
                     plt.boxplot([filtered_df_c[c_metric], filtered_df_cw[cw_metric]], labels=[c_metric, cw_metric])
-                    plt.title(feature_set + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + " | #data points " + c_metric + ":" + str(number_of_best_hyperparameters_code) + " | #data points " + cw_metric + str(number_of_best_hyperparameters_code_code_warning) + "\n" + 
+                    plt.title(feature_set + " | " + warning_feature + " | " + target + " | SMOTE? "  + str(smote_value) + '\n' + " | #data points " + c_metric + ":" + str(number_of_best_hyperparameters_code) + " | #data points " + cw_metric + ":" + str(number_of_best_hyperparameters_code_code_warning) + "\n" + 
                             "Wilcoxon p-value: " + str(wilcoxon_p) + " | Cliff's delta: " + str(delta_cliffs) + "\n" +  
                             " | Cliff's result: " + str(res_cliffs) + "|" + "num of pairs: " + str(x.shape[0]))
                     plt.ylabel(metric + " Improvement")
@@ -207,18 +177,43 @@ for feature_set in feature_sets:
                     plt.legend(handles=legend_elements, loc='upper right')
 
                     ## create final-boxplots folder if it doesn't exist in results directory
-                    if not os.path.exists(ROOT_PATH + 'Results/new/smote-all-results/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                        os.makedirs(ROOT_PATH + 'Results/new/smote-all-results/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
-                    plt.savefig(ROOT_PATH + 'Results/new/smote-all-results/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/' + metric + '-improvement.png')
+                    if not os.path.exists(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                    plt.savefig(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/' + metric + '-improvement.png')
                     plt.clf()
                     plt.close()
 
+                    ## Individual raincloud plots for code and code+warning metrics ##
+                    ##################################################################
+                    plt.figure(figsize=(15, 8))
+                    ## reshape the data frame to plot raincloud plot
+                    dff=pd.melt(filtered_df, value_vars=[c_metric, cw_metric], var_name='metric', value_name='score')
+                    pt.RainCloud(data=dff, x = "metric", y = "score", jitter=0, palette=["blue", "orange"],
+                                    box_showmeans=True, box_meanprops=dict(marker='o', markerfacecolor='red', markersize=10),
+                                    box_medianprops = dict(color = "red", linewidth = 1.5))
+                    plt.title(feature_set + " | " + warning_feature + " | " + target + " | SMOTE? "  + str(smote_value) + '\n' + " | #data points " + c_metric + ":" + str(number_of_best_hyperparameters_code) + " | #data points " + cw_metric + ":" + str(number_of_best_hyperparameters_code_code_warning) + "\n" +
+                            "Wilcoxon p-value: " + str(wilcoxon_p) + " | Cliff's delta: " + str(delta_cliffs) + "\n" +  
+                            " | Cliff's result: " + str(res_cliffs) + "|" + "num of pairs: " + str(x.shape[0]))
+                    plt.ylabel(metric + " Improvement")
+                    plt.grid(True)
+                    legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
+                    plt.legend(handles=legend_elements, loc='upper right')
+
+                    ## create final-boxplots folder if it doesn't exist in results directory
+                    if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+
+                    plt.savefig(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '-improvement.png')
+                    plt.clf()
+                    plt.close()
+
+
                     ## Box plot for diff_{metric} ##
                     ################################
-                    plt.figure(figsize=(10, 6))
+                    plt.figure(figsize=(15, 8))
 
                     plt.boxplot([filtered_df_diff[diff_metric]], labels=[diff_metric])
-                    plt.title(feature_set + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + " | #data points "+ diff_metric + ":" + str(number_of_data_points_in_both_c_cw_non_nan))
+                    plt.title(feature_set + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + '\n' + " | #data points "+ diff_metric + ":" + str(number_of_data_points_in_both_c_cw_non_nan))
                     plt.ylabel("Diff " + diff_metric + " Improvement")
                     plt.grid(True)
                     plt.scatter(1, filtered_df_diff[diff_metric].mean(), marker='o', color='red', s=10)
@@ -226,11 +221,38 @@ for feature_set in feature_sets:
                     plt.legend(handles=legend_elements, loc='upper right')
 
                     ## create final-boxplots folder if it doesn't exist in results directory
-                    if not os.path.exists(ROOT_PATH + 'Results/new/smote-all-results/across-model-result-distribution/' + metric + "-" +  feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                        os.makedirs(ROOT_PATH + 'Results/new/smote-all-results/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
-                    plt.savefig(ROOT_PATH + 'Results/new/smote-all-results/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/diff-f1_weighted-improvement.png')
+                    if not os.path.exists(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" +  feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                    plt.savefig(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/diff-f1_weighted-improvement.png')
                     plt.clf()
-                    plt.close()   
+                    plt.close()
+
+                    ## raincloud plots for diff_{metric} ##
+                    ####################################### 
+                    plt.figure(figsize=(15, 8))
+
+                    ## reshape the data frame to plot raincloud plot
+                    dff=pd.melt(filtered_df, value_vars=[diff_metric], var_name='metric', value_name='score')
+
+                    pt.RainCloud(data=dff, x = "metric", y = "score", jitter=0, palette=["blue"],
+                                    box_showmeans=True, box_meanprops=dict(marker='o', markerfacecolor='red', markersize=10),
+                                    box_medianprops = dict(color = "red", linewidth = 1.5))
+
+                    plt.title(feature_set + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + '\n' + " | #data points "+ diff_metric + ":" + str(number_of_data_points_in_both_c_cw_non_nan))
+                    plt.ylabel("Diff " + diff_metric + " Improvement")
+                    plt.grid(True)
+                    legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
+                    plt.legend(handles=legend_elements, loc='upper right')
+
+                    ## create final-boxplots folder if it doesn't exist in results directory
+                    if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+       
+                    plt.savefig(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
+                    plt.clf()
+                    plt.close()
+
+                      
 
                     ## Result write to csv file ##
                     overall_result_header_across_models['warning_feature'] = warning_feature
@@ -323,32 +345,59 @@ for feature_set in feature_sets:
 
                         ## Individual box plots for code and code+warning metrics ##
                         ############################################################
-                        plt.figure(figsize=(10, 6))
+                        plt.figure(figsize=(15, 8))
                         plt.boxplot([filtered_df_c[c_metric], filtered_df_cw[cw_metric]], labels=[c_metric, cw_metric])
-                        plt.title(feature_set + " | " + model + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + " | #data points " + c_metric + ": " + str(number_of_best_hyperparameters_code) + " | #data points " + cw_metric + " : " + str(number_of_best_hyperparameters_code_code_warning) + "\n"
+                        plt.title(feature_set + " | " + model + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + '\n' + " | #data points " + c_metric + ": " + str(number_of_best_hyperparameters_code) + " | #data points " + cw_metric + " : " + str(number_of_best_hyperparameters_code_code_warning) + "\n"
                                   + "Wilcoxon p-value: " + str(wilcoxon_p) + " | Cliff's delta: " + str(delta_cliffs) + '\n' + "|" + "Clinff's result: " + str(res_cliffs) + "|" +
                                   "num of pairs: " + str(x.shape[0]))
                         plt.ylabel(metric +" Improvement")
                         plt.grid(True)
-                        plt.scatter(1, metric_c_mean, marker='o', color='red', s=10)
-                        plt.scatter(2, metric_cw_mean, marker='o', color='red', s=10)
+                        plt.scatter(1, metric_c_mean, marker='o', color='red', s=100)
+                        plt.scatter(2, metric_cw_mean, marker='o', color='red', s=100)
                         legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
                         plt.legend(handles=legend_elements, loc='upper right')
 
                         ## create final-boxplots folder if it doesn't exist in results directory
-                        if not os.path.exists(ROOT_PATH + 'Results/new/smote-all-results/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                            os.makedirs(ROOT_PATH + 'Results/new/smote-all-results/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                        if not os.path.exists(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
 
-                        plt.savefig(ROOT_PATH + 'Results/new/smote-all-results/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '.png')
+                        plt.savefig(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '.png')
                         plt.clf()
                         plt.close()
 
 
+                        
+                        ## Individual raincloud plots for code and code+warning metrics ##
+                        ##################################################################
+                        plt.figure(figsize=(15, 8))
+
+                        ## reshape the data frame to plot raincloud plot
+                        dff=pd.melt(filtered_df, value_vars=[c_metric, cw_metric], var_name='metric', value_name='score')
+                        
+                        pt.RainCloud(data=dff, x = "metric", y = "score", jitter=0, palette=["blue", "orange"], 
+                                     box_showmeans=True, box_meanprops=dict(marker='o', markerfacecolor='red', markersize=10),
+                                     box_medianprops = dict(color = "red", linewidth = 1.5))
+                        
+                        plt.title(feature_set + " | " + model + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + " | #data points " + c_metric + ": " + str(number_of_best_hyperparameters_code) + " | #data points " + cw_metric + " : " + str(number_of_best_hyperparameters_code_code_warning) + "\n"
+                                + "Wilcoxon p-value: " + str(wilcoxon_p) + " | Cliff's delta: " + str(delta_cliffs) + '\n' + "|" + "Clinff's result: " + str(res_cliffs) + "|" +
+                                "num of pairs: " + str(x.shape[0]))
+                        plt.ylabel(metric +" Improvement")
+                        plt.grid(True)
+                        legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
+                        plt.legend(handles=legend_elements, loc='upper right')
+                        
+                        if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))    
+
+                        plt.savefig(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '.png')
+                        plt.clf()
+                        plt.close()
+
                         ## Box plot for diff_{metric} ##
                         ################################
-                        plt.figure(figsize=(10, 6))
+                        plt.figure(figsize=(15, 8))
                         plt.boxplot([filtered_df_diff[diff_metric]], labels=[diff_metric])
-                        plt.title(feature_set + " | " + model + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + " | #data points " + diff_metric + ": " + str(number_of_data_points_in_both_c_cw_non_nan) + "\n"
+                        plt.title(feature_set + " | " + model + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + '\n' +" | #data points " + diff_metric + ": " + str(number_of_data_points_in_both_c_cw_non_nan) + "\n"
                                   + "Wilcoxon p-value: " + str(wilcoxon_p) + " | Cliff's delta: " + str(delta_cliffs) + "|" +
                                     "num of pairs: " + str(x.shape[0]))
                         plt.ylabel(diff_metric + " Improvement")
@@ -358,12 +407,40 @@ for feature_set in feature_sets:
                         plt.legend(handles=legend_elements, loc='upper right')
 
                         ## create final-boxplots folder if it doesn't exist in results directory
-                        if not os.path.exists(ROOT_PATH + 'Results/new/smote-all-results/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" +target + "-" + str(smote_value)):
-                            os.makedirs(ROOT_PATH + 'Results/new/smote-all-results/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                        if not os.path.exists(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" +target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
 
-                        plt.savefig(ROOT_PATH + 'Results/new/smote-all-results/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
+                        plt.savefig(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
                         plt.clf()
                         plt.close() 
+
+                        ## raincloud plots for diff_{metric} ##
+                        #######################################
+                        plt.figure(figsize=(15, 8))
+
+                        ## reshape the data frame to plot raincloud plot
+                        dff=pd.melt(filtered_df, value_vars=[diff_metric], var_name='metric', value_name='score')
+
+                        pt.RainCloud(data=dff, x = "metric", y = "score", jitter=0, palette=["blue"], 
+                                     box_showmeans=True, box_meanprops=dict(marker='o', markerfacecolor='red', markersize=10),
+                                     box_medianprops = dict(color = "red", linewidth = 1.5))
+                        
+                        plt.title(feature_set + " | " + model + " | " + warning_feature + " | " + target + " | SMOTE? " +  str(smote_value) + '\n' +" | #data points " + diff_metric + ": " + str(number_of_data_points_in_both_c_cw_non_nan) + "\n"
+                                    + "Wilcoxon p-value: " + str(wilcoxon_p) + " | Cliff's delta: " + str(delta_cliffs) + "|" +
+                                    "num of pairs: " + str(x.shape[0]))
+                        plt.ylabel(diff_metric + " Improvement")
+                        plt.grid(True)
+                        legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
+                        plt.legend(handles=legend_elements, loc='upper right')
+
+                        ## create final-boxplots folder if it doesn't exist in results directory
+                        if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+
+                        plt.savefig(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
+                        plt.clf()
+                        plt.close()
+
 
                         ## Result write to csv file ##
                         overall_result_header_model_wise['warning_feature'] = warning_feature
