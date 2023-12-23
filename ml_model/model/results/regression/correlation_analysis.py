@@ -70,7 +70,7 @@ all_sets = {
 }
 
 ## write csv header
-with open(ROOT_PATH + "feature_selection/Results/correlation_analysis.csv", "w+") as csv_file:
+with open(ROOT_PATH + "Results/regression/correlation_analysis.csv", "w+") as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
     writer.writerow(csv_header)
 
@@ -86,6 +86,6 @@ for target in regression_targets:
         ## compute correlation coefficient 
         for feature in all_sets[feature_set][target]:
             tau, p_value = kendalltau(df[feature], df[target], nan_policy='omit')
-            with open(ROOT_PATH + "feature_selection/regression/correlation_analysis.csv", "a") as csv_file:
+            with open(ROOT_PATH + "Results/regression/correlation_analysis.csv", "a") as csv_file:
                 writer = csv.writer(csv_file, delimiter=',')
                 writer.writerow([feature_set, feature, target, tau, p_value])  
