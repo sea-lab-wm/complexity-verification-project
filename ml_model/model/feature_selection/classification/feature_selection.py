@@ -11,16 +11,20 @@ This feature selection based on the paper https://ieeexplore.ieee.org/document/8
 import pandas as pd
 import csv
 import json
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from mlxtend.feature_selection import SequentialFeatureSelector as SFS
 
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import make_scorer, f1_score
+
 from scipy.stats import kendalltau
 from sklearn.model_selection import GridSearchCV, StratifiedKFold, train_test_split
 
-ROOT_PATH = '/home/nadeeshan/ML-Experiments/model/'
+ROOT_PATH = '/verification_project/'
 df = pd.read_csv(ROOT_PATH + 'data/understandability_with_warnings.csv')
 
 ## all code features 
@@ -155,15 +159,10 @@ dev_features = ["developer_position", "PE gen", "PE spec (java)"]
 ## final_features2_bfs.txt
 
 ## Feeature set 3 Consider only code features. Standard Features from the paper in the replication package.
-## remove below features because they are not code features.
-## PBU - PE spec (java), MIDQ (max), CICsyn (max), 
-## ABU50 - PE spec (java)
-## BD50 - PE spec (java), PE gen, CR
-
 ## Features:
-## PBU - "NMI (avg)", "TC (avg)", "TC (max)", "Line length (max)", "LOC", "Line length (dft)", "Strings (area)"
-## ABU50 - "NMI (avg)", "TC (avg)", "#conditionals (avg)", "#periods (avg)", "Identifiers length (max)", "#comparisons (dft)", "Indentation length (dft)","Literals (Visual X)", "#parameters"
-## BD50 - "Cyclomatic complexity", "#assignments (avg)", "#words (max)", "#conditionals (dft)", "Numbers (Visual X)", "Literals (Visual Y)" , "#nested blocks (avg)"
+## PBU - "NMI (avg)", "TC (avg)", "TC (max)", "Line length (max)", "LOC", "Line length (dft)", "Strings (area)", "PE spec (java)", "MIDQ (max)", "CICsyn (max)
+## ABU50 - "NMI (avg)", "TC (avg)", "#conditionals (avg)", "#periods (avg)", "Identifiers length (max)", "#comparisons (dft)", "Indentation length (dft)","Literals (Visual X)", "#parameters", "PE spec (java)"
+## BD50 - "Cyclomatic complexity", "#assignments (avg)", "#words (max)", "#conditionals (dft)", "Numbers (Visual X)", "Literals (Visual Y)" , "#nested blocks (avg)", "PE spec (java)" , "PE gen", "CR"
 
 
 ## Feature set 4 consider all code features. Remove below features because they have the highest number of missing values.
@@ -177,7 +176,7 @@ y = df[categorical_target]
 
 stat_header = {'feature1':'', 'feature2': '', 'tau': 0, 'p-value':0, 'missing values in feature1':0, 'missing values in feature2':0, 'feature to remove':''}
 
-RANDOM_SEED = 1699304546
+RANDOM_SEED=1699304546
 
 ######################################
 ## Feature selection ##
@@ -185,7 +184,7 @@ RANDOM_SEED = 1699304546
 
 def kendals_feature_selection(features, featureToRemove, output_file):
     ## write header
-    with open(ROOT_PATH + 'feature_selection/rf-test2/' + output_file, "w") as csv_file:
+    with open(ROOT_PATH + 'feature_selection/classification/' + output_file, "w") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
         writer.writeheader()
 
@@ -205,9 +204,42 @@ def kendals_feature_selection(features, featureToRemove, output_file):
                 else:
                     feature_to_remove = feature1 if featureToRemove == "feature1" else feature2
                 # write to csv
-                with open(ROOT_PATH + 'feature_selection/rf-test2/' + output_file, "a") as csv_file:
+                with open(ROOT_PATH + 'feature_selection/classification/' + output_file, "a") as csv_file:
                     writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
                     writer.writerow({'feature1':feature1, 'feature2': feature2, 'tau': tau, 'p-value': p, 'missing values in feature1':feature1_missing, 'missing values in feature2':feature2_missing, 'feature to remove': feature_to_remove})
+
+def custom_f1_weighted(y_true, y_pred):
+    '''
+    Custom F1 weighted score for binary classification.
+    Consider both the classes when calculating the F1 score.
+    '''
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+
+    ## num of positive instances
+    num_pos = tp + fn
+    ## num of negative instances
+    num_neg = tn + fp
+
+    ## F1 for Positive class
+    precision_p = tp/(tp+fp) if not (tp == 0 and fp == 0)  else 0
+    recall_p = tp/(tp+fn) if not (tp == 0 and fn == 0) else 0
+    if precision_p == 0 and recall_p == 0:
+        f1_p = 0
+    else:
+        f1_p = 2 * (precision_p * recall_p) / (precision_p + recall_p) 
+
+    ## F1 for Negative class
+    precision_n = tn/(tn+fn) if not (tn == 0 and fn == 0) else 0
+    recall_n = tn/(tn+fp) if not (tn == 0 and fp == 0) else 0
+    if precision_n == 0 and recall_n == 0:
+        f1_n = 0
+    else:
+        f1_n = 2 * (precision_n * recall_n) / (precision_n + recall_n)
+
+    ## F1 weighted score
+    f1_weighted = (num_pos * f1_p + num_neg * f1_n)/(num_pos + num_neg)
+
+    return f1_weighted
 
 
 def linear_floating_forward_feature_selection(df_features_X, df_target_y, kFold):
@@ -242,20 +274,24 @@ def linear_floating_forward_feature_selection(df_features_X, df_target_y, kFold)
         df_features_X, df_target_y, test_size=0.2, random_state=RANDOM_SEED)
     
     param_grid = {
-                "n_estimators": [5, 10, 50],
-                "max_features": ["sqrt", "log2", 0.5, max_k],
-                "max_depth": [2, 5, 10, 20],
-                "bootstrap": [True, False],
-                "min_samples_split": [2, 5, 10],
-                "min_samples_leaf": [1, 2, 4],
-                "random_state": [RANDOM_SEED]
+                "classifier__n_estimators": [50, 100],
+                "classifier__max_depth": [2, 5, 10, 20],
+                "classifier__bootstrap": [True, False],
+                "classifier__min_samples_split": [2, 5, 10],
+                "classifier__min_samples_leaf": [1, 2, 4],
+                "classifier__random_state": [RANDOM_SEED]
             }
     rf = RandomForestClassifier()
-    grid = GridSearchCV(estimator=rf, param_grid=param_grid, cv=kFold, scoring='f1_macro', n_jobs=-1)
-    grid.fit(X_train, y_train.to_numpy().ravel())
-    lr = grid.best_estimator_
+    pipeline = Pipeline(steps=[('classifier', rf)])
 
-    sffs = SFS(estimator=lr, forward=False, floating=True, scoring='f1_macro', cv=kFold, n_jobs=-1, k_features=(1, max_k))
+    ## make F1 weighted scorer
+    custom_f1_weighted_scorer = make_scorer(custom_f1_weighted, greater_is_better=True)
+
+    grid = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=kFold, scoring=custom_f1_weighted_scorer, n_jobs=-1)
+    grid.fit(X_train, y_train.to_numpy().ravel())
+    rf = grid.best_estimator_
+
+    sffs = SFS(estimator=rf, forward=False, floating=True, scoring=custom_f1_weighted_scorer, cv=kFold, n_jobs=-1, k_features=(1, max_k))
     sffs = sffs.fit(X_train, y_train.to_numpy().ravel())
         
     return list(sffs.k_feature_names_)
@@ -273,20 +309,25 @@ def linear_floating_backward_feature_selection(df_features_X, df_target_y, kFold
         df_features_X, df_target_y, test_size=0.2, random_state=RANDOM_SEED)
     
     param_grid = {
-            "n_estimators": [5, 10, 50],
-            "max_features": ["sqrt", "log2", 0.5, max_k],
-            "max_depth": [2, 5, 10, 20],
-            "bootstrap": [True, False],
-            "min_samples_split": [2, 5, 10],
-            "min_samples_leaf": [1, 2, 4],
-            "random_state": [RANDOM_SEED]
+            "classifier__n_estimators": [50, 100],
+            "classifier__max_depth": [2, 5, 10, 20],
+            "classifier__bootstrap": [True, False],
+            "classifier__min_samples_split": [2, 5, 10],
+            "classifier__min_samples_leaf": [1, 2, 4],
+            "classifier__random_state": [RANDOM_SEED]
         }
+    
+    ## make F1 weighted scorer
+    ## This is requried because the data is imbalanced
+    custom_f1_weighted_scorer = make_scorer(custom_f1_weighted, greater_is_better=True)
+ 
     rf = RandomForestClassifier()
-    grid = GridSearchCV(estimator=rf, param_grid=param_grid, cv=kFold, scoring='f1', n_jobs=-1)
+    pipeline = Pipeline(steps=[('classifier', rf)])
+    grid = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=kFold, scoring=custom_f1_weighted_scorer, n_jobs=-1)
     grid.fit(X_train, y_train.to_numpy().ravel())
-    lr = grid.best_estimator_
+    rf = grid.best_estimator_
 
-    sffs = SFS(estimator=lr, forward=False, floating=True, scoring='f1', cv=kFold, n_jobs=-1, k_features=(1, max_k))
+    sffs = SFS(estimator=rf, forward=False, floating=True, scoring=custom_f1_weighted_scorer, cv=kFold, n_jobs=-1, k_features=(1, max_k))
     sffs = sffs.fit(X_train, y_train.to_numpy().ravel())
     
     return list(sffs.k_feature_names_)
@@ -307,7 +348,7 @@ kendals_feature_selection(features, "feature2", "kendall_highly_correlated_featu
 ## Remove Keywords/Comments (area) because it has the highest number of missing values
 ## and create the final feature set
 def remove_specific_feature(input_feature_file):
-    df_remove_fea = pd.read_csv(ROOT_PATH + 'feature_selection/' + input_feature_file)
+    df_remove_fea = pd.read_csv(ROOT_PATH + 'feature_selection/classification/' + input_feature_file)
     df_remove_fea = df_remove_fea['feature to remove']
     features_to_remove = list(set(df_remove_fea.to_list())) 
     features_to_remove.append('Keywords/comments (area)') ## append the specific feature to remove
@@ -317,13 +358,13 @@ def remove_specific_feature(input_feature_file):
 
 features_part1 = remove_specific_feature('kendall_highly_correlated_features_part1.csv')
 # write the final_list_of_features after removing redeundent and specific features.
-# with open(ROOT_PATH + 'feature_selection/rf-test2/unique_feature_set1.txt', 'w+') as f:
-#     for feature in features_part1:
-#         f.write("%s\n" % feature) 
+with open(ROOT_PATH + 'feature_selection/classification/unique_feature_set1.txt', 'w+') as f:
+    for feature in features_part1:
+        f.write("%s\n" % feature) 
 features_part2 = remove_specific_feature('kendall_highly_correlated_features_part2.csv')
-# with open(ROOT_PATH + 'feature_selection/rf-test2/unique_feature_set2.txt', 'w+') as f:
-#     for feature in features_part2:
-#         f.write("%s\n" % feature) 
+with open(ROOT_PATH + 'feature_selection/classification/unique_feature_set2.txt', 'w+') as f:
+    for feature in features_part2:
+        f.write("%s\n" % feature) 
 
 ## STEP 3 ##
 ## Perform linear floating forward feature selection
@@ -335,40 +376,128 @@ features_part2 = remove_specific_feature('kendall_highly_correlated_features_par
 Folds = 5
 
 kFold = StratifiedKFold(n_splits=Folds, shuffle=True, random_state=RANDOM_SEED)
-with open(ROOT_PATH + 'feature_selection/rf-test2/final_features1_bfs.txt','w+') as file1:
+with open(ROOT_PATH + 'feature_selection/classification/final_features1_bfs.txt','w+') as file1:
     file1.write('')
-with open(ROOT_PATH + 'feature_selection/rf-test2/final_features2_bfs.txt','w+') as file2:
+with open(ROOT_PATH + 'feature_selection/classification/final_features2_bfs.txt','w+') as file2:
     file2.write('')
-with open(ROOT_PATH + 'feature_selection/rf-test2/final_features1_lfs.txt','w+') as file1:
+with open(ROOT_PATH + 'feature_selection/classification/final_features1_lfs.txt','w+') as file1:
     file1.write('')
-with open(ROOT_PATH + 'feature_selection/rf-test2/final_features2_lfs.txt','w+') as file2:
+with open(ROOT_PATH + 'feature_selection/classification/final_features2_lfs.txt','w+') as file2:
     file2.write('')    
 
 for target in categorical_target:
 
     df = pd.read_csv(ROOT_PATH + 'data/understandability_with_warnings_' + target + '.csv')
+    
     X = df[features]
     y = df[categorical_target]
 
     final_features1 = linear_floating_forward_feature_selection(X[features_part1], y[target], kFold)
     final_features2 = linear_floating_forward_feature_selection(X[features_part2], y[target], kFold)
     # write to text file
-    with open(ROOT_PATH + 'feature_selection/rf-test2/final_features1_lfs.txt','a') as file1:
+    with open(ROOT_PATH + 'feature_selection/classification/final_features1_lfs.txt','a') as file1:
         ## add dev_features to final_features1 
         final_features1.extend(dev_features)
         file1.write(target + json.dumps(final_features1) + '\n')
-    with open(ROOT_PATH + 'feature_selection/rf-test2/final_features2_lfs.txt','a') as file2:
+    with open(ROOT_PATH + 'feature_selection/classification/final_features2_lfs.txt','a') as file2:
         ## add dev_features to final_features2
         final_features2.extend(dev_features)
         file2.write(target + json.dumps(final_features2) + '\n') 
 
     final_features1 = linear_floating_backward_feature_selection(X[features_part1], y[target], kFold) 
     final_features2 = linear_floating_backward_feature_selection(X[features_part2], y[target], kFold) 
-    with open(ROOT_PATH + 'feature_selection/rf-test2/final_features1_bfs.txt','a') as file3:
+    with open(ROOT_PATH + 'feature_selection/classification/final_features1_bfs.txt','a') as file3:
         ## add dev_features to final_features1 
         final_features1.extend(dev_features)
         file3.write(target + json.dumps(final_features1) + '\n')
-    with open(ROOT_PATH + 'feature_selection/rf-test2/final_features2_bfs.txt','a') as file4:
+    with open(ROOT_PATH + 'feature_selection/classification/final_features2_bfs.txt','a') as file4:
         ## add dev_features to final_features2
         final_features2.extend(dev_features)
-        file4.write(target + json.dumps(final_features2) + '\n')
+        file4.write(target + json.dumps(final_features2) + '\n')      
+
+## Kendals Tau
+# for feature in categorical_features:
+#     for target in categorical_target:
+#         tau,p = kendalltau(X[feature], y[target])
+#         # write to csv
+#         with open('ml_model/src/main/model/feature_selection/kendall_features.csv', "a") as csv_file:
+#             writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#             writer.writerow({'input feature':feature, 'output_feature': target, 'tau': tau, 'p-value':p})
+## interprere the results
+# if p-value < 0.05, then the correlation is statistically significant. means that there is a relationship between the two variables.
+# filter based on above criteria and sort tau in descending order. now we have the most important features to predict the target variable.
+
+# stat_header = {'input feature':'', 'output_feature': ''}
+# ## write header
+# with open('ml_model/src/main/model/feature_selection/anova_features.csv', "w") as csv_file:
+#     writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#     writer.writeheader()
+# ## ANOVA f-test
+# for target in categorical_target:
+#     selector = SelectKBest(k=10, score_func=f_classif)
+#     selector.fit_transform(X, y[target])
+#     mask = selector.get_support()
+#     new_features = [] # The list of your K best features
+#     feature_names = list(X.columns.values)
+#     for bool_val, feature in zip(mask, feature_names):
+#         if bool_val:
+#             new_features.append(feature)
+#     # write to csv
+#     with open('ml_model/src/main/model/feature_selection/anova_features.csv', "a") as csv_file:
+#         writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#         writer.writerow({'input feature':new_features, 'output_feature': target})  
+
+# stat_header = {'input feature':'', 'output_feature': ''}
+# ## write header
+# with open('ml_model/src/main/model/feature_selection/mutual_infor_features.csv', "w") as csv_file:
+#     writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#     writer.writeheader()
+# ## Mutual information classification    
+# for target in categorical_target:
+#     feature_scores = mutual_info_classif(X, y[target], discrete_features='auto', n_neighbors=3, copy=True, random_state=None)   
+#     threshold = 10
+#     high_score_features = []
+#     for score, f_name in sorted(zip(feature_scores, X.columns), reverse=True)[:threshold]:
+#         high_score_features.append(f_name)
+#     # write to csv
+#     with open('ml_model/src/main/model/feature_selection/mutual_infor_features.csv', "a") as csv_file:
+#         writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#         writer.writerow({'input feature':high_score_features, 'output_feature': target})        
+
+## SelectFromModel
+# stat_header = {'input feature':'', 'output_feature': ''}
+# ## write header
+# with open('ml_model/src/main/model/feature_selection/sfm_features.csv', "w") as csv_file:
+#     writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#     writer.writeheader()
+# for target in categorical_target:
+#     model_lr = LogisticRegression(C=0.01, random_state=0)
+#     model_lr.fit(X, y[target])
+#     selector = SelectFromModel(model_lr, threshold='2*median', prefit=True)
+#     mask = selector.get_support()
+#     sfm = X.iloc[:, mask]
+#     #write to csv
+#     with open('ml_model/src/main/model/feature_selection/sfm_features.csv', "a") as csv_file:
+#         writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#         writer.writerow({'input feature':sfm.columns.values, 'output_feature': target})
+
+
+## Wrapper feature selection ##
+# Recursive feature elimination
+# stat_header = {'input feature':'', 'output_feature': ''}
+# ## write header
+# with open('ml_model/src/main/model/feature_selection/rfe_features.csv', "w") as csv_file:
+#     writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#     writer.writeheader()
+# for target in categorical_target:
+#     threshold = 7 # the number of most relevant features to select
+#     estimator = RandomForestClassifier(n_estimators=50, max_depth=2, random_state=0)
+#     selector = RFE(estimator, n_features_to_select=threshold, step=1)
+#     selector = selector.fit(X, y[target])
+#     mask = selector.get_support()
+#     rfe = X.iloc[:, mask]
+#     #write to csv
+#     with open('ml_model/src/main/model/feature_selection/rfe_features.csv', "a") as csv_file:
+#         writer = csv.DictWriter(csv_file, fieldnames=stat_header.keys())
+#         writer.writerow({'input feature':rfe.columns.values, 'output_feature': target})
+

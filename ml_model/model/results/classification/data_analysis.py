@@ -9,12 +9,18 @@ import ptitprince as pt
 from scipy.stats import wilcoxon
 from cliffs_delta import cliffs_delta
 
-ROOT_PATH = "/home/nadeeshan/ML-Experiments/model/"
+# import debugpy
+# debugpy.listen(("localhost", 5678))
 
+# print("Waiting for client to attach...")
+# debugpy.wait_for_client()
+
+# ROOT_PATH = "/home/nadeeshan/ML-Experiments/model/"
+ROOT_PATH = "/verification_project/"
 
 feature_sets = ["set1", "set2", "set3", "set4"]
 warning_features = ["warnings_checker_framework", "warnings_infer", "warnings_openjml", "warnings_typestate_checker", "warning_sum"]
-targets = ["PBU", "ABU50", "BD50"]
+targets = ["PBU", "BD50", "ABU50"]
 smote = [True, False]
 models = ["svc", "knn_classifier", "logisticregression", "mlp_classifier", "bayes_network", "randomForest_classifier"]
         
@@ -66,20 +72,20 @@ overall_result_header_model_wise = {
         'num_of_pairs':''
         }
 
-INPUT_FILE_NAME='Final_raw_updated_f1.csv'
+INPUT_FILE_NAME='Final_classification.csv'
 OUTPUT_FILE_ACROSS_MODELS='Overall_results_across_model.csv'
-OUTPUT_FILE_PER_MODEL = 'Overall_results_per_model_new.csv'
+OUTPUT_FILE_PER_MODEL = 'Overall_results_per_model.csv'
 
 # write header
-with open(ROOT_PATH + 'Results/new/' + OUTPUT_FILE_ACROSS_MODELS, "w+") as csv_file:
+with open(ROOT_PATH + 'Results/classification/' + OUTPUT_FILE_ACROSS_MODELS, "w+") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=overall_result_header_across_models.keys())
     writer.writeheader()
 
-with open(ROOT_PATH + 'Results/new/' + OUTPUT_FILE_PER_MODEL, "w+") as csv_file:
+with open(ROOT_PATH + 'Results/classification/' + OUTPUT_FILE_PER_MODEL, "w+") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=overall_result_header_model_wise.keys())
     writer.writeheader()    
     
-df = pd.read_csv(ROOT_PATH + 'Results/'+ INPUT_FILE_NAME)
+df = pd.read_csv(ROOT_PATH + 'Results/classification/'+ INPUT_FILE_NAME)
 
 
 for feature_set in feature_sets:
@@ -133,8 +139,9 @@ for feature_set in feature_sets:
 
                     ## 1. WILCOXON TEST ##
                     ## x=code and y=code+warnings
-                    ## H0: x >= y the performance (based on a metric) of the model using code 
-                    #  features is greater than the performance when using code+warnings
+                    ## H0: x - y is symmetric about zero. Means both x, y comes from the same distribution.
+                    ## In other words performance (based on a metric) of the model using code 
+                    ## features is greater than the performance when using code+warnings
                     ## if p-value <= 0.05, we reject the H0 this is doing alternative='less'
                     ## Note: to handle ties (x=y), we use the zsplit method
                     _, wilcoxon_p = wilcoxon(x, y, alternative='less', zero_method='zsplit', nan_policy='omit')
@@ -177,9 +184,9 @@ for feature_set in feature_sets:
                     plt.legend(handles=legend_elements, loc='upper right')
 
                     ## create final-boxplots folder if it doesn't exist in results directory
-                    if not os.path.exists(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                        os.makedirs(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
-                    plt.savefig(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/' + metric + '-improvement.png')
+                    if not os.path.exists(ROOT_PATH + 'Results/classification/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/classification/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                    plt.savefig(ROOT_PATH + 'Results/classification/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/' + metric + '-improvement.png')
                     plt.clf()
                     plt.close()
 
@@ -200,10 +207,10 @@ for feature_set in feature_sets:
                     plt.legend(handles=legend_elements, loc='upper right')
 
                     ## create final-boxplots folder if it doesn't exist in results directory
-                    if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                        os.makedirs(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                    if not os.path.exists(ROOT_PATH + 'Results/classification/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/classification/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
 
-                    plt.savefig(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '-improvement.png')
+                    plt.savefig(ROOT_PATH + 'Results/classification/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '-improvement.png')
                     plt.clf()
                     plt.close()
 
@@ -221,9 +228,9 @@ for feature_set in feature_sets:
                     plt.legend(handles=legend_elements, loc='upper right')
 
                     ## create final-boxplots folder if it doesn't exist in results directory
-                    if not os.path.exists(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" +  feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                        os.makedirs(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
-                    plt.savefig(ROOT_PATH + 'Results/new/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/diff-f1_weighted-improvement.png')
+                    if not os.path.exists(ROOT_PATH + 'Results/classification/across-model-result-distribution/' + metric + "-" +  feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/classification/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                    plt.savefig(ROOT_PATH + 'Results/classification/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) +  '/'+ diff_metric + '-improvement.png')
                     plt.clf()
                     plt.close()
 
@@ -245,10 +252,10 @@ for feature_set in feature_sets:
                     plt.legend(handles=legend_elements, loc='upper right')
 
                     ## create final-boxplots folder if it doesn't exist in results directory
-                    if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                        os.makedirs(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                    if not os.path.exists(ROOT_PATH + 'Results/classification/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                        os.makedirs(ROOT_PATH + 'Results/classification/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value))
        
-                    plt.savefig(ROOT_PATH + 'Results/new/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
+                    plt.savefig(ROOT_PATH + 'Results/classification/raincloud/across-model-result-distribution/' + metric + "-" + feature_set + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
                     plt.clf()
                     plt.close()
 
@@ -272,7 +279,7 @@ for feature_set in feature_sets:
                     overall_result_header_across_models['cliffs_delta_result'] = res_cliffs
                     overall_result_header_across_models['num_of_pairs'] = x.shape[0]
 
-                    with open(ROOT_PATH + 'Results/new/' + OUTPUT_FILE_ACROSS_MODELS, "a") as csv_file:
+                    with open(ROOT_PATH + 'Results/classification/' + OUTPUT_FILE_ACROSS_MODELS, "a") as csv_file:
                         writer = csv.DictWriter(csv_file, fieldnames=overall_result_header_across_models.keys())
                         writer.writerow(overall_result_header_across_models)
 
@@ -318,8 +325,8 @@ for feature_set in feature_sets:
 
                         ## 1. WILCOXON TEST ##
                         ## x=code and y=code+warnings
-                        ## H0: x >= y the performance (based on a metric) of the model using code 
-                        #  features is greater than the performance when using code+warnings
+                        ## H0: x - y is symmetric about zero. Means both x, y comes from the same distribution.
+                        ## In other words performance (based on a metric) of the model using code 
                         ## if p-value <= 0.05, we reject the H0 this is doing alternative='less'
                         ## Note: to handle ties (x=y), we use the zsplit method
                         _, wilcoxon_p = wilcoxon(x, y, alternative='less', zero_method='zsplit', nan_policy='omit')
@@ -358,10 +365,10 @@ for feature_set in feature_sets:
                         plt.legend(handles=legend_elements, loc='upper right')
 
                         ## create final-boxplots folder if it doesn't exist in results directory
-                        if not os.path.exists(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                            os.makedirs(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                        if not os.path.exists(ROOT_PATH + 'Results/classification/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/classification/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
 
-                        plt.savefig(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '.png')
+                        plt.savefig(ROOT_PATH + 'Results/classification/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '.png')
                         plt.clf()
                         plt.close()
 
@@ -386,10 +393,10 @@ for feature_set in feature_sets:
                         legend_elements = [Line2D([0], [0], marker='o', color='w', label='mean', markerfacecolor='r', markersize=10)]
                         plt.legend(handles=legend_elements, loc='upper right')
                         
-                        if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                            os.makedirs(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))    
+                        if not os.path.exists(ROOT_PATH + 'Results/classification/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/classification/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))    
 
-                        plt.savefig(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '.png')
+                        plt.savefig(ROOT_PATH + 'Results/classification/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + metric + '.png')
                         plt.clf()
                         plt.close()
 
@@ -407,10 +414,10 @@ for feature_set in feature_sets:
                         plt.legend(handles=legend_elements, loc='upper right')
 
                         ## create final-boxplots folder if it doesn't exist in results directory
-                        if not os.path.exists(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" +target + "-" + str(smote_value)):
-                            os.makedirs(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                        if not os.path.exists(ROOT_PATH + 'Results/classification/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" +target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/classification/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
 
-                        plt.savefig(ROOT_PATH + 'Results/new/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
+                        plt.savefig(ROOT_PATH + 'Results/classification/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
                         plt.clf()
                         plt.close() 
 
@@ -434,10 +441,10 @@ for feature_set in feature_sets:
                         plt.legend(handles=legend_elements, loc='upper right')
 
                         ## create final-boxplots folder if it doesn't exist in results directory
-                        if not os.path.exists(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
-                            os.makedirs(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
+                        if not os.path.exists(ROOT_PATH + 'Results/classification/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value)):
+                            os.makedirs(ROOT_PATH + 'Results/classification/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value))
 
-                        plt.savefig(ROOT_PATH + 'Results/new/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
+                        plt.savefig(ROOT_PATH + 'Results/classification/raincloud/model-wise-result-distribution/' + feature_set + "-" + model + "-" + warning_feature + "-" + target + "-" + str(smote_value) + '/' + diff_metric + '-improvement.png')
                         plt.clf()
                         plt.close()
 
@@ -461,6 +468,6 @@ for feature_set in feature_sets:
                         overall_result_header_model_wise['cliffs_delta_result'] = res_cliffs
                         overall_result_header_model_wise['num_of_pairs'] = x.shape[0]
 
-                        with open(ROOT_PATH + 'Results/new/' + OUTPUT_FILE_PER_MODEL, "a") as csv_file:
+                        with open(ROOT_PATH + 'Results/classification/' + OUTPUT_FILE_PER_MODEL, "a") as csv_file:
                             writer = csv.DictWriter(csv_file, fieldnames=overall_result_header_model_wise.keys())
                             writer.writerow(overall_result_header_model_wise)   

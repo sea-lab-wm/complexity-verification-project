@@ -17,8 +17,9 @@ from mlxtend.feature_selection import SequentialFeatureSelector as SFS
 
 from scipy.stats import kendalltau
 from sklearn.model_selection import GridSearchCV, KFold, train_test_split
+from sklearn.pipeline import Pipeline
 
-ROOT_PATH = '/home/nadeeshan/ML-Experiments/model/'
+ROOT_PATH = '/verification_project/'
 df = pd.read_csv(ROOT_PATH + 'data/understandability_with_warnings.csv')
 
 ## encode the developer_position
@@ -164,10 +165,10 @@ dev_features = []
 ## final_features2_bfs.txt
 
 ## Feeature set 3 Consider only code features. Standard Features from the paper in the replication package.
-## remove below features because they are not code features.
-## PBU - PE spec (java), MIDQ (max), CICsyn (max), 
-## ABU50 - PE spec (java)
-## BD50 - PE spec (java), PE gen, CR
+## Features:
+## PBU - "NMI (avg)", "TC (avg)", "TC (max)", "Line length (max)", "LOC", "Line length (dft)", "Strings (area)", "PE spec (java)", "MIDQ (max)", "CICsyn (max)
+## ABU50 - "NMI (avg)", "TC (avg)", "#conditionals (avg)", "#periods (avg)", "Identifiers length (max)", "#comparisons (dft)", "Indentation length (dft)","Literals (Visual X)", "#parameters", "PE spec (java)"
+## BD50 - "Cyclomatic complexity", "#assignments (avg)", "#words (max)", "#conditionals (dft)", "Numbers (Visual X)", "Literals (Visual Y)" , "#nested blocks (avg)", "PE spec (java)" , "PE gen", "CR"
 
 ## Features:
 ## PBU - "NMI (avg)", "TC (avg)", "TC (max)", "Line length (max)", "LOC", "Line length (dft)", "Strings (area)"
@@ -250,20 +251,20 @@ def linear_floating_forward_feature_selection(df_features_X, df_target_y, kFold)
         df_features_X, df_target_y, test_size=0.2, random_state=RANDOM_SEED)
     
     param_grid = {
-                "n_estimators": [5, 10, 50],
-                "max_features": ["sqrt", "log2", 0.5, max_k],
-                "max_depth": [2, 5, 10, 20],
-                "bootstrap": [True, False],
-                "min_samples_split": [2, 5, 10],
-                "min_samples_leaf": [1, 2, 4],
-                "random_state": [RANDOM_SEED]
+                "regressor__n_estimators": [50, 100],
+                "regressor__max_depth": [2, 5, 10, 20],
+                "regressor__bootstrap": [True, False],
+                "regressor__min_samples_split": [2, 5, 10],
+                "regressor__min_samples_leaf": [1, 2, 4],
+                "regressor__random_state": [RANDOM_SEED]
             }
     rf = RandomForestRegressor()
-    grid = GridSearchCV(estimator=rf, param_grid=param_grid, cv=kFold, scoring='neg_mean_squared_error', n_jobs=-1)
+    pipeline = Pipeline(steps=[('regressor', rf)])
+    grid = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=kFold, scoring='neg_mean_squared_error', n_jobs=-1)
     grid.fit(X_train, y_train.to_numpy().ravel())
-    lr = grid.best_estimator_
+    rf = grid.best_estimator_
 
-    sffs = SFS(estimator=lr, forward=False, floating=True, scoring='neg_mean_squared_error', cv=kFold, n_jobs=-1, k_features=(1, max_k))
+    sffs = SFS(estimator=rf, forward=False, floating=True, scoring='neg_mean_squared_error', cv=kFold, n_jobs=-1, k_features=(1, max_k))
     sffs = sffs.fit(X_train, y_train.to_numpy().ravel())
         
     return list(sffs.k_feature_names_)
@@ -281,20 +282,21 @@ def linear_floating_backward_feature_selection(df_features_X, df_target_y, kFold
         df_features_X, df_target_y, test_size=0.2, random_state=RANDOM_SEED)
     
     param_grid = {
-            "n_estimators": [5, 10, 50],
-            "max_features": ["sqrt", "log2", 0.5, max_k],
-            "max_depth": [2, 5, 10, 20],
-            "bootstrap": [True, False],
-            "min_samples_split": [2, 5, 10],
-            "min_samples_leaf": [1, 2, 4],
-            "random_state": [RANDOM_SEED]
+            "regressor__n_estimators": [5, 10, 50],
+            "regressor__max_features": ["sqrt", "log2", 0.5, max_k],
+            "regressor__max_depth": [2, 5, 10, 20],
+            "regressor__bootstrap": [True, False],
+            "regressor__min_samples_split": [2, 5, 10],
+            "regressor__min_samples_leaf": [1, 2, 4],
+            "regressor__random_state": [RANDOM_SEED]
         }
     rf = RandomForestRegressor()
-    grid = GridSearchCV(estimator=rf, param_grid=param_grid, cv=kFold, scoring='neg_mean_squared_error', n_jobs=-1)
+    pipeline = Pipeline(steps=[('regressor', rf)])
+    grid = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=kFold, scoring='neg_mean_squared_error', n_jobs=-1)
     grid.fit(X_train, y_train.to_numpy().ravel())
-    lr = grid.best_estimator_
+    rf = grid.best_estimator_
 
-    sffs = SFS(estimator=lr, forward=False, floating=True, scoring='neg_mean_squared_error', cv=kFold, n_jobs=-1, k_features=(1, max_k))
+    sffs = SFS(estimator=rf, forward=False, floating=True, scoring='neg_mean_squared_error', cv=kFold, n_jobs=-1, k_features=(1, max_k))
     sffs = sffs.fit(X_train, y_train.to_numpy().ravel())
     
     return list(sffs.k_feature_names_)
@@ -307,8 +309,8 @@ def linear_floating_backward_feature_selection(df_features_X, df_target_y, kFold
 ## 2. Pick the pairs that show |Tau| >= 0.7 (highly correlated)
 ## 3. Remove one of the features which has the highest number of missing values.
 ## 4. If missing values are equal, remove one of the features randomly.
-# kendals_feature_selection(features, "feature1", "kendall_highly_correlated_features_part1.csv") ## remove the first feature in the pair
-# kendals_feature_selection(features, "feature2", "kendall_highly_correlated_features_part2.csv") ## remove the second feature in the pair
+kendals_feature_selection(features, "feature1", "kendall_highly_correlated_features_part1.csv") ## remove the first feature in the pair
+kendals_feature_selection(features, "feature2", "kendall_highly_correlated_features_part2.csv") ## remove the second feature in the pair
 
 
 ## STEP 2 ##
@@ -356,6 +358,8 @@ for target in regression_target:
 
     df = pd.read_csv(ROOT_PATH + 'data/understandability_with_warnings.csv')
     df = df.dropna(subset=[target])
+    df = df.drop_duplicates()
+    
     X = df[features]
     y = df[regression_target]
     print('Target: ', target)

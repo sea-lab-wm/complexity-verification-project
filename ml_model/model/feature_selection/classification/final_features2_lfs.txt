@@ -1,3 +1,3 @@
-PBU["AEDQ (avg)", "#parameters", "#comparisons (avg)", "NMI (max)", "developer_position", "PE gen", "PE spec (java)"]
-BD50["TC (avg)", "#comparisons (avg)", "#aligned blocks", "developer_position", "PE gen", "PE spec (java)"]
-ABU50["#statements", "AEDQ (max)", "#nested blocks (avg)", "developer_position", "PE gen", "PE spec (java)"]
+PBU["Numbers (Visual X)", "developer_position", "PE gen", "PE spec (java)"]
+BD50["AEDQ (min)", "#comparisons (dft)", "TC (max)", "developer_position", "PE gen", "PE spec (java)"]
+ABU50["AEDQ (min)", "#parenthesis (avg)", "AEDQ (avg)", "#conditionals (dft)", "Cyclomatic complexity", "#conditionals (avg)", "TC (max)", "developer_position", "PE gen", "PE spec (java)"]
