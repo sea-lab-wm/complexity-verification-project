@@ -102,12 +102,12 @@ for feature_set in feature_sets:
                     ## compute the mean of each metric
                     metric_c_mean = filtered_df_c[c_metric].mean()
                     metric_cw_mean = filtered_df_cw[cw_metric].mean()
-                    diff_metric_mean = metric_cw_mean - metric_c_mean
+                    diff_metric_mean = metric_c_mean - metric_cw_mean
 
                     ## compute the median of each metric
                     metric_c_median = filtered_df_c[c_metric].median()
                     metric_cw_median = filtered_df_cw[cw_metric].median()
-                    diff_metric_median = metric_cw_median - metric_c_median
+                    diff_metric_median = metric_c_median - metric_cw_median
 
                     ## since wilcoxon test omits pairs with at least one nan value, we need to drop nan values for both the columns
                     specific_model_data_wilcoxon = filtered_df.dropna(subset=[c_metric, cw_metric])
@@ -287,12 +287,12 @@ for feature_set in feature_sets:
                     ## compute the mean of each metric
                     metric_c_mean = filtered_df_c[c_metric].mean()
                     metric_cw_mean = filtered_df_cw[cw_metric].mean()
-                    diff_metric_mean = metric_cw_mean - metric_c_mean
+                    diff_metric_mean = metric_c_mean - metric_cw_mean
 
                     ## compute the median of each metric
                     metric_c_median = filtered_df_c[c_metric].median()
                     metric_cw_median = filtered_df_cw[cw_metric].median()
-                    diff_metric_median = metric_cw_median - metric_c_median
+                    diff_metric_median = metric_c_median - metric_cw_median
 
                     ## since wilcoxon test omits pairs with at least one nan value, we need to drop nan values for both the columns
                     specific_model_data_wilcoxon = filtered_df.dropna(subset=[c_metric, cw_metric])
