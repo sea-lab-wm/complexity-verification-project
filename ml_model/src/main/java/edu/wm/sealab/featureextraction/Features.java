@@ -15,7 +15,7 @@ public @Data class Features {
   private final int KEYWORD_FEATURE_ID = 1;
   private final int IDENTIFIER_FEATURE_ID = 2;
   private final int PUNCTUATION_FEATURE_ID = 3;
-  private final int EQUAL_FEATURE_ID = 4;
+  private final int EQUALS_FEATURE_ID = 4;
   private final int NUMBER_FEATURE_ID = 5;
   private final int STRING_FEATURE_ID = 6;
   private final int DELIMETER_FEATURE_ID = 7;
@@ -29,6 +29,7 @@ public @Data class Features {
   private SortedMap<String, List<Integer>> endParenthesisMap = new TreeMap<String, List<Integer>>();
   private SortedMap<String, List<Integer>> semicolonMap = new TreeMap<String, List<Integer>>();
   private SortedMap<String, List<Integer>> bracketMap = new TreeMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> equalsMap = new TreeMap<String, List<Integer>>();
 
   private ArrayList<ArrayList<Integer>> visualFeaturesMatrix = new ArrayList<ArrayList<Integer>>();
 
@@ -163,6 +164,7 @@ public @Data class Features {
     addMapToMatrix(endParenthesisMap, PUNCTUATION_FEATURE_ID);
     addMapToMatrix(semicolonMap, PUNCTUATION_FEATURE_ID);
     addMapToMatrix(bracketMap, PUNCTUATION_FEATURE_ID);
+    addMapToMatrix(equalsMap, EQUALS_FEATURE_ID);
   }
 
   private void addMapToMatrix(SortedMap<String, List<Integer>> symbolMap, int featureID) {

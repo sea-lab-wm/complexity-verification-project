@@ -32,6 +32,7 @@ public class SyntacticFeatureExtractor {
     count(snippet, "\\}", features.getBracketMap());
     count(snippet, "\\[", features.getBracketMap());
     count(snippet, "\\]", features.getBracketMap());
+    count(snippet, "=", features.getEqualsMap());
 
 
     features.setCommas(commas);
