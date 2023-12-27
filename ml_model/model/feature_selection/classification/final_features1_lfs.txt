@@ -1,0 +1,3 @@
+PBU["#numbers (dft)", "#identifiers (max)", "TC (avg)", "#parameters", "EAP (min)", "#commas (avg)", "#operators (dft)", "Strings (Visual Y)", "developer_position", "PE gen", "PE spec (java)"]
+BD50["CICsyn (avg)", "Identifiers (area)", "developer_position", "PE gen", "PE spec (java)"]
+ABU50["CR", "EAP (max)", "#parenthesis (avg)", "#conditionals (dft)", "Cyclomatic complexity", "Operators/keywords (area)", "#blank lines (avg)", "MIDQ (min)", "Comments (Visual Y)", "EAP (min)", "#statements", "TC (max)", "Operators (area)", "developer_position", "PE gen", "PE spec (java)"]
