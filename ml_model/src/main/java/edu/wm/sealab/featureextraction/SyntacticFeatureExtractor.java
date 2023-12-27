@@ -1,5 +1,8 @@
 package edu.wm.sealab.featureextraction;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,10 +22,17 @@ public class SyntacticFeatureExtractor {
    */
   public Features extract(String snippet) {
     
-    int commas = count(snippet, ",");
-    int periods = count(snippet, "\\.");
-    int spaces = count(snippet, " ");
-    int parenthesis = count(snippet, "\\(") * 2;
+    int commas = count(snippet, ",", features.getCommaMap());
+    int periods = count(snippet, "\\.", features.getPeriodMap());
+    int spaces = count(snippet, " ", features.getSpacesMap());
+    int parenthesis = count(snippet, "\\(", features.getParenthesisMap()) * 2;
+    count(snippet, "\\)", features.getEndParenthesisMap());
+    count(snippet, ";", features.getSemicolonMap());
+    count(snippet, "\\{", features.getBracketMap());
+    count(snippet, "\\}", features.getBracketMap());
+    count(snippet, "\\[", features.getBracketMap());
+    count(snippet, "\\]", features.getBracketMap());
+
 
     features.setCommas(commas);
     features.setPeriods(periods);
@@ -94,14 +104,39 @@ public class SyntacticFeatureExtractor {
    * @param ch
    * @return the # of occurences
    */
-  private int count(String s, String ch) {
+  private int count(String s, String ch, Map<String, List<Integer>> symbolMap) {
+    //Split snippet up into lines
+    String[] lines = s.split("\n");
+    int res = 0;
+    //count features in each line
+    for (int i = 0; i < lines.length; i++) {
+      res += countLine(lines[i], ch, symbolMap, i+1);
+    }
+    return res;
+  }
+
+  private int countLine(String s, String ch, Map<String, List<Integer>> symbolMap, int lineIndex) {
     // Use Matcher class of java.util.regex
     // to match the character
     Matcher matcher = Pattern.compile(ch).matcher(s);
     int res = 0;
+    //Add symbols to their symbol map for visual features
+    String lineNumber = Integer.toString(lineIndex - 1);
+    while (matcher.find()) { 
+      res++;
+      int symbolIndex = (matcher.end() - 1);
 
-    while (matcher.find()) res++;
-
+      List<Integer> list;
+      if (symbolMap.containsKey(lineNumber)){
+        list = symbolMap.get(lineNumber);
+      }
+      else {
+        list = new ArrayList<>();
+      }
+      list.add(symbolIndex);
+      symbolMap.put(lineNumber,list);
+      
+    }
     return res;
   }
 }

@@ -131,6 +131,9 @@ public class Parser {
                             .orElse("");
                 Features features = sfe.extract(methodBody);
                 
+                //Create visual features matrix
+                features.makeVisualFeaturesMatrix();
+
                 // Locate and extract file data from loc_data.csv
                 int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);

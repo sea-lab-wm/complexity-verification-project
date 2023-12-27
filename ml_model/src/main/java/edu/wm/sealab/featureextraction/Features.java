@@ -1,13 +1,36 @@
 package edu.wm.sealab.featureextraction;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 import lombok.Data;
 
 public @Data class Features {
 
+  private final int KEYWORD_FEATURE_ID = 1;
+  private final int IDENTIFIER_FEATURE_ID = 2;
+  private final int PUNCTUATION_FEATURE_ID = 3;
+  private final int EQUAL_FEATURE_ID = 4;
+  private final int NUMBER_FEATURE_ID = 5;
+  private final int STRING_FEATURE_ID = 6;
+  private final int DELIMETER_FEATURE_ID = 7;
+  private final int OPERATOR_FEATURE_ID = 8;
+
   private Map<String, List<Integer>> lineNumberMap = new HashMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> commaMap = new TreeMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> periodMap = new TreeMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> spacesMap = new TreeMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> parenthesisMap = new TreeMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> endParenthesisMap = new TreeMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> semicolonMap = new TreeMap<String, List<Integer>>();
+  private SortedMap<String, List<Integer>> bracketMap = new TreeMap<String, List<Integer>>();
+
+  private ArrayList<ArrayList<Integer>> visualFeaturesMatrix = new ArrayList<ArrayList<Integer>>();
 
   // feature 1: #parameters of method
   private int numOfParameters = 0;
@@ -131,5 +154,34 @@ public @Data class Features {
       }
     }
     return max;
+  }
+
+  public void makeVisualFeaturesMatrix() {
+    addMapToMatrix(commaMap, PUNCTUATION_FEATURE_ID);
+    addMapToMatrix(periodMap, PUNCTUATION_FEATURE_ID);
+    addMapToMatrix(parenthesisMap, PUNCTUATION_FEATURE_ID);
+    addMapToMatrix(endParenthesisMap, PUNCTUATION_FEATURE_ID);
+    addMapToMatrix(semicolonMap, PUNCTUATION_FEATURE_ID);
+    addMapToMatrix(bracketMap, PUNCTUATION_FEATURE_ID);
+  }
+
+  private void addMapToMatrix(SortedMap<String, List<Integer>> symbolMap, int featureID) {
+    Set<String> keySet = symbolMap.keySet();
+    for (String lineNumber : keySet) {
+      List<Integer> symbolIndexes = symbolMap.get(lineNumber);
+
+      ArrayList<Integer> matrixLine;
+      while (visualFeaturesMatrix.size() <= Integer.parseInt(lineNumber)){
+        visualFeaturesMatrix.add(new ArrayList<Integer>());
+      }
+      matrixLine = visualFeaturesMatrix.get(Integer.parseInt(lineNumber));
+      for (Integer i : symbolIndexes) {
+        while (matrixLine.size() <= i) {
+          matrixLine.add(0);
+        }
+        matrixLine.set(i, featureID); 
+      }
+      visualFeaturesMatrix.set(Integer.parseInt(lineNumber), matrixLine);
+    }
   }
 }
