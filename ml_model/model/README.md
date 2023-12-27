@@ -62,11 +62,8 @@ python3 feature_selection/regression/experiment_generator.py
 ``` 
 to generate experiments and write them into ```regression/experiments.jsonl```
 
-#### Data sets
-
-
 #### Run Experiments
-Run below command to generate raw results.
+Run the below command to generate raw results.
 ```
 python3 regression/main.py --output_file Final_regression.csv
 ```

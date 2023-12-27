@@ -18,7 +18,8 @@ targets = ["TNPU", "TAU", "AU"]
 models = ["svm", "mlp", "linear_regression", "knn", "random_forest"]
 
 metrics = {'mse': ['mse_c', 'mse_cw'], 
-           'mae': ['mae_c', 'mae_cw'], 
+           'mae': ['mae_c', 'mae_cw'],
+            'rmse': ['rmse_c', 'rmse_cw'], 
            }
 
 overall_result_header_across_models = {
