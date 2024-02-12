@@ -12,6 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
@@ -106,17 +108,24 @@ public class Parser {
                 // Compute the features on a single java file. The java file should contain a
                 // single class surrounding a single method.
                 FeatureVisitor featureVisitor = new FeatureVisitor();
+                VisualFeatureVisitor visualFeatureVisitor = new VisualFeatureVisitor();
                 CompilationUnit cu = null;
                 CompilationUnit cuNoComm = null;
+                String[] split = null;
                 try {
                   cu = StaticJavaParser.parse(file);
                   JavaParser parser =
                       new JavaParser(new ParserConfiguration().setAttributeComments(false));
                   cuNoComm = parser.parse(file).getResult().get();
-                } catch (FileNotFoundException e) {
+                  split = Files.readString(file.toPath()).split("\n");
+                } catch (IOException e) {
                   e.printStackTrace();
                 }
+                visualFeatureVisitor.getVisualFeatures().makeVisualFeaturesMatrix(split);
+
                 featureVisitor.visit(cu, null);
+
+                visualFeatureVisitor.visit(cu, null);
 
                 // Modify the CU to compute syntactic features i.e. parenthesis, commas, etc
                 StringLiteralReplacer stringLiteralReplacer = new StringLiteralReplacer();
@@ -131,9 +140,6 @@ public class Parser {
                             .orElse("");
                 Features features = sfe.extract(methodBody);
                 
-                //Create visual features matrix
-                features.makeVisualFeaturesMatrix();
-
                 // Locate and extract file data from loc_data.csv
                 int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
