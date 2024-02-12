@@ -291,6 +291,19 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
+   * Locates all instances of boolean and arithmetic operators and adds them to the Visual Feature Matrix
+   */
+  @Override
+  public void visit(BinaryExpr n, Void arg) {
+    super.visit(n, arg);
+    Operator operator = n.getOperator();
+    int lineNumber = n.getChildNodes().get(1).getRange().get().begin.line - 1;
+    int columnStart = n.getChildNodes().get(1).getRange().get().begin.column - operator.asString().length() - 2;
+    int columnEnd = columnStart + operator.asString().length() - 1;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, OPERATOR_VISUAL_FEATURE_NUMBER);
+  }
+
+  /**
    * Locates all instances of the keyword "break" and adds them to the Visual Feature Matrix
    */
   @Override
