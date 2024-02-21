@@ -16,7 +16,7 @@ public @Data class VisualFeatures {
     for (int i = 0; i < snippet.length; i++) {
       visualFeaturesMatrix.add(new ArrayList<Integer>());
       int lineLength = snippet[i].length();
-      for (int j = 0; j < lineLength; j++) {
+      for (int j = 0; j < lineLength-1; j++) {
         visualFeaturesMatrix.get(i).add(0);
       }
     }

@@ -239,6 +239,12 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   @Override
   public void visit(StringLiteralExpr sle, Void arg) {
     super.visit(sle, arg);
+
+    int lineNumber = sle.getRange().get().begin.line - 1;
+    int columnStart = sle.getRange().get().begin.column;
+    int columnEnd = sle.getRange().get().end.column - 2;
+    int visualFeatureNumber = STRINGS_VISUAL_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
   }
 
   /**
