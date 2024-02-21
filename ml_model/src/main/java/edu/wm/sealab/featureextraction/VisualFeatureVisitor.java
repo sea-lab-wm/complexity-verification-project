@@ -41,6 +41,7 @@ import com.github.javaparser.ast.type.VoidType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -53,10 +54,10 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   private static final int KEYWORDS_VISUAL_FEATURE_NUMBER = 1;
   private static final int IDENTIFIERS_VISUAL_FEATURE_NUMBER = 2;
   private static final int OPERATOR_VISUAL_FEATURE_NUMBER = 3;
-  private static final int EQUALS_VISUAL_FEATURE_NUMBER = 4;
-  private static final int NUMBERS_VISUAL_FEATURE_NUMBER = 5;
-  private static final int STRINGS_VISUAL_FEATURE_NUMBER = 6;
-  private static final int OTHER_LITERALS_FEATURE_NUMBER = 7;
+  private static final int NUMBERS_VISUAL_FEATURE_NUMBER = 4;
+  private static final int STRINGS_VISUAL_FEATURE_NUMBER = 5;
+  private static final int OTHER_LITERALS_FEATURE_NUMBER = 6;
+  private static final int COMMENTS_VISUAL_FEATURE_NUMBER = 7;
 
   /**
    * Locates all instances of the keywords "if" and "else" and adds them to the Visual Feature Matrix
@@ -274,6 +275,7 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * Locates all instances of the keywords "class", "interface", and "implements" and adds them to the Visual Feature Matrix
+   * Additionally, locates all line, block, and javadoc comments and adds them to the Visual Feature Matrix
    */
   @Override
   public void visit(ClassOrInterfaceDeclaration cu, Void arg) {
@@ -295,6 +297,21 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
     if (cu.getImplementedTypes().size() != 0) {
       columnStart = 6 + cu.getName().toString().length();
       columnEnd = columnStart + 9;
+      addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
+    }
+
+    visualFeatureNumber = COMMENTS_VISUAL_FEATURE_NUMBER;
+    List<Comment> comments = cu.getAllContainedComments();
+    for (int i = 0; i < comments.size(); i++) {
+      lineNumber = comments.get(i).getRange().get().begin.line - 1;
+      int endLineNumber = comments.get(i).getRange().get().end.line - 1;
+      columnStart = comments.get(i).getRange().get().begin.column - 1;
+      columnEnd = comments.get(i).getRange().get().end.column - 1;
+      while (lineNumber < endLineNumber) {
+        addToVisualMatrix(lineNumber, columnStart, visualFeatures.getVisualFeaturesMatrix().get((lineNumber)).size() - 1, visualFeatureNumber);
+        columnStart = 0;
+        lineNumber++;
+      }
       addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
     }
   }
