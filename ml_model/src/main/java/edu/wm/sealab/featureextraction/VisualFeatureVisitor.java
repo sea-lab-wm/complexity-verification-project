@@ -19,7 +19,6 @@ import com.github.javaparser.ast.expr.NullLiteralExpr;
 import com.github.javaparser.ast.expr.ObjectCreationExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.expr.SuperExpr;
-import com.github.javaparser.ast.expr.TextBlockLiteralExpr;
 import com.github.javaparser.ast.expr.ThisExpr;
 import com.github.javaparser.ast.stmt.AssertStmt;
 import com.github.javaparser.ast.stmt.BreakStmt;
@@ -33,16 +32,14 @@ import com.github.javaparser.ast.stmt.ReturnStmt;
 import com.github.javaparser.ast.stmt.Statement;
 import com.github.javaparser.ast.stmt.SwitchEntry;
 import com.github.javaparser.ast.stmt.SwitchStmt;
-import com.github.javaparser.ast.stmt.SynchronizedStmt;
 import com.github.javaparser.ast.stmt.ThrowStmt;
 import com.github.javaparser.ast.stmt.TryStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
-import com.github.javaparser.ast.stmt.YieldStmt;
 import com.github.javaparser.ast.type.PrimitiveType;
 import com.github.javaparser.ast.type.VoidType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -58,6 +55,7 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   private static final int EQUALS_VISUAL_FEATURE_NUMBER = 4;
   private static final int NUMBERS_VISUAL_FEATURE_NUMBER = 5;
   private static final int STRINGS_VISUAL_FEATURE_NUMBER = 6;
+  private static final int OTHER_LITERALS_FEATURE_NUMBER = 7;
 
   /**
    * Locates all instances of the keywords "if" and "else" and adds them to the Visual Feature Matrix
@@ -166,19 +164,31 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * 
+   * Locates all integer literals and adds them to the Visual Feature Matrix
    */
   @Override
   public void visit(IntegerLiteralExpr ile, Void arg) {
     super.visit(ile, arg);
+
+    int lineNumber = ile.getRange().get().begin.line - 1;
+    int columnStart = ile.getRange().get().begin.column - 1;
+    int columnEnd = ile.getRange().get().end.column - 1;
+    int visualFeatureNumber = NUMBERS_VISUAL_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
   }
 
   /**
-   * 
+   * Locates all long literals and adds them to the Visual Feature Matrix
    */
   @Override
   public void visit(LongLiteralExpr lle, Void arg) {
     super.visit(lle, arg);
+    
+    int lineNumber = lle.getRange().get().begin.line - 1;
+    int columnStart = lle.getRange().get().begin.column - 1;
+    int columnEnd = lle.getRange().get().end.column - 1;
+    int visualFeatureNumber = NUMBERS_VISUAL_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
   }
 
   /**
@@ -234,7 +244,7 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * 
+   * Locates all String literals and adds them to the Visual Feature Matrix
    */
   @Override
   public void visit(StringLiteralExpr sle, Void arg) {
@@ -248,11 +258,17 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * 
+   * Locates all double literals and adds them to the Visual Feature Matrix
    */
   @Override
   public void visit(DoubleLiteralExpr dle, Void arg) {
     super.visit(dle, arg);
+
+    int lineNumber = dle.getRange().get().begin.line - 1;
+    int columnStart = dle.getRange().get().begin.column - 1;
+    int columnEnd = dle.getRange().get().end.column - 1;
+    int visualFeatureNumber = NUMBERS_VISUAL_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
   }
 
   /**
@@ -310,6 +326,20 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
+   * Locates all instances of boolean literals and adds them to the Visual Feature Matrix
+   */
+  @Override
+  public void visit(BooleanLiteralExpr ble, Void arg) {
+    super.visit(ble, arg);
+
+    int lineNumber = ble.getRange().get().begin.line - 1;
+    int columnStart = ble.getRange().get().begin.column - 1;
+    int columnEnd = ble.getRange().get().end.column - 1;
+    int visualFeatureNumber = OTHER_LITERALS_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
+  }
+
+  /**
    * Locates all instances of the keyword "break" and adds them to the Visual Feature Matrix
    */
   @Override
@@ -334,6 +364,20 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
     int columnStart = cc.getRange().get().begin.column - 1;
     int columnEnd = columnStart + 4;
     int visualFeatureNumber = KEYWORDS_VISUAL_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
+  }
+
+  /**
+   * Locates all instances of char literals and adds them to the Visual Feature Matrix
+   */
+  @Override
+  public void visit(CharLiteralExpr cle, Void arg) {
+    super.visit(cle, arg);
+
+    int lineNumber = cle.getRange().get().begin.line - 1;
+    int columnStart = cle.getRange().get().begin.column - 1;
+    int columnEnd = cle.getRange().get().end.column - 1;
+    int visualFeatureNumber = OTHER_LITERALS_FEATURE_NUMBER;
     addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
   }
 
@@ -385,8 +429,21 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * This method identifies Return Statements in a java method to sum up the total number of 
-   * all statements.
+   * Locates all instances of the literal "null" and adds them to the Visual Feature Matrix
+   */
+  @Override
+  public void visit(NullLiteralExpr nle, Void arg) {
+    super.visit(nle, arg);
+
+    int lineNumber = nle.getRange().get().begin.line - 1;
+    int columnStart = nle.getRange().get().begin.column - 1;
+    int columnEnd = nle.getRange().get().end.column - 1;
+    int visualFeatureNumber = OTHER_LITERALS_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
+  }
+
+  /**
+   * Locates all instances of the keyword "throw" and adds them to the Visual Feature Matrix
    */
   @Override
   public void visit(ReturnStmt rs, Void arg) {
@@ -399,6 +456,9 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
     addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
   }
 
+  /**
+   * Locates all instances of the keyword "super" and adds them to the Visual Feature Matrix
+   */
   @Override
   public void visit(SuperExpr se, Void arg) {
     super.visit(se, arg);
@@ -411,8 +471,7 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   }
 
   /**
-   * This method identifies Throw Statements in a java method to sum up the total number of 
-   * all statements.
+   * Locates all instances of the keyword "throw" and adds them to the Visual Feature Matrix
    */
   @Override
   public void visit(ThrowStmt ts, Void arg) {
