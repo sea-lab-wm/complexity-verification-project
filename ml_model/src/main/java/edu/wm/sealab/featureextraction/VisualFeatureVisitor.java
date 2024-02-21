@@ -17,6 +17,7 @@ import com.github.javaparser.ast.expr.IntegerLiteralExpr;
 import com.github.javaparser.ast.expr.LongLiteralExpr;
 import com.github.javaparser.ast.expr.NullLiteralExpr;
 import com.github.javaparser.ast.expr.ObjectCreationExpr;
+import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.expr.SuperExpr;
 import com.github.javaparser.ast.expr.ThisExpr;
@@ -453,6 +454,20 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
     int columnStart = rs.getRange().get().begin.column - 1;
     int columnEnd = columnStart + 5;
     int visualFeatureNumber = KEYWORDS_VISUAL_FEATURE_NUMBER;
+    addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
+  }
+
+  /**
+   * Locates all identifiers and adds them to the Visual Feature Matrix
+   */
+  @Override
+  public void visit(SimpleName sn, Void arg) {
+    super.visit(sn, arg);
+
+    int lineNumber = sn.getRange().get().begin.line - 1;
+    int columnStart = sn.getRange().get().begin.column - 1;
+    int columnEnd = sn.getRange().get().end.column - 1;
+    int visualFeatureNumber = IDENTIFIERS_VISUAL_FEATURE_NUMBER;
     addToVisualMatrix(lineNumber, columnStart, columnEnd, visualFeatureNumber);
   }
 
