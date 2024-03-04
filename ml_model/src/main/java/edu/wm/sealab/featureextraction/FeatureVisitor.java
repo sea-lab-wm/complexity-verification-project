@@ -3,8 +3,6 @@ package edu.wm.sealab.featureextraction;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.comments.Comment;
-import com.github.javaparser.ast.comments.LineComment;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.BinaryExpr.Operator;
@@ -36,7 +34,6 @@ import com.github.javaparser.ast.stmt.ThrowStmt;
 import com.github.javaparser.ast.stmt.TryStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.stmt.YieldStmt;
-import com.github.javaparser.ast.type.PrimitiveType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,8 +73,6 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     features.incrementNumOfIfStatements();
     features.incrementNumOfConditionals();
     features.incrementNumOfStatements();
-
-    //addToVisualTree(lineNumber, visualFeatureNumber);
   }
 
   /**
@@ -248,18 +243,16 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
    * This method identifies comments in a java method and sums them up to the total number of
    * comments. The ClassOrInterfaceDeclaration method getAllContainedComments() is used in order
    * to prevent orphan comments from being ignored by the Parser.
-   * Also used to count where "class" or "interface" keywords appear for the visual matrix.
    */
   @Override
   public void visit(ClassOrInterfaceDeclaration cu, Void arg) {
     super.visit(cu, arg);
-    List<Comment> comments = cu.getAllContainedComments();
-    features.setNumOfComments(comments.size());
+    features.setNumOfComments(cu.getAllContainedComments().size());
   }
 
   /**
    * This method identifies Assert Statements in a java method to sum up the total number of
-   * all statements and add all keywords to the visual feature matrix.
+   * all statements
    */
   @Override
   public void visit(AssertStmt ast, Void arg) {
@@ -269,7 +262,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Break Statements in a java method to sum up the total number of 
-   * all statements and add all keywords to the visual feature matrix.
+   * all statements
    */
   @Override
   public void visit(BreakStmt brst, Void arg) {
@@ -279,7 +272,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Catch Clauses in a java method to sum up the total number of 
-   * all statements and add all keywords to the visual feature matrix.
+   * all statements
    */
   @Override
   public void visit(CatchClause cc, Void arg) {
@@ -289,7 +282,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Continue Statements in a java method to sum up the total number of 
-   * all statements and add all keywords to the visual feature matrix.
+   * all statements
    */
   @Override
   public void visit(ContinueStmt cs, Void arg) {
@@ -299,7 +292,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Do Statements in a java method to sum up the total number of 
-   * all statements and add all keywords to the visual feature matrix.
+   * all statements
    */
   @Override
   public void visit(DoStmt ds, Void arg) {
@@ -405,15 +398,6 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(YieldStmt ys, Void arg) {
     super.visit(ys, arg);
     features.incrementNumOfStatements();
-  }
-
-  /**
-   * This method counts the number of primitive type keywords to add to the visual feature
-   * matrix
-   */
-  @Override
-  public void visit(PrimitiveType pt, Void arg) {
-    super.visit(pt, arg);
   }
 
   /**
