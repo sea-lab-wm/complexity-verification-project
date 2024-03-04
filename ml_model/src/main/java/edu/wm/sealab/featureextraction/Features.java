@@ -3,6 +3,7 @@ package edu.wm.sealab.featureextraction;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import lombok.Data;
 
 public @Data class Features {
