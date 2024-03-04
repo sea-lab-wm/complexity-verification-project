@@ -156,7 +156,6 @@ public class Parser {
                 visualFeatureVisitor.visit(cu, null);
                 VisualFeatures visualFeatures = visualFeatureVisitor.getVisualFeatures();
                 visualFeatures.findVisualXY();
-                System.out.println(visualFeatures.visualXYString());
 
                 // Modify the CU to compute syntactic features i.e. parenthesis, commas, etc
                 StringLiteralReplacer stringLiteralReplacer = new StringLiteralReplacer();

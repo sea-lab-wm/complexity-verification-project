@@ -15,6 +15,7 @@ public @Data class VisualFeatures {
     return visualFeaturesMatrix;
   }
 
+  //Creates an empty matrix for the visual features
   public void makeVisualFeaturesMatrix(String[] snippet) {
     for (int i = 0; i < snippet.length; i++) {
       visualFeaturesMatrix.add(new ArrayList<Integer>());
@@ -25,6 +26,10 @@ public @Data class VisualFeatures {
     }
   }
 
+  /**
+   * Calculates Visual X & Visual Y:
+   * the sum of the ratios of the target feature number to the total number of characters part of a visual feature in each row (X) or column (Y)
+  */
   public void findVisualXY() {
     for (int i = 1; i <= 7; i++) {
       featuresX.add(findVisualX(i));
@@ -35,6 +40,9 @@ public @Data class VisualFeatures {
     featuresY.set(5, getNumbersY() + getStringsY() + getLiteralsY());
   }
 
+  /**
+   * Finds Visual X for a single visual feature 
+  */
   private double findVisualX(int featureNumber) {
     int sumX = 0;
     int sumFeatures = 0;
@@ -53,6 +61,9 @@ public @Data class VisualFeatures {
     return sumRatios;
   }
 
+  /**
+   * Finds Visual Y for a single visual feature
+   */
   private double findVisualY(int featureNumber) {
     int sumY = 0;
     int sumFeatures = 0;
