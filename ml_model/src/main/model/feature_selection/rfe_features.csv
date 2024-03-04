@@ -1,7 +1,0 @@
-input feature,output_feature
-"['NMI (avg)' 'NM (avg)' 'Identifiers length (avg)' 'Line length (max)'
- '#keywords (dft)' 'Comments (Visual X)' 'Numbers (Visual X)']",PBU
-"['TC (avg)' 'TC (max)' '#keywords (avg)' '#spaces (avg)'
- '#conditionals (dft)' '#parenthesis (dft)' 'Literals/keywords (area)']",BD50
-"['NM (avg)' 'TC (avg)' 'TC (max)' 'Identifiers length (avg)'
- '#parenthesis (avg)' 'Operators (Visual X)' 'warnings_checker_framework']",ABU50
