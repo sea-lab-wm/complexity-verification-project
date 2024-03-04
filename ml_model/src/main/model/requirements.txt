@@ -1,7 +1,0 @@
-pandas
-matplotlib
-scikit-learn
-imbalanced-learn
-scikit-plot
-seaborn
-torch
