@@ -92,6 +92,34 @@ public class Parser {
       pw.append("avgNumbers");
       pw.append(",");
       pw.append("maxNumbers");
+      pw.append(",");
+      pw.append("keywordsX");
+      pw.append(",");
+      pw.append("identifiersX");
+      pw.append(",");
+      pw.append("operatorsX");
+      pw.append(",");
+      pw.append("numbersX");
+      pw.append(",");
+      pw.append("stringsX");
+      pw.append(",");
+      pw.append("literalsX");
+      pw.append(",");
+      pw.append("commentsX");
+      pw.append(",");
+      pw.append("keywordsY");
+      pw.append(",");
+      pw.append("identifiersY");
+      pw.append(",");
+      pw.append("operatorsY");
+      pw.append(",");
+      pw.append("numbersY");
+      pw.append(",");
+      pw.append("stringsY");
+      pw.append(",");
+      pw.append("literalsY");
+      pw.append(",");
+      pw.append("commentsY");
       pw.append("\n");
 
       List<String[]> lines = null;
@@ -126,6 +154,9 @@ public class Parser {
                 featureVisitor.visit(cu, null);
 
                 visualFeatureVisitor.visit(cu, null);
+                VisualFeatures visualFeatures = visualFeatureVisitor.getVisualFeatures();
+                visualFeatures.findVisualXY();
+                System.out.println(visualFeatures.visualXYString());
 
                 // Modify the CU to compute syntactic features i.e. parenthesis, commas, etc
                 StringLiteralReplacer stringLiteralReplacer = new StringLiteralReplacer();
@@ -240,6 +271,35 @@ public class Parser {
                 // Maximums
                 pw.append(Integer.toString(features.findMaxNumbers()));
 
+                // Visual features
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getKeywordsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getIdentifiersX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getOperatorsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getNumbersX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getStringsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getLiteralsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getCommentsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getKeywordsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getIdentifiersY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getOperatorsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getNumbersY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getStringsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getLiteralsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getCommentsY()));
                 pw.append("\n");
               })
           .explore(projectDir);
