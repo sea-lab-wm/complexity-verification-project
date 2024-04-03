@@ -121,7 +121,7 @@ public class Parser {
       pw.append("\n");
 
       List<String[]> lines = null;
-      try (FileReader fileReader = new FileReader("ml_model/loc_data.csv");
+      try (FileReader fileReader = new FileReader("ml_model/raw_loc_data.csv");
           CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build(); ) {
         lines = csvReader.readAll();
       } catch (IOException e) {
