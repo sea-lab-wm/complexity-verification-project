@@ -67,8 +67,6 @@ public class Parser {
       pw.append(",");
       pw.append("avgComments");
       pw.append(",");
-      pw.append("avgConditionals");
-      pw.append(",");
       pw.append("avgCommas");
       pw.append(",");
       pw.append("avgParenthesis");
@@ -123,7 +121,7 @@ public class Parser {
       pw.append("\n");
 
       List<String[]> lines = null;
-      try (FileReader fileReader = new FileReader("ml_model/loc_data.csv");
+      try (FileReader fileReader = new FileReader("ml_model/raw_loc_data.csv");
           CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build(); ) {
         lines = csvReader.readAll();
       } catch (IOException e) {
@@ -149,6 +147,8 @@ public class Parser {
                 } catch (IOException e) {
                   e.printStackTrace();
                 }
+                System.out.println(file.getName());
+
                 visualFeatureVisitor.getVisualFeatures().makeVisualFeaturesMatrix(split);
 
                 featureVisitor.visit(cu, null);
@@ -173,7 +173,7 @@ public class Parser {
                 // Locate and extract file data from loc_data.csv
                 int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
-                double entryNumLinesOfCode = Double.parseDouble(entryLine[4]);
+                double entryNumLinesOfCode = Double.parseDouble(entryLine[3]);
 
                 allLines.remove(entryIndex);
 
@@ -242,10 +242,6 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfComments));
                 pw.append(",");
-                pw.append(Double.toString(avgNumOfArithmeticOperators));
-                pw.append(",");
-                pw.append(Double.toString(avgNumOfConditionals));
-                pw.append(",");
                 pw.append(Double.toString(avgCommas));
                 pw.append(",");
                 pw.append(Double.toString(avgParenthesis));
@@ -263,6 +259,8 @@ public class Parser {
                 pw.append(Float.toString(features.getMaxIndentation()));
                 pw.append(",");
                 pw.append(Double.toString(avgBlankLines));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfArithmeticOperators));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfNumbers));
                 pw.append(",");
