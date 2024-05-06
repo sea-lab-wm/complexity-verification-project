@@ -26,26 +26,26 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_CONDITIONALS_1 = 7;
 
   final double loc_1 = 59;
-  final int NUM_OF_PARANTHESIS_1 = 56;
-  final double AVG_NUM_OF_PARENTHESIS_1 = 0.9491525423728814;
+  final int NUM_OF_PARANTHESIS_1 = 72;
+  final double AVG_NUM_OF_PARENTHESIS_1 = 1.2203389830508475;
   final int NUM_OF_COMMAS_1 = 2;
   final double AVG_NUM_OF_COMMAS_1 = 0.03389830508474576;
-  final int NUM_OF_PERIODS_1 = 22;
-  final double AVG_NUM_OF_PERIODS_1 = 0.3728813559322034;
-  final int NUM_OF_SPACES_1 = 710;
-  final double AVG_NUM_OF_SPACES_1 = 12.033898305084746;
+  final int NUM_OF_PERIODS_1 = 32;
+  final double AVG_NUM_OF_PERIODS_1 = 0.5423728813559322;
+  final int NUM_OF_SPACES_1 = 846;
+  final double AVG_NUM_OF_SPACES_1 = 14.338983050847459;
   //indentation length avg and max
   final int MAX_INDENTATION_LENGTH_1 = 20;
-  final double AVG_INDENTATION_LENGTH_1 = 10.101694915254237;
+  final double AVG_INDENTATION_LENGTH_1 = 12.203389830508474;
   //line length avg and max
   final int MAX_LINE_LENGTH_1 = 65;
-  final double AVG_LINE_LENGTH_1 = 24.847457627118644;
+  final double AVG_LINE_LENGTH_1 = 30.864406779661017;
   //blank lines avg
   final double AVG_BLANK_LINES_1 = 0.03389830508474576;
-  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 4;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 11;
   final int NUM_OF_NUMBERS_1 = 24;
   final int MAX_NUMBERS_1 = 2;
-  final int NUM_OF_STATEMENTS_1 = 50;
+  final int NUM_OF_STATEMENTS_1 = 64;
 
 
   final int NUM_OF_LOOP_STATEMENTS_2 = 6;
@@ -56,7 +56,7 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_COMPARISONS_2 = 6;
   final int NUM_OF_ARITHMETIC_OPERATORS_2 = 5;
   final int NUM_OF_CONDITIONALS_2 = 5;
-  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_2 = 5;
+  final int NUM_OF_ASSIGNMENT_EXPRESSIONS_2 = 10;
   final int NUM_OF_NUMBERS_2 = 16;
   final int MAX_NUMBERS_2 = 2;
   final int NUM_OF_STATEMENTS_2 = 38;

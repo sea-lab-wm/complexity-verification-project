@@ -1,6 +1,7 @@
 package edu.wm.sealab.featureextraction;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import lombok.Data;
@@ -8,6 +9,30 @@ import lombok.Data;
 public @Data class Features {
 
   private Map<String, List<Integer>> lineNumberMap = new HashMap<String, List<Integer>>();
+
+  private Map<String, Double> lineAssignmentExpressionMap = new HashMap<String, Double>();
+  private Map<String, Double> lineCommaMap = new HashMap<String, Double>();
+  private Map<String, Double> lineCommentMap = new HashMap<String, Double>();
+  private Map<String, Double> lineComparisonMap = new HashMap<String, Double>();
+  private Map<String, Double> lineConditionalMap = new HashMap<String, Double>();
+  private Map<String, Double> lineKeywordMap = new HashMap<String, Double>();
+  private Map<String, Double> lineLoopMap = new HashMap<String, Double>();
+  private Map<String, Double> lineOperatorMap = new HashMap<String, Double>();
+  private Map<String, Double> lineParenthesisMap = new HashMap<String, Double>();
+  private Map<String, Double> linePeriodMap = new HashMap<String, Double>();
+  private Map<String, Double> lineSpaceMap = new HashMap<String, Double>();
+  private Map<String, Double> lineIndentationLengthMap = new HashMap<String, Double>();
+  private Map<String, Double> lineLineLengthMap = new HashMap<String, Double>();
+
+
+  // keeps track operands and operators
+  private HashSet<String> operands = new HashSet<String>();
+  private HashSet<String> operators = new HashSet<String>();
+
+  // keep line number and identifiers per each line
+  private HashMap<String, List<String>> lineNumber_Identifier_Map = new HashMap<String, List<String>>();
+  // keep line number and keywords per each line
+  private Map<String, List<String>> keywords = new HashMap<>();
 
   // feature 1: #parameters of method
   private int numOfParameters = 0;
@@ -87,6 +112,21 @@ public @Data class Features {
   // feature 24 #statements
   private int statements;
 
+  // feature 25: #booleanOperators
+  private int booleanOperators;
+
+  // feature 26: #identifiers
+  private int identifiers;
+
+  // feature 27: #token entropy
+  private double tokenEntropy;
+
+  // feature 28: #nested blocks
+  private int nestedBlocks;
+
+  // feature 29: #words
+  private int maxWords;
+
   public void incrementNumOfIfStatements() {
     setNumOfIfStatements(getNumOfIfStatements() + 1);
   }
@@ -117,6 +157,35 @@ public @Data class Features {
 
   public void incrementNumOfStatements() {
     setStatements(getStatements() + 1);
+  }
+
+  public void incrementNumOfLogicalOperators() {
+    setBooleanOperators(getBooleanOperators() + 1);
+  }
+
+  public void incrementNumOfIdentifiers() {
+    setIdentifiers(getIdentifiers() + 1);
+  }
+
+  public void incrementNumOfNestedBlocks() {
+    setNestedBlocks(getNestedBlocks() + 1);
+  }
+
+  /**
+   * Searches through features.lineNumber_Identifier_Map, a HashMap<String, List<String>>
+   * to find the line with the most indetifiers, or the List<String> with the largest size
+   */
+  public int getMaxIdentifierLength() {
+    int max = 0;
+    for (String lineNumber : lineNumber_Identifier_Map.keySet()) {
+      List<String> identifierList = lineNumber_Identifier_Map.get(lineNumber);
+      for (String identifier : identifierList) {
+        if (identifier.length() > max) {
+          max = identifier.length();
+        }
+      }
+    }
+    return max;
   }
 
   /**
