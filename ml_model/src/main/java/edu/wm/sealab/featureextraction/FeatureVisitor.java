@@ -472,15 +472,15 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     features.incrementNumOfStatements();
   }
 
-  /**
-   * This method identifies Empty Statements in a java method to sum up the total number of 
-   * all statements.
-   */
-  @Override
-  public void visit(EmptyStmt es, Void arg) {
-    super.visit(es, arg);
-    features.incrementNumOfStatements();
-  }
+  // /**
+  //  * This method identifies Empty Statements in a java method to sum up the total number of 
+  //  * all statements.
+  //  */
+  // @Override
+  // public void visit(EmptyStmt es, Void arg) {
+  //   super.visit(es, arg);
+  //   features.incrementNumOfStatements();
+  // }
 
   /**
    * This method identifies Explicit Constructor Invocation Statements in a java method to sum up the total number of 
@@ -572,15 +572,15 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     features.incrementNumOfStatements();
   }
 
-  /**
-   * This method identifies Unparsable Statements in a java method to sum up the total number of 
-   * all statements.
-   */
-  @Override
-  public void visit(UnparsableStmt us, Void arg) {
-    super.visit(us, arg);
-    features.incrementNumOfStatements();
-  }
+  // /**
+  //  * This method identifies Unparsable Statements in a java method to sum up the total number of 
+  //  * all statements.
+  //  */
+  // @Override
+  // public void visit(UnparsableStmt us, Void arg) {
+  //   super.visit(us, arg);
+  //   features.incrementNumOfStatements();
+  // }
 
   /**
    * This method identifies Yield Statements in a java method to sum up the total number of 
