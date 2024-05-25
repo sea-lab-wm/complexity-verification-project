@@ -41,39 +41,73 @@ public @Data class VisualFeatures {
   }
 
   /**
-   * Finds Visual X for a single visual feature 
+   * Finds Visual X for a single visual feature
+   * visual X is the sum of the ratio in each ROW
+   * the ratio is calculated by:
+   * (# of characters belonging to target visual feature) / (# of characters belonging to any visual feature) 
+   * 
+   * Example Matrix:
+   * 1 1 1 0 0 0 2
+   * 0 0 3 3 4
+   * 0 0 0 0 2
+   * 1 1 3
+   * 
+   * Visual X of 1 is (3/4) + (0/3) + (0/1) + (2/3) = ~1.42
   */
   private double findVisualX(int featureNumber) {
-    int sumX = 0;
-    int sumFeatures = 0;
-    double sumRatios = 0;
+    double sumRatios = 0;   //keeps track of the sum of each line's ratio
+    //Iterate through each line in the matrix
     for (ArrayList<Integer> line : visualFeaturesMatrix) {
+      int sumX = 0;   //keeps track of the number of characters belonging to the target visual feature
+      int sumFeatures = 0;  //keeps track of the number of characters belonging to any visual feature
+      //Iterate through columns
       for (Integer num : line) {
+        //Does character belong to any visual feature
         if (num != 0) {
+          //Does character belong to target visual feature
           if (num == featureNumber) {
             sumX++;
           }
           sumFeatures++;
         }
       }
-      sumRatios += (1.0 * sumX) / sumFeatures;
+      //Add ratio (unless the row has no visual features)
+      if (sumFeatures != 0) {
+        sumRatios += (1.0 * sumX) / sumFeatures;
+      }
     }
     return sumRatios;
   }
 
   /**
    * Finds Visual Y for a single visual feature
+   * visual Y is the sum of the ratio in each COLUMN
+   * the ratio is calculated by:
+   * (# of characters belonging to target visual feature) / (# of characters belonging to any visual feature) 
+   * 
+   * Example Matrix:
+   * 1 1 1 0 0 0 2
+   * 0 0 3 3 4
+   * 0 0 0 0 2
+   * 1 1 3
+   * 
+   * Visual Y of 1 is (2/2) + (2/2) + (1/3) + (0/1) + (0/2) + (0/1) = ~2.33
    */
   private double findVisualY(int featureNumber) {
-    int sumY = 0;
-    int sumFeatures = 0;
-    double sumRatios = 0;
-    int maxLineLength = findMaxLineLength();
+    double sumRatios = 0; //keeps track of the sum of each column's ratio
+    int maxLineLength = findMaxLineLength(); //finds the number of columns
+    //Iterate through columns
     for (int c = 0; c < maxLineLength; c++) {
+      int sumFeatures = 0;  //keeps track of the number of characters belonging to the target visual feature
+      int sumY = 0; //keeps track of the number of characters belonging to any visual feature
+      //Iterate through rows
       for (ArrayList<Integer> line : visualFeaturesMatrix) {
+        //Check if the row has enough columns
         if (c < line.size()) {
           int num = line.get(c);
+          //Does character belong to any visual feature
           if (num != 0) {
+            //Does character belong to target visual feature  
             if (num == featureNumber){
               sumY++;
             }
@@ -81,7 +115,10 @@ public @Data class VisualFeatures {
           }
         }
       }
-      sumRatios += (1.0 * sumY) / sumFeatures;
+      //Add ratio (unless the column has no visual features)
+      if (sumFeatures != 0) {
+        sumRatios += (1.0 * sumY) / sumFeatures;
+      }
     }
     return sumRatios;
   }
