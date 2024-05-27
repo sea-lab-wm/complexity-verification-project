@@ -10,6 +10,7 @@ public @Data class VisualFeatures {
 
   private ArrayList<Double> featuresX = new ArrayList<Double>();
   private ArrayList<Double> featuresY = new ArrayList<Double>();
+  private ArrayList<Double> visualAreaArray = new ArrayList<Double>();
 
   public ArrayList<ArrayList<Integer>> getVisualFeaturesMatrix() {
     return visualFeaturesMatrix;
@@ -30,14 +31,16 @@ public @Data class VisualFeatures {
    * Calculates Visual X & Visual Y:
    * the sum of the ratios of the target feature number to the total number of characters part of a visual feature in each row (X) or column (Y)
   */
-  public void findVisualXY() {
-    for (int i = 1; i <= 7; i++) {
-      featuresX.add(findVisualX(i));
-      featuresY.add(findVisualY(i));
+  public void calculateVisualFeatures() {
+    for (int featureNumber = 1; featureNumber <= 7; featureNumber++) {
+      featuresX.add(findVisualX(featureNumber));
+      featuresY.add(findVisualY(featureNumber));
+      visualAreaArray.add(findVisualArea(featureNumber));
     }
     //Sum all literals for visual feature calculation
     featuresX.set(5, getNumbersX() + getStringsX() + getLiteralsX());
     featuresY.set(5, getNumbersY() + getStringsY() + getLiteralsY());
+    visualAreaArray.set(5, getNumbersArea() + getStringsArea() + getLiteralsArea());
   }
 
   /**
@@ -123,6 +126,39 @@ public @Data class VisualFeatures {
     return sumRatios;
   }
 
+  /**
+   * Finds Visual Area for a single visual feature
+   * visual area is the percentage of characters in the method belonging to the target feature
+   * the ratio is calculated by:
+   * (# of characters belonging to target visual feature) / (total # of characters) 
+   * 
+   * Example Matrix:
+   * 1 1 1 0 0 0 2
+   * 0 0 3 3 4
+   * 0 0 0 0 2
+   * 1 1 3
+   * 
+   * Visual Area of 1 is 5/20 = 0.25
+   */
+  public double findVisualArea(int featureNumber) {
+    int numCharsOfTargetType = 0;
+    int numChars = 0;
+    //Iterate through each line in the matrix
+    for (ArrayList<Integer> line : visualFeaturesMatrix) {
+      //Iterate through columns
+      for (Integer num : line) {
+        //Does character belong to target visual feature
+        if (num == featureNumber) {
+          numCharsOfTargetType++;
+        }
+      }
+      //Keep track of total number of characters
+      numChars += line.size();
+    }
+    //Return the calculated percentage
+    return (1.0*numCharsOfTargetType)/numChars;
+  }
+
   private int findMaxLineLength() {
     int maxSize = 0;
     for (ArrayList<Integer> line : visualFeaturesMatrix) {
@@ -188,6 +224,35 @@ public @Data class VisualFeatures {
 
   public double getCommentsY() {
     return featuresY.get(6);
+  }
+
+  //Visual Area getters
+  public double getKeywordsArea() {
+    return visualAreaArray.get(0);
+  }
+
+  public double getIdentifiersArea() {
+    return visualAreaArray.get(1);
+  }
+
+  public double getOperatorsArea() {
+    return visualAreaArray.get(2);
+  }
+
+  public double getNumbersArea() {
+    return visualAreaArray.get(3);
+  }
+
+  public double getStringsArea() {
+    return visualAreaArray.get(4);
+  }
+
+  public double getLiteralsArea() {
+    return visualAreaArray.get(5);
+  }
+
+  public double getCommentsArea() {
+    return visualAreaArray.get(6);
   }
 
   public String printMatrix() {

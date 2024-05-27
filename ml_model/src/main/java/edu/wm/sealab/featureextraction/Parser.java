@@ -187,7 +187,21 @@ public class Parser {
       pw.append("Literals (Visual Y)");
       pw.append(",");
       pw.append("Comments (Visual Y)");
-      
+      pw.append(",");
+      pw.append("Keywords (area)");
+      pw.append(",");
+      pw.append("Identifiers (area)");
+      pw.append(",");
+      pw.append("Operators (area)");
+      pw.append(",");
+      pw.append("Numbers (area)");
+      pw.append(",");
+      pw.append("Strings (area)");
+      pw.append(",");
+      pw.append("Literals (area)");
+      pw.append(",");
+      pw.append("Comments (area)");
+
       pw.append("\n");
 
       List<String[]> lines = null;
@@ -224,7 +238,7 @@ public class Parser {
 
                 visualFeatureVisitor.visit(cu, null);
                 VisualFeatures visualFeatures = visualFeatureVisitor.getVisualFeatures();
-                visualFeatures.findVisualXY();
+                visualFeatures.calculateVisualFeatures();
 
                 // Modify the CU to compute syntactic features i.e. parenthesis, commas, etc
                 StringLiteralReplacer stringLiteralReplacer = new StringLiteralReplacer();
@@ -636,7 +650,22 @@ public class Parser {
                 pw.append(Double.toString(visualFeatures.getLiteralsY()));
                 pw.append(",");
                 pw.append(Double.toString(visualFeatures.getCommentsY()));
-                
+
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getKeywordsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getIdentifiersArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getOperatorsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getNumbersArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getStringsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getLiteralsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getCommentsArea()));
+
                 pw.append("\n");
               })
           .explore(projectDir);

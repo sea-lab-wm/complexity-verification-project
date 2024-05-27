@@ -34,6 +34,14 @@ public class VisualFeatureExtractorTest {
   private double VISUAL_Y_SCORE_LITERALS = 11.24285714;
   private double VISUAL_Y_SCORE_COMMENTS = 7.38214286;
 
+  private double VISUAL_AREA_KEYWORDS = 0.1297935103;
+  private double VISUAL_AREA_IDENTIFIERS = 0.1887905605;
+  private double VISUAL_AREA_OPERATORS = 0.01474926254;
+  private double VISUAL_AREA_NUMBERS = 0.02064896755;
+  private double VISUAL_AREA_STRINGS = 0.06489675516;
+  private double VISUAL_AREA_LITERALS = 0.09734513274;
+  private double VISUAL_AREA_COMMENTS = 0.09734513274;
+
   private static Integer[][] VISUAL_FEATURES_MATRIX_2 = new Integer[][] {
     {1,1,1,1,1,1,0,1,1,1,1,1,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0},
     {0,0,0,0,7,7,7,7,7,7,7},
@@ -71,7 +79,7 @@ public class VisualFeatureExtractorTest {
 
     visualFeatureVisitor.visit(cu, null);
     visualFeatures = visualFeatureVisitor.getVisualFeatures();
-    visualFeatures.findVisualXY();
+    visualFeatures.calculateVisualFeatures();
   }
 
   //Test if the generated matrix matches the correct version
@@ -158,5 +166,41 @@ public class VisualFeatureExtractorTest {
   @Test
   public void testVisualYComments() {
     assertTrue(VISUAL_Y_SCORE_COMMENTS - visualFeatures.getCommentsY() < 0.0001);
+  }
+
+  // Visual Area
+  @Test
+  public void testVisualAreaKeywords() {
+    assertTrue(VISUAL_AREA_KEYWORDS - visualFeatures.getKeywordsY() < 0.0001);
+  }
+
+  @Test
+  public void testVisualAreaIdentifiers() {
+    assertTrue(VISUAL_AREA_IDENTIFIERS - visualFeatures.getIdentifiersArea() < 0.0001);
+  }
+
+  @Test
+  public void testVisualAreaOperators() {
+    assertTrue(VISUAL_AREA_OPERATORS - visualFeatures.getOperatorsArea() < 0.0001);
+  }
+
+  @Test
+  public void testVisualAreaNumbers() {
+    assertTrue(VISUAL_AREA_NUMBERS - visualFeatures.getNumbersArea() < 0.0001);
+  }
+
+  @Test
+  public void testVisualAreaStrings() {
+    assertTrue(VISUAL_AREA_STRINGS - visualFeatures.getStringsArea() < 0.0001);
+  }
+
+  @Test
+  public void testVisualAreaLiterals() {
+    assertTrue(VISUAL_AREA_LITERALS - visualFeatures.getLiteralsArea() < 0.0001);
+  }
+
+  @Test
+  public void testVisualAreaComments() {
+    assertTrue(VISUAL_AREA_COMMENTS - visualFeatures.getCommentsArea() < 0.0001);
   }
 }
