@@ -147,8 +147,7 @@ public class Parser {
                 } catch (IOException e) {
                   e.printStackTrace();
                 }
-                System.out.println(file.getName());
-
+                
                 visualFeatureVisitor.getVisualFeatures().makeVisualFeaturesMatrix(split);
 
                 featureVisitor.visit(cu, null);

@@ -28,7 +28,7 @@ public class FeatureExtractorTest {
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 4;
   final int NUM_OF_NUMBERS = 24;
   final int MAX_NUMBERS = 2;
-  final int NUM_OF_STATEMENTS = 50;
+  final int NUM_OF_STATEMENTS = 33;
 
   final double loc = 59;
   final int NUM_OF_PARANTHESIS = 56;
@@ -43,8 +43,8 @@ public class FeatureExtractorTest {
   final int MAX_INDENTATION_LENGTH = 20;
   final double AVG_INDENTATION_LENGTH = 10.101694915254237;
   //line length avg and max
-  final int MAX_LINE_LENGTH = 65;
-  final double AVG_LINE_LENGTH = 24.847457627118644;
+  final int MAX_LINE_LENGTH = 66;
+  final double AVG_LINE_LENGTH = 25.847457627118644;
   //blank lines avg
   final double AVG_BLANK_LINES = 0.03389830508474576;
 

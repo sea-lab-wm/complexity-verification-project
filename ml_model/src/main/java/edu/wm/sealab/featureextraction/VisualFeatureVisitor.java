@@ -56,7 +56,7 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
   private static final int OPERATOR_VISUAL_FEATURE_NUMBER = 3;
   private static final int NUMBERS_VISUAL_FEATURE_NUMBER = 4;
   private static final int STRINGS_VISUAL_FEATURE_NUMBER = 5;
-  private static final int OTHER_LITERALS_FEATURE_NUMBER = 6;
+  private static final int OTHER_LITERALS_FEATURE_NUMBER = 6; //for example, integer or boolean literals
   private static final int COMMENTS_VISUAL_FEATURE_NUMBER = 7;
 
   /**
