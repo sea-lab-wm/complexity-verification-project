@@ -103,6 +103,73 @@ Examples of features that can be extracted using SyntacticFeatureExtractor:
 * Maximum line length.
 * Maximum indentation level.
 
+Current Status of the Feature Computation:
+Ledgend: ✅ = Implemented, 🔄 = In Progress, ❗️ = Ambiguous (Not Started)
+
+|  | Code Feature  | Completed Flavours  |Description | Implementation |
+| -- | ------------- | -- | ------------- | -- |
+|1|Cyclomatic comp | <ul><li>✅ Non aggregated | It is computed the program complexity using the Control Flow Graph of the program. | [PMD tool](https://github.com/pmd/pmd) |
+|2|#nested blocks | <ul><li>✅ Avg (divided by code lines); We computed the lines of code using the [SCC tool](https://github.com/boyter/scc)  | counts all the child nodes inside a block statement. Types of child nodes => block_stmt, for_stmt, foreach_stmt, while_stmt, do_stmt, if_stmt, if_else_stmt, switch_stmt, try_stmt, catch_stmt, synchronized_stmt  | AST (Java Parser) |
+|3|#parameters | <ul><li>✅ Non aggregated | counts the #parameters of a java method | AST (Java Parser) |
+|4|#statements | <ul><li>✅ Non aggregated | counts all if_stmts, switch_stmts, for_stmts, while_stmts, forEach_stmts, variable declaration stmts, assert stmts, block stmts, break stmt, catch clauses, continue stmts, do stmts, explicit constructor invocation stmts, empty stmts, expression stmts, labled stmts, Local Class Declaration stmts, Local Record Declaration stmts, retun stmts, Synchronized stmts, try, throw,  Unparsable Statements, yield | AST (Java Parser) |
+|5|#assignments | <ul><li>✅ Avg </li> <li>✅ DFT </li></ul> | count assign statements and variable declarations| AST (Java Parser) | 
+|6|#blank lines | <ul><li>✅ Avg | counts the empty lines | SCC Tool | 
+|7|#characters | <ul><li>❗️ Max  | This is Ambiguous! Confusion between characters and line length | NOT IMPLEMENTED |
+|8|#commas | <ul><li>✅ Avg </li> <li>✅ DFT </li></ul> | counts the commas | Regex|
+|9|#comments | <ul><li>✅ Avg </li> <li>✅ DFT </li> <li>🔄  Visual X </li> <li>🔄  Visual Y </li> </ul> | counts line, block, javadoc and abandoned (not have code line directly after these comments) comments | AST |
+|10|#comparisons | <ul><li>✅ Avg </li> <li>✅ DFT </li></ul> |counts ==, !=, <, <=, >, >= |AST|
+|11|#conditionals | <ul><li>✅  Avg </li> <li>✅  DFT </li></ul> | counts if stmts and switch stmts | AST |
+|12|#identifiers | <ul>  <li> ✅ Non aggregated </li>  <li> ✅ Min </li> <li> ✅ Avg </li> <li> ✅ Max </li> <li> ✅ DFT </li>  <li> 🔄 Visual X </li> <li> 🔄 Visual Y </li>  </ul> |counts the java identifiers, eg: variable names, method names | AST |
+|13|#keywords | <ul> <li>✅ Avg </li> <li>✅ Max </li> <li>✅ DFT </li> <li>🔄  Visual X </li> <li>🔄  Visual Y </li>  </ul> |counts java keywords. keywords are extracted from https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html | Regex |
+|14|#literals | <ul> <li> ✅ Non aggregated </li>  <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li>  </ul> | counts the java literals. literal types => boolean, character, integer, long, null, string, textblock, double | AST |
+|15|#loops | <ul><li> ✅ Avg </li> <li> ✅ DFT </li></ul>  | counts for and while loops | AST |
+|16|#numbers  | <ul><li> ✅ Avg</li> <li>✅  Max</li> <li>✅  DFT </li> <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li> </ul> | counts integers | AST |
+|17|#operators | <ul><li> ✅ Avg</li> <li>✅  DFT </li> <li>  🔄 Visual X </li> <li> 🔄 Visual Y </li> </ul>  | counts operators. operator types => comparision operators (==, !=, <, <=,> ,>=), arithmetic operators (+, -, *, /, %) , boolean operators (&&, ||, ^, &, |) | AST |
+|18|#parenthesis | <ul><li> ✅ Avg</li> <li>✅  DFT </li> </ul> | counts "()". Note we are considering single bracket as one. Means not counting the pairs.  | Regex |
+|19|#periods | <ul><li> ✅ Avg</li> <li>✅  DFT </li> </ul> | counts "." | Regex |
+|20|#spaces | <ul><li> ✅ Avg</li> <li>✅  DFT </li> </ul> | counts spaces and tabs(4 spaces usually) | Regex |
+|21|#strings | <ul><li>  🔄 Visual X </li> <li> 🔄 Visual Y </li> </ul> | counts the number of strings. i.e. terms inside double quotes | Regex |
+|22|#words | <ul><li> ✅ Max</li> </ul> | counts the number of words. i.e. terms separated by spaces. Considers all the strings and java keywords. | Regex |
+|23|Indentation length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counting spaces and tabs until it reaches a non-space, non-tab character. Note: only considers the spaces/tabs before the line starts | Regex |
+|24|Identifiers length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li></ul> | counts the number of characters of the identifers in each line. | AST |
+|26|Line length | <ul> <li> ✅ Avg</li>  <li> ✅ Max</li>  <li> ✅ DFT </li>  </ul>  | counts the number of characters in each line | Regex | 
+|27|#aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|28|Extent of aligned blocks | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|29|Entropy | <ul><li>✅  Non aggregated </li></ul> |   | Regex |
+|30|LOC | <ul><li>✅  Non aggregated </li></ul>| non commented, non-blank lines | SCC tool | 
+|31|Volume | <ul><li>✅  Non aggregated </li></ul>  |  | Regex |
+|32|NMI (Narrow Meaning identifier) | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>  | term_particularity = computes number of hops from the node containing term to the root node (entity) in the hypernym tree of term. For each term in the line we compute term_particularity and sum them up. This is the NMI for that line | [WordNet](https://wordnet.princeton.edu/), Regex |
+|33|NM | <ul><li> 🔄 Min </li> <li> 🔄  Avg </li> <li> 🔄 Max </li> </ul> | tokenized each line. It then iterates through each token to see the number of meanings a token has using WordNet. The total number of meanings is then added up for the line. | WordNet, Regex |
+|34|ITID |<ul><li>✅  Min </li> <li>✅  Avg </li></ul> | tokenizes each line and counts the total number of real words by checking if the token has any meanings from WordNet. It then divides the total number of real words by the total number of identifier terms in the line to get the ITID for the given line. | Regex |
+|35|TC | <ul><li>✅  Min </li> <li>✅  Avg </li> <li>✅  Max </li> </ul>|  measures the term overlap between blocks. Refer: https://docs.google.com/document/d/1vWCc1QOBiTYM0JuzxUp2yQ4T9di4ZaMhF6PXLeulEjI/edit?usp=sharing| Regex|
+|36|Readability | <ul><li>❗️ Non aggregated  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+|37|IMSQ | <ul><li>❗️ Min</li><li>❗️ Avg</li> <li>❗️ Max</li></ul>  | This is Ambiguous! Not specific instructions mentioned in the papers how to implement | NOT IMPLEMENTED |
+
+## DFT based features
+These features are based on https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=45FA47FC1EC8E13D605816AB08514077?doi=10.1.1.298.4749&rep=rep1&type=pdf
+(no replication package found)
+
+ * First we calculate the DFT of the signal. Signal can be a 1D array of doubles.(e.g. #numbers per line) 
+ * Then we calculate the standard deviation of the amplitudes of the DFT of the signal.
+ * Then we find the maximum frequency of the signal which is more than the standard deviation.
+ * Finally we calculate the bandwidth of the signal which is 2 * max_frequency + 1
+
+Assumptions: sampling_rate = 10 and #bins = amplitudes.length. we need this information to calculate the frequency of the signal.
+
+## Visual based features
+
+These features are based on https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=45FA47FC1EC8E13D605816AB08514077?doi=10.1.1.298.4749&rep=rep1&type=pdf (no replication package found)
+
+For these metrics, a "virtual" color is assigned to
+each character in the code, based on the type of the token it
+belongs to (e.g., characters of identifiers have color 1, while
+characters of keywords have color 2), thus creating a matrix
+of colors for the snippet. Then, the variation of colors is
+computed both on the X and on the Y axis of such a matrix
+
+Refer to an example: https://docs.google.com/document/d/14GIxanNb4cd8AM-oKMcRHDW558x5aBtV04S4cPb3B1Y/edit?usp=sharing
+
+
 ## Procedure to Solve an Issue
 
 In general, this is the procedure you should follow to solve an issue assigned to you:

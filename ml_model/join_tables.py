@@ -44,6 +44,9 @@ if __name__ == "__main__":
         cyclomatic_complexity_data = pd.read_csv("ml_model/cyclomatic_complexity_data.csv")
         raw_cyclomatic_complexity_data = pd.read_csv("ml_model/raw_cyclomatic_complexity_data.csv")
 
+        ## NMI data
+        nmi_data = pd.read_csv("ml_model/nmi_data.csv")
+
     except FileNotFoundError as e:
         print(traceback.format_exc())
         quit()
@@ -55,6 +58,7 @@ if __name__ == "__main__":
     raw_loc_data.reset_index()
     cyclomatic_complexity_data.reset_index()
     raw_cyclomatic_complexity_data.reset_index()
+    nmi_data.reset_index()
 
     ## Do preprocessing on cyclomatic_complexity_data
     cyclomatic_complexity_data = process_cyclomatic_complexity_data(cyclomatic_complexity_data)
@@ -69,6 +73,8 @@ if __name__ == "__main__":
     feature_data.drop(columns=["Filename"], inplace=True)
     # rename Code column to loc
     feature_data.rename(columns={"Code": "LOC"}, inplace=True)
+    ## Merge file column in feature_data with file column in nmi_data
+    feature_data = pd.merge(feature_data, nmi_data[["file", "NMI", "NMI (avg)", "NMI (max)"]], on="file", how="left")
 
     # Merge file column in raw_feature_data with Filename column in raw_loc_data
     raw_feature_data = pd.merge(raw_feature_data, raw_loc_data[["Filename", "Code"]], left_on="file", right_on="Filename", how="left")

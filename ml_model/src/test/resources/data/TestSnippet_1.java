@@ -73,10 +73,28 @@ public class TestSnippet_1 {
       }
     }
 
+    try {
+      System.out.println("try");
+    } catch (Exception e) {
+      System.out.println("catch");
+    } finally {
+      System.out.println("finally");
+    }
+
+    synchronized (this) {
+      System.out.println("synchronized");
+    }
+
     switch (k) {
       case 0:
       case 1:
       case 2:
     }
+
+    do {
+      System.out.println("do_while");
+    } while (true);
+
+    
   }
 }
