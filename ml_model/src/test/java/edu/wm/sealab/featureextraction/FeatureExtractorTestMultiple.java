@@ -39,13 +39,13 @@ public class FeatureExtractorTestMultiple {
   final double AVG_INDENTATION_LENGTH_1 = 12.203389830508474;
   //line length avg and max
   final int MAX_LINE_LENGTH_1 = 66;
-  final double AVG_LINE_LENGTH_1 = 25.847457627118644;
+  final double AVG_LINE_LENGTH_1 = 32.08474576271186;
   //blank lines avg
   final double AVG_BLANK_LINES_1 = 0.03389830508474576;
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 11;
   final int NUM_OF_NUMBERS_1 = 24;
   final int MAX_NUMBERS_1 = 2;
-  final int NUM_OF_STATEMENTS_1 = 33;
+  final int NUM_OF_STATEMENTS_1 = 42;
 
 
   final int NUM_OF_LOOP_STATEMENTS_2 = 6;
