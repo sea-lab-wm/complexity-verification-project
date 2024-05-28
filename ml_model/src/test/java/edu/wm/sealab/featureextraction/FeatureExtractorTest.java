@@ -43,8 +43,8 @@ public class FeatureExtractorTest {
   final int MAX_INDENTATION_LENGTH = 20;
   final double AVG_INDENTATION_LENGTH = 12.203389830508474;
   //line length avg and max
-  final int MAX_LINE_LENGTH = 66;
-  final double AVG_LINE_LENGTH = 32.08474576271186;
+  final int MAX_LINE_LENGTH = 65;
+  final double AVG_LINE_LENGTH = 30.864406779661017;
   //blank lines avg
   final double AVG_BLANK_LINES = 0.03389830508474576;
   //# of nested blocks

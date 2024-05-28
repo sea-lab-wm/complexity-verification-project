@@ -70,7 +70,7 @@ public class VisualFeatureExtractorTest {
     String[] split = null;
     try {
       cu = StaticJavaParser.parse(file);
-      split = Files.readString(file.toPath()).split("\n");
+      split = Files.readString(file.toPath()).split("\r?\n");
     } catch (IOException e) {
       e.printStackTrace();
     }

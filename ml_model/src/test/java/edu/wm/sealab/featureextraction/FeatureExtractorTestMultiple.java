@@ -38,8 +38,8 @@ public class FeatureExtractorTestMultiple {
   final int MAX_INDENTATION_LENGTH_1 = 20;
   final double AVG_INDENTATION_LENGTH_1 = 12.203389830508474;
   //line length avg and max
-  final int MAX_LINE_LENGTH_1 = 66;
-  final double AVG_LINE_LENGTH_1 = 32.08474576271186;
+  final int MAX_LINE_LENGTH_1 = 65;
+  final double AVG_LINE_LENGTH_1 = 30.864406779661017;
   //blank lines avg
   final double AVG_BLANK_LINES_1 = 0.03389830508474576;
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 11;
@@ -74,8 +74,8 @@ public class FeatureExtractorTestMultiple {
   final int MAX_INDENTATION_LENGTH_2 = 16;
   final double AVG_INDENTATION_LENGTH_2 = 9.833333333333334;
   //line length avg and max
-  final int MAX_LINE_LENGTH_2 = 52;
-  final double AVG_LINE_LENGTH_2 = 24.854166666666668;
+  final int MAX_LINE_LENGTH_2 = 51;
+  final double AVG_LINE_LENGTH_2 = 23.854166666666668;
   //blank lines avg
   final double AVG_BLANK_LINES_2 = 0.041666666666666664;
 
