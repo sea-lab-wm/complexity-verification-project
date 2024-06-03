@@ -28,7 +28,7 @@ public class FeatureExtractorTest {
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS = 11;
   final int NUM_OF_NUMBERS = 24;
   final int MAX_NUMBERS = 2;
-  final int NUM_OF_STATEMENTS = 64;
+  final int NUM_OF_STATEMENTS = 42;
 
   final double loc = 59;
   final int NUM_OF_PARANTHESIS = 72;

@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,69 +39,69 @@ public class Parser {
       pw.append(",");
 
       // Non-aggregated features
-      pw.append("parameters");
+      pw.append("#parameters");
       pw.append(",");
-      pw.append("ifStatements");
+      pw.append("#if statements");
       pw.append(",");
-      pw.append("loops");
+      pw.append("#loops");
       pw.append(",");
-      pw.append("assignmentExpressions");
+      pw.append("#assignments");
       pw.append(",");
-      pw.append("commas");
+      pw.append("#commas");
       pw.append(",");
-      pw.append("periods");
+      pw.append("#periods");
       pw.append(",");
-      pw.append("spaces");
+      pw.append("#spaces");
       pw.append(",");
-      pw.append("comparisons");
+      pw.append("#comparisons");
       pw.append(",");
-      pw.append("parenthesis");
+      pw.append("#parenthesis");
       pw.append(",");
-      pw.append("literals");
+      pw.append("#literals");
       pw.append(",");
-      pw.append("statements");
+      pw.append("#statements");
       pw.append(",");
-      pw.append("volume");
+      pw.append("Volume");
       pw.append(",");
-      pw.append("tokenEntropy");
+      pw.append("Entropy");
       pw.append(",");
       pw.append("#identifiers");
       pw.append(",");
 
       // Averages
-      pw.append("avgConditionals");
+      pw.append("#conditionals (avg)");
       pw.append(",");
-      pw.append("avgLoops");
+      pw.append("#loops (avg)");
       pw.append(",");
-      pw.append("avgAssignmentExpressions");
+      pw.append("#assignments (avg)");
       pw.append(",");
-      pw.append("avgComparisons");
+      pw.append("#comparisons (avg)");
       pw.append(",");
-      pw.append("avgComments");
+      pw.append("#comments (avg)");
       pw.append(",");
-      pw.append("avgArithmeticOperators");
+      pw.append("#arithmetic operators (avg)");
       pw.append(",");
-      pw.append("avgConditionals");
+      pw.append("#conditionals (avg)");
       pw.append(",");
-      pw.append("avgIdentifierLength");
+      pw.append("Identifiers Length (avg)");
       pw.append(",");
       pw.append("#keywords (avg)");
       pw.append(",");
-      pw.append("avgCommas");
+      pw.append("#commas (avg)");
       pw.append(",");
-      pw.append("avgParenthesis");
+      pw.append("#parenthesis (avg)");
       pw.append(",");
-      pw.append("avgPeriods");
+      pw.append("#periods (avg)");
       pw.append(",");
-      pw.append("avgSpaces");
+      pw.append("#spaces (avg)");
       pw.append(",");
-      pw.append("avgLineLength");
+      pw.append("Line length (avg)");
       pw.append(",");
-      pw.append("avgIndentation");
+      pw.append("Indentation length (avg)");
       pw.append(",");
-      pw.append("avgBlankLines");
+      pw.append("#blank lines (avg)");
       pw.append(",");
-      pw.append("avgNumbers");
+      pw.append("#numbers (avg)");
       pw.append(",");
       pw.append("#identifiers (avg)");
       pw.append(",");
@@ -108,13 +109,13 @@ public class Parser {
       pw.append(",");
 
       // Maximums
-      pw.append("maxNumbers");
+      pw.append("#numbers (max)");
       pw.append(",");
-      pw.append("maxIdentifierLength");
+      pw.append("Identifiers length (max)");
       pw.append(",");
-      pw.append("maxIndentation");
+      pw.append("Indentation length (max)");
       pw.append(",");
-      pw.append("maxLineLength");
+      pw.append("Line length (max)");
       pw.append(",");
       pw.append("#keywords (max)");
       pw.append(",");
@@ -157,13 +158,54 @@ public class Parser {
       pw.append("Indentation length (dft)");
       pw.append(",");
       pw.append("Line length (dft)");
-      // pw.append(",");
-      
-      
+
+      //Visual Features
+      pw.append("Keywords (Visual X)");
+      pw.append(",");
+      pw.append("Identifiers (Visual X)");
+      pw.append(",");
+      pw.append("Operators (Visual X)");
+      pw.append(",");
+      pw.append("Numbers (Visual X)");
+      pw.append(",");
+      pw.append("Strings (Visual X)");
+      pw.append(",");
+      pw.append("Literals (Visual X)");
+      pw.append(",");
+      pw.append("Comments (Visual X)");
+      pw.append(",");
+      pw.append("Keywords (Visual Y)");
+      pw.append(",");
+      pw.append("Identifiers (Visual Y)");
+      pw.append(",");
+      pw.append("Operators (Visual Y)");
+      pw.append(",");
+      pw.append("Numbers (Visual Y)");
+      pw.append(",");
+      pw.append("Strings (Visual Y)");
+      pw.append(",");
+      pw.append("Literals (Visual Y)");
+      pw.append(",");
+      pw.append("Comments (Visual Y)");
+      pw.append(",");
+      pw.append("Keywords (area)");
+      pw.append(",");
+      pw.append("Identifiers (area)");
+      pw.append(",");
+      pw.append("Operators (area)");
+      pw.append(",");
+      pw.append("Numbers (area)");
+      pw.append(",");
+      pw.append("Strings (area)");
+      pw.append(",");
+      pw.append("Literals (area)");
+      pw.append(",");
+      pw.append("Comments (area)");
+
       pw.append("\n");
 
       List<String[]> lines = null;
-      try (FileReader fileReader = new FileReader("ml_model/loc_data.csv");
+      try (FileReader fileReader = new FileReader("ml_model/raw_loc_data.csv");
           CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build(); ) {
         lines = csvReader.readAll();
       } catch (IOException e) {
@@ -176,17 +218,27 @@ public class Parser {
                 // Compute the features on a single java file. The java file should contain a
                 // single class surrounding a single method.
                 FeatureVisitor featureVisitor = new FeatureVisitor();
+                VisualFeatureVisitor visualFeatureVisitor = new VisualFeatureVisitor();
                 CompilationUnit cu = null;
                 CompilationUnit cuNoComm = null;
+                String[] split = null;
                 try {
                   cu = StaticJavaParser.parse(file);
                   JavaParser parser =
                       new JavaParser(new ParserConfiguration().setAttributeComments(false));
                   cuNoComm = parser.parse(file).getResult().get();
-                } catch (FileNotFoundException e) {
+                  split = Files.readString(file.toPath()).split("\n");
+                } catch (IOException e) {
                   e.printStackTrace();
                 }
+                
+                visualFeatureVisitor.getVisualFeatures().makeVisualFeaturesMatrix(split);
+
                 featureVisitor.visit(cu, null);
+
+                visualFeatureVisitor.visit(cu, null);
+                VisualFeatures visualFeatures = visualFeatureVisitor.getVisualFeatures();
+                visualFeatures.calculateVisualFeatures();
 
                 // Modify the CU to compute syntactic features i.e. parenthesis, commas, etc
                 StringLiteralReplacer stringLiteralReplacer = new StringLiteralReplacer();
@@ -206,7 +258,7 @@ public class Parser {
                 // Locate and extract file data from loc_data.csv
                 int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
-                double entryNumLinesOfCode = Double.parseDouble(entryLine[4]);
+                double entryNumLinesOfCode = Double.parseDouble(entryLine[3]);
 
                 allLines.remove(entryIndex);
 
@@ -509,6 +561,8 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(avgBlankLines));
                 pw.append(",");
+                pw.append(Double.toString(avgNumOfArithmeticOperators));
+                pw.append(",");
                 pw.append(Double.toString(avgNumOfNumbers));
                 pw.append(",");
                 pw.append(Double.toString(avgNumIdentifiers));
@@ -567,6 +621,50 @@ public class Parser {
                 pw.append(",");
                 pw.append(Long.toString(dft_lineLength));
 
+                // Visual features
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getKeywordsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getIdentifiersX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getOperatorsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getNumbersX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getStringsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getLiteralsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getCommentsX()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getKeywordsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getIdentifiersY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getOperatorsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getNumbersY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getStringsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getLiteralsY()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getCommentsY()));
+
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getKeywordsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getIdentifiersArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getOperatorsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getNumbersArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getStringsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getLiteralsArea()));
+                pw.append(",");
+                pw.append(Double.toString(visualFeatures.getCommentsArea()));
 
                 pw.append("\n");
               })

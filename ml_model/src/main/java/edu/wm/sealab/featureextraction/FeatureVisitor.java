@@ -24,7 +24,6 @@ import com.github.javaparser.ast.stmt.BreakStmt;
 import com.github.javaparser.ast.stmt.CatchClause;
 import com.github.javaparser.ast.stmt.ContinueStmt;
 import com.github.javaparser.ast.stmt.DoStmt;
-import com.github.javaparser.ast.stmt.EmptyStmt;
 import com.github.javaparser.ast.stmt.ExplicitConstructorInvocationStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.ForEachStmt;
@@ -38,7 +37,6 @@ import com.github.javaparser.ast.stmt.SwitchStmt;
 import com.github.javaparser.ast.stmt.SynchronizedStmt;
 import com.github.javaparser.ast.stmt.ThrowStmt;
 import com.github.javaparser.ast.stmt.TryStmt;
-import com.github.javaparser.ast.stmt.UnparsableStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.stmt.YieldStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
@@ -358,7 +356,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Assert Statements in a java method to sum up the total number of
-   * all statements.
+   * all statements
    */
   @Override
   public void visit(AssertStmt ast, Void arg) {
@@ -373,7 +371,6 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   @Override
   public void visit(BlockStmt bst, Void arg) {
     super.visit(bst, arg);
-    features.incrementNumOfStatements();
     
     // counting nested blocks
     for (Node node : bst.getChildNodes()) {
@@ -434,7 +431,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Break Statements in a java method to sum up the total number of 
-   * all statements.
+   * all statements
    */
   @Override
   public void visit(BreakStmt brst, Void arg) {
@@ -444,7 +441,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Catch Clauses in a java method to sum up the total number of 
-   * all statements.
+   * all statements
    */
   @Override
   public void visit(CatchClause cc, Void arg) {
@@ -454,7 +451,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Continue Statements in a java method to sum up the total number of 
-   * all statements.
+   * all statements
    */
   @Override
   public void visit(ContinueStmt cs, Void arg) {
@@ -464,23 +461,13 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
   /**
    * This method identifies Do Statements in a java method to sum up the total number of 
-   * all statements.
+   * all statements
    */
   @Override
   public void visit(DoStmt ds, Void arg) {
     super.visit(ds, arg);
     features.incrementNumOfStatements();
   }
-
-  // /**
-  //  * This method identifies Empty Statements in a java method to sum up the total number of 
-  //  * all statements.
-  //  */
-  // @Override
-  // public void visit(EmptyStmt es, Void arg) {
-  //   super.visit(es, arg);
-  //   features.incrementNumOfStatements();
-  // }
 
   /**
    * This method identifies Explicit Constructor Invocation Statements in a java method to sum up the total number of 
@@ -571,16 +558,6 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(ts, arg);
     features.incrementNumOfStatements();
   }
-
-  // /**
-  //  * This method identifies Unparsable Statements in a java method to sum up the total number of 
-  //  * all statements.
-  //  */
-  // @Override
-  // public void visit(UnparsableStmt us, Void arg) {
-  //   super.visit(us, arg);
-  //   features.incrementNumOfStatements();
-  // }
 
   /**
    * This method identifies Yield Statements in a java method to sum up the total number of 

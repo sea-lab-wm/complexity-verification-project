@@ -45,7 +45,7 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS_1 = 11;
   final int NUM_OF_NUMBERS_1 = 24;
   final int MAX_NUMBERS_1 = 2;
-  final int NUM_OF_STATEMENTS_1 = 64;
+  final int NUM_OF_STATEMENTS_1 = 42;
 
 
   final int NUM_OF_LOOP_STATEMENTS_2 = 6;
@@ -59,7 +59,7 @@ public class FeatureExtractorTestMultiple {
   final int NUM_OF_ASSIGNMENT_EXPRESSIONS_2 = 10;
   final int NUM_OF_NUMBERS_2 = 16;
   final int MAX_NUMBERS_2 = 2;
-  final int NUM_OF_STATEMENTS_2 = 38;
+  final int NUM_OF_STATEMENTS_2 = 26;
 
   final double loc_2 = 48;
   final int NUM_OF_PARANTHESIS_2 = 40;

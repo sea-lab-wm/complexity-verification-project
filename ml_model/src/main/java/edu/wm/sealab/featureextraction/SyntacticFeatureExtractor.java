@@ -56,7 +56,7 @@ public class SyntacticFeatureExtractor {
 
     /* the line length counts all the characters of the given line 
     (including the spaces/tabs/indentation in the beginning) */
-    String[] lines = snippet.split("\n");
+    String[] lines = snippet.split("\r?\n");
     int totalLength = 0;
 
     int lineNumber = 0;
