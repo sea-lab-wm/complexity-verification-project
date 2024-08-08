@@ -34,6 +34,8 @@ from sklearn.metrics import classification_report, f1_score, roc_auc_score, prec
 from imblearn.pipeline import Pipeline
 from imblearn.over_sampling import RandomOverSampler
 
+import os
+
 df = pd.read_csv(configs.ROOT_PATH + "/" + configs.DATA_PATH)
 
 ## Logger
@@ -367,6 +369,82 @@ def evaluate(model, X_test, y_test):
 #     per_fold_results["num_of_instances"] = num_class_instances
 #     return per_fold_results 
 
+def generate_random_y_pred(y_true_all, consider_distribution):
+    
+    ## unique values
+    unique_values = np.unique(y_true_all)
+
+    for val in unique_values:
+        ## variable name with str(val)
+        exec(f"num_{val}_all = y_true_all.count({val})")
+        
+
+    # Calculate the number of times to guess 1 and 0
+    if consider_distribution:
+        ## Consider distribution
+        for val in unique_values:
+            exec(f"num_guess_{val} = round(num_{val}_all * (num_{val}_all / len(y_true_all)))")
+    else:
+        ## Uniform distribution
+        for val in unique_values:
+            exec(f"num_guess_{val} = round(num_{val}_all * (1/len(unique_values)))")
+    
+
+    # Initialize y_pred_all
+    y_pred_all = []
+
+    ## save the above exectued variables in a dictionary and use it to implement the logic
+    dict_vars = locals()
+
+    # Initialize the number of guesses for 1s and 0s
+    num_guess_ones = dict_vars['num_guess_1']
+    num_guess_zeros = dict_vars['num_guess_0']
+
+    num_guess_twos = 0
+    num_guess_threes = 0
+
+    ## if dict_vars['num_guess_2'] and dict_vars['num_guess_3'] there, then use them as well
+    if 'num_guess_2' in dict_vars:
+        num_guess_twos = dict_vars['num_guess_2']
+    if 'num_guess_3' in dict_vars:
+        num_guess_threes = dict_vars['num_guess_3']
+
+    for y in y_true_all:
+        if y == 1 and num_guess_ones > 0:
+            y_pred_all.append(1)
+            num_guess_ones -= 1
+        elif y == 0 and num_guess_zeros > 0:
+            y_pred_all.append(0)
+            num_guess_zeros -= 1
+        elif y == 2 and num_guess_twos > 0:
+            y_pred_all.append(2)
+            num_guess_twos -= 1
+        elif y == 3 and num_guess_threes > 0:
+            y_pred_all.append(3)
+            num_guess_threes -= 1
+        else:
+            ## if binary classification
+            if unique_values.shape[0] == 2:
+                y_pred_all.append(0 if y == 1 else 1)
+            ## if multi-class classification    
+            if unique_values.shape[0] == 3:
+                if y==1:
+                    y_pred_all.append(np.random.choice([0,2]))
+                elif y==0:
+                    y_pred_all.append(np.random.choice([1,2]))
+                elif y==2:
+                    y_pred_all.append(np.random.choice([0,1]))
+            if unique_values.shape[0] == 4:
+                if y==1:
+                    y_pred_all.append(np.random.choice([0,2,3]))
+                elif y==0:
+                    y_pred_all.append(np.random.choice([1,2,3]))
+                elif y==2:
+                    y_pred_all.append(np.random.choice([0,1,3]))
+                elif y==3:
+                    y_pred_all.append(np.random.choice([0,1,2]))
+    
+    return y_pred_all
 
 
 def aggregate_results(results, target, model_name, hyperparameter, experiment):
@@ -494,13 +572,34 @@ def aggregate_results(results, target, model_name, hyperparameter, experiment):
     if type_of_target(y_true_all) == "binary":
         fpr, tpr, _ = roc_curve(y_true_all, y_pred_all)
         roc_auc = roc_auc_score(y_true_all, y_pred_all)
+
+        ## lazy0 curve
+        y_lazy0 = [0 for _ in range(len(y_true_all))]
+        fpr_lazy0, tpr_lazy0, _ = roc_curve(y_true_all, y_lazy0)
+        roc_auc_lazy0 = roc_auc_score(y_true_all, y_lazy0)
+
+        ## lazy1 curve
+        y_lazy1 = [1 for _ in range(len(y_true_all))]
+        fpr_lazy1, tpr_lazy1, _ = roc_curve(y_true_all, y_lazy1)
+        roc_auc_lazy1 = roc_auc_score(y_true_all, y_lazy1)
+
+        ## random guesser
+        y_pred_all_random = generate_random_y_pred(y_true_all, consider_distribution=True)
+        fpr_random, tpr_random, _ = roc_curve(y_true_all, y_pred_all_random)
+        roc_auc_random = roc_auc_score(y_true_all, y_pred_all_random)
+        
         
         # Plot ROC curve
         plt.figure()
         plt.plot(fpr, tpr, color='blue', lw=2, label='ROC curve (area = %0.2f)' % roc_auc)
 
-        # Plot the random guesser line
-        plt.plot([0, 1], [0, 1], color='red', lw=2, linestyle='--', label='Random guesser')
+        # Plot the lazy curve
+        plt.plot(fpr_lazy0, tpr_lazy0, color='black', lw=3, linestyle='--', label='Lazy0 curve (area = %0.2f)' % roc_auc_lazy0)
+        plt.plot(fpr_lazy1, tpr_lazy1, color='green', lw=4, linestyle='--', label='Lazy1 curve (area = %0.2f)' % roc_auc_lazy1)
+
+        # Plot the random guesser curve       
+        plt.plot(fpr_random, tpr_random, color='red', lw=2, linestyle='--', label='Random guesser (area = %0.2f)' % roc_auc_random)
+
 
         # Labels and title
         plt.xlim([0.0, 1.0])
@@ -511,7 +610,7 @@ def aggregate_results(results, target, model_name, hyperparameter, experiment):
         plt.legend(loc="lower right")
         plt.grid()
 
-        import os
+        
         ## if experiment directory does not exist create it
         if not os.path.exists(configs.ROOT_PATH + "/NewExperiments/results/ROC_AUC_CURVES/" + experiment + "/" + model_name):
             os.makedirs(configs.ROOT_PATH + "/NewExperiments/results/ROC_AUC_CURVES/" + experiment + "/" + model_name)
