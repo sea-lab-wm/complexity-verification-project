@@ -201,7 +201,46 @@ public class Parser {
       pw.append("Literals (area)");
       pw.append(",");
       pw.append("Comments (area)");
-
+      pw.append(",");
+      pw.append("Identifiers/comments (area)");
+      pw.append(",");
+      pw.append("Keywords/comments (area)");
+      pw.append(",");
+      pw.append("Numbers/comments (area)");
+      pw.append(",");
+      pw.append("Strings/comments (area)");
+      pw.append(",");
+      pw.append("Literals/comments (area)");
+      pw.append(",");
+      pw.append("Operators/comments (area)");
+      pw.append(",");
+      pw.append("Keywords/identifiers (area)");
+      pw.append(",");
+      pw.append("Numbers/identifiers (area)");
+      pw.append(",");
+      pw.append("Strings/identifiers (area)");
+      pw.append(",");
+      pw.append("Literals/identifiers (area)");
+      pw.append(",");
+      pw.append("Operators/literals (area)");
+      pw.append(",");
+      pw.append("Numbers/keywords (area)");
+      pw.append(",");
+      pw.append("Strings/keywords (area)");
+      pw.append(",");
+      pw.append("Literals/keywords (area)");
+      pw.append(",");
+      pw.append("Operators/keywords (area)");
+      pw.append(",");
+      pw.append("Strings/numbers (area)");
+      pw.append(",");
+      pw.append("Literals/numbers (area)");
+      pw.append(",");
+      pw.append("Operators/numbers (area)");
+      pw.append(",");
+      pw.append("Literals/strings (area)");
+      pw.append(",");
+      pw.append("Operators/strings (area)");
       pw.append("\n");
 
       List<String[]> lines = null;
@@ -666,6 +705,47 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(visualFeatures.getCommentsArea()));
 
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getIdentifiersArea(), visualFeatures.getCommentsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getKeywordsArea(), visualFeatures.getCommentsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getNumbersArea(), visualFeatures.getCommentsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getStringsArea(), visualFeatures.getCommentsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getLiteralsArea(), visualFeatures.getCommentsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getOperatorsArea(), visualFeatures.getCommentsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getKeywordsArea(), visualFeatures.getIdentifiersArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getNumbersArea(), visualFeatures.getIdentifiersArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getStringsArea(), visualFeatures.getIdentifiersArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getLiteralsArea(), visualFeatures.getIdentifiersArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getOperatorsArea(), visualFeatures.getLiteralsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getNumbersArea(), visualFeatures.getKeywordsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getStringsArea(), visualFeatures.getKeywordsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getLiteralsArea(), visualFeatures.getKeywordsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getOperatorsArea(), visualFeatures.getKeywordsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getStringsArea(), visualFeatures.getNumbersArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getLiteralsArea(), visualFeatures.getNumbersArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getOperatorsArea(), visualFeatures.getNumbersArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getLiteralsArea(), visualFeatures.getStringsArea()));
+                pw.append(",");
+                pw.append(findAreaRatio(visualFeatures.getOperatorsArea(), visualFeatures.getStringsArea()));
+
                 pw.append("\n");
               })
           .explore(projectDir);
@@ -691,5 +771,16 @@ public class Parser {
       ctr++;
     }
     return index;
+  }
+
+  /**
+   * returns a string of the ratio between x and y, and an empty string if y is 0 (avoiding an error)
+   * used in calculating visual area ratios
+   */
+  private static String findAreaRatio(double x, double y) {
+    if (y == 0) {
+      return "";
+    }
+    return Double.toString(x/y);
   }
 }
