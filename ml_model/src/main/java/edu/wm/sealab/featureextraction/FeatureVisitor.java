@@ -39,8 +39,10 @@ import com.github.javaparser.ast.stmt.ThrowStmt;
 import com.github.javaparser.ast.stmt.TryStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.stmt.YieldStmt;
+import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +74,26 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(MethodDeclaration md, Void arg) {
     super.visit(md, arg);
     features.setNumOfParameters(md.getParameters().size());
+  
+    List<String> elements = new ArrayList<>();
+    if (md.getParameters().size() > 0) {
+        elements.addAll(Arrays.asList(md.getParameters().toString().split(",")));
+    }
+    if (md.getThrownExceptions().size() > 0) {
+        elements.addAll(Arrays.asList(md.getThrownExceptions().toString().split(",")));
+    }
+
+    String lineNumber = md.getRange().get().begin.line + "";
+    List<String> param_return_throws_List = features.getLineNumber_param_return_throws_Map().getOrDefault(lineNumber, new ArrayList<>());
+    param_return_throws_List.addAll(elements);
+    features.getLineNumber_param_return_throws_Map().put(lineNumber, param_return_throws_List);
+
+
+    // check whether there are any class names inside a method.
+    // This inclues both method sinature and method body
+    for (Type type: md.findAll(Type.class)){
+      features.getClassNames().add(type.asString());
+    }
   }
 
   /**
@@ -328,6 +350,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     for (Comment comment : cu.getAllContainedComments()) {
       String lineNumber = comment.getRange().get().begin.line+"";
       features.setLineCommentMap(constructLineNumberFeatureMap(features.getLineCommentMap(), lineNumber));
+    
+      // add comments
+      features.getComments().add(comment.getContent());
     }
   }
   
@@ -527,6 +552,18 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ReturnStmt rs, Void arg) {
     super.visit(rs, arg);
     features.incrementNumOfStatements();
+
+    String lineNumber = rs.getRange().get().begin.line+"";
+    if(features.getLineNumber_param_return_throws_Map().containsKey(lineNumber)){
+      List<String> param_return_throws_List = features.getLineNumber_param_return_throws_Map().get(lineNumber);
+      param_return_throws_List.add(rs.getExpression().toString());
+      features.getLineNumber_param_return_throws_Map().put(lineNumber,param_return_throws_List);
+    }else{
+      List<String> param_return_throws_List = new ArrayList<String>();
+      param_return_throws_List.add(rs.getExpression().toString());
+      features.getLineNumber_param_return_throws_Map().put(lineNumber,param_return_throws_List);
+    }
+
   }
 
   /**
@@ -547,6 +584,18 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ThrowStmt ts, Void arg) {
     super.visit(ts, arg);
     features.incrementNumOfStatements();
+
+    String lineNumber = ts.getRange().get().begin.line+"";
+    if(features.getLineNumber_param_return_throws_Map().containsKey(lineNumber)){
+      List<String> param_return_throws_List = features.getLineNumber_param_return_throws_Map().get(lineNumber);
+      param_return_throws_List.add(ts.getExpression().toString());
+      features.getLineNumber_param_return_throws_Map().put(lineNumber,param_return_throws_List);
+    }else{
+      List<String> param_return_throws_List = new ArrayList<String>();
+      param_return_throws_List.add(ts.getExpression().toString());
+      features.getLineNumber_param_return_throws_Map().put(lineNumber,param_return_throws_List);
+    }
+
   }
 
   /**

@@ -1,9 +1,12 @@
 package edu.wm.sealab.featureextraction;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import lombok.Data;
 
 public @Data class Features {
@@ -33,6 +36,15 @@ public @Data class Features {
   private HashMap<String, List<String>> lineNumber_Identifier_Map = new HashMap<String, List<String>>();
   // keep line number and keywords per each line
   private Map<String, List<String>> keywords = new HashMap<>();
+
+  // keeps all the class names used in a snippet. This is used to compute AEDQ (Attributes External Documentation Quality)
+  private Set<String> classNames = new HashSet<>();
+
+  // keeps all the comments in a snippet
+  private List<String> comments = new ArrayList<>();
+
+  // keep throws, return, param with line number. This is required for compute MIDQ (Methods Internal Documentation Quality)
+  private HashMap<String, List<String>> lineNumber_param_return_throws_Map = new HashMap<>(); 
 
   // feature 1: #parameters of method
   private int numOfParameters = 0;

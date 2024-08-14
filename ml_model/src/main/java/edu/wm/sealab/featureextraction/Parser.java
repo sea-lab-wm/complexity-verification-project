@@ -105,6 +105,8 @@ public class Parser {
       pw.append(",");
       pw.append("#nested blocks (avg)");
       pw.append(",");
+      pw.append("MIDQ (avg)");
+      pw.append(",");
 
       // Maximums
       pw.append("#numbers (max)");
@@ -121,9 +123,13 @@ public class Parser {
       pw.append(",");
       pw.append("#words (max)");
       pw.append(",");
+      pw.append("MIDQ (max)");
+      pw.append(",");
 
       // Minimums
       pw.append("#identifiers (min)");
+      pw.append(",");
+      pw.append("MIDQ (min)");
       pw.append(",");
 
       // dfts
@@ -485,6 +491,28 @@ public class Parser {
                 // maximum number of words in a single line
                 int maxNumOfWords = features_with_strings_chracters.getMaxWords();
 
+                // Calculate the min, max and avg of MIDQ
+
+                DocumentRelatedFeatures drf = new DocumentRelatedFeatures(features);
+                
+                double sumMIDQ = 0;
+                double maxMIDQ = 0;
+                double minMIDQ = 100;
+                
+                List<Double> MIDQList = drf.getMIDQ();
+                for (double midq : MIDQList) {
+                  sumMIDQ += midq;
+                  if (midq > maxMIDQ) {
+                    maxMIDQ = midq;
+                  }
+                  if (midq < minMIDQ) {
+                    minMIDQ = midq;
+                  }
+                }
+                double avgMIDQ = sumMIDQ / entryNumLinesOfCode;
+
+
+
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
 
@@ -564,6 +592,8 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfNestedBlocks));
                 pw.append(",");
+                pw.append(Double.toString(avgMIDQ));
+                pw.append(",");
 
                 // Maximums
                 pw.append(Integer.toString(features.findMaxNumbers()));
@@ -580,9 +610,13 @@ public class Parser {
                 pw.append(",");
                 pw.append(Integer.toString(maxNumOfWords));
                 pw.append(",");
+                pw.append(Double.toString(maxMIDQ));
+                pw.append(",");
 
                 // Minimums
                 pw.append(Integer.toString(minNumIdentifiers));
+                pw.append(",");
+                pw.append(Double.toString(minMIDQ));
                 pw.append(",");
 
                 // dfts
