@@ -22,11 +22,11 @@ public class Parser {
   public static void main(String[] args) {
     //This file reads from loc_data.csv and outputs to feature_data.csv. It does not handle raw data.
 
-    String dirPath = "ml_model/src/main/resources/snippet_splitter_out/";
+    String dirPath = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/raw_snippet_splitter_out/";
     File projectDir = new File(dirPath);
 
     // Output features
-    File csvOutputFile = new File("ml_model/feature_data.csv");
+    File csvOutputFile = new File("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/feature_data.csv");
     try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
       // write header row
       pw.append("dataset_id");
@@ -79,9 +79,7 @@ public class Parser {
       pw.append(",");
       pw.append("#comments (avg)");
       pw.append(",");
-      pw.append("#arithmetic operators (avg)");
-      pw.append(",");
-      pw.append("#conditionals (avg)");
+      pw.append("#operators (avg)");
       pw.append(",");
       pw.append("Identifiers Length (avg)");
       pw.append(",");
@@ -158,6 +156,7 @@ public class Parser {
       pw.append("Indentation length (dft)");
       pw.append(",");
       pw.append("Line length (dft)");
+      pw.append(",");
 
       //Visual Features
       pw.append("Keywords (Visual X)");
@@ -205,7 +204,7 @@ public class Parser {
       pw.append("\n");
 
       List<String[]> lines = null;
-      try (FileReader fileReader = new FileReader("ml_model/raw_loc_data.csv");
+      try (FileReader fileReader = new FileReader("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/raw_loc_data.csv");
           CSVReader csvReader = new CSVReaderBuilder(fileReader).withSkipLines(1).build(); ) {
         lines = csvReader.readAll();
       } catch (IOException e) {
@@ -308,7 +307,7 @@ public class Parser {
                 avgIdentifierLength = totalIdentifierLength / features.getIdentifiers();
                 
                 // write the identifiers to files
-                String dirPathForSnippetIdentifiers = "ml_model/src/main/resources/snippet_identifier_splitter_out/";
+                String dirPathForSnippetIdentifiers = "complexity-verification-project/ml_model/src/main/resources/snippet_identifier_splitter_out/";
                 File dirForSnippetIdentifiers = new File(dirPathForSnippetIdentifiers);
                 if (!dirForSnippetIdentifiers.exists()) {
                   dirForSnippetIdentifiers.mkdir();
@@ -541,8 +540,6 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfArithmeticOperators));
                 pw.append(",");
-                pw.append(Double.toString(avgNumOfConditionals));
-                pw.append(",");
                 pw.append(Double.toString(avgIdentifierLength));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfKeywords));
@@ -560,8 +557,6 @@ public class Parser {
                 pw.append(Double.toString(avgIndentationLength));
                 pw.append(",");
                 pw.append(Double.toString(avgBlankLines));
-                pw.append(",");
-                pw.append(Double.toString(avgNumOfArithmeticOperators));
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfNumbers));
                 pw.append(",");
@@ -620,7 +615,7 @@ public class Parser {
                 pw.append(Long.toString(dft_indentationLength));
                 pw.append(",");
                 pw.append(Long.toString(dft_lineLength));
-
+                
                 // Visual features
                 pw.append(",");
                 pw.append(Double.toString(visualFeatures.getKeywordsX()));
@@ -650,7 +645,6 @@ public class Parser {
                 pw.append(Double.toString(visualFeatures.getLiteralsY()));
                 pw.append(",");
                 pw.append(Double.toString(visualFeatures.getCommentsY()));
-
                 pw.append(",");
                 pw.append(Double.toString(visualFeatures.getKeywordsArea()));
                 pw.append(",");

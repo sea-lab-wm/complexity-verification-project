@@ -1,0 +1,111 @@
+[INFO] RiTa.WordNet.version [033]
+New Identifiers words AVG: 0.9016393442622951
+New Identifiers words MIN: 0.0
+New Abstractness words AVG: 5.442622950819672
+New Abstractness words MAX: 9.0
+New Abstractness words MIN: 0.0
+New Commented words AVG: 0.01639344262295082
+New Commented words MAX: 1.0
+New Synonym commented words AVG: 1.024390243902439
+New Synonym commented words MAX: 5.0
+New Expression complexity AVG: 0.5
+New Expression complexity MAX: 2.0
+New Expression complexity MIN: 0.0
+New Method chains AVG: 2.0
+New Method chains MAX: 2.0
+New Method chains MIN: 2.0
+New Comments readability: 100.0
+New Number of senses AVG: 6.60655737704918
+New Number of senses MAX: 36.0
+New Semantic Text Coherence Standard: 9.0
+New Semantic Text Coherence Normalized: 0.9
+New Text Coherence AVG: NaN
+New Text Coherence MIN: NaN
+New Text Coherence MAX: NaN
+BW Avg Assignment: 0.14285714285714285
+BW Avg blank lines: 0.0
+BW Avg commas: 0.14285714285714285
+BW Avg comments: 0.06666666666666667
+BW Avg comparisons: 0.2857142857142857
+BW Avg Identifiers Length: 9.03225806451613
+BW Avg conditionals: 0.21428571428571427
+BW Avg indentation length: 6.0
+BW Avg keywords: 0.8571428571428571
+BW Avg line length: 36.642857142857146
+BW Avg loops: 0.0
+BW Avg number of identifiers: 2.2142857142857144
+BW Avg numbers: 0.21428571428571427
+BW Avg operators: 0.0
+BW Avg parenthesis: 1.0
+BW Avg periods: 0.5714285714285714
+BW Avg spaces: 8.5
+BW Max Identifiers Length: 27.0
+BW Max indentation: 12.0
+BW Max keywords: 4.0
+BW Max line length: 93.0
+BW Max number of identifiers: 8.0
+BW Max numbers: 3.0
+BW Max char: 138.0
+BW Max words: 8.0
+Posnett entropy: 4.717125489726112
+Posnett volume: 491.54240635418915
+Posnett lines: 20.0
+Dorn DFT Assignments: 14.0
+Dorn DFT Commas: 14.0
+Dorn DFT Comments: 20.0
+Dorn DFT Comparisons: 14.0
+Dorn DFT Conditionals: 14.0
+Dorn DFT Indentations: 14.0
+Dorn DFT Keywords: 14.0
+Dorn DFT LineLengths: 20.0
+Dorn DFT Loops: 1.0
+Dorn DFT Identifiers: 14.0
+Dorn DFT Numbers: 14.0
+Dorn DFT Operators: 1.0
+Dorn DFT Parenthesis: 14.0
+Dorn DFT Periods: 14.0
+Dorn DFT Spaces: 14.0
+Dorn Visual X Comments: 92.95
+Dorn Visual Y Comments: 18.914893617021278
+Dorn Visual X Identifiers: 93.0
+Dorn Visual Y Identifiers: 18.861702127659573
+Dorn Visual X Keywords: 92.95
+Dorn Visual Y Keywords: 18.872340425531913
+Dorn Visual X Numbers: 0.0
+Dorn Visual Y Numbers: 0.0
+Dorn Visual X Strings: 0.0
+Dorn Visual Y Strings: 0.0
+Dorn Visual X Literals: 0.0
+Dorn Visual Y Literals: 0.0
+Dorn Visual X Operators: 92.85
+Dorn Visual Y Operators: 18.79787234042553
+Dorn Areas Comments: 0.22972972972972974
+Dorn Areas Identifiers: 0.4369369369369369
+Dorn Areas Keywords: 0.07207207207207207
+Dorn Areas Numbers: 0.0
+Dorn Areas Strings: 0.0
+Dorn Areas Literals: 0.0
+Dorn Areas Operators: 0.08258258258258258
+Dorn Areas Identifiers/Comments: 1.9019607843137254
+Dorn Areas Keywords/Comments: 0.3137254901960784
+Dorn Areas Numbers/Comments: 0.0
+Dorn Areas Strings/Comments: 0.0
+Dorn Areas Literals/Comments: 0.0
+Dorn Areas Operators/Comments: 0.35947712418300654
+Dorn Areas Keywords/Identifiers: 0.16494845360824742
+Dorn Areas Numbers/Identifiers: 0.0
+Dorn Areas Strings/Identifiers: 0.0
+Dorn Areas Literals/Identifiers: 0.0
+Dorn Areas Operators/Identifiers: 0.18900343642611683
+Dorn Areas Numbers/Keywords: 0.0
+Dorn Areas Strings/Keywords: 0.0
+Dorn Areas Literals/Keywords: 0.0
+Dorn Areas Operators/Keywords: 1.1458333333333333
+Dorn Areas Strings/Numbers: NaN
+Dorn Areas Literals/Numbers: NaN
+Dorn Areas Operators/Numbers: NaN
+Dorn Areas Literals/Strings: NaN
+Dorn Areas Operators/Strings: NaN
+Dorn Areas Operators/Literals: NaN
+Dorn align blocks: 39.0
+Dorn align extent: 46.0

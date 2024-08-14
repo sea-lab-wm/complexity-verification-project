@@ -1,0 +1,16 @@
+firstVisiblePosition headerViewCount headerPosition 
+doesListHaveChildren getFirstVisiblePosition mList getTop getChildAt mList stickyHeaderTop isFirstViewBelowTop 
+getChildCount mList 
+headerPosition adapterCount headerPosition isHeaderPositionOutsideAdapterRange 
+getChildAt mList firstItem View 
+doesListHaveChildren isHeaderPositionOutsideAdapterRange isFirstViewBelowTop 
+getBottom firstItem stickyHeaderTop 
+clearHeader 
+headerPosition 
+headerPosition updateHeader 
+ds_6_snip_5$MyExpenses_updateOrClearHeader 
+updateOrClearHeader firstVisiblePosition 
+mAdapter getCount mAdapter adapterCount 
+adapterCount mAreHeadersSticky 
+getHeaderViewsCount mList headerViewCount 
+getChildCount mList doesListHaveChildren 

@@ -1,0 +1,31 @@
+x globalOffset y globalOffset offset mCurrentFullScreenStartBounds 
+onAnimationEnd animation Animator 
+x globalOffset y globalOffset offset finalBounds 
+mFullScreenChartAnimator 
+mCurrentFullScreenStartScaleX width mCurrentFullScreenStartBounds width finalBounds 
+INVISIBLE View setVisibility mAppBarLayout 
+mCurrentFullScreenStartScaleY height mCurrentFullScreenStartBounds height finalBounds 
+start set 
+INVISIBLE View setVisibility mCurrentFullScreenChart 
+mFullScreenChartAnimator set 
+VISIBLE View setVisibility mFullScreenChartHolder 
+cancel mFullScreenChartAnimator 
+mCurrentFullScreenChart v 
+setPivotX mFullScreenChartHolder 
+getContext report loadReportChartOptions options ReportChartOptions 
+setPivotY mFullScreenChartHolder 
+options getChartData report setComboLineColumnChartData mFullScreenChart 
+mFullScreenChart applyViewport 
+AnimatorSet set AnimatorSet 
+mCurrentFullScreenStartBounds Rect 
+mFullScreenChartHolder SCALE_Y View mCurrentFullScreenStartScaleY ofFloat ObjectAnimator with mFullScreenChartHolder SCALE_X View mCurrentFullScreenStartScaleX ofFloat ObjectAnimator with mFullScreenChartHolder Y View top mCurrentFullScreenStartBounds top finalBounds ofFloat ObjectAnimator with mFullScreenChartHolder X View left mCurrentFullScreenStartBounds left finalBounds ofFloat ObjectAnimator play set 
+Rect finalBounds Rect 
+Point globalOffset Point 
+ds_6_snip_4$CarReport_showFullScreenChart 
+showFullScreenChart report AbstractReport v ComboLineColumnChartView 
+getView 
+mFullScreenChartAnimator 
+config_longAnimTime integer R android getInteger getResources setDuration set 
+AnimatorListenerAdapter addListener set 
+mCurrentFullScreenStartBounds getGlobalVisibleRect mCurrentFullScreenChart 
+finalBounds globalOffset getGlobalVisibleRect getView 
