@@ -37,6 +37,10 @@ if __name__ == "__main__":
 
         raw_cyclomatic_complexity_data = pd.read_csv("complexity-verification-project/ml_model/raw_cyclomatic_complexity_data.csv")
 
+        ## Verification Tool warning data
+        metric_data = pd.read_csv("complexity-verification-project/ml_model/metric_data.csv")
+
+
     except FileNotFoundError as e:
         print(traceback.format_exc())
         quit()
@@ -59,9 +63,14 @@ if __name__ == "__main__":
     ## Pick MIDQ (avg), MIDQ (max) and MIDQ (min) columns from feature_data
     scalabrino_data = pd.merge(scalabrino_data, feature_data[["MIDQ (avg)", "MIDQ (max)", "MIDQ (min)", "#statements", "#parameters", "#nested blocks (avg)",  "file"]], left_on="file", right_on="file", how="left")
  
-
-    if len(scalabrino_data.index) != 231:
+    
+    # Merge the two data tables
+    all_df = pd.merge(metric_data, scalabrino_data, on=["dataset_id", "snippet_id"], how="left")
+    
+    if len(all_df.index) != 14496:
         raise Exception("join_tables: length mismatch.")
     
 
-    scalabrino_data.to_csv("complexity-verification-project/ml_model/final_features.csv", index=False)
+    # all_df.to_csv("ml_model/DS_3_ml_table.csv", index=False)
+    all_df.to_csv("complexity-verification-project/ml_model/final_features.csv", index=False)
+    
