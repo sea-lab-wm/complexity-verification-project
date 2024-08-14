@@ -20,9 +20,8 @@ import java.util.Map;
 
 public class Parser {
   public static void main(String[] args) {
-    //This file reads from loc_data.csv and outputs to feature_data.csv. It does not handle raw data.
 
-    String dirPath = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/raw_snippet_splitter_out/";
+    String dirPath = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/raw_snippet_splitter_out";
     File projectDir = new File(dirPath);
 
     // Output features
@@ -107,6 +106,8 @@ public class Parser {
       pw.append(",");
       pw.append("MIDQ (avg)");
       pw.append(",");
+      // pw.append("AEDQ (avg)");
+      // pw.append(",");
 
       // Maximums
       pw.append("#numbers (max)");
@@ -125,12 +126,16 @@ public class Parser {
       pw.append(",");
       pw.append("MIDQ (max)");
       pw.append(",");
+      // pw.append("AEDQ (max)");
+      // pw.append(",");
 
       // Minimums
       pw.append("#identifiers (min)");
       pw.append(",");
       pw.append("MIDQ (min)");
       pw.append(",");
+      // pw.append("AEDQ (min)");
+      // pw.append(",");
 
       // dfts
       pw.append("#assignments (dft)");
@@ -313,7 +318,7 @@ public class Parser {
                 avgIdentifierLength = totalIdentifierLength / features.getIdentifiers();
                 
                 // write the identifiers to files
-                String dirPathForSnippetIdentifiers = "complexity-verification-project/ml_model/src/main/resources/snippet_identifier_splitter_out/";
+                String dirPathForSnippetIdentifiers = "complexity-verification-project/ml_model/src/main/resources/snippet_identifier_splitter_out/DS_1/";
                 File dirForSnippetIdentifiers = new File(dirPathForSnippetIdentifiers);
                 if (!dirForSnippetIdentifiers.exists()) {
                   dirForSnippetIdentifiers.mkdir();
@@ -356,6 +361,7 @@ public class Parser {
                 double avgNumOfLoops = features.getNumOfLoops() / entryNumLinesOfCode;
                 double avgNumOfAssignmentExpressions = features.getAssignExprs() / entryNumLinesOfCode;
                 double avgNumOfNumbers = features.getNumbers() / entryNumLinesOfCode;
+
 
                 // DFT Features
                 // bandwidth of the number of assignment expressions
@@ -513,6 +519,28 @@ public class Parser {
 
 
 
+                // TODO: Need to implement this logic //
+                // Calculate the min, max and avg of AEDQ
+                // double sumAEDQ = 0;
+                // double maxAEDQ = 0;
+                // double minAEDQ = 100;
+
+                // /////////// TEMPOARY COMMENTED OUT //////////////
+                // List<Integer> AEDQList = drf.getAEDQ();
+                // // List<Integer> AEDQList = new ArrayList<Integer>();
+                // for (double aedq : AEDQList) {
+                //   sumAEDQ += aedq;
+                //   if (aedq > maxAEDQ) {
+                //     maxAEDQ = aedq;
+                //   }
+                //   if (aedq < minAEDQ) {
+                //     minAEDQ = aedq;
+                //   }
+                // }
+                // double avgAEDQ = sumAEDQ / AEDQList.size(); // because AEDQ is not per line but per class/API call
+
+
+
                 // Add the extracted features to the CSV file
                 String[] parts = file.getName().split("_");
 
@@ -594,6 +622,8 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(avgMIDQ));
                 pw.append(",");
+                // pw.append(Double.toString(avgAEDQ));
+                // pw.append(",");
 
                 // Maximums
                 pw.append(Integer.toString(features.findMaxNumbers()));
@@ -612,12 +642,16 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(maxMIDQ));
                 pw.append(",");
+                // pw.append(Double.toString(maxAEDQ));
+                // pw.append(",");
 
                 // Minimums
                 pw.append(Integer.toString(minNumIdentifiers));
                 pw.append(",");
                 pw.append(Double.toString(minMIDQ));
                 pw.append(",");
+                // pw.append(Double.toString(minAEDQ));
+                // pw.append(",");
 
                 // dfts
                 pw.append(Long.toString(dft_assignment));

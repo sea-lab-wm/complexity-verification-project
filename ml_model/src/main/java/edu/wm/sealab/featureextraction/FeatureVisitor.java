@@ -24,6 +24,7 @@ import com.github.javaparser.ast.stmt.BreakStmt;
 import com.github.javaparser.ast.stmt.CatchClause;
 import com.github.javaparser.ast.stmt.ContinueStmt;
 import com.github.javaparser.ast.stmt.DoStmt;
+import com.github.javaparser.ast.stmt.EmptyStmt;
 import com.github.javaparser.ast.stmt.ExplicitConstructorInvocationStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.ForEachStmt;
@@ -491,6 +492,17 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   @Override
   public void visit(DoStmt ds, Void arg) {
     super.visit(ds, arg);
+    features.incrementNumOfStatements();
+  }
+
+  /**
+   * This method identifies Empty Statements in a java method to sum up the total number of 
+   * all statements.
+   * eg. ;
+   */
+  @Override
+  public void visit(EmptyStmt es, Void arg) {
+    super.visit(es, arg);
     features.incrementNumOfStatements();
   }
 
