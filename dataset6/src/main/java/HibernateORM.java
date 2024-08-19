@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.sql.*;
 
 public class HibernateORM {
-    private final String DEFAULT_BATCH_SIZE = null;
+    private final String DEFAULT_BATCH_SIZE = "null";
     private Object targetedPersister;
     private Update[] updates;
     private String idInsertSelect;
@@ -84,23 +84,23 @@ public class HibernateORM {
         }
 
         public CollectionPersister getOwnerEntityPersister() {
-            return null;
+            throw new Error();
         }
 
         public Type getIdentifierType() {
-            return null;
+            throw new Error();
         }
     }
 
     private static class PersistentCollection {
         public Object getOwner() {
-            return null;
+            throw new Error();
         }
     }
 
     private static class Type {
         public Class<?> getReturnedClass() {
-            return null;
+            throw new Error();
         }
 
         public char[] toLoggableString(Serializable ownerKey, Object factory) {
@@ -110,7 +110,7 @@ public class HibernateORM {
 
     private static class EntityEntry {
         public Serializable getId() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -362,15 +362,15 @@ public class HibernateORM {
         }
 
         public Environment getStatementPreparer() {
-            return null;
+            throw new Error();
         }
 
         public PreparedStatement prepareStatement(String idInsertSelect, boolean b) {
-            return null;
+            throw new Error();
         }
 
         public PreparedStatement prepareStatement(Update idInsertSelect, boolean b) {
-            return null;
+            throw new Error();
         }
 
         public void afterStatementExecution() throws SQLException{
@@ -378,11 +378,11 @@ public class HibernateORM {
         }
 
         public Environment getLogicalConnection() {
-            return null;
+            throw new Error();
         }
 
         public Environment getResultSetReturn() {
-            return null;
+            throw new Error();
         }
 
         public int executeUpdate(PreparedStatement ps) {
@@ -390,7 +390,7 @@ public class HibernateORM {
         }
 
         public Environment getResourceRegistry() {
-            return null;
+            throw new Error();
         }
 
         public void release(PreparedStatement ps) {
@@ -398,30 +398,30 @@ public class HibernateORM {
         }
 
         public Environment getSqlExceptionHelper() {
-            return null;
+            throw new Error();
         }
 
         public Exception convert(SQLException e, String s, String idInsertSelect) {
-            return null;
+            throw new Error();
         }
         public Exception convert(SQLException e, String s, Update idInsertSelect) {
-            return null;
+            throw new Error();
         }
 
         public PreparedStatement prepareStatement(Update queryString) {
-            return null;
+            throw new Error();
         }
 
         public ResultSet extract(PreparedStatement query) {
-            return null;
+            throw new Error();
         }
 
         public EntityEntry getEntry(Object collectionOwner) {
-            return null;
+            throw new Error();
         }
 
         public Object convert(long l, Object nanoseconds) {
-            return null;
+            throw new Error();
         }
     }
 
@@ -431,7 +431,7 @@ public class HibernateORM {
     }
 
     private Environment getDefaultProperties() {
-        return null;
+        throw new Error();
     }
 
     private void registerColumnType(int bit, String tinyint) {
@@ -440,19 +440,19 @@ public class HibernateORM {
 
     private class SharedSessionContractImplementor {
         public Environment getJdbcCoordinator() {
-            return null;
+            throw new Error();
         }
 
         public Environment getJdbcServices() {
-            return null;
+            throw new Error();
         }
 
         public Environment getPersistenceContext() {
-            return null;
+            throw new Error();
         }
 
         public Object getFactory() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -461,7 +461,7 @@ public class HibernateORM {
 
     private class SessionImplementor extends Session {
         public Environment getJdbcCoordinator() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -496,7 +496,7 @@ public class HibernateORM {
 
     private class Session {
         public Transaction beginTransaction() {
-            return null;
+            throw new Error();
         }
         public <WorkImpl> void doWork(WorkImpl work) {
 

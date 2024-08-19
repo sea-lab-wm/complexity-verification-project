@@ -309,7 +309,7 @@ public class Pom {
     //SNIPPETS_END
 
     private Class findClass(String classname) throws ClassNotFoundException{
-        return null;
+        throw new Error();
     }
 
     private boolean isParentFirst(String classname) {
@@ -317,7 +317,7 @@ public class Pom {
     }
 
     private Class findBaseClass(String classname) throws ClassNotFoundException{
-        return null;
+        throw new Error();
     }
 
     private void log(String s, Object msgDebug) {
@@ -329,7 +329,7 @@ public class Pom {
     }
 
     private Class findLoadedClass(String classname) {
-        return null;
+        throw new Error();
     }
 
     private static class ReloadThread {
@@ -352,32 +352,32 @@ public class Pom {
     private class RunMap<T> implements SortedMap {
         @Override
         public Comparator comparator() {
-            return null;
+            throw new Error();
         }
 
         @Override
         public SortedMap subMap(Object fromKey, Object toKey) {
-            return null;
+            throw new Error();
         }
 
         @Override
         public SortedMap headMap(Object toKey) {
-            return null;
+            throw new Error();
         }
 
         @Override
         public SortedMap tailMap(Object fromKey) {
-            return null;
+            throw new Error();
         }
 
         @Override
         public Object firstKey() {
-            return null;
+            throw new Error();
         }
 
         @Override
         public Object lastKey() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -402,17 +402,17 @@ public class Pom {
 
         @Override
         public Object get(Object key) {
-            return null;
+            throw new Error();
         }
 
         @Override
         public Object put(Object key, Object value) {
-            return null;
+            throw new Error();
         }
 
         @Override
         public Object remove(Object key) {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -427,17 +427,17 @@ public class Pom {
 
         @Override
         public Set keySet() {
-            return null;
+            throw new Error();
         }
 
         @Override
         public Collection values() {
-            return null;
+            throw new Error();
         }
 
         @Override
         public Set<Entry> entrySet() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -490,7 +490,7 @@ public class Pom {
 
         @Override
         public File getCurrentWorkingDirectory() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -500,12 +500,12 @@ public class Pom {
 
         @Override
         public InputStream getInputStream() {
-            return null;
+            throw new Error();
         }
 
         @Override
         public PrintStream getOutputStream() {
-            return null;
+            throw new Error();
         }
 
         @Override
@@ -515,7 +515,7 @@ public class Pom {
 
         @Override
         public PrintStream getErrorStream() {
-            return null;
+            throw new Error();
         }
 
         public void debug(String s, Object jdbcUrl) {

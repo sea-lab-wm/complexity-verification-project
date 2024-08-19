@@ -97,7 +97,7 @@ public class EstimatorUtils implements RevisionHandler {
 
   private static class Instances {
     public Enumeration<Instance> enumerateInstances() {
-      return null;
+      throw new Error();
     }
   }
 

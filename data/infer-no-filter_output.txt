@@ -47,13 +47,13 @@ simple-datasets/src/main/java/fMRI_Study_Classes/ArrayAverage.java:19: error: Di
   20.           return result;
   21.       }
 
-dataset9/src/main/java/CodeSnippets.java:847: error: Null Dereference
-  object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 847.
-  845.       Table table = new Table(uTable.getColumnsCount());
-  846.       table.setBorderColor(new Color (
-  847. >     uTable.getBoxModel().getBorderColor().getRed(),
-  848.       uTable.getBoxModel().getBorderColor().getGreen(),
-  849.       uTable.getBoxModel().getBorderColor().getBlue()));
+dataset6/src/main/java/HibernateORM.java:186: error: Dangling Pointer Dereference
+  uninitialized object `e` could be dangling and is dereferenced or freed at line 186.
+  184.               }
+  185.               catch( SQLException e ) {
+  186. >                 throw session.getJdbcServices().getSqlExceptionHelper().convert( e, "could not insert/select ids for bulk update", idInsertSelect );
+  187.               }
+  188.   
 
 dataset9/src/main/java/CodeSnippets.java:890: error: Null Dereference
   object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 890.
@@ -295,14 +295,6 @@ dataset6/src/main/java/SpringBatch.java:112: error: Null Dereference
   113.   
   114.           assertTrue("Exit status must contain listener3", exitStatus.contains("listener3"));
 
-dataset6/src/main/java/K9.java:44: error: Null Dereference
-  object `parser` last assigned on line 37 could be null and is dereferenced at line 44.
-  42.                   "FLAGS (\\Seen))\r\n");
-  43.   
-  44. >         ImapResponse response = parser.readResponse();
-  45.   
-  46.           assertEquals(3, response.size());
-
 dataset6/src/main/java/SpringBatch.java:148: error: Null Dereference
   object `ds` last assigned on line 146 could be null and is dereferenced at line 148.
   146.           DataSource ds = mock(DataSource.class);
@@ -310,38 +302,6 @@ dataset6/src/main/java/SpringBatch.java:148: error: Null Dereference
   148. >         when(ds.getConnection()).thenReturn(con); // con1
   149.           con.close();
   150.           when(ds.getConnection()).thenReturn(con); // con2
-
-dataset6/src/main/java/Antlr4Master.java:261: error: Null Dereference
-  object returned by `getTokenStream(tokens)` could be null and is dereferenced at line 261.
-  259.           TokenStreamRewriter tokens = new TokenStreamRewriter(stream);
-  260.   
-  261. >         String result = tokens.getTokenStream().getText();
-  262.           String expecting = "x = 3 * 0 + 2 * 0;";
-  263.           assertEquals(expecting, result);
-
-dataset9/src/main/java/CodeSnippets.java:1018: error: Null Dereference
-  object `option` last assigned on line 1017 could be null and is dereferenced at line 1018.
-  1016.       Table table = new Table(uTable.getColumnsCount());
-  1017.       BoxModelOption option = uTable.getBoxModel();
-  1018. >     UColor color = option.getBorderColor();
-  1019.       table.setBorderColor(new Color
-  1020.       (color.getRed(),color.getGreen(),color.getBlue()));
-
-dataset9/src/main/java/CodeSnippets.java:971: error: Null Dereference
-  object `option` last assigned on line 970 could be null and is dereferenced at line 971.
-  969.       Table table = new Table(uTable.getColumnsCount());
-  970.       BoxModelOption option = uTable.getBoxModel();
-  971. >     UColor color = option.getBorderColor();
-  972.       table.setBorderColor(new Color
-  973.       (color.getRed(),color.getGreen(),color.getBlue()));
-
-dataset9/src/main/java/CodeSnippets.java:1065: error: Null Dereference
-  object `option` last assigned on line 1064 could be null and is dereferenced at line 1065.
-  1063.       Table table = new Table(uTable.getColumnsCount());
-  1064.       BoxModelOption option = uTable.getBoxModel();
-  1065. >     UColor color = option.getBorderColor();
-  1066.       table.setBorderColor(new Color
-  1067.       (color.getRed(),color.getGreen(),color.getBlue()));
 
 dataset6/src/main/java/Pom.java:112: warning: Thread Safety Violation
   Read/Write race. Non-private method `Pom$ViewJob._getRuns()` reads without synchronization from `this.this$0.notLoaded`. Potentially races with write in method `Pom$ViewJob._getRuns()`.
