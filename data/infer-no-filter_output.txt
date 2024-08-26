@@ -1,12 +1,4 @@
 
-dataset6/src/main/java/HibernateORM.java:144: error: Null Dereference
-  object `` could be null and is dereferenced at line 144.
-  142.               registerColumnType(Types.CLOB, "VARCHAR(4000000)");
-  143.   
-  144. >             getDefaultProperties().setProperty(Environment.USE_STREAMS_FOR_BINARY, "true");
-  145.               getDefaultProperties().setProperty(Environment.STATEMENT_BATCH_SIZE, DEFAULT_BATCH_SIZE);
-  146.               registerFunction("lower", new StandardSQLFunction("lower"));
-
 dataset6/src/main/java/Pom.java:137: error: Null Dereference
   object `reloadQueue` last assigned on line 135 could be null and is dereferenced at line 137.
   135.                           reloadQueue = reloadThread.reloadQueue;
@@ -14,30 +6,6 @@ dataset6/src/main/java/Pom.java:137: error: Null Dereference
   137. >                     synchronized(reloadQueue) {
   138.                           reloadQueue.add(this);
   139.                           reloadQueue.notify();
-
-dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java:93: error: Null Dereference
-  object returned by `GeneratorPropertyIteratorPanel.m_ArrayEditor.getCustomEditor()` could be null and is dereferenced at line 93.
-  91.           m_Exp.setUsePropertyIterator(false);
-  92.           m_ConfigureBut.setEnabled(false);
-  93. >         m_ArrayEditor.getCustomEditor().setEnabled(false);
-  94.           m_ArrayEditor.setValue(null);
-  95.           validate();
-
-dataset6/src/main/java/HibernateORM.java:303: error: Null Dereference
-  object returned by `persister.getOwnerEntityPersister()` could be null and is dereferenced at line 303.
-  301.   
-  302.               Type ownerIdentifierType = persister.getOwnerEntityPersister()
-  303. >                     .getIdentifierType();
-  304.               Serializable ownerKey;
-  305.               // TODO: Is it redundant to attempt to use the collectionKey,
-
-dataset6/src/main/java/HibernateORM.java:303: error: Null Dereference
-  object returned by `persister.getOwnerEntityPersister()` could be null and is dereferenced at line 303.
-  301.   
-  302.               Type ownerIdentifierType = persister.getOwnerEntityPersister()
-  303. >                     .getIdentifierType();
-  304.               Serializable ownerKey;
-  305.               // TODO: Is it redundant to attempt to use the collectionKey,
 
 simple-datasets/src/main/java/fMRI_Study_Classes/ArrayAverage.java:19: error: Divide By Zero
   Expression `number1` could be zero at line 19.
@@ -55,142 +23,6 @@ dataset6/src/main/java/HibernateORM.java:186: error: Dangling Pointer Dereferenc
   187.               }
   188.   
 
-dataset9/src/main/java/CodeSnippets.java:890: error: Null Dereference
-  object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 890.
-  888.       Table table = new Table(uTable.getColumnsCount());
-  889.       table.setBorderColor(new Color (
-  890. >     uTable.getBoxModel().getBorderColor().getRed(),
-  891.       uTable.getBoxModel().getBorderColor().getGreen(),
-  892.       uTable.getBoxModel().getBorderColor().getBlue()));
-
-dataset9/src/main/java/CodeSnippets.java:933: error: Null Dereference
-  object returned by `uTable.getBoxModel()` could be null and is dereferenced at line 933.
-  931.       Table table = new Table(uTable.getColumnsCount());
-  932.       table.setBorderColor(new Color (
-  933. >     uTable.getBoxModel().getBorderColor().getRed(),
-  934.       uTable.getBoxModel().getBorderColor().getGreen(),
-  935.       uTable.getBoxModel().getBorderColor().getBlue()));
-
-dataset6/src/main/java/OpenCMSCore.java:51: error: Null Dereference
-  object `result` last assigned on line 49 could be null and is dereferenced at line 51.
-  49.           List<A_CmsSitemapMenuEntry> result = Lists.newArrayList();
-  50.   
-  51. >         result.add(new CmsGotoMenuEntry(hoverbar));
-  52.           result.add(new CmsGotoExplorerMenuEntry(hoverbar));
-  53.           result.add(new CmsOpenGalleryMenuEntry(hoverbar));
-
-dataset6/src/main/java/CarReport.java:253: error: Null Dereference
-  object returned by `getContext()` could be null and is dereferenced at line 253.
-  251.       public void downloadFile() throws SyncIoException, SyncParseException {
-  252.           File localFile = getLocalFile();
-  253. >         File tempFile = new File(Application.getContext().getCacheDir(), getClass().getSimpleName());
-  254.   
-  255.           FileOutputStream outputStream = null;
-
-dataset6/src/main/java/Phoenix.java:115: error: Null Dereference
-  object `dividendExpression` last assigned on line 114 could be null and is dereferenced at line 115.
-  113.           // get the dividend
-  114.           Expression dividendExpression = getDividendExpression();
-  115. >         if (!dividendExpression.evaluate(tuple, ptr)) {
-  116.               return false;
-  117.           }
-
-dataset6/src/main/java/HibernateORM.java:252: error: Null Dereference
-  object returned by `val$sessionImpl.getJdbcCoordinator()` could be null and is dereferenced at line 252.
-  250.                   try {
-  251.                       final PreparedStatement query = sessionImpl.getJdbcCoordinator()
-  252. >                             .getStatementPreparer()
-  253.                               .prepareStatement( queryString );
-  254.                       ResultSet resultSet = sessionImpl.getJdbcCoordinator().getResultSetReturn().extract( query );
-
-dataset6/src/main/java/HibernateORM.java:170: error: Null Dereference
-  object returned by `session.getJdbcCoordinator()` could be null and is dereferenced at line 170.
-  168.               try {
-  169.                   try {
-  170. >                     ps = session.getJdbcCoordinator().getStatementPreparer().prepareStatement( idInsertSelect, false );
-  171.                       int position = 1;
-  172.                       position += handlePrependedParametersOnIdSelection( ps, session, position );
-
-dataset6/src/main/java/K9.java:76: error: Null Dereference
-  object `uri` last assigned on line 74 could be null and is dereferenced at line 76.
-  74.           String uri = storeConfig.getStoreUri();
-  75.   
-  76. >         if (uri.startsWith("local")) {
-  77.               throw new RuntimeException("Asked to get non-local Store object but given LocalStore URI");
-  78.           }
-
-dataset6/src/main/java/weka/estimators/EstimatorUtils.java:67: error: Null Dereference
-  object `enumInst` last assigned on line 66 could be null and is dereferenced at line 67.
-  65.   
-  66.       Enumeration<Instance> enumInst = inst.enumerateInstances();
-  67. >     if (enumInst.hasMoreElements()) {
-  68.         do {
-  69.           instance = enumInst.nextElement();
-
-dataset9/src/main/java/CodeSnippets.java:1305: error: Null Dereference
-  object `timeTaken` last assigned on line 1304 could be null and is dereferenced at line 1305.
-  1303.       builder.append(" {");
-  1304.       TimeTakenForMove timeTaken = move.getTimeTakenForMove();
-  1305. >     builder.append(timeTaken.getText());
-  1306.       builder.append("}");
-  1307.       return result;
-
-dataset9/src/main/java/CodeSnippets.java:1130: error: Null Dereference
-  object returned by `move.getTimeTakenForMove()` could be null and is dereferenced at line 1130.
-  1128.       }
-  1129.       /* Add time taken for the move. */
-  1130. >     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
-  1131.       return result;
-  1132.       }
-
-dataset9/src/main/java/CodeSnippets.java:1163: error: Null Dereference
-  object returned by `move.getTimeTakenForMove()` could be null and is dereferenced at line 1163.
-  1161.       }
-  1162.       /* Add time. */
-  1163. >     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
-  1164.       return result;
-  1165.       }
-
-dataset9/src/main/java/CodeSnippets.java:1191: error: Null Dereference
-  object returned by `move.getTimeTakenForMove()` could be null and is dereferenced at line 1191.
-  1189.       builder.append(" ").append(nag.getNagString());
-  1190.       }
-  1191. >     builder.append(" {").append(move.getTimeTakenForMove().getText()).append("}");
-  1192.       return result;
-  1193.       }
-
-dataset9/src/main/java/CodeSnippets.java:1230: error: Null Dereference
-  object `timeTaken` last assigned on line 1229 could be null and is dereferenced at line 1230.
-  1228.       builder.append(" {");
-  1229.       TimeTakenForMove timeTaken = move.getTimeTakenForMove();
-  1230. >     builder.append(timeTaken.getText());
-  1231.       builder.append("}");
-  1232.       return result;
-
-dataset9/src/main/java/CodeSnippets.java:1270: error: Null Dereference
-  object `timeTaken` last assigned on line 1269 could be null and is dereferenced at line 1270.
-  1268.       builder.append(" {");
-  1269.       TimeTakenForMove timeTaken = move.getTimeTakenForMove();
-  1270. >     builder.append(timeTaken.getText());
-  1271.       builder.append("}");
-  1272.       return result;
-
-dataset6/src/main/java/CarReport.java:152: error: Null Dereference
-  object returned by `suspendedSince(__new(CarReport$CarSelection),null)` could be null and is dereferenced at line 152.
-  150.   
-  151.           Preferences prefs = new Preferences(this);
-  152. >         CarCursor car = new CarSelection().suspendedSince((Date) null).query(getContentResolver(),
-  153.                   CarColumns.ALL_COLUMNS, CarColumns.NAME + " COLLATE UNICODE");
-  154.   
-
-dataset6/src/main/java/Antlr4Master.java:191: error: Null Dereference
-  object returned by `configs.iterator()` could be null and is dereferenced at line 191.
-  189.                   // dup configs, tossing out semantic predicates
-  190.                   ATNConfigSet dup = new ATNConfigSet();
-  191. >                 for (ATNConfig c : configs) {
-  192.                       c = new ATNConfig(c,SemanticContext.NONE);
-  193.                       dup.add(c);
-
 dataset6/src/main/java/SpringBatch.java:221: error: Null Dereference
   object `writer` last assigned on line 220 could be null and is dereferenced at line 221.
   219.       private void initWriterForSimpleCallbackTests() throws Exception {
@@ -198,94 +30,6 @@ dataset6/src/main/java/SpringBatch.java:221: error: Null Dereference
   221. >         writer.setHeaderCallback(new StaxWriterCallback() {
   222.   
   223.               @Override
-
-dataset6/src/main/java/CarReport.java:57: error: Null Dereference
-  object returned by `this$0.mEdtName.getText()` could be null and is dereferenced at line 57.
-  55.   //            @Override // Removed to allow compilation
-  56.               protected boolean isValid() {
-  57. >                 String name = mEdtName.getText().toString();
-  58.                   return !mOtherFuelTypeNames.contains(name);
-  59.               }
-
-dataset6/src/main/java/CarReport.java:99: error: Null Dereference
-  object returned by `this$0.getWindow()` could be null and is dereferenced at line 99.
-   97.               super.onCreate(savedInstanceState);
-   98.               setContentView(R.layout.activity_setup_webdav_sync);
-   99. >             getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-  100.   
-  101.               mEdtUrl = (EditText) findViewById(R.id.edt_url);
-
-dataset6/src/main/java/K9.java:129: error: Null Dereference
-  object `transport` last assigned on line 126 could be null and is dereferenced at line 129.
-  127.   
-  128.           try {
-  129. >             transport.open();
-  130.               fail("Exception expected");
-  131.           } catch (AuthenticationFailedException e) {
-
-dataset6/src/main/java/Phoenix.java:218: error: Null Dereference
-  object `channel` last assigned on line 213 could be null and is dereferenced at line 218.
-  216.           long startTime = System.nanoTime();
-  217.           try {
-  218. >             transaction = channel.getTransaction();
-  219.               transaction.begin();
-  220.   
-
-dataset6/src/main/java/MyExpenses.java:251: error: Null Dereference
-  object `font` last assigned on line 250 could be null and is dereferenced at line 251.
-  249.                   for (int f = 0; f < files.length; ++f) {
-  250.                       font = getFont(f);
-  251. >                     if (font.getBaseFont().charExists(c)
-  252.                               || Character.getType(c) == Character.FORMAT) {
-  253.                           if (currentFont != font) {
-
-dataset9/src/main/java/CodeSnippets.java:1326: error: Null Dereference
-  object returned by `textExtent(gc,textValue)` could be null and is dereferenced at line 1326.
-  1324.       {
-  1325.       GraphicsContext gc = new GraphicsContext(control);
-  1326. >     int maxExtent = gc.textExtent(textValue).x;
-  1327.       int maxWidth = control.getBounds().width - 5;
-  1328.       /* Set start and end points for the center of the text. */
-
-dataset9/src/main/java/CodeSnippets.java:1364: error: Null Dereference
-  object returned by `textExtent(gc,textValue)` could be null and is dereferenced at line 1364.
-  1362.       /* Define local variables. */
-  1363.       GraphicsContext gc = new GraphicsContext(control);
-  1364. >     int maxExtent = gc.textExtent(textValue).x;
-  1365.       int maxWidth = control.getBounds().width - 5;
-  1366.       /* Define further local variables. */
-
-dataset9/src/main/java/CodeSnippets.java:1400: error: Null Dereference
-  object returned by `textExtent(gc,textValue)` could be null and is dereferenced at line 1400.
-  1398.       {
-  1399.       GraphicsContext gc = new GraphicsContext(control);
-  1400. >     int maxExtent = gc.textExtent(textValue).x;
-  1401.       int maxWidth = control.getBounds().width - 5;
-  1402.       int length = textValue.length();
-
-dataset9/src/main/java/CodeSnippets.java:1433: error: Null Dereference
-  object `extent` last assigned on line 1432 could be null and is dereferenced at line 1433.
-  1431.       GraphicsContext gc = new GraphicsContext(control);
-  1432.       Extent extent = gc.textExtent(textValue);
-  1433. >     int maxExtent = extent.x;
-  1434.       Bounds bounds = control.getBounds();
-  1435.       int maxWidth = bounds.width - 5;
-
-dataset9/src/main/java/CodeSnippets.java:1474: error: Null Dereference
-  object `extent` last assigned on line 1473 could be null and is dereferenced at line 1474.
-  1472.       GraphicsContext gc = new GraphicsContext(control);
-  1473.       Extent extent = gc.textExtent(textValue);
-  1474. >     int maxExtent = extent.x;
-  1475.       Bounds bounds = control.getBounds();
-  1476.       int maxWidth = bounds.width - 5;
-
-dataset9/src/main/java/CodeSnippets.java:1513: error: Null Dereference
-  object `extent` last assigned on line 1512 could be null and is dereferenced at line 1513.
-  1511.       GraphicsContext gc = new GraphicsContext(control);
-  1512.       Extent extent = gc.textExtent(textValue);
-  1513. >     int maxExtent = extent.x;
-  1514.       Bounds bounds = control.getBounds();
-  1515.       int maxWidth = bounds.width - 5;
 
 dataset6/src/main/java/SpringBatch.java:112: error: Null Dereference
   object `jobExecution` last assigned on line 111 could be null and is dereferenced at line 112.
@@ -331,8 +75,9 @@ simple-datasets/src/main/java/cog_complexity_validation_datasets/Three/Tasks_1.j
   831.               resetToTime(tempCalDefault);
 
 
-Found 46 issues
-                        Issue Type(ISSUED_TYPE_ID): #
-                Null Dereference(NULL_DEREFERENCE): 42
-  Thread Safety Violation(THREAD_SAFETY_VIOLATION): 3
-                    Divide By Zero(DIVIDE_BY_ZERO): 1
+Found 9 issues
+                                  Issue Type(ISSUED_TYPE_ID): #
+                          Null Dereference(NULL_DEREFERENCE): 4
+            Thread Safety Violation(THREAD_SAFETY_VIOLATION): 3
+                              Divide By Zero(DIVIDE_BY_ZERO): 1
+  Dangling Pointer Dereference(DANGLING_POINTER_DEREFERENCE): 1
