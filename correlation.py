@@ -4,13 +4,6 @@ import sys
 import pandas as pd
 import scipy.stats as scpy
 
-# OSCAR: I think, overall, it is easier to process data with data frames:
-# read data from the excel files into DFs, then processing it to get results as more DFs, and then writing this DFs
-# to either an excel or CSV file
-# RESOURCES:
-# https://www.geeksforgeeks.org/python-pandas-dataframe/
-# https://pandas.pydata.org/docs/user_guide/indexing.html
-
 ###############################################
 #   Interact with correlation_analysis.xlsx   #
 ###############################################
