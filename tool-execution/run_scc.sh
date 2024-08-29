@@ -18,15 +18,15 @@ if ! command -v scc &> /dev/null ; then
     ## RUN SCC ##
     ## ##########
     echo "running scc on the raw snippets..."
-    ${SCC} --by-file -f csv -o ../ml_model/raw_loc_data.csv '../ml_model/src/main/resources/raw_snippet_method_splitter_out'
+    ${SCC} --by-file -f csv -o ../ml_model/raw_loc_data.csv '../ml_model/src/main/resources/corrected_raw_snippets/ds_6'
 
-    echo "running scc on the processed snippets..."
-    ${SCC} --by-file -f csv -o ../ml_model/loc_data.csv '../ml_model/src/main/resources/snippet_method_splitter_out'
+    # echo "running scc on the processed snippets..."
+    # ${SCC} --by-file -f csv -o ../ml_model/loc_data.csv '../ml_model/src/main/resources/snippet_splitter_out'
 
 else
     echo "scc installation found on this machine."
     echo "running scc on the raw snippets..."
-    scc --by-file -f csv -o ../ml_model/raw_loc_data.csv ../ml_model/src/main/resources/raw_snippet_method_splitter_out
-    echo "running scc on the processed snippets..."
-    scc --by-file -f csv -o ../ml_model/loc_data.csv ../ml_model/src/main/resources/snippet_method_splitter_out
+    scc --by-file -f csv -o ../ml_model/raw_loc_data.csv ../ml_model/src/main/resources/corrected_raw_snippets/ds_6
+    # echo "running scc on the processed snippets..."
+    # scc --by-file -f csv -o ../ml_model/loc_data.csv ../ml_model/src/main/resources/snippet_splitter_out
 fi

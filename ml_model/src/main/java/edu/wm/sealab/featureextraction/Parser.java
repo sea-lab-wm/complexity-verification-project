@@ -21,7 +21,7 @@ import java.util.Map;
 public class Parser {
   public static void main(String[] args) {
 
-    String dirPath = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/raw_snippet_splitter_out";
+    String dirPath = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/corrected_raw_snippets/ds_6";
     File projectDir = new File(dirPath);
 
     // Output features
@@ -40,10 +40,10 @@ public class Parser {
       // Non-aggregated features
       pw.append("#parameters");
       pw.append(",");
-      pw.append("#if statements");
-      pw.append(",");
-      pw.append("#loops");
-      pw.append(",");
+      // pw.append("#if statements");
+      // pw.append(",");
+      // pw.append("#loops");
+      // pw.append(",");
       pw.append("#assignments");
       pw.append(",");
       pw.append("#commas");
@@ -52,10 +52,10 @@ public class Parser {
       pw.append(",");
       pw.append("#spaces");
       pw.append(",");
-      pw.append("#comparisons");
-      pw.append(",");
-      pw.append("#parenthesis");
-      pw.append(",");
+      // pw.append("#comparisons");
+      // pw.append(",");
+      // pw.append("#parenthesis");
+      // pw.append(",");
       pw.append("#literals");
       pw.append(",");
       pw.append("#statements");
@@ -268,7 +268,7 @@ public class Parser {
                 // Locate and extract file data from loc_data.csv
                 int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
-                double entryNumLinesOfCode = Double.parseDouble(entryLine[3]);
+                double entryNumLinesOfCode = Double.parseDouble(entryLine[4]) - 3 ; //subtract 2 for the class declaration and package declaration and last } of the class
 
                 allLines.remove(entryIndex);
 
@@ -351,13 +351,13 @@ public class Parser {
                 }
 
                 double avgNumOfKeywords = numberOfKeywords / entryNumLinesOfCode;
-                double avgCommas = features.getCommas() / (features.getTotalBlankLines() + entryNumLinesOfCode);
-                double avgParenthesis = features.getParenthesis() / (features.getTotalBlankLines() + entryNumLinesOfCode);
-                double avgPeriods = features.getPeriods() / (features.getTotalBlankLines() + entryNumLinesOfCode);
-                double avgSpaces = features.getSpaces() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgCommas = features.getCommas() / entryNumLinesOfCode;
+                double avgParenthesis = features.getParenthesis() / entryNumLinesOfCode;
+                double avgPeriods = features.getPeriods() / entryNumLinesOfCode;
+                double avgSpaces = features.getSpaces() / entryNumLinesOfCode;
                 
-                double avgIndentationLength = features.getTotalIndentation() / (features.getTotalBlankLines() + entryNumLinesOfCode);
-                double avgBlankLines = features.getTotalBlankLines() / (features.getTotalBlankLines() + entryNumLinesOfCode);
+                double avgIndentationLength = features.getTotalIndentation() / entryNumLinesOfCode;
+                double avgBlankLines = features.getTotalBlankLines() / entryNumLinesOfCode;
                 double avgNumOfLoops = features.getNumOfLoops() / entryNumLinesOfCode;
                 double avgNumOfAssignmentExpressions = features.getAssignExprs() / entryNumLinesOfCode;
                 double avgNumOfNumbers = features.getNumbers() / entryNumLinesOfCode;
@@ -556,10 +556,10 @@ public class Parser {
                 // Non-aggregated
                 pw.append(Integer.toString(features.getNumOfParameters()));
                 pw.append(",");
-                pw.append(Integer.toString(features.getNumOfIfStatements()));
-                pw.append(",");
-                pw.append(Integer.toString(features.getNumOfLoops()));
-                pw.append(",");
+                // pw.append(Integer.toString(features.getNumOfIfStatements()));
+                // pw.append(",");
+                // pw.append(Integer.toString(features.getNumOfLoops()));
+                // pw.append(",");
                 pw.append(Integer.toString(features.getAssignExprs()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getCommas()));
@@ -568,10 +568,10 @@ public class Parser {
                 pw.append(",");
                 pw.append(Integer.toString(features.getSpaces()));
                 pw.append(",");
-                pw.append(Integer.toString(features.getComparisons()));
-                pw.append(",");
-                pw.append(Integer.toString(features.getParenthesis()));
-                pw.append(",");
+                // pw.append(Integer.toString(features.getComparisons()));
+                // pw.append(",");
+                // pw.append(Integer.toString(features.getParenthesis()));
+                // pw.append(",");
                 pw.append(Integer.toString(features.getLiterals()));
                 pw.append(",");
                 pw.append(Integer.toString(features.getStatements()));

@@ -206,6 +206,10 @@ public class SyntacticFeatureExtractor {
       lineNumber++;
     }
 
+    // print the keyword list
+    // for (String key : keywordList.keySet()) {
+    //   System.out.println(key + " : " + keywordList.get(key));
+    // }
     return keywordList;
   }
 
@@ -270,8 +274,10 @@ public class SyntacticFeatureExtractor {
     Matcher matcher = Pattern.compile(ch).matcher(s);
     int res = 0;
 
-    while (matcher.find()) res++;
-
+    while (matcher.find()) {
+      // System.out.println("Found " + ch + " at index " + matcher.start());
+      res++;
+    }
     return res;
   }
 }
