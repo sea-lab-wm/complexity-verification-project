@@ -12,7 +12,7 @@ fi
 # run the fmri dataset. This one is pretty quick and can be run on a laptop
  cd simple-datasets/src/main/java && \
     "${OJ}" --esc -Xmaxerrs 10000 $(find fMRI_Study_Classes -name "*.java") &> ../../../../data/openjml_output_fMRI_dataset.txt
- 
+cd ../../../../
 # run dataset 1. This one is fairly fast, too, and can be run on a laptop.
 cd simple-datasets/src/main/java && \
     "${OJ}" --esc -Xmaxerrs 10000 $(find cog_complexity_validation_datasets/One/ -name "*.java") &> ../../../../data/openjml_output_cog_dataset_1.txt
@@ -27,7 +27,7 @@ cd simple-datasets/src/main/java && \
 # run dataset 6. This one is slow enough that you shouldn't try to run it on a laptop.
 # cd dataset6/src/main/java && \
 #    "${OJ}" --esc -cp "${DATASET6CP}" -Xmaxerrs 10000 $(find . -name "*.java") &> ../../../../data/openjml_output_cog_dataset_6.txt
-
+cd ../../../../
 # the classpath for dataset 9
 DATASET9CP=$(./gradlew :dataset9:printClasspath -q)
 
