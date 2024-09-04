@@ -14,7 +14,7 @@ with open(configs.ROOT_PATH + "/featureselection/experiments_DS6_all.jsonl") as 
 filtered_experiments_json = []
 
 for exp in experiments:
-    if exp["feature_selection_method"] == "MI" and exp["use_oversampling"] == True and exp["warning_features"] == ["warning_sum"] and exp["drop_duplicates"] == True:
+    if exp["feature_selection_method"] == "Kendalls" and exp["use_oversampling"] == True and exp["warning_features"] == ["warning_sum"] and exp["drop_duplicates"] == True:
         filtered_experiments_json.append(exp)
 
 ## write filtered experiments to jsonl file

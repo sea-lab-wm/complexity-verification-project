@@ -195,10 +195,10 @@ if __name__ == "__main__":
     complete_df = df.drop(columns=removed_features) 
 
     targets = configs.DISCREATE_TARGETS
-    continous_targets = configs.CONTINOUS_TARGETS
+    
     warning_features=configs.WARNING_FEATURES
     
-    ds_code = list(set(complete_df.columns) ^ set(targets) ^ set(continous_targets) ^ set(warning_features)) ## only code features
+    ds_code = list(set(complete_df.columns) ^ set(targets) ^ set(warning_features)) ## only code features
     ds_code_sum = ds_code + [warning_features[0]] ## only code features and warning_sum
     ds_code_4tools = ds_code + warning_features[1:] ## only code features and 4 warning tools
     ds_all = ds_code + warning_features ## all features
