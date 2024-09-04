@@ -17,7 +17,6 @@ append builder
 append builder 
 getNagString nag append builder 
 builder subline appendSubline 
-ds_9$nc_snip_8_getMove 
 append builder 
 append builder 
 getTimeTakenForMove move timeTaken TimeTakenForMove 

@@ -1,4 +1,3 @@
-ds_f_snip_CountVowels_compute 
 result 
 compute word String 
 letters 

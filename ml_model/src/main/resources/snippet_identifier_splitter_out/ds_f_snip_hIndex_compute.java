@@ -1,5 +1,4 @@
 result current 
-ds_f_snip_hIndex_compute 
 compute numbers 
 numbers sort Arrays 
 result 

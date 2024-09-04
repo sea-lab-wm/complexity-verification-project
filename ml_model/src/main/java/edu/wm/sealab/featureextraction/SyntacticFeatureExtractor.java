@@ -13,8 +13,14 @@ public class SyntacticFeatureExtractor {
   
   // source : https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
   private String [] java_keywords = 
-  {"abstract", "assert", "boolean", "break", "byte", 
-  "case", "catch", "char", "class", "const", "continue",
+  {"abstract", 
+  "assert", 
+  "boolean", 
+  "break", 
+  "byte", 
+  "case", 
+  "catch", 
+  "char", "class", "const", "continue",
   "default", "do", "double", "else", "enum", "extends",
   "final", "finally", "float", "for", "goto", "if",
   "implements", "import", "instanceof", "int", "interface",

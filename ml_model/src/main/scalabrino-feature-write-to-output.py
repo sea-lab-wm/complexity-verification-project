@@ -288,7 +288,7 @@ def extract_features(file_path):
 
 def main():
 
-    output_file_path = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features.csv"
+    output_file_path = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features_classes_packages.csv"
     
     ## write header
     with open(output_file_path , "w+") as csv_file:
@@ -296,11 +296,11 @@ def main():
         writer.writeheader()
 
     
-    files = os.listdir("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/Scalabrino-Replication-Package/output")
+    files = os.listdir("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/Scalabrino-Replication-Package/output_classes_packages")
     files = [file for file in files if file.endswith(".txt")]
 
     for file in files:
-        file_path = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/Scalabrino-Replication-Package/output/" + file
+        file_path = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/Scalabrino-Replication-Package/output_classes_packages/" + file
         
         file_name = file.split("_features.txt")[0]
         dataset_id = file_name.split("_")[1]
@@ -323,7 +323,7 @@ def main():
     
 
     ### Readability features ###
-    output_file_path = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_readability_features.csv"
+    output_file_path = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_readability_features_classes_packages.csv"
     
     ## write header
     with open(output_file_path , "w+") as csv_file:
@@ -331,12 +331,12 @@ def main():
         writer.writeheader()               
             
 
-    with open("complexity-verification-project/ml_model/src/main/resources/Scalabrino-Replication-Package/readability_features.txt", "r") as file:
+    with open("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/Scalabrino-Replication-Package/readability_features_classes_packages.txt", "r") as file:
         lines = file.readlines()
         for i in range(2, len(lines)):
             line = lines[i].strip()
-            file_name = line.split(' ')[0].strip()
-            readability_value = line.split(' ')[1].strip()
+            file_name = line.split('\t')[0].strip()
+            readability_value = line.split('\t')[1].strip()
 
             dataset_id = file_name.split("/")[1].split("_")[1]
             if dataset_id.__contains__("$"):
@@ -361,16 +361,16 @@ def main():
 
     
     ## merge two csv files based on dataset_id, snippet_id, method_name and file
-    df_1 = pd.read_csv("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features.csv")
-    df_2 = pd.read_csv("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_readability_features.csv")
+    df_1 = pd.read_csv("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features_classes_packages.csv")
+    df_2 = pd.read_csv("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_readability_features_classes_packages.csv")
     
     df = pd.merge(df_1, df_2, on=["dataset_id", "snippet_id", "method_name", "file"])
 
-    df.to_csv("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features_complete.csv", index=False)
+    df.to_csv("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features_complete_classes_packages.csv", index=False)
 
     ## remove the intermediate files
-    os.remove("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features.csv")
-    os.remove("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_readability_features.csv")
+    os.remove("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_features_classes_packages.csv")
+    os.remove("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/scalabrino_readability_features_classes_packages.csv")
     
 if __name__ == "__main__":
     main()            

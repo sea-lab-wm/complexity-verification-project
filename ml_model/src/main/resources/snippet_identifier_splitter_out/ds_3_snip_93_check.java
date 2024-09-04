@@ -1,4 +1,3 @@
-ds_3_snip_93_check 
 check u Unit p PathNode 
 getSettlement getTile p getOwner getSettlement getTile p player getSettlement getTile p inSettlement 
 getSettlement getTile p s Settlement 

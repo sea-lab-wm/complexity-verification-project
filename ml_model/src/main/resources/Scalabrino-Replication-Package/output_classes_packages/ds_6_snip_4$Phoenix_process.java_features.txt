@@ -1,0 +1,111 @@
+[INFO] RiTa.WordNet.version [033]
+New Identifiers words AVG: 0.8444444444444444
+New Identifiers words MIN: 0.0
+New Abstractness words AVG: 4.684729064039409
+New Abstractness words MAX: 11.0
+New Abstractness words MIN: 0.0
+New Commented words AVG: 0.03111111111111111
+New Commented words MAX: 1.0
+New Synonym commented words AVG: 4.107033639143731
+New Synonym commented words MAX: 25.0
+New Expression complexity AVG: 0.6111111111111112
+New Expression complexity MAX: 2.0
+New Expression complexity MIN: 0.0
+New Method chains AVG: 2.025
+New Method chains MAX: 3.0
+New Method chains MIN: 2.0
+New Comments readability: 100.0
+New Number of senses AVG: 5.115555555555556
+New Number of senses MAX: 42.0
+New Semantic Text Coherence Standard: 40.0
+New Semantic Text Coherence Normalized: 0.7551020408163265
+New Text Coherence AVG: NaN
+New Text Coherence MIN: NaN
+New Text Coherence MAX: NaN
+BW Avg Assignment: 0.18055555555555555
+BW Avg blank lines: 0.0
+BW Avg commas: 0.06944444444444445
+BW Avg comments: 0.0136986301369863
+BW Avg comparisons: 0.09722222222222222
+BW Avg Identifiers Length: 8.012422360248447
+BW Avg conditionals: 0.06944444444444445
+BW Avg indentation length: 12.527777777777779
+BW Avg keywords: 0.4583333333333333
+BW Avg line length: 37.75
+BW Avg loops: 0.041666666666666664
+BW Avg number of identifiers: 2.236111111111111
+BW Avg numbers: 0.06944444444444445
+BW Avg operators: 0.06944444444444445
+BW Avg parenthesis: 0.8472222222222222
+BW Avg periods: 0.5833333333333334
+BW Avg spaces: 13.958333333333334
+BW Max Identifiers Length: 30.0
+BW Max indentation: 32.0
+BW Max keywords: 3.0
+BW Max line length: 100.0
+BW Max number of identifiers: 13.0
+BW Max numbers: 2.0
+BW Max char: 1029.0
+BW Max words: 17.0
+Posnett entropy: 4.120002740829254
+Posnett volume: 2645.8839376460837
+Posnett lines: 73.0
+Dorn DFT Assignments: 72.0
+Dorn DFT Commas: 72.0
+Dorn DFT Comments: 73.0
+Dorn DFT Comparisons: 72.0
+Dorn DFT Conditionals: 72.0
+Dorn DFT Indentations: 72.0
+Dorn DFT Keywords: 72.0
+Dorn DFT LineLengths: 57.0
+Dorn DFT Loops: 72.0
+Dorn DFT Identifiers: 72.0
+Dorn DFT Numbers: 72.0
+Dorn DFT Operators: 72.0
+Dorn DFT Parenthesis: 71.0
+Dorn DFT Periods: 70.0
+Dorn DFT Spaces: 72.0
+Dorn Visual X Comments: 100.0
+Dorn Visual Y Comments: 72.0
+Dorn Visual X Identifiers: 99.95890410958904
+Dorn Visual Y Identifiers: 71.88118811881188
+Dorn Visual X Keywords: 99.98630136986301
+Dorn Visual Y Keywords: 71.77227722772277
+Dorn Visual X Numbers: 98.84931506849315
+Dorn Visual Y Numbers: 71.5049504950495
+Dorn Visual X Strings: 99.95890410958904
+Dorn Visual Y Strings: 71.86138613861387
+Dorn Visual X Literals: 0.0
+Dorn Visual Y Literals: 0.0
+Dorn Visual X Operators: 99.94520547945206
+Dorn Visual Y Operators: 71.70297029702971
+Dorn Areas Comments: 0.006263817243920413
+Dorn Areas Identifiers: 0.41930729550478996
+Dorn Areas Keywords: 0.045689019896831246
+Dorn Areas Numbers: 7.369196757553427E-4
+Dorn Areas Strings: 0.08106116433308769
+Dorn Areas Literals: 0.0
+Dorn Areas Operators: 0.0873249815770081
+Dorn Areas Identifiers/Comments: 66.94117647058823
+Dorn Areas Keywords/Comments: 7.294117647058823
+Dorn Areas Numbers/Comments: 0.11764705882352941
+Dorn Areas Strings/Comments: 12.941176470588236
+Dorn Areas Literals/Comments: 0.0
+Dorn Areas Operators/Comments: 13.941176470588236
+Dorn Areas Keywords/Identifiers: 0.10896309314586995
+Dorn Areas Numbers/Identifiers: 0.0017574692442882249
+Dorn Areas Strings/Identifiers: 0.19332161687170474
+Dorn Areas Literals/Identifiers: 0.0
+Dorn Areas Operators/Identifiers: 0.20826010544815465
+Dorn Areas Numbers/Keywords: 0.016129032258064516
+Dorn Areas Strings/Keywords: 1.7741935483870968
+Dorn Areas Literals/Keywords: 0.0
+Dorn Areas Operators/Keywords: 1.9112903225806452
+Dorn Areas Strings/Numbers: 110.0
+Dorn Areas Literals/Numbers: 0.0
+Dorn Areas Operators/Numbers: 118.5
+Dorn Areas Literals/Strings: 0.0
+Dorn Areas Operators/Strings: 1.0772727272727274
+Dorn Areas Operators/Literals: NaN
+Dorn align blocks: 62.0
+Dorn align extent: 65.0

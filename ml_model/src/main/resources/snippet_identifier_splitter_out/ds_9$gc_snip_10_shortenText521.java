@@ -14,7 +14,6 @@ width bounds maxWidth
 s1 ELLIPSIS s2 s String 
 extent s textExtent gc 
 length textValue length 
-ds_9$gc_snip_10_shortenText521 
 x extent l 
 length start 
 length end 

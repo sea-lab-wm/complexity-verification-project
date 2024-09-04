@@ -1,4 +1,3 @@
-ds_3_snip_85_s17 
 s17 
 mDevices Vector DeviceIf 
 DeviceFileHandling reader DeviceFileHandling 

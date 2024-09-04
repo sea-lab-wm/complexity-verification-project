@@ -528,7 +528,8 @@ public class VisualFeatureVisitor extends VoidVisitorAdapter<Void> {
     int columnEnd = columnStart + 2;
     addToVisualMatrix(lineNumber, columnStart, columnEnd, KEYWORDS_VISUAL_FEATURE_NUMBER);
 
-    if (!ts.getFinallyBlock().isEmpty()) {
+    // if (!ts.getFinallyBlock().isEmpty()) {
+    if (ts.getFinallyBlock().isPresent()) {
       lineNumber = ts.getFinallyBlock().get().getRange().get().begin.line - 1;
       columnStart = ts.getFinallyBlock().get().getRange().get().begin.column - 9;
       columnEnd = columnStart + 6;

@@ -4,7 +4,6 @@ j y j j
 k y k k 
 j i array2 k i array j k array1 
 i x i i 
-ds_1_snip_15_main15 
 main15 args String 
 array 
 array1 

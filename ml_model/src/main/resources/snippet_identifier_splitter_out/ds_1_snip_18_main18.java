@@ -8,7 +8,6 @@ min number1
 results 
 results println out System 
 i min i i 
-ds_1_snip_18_main18 
 main18 args String 
 number1 
 number2 

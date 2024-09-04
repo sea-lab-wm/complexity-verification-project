@@ -12,7 +12,6 @@ x s textExtent gc l
 length textValue length 
 l maxWidth 
 length start 
-ds_9$bc_snip_9_shortenText512 
 dispose gc 
 length end 
 s 

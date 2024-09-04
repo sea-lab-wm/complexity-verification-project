@@ -13,6 +13,5 @@ start
 length end 
 end 
 start end length 
-ds_9$nc_snip_9_shortenText513 
 start substring textValue s1 String 
 end length substring textValue s2 String 

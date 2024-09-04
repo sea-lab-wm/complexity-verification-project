@@ -6,7 +6,6 @@ projectSpace
 value nComposite NotificationComposite 
 isAcknowledged nStore 
 getPropertyManager projectSpace manager PropertyManager 
-ds_9$gc_snip_3_apply211 
 isAcknowledged nStore 
 createNotificationComposite Factory nComposite NotificationComposite 
 getNotifications nStore removeAll getNotifications nComposite 

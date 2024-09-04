@@ -11,7 +11,6 @@ get getChildren paragraph image UImage
 getBackgroundColor getBoxModel uCell setBackgroundColor cell 
 startsWith lastSegment getPath image 
 cell Cell 
-ds_9$nc_snip_5_copyUTable313 
 Table copyUTable313 uTable UTable 
 cell addCell table 
 getColumnsCount uTable Table table Table 

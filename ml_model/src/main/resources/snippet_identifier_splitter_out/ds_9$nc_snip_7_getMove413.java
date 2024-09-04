@@ -10,7 +10,6 @@ append builder
 result 
 builder subline appendSubline 
 append builder 
-ds_9$nc_snip_7_getMove413 
 getComments move comment Comment 
 append getText comment append append builder 
 getMove413 builder StringBuilder move Move 

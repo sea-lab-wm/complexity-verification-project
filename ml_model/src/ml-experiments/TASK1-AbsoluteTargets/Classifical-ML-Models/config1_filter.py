@@ -2,7 +2,7 @@ from utils import configs
 import json
 
 ## read jsonl file
-with open(configs.ROOT_PATH + "/NewExperiments/featureselection/experiments_RQ1_new.jsonl") as jsonl_file:
+with open(configs.ROOT_PATH + "/featureselection/experiments_DS6_all.jsonl") as jsonl_file:
     experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
 
 ## filter experiments
@@ -18,6 +18,6 @@ for exp in experiments:
         filtered_experiments_json.append(exp)
 
 ## write filtered experiments to jsonl file
-with open(configs.ROOT_PATH + "/NewExperiments/featureselection/experiments_RQ1_new_filtered.jsonl", "w") as jsonl_file:
+with open(configs.ROOT_PATH + "/featureselection/experiments_DS6_filtered.jsonl", "w+") as jsonl_file:
    for exp in filtered_experiments_json:
       jsonl_file.write(json.dumps(exp) + "\n")         

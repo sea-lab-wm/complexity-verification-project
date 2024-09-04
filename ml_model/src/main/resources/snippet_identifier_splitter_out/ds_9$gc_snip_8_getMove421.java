@@ -15,7 +15,6 @@ append builder
 append builder 
 getSublines move subline SublineNode 
 result 
-ds_9$gc_snip_8_getMove421 
 result 
 append builder 
 getNags move nag Nag 

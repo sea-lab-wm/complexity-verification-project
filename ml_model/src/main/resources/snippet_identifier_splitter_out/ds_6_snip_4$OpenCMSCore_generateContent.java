@@ -1,10 +1,22 @@
-writtenFiles cms vfsFolder numberOfBinaryFiles getStaticTypeId CmsResourceTypeBinary maxProps propertyDistribution generateResources 
-ds_6_snip_4$OpenCMSCore_generateContent 
-writtenFiles cms vfsFolder numberOfFiles numberOfBinaryFiles getStaticTypeId CmsResourceTypePlain maxProps propertyDistribution generateResources 
+numberOfFiles fileTypeDistribution numberOfBinaryFiles 
 writtenFiles vfsFolder println out System 
+writtenFiles generateResources 
 writtenFiles 
-generateContent cms CmsObject vfsFolder String numberOfFiles fileTypeDistribution Exception 
+writtenFiles generateResources 
+cms 
+cms 
+generateContent cms CmsObject vfsFolder String numberOfFiles fileTypeDistribution 
+vfsFolder 
+Exception 
+vfsFolder 
+numberOfFiles numberOfBinaryFiles 
+maxProps 
+numberOfBinaryFiles 
+propertyDistribution 
+getStaticTypeId CmsResourceTypePlain 
+getStaticTypeId CmsResourceTypeBinary 
+maxProps 
+writtenFiles 
 maxProps 
 propertyDistribution 
-writtenFiles 
-numberOfFiles fileTypeDistribution numberOfBinaryFiles 
+propertyDistribution 

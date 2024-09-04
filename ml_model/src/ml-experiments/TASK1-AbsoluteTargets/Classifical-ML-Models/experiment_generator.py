@@ -13,8 +13,9 @@ import json
 import pandas as pd
 from utils import configs
 import csv
-from utils import configs
 import math
+import sys
+sys.path.append('/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/ml-experiments/TASK1-AbsoluteTargets/Classifical-ML-Models/')
 
 from featureselection.feature_selection import FeatureSelection
 
@@ -183,8 +184,8 @@ def RQ2_experiments(experiment_id):
 if __name__ == "__main__":
     with open(configs.ROOT_PATH + "/" + configs.OUTPUT_RQ1_PATH, "w+") as file:
         file.write("")
-    with open(configs.ROOT_PATH + "/" + configs.OUTPUT_RQ2_PATH, "w+") as file2:
-        file2.write("")    
+    # with open(configs.ROOT_PATH + "/" + configs.OUTPUT_RQ2_PATH, "w+") as file2:
+    #     file2.write("")    
 
     ## data loading
     df = pd.read_csv(configs.ROOT_PATH + "/" + configs.DATA_PATH)
@@ -213,8 +214,8 @@ if __name__ == "__main__":
     output_file_mi = configs.MI_OUTPUT_FILE_NAME
 
     ## RQ2
-    output_file_kendalls_rq2 = configs.KENDALS_OUTPUT_FILE_NAME_RQ2
-    output_file_mi_rq2 = configs.MI_OUTPUT_FILE_NAME_RQ2
+    # output_file_kendalls_rq2 = configs.KENDALS_OUTPUT_FILE_NAME_RQ2
+    # output_file_mi_rq2 = configs.MI_OUTPUT_FILE_NAME_RQ2
 
     ## write header for RQ1
     with open(configs.ROOT_PATH + '/' + output_file_kendalls, "w+") as csv_file:
@@ -225,17 +226,17 @@ if __name__ == "__main__":
         writer.writeheader()
 
     ## write header for RQ2
-    with open(configs.ROOT_PATH + '/' + output_file_kendalls_rq2, "w+") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=header_kendals.keys())
-        writer.writeheader()
-    with open(configs.ROOT_PATH + '/' + output_file_mi_rq2, "w+") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=header_mi.keys())
-        writer.writeheader()
+    # with open(configs.ROOT_PATH + '/' + output_file_kendalls_rq2, "w+") as csv_file:
+    #     writer = csv.DictWriter(csv_file, fieldnames=header_kendals.keys())
+    #     writer.writeheader()
+    # with open(configs.ROOT_PATH + '/' + output_file_mi_rq2, "w+") as csv_file:
+    #     writer = csv.DictWriter(csv_file, fieldnames=header_mi.keys())
+    #     writer.writeheader()
 
     experiment_id = 1 ## global variable to keep track of the experiment id
 
     experiment_id = RQ1_experiments(experiment_id) 
     print("Experiments for RQ1 are generated successfully!")
     
-    RQ2_experiments(experiment_id)
-    print("Experiments for RQ2 are generated successfully!")
+    # RQ2_experiments(experiment_id)
+    # print("Experiments for RQ2 are generated successfully!")

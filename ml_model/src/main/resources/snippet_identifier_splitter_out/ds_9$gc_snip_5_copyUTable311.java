@@ -9,7 +9,6 @@ startsWith lastSegment getPath image
 getBackgroundColor getBoxModel uCell setBackgroundColor cell 
 cell Cell 
 cell Cell 
-ds_9$gc_snip_5_copyUTable311 
 startsWith lastSegment getPath image 
 cell addCell table 
 cell Cell 

@@ -1,14 +1,9 @@
-TIMESTAMP Types registerColumnType 
-VARBINARY Types registerColumnType 
-NUMERIC Types registerColumnType 
 BLOB Types registerColumnType 
 CLOB Types registerColumnType 
 USE_STREAMS_FOR_BINARY Environment setProperty getDefaultProperties 
 STATEMENT_BATCH_SIZE Environment DEFAULT_BATCH_SIZE setProperty getDefaultProperties 
 StandardSQLFunction registerFunction 
-BIT Types registerColumnType 
 StandardSQLFunction registerFunction 
-BIGINT Types registerColumnType 
 StandardSQLFunction registerFunction 
 SMALLINT Types registerColumnType 
 STRING StandardBasicTypes StandardSQLFunction registerFunction 
@@ -21,10 +16,14 @@ TIMESTAMP StandardBasicTypes StandardSQLFunction registerFunction
 VARCHAR Types registerColumnType 
 TIMESTAMP StandardBasicTypes NoArgSQLFunction registerFunction 
 FLOAT Types registerColumnType 
-DOUBLE Types registerColumnType 
-ds_6_snip_2$HibernateORM_TimesTenDialect 
-TimesTenDialect 
 TIMESTAMP StandardBasicTypes NoArgSQLFunction registerFunction 
+DOUBLE Types registerColumnType 
 StandardSQLFunction registerFunction 
 DATE Types registerColumnType 
 TIME Types registerColumnType 
+TIMESTAMP Types registerColumnType 
+TimesTenDialect 
+BIT Types registerColumnType 
+BIGINT Types registerColumnType 
+VARBINARY Types registerColumnType 
+NUMERIC Types registerColumnType 

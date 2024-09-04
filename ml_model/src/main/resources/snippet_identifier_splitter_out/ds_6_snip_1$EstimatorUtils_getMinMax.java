@@ -1,8 +1,8 @@
 enumerateInstances inst enumInst Enumeration Instance 
 hasMoreElements enumInst 
 instance nextElement enumInst 
-minMax min 
 attrIndex isMissing instance hasMoreElements enumInst 
+minMax min 
 minMax max 
 numNotMissing 
 attrIndex isMissing instance 
@@ -10,18 +10,18 @@ numNotMissing
 min attrIndex value instance 
 max attrIndex value instance 
 hasMoreElements enumInst 
+getMinMax inst Instances attrIndex minMax 
 instance nextElement enumInst 
-attrIndex isMissing instance 
-numNotMissing 
-getMinMax inst Instances attrIndex minMax Exception 
+Exception 
 NaN Double min 
-attrIndex value instance min 
+attrIndex isMissing instance 
 NaN Double max 
-min attrIndex value instance 
+numNotMissing 
 instance Instance 
+attrIndex value instance min 
 numNotMissing 
 minMax length minMax 
-ds_6_snip_1$EstimatorUtils_getMinMax 
+min attrIndex value instance 
+Exception 
 attrIndex value instance max 
 max attrIndex value instance 
-Exception 

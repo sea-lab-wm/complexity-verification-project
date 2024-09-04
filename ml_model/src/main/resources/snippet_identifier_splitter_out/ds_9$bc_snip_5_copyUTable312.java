@@ -11,7 +11,6 @@ cell addCell table
 getContent uCell paragraph UParagraph 
 cell Cell 
 size getChildren paragraph get getChildren paragraph UImage 
-ds_9$bc_snip_5_copyUTable312 
 Table copyUTable312 uTable UTable 
 table 
 cell lastSegment getPath image Cell 

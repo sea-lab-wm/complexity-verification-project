@@ -1,19 +1,20 @@
-outputStream tempFile FileOutputStream 
+outputStream 
+files mDbxClient 
+getName localFile download 
 close outputStream 
-outputStream download getName localFile download files mDbxClient 
+outputStream download 
 e IOException 
 tempFile localFile copyFile FileCopyUtil 
 TAG e e Log 
 IOException 
 e NetworkIOException 
 e SyncIoException 
-delete tempFile 
 e DbxException IOException 
-TAG w Log 
-e SyncParseException 
-ds_6_snip_5$CarReport_downloadFile 
 downloadFile SyncIoException SyncParseException 
 getLocalFile localFile File 
 getCacheDir getContext Application getSimpleName getClass File tempFile File 
 outputStream FileOutputStream 
-outputStream 
+delete tempFile 
+e SyncParseException 
+TAG w Log 
+outputStream tempFile FileOutputStream 

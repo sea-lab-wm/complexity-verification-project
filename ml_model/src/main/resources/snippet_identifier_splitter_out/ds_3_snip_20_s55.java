@@ -1,5 +1,4 @@
 missionChip color get expertMissionChips 
-ds_3_snip_20_s55 
 s55 
 missionChip 
 getDefaultConfiguration getDefaultScreenDevice getLocalGraphicsEnvironment GraphicsEnvironment gc GraphicsConfiguration 

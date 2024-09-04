@@ -14,7 +14,6 @@ notifications getNotifications nComposite
 property 
 getNotifications nStore addAll notifications 
 getValue property value Value 
-ds_9$bc_snip_4_apply222 
 getNotifications nStore addAll notifications 
 NOTIFICATION_COMPOSITE nComposite setLocalProperty manager 
 apply222 project Project nStore NotificationStore 

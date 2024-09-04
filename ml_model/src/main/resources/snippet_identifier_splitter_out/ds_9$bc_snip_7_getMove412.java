@@ -9,7 +9,6 @@ result
 getNagString nag append append builder 
 append builder 
 builder subline appendSubline 
-ds_9$bc_snip_7_getMove412 
 append builder 
 append getText getTimeTakenForMove move append append builder 
 result 

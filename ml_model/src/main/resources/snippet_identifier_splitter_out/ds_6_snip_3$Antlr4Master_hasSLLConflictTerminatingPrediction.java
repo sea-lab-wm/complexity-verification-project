@@ -1,13 +1,13 @@
+hasSemanticContext configs 
 configs allConfigsInRuleStopStates 
+ATNConfigSet dup ATNConfigSet 
 configs c ATNConfig 
-heuristic 
+configs getConflictingAltSubsets altsets Collection BitSet 
 c c NONE SemanticContext ATNConfig 
+heuristic 
 c add dup 
+altsets hasConflictingAltSet configs hasStateAssociatedWithOneAlt 
+heuristic 
 mode SLL PredictionMode 
 configs dup 
-hasSemanticContext configs 
-ds_6_snip_3$Antlr4Master_hasSLLConflictTerminatingPrediction 
 hasSLLConflictTerminatingPrediction mode PredictionMode configs ATNConfigSet 
-configs getConflictingAltSubsets altsets Collection BitSet 
-ATNConfigSet dup ATNConfigSet 
-altsets hasConflictingAltSet configs hasStateAssociatedWithOneAlt heuristic 

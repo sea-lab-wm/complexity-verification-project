@@ -14,7 +14,6 @@ getBounds control bounds Bounds
 s1 ELLIPSIS s2 s String 
 width bounds maxWidth 
 extent s textExtent gc 
-ds_9$bc_snip_10_shortenText522 
 x extent l 
 length textValue length 
 length start 

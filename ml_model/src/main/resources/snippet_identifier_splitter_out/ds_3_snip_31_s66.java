@@ -1,4 +1,3 @@
-ds_3_snip_31_s66 
 s66 
 row changeSelection mProgramTable 
 row getValueAt mProgramTableModel Program p Program 

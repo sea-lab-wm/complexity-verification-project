@@ -1,33 +1,32 @@
 jdbcUrl checkNotNull Preconditions 
-keyGeneratorType debug logger 
+jdbcUrl debug logger 
 columnNames checkNotNull Preconditions 
-context doConfigure 
+toString colNames debug logger 
 columnNames split DEFAULT_COLUMNS_DELIMITER on Splitter s String 
+headersStr debug logger 
 s add colNames 
+keyGeneratorType debug logger 
+context doConfigure 
 headersStr isNullOrEmpty Strings 
 headersStr split DEFAULT_COLUMNS_DELIMITER on Splitter s String 
 s add headers 
-CONFIG_JDBC_URL FlumeConstants getString context ipJdbcURL String 
-keyGeneratorType isNullOrEmpty Strings 
 batchSize CONFIG_BATCHSIZE FlumeConstants DEFAULT_BATCH_SIZE FlumeConstants getInteger context 
 CONFIG_COLUMN_NAMES getString context columnNames String 
-keyGenerator toUpperCase keyGeneratorType valueOf DefaultKeyGenerator 
 CONFIG_HEADER_NAMES getString context headersStr String 
-autoGenerateKey 
+keyGeneratorType isNullOrEmpty Strings 
 CONFIG_ROWKEY_TYPE_GENERATOR getString context keyGeneratorType String 
-iae IllegalArgumentException 
+keyGenerator toUpperCase keyGeneratorType valueOf DefaultKeyGenerator 
 fullTableName checkNotNull Preconditions 
-keyGeneratorType values DefaultKeyGenerator error logger 
+autoGenerateKey 
 zookeeperQuorum isNullOrEmpty Strings 
-iae propagate Throwables 
+iae IllegalArgumentException 
 jdbcUrl zookeeperQuorum getUrl QueryUtil 
+keyGeneratorType values DefaultKeyGenerator error logger 
 ipJdbcURL isNullOrEmpty Strings 
-ds_6_snip_3$Phoenix_configure 
 configure context Context 
 createTableDdl CONFIG_TABLE_DDL FlumeConstants getString context 
 fullTableName CONFIG_TABLE FlumeConstants getString context 
 CONFIG_ZK_QUORUM FlumeConstants getString context zookeeperQuorum String 
-jdbcUrl debug logger 
+CONFIG_JDBC_URL FlumeConstants getString context ipJdbcURL String 
+iae propagate Throwables 
 jdbcUrl ipJdbcURL 
-toString colNames debug logger 
-headersStr debug logger 

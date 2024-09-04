@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * This class to extract features from a java file Input : Java file with a Single Method (Note: if
@@ -115,6 +116,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     features.incrementNumOfIfStatements();
     features.incrementNumOfConditionals();
     features.incrementNumOfStatements();
+    // print the line number of the if statement and statement type
+    // System.out.println("Line Number: " + ifStmt.getRange().get().begin.line + " Statement Type: " + ifStmt.getClass().getSimpleName());
+    
 
     String lineNumber = ifStmt.getRange().get().begin.line+"";
     features.setLineConditionalMap(constructLineNumberFeatureMap(features.getLineConditionalMap(), lineNumber));    
@@ -129,6 +133,10 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     features.incrementNumOfConditionals();
     features.incrementNumOfStatements();
 
+    // print the line number of the statement and statement type
+    // System.out.println("Line Number: " + swStmt.getRange().get().begin.line + " Statement Type: " + swStmt.getClass().getSimpleName());
+    
+
     String lineNumber = swStmt.getRange().get().begin.line+"";
     features.setLineConditionalMap(constructLineNumberFeatureMap(features.getLineConditionalMap(), lineNumber));
   }
@@ -141,6 +149,11 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(forStmt, arg);
     features.incrementNumOfLoops();
     features.incrementNumOfStatements();
+
+    // print the line number of the statement and statement type
+    // System.out.println("Line Number: " + forStmt.getRange().get().begin.line + " Statement Type: " + forStmt.getClass().getSimpleName());
+    
+
     String lineNumber = forStmt.getRange().get().begin.line+"";
     features.setLineLoopMap(constructLineNumberFeatureMap(features.getLineLoopMap(), lineNumber));
   }
@@ -153,6 +166,10 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(whileStmt, arg);
     features.incrementNumOfLoops();
     features.incrementNumOfStatements();
+
+    // print the line number of the statement and statement type
+    // System.out.println("Line Number: " + whileStmt.getRange().get().begin.line + " Statement Type: " + whileStmt.getClass().getSimpleName());
+
     String lineNumber = whileStmt.getRange().get().begin.line+"";
     features.setLineLoopMap(constructLineNumberFeatureMap(features.getLineLoopMap(), lineNumber));
   }
@@ -165,6 +182,10 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(forEachStmt, arg);
     features.incrementNumOfLoops();
     features.incrementNumOfStatements();
+
+    // print the line number of the statement and statement type
+    // System.out.println("Line Number: " + forEachStmt.getRange().get().begin.line + " Statement Type: " + forEachStmt.getClass().getSimpleName());
+
     String lineNumber = forEachStmt.getRange().get().begin.line+"";
     features.setLineLoopMap(constructLineNumberFeatureMap(features.getLineLoopMap(), lineNumber));
   }
@@ -178,6 +199,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(assignExpr, arg);
     features.setAssignExprs(features.getAssignExprs() + 1);
     String lineNumber = assignExpr.getRange().get().begin.line+"";
+    
     features.setLineAssignmentExpressionMap(constructLineNumberFeatureMap(features.getLineAssignmentExpressionMap(), lineNumber));
   }
 
@@ -190,6 +212,7 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     super.visit(vdExpr, arg);
     features.setAssignExprs(features.getAssignExprs() + 1);
     String lineNumber = vdExpr.getRange().get().begin.line+"";
+    
     features.setLineAssignmentExpressionMap(constructLineNumberFeatureMap(features.getLineAssignmentExpressionMap(), lineNumber));
   }
 
@@ -210,9 +233,12 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
       features.setComparisons(features.getComparisons() + 1);
 
       features.setLineComparisonMap(constructLineNumberFeatureMap(features.getLineComparisonMap(), lineNumber));
-    
+      
       features.setLineOperatorMap(constructLineNumberFeatureMap(features.getLineOperatorMap(), lineNumber));
       
+      // print line number and operator
+      // System.out.println("Line Number: " + n.getRange().get().begin.line + " Operator: " + operator.asString());
+
       features.getOperators().add(operator.asString()); // add operators
 
     } else if (operator == Operator.PLUS
@@ -226,14 +252,24 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
 
       features.getOperators().add(operator.asString()); // add operators
 
+      // print line number and operator
+      // System.out.println("Line Number: " + n.getRange().get().begin.line + " Operator: " + operator.asString());
+
     } else if (operator == Operator.AND
         || operator == Operator.OR
         || operator == Operator.BINARY_AND
         || operator == Operator.BINARY_OR
-        || operator == Operator.XOR) {
+        || operator == Operator.XOR
+        || operator == Operator.LEFT_SHIFT 
+        || operator == Operator.SIGNED_RIGHT_SHIFT 
+        || operator == Operator.UNSIGNED_RIGHT_SHIFT) {
       features.incrementNumOfLogicalOperators();
 
       features.setLineOperatorMap(constructLineNumberFeatureMap(features.getLineOperatorMap(), lineNumber));
+
+      // print line number and operator
+      // System.out.println("Line Number: " + n.getRange().get().begin.line + " Operator: " + operator.asString());
+
 
       features.getOperators().add(operator.asString()); // add operators
     }
@@ -354,6 +390,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
     
       // add comments
       features.getComments().add(comment.getContent());
+
+      // // print line number and comment
+      System.out.println("Line Number: " + comment.getRange().get().begin.line + " Comment: " + comment.getContent());
     }
   }
   
@@ -365,18 +404,34 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   @Override
   public void visit(SimpleName sn, Void arg) {
     super.visit(sn, arg);
+
+    // if identifier contain ds_[number]_snip_[number] then check regex and ignore
+    // this will ignore the identifiers that are generated by the snippet splitter
+    if(Pattern.compile("^ds_[a-zA-Z0-9]+[$_]").matcher(sn.getIdentifier()).find()){
+      return;
+    }
+    
+
     features.incrementNumOfIdentifiers();
     features.getOperands().add(sn.getIdentifier()); // add operands
     
     String lineNumber = sn.getRange().get().begin.line+"";
     if(features.getLineNumber_Identifier_Map().containsKey(lineNumber)){
       List<String> identifierList = features.getLineNumber_Identifier_Map().get(lineNumber);
+      
       identifierList.add(sn.getIdentifier());
       features.getLineNumber_Identifier_Map().put(lineNumber,identifierList);
+
+      // print line number and identifier
+      // System.out.println("Line Number: " + sn.getRange().get().begin.line + " Identifier: " + sn.getIdentifier());
+    
     }else{
       List<String> identifierList = new ArrayList<String>();
       identifierList.add(sn.getIdentifier());
       features.getLineNumber_Identifier_Map().put(lineNumber,identifierList);
+
+      // print line number and identifier
+      // System.out.println("Line Number: " + sn.getRange().get().begin.line + " Identifier: " + sn.getIdentifier());
     }
   }
 
@@ -388,6 +443,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(AssertStmt ast, Void arg) {
     super.visit(ast, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + ast.getRange().get().begin.line + " Statement Type: " + ast.getClass().getSimpleName());
   }
 
   /**
@@ -452,6 +510,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
       if (node instanceof SynchronizedStmt) {
         features.incrementNumOfNestedBlocks();
       }
+
+      // increment number of statements
+      features.incrementNumOfStatements();
     }
   }
 
@@ -463,17 +524,23 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(BreakStmt brst, Void arg) {
     super.visit(brst, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + brst.getRange().get().begin.line + " Statement Type: " + brst.getClass().getSimpleName());
   }
 
   /**
    * This method identifies Catch Clauses in a java method to sum up the total number of 
    * all statements
    */
-  @Override
-  public void visit(CatchClause cc, Void arg) {
-    super.visit(cc, arg);
-    features.incrementNumOfStatements();
-  }
+  // @Override
+  // public void visit(CatchClause cc, Void arg) {
+  //   super.visit(cc, arg);
+  //   features.incrementNumOfStatements();
+
+  //   // print line number and statement type
+  //   System.out.println("Line Number: " + cc.getRange().get().begin.line + " Statement Type: " + cc.getClass().getSimpleName());
+  // }
 
   /**
    * This method identifies Continue Statements in a java method to sum up the total number of 
@@ -483,6 +550,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ContinueStmt cs, Void arg) {
     super.visit(cs, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + cs.getRange().get().begin.line + " Statement Type: " + cs.getClass().getSimpleName());
   }
 
   /**
@@ -493,6 +563,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(DoStmt ds, Void arg) {
     super.visit(ds, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + ds.getRange().get().begin.line + " Statement Type: " + ds.getClass().getSimpleName());
   }
 
   /**
@@ -504,6 +577,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(EmptyStmt es, Void arg) {
     super.visit(es, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + es.getRange().get().begin.line + " Statement Type: " + es.getClass().getSimpleName());
   }
 
   /**
@@ -514,6 +590,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ExplicitConstructorInvocationStmt ecis, Void arg) {
     super.visit(ecis, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + ecis.getRange().get().begin.line + " Statement Type: " + ecis.getClass().getSimpleName());
   }
 
   /**
@@ -524,6 +603,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ExpressionStmt es, Void arg) {
     super.visit(es, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + es.getRange().get().begin.line + " Statement Type: " + es.getClass().getSimpleName());
   }
 
   /**
@@ -534,6 +616,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(LabeledStmt ls, Void arg) {
     super.visit(ls, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + ls.getRange().get().begin.line + " Statement Type: " + ls.getClass().getSimpleName());
   }
 
   /**
@@ -544,17 +629,23 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(LocalClassDeclarationStmt lcds, Void arg) {
     super.visit(lcds, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + lcds.getRange().get().begin.line + " Statement Type: " + lcds.getClass().getSimpleName());
   }
 
   /**
    * This method identifies Local Record Declaration Statements in a java method to sum up the total number of 
-   * all statements.
+   * all statements. // can't use since introduced in Java 14
    */
-  @Override
-  public void visit(LocalRecordDeclarationStmt lrds, Void arg) {
-    super.visit(lrds, arg);
-    features.incrementNumOfStatements();
-  }
+  // @Override
+  // public void visit(LocalRecordDeclarationStmt lrds, Void arg) {
+  //   super.visit(lrds, arg);
+  //   features.incrementNumOfStatements();
+
+  //   // print line number and statement type
+  //   // System.out.println("Line Number: " + lrds.getRange().get().begin.line + " Statement Type: " + lrds.getClass().getSimpleName());
+  // }
 
   /**
    * This method identifies Return Statements in a java method to sum up the total number of 
@@ -564,6 +655,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ReturnStmt rs, Void arg) {
     super.visit(rs, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + rs.getRange().get().begin.line + " Statement Type: " + rs.getClass().getSimpleName());
 
     String lineNumber = rs.getRange().get().begin.line+"";
     if(features.getLineNumber_param_return_throws_Map().containsKey(lineNumber)){
@@ -586,6 +680,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(SynchronizedStmt ss, Void arg) {
     super.visit(ss, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + ss.getRange().get().begin.line + " Statement Type: " + ss.getClass().getSimpleName());
   }
 
   /**
@@ -596,6 +693,9 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(ThrowStmt ts, Void arg) {
     super.visit(ts, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + ts.getRange().get().begin.line + " Statement Type: " + ts.getClass().getSimpleName());
 
     String lineNumber = ts.getRange().get().begin.line+"";
     if(features.getLineNumber_param_return_throws_Map().containsKey(lineNumber)){
@@ -618,17 +718,23 @@ public class FeatureVisitor extends VoidVisitorAdapter<Void> {
   public void visit(TryStmt ts, Void arg) {
     super.visit(ts, arg);
     features.incrementNumOfStatements();
+
+    // print line number and statement type
+    // System.out.println("Line Number: " + ts.getRange().get().begin.line + " Statement Type: " + ts.getClass().getSimpleName());
   }
 
   /**
    * This method identifies Yield Statements in a java method to sum up the total number of 
-   * all statements.
+   * all statements. // Can't use since introduced in Java 14
    */
-  @Override
-  public void visit(YieldStmt ys, Void arg) {
-    super.visit(ys, arg);
-    features.incrementNumOfStatements();
-  }
+  // @Override
+  // public void visit(YieldStmt ys, Void arg) {
+  //   super.visit(ys, arg);
+  //   features.incrementNumOfStatements();
+
+  //   // print line number and statement type
+  //   System.out.println("Line Number: " + ys.getRange().get().begin.line + " Statement Type: " + ys.getClass().getSimpleName());
+  // }
 
   /**
    * This method is to get the computed features After one/more visit method is/are called, the

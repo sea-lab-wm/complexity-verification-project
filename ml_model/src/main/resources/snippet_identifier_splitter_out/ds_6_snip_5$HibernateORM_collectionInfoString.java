@@ -1,18 +1,24 @@
-getRole persister append s 
-ownerKey entry getId entry 
+persister 
+ownerKey getFactory session 
+isAssignableFrom getClass collectionKey 
 append s 
-getIdentifierType getOwnerEntityPersister persister ownerIdentifierType Type 
-ownerKey getFactory session toLoggableString ownerIdentifierType append s 
-ownerKey Serializable 
-append s 
-toString s 
-String collectionInfoString persister CollectionPersister collection PersistentCollection collectionKey Serializable session SharedSessionContractImplementor 
-StringBuilder s StringBuilder 
-getReturnedClass ownerIdentifierType isAssignableFrom getClass collectionKey 
+getReturnedClass ownerIdentifierType 
 append s 
 ownerKey collectionKey 
-persister 
-ds_6_snip_5$HibernateORM_collectionInfoString 
-collection getOwner collection collectionOwner Object 
+String collectionInfoString 
+getRole persister append s 
+toString s 
+persister CollectionPersister 
 append s 
+collection PersistentCollection 
+collection getOwner collection collectionOwner Object 
+collectionKey Serializable 
+getOwnerEntityPersister persister ownerIdentifierType Type 
+session SharedSessionContractImplementor 
 collectionOwner collectionOwner getEntry getPersistenceContext session entry EntityEntry 
+getIdentifierType 
+ownerKey entry getId entry 
+StringBuilder s StringBuilder 
+ownerKey Serializable 
+append s 
+toLoggableString ownerIdentifierType append s 

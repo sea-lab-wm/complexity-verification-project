@@ -1,19 +1,18 @@
-isValid 
-validate validator 
-toString getText mEdtName name String 
-FuelTypeContentValues values FuelTypeContentValues 
-name contains mOtherFuelTypeNames 
 toString getText mEdtName putName values 
 toString getText mEdtCategory putCategory values 
-mFuelType 
-getContentResolver getActivity insert values 
 getMessage 
+mFuelType 
 validate_error_fuel_type_exists string R 
+getContentResolver getActivity insert values 
 getId mFuelType id FuelTypeSelection where FuelTypeSelection 
-ds_6_snip_1$CarReport_save 
+mEdtCategory FormFieldNotEmptyValidator add validator 
+getContentResolver getActivity where update values 
 save 
 FormValidator validator FormValidator 
 mEdtName FormFieldNotEmptyValidator add validator 
 mEdtName AbstractFormFieldValidator add validator 
-getContentResolver getActivity where update values 
-mEdtCategory FormFieldNotEmptyValidator add validator 
+isValid 
+toString getText mEdtName name String 
+validate validator 
+name contains mOtherFuelTypeNames 
+FuelTypeContentValues values FuelTypeContentValues 

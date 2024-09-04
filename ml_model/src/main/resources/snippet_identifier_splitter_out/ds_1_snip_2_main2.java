@@ -4,7 +4,6 @@ counter
 i length i i 
 i charAt string1 i charAt string2 
 counter 
-ds_1_snip_2_main2 
 main2 args String 
 string1 String 
 string2 String 

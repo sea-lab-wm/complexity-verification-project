@@ -1,7 +1,6 @@
 append result 
 append charAt i words toUpperCase Character append result 
 substring i words 
-ds_1_snip_19_main19 
 result println out System 
 main19 args String 
 s String 

@@ -5,6 +5,7 @@ import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.printer.lexicalpreservation.LexicalPreservingPrinter;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import java.io.File;
@@ -19,9 +20,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Parser {
+
   public static void main(String[] args) {
 
-    String dirPath = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/corrected_raw_snippets/ds_6";
+    String dirPath = "/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/main/resources/corrected_raw_snippets";
     File projectDir = new File(dirPath);
 
     // Output features
@@ -108,6 +110,10 @@ public class Parser {
       pw.append(",");
       // pw.append("AEDQ (avg)");
       // pw.append(",");
+      pw.append("CIC (avg)");
+      pw.append(",");
+      pw.append("CICSyn (avg)");
+      pw.append(",");
 
       // Maximums
       pw.append("#numbers (max)");
@@ -128,89 +134,93 @@ public class Parser {
       pw.append(",");
       // pw.append("AEDQ (max)");
       // pw.append(",");
+      pw.append("CIC (max)");
+      pw.append(",");
+      pw.append("CICSyn (max)");
+      pw.append(",");
 
       // Minimums
       pw.append("#identifiers (min)");
       pw.append(",");
       pw.append("MIDQ (min)");
-      pw.append(",");
+      // pw.append(",");
       // pw.append("AEDQ (min)");
       // pw.append(",");
 
       // dfts
-      pw.append("#assignments (dft)");
-      pw.append(",");
-      pw.append("#commas (dft)");
-      pw.append(",");
-      pw.append("#comparisons (dft)");
-      pw.append(",");
-      pw.append("#comments (dft)");
-      pw.append(",");
-      pw.append("#conditionals (dft)");
-      pw.append(",");
-      pw.append("#identifiers (dft)");
-      pw.append(",");
-      pw.append("#keywords (dft)");
-      pw.append(",");
-      pw.append("#loops (dft)");
-      pw.append(",");
-      pw.append("#numbers (dft)");
-      pw.append(",");
-      pw.append("#operators (dft)");
-      pw.append(",");
-      pw.append("#parenthesis (dft)");
-      pw.append(",");
-      pw.append("#periods (dft)");
-      pw.append(",");
-      pw.append("#spaces (dft)");
-      pw.append(",");
-      pw.append("Indentation length (dft)");
-      pw.append(",");
-      pw.append("Line length (dft)");
-      pw.append(",");
+      // pw.append("#assignments (dft)");
+      // pw.append(",");
+      // pw.append("#commas (dft)");
+      // pw.append(",");
+      // pw.append("#comparisons (dft)");
+      // pw.append(",");
+      // pw.append("#comments (dft)");
+      // pw.append(",");
+      // pw.append("#conditionals (dft)");
+      // pw.append(",");
+      // pw.append("#identifiers (dft)");
+      // pw.append(",");
+      // pw.append("#keywords (dft)");
+      // pw.append(",");
+      // pw.append("#loops (dft)");
+      // pw.append(",");
+      // pw.append("#numbers (dft)");
+      // pw.append(",");
+      // pw.append("#operators (dft)");
+      // pw.append(",");
+      // pw.append("#parenthesis (dft)");
+      // pw.append(",");
+      // pw.append("#periods (dft)");
+      // pw.append(",");
+      // pw.append("#spaces (dft)");
+      // pw.append(",");
+      // pw.append("Indentation length (dft)");
+      // pw.append(",");
+      // pw.append("Line length (dft)");
+      // pw.append(",");
 
       //Visual Features
-      pw.append("Keywords (Visual X)");
-      pw.append(",");
-      pw.append("Identifiers (Visual X)");
-      pw.append(",");
-      pw.append("Operators (Visual X)");
-      pw.append(",");
-      pw.append("Numbers (Visual X)");
-      pw.append(",");
-      pw.append("Strings (Visual X)");
-      pw.append(",");
-      pw.append("Literals (Visual X)");
-      pw.append(",");
-      pw.append("Comments (Visual X)");
-      pw.append(",");
-      pw.append("Keywords (Visual Y)");
-      pw.append(",");
-      pw.append("Identifiers (Visual Y)");
-      pw.append(",");
-      pw.append("Operators (Visual Y)");
-      pw.append(",");
-      pw.append("Numbers (Visual Y)");
-      pw.append(",");
-      pw.append("Strings (Visual Y)");
-      pw.append(",");
-      pw.append("Literals (Visual Y)");
-      pw.append(",");
-      pw.append("Comments (Visual Y)");
-      pw.append(",");
-      pw.append("Keywords (area)");
-      pw.append(",");
-      pw.append("Identifiers (area)");
-      pw.append(",");
-      pw.append("Operators (area)");
-      pw.append(",");
-      pw.append("Numbers (area)");
-      pw.append(",");
-      pw.append("Strings (area)");
-      pw.append(",");
-      pw.append("Literals (area)");
-      pw.append(",");
-      pw.append("Comments (area)");
+      // pw.append("Keywords (Visual X)");
+      // pw.append(",");
+      // pw.append("Identifiers (Visual X)");
+      // pw.append(",");
+      // pw.append("Operators (Visual X)");
+      // pw.append(",");
+      // pw.append("Numbers (Visual X)");
+      // pw.append(",");
+      // pw.append("Strings (Visual X)");
+      // pw.append(",");
+      // pw.append("Literals (Visual X)");
+      // pw.append(",");
+      // pw.append("Comments (Visual X)");
+      // pw.append(",");
+      // pw.append("Keywords (Visual Y)");
+      // pw.append(",");
+      // pw.append("Identifiers (Visual Y)");
+      // pw.append(",");
+      // pw.append("Operators (Visual Y)");
+      // pw.append(",");
+      // pw.append("Numbers (Visual Y)");
+      // pw.append(",");
+      // pw.append("Strings (Visual Y)");
+      // pw.append(",");
+      // pw.append("Literals (Visual Y)");
+      // pw.append(",");
+      // pw.append("Comments (Visual Y)");
+      // pw.append(",");
+      // pw.append("Keywords (area)");
+      // pw.append(",");
+      // pw.append("Identifiers (area)");
+      // pw.append(",");
+      // pw.append("Operators (area)");
+      // pw.append(",");
+      // pw.append("Numbers (area)");
+      // pw.append(",");
+      // pw.append("Strings (area)");
+      // pw.append(",");
+      // pw.append("Literals (area)");
+      // pw.append(",");
+      // pw.append("Comments (area)");
 
       pw.append("\n");
 
@@ -233,11 +243,16 @@ public class Parser {
                 CompilationUnit cuNoComm = null;
                 String[] split = null;
                 try {
+                  
                   cu = StaticJavaParser.parse(file);
+                  // cu = LexicalPreservingPrinter.setup(cu); // print the modified code while preserving the original formatting. Since the feature extraction is done on the AST representation, formatting is not important. i.e. the AST representation is the same regardless of the formatting.
+                  // System.out.println(LexicalPreservingPrinter.print(cu));
+                  
                   JavaParser parser =
                       new JavaParser(new ParserConfiguration().setAttributeComments(false));
                   cuNoComm = parser.parse(file).getResult().get();
-                  split = Files.readString(file.toPath()).split("\n");
+                  // split = Files.readString(file.toPath()).split("\n");
+                  split = new String(Files.readAllBytes(file.toPath())).split("\n");
                 } catch (IOException e) {
                   e.printStackTrace();
                 }
@@ -269,6 +284,7 @@ public class Parser {
                 int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
                 double entryNumLinesOfCode = Double.parseDouble(entryLine[4]) - 3 ; //subtract 2 for the class declaration and package declaration and last } of the class
+                double blankLines = Double.parseDouble(entryLine[6]);
 
                 allLines.remove(entryIndex);
 
@@ -318,7 +334,7 @@ public class Parser {
                 avgIdentifierLength = totalIdentifierLength / features.getIdentifiers();
                 
                 // write the identifiers to files
-                String dirPathForSnippetIdentifiers = "complexity-verification-project/ml_model/src/main/resources/snippet_identifier_splitter_out/DS_1/";
+                String dirPathForSnippetIdentifiers = "complexity-verification-project/ml_model/src/main/resources/snippet_identifier_splitter_out/";
                 File dirForSnippetIdentifiers = new File(dirPathForSnippetIdentifiers);
                 if (!dirForSnippetIdentifiers.exists()) {
                   dirForSnippetIdentifiers.mkdir();
@@ -357,7 +373,7 @@ public class Parser {
                 double avgSpaces = features.getSpaces() / entryNumLinesOfCode;
                 
                 double avgIndentationLength = features.getTotalIndentation() / entryNumLinesOfCode;
-                double avgBlankLines = features.getTotalBlankLines() / entryNumLinesOfCode;
+                double avgBlankLines = blankLines / entryNumLinesOfCode;
                 double avgNumOfLoops = features.getNumOfLoops() / entryNumLinesOfCode;
                 double avgNumOfAssignmentExpressions = features.getAssignExprs() / entryNumLinesOfCode;
                 double avgNumOfNumbers = features.getNumbers() / entryNumLinesOfCode;
@@ -517,6 +533,39 @@ public class Parser {
                 }
                 double avgMIDQ = sumMIDQ / entryNumLinesOfCode;
 
+                // Comments and Identifiers Consistency (CIC)
+                List<Double> CICList = drf.getCommentsAndIdentifiersConsistency();
+
+                // calculate the max and avg of CIC
+                double sumCIC = 0;
+                double maxCIC = 0;
+
+                for (double cic : CICList) {
+                  sumCIC += cic;
+                  if (cic > maxCIC) {
+                    maxCIC = cic;
+                  }
+                }
+                double avgCIC = sumCIC / entryNumLinesOfCode;
+
+                // Comment and Identifier Consistency (CIC) syn
+                List<Double> CICSynList = drf.getCommentsAndIdentifiersConsistencySyn();
+
+                // calculate the max and avg of CIC
+                double sumCICSyn = 0;
+                double maxCICSyn = 0;
+
+                for (double cicsyn : CICSynList) {
+                  sumCICSyn += cicsyn;
+                  if (cicsyn > maxCICSyn) {
+                    maxCICSyn = cicsyn;
+                  }
+                }
+
+                double avgCICSyn = sumCICSyn / entryNumLinesOfCode;
+
+
+
 
 
                 // TODO: Need to implement this logic //
@@ -624,6 +673,10 @@ public class Parser {
                 pw.append(",");
                 // pw.append(Double.toString(avgAEDQ));
                 // pw.append(",");
+                pw.append(Double.toString(avgCIC));
+                pw.append(",");
+                pw.append(Double.toString(avgCICSyn));
+                pw.append(",");
 
                 // Maximums
                 pw.append(Integer.toString(features.findMaxNumbers()));
@@ -644,89 +697,93 @@ public class Parser {
                 pw.append(",");
                 // pw.append(Double.toString(maxAEDQ));
                 // pw.append(",");
+                pw.append(Double.toString(maxCIC));
+                pw.append(",");
+                pw.append(Double.toString(maxCICSyn));
+                pw.append(",");
 
                 // Minimums
                 pw.append(Integer.toString(minNumIdentifiers));
                 pw.append(",");
                 pw.append(Double.toString(minMIDQ));
-                pw.append(",");
+                // pw.append(",");
                 // pw.append(Double.toString(minAEDQ));
                 // pw.append(",");
 
                 // dfts
-                pw.append(Long.toString(dft_assignment));
-                pw.append(",");
-                pw.append(Long.toString(dft_commas));
-                pw.append(",");
-                pw.append(Long.toString(dft_comparisons));
-                pw.append(",");
-                pw.append(Long.toString(dft_comments));
-                pw.append(",");
-                pw.append(Long.toString(dft_conditionals));
-                pw.append(",");
-                pw.append(Long.toString(dft_identifiers));
-                pw.append(",");
-                pw.append(Long.toString(dft_keywords));
-                pw.append(",");
-                pw.append(Long.toString(dft_loops));
-                pw.append(",");
-                pw.append(Long.toString(dft_numbers));
-                pw.append(",");
-                pw.append(Long.toString(dft_operators));
-                pw.append(",");
-                pw.append(Long.toString(dft_parenthesis));
-                pw.append(",");
-                pw.append(Long.toString(dft_periods));
-                pw.append(",");
-                pw.append(Long.toString(dft_spaces));
-                pw.append(",");
-                pw.append(Long.toString(dft_indentationLength));
-                pw.append(",");
-                pw.append(Long.toString(dft_lineLength));
+                // pw.append(Long.toString(dft_assignment));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_commas));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_comparisons));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_comments));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_conditionals));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_identifiers));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_keywords));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_loops));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_numbers));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_operators));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_parenthesis));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_periods));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_spaces));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_indentationLength));
+                // pw.append(",");
+                // pw.append(Long.toString(dft_lineLength));
                 
-                // Visual features
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getKeywordsX()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getIdentifiersX()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getOperatorsX()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getNumbersX()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getStringsX()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getLiteralsX()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getCommentsX()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getKeywordsY()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getIdentifiersY()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getOperatorsY()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getNumbersY()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getStringsY()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getLiteralsY()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getCommentsY()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getKeywordsArea()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getIdentifiersArea()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getOperatorsArea()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getNumbersArea()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getStringsArea()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getLiteralsArea()));
-                pw.append(",");
-                pw.append(Double.toString(visualFeatures.getCommentsArea()));
+                // // Visual features
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getKeywordsX()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getIdentifiersX()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getOperatorsX()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getNumbersX()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getStringsX()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getLiteralsX()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getCommentsX()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getKeywordsY()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getIdentifiersY()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getOperatorsY()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getNumbersY()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getStringsY()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getLiteralsY()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getCommentsY()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getKeywordsArea()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getIdentifiersArea()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getOperatorsArea()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getNumbersArea()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getStringsArea()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getLiteralsArea()));
+                // pw.append(",");
+                // pw.append(Double.toString(visualFeatures.getCommentsArea()));
 
                 pw.append("\n");
               })

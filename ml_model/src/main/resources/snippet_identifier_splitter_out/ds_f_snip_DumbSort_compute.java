@@ -11,7 +11,6 @@ c b
 c a 
 b temp 
 a temp 
-ds_f_snip_DumbSort_compute 
 List Integer compute a b c d 
 a b 
 b temp 

@@ -1,4 +1,5 @@
 m_offscreenPlotData 
+WindowAdapter event awt java addWindowListener jf 
 request IllegalArgumentException 
 windowClosing e WindowEvent event awt java 
 dispose jf 
@@ -12,16 +13,14 @@ ex Exception
 printStackTrace ex 
 m_framePoppedUp 
 m_framePoppedUp 
-equals request 
 m_framePoppedUp 
+equals request 
 removeAllPlots m_visPanel 
 JFrame swing javax jf JFrame swing javax 
 setSize jf 
-BorderLayout setLayout getContentPane jf 
-ds_6_snip_1$ModelPerformanceChart_performRequest 
 validate m_visPanel 
 repaint m_visPanel 
 m_visPanel 
-m_visPanel CENTER BorderLayout add getContentPane jf 
+BorderLayout setLayout getContentPane jf 
 m_masterPlot 
-WindowAdapter event awt java addWindowListener jf 
+m_visPanel CENTER BorderLayout add getContentPane jf 

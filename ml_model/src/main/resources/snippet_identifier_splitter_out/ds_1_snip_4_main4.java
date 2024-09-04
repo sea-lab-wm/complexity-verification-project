@@ -1,6 +1,5 @@
 counter2 array counter2 array 
 counter2 array variable1 
-ds_1_snip_4_main4 
 counter3 array println out System counter3 length array counter3 counter3 
 main4 args String 
 array 

@@ -1,6 +1,5 @@
 result 
 flag 
-ds_f_snip_lengthOfLastWord_compute 
 compute text String 
 result 
 flag 

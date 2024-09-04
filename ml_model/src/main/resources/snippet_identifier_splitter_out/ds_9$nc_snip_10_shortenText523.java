@@ -14,7 +14,6 @@ dispose gc
 length textValue length 
 s 
 length start 
-ds_9$nc_snip_10_shortenText523 
 length end 
 start 
 end 

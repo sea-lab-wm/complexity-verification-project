@@ -1,6 +1,5 @@
 i array tmp 
 i length array i i 
-ds_1_snip_21_main21 
 i array println out System 
 main21 args String 
 array 

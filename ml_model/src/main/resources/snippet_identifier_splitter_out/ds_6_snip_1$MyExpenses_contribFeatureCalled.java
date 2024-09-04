@@ -1,26 +1,31 @@
 SPLIT_TRANSACTION 
 tag 
-TASK_SPLIT TaskExecutionFragment tag Object startTaskExecution 
+startTaskExecution 
+TASK_SPLIT TaskExecutionFragment 
+tag Object 
 PRINT 
-getCurrentFragment tl TransactionList 
-tl 
-Bundle args Bundle 
-feature recordUsage 
-KEY_FILTER TransactionList getFilterCriteria tl putSparseParcelableArray args 
 ManageCategories Intent i Intent 
-KEY_ROWID mAccountId putLong args 
+getCurrentFragment tl TransactionList 
 setAction i 
-commit progress_dialog_printing string R newInstance ProgressDialogFragment PROGRESS_TAG ProtectionDelegate add args TASK_PRINT newInstanceWithBundle TaskExecutionFragment ASYNC_TAG ProtectionDelegate add beginTransaction getSupportFragmentManager 
+tl 
 KEY_ACCOUNTID mAccountId putExtra i 
+Bundle args Bundle 
 tag 
+KEY_FILTER TransactionList getFilterCriteria tl putSparseParcelableArray args 
 tag Long year 
+KEY_ROWID mAccountId putLong args 
 tag Long groupingSecond 
+beginTransaction getSupportFragmentManager 
 a NONE Grouping grouping a putExtra i 
+args TASK_PRINT newInstanceWithBundle TaskExecutionFragment add 
 year putExtra i 
+ASYNC_TAG ProtectionDelegate 
 groupingSecond putExtra i 
-ds_6_snip_1$MyExpenses_contribFeatureCalled 
 contribFeatureCalled feature ContribFeature tag Serializable 
 feature 
 DISTRIBUTION 
 mAccountId getInstanceFromDb Account a Account 
+feature recordUsage 
+progress_dialog_printing string R newInstance ProgressDialogFragment PROGRESS_TAG ProtectionDelegate add 
+commit 
 i startActivity 

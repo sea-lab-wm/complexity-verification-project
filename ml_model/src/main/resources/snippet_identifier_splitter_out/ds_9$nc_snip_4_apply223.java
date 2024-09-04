@@ -11,7 +11,6 @@ getValue property value Value
 createNotificationComposite Factory nComposite NotificationComposite 
 value value NotificationComposite 
 value nComposite NotificationComposite 
-ds_9$nc_snip_4_apply223 
 notifications getNotifications nComposite 
 getNotifications nStore addAll notifications 
 notifications getNotifications nComposite 

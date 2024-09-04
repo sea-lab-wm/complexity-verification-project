@@ -1,4 +1,3 @@
-ds_2_snip_8_main14 
 main14 args String 
 word String 
 String result String 

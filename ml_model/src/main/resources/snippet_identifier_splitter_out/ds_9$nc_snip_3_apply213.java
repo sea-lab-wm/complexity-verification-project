@@ -12,6 +12,5 @@ value value NotificationComposite
 NOTIFICATION_COMPOSITE nComposite setLocalProperty manager 
 value nComposite NotificationComposite 
 isAcknowledged nStore 
-ds_9$nc_snip_3_apply213 
 getNotifications nStore removeAll getNotifications nComposite 
 apply213 project Project nStore NotificationStore 

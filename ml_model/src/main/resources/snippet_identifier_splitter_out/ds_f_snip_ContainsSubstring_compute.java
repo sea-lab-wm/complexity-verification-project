@@ -1,5 +1,4 @@
 j length word2 
-ds_f_snip_ContainsSubstring_compute 
 result 
 compute word1 String word2 String 
 result 

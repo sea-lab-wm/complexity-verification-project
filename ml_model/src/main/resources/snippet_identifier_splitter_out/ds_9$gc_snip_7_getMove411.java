@@ -9,7 +9,6 @@ getFullMoveCount move moveNumber
 getComments move comment Comment 
 append getText comment append append builder 
 toString move append isWhitesMove move append moveNumber append builder 
-ds_9$gc_snip_7_getMove411 
 getSublines move subline SublineNode 
 getNags move nag Nag 
 result 

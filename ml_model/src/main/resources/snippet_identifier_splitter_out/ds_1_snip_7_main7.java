@@ -1,4 +1,3 @@
-ds_1_snip_7_main7 
 main7 args String 
 array 
 array result 

@@ -1,6 +1,6 @@
 import sys
 import logging
-sys.path.append('/home/nadeeshan/ML-Experiments-2/complexity-verification-project/ml_model/model/NewExperiments/')
+sys.path.append('/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/ml-experiments/TASK1-AbsoluteTargets/Classifical-ML-Models/')
 
 from utils import configs
 
@@ -9,7 +9,7 @@ import csv
 import json
 import numpy as np
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from sklearn.utils.multiclass import type_of_target
 from sklearn.utils.multiclass import unique_labels
@@ -36,6 +36,11 @@ from imblearn.over_sampling import RandomOverSampler
 
 import os
 
+
+## keep the models determisitic
+np.random.seed(configs.RANDOM_SEED)
+
+
 df = pd.read_csv(configs.ROOT_PATH + "/" + configs.DATA_PATH)
 
 ## Logger
@@ -57,51 +62,87 @@ csv_data_dict = {
     "dataset": "",
     "K": 0,
     "fs_method": "",
-    "y_test_index": "",
-    "y_actual": "",
-    "y_pred": "",
+    # "y_test_index": "",
+    # "y_actual": "",
+    # "y_pred": "",
+    
     "tp_0": "-",
     "tn_0": "-",
     "fp_0": "-",
     "fn_0": "-",
+    "support_0": "-",
+
     "tp_1": "-",
     "tn_1": "-",
     "fp_1": "-",
     "fn_1": "-",
+    "support_1": "-",
+
     "tp_2": "-",
     "tn_2": "-",
     "fp_2": "-",
     "fn_2": "-",
+    "support_2": "-",
+
     "tp_3": "-",
     "tn_3": "-",
     "fp_3": "-",
     "fn_3": "-",
+    "support_3": "-",
+
     "n_instances": 0,
+
     "precision_0": "-",
     "precision_1": "-",
     "precision_2": "-",
     "precision_3": "-",
+
     "recall_0": "-",
     "recall_1": "-",
     "recall_2": "-",
     "recall_3": "-",
+
     "f1_0": "-",
     "f1_1": "-",
     "f1_2": "-",
     "f1_3": "-",
+
     "auc_0": "-",
     "auc_1": "-",
     "auc_2": "-",
     "auc_3": "-",
+
     "precision_weighted": 0.0,
     "recall_weighted": 0.0,
     "f1_weighted": 0.0,
-    "f1_macro": 0.0,
     "auc_weighted": 0.0,
+
+    "precision_macro": 0.0,
+    "recall_macro": 0.0,
+    "f1_macro": 0.0,
+    "auc_macro": 0.0,
+
+    "f1_0 > baseline": 0,
+    "f1_1 > baseline": 0,
+    "f1_2 > baseline": 0,
+    "f1_3 > baseline": 0,
+
+    "#_of_classes_improved_(f1>base)": 0,
+    "#_of_classes_degraded_(f1<base)": 0,
+
+    "RI_F1_0": 0.0,
+    "RI_F1_1": 0.0,
+    "RI_F1_2": 0.0,
+    "RI_F1_3": 0.0,
+    "RI_F1_weighted": 0.0,
+
+    "Avg_RI_Improvement": 0.0, # average relative improvement for all classes that improved
+    "Avg_RI_Degradation": 0.0, # average relative improvement for all classes that degraded
+
     "experiment": ""
 }
 
-def custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, cv, config):
+def custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, cv, config, target):
     ## all the permutations of the hyperparameters ##
     candidate_params = list(ParameterGrid(param_grid))
 
@@ -109,7 +150,7 @@ def custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, cv
     best_hyperparameters_ = {} ## keep best hyperparameters for each fold and corresponding f1_weighted score
 
     # Process each fold in parallel
-    results=Parallel(n_jobs=-1)(delayed(process_fold)(fold, train_index, test_index, candidate_params, drop_duplicates, model_name, pipeline, X_train, y_train)
+    results=Parallel(n_jobs=-1)(delayed(process_fold)(fold, train_index, test_index, candidate_params, drop_duplicates, model_name, pipeline, X_train, y_train, target)
                                   for fold, (train_index, test_index) in enumerate(cv.split(X_train, y_train)))
 
     # Collect results for each fold
@@ -131,7 +172,7 @@ def custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, cv
    
        
 def process_fold(fold, train_index, test_index, candidate_params, 
-                 drop_duplicates, model_name, pipeline, X_train, y_train):
+                 drop_duplicates, model_name, pipeline, X_train, y_train, target):
     
     ## best hyper params for the current fold
     hyper_param_dict= {}
@@ -155,7 +196,7 @@ def process_fold(fold, train_index, test_index, candidate_params,
         
         ## train the model with the current hyperparameters
         model = train(pipeline.set_params(**parameters), X_train_fold, y_train_fold)
-        results = evaluate(model, X_val_fold, y_val_fold)
+        results = evaluate(model, X_val_fold, y_val_fold, target)
   
         ## remove the model name from the best hyperparameters keys
         hyperparam = ({key.replace(model_name + "__", ""):value for key, value in parameters.items()}) 
@@ -184,7 +225,133 @@ def train(model, X_train, y_train):
     return model
 
 
-def evaluate(model, X_test, y_test):
+def getBestBaselineModel(target):
+    if target == "ABU":
+        baseline_0_precision = 0.8176
+        baseline_0_recall = 1.0
+        baseline_0_f1 = 0.8996
+
+        baseline_1_precision = 0.0
+        baseline_1_recall = 0.0
+        baseline_1_f1 = 0.0
+
+        baseline_f1_weighted = 0.7355
+
+        baseline_2_f1 = 0
+        baseline_3_f1 = 0
+
+        class_0_weight = 0.82
+        class_1_weight = 0.18
+        
+        class_2_weight = 0
+        class_3_weight = 0
+        
+    elif target == "ABU50":
+        baseline_0_precision = 0.4977
+        baseline_0_recall = 0.4977
+        baseline_0_f1 = 0.4977
+
+        baseline_1_precision = 0.5023
+        baseline_1_recall = 0.5023
+        baseline_1_f1 = 0.5023
+
+        baseline_f1_weighted = 0.5
+
+        baseline_2_f1 = 0
+        baseline_3_f1 = 0
+
+        class_0_weight = 0.5
+        class_1_weight = 0.5
+        class_2_weight = 0
+        class_3_weight = 0
+
+    elif target == "BD":
+        baseline_0_precision = 0.4865
+        baseline_0_recall = 0.4865
+        baseline_0_f1 = 0.4865
+
+        baseline_1_precision = 0.5135
+        baseline_1_recall = 0.5135
+        baseline_1_f1 = 0.5135
+
+        baseline_f1_weighted = 0.5
+        
+        baseline_2_f1 = 0
+        baseline_3_f1 = 0
+
+        class_0_weight = 0.49
+        class_1_weight = 0.51
+        class_2_weight = 0
+        class_3_weight = 0
+
+    elif target == "BD50":
+        baseline_0_precision = 0.8063
+        baseline_0_recall = 1.0
+        baseline_0_f1 = 0.8928
+
+        baseline_1_precision = 0.0
+        baseline_1_recall = 0.0
+        baseline_1_f1 = 0.0
+
+        baseline_f1_weighted = 0.7198
+
+        baseline_2_f1 = 0
+        baseline_3_f1 = 0    
+
+        class_0_weight = 0.81
+        class_1_weight = 0.19
+        class_2_weight = 0
+        class_3_weight = 0
+
+        
+    elif target == "PBU":
+        baseline_0_precision = 0.3041
+        baseline_0_recall = 0.3041
+        baseline_0_f1 = 0.3041
+
+        baseline_1_precision = 0.6959
+        baseline_1_recall = 0.6959
+        baseline_1_f1 = 0.6959
+
+        baseline_f1_weighted = 0.5768
+
+        baseline_2_f1 = 0
+        baseline_3_f1 = 0
+
+        class_0_weight = 0.3
+        class_1_weight = 0.7
+        class_2_weight = 0
+        class_3_weight = 0
+
+    elif target == "AU":
+        baseline_0_precision = 0.3401
+        baseline_0_recall = 0.3401
+        baseline_0_f1 = 0.3401
+
+        baseline_1_precision = 0.1577
+        baseline_1_recall = 0.1577
+        baseline_1_f1 = 0.1577
+
+        baseline_2_precision = 0.3198
+        baseline_2_recall = 0.3198
+        baseline_2_f1 = 0.3198
+
+        baseline_3_precision = 0.1824
+        baseline_3_recall = 0.1824
+        baseline_3_f1 = 0.1824
+
+        baseline_f1_weighted = 0.2761
+
+        class_0_weight = 0.34
+        class_1_weight = 0.16
+        class_2_weight = 0.32
+        class_3_weight = 0.18
+
+    return baseline_0_f1, baseline_1_f1, baseline_2_f1, baseline_3_f1, class_0_weight, class_1_weight, class_2_weight, class_3_weight        
+
+
+
+def evaluate(model, X_test, y_test, target):
     ## Transform the test data to Scaler ##
     X_test = model.named_steps.scaler.transform(X_test.values)
     
@@ -194,6 +361,8 @@ def evaluate(model, X_test, y_test):
     classifi_report = classification_report(y_test, y_pred, output_dict=True)
     prediction_report = multilabel_confusion_matrix (y_test, y_pred, labels=unique_labels(y_test))
 
+    ## get baseline f1 scores and class weights ##
+    baseline_f1_0, baseline_f1_1, baseline_f1_2, baseline_f1_3, class_0_weight, class_1_weight, class_2_weight, class_3_weight = getBestBaselineModel(target)
     
     #### ONLY FOR BINARY CLASSIFICATION ####
     if type_of_target(y_test) == "binary":
@@ -219,10 +388,13 @@ def evaluate(model, X_test, y_test):
 
         f1_2 = "-"
         f1_3 = "-"
+
         precision_2 = "-"
         precision_3 = "-"
+
         recall_2 = "-"
         recall_3 = "-"
+
         auc_2 = "-"
         auc_3 = "-"
 
@@ -247,6 +419,17 @@ def evaluate(model, X_test, y_test):
         fn_3 = "-"
 
         auc_weighted = "-"
+        auc_macro = "-"
+
+        support_2 = "-"
+        support_3 = "-"
+
+        f1_2_imporved_baseline = 0
+        f1_3_imporved_baseline = 0
+        RI_F1_2 = 0
+        RI_F1_3 = 0
+
+        
     else:
         ## For multi-class classification
         f1_1 = classifi_report["1"]["f1-score"]
@@ -289,15 +472,69 @@ def evaluate(model, X_test, y_test):
         fp_3 = prediction_report[3][0][1]
         fn_3 = prediction_report[3][1][0]
 
+        support_2 = classifi_report["2"]["support"]
+        support_3 = classifi_report["3"]["support"]
+
         auc_weighted = roc_auc_score(y_test, model.predict_proba(X_test), average="weighted", multi_class="ovr", labels=unique_labels(y_test))
-    
+        auc_macro = roc_auc_score(y_test, model.predict_proba(X_test), average="macro", multi_class="ovr", labels=unique_labels(y_test))
+
+        f1_2_imporved_baseline = 1 if f1_2 > baseline_f1_2 else 0
+        f1_3_imporved_baseline = 1 if f1_3 > baseline_f1_3 else 0
+        
+        if baseline_f1_2 == 0:
+            RI_F1_2 = 0
+        else:
+            RI_F1_2 = (f1_2 - baseline_f1_2) / baseline_f1_2
+
+        if baseline_f1_3 == 0:
+            RI_F1_3 = 0
+        else:    
+            RI_F1_3 = (f1_3 - baseline_f1_3) / baseline_f1_3
+
+
+    support_0 = classifi_report["0"]["support"]
+    support_1 = classifi_report["1"]["support"]
+
     ## compute the weighted scores ##
     f1_weighted = f1_score(y_test, y_pred, average="weighted", labels=unique_labels(y_test))
-    f1_macro = f1_score(y_test, y_pred, average="macro", labels=unique_labels(y_test))
     precision_weighted = classifi_report["weighted avg"]["precision"]
     recall_weighted = classifi_report["weighted avg"]["recall"]
 
+    ## compute the macro scores ##
+    f1_macro = f1_score(y_test, y_pred, average="macro", labels=unique_labels(y_test))
+    precision_macro = classifi_report["macro avg"]["precision"]
+    recall_macro = classifi_report["macro avg"]["recall"]
+
+
+    ## F1 improvement compared to baseline ##
+    f1_0_imporved_baseline = 1 if f1_0 > baseline_f1_0 else 0
+    f1_1_imporved_baseline = 1 if f1_1 > baseline_f1_1 else 0
+
+    if baseline_f1_0 == 0:
+        RI_F1_0 = 0
+    else:
+        RI_F1_0 = (f1_0 - baseline_f1_0) / baseline_f1_0
     
+    if baseline_f1_1 == 0:
+        RI_F1_1 = 0
+    else:
+        RI_F1_1 = (f1_1 - baseline_f1_1) / baseline_f1_1
+    
+    num_of_classes_improved_to_baseline = f1_0_imporved_baseline + f1_1_imporved_baseline + f1_2_imporved_baseline + f1_3_imporved_baseline
+    num_of_classes_detegraded_to_baseline = 4 - num_of_classes_improved_to_baseline
+
+    ## weighted RI ##
+    RI_F1_weighted = RI_F1_0 * class_0_weight + RI_F1_1 * class_1_weight + RI_F1_2 * class_2_weight + RI_F1_3 * class_3_weight
+
+    ## check the RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3 and filter out the classes that improved ##
+    improved_classes = [RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3]
+    improved_classes = [x for x in improved_classes if x > 0]
+    degraded_classes = [x for x in improved_classes if x < 0]
+
+    ## take the average of the improved classes ##
+    avg_RI_Improvement = np.mean(improved_classes)
+    avg_RI_Degradation = np.mean(degraded_classes)
+
     results_dict = {}
 
     ## For multi-class classification
@@ -342,222 +579,62 @@ def evaluate(model, X_test, y_test):
     results_dict["auc_3"] = auc_3
 
     results_dict["n_instances"] = len(y_test)
+
     results_dict["f1_weighted"] = f1_weighted
-    results_dict["f1_macro"] = f1_macro
     results_dict["precision_weighted"] = precision_weighted
     results_dict["recall_weighted"] = recall_weighted
     results_dict["auc_weighted"] = auc_weighted
 
+    results_dict["f1_macro"] = f1_macro
+    results_dict["precision_macro"] = precision_macro
+    results_dict["recall_macro"] = recall_macro
+    results_dict["auc_macro"] = auc_macro
 
     results_dict["y_test_index"] = y_test.index.values
     results_dict["y_actual"] = y_test.values
     results_dict["y_pred"] = y_pred
 
+    results_dict["support_0"] = support_0
+    results_dict["support_1"] = support_1
+    results_dict["support_2"] = support_2
+    results_dict["support_3"] = support_3
+    
     ## this is for internal use ##
     results_dict["y_predict_proba"] = model.predict_proba(X_test)
+
+    ## compare with the baseline ##
+    results_dict["f1_0 > baseline"] = f1_0_imporved_baseline
+    results_dict["f1_1 > baseline"] = f1_1_imporved_baseline
+    results_dict["f1_2 > baseline"] = f1_2_imporved_baseline
+    results_dict["f1_3 > baseline"] = f1_3_imporved_baseline
+
+    results_dict["#_of_classes_improved_(f1>base)"] = num_of_classes_improved_to_baseline
+    results_dict["#_of_classes_degraded_(f1<base)"] = num_of_classes_detegraded_to_baseline
+
+    results_dict["RI_F1_0"] = RI_F1_0
+    results_dict["RI_F1_1"] = RI_F1_1
+    results_dict["RI_F1_2"] = RI_F1_2
+    results_dict["RI_F1_3"] = RI_F1_3
+    results_dict["RI_F1_weighted"] = RI_F1_weighted
+
+    results_dict["Avg_RI_Improvement"] = avg_RI_Improvement
+    results_dict["Avg_RI_Degradation"] = avg_RI_Degradation
 
     return results_dict
 
 
-def generate_y_scores(y_true):
-    """                 
-    eg:
-                    actual
-                    0	                        |     1
-                ----------------------------------------------------------------
-                %	x = n_class0/444 = 80.63%   |    y = n_class1/444 = 19.37%
-                #	n_class0 = 358	            |    n_class1 = 86
-                ----------------------------------------------------------------
-    prediction  0	n_class0*(x) = 288.66 	    |    n_class1*(x) = 69.34 
-                1	** n_class0*(y) = 69.34 ** 	|    ** n_class1*(y) = 16.66 **
-    
-    
-    ## Note: We selected threshold = 0.5 
-    ## CLASS 0 ##
-    proportion_class0_above_05 = int(69.34) = 69  # 19.37% of class 0 probability scores should be > 0.5
-    proportion_class0_below_05 = 358 - 69 = 289  # 80.63% of class 0 probability scores should be < 0.5
 
-    ## CLASS 1 ##
-    proportion_class1_above_05 = int(16.66) = 16  # 19.37% of class 1 probability scores should be > 0.5
-    proportion_class1_below_05 = 86 - 16 = 70  # 80.63% of class 1 probability scores should be < 0.5
-    """
-
-    # Initialize the y_scores array
-    y_scores = np.zeros_like([item for sublist in y_true for item in sublist], dtype=float)
-
-    ## Proportion calculations ##
-    n_class1 = np.unique_counts(y_true)[1][1]
-    n_class0 = np.unique_counts(y_true)[1][0]
-
-    if type_of_target(y_true) == "binary":
-
-        proportion_class0_above_05 = int(n_class1/(n_class1 + n_class0) * n_class0) 
-        proportion_class0_below_05 = n_class0 - proportion_class0_above_05 
-
-        proportion_class1_above_05 = int(n_class1/(n_class1 + n_class0) * n_class1)  # 19.37% of class 1 should be > 0.5
-        proportion_class1_below_05 = n_class1 - proportion_class1_above_05  # 80.63% of class 1 should be < 0.5
-
-        # Assign scores for class 0 #
-        # pick random values between including 0 and excludng 0.5
-        y_scores[:proportion_class0_below_05] = np.random.uniform(0., 0., int(proportion_class0_below_05))  # Below 0.5
-        y_scores[proportion_class0_below_05:n_class0] = np.random.uniform(1., 1., int(proportion_class0_above_05))  # Above 0.5
-
-        # Assign scores for class 1
-        y_scores[n_class0 : (n_class0 + proportion_class1_below_05)] = np.random.uniform(0., 0., int(proportion_class1_below_05))  # Below 0.5
-        y_scores[(n_class0 + proportion_class1_below_05):] = np.random.uniform(1., 1., int(proportion_class1_above_05))  # Above 0.5
-
-    else: 
-        n_class2 = np.unique_counts(y_true)[1][2]
-        n_class3 = np.unique_counts(y_true)[1][3]
-
-        proportion_class0_above_05 = int(n_class0/(n_class1 + n_class0 + n_class2 + n_class3) * n_class0) 
-        proportion_class0_below_05 = n_class0 - proportion_class0_above_05 
-
-        proportion_class1_above_05 = int(n_class1/(n_class1 + n_class0 + n_class2 + n_class3) * n_class1)  # 19.37% of class 1 should be > 0.5
-        proportion_class1_below_05 = n_class1 - proportion_class1_above_05
-
-        proportion_class2_above_05 = int(n_class2/(n_class1 + n_class0 + n_class2 + n_class3) * n_class2)
-        proportion_class2_below_05 = n_class2 - proportion_class2_above_05
-
-        proportion_class3_above_05 = int(n_class3/(n_class1 + n_class0 + n_class2 + n_class3) * n_class3)
-        proportion_class3_below_05 = n_class3 - proportion_class3_above_05
-
-        y_scores[:proportion_class0_below_05] = np.random.uniform(0., 0., int(proportion_class0_below_05))  # Below 0.5
-        y_scores[proportion_class0_below_05:n_class0] = np.random.uniform(1, 1., int(proportion_class0_above_05))  # Above 0.5
-
-        y_scores[n_class0 : (n_class0 + proportion_class1_below_05)] = np.random.uniform(0., 0., int(proportion_class1_below_05))  # Below 0.5
-        y_scores[(n_class0 + proportion_class1_below_05):(n_class0 + n_class1)] = np.random.uniform(1., 1., int(proportion_class1_above_05))
-
-        y_scores[(n_class0 + n_class1) : (n_class0 + n_class1 + proportion_class2_below_05)] = np.random.uniform(0., 0., int(proportion_class2_below_05))  # Below 0.5 
-        y_scores[(n_class0 + n_class1 + proportion_class2_below_05):(n_class0 + n_class1 + n_class2)] = np.random.uniform(1, 1., int(proportion_class2_above_05))
-
-        y_scores[(n_class0 + n_class1 + n_class2) : (n_class0 + n_class1 + n_class2 + proportion_class3_below_05)] = np.random.uniform(0., 0., int(proportion_class3_below_05))  # Below 0.5
-        y_scores[(n_class0 + n_class1 + n_class2 + proportion_class3_below_05):] = np.random.uniform(1., 1., int(proportion_class3_above_05))
-
-
-
-    return y_scores
-
-# def create_results_dict_per_fold(y_test, y_pred):
-#     confusion_matrix_ = multilabel_confusion_matrix(y_test, y_pred, labels=unique_labels(y_test))
-#     per_fold_results = {}
-#     ## count the occuraces of the label types. #1 and #0
-#     results = {}
-#     for i, label in enumerate(unique_labels(y_test)):
-#         results[label] = confusion_matrix_[i] ## tn, fp, fn, tp
-#     classes = list(results.keys())
-#     num_class_instances = {}
-#     per_class_predictions = {}
-#     for label in classes:    
-#         if str(label) not in num_class_instances:
-#             num_class_instances[str(label)] = 0
-#             #number of instances
-#             num_class_instances[str(label)] += (results[label][1][0] + results[label][1][1]) ## fn + tp
-#     for label in classes:
-#         per_class_predictions[label] = [0, 0, 0, 0] ## tn, fp, fn, tp
-#         ## tn, fp, fn, tp
-#         tn = results[label][0][0]
-#         fp = results[label][0][1]
-#         fn = results[label][1][0]
-#         tp = results[label][1][1]
-#         per_class_predictions[label]=[tn, fp, fn, tp]
-#     per_fold_results["total tp"] = sum([per_class_predictions[label][3] for label in classes])
-#     per_fold_results["total tn"] = sum([per_class_predictions[label][0] for label in classes])
-#     per_fold_results["total fp"] = sum([per_class_predictions[label][1] for label in classes])
-#     per_fold_results["total fn"] = sum([per_class_predictions[label][2] for label in classes])
-#     per_fold_results["per_class_predictions"] = per_class_predictions
-#     per_fold_results["num_of_instances"] = num_class_instances
-#     return per_fold_results 
-
-# def generate_random_y_pred(y_true_all, consider_distribution):
-    
-#     ## unique values
-#     unique_values = np.unique(y_true_all)
-
-#     for val in unique_values:
-#         ## variable name with str(val)
-#         exec(f"num_{val}_all = y_true_all.count({val})")
-        
-
-#     # Calculate the number of times to guess 1 and 0
-#     if consider_distribution:
-#         ## Consider distribution
-#         for val in unique_values:
-#             exec(f"num_guess_{val} = round(num_{val}_all * (num_{val}_all / len(y_true_all)))")
-#     else:
-#         ## Uniform distribution
-#         for val in unique_values:
-#             exec(f"num_guess_{val} = round(num_{val}_all * (1/len(unique_values)))")
-    
-
-#     # Initialize y_pred_all
-#     y_pred_all = []
-
-#     ## save the above exectued variables in a dictionary and use it to implement the logic
-#     dict_vars = locals()
-
-#     # Initialize the number of guesses for 1s and 0s
-#     num_guess_ones = dict_vars['num_guess_1']
-#     num_guess_zeros = dict_vars['num_guess_0']
-
-#     num_guess_twos = 0
-#     num_guess_threes = 0
-
-#     ## if dict_vars['num_guess_2'] and dict_vars['num_guess_3'] there, then use them as well
-#     if 'num_guess_2' in dict_vars:
-#         num_guess_twos = dict_vars['num_guess_2']
-#     if 'num_guess_3' in dict_vars:
-#         num_guess_threes = dict_vars['num_guess_3']
-
-#     for y in y_true_all:
-#         if y == 1 and num_guess_ones > 0:
-#             y_pred_all.append(1)
-#             num_guess_ones -= 1
-#         elif y == 0 and num_guess_zeros > 0:
-#             y_pred_all.append(0)
-#             num_guess_zeros -= 1
-#         elif y == 2 and num_guess_twos > 0:
-#             y_pred_all.append(2)
-#             num_guess_twos -= 1
-#         elif y == 3 and num_guess_threes > 0:
-#             y_pred_all.append(3)
-#             num_guess_threes -= 1
-#         else:
-#             ## if binary classification
-#             if unique_values.shape[0] == 2:
-#                 y_pred_all.append(0 if y == 1 else 1)
-#             ## if multi-class classification    
-#             if unique_values.shape[0] == 3:
-#                 if y==1:
-#                     y_pred_all.append(np.random.choice([0,2]))
-#                 elif y==0:
-#                     y_pred_all.append(np.random.choice([1,2]))
-#                 elif y==2:
-#                     y_pred_all.append(np.random.choice([0,1]))
-#             if unique_values.shape[0] == 4:
-#                 if y==1:
-#                     y_pred_all.append(np.random.choice([0,2,3]))
-#                 elif y==0:
-#                     y_pred_all.append(np.random.choice([1,2,3]))
-#                 elif y==2:
-#                     y_pred_all.append(np.random.choice([0,1,3]))
-#                 elif y==3:
-#                     y_pred_all.append(np.random.choice([0,1,2]))
-    
-#     return y_pred_all
-
-
-def aggregate_results(results, target, model_name, hyperparameter, experiment):
+def aggregate_results(results, target):
     """
     aggregate the results from all the folds
     """
     overall_f1_0 = 0
     overall_f1_1 = 0
-
-    overall_auc_1 = 0
-
     overall_f1_2 = "-"
     overall_f1_3 = "-"
+
+    overall_auc_0 = 0  
+    overall_auc_1 = 0
     overall_auc_2 = "-"
     overall_auc_3 = "-"
 
@@ -665,86 +742,84 @@ def aggregate_results(results, target, model_name, hyperparameter, experiment):
         overall_recall_3 = recall_score(y_true_all, y_pred_all, average=None)[3]
 
     overall_f1_weighted = f1_score(y_true_all, y_pred_all, average="weighted")
-    overall_f1_macro = f1_score(y_true_all, y_pred_all, average="macro")
     overall_precsion_weighted = precision_score(y_true_all, y_pred_all, average="weighted")
     overall_recall_weighted = recall_score(y_true_all, y_pred_all, average="weighted")
+
+    overall_f1_macro = f1_score(y_true_all, y_pred_all, average="macro")
+    overall_precision_macro = precision_score(y_true_all, y_pred_all, average="macro")
+    overall_recall_macro = recall_score(y_true_all, y_pred_all, average="macro")
+
+    ## get baseline f1 scores and class weights ##
+    baseline_f1_0, baseline_f1_1, baseline_f1_2, baseline_f1_3, class_0_weight, class_1_weight, class_2_weight, class_3_weight = getBestBaselineModel(target)
     
+
     if type_of_target(y_true_all) == "binary":
         y_predict_proba_all = np.array(y_predict_proba_all)
         overall_auc_0 = roc_auc_score(y_true_all, y_predict_proba_all[:, 0])
         overall_auc_1 = roc_auc_score(y_true_all, y_predict_proba_all[:, 1])
         overall_auc_weighted = "-" ## not applicable for binary classification
+        overall_auc_macro = "-" ## not applicable for binary classification
+        f1_0_baseline_improved = 1 if overall_f1_0 > baseline_f1_0 else 0
+        f1_1_baseline_improved = 1 if overall_f1_1 > baseline_f1_1 else 0
+        
+        f1_2_baseline_improved = 0
+        f1_3_baseline_improved = 0
+
+        if baseline_f1_0 == 0:
+            RI_F1_0 = 0
+        else:
+            RI_F1_0 = (overall_f1_0 - baseline_f1_0) / baseline_f1_0
+        if baseline_f1_1 == 0:
+            RI_F1_1 = 0
+        else:
+            RI_F1_1 = (overall_f1_1 - baseline_f1_1) / baseline_f1_1
+        
+        RI_F1_2 = 0
+        RI_F1_3 = 0
+
+
     else:
         overall_auc_0 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[0]
         overall_auc_1 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[1]
         overall_auc_2 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[2]
         overall_auc_3 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[3]
         overall_auc_weighted = roc_auc_score(y_true_all, y_predict_proba_all, average="weighted", multi_class="ovr", labels=[0,1,2,3])
+        overall_auc_macro = roc_auc_score(y_true_all, y_predict_proba_all, average="macro", multi_class="ovr", labels=[0,1,2,3])
+
+        f1_0_baseline_improved = 1 if overall_f1_0 > baseline_f1_0 else 0
+        f1_1_baseline_improved = 1 if overall_f1_1 > baseline_f1_1 else 0
+        f1_2_baseline_improved = 1 if overall_f1_2 > baseline_f1_2 else 0
+        f1_3_baseline_improved = 1 if overall_f1_3 > baseline_f1_3 else 0
+
+        if baseline_f1_0 == 0:
+            RI_F1_0 = 0
+        else:
+            RI_F1_0 = (overall_f1_0 - baseline_f1_0) / baseline_f1_0
+        if baseline_f1_1 == 0:
+            RI_F1_1 = 0
+        else:
+            RI_F1_1 = (overall_f1_1 - baseline_f1_1) / baseline_f1_1
+        if baseline_f1_2 == 0:
+            RI_F1_2 = 0
+        else:
+            RI_F1_2 = (overall_f1_2 - baseline_f1_2) / baseline_f1_2
+        if baseline_f1_3 == 0:
+            RI_F1_3 = 0
+        else:
+            RI_F1_3 = (overall_f1_3 - baseline_f1_3) / baseline_f1_3
 
 
-
-    ## draw the roc curve
-    if type_of_target(y_true_all) == "binary":
-        plt.figure()
-        y_predict_proba_all = np.array(y_predict_proba_all)
-        ## for positive class
-        fpr, tpr, _ = roc_curve(y_true_all, y_predict_proba_all[:, 1])
-        roc_auc = roc_auc_score(y_true_all, y_predict_proba_all[:, 1])
-                
-        ## for negative class
-        ## source: https://stackoverflow.com/questions/42059805/how-should-i-get-the-auc-for-the-negative-class
-        fpr_0, tpr_0, _ = roc_curve(y_true_all, y_predict_proba_all[:, 0])        
-        roc_auc_0 = roc_auc_score(y_true_all, y_predict_proba_all[:, 0])
-       
-        ## Plot ROC curve for class 1 the model ## 
-        plt.plot(fpr, tpr, color='blue', lw=2, label='ROC curve class1 (area = %0.2f)' % roc_auc)
-
-        ## Plot ROC curve for class 0 the model ##
-        plt.plot(fpr_0, tpr_0, color='green', lw=2, label='ROC curve class0 (area = %0.2f)' % roc_auc_0)
-        
-
-        y_pred_prob_naive = generate_y_scores(y_true_all)
-        fpr_naive, tpr_naive, _ = roc_curve(y_true_all, y_pred_prob_naive)
-        roc_auc_naive = roc_auc_score(y_true_all, y_pred_prob_naive)
-
-        ## Plot the random guesser curve ##
-        plt.plot(fpr_naive, tpr_naive, color='red', lw=2, linestyle='--', label='Naive/Random guesser (area = %0.2f)' % roc_auc_naive)
-        
+    num_of_classes_improved_to_baseline = f1_0_baseline_improved + f1_1_baseline_improved + f1_2_baseline_improved + f1_3_baseline_improved
+    num_of_classes_degreded_to_baseline = 4 - num_of_classes_improved_to_baseline
     
-    else :
-        ## plot the roc curve for multi-class classification
-        plt.figure()
-        fpr = dict()
-        tpr = dict()
-        roc_auc = dict()
-        y_predict_proba_all1 = np.array(y_predict_proba_all)
-        for i in range(4):
-            fpr[i], tpr[i], _ = roc_curve(y_true_all, y_predict_proba_all1[:, i], pos_label=i)
-            roc_auc[i] = roc_auc_score(y_true_all, y_predict_proba_all1, average=None, multi_class="ovr", labels=[0,1,2,3])[i]
-            plt.plot(fpr[i], tpr[i], lw=2, label='ROC curve class %d (area = %0.2f)' % (i, roc_auc[i]))
-            
-            ## Consider class i as the positive class and the rest as the negative class. Assign 1 for the positive class and 0 for the rest
-            # y_true_all_transformed = [1 if x == i else 0 for x in y_true_all]
-            # fpr_naive, tpr_naive, _ = roc_curve(y_true_all_transformed, y_predict_proba_all1[:, i])
-            # roc_auc_naive = roc_auc_score(y_true_all_transformed, y_predict_proba_all1[:, i])
-            # plt.plot(fpr_naive, tpr_naive, lw=2, linestyle='--', label='Naive/Random guesser class %d (area = %0.2f)' % (i, roc_auc_naive))
-        
+    RI_F1_weighted = RI_F1_0 * class_0_weight + RI_F1_1 * class_1_weight + RI_F1_2 * class_2_weight + RI_F1_3 * class_3_weight
 
-    # Labels and title
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])   
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('Receiver Operating Characteristic (ROC) Curve')
-    plt.legend(loc="lower right")
-    plt.grid()
+    improved_classes = [RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3]
+    improved_classes = [x for x in improved_classes if x > 0]
+    degraded_classes = [x for x in improved_classes if x < 0]
 
-
-        
-    ## if experiment directory does not exist create it
-    if not os.path.exists(configs.ROOT_PATH + "/NewExperiments/results/ROC_AUC_CURVES/" + experiment["exp_id"] + "/" + model_name):
-        os.makedirs(configs.ROOT_PATH + "/NewExperiments/results/ROC_AUC_CURVES/" + experiment["exp_id"]  + "/" + model_name)
-    plt.savefig(configs.ROOT_PATH + "/NewExperiments/results/ROC_AUC_CURVES/" + experiment["exp_id"]  + "/" + model_name + "/" + target + "_" + str(hyperparameter) + "_roc_curve.png")
+    avg_RI_Improvement = np.mean(improved_classes)
+    avg_RI_Degradation = np.mean(degraded_classes)
 
     num_instances = len(y_true_all)
 
@@ -753,8 +828,7 @@ def aggregate_results(results, target, model_name, hyperparameter, experiment):
     y_true_all = [int(num) for num in y_true_all]
     y_pred_all = [int(num) for num in y_pred_all]
 
-    return overall_f1_macro, overall_f1_weighted, overall_auc_weighted, overall_precsion_weighted, overall_recall_weighted, overall_f1_0, overall_f1_1, overall_f1_2, overall_f1_3, overall_auc_0, overall_auc_1, overall_auc_2, overall_auc_3, overall_precision_0, overall_precision_1, overall_precision_2, overall_precision_3, overall_recall_0, overall_recall_1, overall_recall_2, overall_recall_3, tp_0_all, tn_0_all, fp_0_all, fn_0_all, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, num_instances, y_index_all, y_true_all, y_pred_all 
-
+    return overall_f1_0, overall_f1_1, overall_f1_2, overall_f1_3, overall_auc_0, overall_auc_1, overall_auc_2, overall_auc_3, overall_f1_weighted, overall_auc_weighted, overall_f1_macro, overall_auc_macro, overall_precision_0, overall_precision_1, overall_precision_2, overall_precision_3, overall_recall_0, overall_recall_1, overall_recall_2, overall_recall_3, overall_precsion_weighted, overall_recall_weighted, overall_precision_macro, overall_recall_macro, tp_0_all, tn_0_all, fp_0_all, fn_0_all, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, num_instances, y_index_all, y_true_all, y_pred_all, overall_f1_weighted, overall_f1_macro, overall_auc_weighted, overall_auc_macro, num_of_classes_improved_to_baseline, num_of_classes_degreded_to_baseline ,RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3, avg_RI_Improvement, avg_RI_Degradation, RI_F1_weighted, f1_0_baseline_improved, f1_1_baseline_improved, f1_2_baseline_improved, f1_3_baseline_improved
 
 
 
@@ -784,10 +858,10 @@ def model_initialisation(model_name, parameters):
     elif model_name == "knn_classifier":
         ## https://www.kaggle.com/code/arunimsamudra/k-nn-with-hyperparameter-tuning?scriptVersionId=32640489&cellId=42
         param_grid = {
-            "n_neighbors": [1, 3, 5, 7, 9, 10],
+            "n_neighbors": [1, 3, 5, 7],
             "weights": ["uniform", "distance"],
             "metric": ["minkowski", "manhattan"],
-            "algorithm": ["ball_tree", "kd_tree", "brute"],
+            "algorithm": ["ball_tree", "kd_tree"],
         }
         ## Pipeline requires the model name before the parameters  
         param_grid = {f"{model_name}__{key}":value for key, value in param_grid.items()} 
@@ -801,7 +875,7 @@ def model_initialisation(model_name, parameters):
         ## https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
         param_grid = {
             "n_estimators": [100, 200, 300],
-            "max_features": ['sqrt', 'log2'],
+            "max_features": [None],
             "min_impurity_decrease": [0.001, 0.01 ],
             "max_depth": [None, 10],
             # "max_depth": [30, 50],
@@ -872,7 +946,8 @@ def model_initialisation(model_name, parameters):
     
     return model, param_grid
 
-def dict_data_generator(model, iteration, hyperparameters, target, drop_duplicates, use_oversampling, dataset, K, fs_method, y_test_index, y_actual,y_pred, tp_0, tn_0, fp_0, fn_0, tp_1, tn_1, fp_1, fn_1, tp_2, tn_2, fp_2, fn_2, tp_3, tn_3, fp_3, fn_3, f1_0, f1_1, f1_2, f1_3, auc_0, auc_1, auc_2, auc_3, precision_0, precision_1, precision_2, precision_3, recall_0, recall_1, recall_2, recall_3, n_instances, presion_weighted, recall_weighted, f1_weighted, f1_macro, auc_weighted, experiment):
+def dict_data_generator(model, iteration, hyperparameters, target, drop_duplicates, use_oversampling, dataset, K, fs_method, y_test_index, y_actual,y_pred, tp_0, tn_0, fp_0, fn_0, tp_1, tn_1, fp_1, fn_1, tp_2, tn_2, fp_2, fn_2, tp_3, tn_3, fp_3, fn_3, f1_0, f1_1, f1_2, f1_3, support_0, support_1, support_2, support_3, auc_0, auc_1, auc_2, auc_3, precision_0, precision_1, precision_2, precision_3, recall_0, recall_1, recall_2, recall_3, n_instances, presion_weighted, recall_weighted, f1_weighted, f1_macro, auc_weighted, experiment, precision_macro, recall_macro, auc_macro, f1_0_imporved_baseline, f1_1_imporved_baseline, f1_2_imporved_baseline, f1_3_imporved_baseline, num_of_classes_improved_to_baseline, num_of_classes_detegraded_to_baseline, RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_weighted, avg_RI_Improvement, avg_RI_Degradation): 
+    
     csv_data_dict["model"] = model
     csv_data_dict["iteration"] = iteration
     csv_data_dict["hyperparameters"] = hyperparameters
@@ -885,29 +960,33 @@ def dict_data_generator(model, iteration, hyperparameters, target, drop_duplicat
     csv_data_dict["K"] = K
     csv_data_dict["fs_method"] = fs_method
     
-    csv_data_dict["y_test_index"] = str(y_test_index).replace(", ", " ").replace("\n", " ")
-    csv_data_dict["y_actual"] = str(y_actual).replace(", ", " ").replace("\n", " ").replace("[", "").replace("]", "")
-    csv_data_dict["y_pred"] = str(y_pred).replace(", ", " ").replace("\n", " ").replace("[", "").replace("]", "")
+    # csv_data_dict["y_test_index"] = str(y_test_index).replace(", ", " ").replace("\n", " ")
+    # csv_data_dict["y_actual"] = str(y_actual).replace(", ", " ").replace("\n", " ").replace("[", "").replace("]", "")
+    # csv_data_dict["y_pred"] = str(y_pred).replace(", ", " ").replace("\n", " ").replace("[", "").replace("]", "")
 
     csv_data_dict["tp_0"] = tp_0
     csv_data_dict["tn_0"] = tn_0
     csv_data_dict["fp_0"] = fp_0
     csv_data_dict["fn_0"] = fn_0
+    csv_data_dict["support_0"] = support_0
 
     csv_data_dict["tp_1"] = tp_1
     csv_data_dict["tn_1"] = tn_1
     csv_data_dict["fp_1"] = fp_1
     csv_data_dict["fn_1"] = fn_1
+    csv_data_dict["support_1"] = support_1
 
     csv_data_dict["tp_2"] = tp_2
     csv_data_dict["tn_2"] = tn_2
     csv_data_dict["fp_2"] = fp_2
     csv_data_dict["fn_2"] = fn_2
+    csv_data_dict["support_2"] = support_2
 
     csv_data_dict["tp_3"] = tp_3
     csv_data_dict["tn_3"] = tn_3
     csv_data_dict["fp_3"] = fp_3
     csv_data_dict["fn_3"] = fn_3
+    csv_data_dict["support_3"] = support_3
 
     csv_data_dict["f1_0"] = f1_0
     csv_data_dict["f1_1"] = f1_1
@@ -932,12 +1011,31 @@ def dict_data_generator(model, iteration, hyperparameters, target, drop_duplicat
     csv_data_dict["n_instances"] = n_instances
 
     csv_data_dict["f1_weighted"] = f1_weighted
-    csv_data_dict["f1_macro"] = f1_macro
-    
     csv_data_dict["precision_weighted"] = presion_weighted
     csv_data_dict["recall_weighted"] = recall_weighted
-    
     csv_data_dict["auc_weighted"] = auc_weighted
+
+    csv_data_dict["f1_macro"] = f1_macro
+    csv_data_dict["precision_macro"] = precision_macro
+    csv_data_dict["recall_macro"] = recall_macro
+    csv_data_dict["auc_macro"] = auc_macro
+
+    csv_data_dict["f1_0 > baseline"] = f1_0_imporved_baseline
+    csv_data_dict["f1_1 > baseline"] = f1_1_imporved_baseline
+    csv_data_dict["f1_2 > baseline"] = f1_2_imporved_baseline
+    csv_data_dict["f1_3 > baseline"] = f1_3_imporved_baseline
+
+    csv_data_dict["#_of_classes_improved_(f1>base)"] = num_of_classes_improved_to_baseline
+    csv_data_dict["#_of_classes_degraded_(f1<base)"] = num_of_classes_detegraded_to_baseline
+
+    csv_data_dict["RI_F1_0"] = RI_F1_0
+    csv_data_dict["RI_F1_1"] = RI_F1_1
+    csv_data_dict["RI_F1_2"] = RI_F1_2
+    csv_data_dict["RI_F1_3"] = RI_F1_3
+    csv_data_dict["RI_F1_weighted"] = RI_F1_weighted
+
+    csv_data_dict["Avg_RI_Improvement"] = avg_RI_Improvement
+    csv_data_dict["Avg_RI_Degradation"] = avg_RI_Degradation
 
     csv_data_dict["experiment"] = experiment
     
@@ -958,15 +1056,15 @@ def get_best_hyperparameters(best_param_score_dict):
 
 def main():
     complete_df = pd.read_csv(configs.ROOT_PATH + "/" + configs.DATA_PATH)
-    output_file = "classification_results_RQ1_CONFIG1.csv"
+    output_file = "DS6_TAKS1.csv"
     
     ## write header
-    with open(configs.ROOT_PATH + "/NewExperiments/results/" + output_file, "w+") as csv_file:
+    with open(configs.ROOT_PATH + "/results/" + output_file, "w+") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=csv_data_dict.keys())
         writer.writeheader()
 
     ## read json file
-    with open(configs.ROOT_PATH + "/NewExperiments/featureselection/experiments_RQ1_new_filtered.jsonl") as jsonl_file:
+    with open("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/ml-experiments/TASK1-AbsoluteTargets/Classifical-ML-Models/featureselection/experiments_DS6_filtered.jsonl") as jsonl_file:
         experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
 
     outer_cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=configs.RANDOM_SEED)
@@ -1030,7 +1128,7 @@ def main():
                 ## CONFIG 2 ## - remove duplicates from training set
                 config = {"drop_duplicates": drop_duplicates}
                 
-                best_params, best_score_ = custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, inner_cv, config)
+                best_params, best_score_ = custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, inner_cv, config, target)
                 
                 LOGGER.info("Best param searching for fold {} for code features...".format(fold))
                 
@@ -1084,7 +1182,7 @@ def main():
                         y_train = y_train[~duplicates_mask]
 
                     model = train(pipeline, X_train, y_train)
-                    fold_results_ = evaluate(model, X_test, y_test)
+                    fold_results_ = evaluate(model, X_test, y_test, target)
 
                     all_fold_results[fold] = fold_results_
 
@@ -1102,51 +1200,87 @@ def main():
                         y_test_index=fold_results_["y_test_index"], 
                         y_actual=fold_results_["y_actual"],
                         y_pred=fold_results_["y_pred"], 
+                        
                         tp_0=fold_results_["tp_0"], 
                         tn_0=fold_results_["tn_0"], 
                         fp_0=fold_results_["fp_0"],
                         fn_0=fold_results_["fn_0"],
+                        support_0=fold_results_["support_0"],
+
                         tp_1=fold_results_["tp_1"],
                         tn_1=fold_results_["tn_1"],
                         fp_1=fold_results_["fp_1"], 
                         fn_1=fold_results_["fn_1"], 
+                        support_1=fold_results_["support_1"],
+
                         tp_2=fold_results_["tp_2"], 
                         tn_2=fold_results_["tn_2"],
                         fp_2=fold_results_["fp_2"], 
                         fn_2=fold_results_["fn_2"],
+                        support_2=fold_results_["support_2"],
+
                         tp_3=fold_results_["tp_3"],
                         tn_3=fold_results_["tn_3"],
                         fp_3=fold_results_["fp_3"],
                         fn_3=fold_results_["fn_3"],
+                        support_3=fold_results_["support_3"],
+
                         f1_0=fold_results_["f1_0"], 
                         f1_1=fold_results_["f1_1"], 
                         f1_2=fold_results_["f1_2"], 
                         f1_3=fold_results_["f1_3"],
+
                         auc_0=fold_results_["auc_0"],
                         auc_1=fold_results_["auc_1"],
                         auc_2=fold_results_["auc_2"],
                         auc_3=fold_results_["auc_3"],
+
                         precision_0=fold_results_["precision_0"],
                         precision_1=fold_results_["precision_1"],
                         precision_2=fold_results_["precision_2"],
                         precision_3=fold_results_["precision_3"],
+
                         recall_0=fold_results_["recall_0"],
                         recall_1=fold_results_["recall_1"],
                         recall_2=fold_results_["recall_2"],
                         recall_3=fold_results_["recall_3"],
+
                         n_instances=fold_results_["n_instances"],
+
                         presion_weighted=fold_results_["precision_weighted"],
                         recall_weighted=fold_results_["recall_weighted"],
                         f1_weighted=fold_results_["f1_weighted"], 
-                        f1_macro=fold_results_["f1_macro"],
                         auc_weighted=fold_results_["auc_weighted"], 
+
+                        precision_macro=fold_results_["precision_macro"],
+                        f1_macro=fold_results_["f1_macro"],
+                        recall_macro=fold_results_["recall_macro"],
+                        auc_macro=fold_results_["auc_macro"],
+
+                        f1_0_imporved_baseline=fold_results_["f1_0 > baseline"],
+                        f1_1_imporved_baseline=fold_results_["f1_1 > baseline"],
+                        f1_2_imporved_baseline=fold_results_["f1_2 > baseline"],
+                        f1_3_imporved_baseline=fold_results_["f1_3 > baseline"],
+
+                        num_of_classes_improved_to_baseline=fold_results_["#_of_classes_improved_(f1>base)"],
+                        num_of_classes_detegraded_to_baseline=fold_results_["#_of_classes_degraded_(f1<base)"],
+
+                        RI_F1_0=fold_results_["RI_F1_0"],
+                        RI_F1_1=fold_results_["RI_F1_1"],
+                        RI_F1_2=fold_results_["RI_F1_2"],
+                        RI_F1_3=fold_results_["RI_F1_3"],
+                        RI_F1_weighted=fold_results_["RI_F1_weighted"],
+
+                        avg_RI_Improvement=fold_results_["Avg_RI_Improvement"],
+                        avg_RI_Degradation=fold_results_["Avg_RI_Degradation"],
+                        
                         experiment=experiment["exp_id"]) 
                     
 
-                    dict_to_csv(configs.ROOT_PATH + "/NewExperiments/results/" + output_file, csv_data_dict1)
+                    dict_to_csv(configs.ROOT_PATH + "/results/" + output_file, csv_data_dict1)
 
                 ## aggregate the results from all the folds
-                overall_f1_macro, overall_f1_weighted, overall_auc_weighted, overall_precsion_weighted, overall_recall_weighted, overall_f1_0, overall_f1_1, overall_f1_2, overall_f1_3, overall_auc_0, overall_auc_1, overall_auc_2, overall_auc_3, overall_precision_0, overall_precision_1, overall_precision_2, overall_precision_3, overall_recall_0, overall_recall_1, overall_recall_2, overall_recall_3, tp_0_all, tn_0_all, fp_0_all, fn_0_all, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, num_instances, y_index_all, y_true_all, y_pred_all = aggregate_results(all_fold_results, target, model_name, best_hyper_params, experiment)
+                overall_f1_0, overall_f1_1, overall_f1_2, overall_f1_3, overall_auc_0, overall_auc_1, overall_auc_2, overall_auc_3, overall_f1_weighted, overall_auc_weighted, overall_f1_macro, overall_auc_macro, overall_precision_0, overall_precision_1, overall_precision_2, overall_precision_3, overall_recall_0, overall_recall_1, overall_recall_2, overall_recall_3, overall_precsion_weighted, overall_recall_weighted, overall_precision_macro, overall_recall_macro, tp_0_all, tn_0_all, fp_0_all, fn_0_all, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, num_instances, y_index_all, y_true_all, y_pred_all, overall_f1_weighted, overall_f1_macro, overall_auc_weighted, overall_auc_macro, num_of_classes_improved_to_baseline, num_of_classes_degreded_to_baseline ,RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_weighted, avg_RI_Improvement, avg_RI_Degradation ,f1_0_baseline_improved, f1_1_baseline_improved, f1_2_baseline_improved, f1_3_baseline_improved = aggregate_results(all_fold_results, target)
                 csv_data_dict2 = dict_data_generator(
                     model=model_name, 
                     iteration="Overall", 
@@ -1160,47 +1294,84 @@ def main():
                     y_test_index=y_index_all, 
                     y_actual=y_true_all,
                     y_pred=y_pred_all, 
+
                     tp_0=tp_0_all, 
                     tn_0=tn_0_all, 
                     fp_0=fp_0_all,
                     fn_0=fn_0_all,
+                    support_0=tp_0_all + fn_0_all,
+
                     tp_1=tp_1_all,
                     tn_1=tn_1_all,
                     fp_1=fp_1_all, 
                     fn_1=fn_1_all, 
+                    support_1=tp_1_all + fn_1_all,
+
                     tp_2=tp_2_all, 
                     tn_2=tn_2_all,
                     fp_2=fp_2_all, 
                     fn_2=fn_2_all,
+                    support_2=tp_2_all + fn_2_all,
+
                     tp_3=tp_3_all,
                     tn_3=tn_3_all,
                     fp_3=fp_3_all,
                     fn_3=fn_3_all,
+                    support_3=tp_3_all + fn_3_all,
+
                     f1_0=overall_f1_0, 
                     f1_1=overall_f1_1, 
                     f1_2=overall_f1_2, 
                     f1_3=overall_f1_3,
+
                     auc_0=overall_auc_0,
                     auc_1=overall_auc_1,
                     auc_2=overall_auc_2,
                     auc_3=overall_auc_3,
+
                     precision_0=overall_precision_0,
                     precision_1=overall_precision_1,
                     precision_2=overall_precision_2,
                     precision_3=overall_precision_3,
+
                     recall_0=overall_recall_0,
                     recall_1=overall_recall_1,
                     recall_2=overall_recall_2,
                     recall_3=overall_recall_3,
+
                     n_instances=num_instances,
+
                     presion_weighted=overall_precsion_weighted,
                     recall_weighted=overall_recall_weighted,
-                    f1_weighted=overall_f1_weighted, 
-                    f1_macro=overall_f1_macro,
+                    f1_weighted=overall_f1_weighted,
                     auc_weighted=overall_auc_weighted, 
-                    experiment=experiment["exp_id"])
+
+                    f1_macro=overall_f1_macro,
+                    precision_macro=overall_precision_macro,
+                    recall_macro=overall_recall_macro,
+                    auc_macro=overall_auc_macro,
+
+                    f1_0_imporved_baseline=f1_0_baseline_improved,
+                    f1_1_imporved_baseline=f1_1_baseline_improved,
+                    f1_2_imporved_baseline=f1_2_baseline_improved,
+                    f1_3_imporved_baseline=f1_3_baseline_improved,
+
+                    num_of_classes_improved_to_baseline=num_of_classes_improved_to_baseline,
+                    num_of_classes_detegraded_to_baseline=num_of_classes_degreded_to_baseline,
+
+                    RI_F1_0=RI_F1_0,
+                    RI_F1_1=RI_F1_1,
+                    RI_F1_2=RI_F1_2,
+                    RI_F1_3=RI_F1_3,
+                    RI_F1_weighted=RI_F1_weighted,
+
+                    avg_RI_Improvement=avg_RI_Improvement,
+                    avg_RI_Degradation=avg_RI_Degradation,
+
+                    experiment=experiment["exp_id"]
+                    )
                     
-                dict_to_csv(configs.ROOT_PATH + "/NewExperiments/results/" + output_file, csv_data_dict2)
+                dict_to_csv(configs.ROOT_PATH + "/results/" + output_file, csv_data_dict2)
 
 def dict_to_csv(output_file_path, dict_data):
     with open(output_file_path, "a") as csv_file:

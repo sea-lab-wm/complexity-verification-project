@@ -1,25 +1,24 @@
-getConnection csds con1_2 Connection 
+close con 
 con1_2 con1 assertSame 
 getConnection csds con2 Connection 
 con2 con1 assertNotSame 
+ds ExtendedConnectionDataSourceProxy csds ExtendedConnectionDataSourceProxy 
 con1 stopCloseSuppression csds 
 con1 shouldClose csds assertTrue 
-con1_1 
-con1_2 
-close con1 
-con2 shouldClose csds assertTrue 
-con thenReturn getConnection ds when 
-close con2 
-close con 
-con thenReturn getConnection ds when 
-close con 
-ds ExtendedConnectionDataSourceProxy csds ExtendedConnectionDataSourceProxy 
 getConnection csds con1 Connection 
+con1_1 
 con1 startCloseSuppression csds 
+con1_2 
 getConnection csds con1_1 Connection 
+close con1 
 con1_1 con1 assertSame 
-ds_6_snip_3$SpringBatch_testOperationWithDirectCloseCall 
 testOperationWithDirectCloseCall SQLException 
 Connection mock con Connection 
 DataSource mock ds DataSource 
+con thenReturn getConnection ds when 
+close con 
+con2 shouldClose csds assertTrue 
 close con1_1 
+close con2 
+con thenReturn getConnection ds when 
+getConnection csds con1_2 Connection 

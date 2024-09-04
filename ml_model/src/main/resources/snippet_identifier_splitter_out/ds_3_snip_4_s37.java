@@ -1,4 +1,3 @@
-ds_3_snip_4_s37 
 Object s37 
 config isValid config mConfigs config AbstractPluginProgramFormating 
 getName config getId config ProgramReceiveTarget add list 

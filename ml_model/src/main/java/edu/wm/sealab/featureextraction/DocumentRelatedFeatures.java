@@ -159,7 +159,7 @@ public class DocumentRelatedFeatures {
             
             IRAMDictionary dict = null;
             try {
-                dict = new RAMDictionary(new File("ml_model/src/main/resources/corpora/dict"),ILoadPolicy.NO_LOAD);
+                dict = new RAMDictionary(new File("complexity-verification-project/ml_model/src/main/resources/corpora/dict"),ILoadPolicy.NO_LOAD);
                 dict.open();
                 
                 for (String identifier : identifierList) {

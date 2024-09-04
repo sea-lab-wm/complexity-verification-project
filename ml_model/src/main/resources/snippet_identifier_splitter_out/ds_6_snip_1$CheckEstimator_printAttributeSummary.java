@@ -1,27 +1,33 @@
-DATE Attribute 
-str str 
-str str 
-RELATIONAL Attribute 
-str print 
+str 
+string attrTypes 
+length str 
+classType 
+str 
+NUMERIC Attribute 
 str str 
 str 
-classType 
-NUMERIC Attribute 
+NOMINAL Attribute 
 str str 
-printAttributeSummary attrType classType 
+date attrTypes 
+length str 
+STRING Attribute 
 str String 
-attrType 
-NOMINAL Attribute 
-NUMERIC Attribute 
+str 
 str str 
-str str 
-STRING Attribute 
-NOMINAL Attribute 
-str str 
-str str 
-STRING Attribute 
-ds_6_snip_1$CheckEstimator_printAttributeSummary 
+numeric attrTypes 
+str 
 DATE Attribute 
+str 
 str str 
-str str 
+relational attrTypes 
+nominal attrTypes 
+length str 
+length str 
+str 
+printAttributeSummary attrTypes AttrTypes classType 
 RELATIONAL Attribute 
+str str 
+str 
+str 
+str 
+str print 

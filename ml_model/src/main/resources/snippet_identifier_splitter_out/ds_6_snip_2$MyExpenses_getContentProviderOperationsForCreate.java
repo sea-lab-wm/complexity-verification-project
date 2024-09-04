@@ -1,46 +1,46 @@
-t getId getAccount amount Transaction 
-offset parentOffset buildSaveOperations t 
 label change 
-methodLabel change 
 label change extractCatId catId 
-methodLabel change extractMethodId id 
+methodLabel change 
 catId 
-id 
+methodLabel change extractMethodId id 
 catId setCatId t 
+id 
 methodId t id 
-crStatus change 
 uuid t uuid change 
-crStatus t crStatus change valueOf CrStatus Transaction 
+crStatus change 
 comment change 
-amount amount change 
+crStatus t crStatus change valueOf CrStatus Transaction 
 comment t comment change 
-referenceNumber t referenceNumber change 
-parentOffset parentUuid change 
 amount 
+referenceNumber t referenceNumber change 
 date change 
-parentUuid change findByUuid Transaction parentId 
-date change date Long 
-parentId 
+parentOffset parentUuid change 
 t Transaction 
-date 
+date change date Long 
+parentUuid change findByUuid Transaction parentId 
 transferAccount 
+date 
+parentId 
+splitParts change 
 date Date setDate t 
 ArrayList 
-splitParts change 
 t getId getAccount amount SplitTransaction 
+transferAccount change 
+transferAccount transferAccount change label change extractTransferAccount 
 payeeName change 
-transferAccount change transferAccount transferAccount change label change extractTransferAccount 
 t getId getAccount amount Transfer 
-ds_6_snip_2$MyExpenses_getContentProviderOperationsForCreate 
-ArrayList ContentProviderOperation getContentProviderOperationsForCreate change TransactionChange offset parentOffset 
-isCreate change 
-AssertionError 
+transfer_account t transferAccount 
+ArrayList ContentProviderOperation getContentProviderOperationsForCreate 
+change TransactionChange offset parentOffset 
+isCreate change AssertionError 
 amount Long 
 amount change 
+amount amount change 
 parentId t parentId 
 payeeName change payeeToId extractPayeeId Payee id 
-id 
 pictureUri change 
-transfer_account t transferAccount 
-payeeId t id 
+id 
 pictureUri change parse Uri setPictureUri t 
+payeeId t id 
+t getId getAccount amount Transaction 
+offset parentOffset buildSaveOperations t 
