@@ -50,6 +50,9 @@ def main(ROOT_PATH):
 
         raw_cyclomatic_complexity_data = pd.read_csv(ROOT_PATH + "/raw_cyclomatic_complexity_data.csv")
 
+        ## read scalaribo_raw_data to get targets ##
+        scalaribo_raw_data = pd.read_csv(ROOT_PATH + "/understandability_with_warnings_with_targets.csv")
+
         ## Verification Tool warning data
         metric_data = pd.read_csv(ROOT_PATH + "/metric_data.csv")
 
@@ -58,9 +61,16 @@ def main(ROOT_PATH):
         print(traceback.format_exc())
         quit()
 
-    # scalabrino_data.reset_index()
+    
+    
     feature_data.reset_index()
+    scalabrino_data.reset_index()
+    nmi_data.reset_index()
+    nm_data.reset_index()
+    itid_data.reset_index()
+    loc_data.reset_index()
     raw_cyclomatic_complexity_data.reset_index()
+    scalaribo_raw_data.reset_index()
 
     ## Do preprocessing on cyclomatic_complexity_data
     cyclomatic_complexity_data = process_cyclomatic_complexity_data(raw_cyclomatic_complexity_data)
@@ -114,8 +124,38 @@ def main(ROOT_PATH):
     ## filter only the dataset_id=3 data and save it to a file
     all_df[all_df['dataset_id'] == '3'].to_csv(ROOT_PATH + "/final_features_ds3.csv", index=False)
     print ("Final features saved to final_features_ds3.csv - For dataset_id=3")
-
     all_df[all_df['dataset_id'] == '6'].to_csv(ROOT_PATH + "/final_features_ds6.csv", index=False)
     print ("Final features saved to final_features_ds6.csv - For dataset_id=6")
 
-# main("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model")    
+    
+    data_ds6 = pd.read_csv(ROOT_PATH + "/final_features_ds6.csv")
+    ## merge understandability_with_warnings_with_targets.csv with final_features_ds6.csv on system_name,developer_position,PE gen,PE spec (java)
+    ## rename file_name to snipper_id in scalaribo_raw_data
+    scalaribo_raw_data.rename(columns={"file_name": "snippet_id"}, inplace=True)
+    data_ds6 = pd.merge(data_ds6, scalaribo_raw_data[["PBU", "ABU", "ABU50", "BD", "BD50", "AU", "snippet_id", "developer_position", "PE gen", "PE spec (java)"]], on=["snippet_id", "developer_position", "PE gen", "PE spec (java)"], how="left")
+    
+
+    # # remove duplicate rows by keeping the first one. consider rows which has same snippet_id,person_id,developer_position,PE gen,PE spec (java)
+    data_ds6.drop_duplicates(subset=["person_id", "snippet_id", "developer_position", "PE gen", "PE spec (java)"], keep='first', inplace=True)
+    
+    ## add two specific rows to the data_ds6 ##
+    ## search person_id=69 snippet_id=1-SpringBatch from the data_ds6 and add it to the data_ds6
+    spring_batch = data_ds6[(data_ds6['person_id'] == 69) & (data_ds6['snippet_id'] == "1-SpringBatch") & (data_ds6['developer_position'] == 4) & (data_ds6['PE gen'] == 10) & (data_ds6['PE spec (java)'] == 2)]
+    data_ds6 = pd.concat([data_ds6, spring_batch], ignore_index=True)
+
+    ## search person_id=69 snippet_id=2-SpringBatch from the data_ds6 and add it to the data_ds6
+    spring_batch = data_ds6[(data_ds6['person_id'] == 69) & (data_ds6['snippet_id'] == "2-SpringBatch") & (data_ds6['developer_position'] == 4) & (data_ds6['PE gen'] == 10) & (data_ds6['PE spec (java)'] == 2)]
+    data_ds6 = pd.concat([data_ds6, spring_batch], ignore_index=True)
+
+    k9_batch=data_ds6[(data_ds6['person_id'] == 58) & (data_ds6['snippet_id'] == "2-K9") & (data_ds6['developer_position'] == 2) & (data_ds6['PE gen'] == 4) & (data_ds6['PE spec (java)'] == 2)]
+    data_ds6 = pd.concat([data_ds6, k9_batch], ignore_index=True)
+
+    opencmscore_batch=data_ds6[(data_ds6['person_id'] == 11) & (data_ds6['snippet_id'] == "3-OpenCMSCore") & (data_ds6['developer_position'] == 1) & (data_ds6['PE gen'] == 8) & (data_ds6['PE spec (java)'] == 3)]
+    data_ds6 = pd.concat([data_ds6, opencmscore_batch], ignore_index=True)
+
+    myexpenses_batch=data_ds6[(data_ds6['person_id'] == 36) & (data_ds6['snippet_id'] == "4-MyExpenses") & (data_ds6['developer_position'] == 1) & (data_ds6['PE gen'] == 2) & (data_ds6['PE spec (java)'] == 2)]
+    data_ds6 = pd.concat([data_ds6, myexpenses_batch], ignore_index=True)
+
+    data_ds6.to_csv(ROOT_PATH + "/final_features_ds6.csv", index=False)
+
+main("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model")    

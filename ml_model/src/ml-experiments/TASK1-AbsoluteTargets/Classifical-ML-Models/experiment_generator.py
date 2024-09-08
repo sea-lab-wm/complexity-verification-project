@@ -11,11 +11,16 @@ the model with the best hyperparameters.
 
 import json
 import pandas as pd
-from utils import configs
+# from utils import configs
+
+####### Uncomment this to use config for DS3 ##
+from utils import configs_DS3 as configs
+####### 
+
 import csv
 import math
 import sys
-sys.path.append('/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/ml-experiments/TASK1-AbsoluteTargets/Classifical-ML-Models/')
+sys.path.append(configs.ROOT_PATH)
 
 from featureselection.feature_selection import FeatureSelection
 

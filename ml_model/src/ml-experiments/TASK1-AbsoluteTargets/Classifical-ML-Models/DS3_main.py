@@ -1,21 +1,21 @@
 import sys
 import logging
-sys.path.append('/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/ml-experiments/TASK1-AbsoluteTargets/Classifical-ML-Models/')
+from utils import configs_DS3
+sys.path.append(configs_DS3.ROOT_PATH)
 
-from utils import configs
 
 import pandas as pd
 import csv
 import json
 import numpy as np
 
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 from sklearn.utils.multiclass import type_of_target
 from sklearn.utils.multiclass import unique_labels
 
 
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import GridSearchCV, LeaveOneOut, StratifiedKFold
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import multilabel_confusion_matrix
@@ -24,7 +24,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import StratifiedKFold
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, RobustScaler
 from sklearn.model_selection import ParameterGrid
 
 from sklearn.utils.parallel import Parallel, delayed
@@ -32,23 +32,21 @@ from sklearn.utils.parallel import Parallel, delayed
 from sklearn.metrics import classification_report, f1_score, roc_auc_score, precision_score, recall_score, roc_curve
 
 from imblearn.pipeline import Pipeline
-from imblearn.over_sampling import RandomOverSampler
+from imblearn.over_sampling import RandomOverSampler, SMOTE
 
 import os
 
 
 ## keep the models determisitic
-np.random.seed(configs.RANDOM_SEED)
+np.random.seed(configs_DS3.RANDOM_SEED)
 
-
-df = pd.read_csv(configs.ROOT_PATH + "/" + configs.DATA_PATH)
+df = pd.read_csv(configs_DS3.ROOT_PATH + "/" + configs_DS3.DATA_PATH)
 
 ## Logger
 _LOG_FMT = '[%(asctime)s - %(levelname)s - %(name)s]-   %(message)s'
 _DATE_FMT = '%m/%d/%Y %H:%M:%S'
 logging.basicConfig(format=_LOG_FMT, datefmt=_DATE_FMT, level=logging.INFO)
 LOGGER = logging.getLogger('__main__')
-
 
 
 
@@ -62,55 +60,66 @@ csv_data_dict = {
     "dataset": "",
     "K": 0,
     "fs_method": "",
+    
     # "y_test_index": "",
     # "y_actual": "",
     # "y_pred": "",
     
-    "tp_0": "-",
-    "tn_0": "-",
-    "fp_0": "-",
-    "fn_0": "-",
-    "support_0": "-",
-
     "tp_1": "-",
     "tn_1": "-",
     "fp_1": "-",
     "fn_1": "-",
     "support_1": "-",
-
+    
     "tp_2": "-",
     "tn_2": "-",
     "fp_2": "-",
     "fn_2": "-",
     "support_2": "-",
-
+    
     "tp_3": "-",
     "tn_3": "-",
     "fp_3": "-",
     "fn_3": "-",
     "support_3": "-",
+    
+    "tp_4": "-",
+    "tn_4": "-",
+    "fp_4": "-",
+    "fn_4": "-",
+    "support_4": "-",
+    
+    "tp_5": "-",
+    "tn_5": "-",
+    "fp_5": "-",
+    "fn_5": "-",
+    "support_5": "-",
 
     "n_instances": 0,
 
-    "precision_0": "-",
     "precision_1": "-",
     "precision_2": "-",
     "precision_3": "-",
+    "precision_4": "-",
+    "precision_5": "-",
 
-    "recall_0": "-",
     "recall_1": "-",
     "recall_2": "-",
     "recall_3": "-",
+    "recall_4": "-",
+    "recall_5": "-",
 
-    "f1_0": "-",
     "f1_1": "-",
     "f1_2": "-",
     "f1_3": "-",
+    "f1_4": "-",
+    "f1_5": "-",
 
-    "auc_0": "-",
     "auc_1": "-",
     "auc_2": "-",
     "auc_3": "-",
+    "auc_4": "-",
+    "auc_5": "-",
 
     "precision_weighted": 0.0,
     "recall_weighted": 0.0,
@@ -122,23 +131,32 @@ csv_data_dict = {
     "f1_macro": 0.0,
     "auc_macro": 0.0,
 
-    "f1_0 > baseline": 0,
     "f1_1 > baseline": 0,
     "f1_2 > baseline": 0,
     "f1_3 > baseline": 0,
+    "f1_4 > baseline": 0,
+    "f1_5 > baseline": 0,
+
+    "f1_1 = baseline": 0,
+    "f1_2 = baseline": 0,
+    "f1_3 = baseline": 0,
+    "f1_4 = baseline": 0,
+    "f1_5 = baseline": 0,
 
     "#_of_classes_improved_(f1>base)": 0,
     "#_of_classes_degraded_(f1<base)": 0,
+    "#_of_classes_no_change_(f1=base)": 0,
 
-    "RI_F1_0": 0.0,
     "RI_F1_1": 0.0,
     "RI_F1_2": 0.0,
     "RI_F1_3": 0.0,
+    "RI_F1_4": 0.0,
+    "RI_F1_5": 0.0,
     "RI_F1_weighted": 0.0,
 
     "Avg_RI_Improvement": 0.0, # average relative improvement for all classes that improved
     "Avg_RI_Degradation": 0.0, # average relative improvement for all classes that degraded
-
+    
     "experiment": ""
 }
 
@@ -182,7 +200,7 @@ def process_fold(fold, train_index, test_index, candidate_params,
 
     ## drop duplicates from the training folds only ##
     if drop_duplicates:
-        combined_df = pd.concat([X_train_fold, y_train_fold], axis=1)
+        combined_df = pd.concat([X_train_fold, y_train_fold], axis=1) ## axis=1 for columns
 
         ## Identify duplicate rows
         duplicates_mask = combined_df.duplicated()
@@ -224,131 +242,38 @@ def train(model, X_train, y_train):
     model.fit(X_train.values, y_train.values.ravel())
     return model
 
-
 def getBestBaselineModel(target):
-    if target == "ABU":
-        baseline_0_precision = 0.8176
-        baseline_0_recall = 1.0
-        baseline_0_f1 = 0.8996
+    if target == "readability_level":
+        baseline_1_precision = 0.0735
+        baseline_1_recall = 0.0735
+        baseline_1_f1 = 0.0735
 
-        baseline_1_precision = 0.0
-        baseline_1_recall = 0.0
-        baseline_1_f1 = 0.0
+        baseline_2_precision = 0.2050
+        baseline_2_recall = 0.2050
+        baseline_2_f1 = 0.2050
 
-        baseline_f1_weighted = 0.7355
+        baseline_3_precision = 0.2678
+        baseline_3_recall = 0.2678
+        baseline_3_f1 = 0.2678
 
-        baseline_2_f1 = 0
-        baseline_3_f1 = 0
+        baseline_4_precision = 0.2719
+        baseline_4_recall = 0.2719
+        baseline_4_f1 = 0.2719
 
-        class_0_weight = 0.82
-        class_1_weight = 0.18
+        baseline_5_precision = 0.1818
+        baseline_5_recall = 0.1818
+        baseline_5_f1 = 0.1818
+
+        baseline_f1_weighted = 0.2261
+
+        class_1_weight = 0.07
+        class_2_weight = 0.21
+        class_3_weight = 0.27
+        class_4_weight = 0.27
+        class_5_weight = 0.18
         
-        class_2_weight = 0
-        class_3_weight = 0
-        
-    elif target == "ABU50":
-        baseline_0_precision = 0.4977
-        baseline_0_recall = 0.4977
-        baseline_0_f1 = 0.4977
 
-        baseline_1_precision = 0.5023
-        baseline_1_recall = 0.5023
-        baseline_1_f1 = 0.5023
-
-        baseline_f1_weighted = 0.5
-
-        baseline_2_f1 = 0
-        baseline_3_f1 = 0
-
-        class_0_weight = 0.5
-        class_1_weight = 0.5
-        class_2_weight = 0
-        class_3_weight = 0
-
-    elif target == "BD":
-        baseline_0_precision = 0.4865
-        baseline_0_recall = 0.4865
-        baseline_0_f1 = 0.4865
-
-        baseline_1_precision = 0.5135
-        baseline_1_recall = 0.5135
-        baseline_1_f1 = 0.5135
-
-        baseline_f1_weighted = 0.5
-        
-        baseline_2_f1 = 0
-        baseline_3_f1 = 0
-
-        class_0_weight = 0.49
-        class_1_weight = 0.51
-        class_2_weight = 0
-        class_3_weight = 0
-
-    elif target == "BD50":
-        baseline_0_precision = 0.8063
-        baseline_0_recall = 1.0
-        baseline_0_f1 = 0.8928
-
-        baseline_1_precision = 0.0
-        baseline_1_recall = 0.0
-        baseline_1_f1 = 0.0
-
-        baseline_f1_weighted = 0.7198
-
-        baseline_2_f1 = 0
-        baseline_3_f1 = 0    
-
-        class_0_weight = 0.81
-        class_1_weight = 0.19
-        class_2_weight = 0
-        class_3_weight = 0
-
-        
-    elif target == "PBU":
-        baseline_0_precision = 0.3041
-        baseline_0_recall = 0.3041
-        baseline_0_f1 = 0.3041
-
-        baseline_1_precision = 0.6959
-        baseline_1_recall = 0.6959
-        baseline_1_f1 = 0.6959
-
-        baseline_f1_weighted = 0.5768
-
-        baseline_2_f1 = 0
-        baseline_3_f1 = 0
-
-        class_0_weight = 0.3
-        class_1_weight = 0.7
-        class_2_weight = 0
-        class_3_weight = 0
-
-    elif target == "AU":
-        baseline_0_precision = 0.3401
-        baseline_0_recall = 0.3401
-        baseline_0_f1 = 0.3401
-
-        baseline_1_precision = 0.1577
-        baseline_1_recall = 0.1577
-        baseline_1_f1 = 0.1577
-
-        baseline_2_precision = 0.3198
-        baseline_2_recall = 0.3198
-        baseline_2_f1 = 0.3198
-
-        baseline_3_precision = 0.1824
-        baseline_3_recall = 0.1824
-        baseline_3_f1 = 0.1824
-
-        baseline_f1_weighted = 0.2761
-
-        class_0_weight = 0.34
-        class_1_weight = 0.16
-        class_2_weight = 0.32
-        class_3_weight = 0.18
-
-    return baseline_0_f1, baseline_1_f1, baseline_2_f1, baseline_3_f1, class_0_weight, class_1_weight, class_2_weight, class_3_weight        
-
+    return baseline_1_f1, baseline_2_f1, baseline_3_f1, baseline_4_f1, baseline_5_f1, class_1_weight, class_2_weight, class_3_weight, class_4_weight, class_5_weight       
 
 
 def evaluate(model, X_test, y_test, target):
@@ -362,224 +287,171 @@ def evaluate(model, X_test, y_test, target):
     prediction_report = multilabel_confusion_matrix (y_test, y_pred, labels=unique_labels(y_test))
 
     ## get baseline f1 scores and class weights ##
-    baseline_f1_0, baseline_f1_1, baseline_f1_2, baseline_f1_3, class_0_weight, class_1_weight, class_2_weight, class_3_weight = getBestBaselineModel(target)
-    
-    #### ONLY FOR BINARY CLASSIFICATION ####
-    if type_of_target(y_test) == "binary":
-        f1_1 = classifi_report["1"]["f1-score"]
-        f1_0 = classifi_report["0"]["f1-score"]
-        precision_0 = classifi_report["0"]["precision"]
-        precision_1 = classifi_report["1"]["precision"]
-        recall_0 = classifi_report["0"]["recall"]
-        recall_1 = classifi_report["1"]["recall"]
-        
-        ## Predict probabilities ## 
-        ## source : https://scikit-learn.org/stable/modules/model_evaluation.html#binary-case
-        ## In the case of providing the probability estimates, the probability of the class 
-        ## with the “greater label” should be provided. The “greater label” corresponds to classifier.classes_[1] and 
-        ## thus classifier.predict_proba(X)[:, 1].
-        y_pred_proba_1 = model.predict_proba(X_test)[:, 1]
-        y_pred_proba_0 = model.predict_proba(X_test)[:, 0]
-        
-        ## It does not make sense to calculate AUC for binary classification
-        ## source: https://stackoverflow.com/questions/42059805/how-should-i-get-the-auc-for-the-negative-class
-        auc_0 = roc_auc_score(y_test, y_pred_proba_0) 
-        auc_1 = roc_auc_score(y_test, y_pred_proba_1)
+    baseline_1_f1, baseline_2_f1, baseline_3_f1, baseline_4_f1, baseline_5_f1, class_1_weight, class_2_weight, class_3_weight, class_4_weight, class_5_weight = getBestBaselineModel(target)
 
-        f1_2 = "-"
-        f1_3 = "-"
+    ## For multi-class classification
+    f1_1 = classifi_report["1"]["f1-score"]
+    f1_2 = classifi_report["2"]["f1-score"]
+    f1_3 = classifi_report["3"]["f1-score"]
+    f1_4 = classifi_report["4"]["f1-score"]
+    f1_5 = classifi_report["5"]["f1-score"]
 
-        precision_2 = "-"
-        precision_3 = "-"
+    auc_1 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[0]
+    auc_2 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[1]
+    auc_3 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[2]
+    auc_4 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[3]
+    auc_5 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[4]
 
-        recall_2 = "-"
-        recall_3 = "-"
+    precision_1 = classifi_report["1"]["precision"]
+    precision_2 = classifi_report["2"]["precision"]
+    precision_3 = classifi_report["3"]["precision"]
+    precision_4 = classifi_report["4"]["precision"]
+    precision_5 = classifi_report["5"]["precision"]
 
-        auc_2 = "-"
-        auc_3 = "-"
+    recall_1 = classifi_report["1"]["recall"]
+    recall_2 = classifi_report["2"]["recall"]
+    recall_3 = classifi_report["3"]["recall"]
+    recall_4 = classifi_report["4"]["recall"]
+    recall_5 = classifi_report["5"]["recall"]
 
-        tp_0 = prediction_report[0][1][1]
-        tn_0 = prediction_report[0][0][0]
-        fp_0 = prediction_report[0][0][1]
-        fn_0 = prediction_report[0][1][0]
+    tp_1 = prediction_report[0][1][1]
+    tn_1 = prediction_report[0][0][0]
+    fp_1 = prediction_report[0][0][1]
+    fn_1 = prediction_report[0][1][0]
 
-        tp_1 = prediction_report[1][1][1]
-        tn_1 = prediction_report[1][0][0]
-        fp_1 = prediction_report[1][0][1]
-        fn_1 = prediction_report[1][1][0]
+    tp_2 = prediction_report[1][1][1]
+    tn_2 = prediction_report[1][0][0]
+    fp_2 = prediction_report[1][0][1]
+    fn_2 = prediction_report[1][1][0]
 
-        tp_2 = "-"
-        tn_2 = "-"
-        fp_2 = "-"
-        fn_2 = "-"
+    tp_3 = prediction_report[2][1][1]
+    tn_3 = prediction_report[2][0][0]
+    fp_3 = prediction_report[2][0][1]
+    fn_3 = prediction_report[2][1][0]
 
-        tp_3 = "-"
-        tn_3 = "-"
-        fp_3 = "-"
-        fn_3 = "-"
+    tp_4 = prediction_report[3][1][1]
+    tn_4 = prediction_report[3][0][0]
+    fp_4 = prediction_report[3][0][1]
+    fn_4 = prediction_report[3][1][0]
 
-        auc_weighted = "-"
-        auc_macro = "-"
-
-        support_2 = "-"
-        support_3 = "-"
-
-        f1_2_imporved_baseline = 0
-        f1_3_imporved_baseline = 0
-        RI_F1_2 = 0
-        RI_F1_3 = 0
-
-        
-    else:
-        ## For multi-class classification
-        f1_1 = classifi_report["1"]["f1-score"]
-        f1_0 = classifi_report["0"]["f1-score"]
-        f1_2 = classifi_report["2"]["f1-score"]
-        f1_3 = classifi_report["3"]["f1-score"]
-
-        auc_0 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[0]
-        auc_1 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[1]
-        auc_2 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[2]
-        auc_3 = roc_auc_score(y_test, model.predict_proba(X_test), average=None, multi_class="ovr", labels=unique_labels(y_test))[3]
-
-        precision_0 = classifi_report["0"]["precision"]
-        precision_1 = classifi_report["1"]["precision"]
-        precision_2 = classifi_report["2"]["precision"]
-        precision_3 = classifi_report["3"]["precision"]
-
-        recall_0 = classifi_report["0"]["recall"]
-        recall_1 = classifi_report["1"]["recall"]
-        recall_2 = classifi_report["2"]["recall"]
-        recall_3 = classifi_report["3"]["recall"]
-
-        tp_0 = prediction_report[0][1][1]
-        tn_0 = prediction_report[0][0][0]
-        fp_0 = prediction_report[0][0][1]
-        fn_0 = prediction_report[0][1][0]
-
-        tp_1 = prediction_report[1][1][1]
-        tn_1 = prediction_report[1][0][0]
-        fp_1 = prediction_report[1][0][1]
-        fn_1 = prediction_report[1][1][0]
-
-        tp_2 = prediction_report[2][1][1]
-        tn_2 = prediction_report[2][0][0]
-        fp_2 = prediction_report[2][0][1]
-        fn_2 = prediction_report[2][1][0]
-
-        tp_3 = prediction_report[3][1][1]
-        tn_3 = prediction_report[3][0][0]
-        fp_3 = prediction_report[3][0][1]
-        fn_3 = prediction_report[3][1][0]
-
-        support_2 = classifi_report["2"]["support"]
-        support_3 = classifi_report["3"]["support"]
-
-        auc_weighted = roc_auc_score(y_test, model.predict_proba(X_test), average="weighted", multi_class="ovr", labels=unique_labels(y_test))
-        auc_macro = roc_auc_score(y_test, model.predict_proba(X_test), average="macro", multi_class="ovr", labels=unique_labels(y_test))
-
-        f1_2_imporved_baseline = 1 if f1_2 > baseline_f1_2 else 0
-        f1_3_imporved_baseline = 1 if f1_3 > baseline_f1_3 else 0
-        
-        if baseline_f1_2 == 0:
-            RI_F1_2 = 0
-        else:
-            RI_F1_2 = (f1_2 - baseline_f1_2) / baseline_f1_2
-
-        if baseline_f1_3 == 0:
-            RI_F1_3 = 0
-        else:    
-            RI_F1_3 = (f1_3 - baseline_f1_3) / baseline_f1_3
-
-
-    support_0 = classifi_report["0"]["support"]
-    support_1 = classifi_report["1"]["support"]
+    tp_5 = prediction_report[4][1][1]
+    tn_5 = prediction_report[4][0][0]
+    fp_5 = prediction_report[4][0][1]
+    fn_5 = prediction_report[4][1][0]
 
     ## compute the weighted scores ##
     f1_weighted = f1_score(y_test, y_pred, average="weighted", labels=unique_labels(y_test))
     precision_weighted = classifi_report["weighted avg"]["precision"]
     recall_weighted = classifi_report["weighted avg"]["recall"]
-
+    auc_weighted = roc_auc_score(y_test, model.predict_proba(X_test), average="weighted", multi_class="ovr", labels=unique_labels(y_test))
+    
     ## compute the macro scores ##
     f1_macro = f1_score(y_test, y_pred, average="macro", labels=unique_labels(y_test))
     precision_macro = classifi_report["macro avg"]["precision"]
     recall_macro = classifi_report["macro avg"]["recall"]
+    auc_macro = roc_auc_score(y_test, model.predict_proba(X_test), average="macro", multi_class="ovr", labels=unique_labels(y_test))
 
+    f1_1_improved_baseline = 1 if f1_1 > baseline_1_f1 else 0
+    f1_2_improved_baseline = 1 if f1_2 > baseline_2_f1 else 0
+    f1_3_improved_baseline = 1 if f1_3 > baseline_3_f1 else 0
+    f1_4_improved_baseline = 1 if f1_4 > baseline_4_f1 else 0
+    f1_5_improved_baseline = 1 if f1_5 > baseline_5_f1 else 0
 
-    ## F1 improvement compared to baseline ##
-    f1_0_imporved_baseline = 1 if f1_0 > baseline_f1_0 else 0
-    f1_1_imporved_baseline = 1 if f1_1 > baseline_f1_1 else 0
+    f1_1_no_change_baseline = 1 if f1_1 == baseline_1_f1 else 0
+    f1_2_no_change_baseline = 1 if f1_2 == baseline_2_f1 else 0
+    f1_3_no_change_baseline = 1 if f1_3 == baseline_3_f1 else 0
+    f1_4_no_change_baseline = 1 if f1_4 == baseline_4_f1 else 0
+    f1_5_no_change_baseline = 1 if f1_5 == baseline_5_f1 else 0
 
-    if baseline_f1_0 == 0:
-        RI_F1_0 = 0
-    else:
-        RI_F1_0 = (f1_0 - baseline_f1_0) / baseline_f1_0
-    
-    if baseline_f1_1 == 0:
-        RI_F1_1 = 0
-    else:
-        RI_F1_1 = (f1_1 - baseline_f1_1) / baseline_f1_1
-    
-    num_of_classes_improved_to_baseline = f1_0_imporved_baseline + f1_1_imporved_baseline + f1_2_imporved_baseline + f1_3_imporved_baseline
-    num_of_classes_detegraded_to_baseline = 4 - num_of_classes_improved_to_baseline
+    RI_F1_1 = (f1_1 - baseline_1_f1) / baseline_1_f1
+    RI_F1_2 = (f1_2 - baseline_2_f1) / baseline_2_f1
+    RI_F1_3 = (f1_3 - baseline_3_f1) / baseline_3_f1
+    RI_F1_4 = (f1_4 - baseline_4_f1) / baseline_4_f1
+    RI_F1_5 = (f1_5 - baseline_5_f1) / baseline_5_f1
 
-    ## weighted RI ##
-    RI_F1_weighted = RI_F1_0 * class_0_weight + RI_F1_1 * class_1_weight + RI_F1_2 * class_2_weight + RI_F1_3 * class_3_weight
+    num_of_classes_improved_to_baseline = f1_1_improved_baseline + f1_2_improved_baseline + f1_3_improved_baseline + f1_4_improved_baseline + f1_5_improved_baseline
+    num_of_classes_degraded_to_baseline = 5 - num_of_classes_improved_to_baseline
+    num_of_classes_no_change_to_baseline = f1_1_no_change_baseline + f1_2_no_change_baseline + f1_3_no_change_baseline + f1_4_no_change_baseline + f1_5_no_change_baseline
 
-    ## check the RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3 and filter out the classes that improved ##
-    improved_classes = [RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3]
-    improved_classes = [x for x in improved_classes if x > 0]
-    degraded_classes = [x for x in improved_classes if x < 0]
+    ## weighted relative improvement
+    RI_F1_weighted = RI_F1_1 * class_1_weight + RI_F1_2 * class_2_weight + RI_F1_3 * class_3_weight + RI_F1_4 * class_4_weight + RI_F1_5 * class_5_weight
+
+    ## check the RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_4, RI_F1_5 and filter out the classes that improved ##
+    all_classes = [RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_4, RI_F1_5]
+    improved_classes = [x for x in all_classes if x > 0]
+    degraded_classes = [x for x in all_classes if x < 0]
 
     ## take the average of the improved classes ##
-    avg_RI_Improvement = np.mean(improved_classes)
-    avg_RI_Degradation = np.mean(degraded_classes)
+    if len(improved_classes) > 0:
+        avg_RI_Improvement = sum(improved_classes) / len(improved_classes)
+    else:
+        avg_RI_Improvement = 0
+    if len(degraded_classes) > 0:
+        avg_RI_Degradation = sum(degraded_classes) / len(degraded_classes)
+    else:
+        avg_RI_Degradation = 0
+
 
     results_dict = {}
 
     ## For multi-class classification
-    results_dict["tp_0"] = tp_0
-    results_dict["tn_0"] = tn_0
-    results_dict["fp_0"] = fp_0
-    results_dict["fn_0"] = fn_0
-
     results_dict["tp_1"] = tp_1
     results_dict["tn_1"] = tn_1
     results_dict["fp_1"] = fp_1
     results_dict["fn_1"] = fn_1
+    results_dict["support_1"] = classifi_report["1"]["support"]
+
 
     results_dict["tp_2"] = tp_2
     results_dict["tn_2"] = tn_2
     results_dict["fp_2"] = fp_2
     results_dict["fn_2"] = fn_2
+    results_dict["support_2"] = classifi_report["2"]["support"]
 
     results_dict["tp_3"] = tp_3
     results_dict["tn_3"] = tn_3
     results_dict["fp_3"] = fp_3
     results_dict["fn_3"] = fn_3
+    results_dict["support_3"] = classifi_report["3"]["support"]
 
-    results_dict["f1_0"] = f1_0
+    results_dict["tp_4"] = tp_4
+    results_dict["tn_4"] = tn_4
+    results_dict["fp_4"] = fp_4
+    results_dict["fn_4"] = fn_4
+    results_dict["support_4"] = classifi_report["4"]["support"]
+
+    results_dict["tp_5"] = tp_5
+    results_dict["tn_5"] = tn_5
+    results_dict["fp_5"] = fp_5
+    results_dict["fn_5"] = fn_5
+    results_dict["support_5"] = classifi_report["5"]["support"]
+
     results_dict["f1_1"] = f1_1
     results_dict["f1_2"] = f1_2
     results_dict["f1_3"] = f1_3
+    results_dict["f1_4"] = f1_4
+    results_dict["f1_5"] = f1_5
 
-    results_dict["precision_0"] = precision_0
     results_dict["precision_1"] = precision_1
     results_dict["precision_2"] = precision_2
     results_dict["precision_3"] = precision_3
+    results_dict["precision_4"] = precision_4
+    results_dict["precision_5"] = precision_5
 
-    results_dict["recall_0"] = recall_0
     results_dict["recall_1"] = recall_1
     results_dict["recall_2"] = recall_2
     results_dict["recall_3"] = recall_3
+    results_dict["recall_4"] = recall_4
+    results_dict["recall_5"] = recall_5
 
-    results_dict["auc_0"] = auc_0
     results_dict["auc_1"] = auc_1
     results_dict["auc_2"] = auc_2
     results_dict["auc_3"] = auc_3
+    results_dict["auc_4"] = auc_4
+    results_dict["auc_5"] = auc_5
 
     results_dict["n_instances"] = len(y_test)
-
+    
     results_dict["f1_weighted"] = f1_weighted
     results_dict["precision_weighted"] = precision_weighted
     results_dict["recall_weighted"] = recall_weighted
@@ -589,32 +461,36 @@ def evaluate(model, X_test, y_test, target):
     results_dict["precision_macro"] = precision_macro
     results_dict["recall_macro"] = recall_macro
     results_dict["auc_macro"] = auc_macro
-
+    
     results_dict["y_test_index"] = y_test.index.values
     results_dict["y_actual"] = y_test.values
     results_dict["y_pred"] = y_pred
 
-    results_dict["support_0"] = support_0
-    results_dict["support_1"] = support_1
-    results_dict["support_2"] = support_2
-    results_dict["support_3"] = support_3
-    
     ## this is for internal use ##
     results_dict["y_predict_proba"] = model.predict_proba(X_test)
 
     ## compare with the baseline ##
-    results_dict["f1_0 > baseline"] = f1_0_imporved_baseline
-    results_dict["f1_1 > baseline"] = f1_1_imporved_baseline
-    results_dict["f1_2 > baseline"] = f1_2_imporved_baseline
-    results_dict["f1_3 > baseline"] = f1_3_imporved_baseline
+    results_dict["f1_1 > baseline"] = f1_1_improved_baseline
+    results_dict["f1_2 > baseline"] = f1_2_improved_baseline
+    results_dict["f1_3 > baseline"] = f1_3_improved_baseline
+    results_dict["f1_4 > baseline"] = f1_4_improved_baseline
+    results_dict["f1_5 > baseline"] = f1_5_improved_baseline
+
+    results_dict["f1_1 = baseline"] = f1_1_no_change_baseline
+    results_dict["f1_2 = baseline"] = f1_2_no_change_baseline
+    results_dict["f1_3 = baseline"] = f1_3_no_change_baseline
+    results_dict["f1_4 = baseline"] = f1_4_no_change_baseline
+    results_dict["f1_5 = baseline"] = f1_5_no_change_baseline
 
     results_dict["#_of_classes_improved_(f1>base)"] = num_of_classes_improved_to_baseline
-    results_dict["#_of_classes_degraded_(f1<base)"] = num_of_classes_detegraded_to_baseline
+    results_dict["#_of_classes_degraded_(f1<base)"] = num_of_classes_degraded_to_baseline
+    results_dict["#_of_classes_no_change_(f1=base)"] = num_of_classes_no_change_to_baseline
 
-    results_dict["RI_F1_0"] = RI_F1_0
     results_dict["RI_F1_1"] = RI_F1_1
     results_dict["RI_F1_2"] = RI_F1_2
     results_dict["RI_F1_3"] = RI_F1_3
+    results_dict["RI_F1_4"] = RI_F1_4
+    results_dict["RI_F1_5"] = RI_F1_5
     results_dict["RI_F1_weighted"] = RI_F1_weighted
 
     results_dict["Avg_RI_Improvement"] = avg_RI_Improvement
@@ -624,42 +500,47 @@ def evaluate(model, X_test, y_test, target):
 
 
 
+
 def aggregate_results(results, target):
     """
     aggregate the results from all the folds
     """
-    overall_f1_0 = 0
     overall_f1_1 = 0
-    overall_f1_2 = "-"
-    overall_f1_3 = "-"
+    overall_f1_2 = 0
+    overall_f1_3 = 0
+    overall_f1_4 = 0
+    overall_f1_5 = 0
 
-    overall_auc_0 = 0  
     overall_auc_1 = 0
-    overall_auc_2 = "-"
-    overall_auc_3 = "-"
-
-    overall_f1_weighted = 0
-    overall_auc_weighted = 0
-
-    tp_0_all = 0
-    tn_0_all = 0
-    fp_0_all = 0
-    fn_0_all = 0
+    overall_auc_2 = 0
+    overall_auc_3 = 0
+    overall_auc_4 = 0
+    overall_auc_5 = 0
 
     tp_1_all = 0
     tn_1_all = 0
     fp_1_all = 0
     fn_1_all = 0
 
-    tp_2_all = "-"
-    tn_2_all = "-"
-    fp_2_all = "-"
-    fn_2_all = "-"
+    tp_2_all = 0
+    tn_2_all = 0
+    fp_2_all = 0
+    fn_2_all = 0
 
-    tp_3_all = "-"
-    tn_3_all = "-"
-    fp_3_all = "-"
-    fn_3_all = "-"
+    tp_3_all = 0
+    tn_3_all = 0
+    fp_3_all = 0
+    fn_3_all = 0
+
+    tp_4_all = 0
+    tn_4_all = 0
+    fp_4_all = 0
+    fn_4_all = 0
+
+    tp_5_all = 0
+    tn_5_all = 0
+    fp_5_all = 0
+    fn_5_all = 0
 
     y_index_all =[]
     y_pred_all = []
@@ -668,26 +549,7 @@ def aggregate_results(results, target):
 
     for key, value in results.items():
         y_true_all.extend(value["y_actual"])
-
-        
-    if type_of_target(y_true_all) != "binary":
-        tp_2_all = 0
-        tn_2_all = 0
-        fp_2_all = 0
-        fn_2_all = 0
-
-        tp_3_all = 0
-        tn_3_all = 0
-        fp_3_all = 0
-        fn_3_all = 0
-
-        overall_f1_2 = 0
-        overall_f1_3 = 0
-
-        overall_auc_2 = 0
-        overall_auc_3 = 0
     
-   
 
     for key, value in results.items():
         y_index_all.extend(value["y_test_index"])
@@ -696,131 +558,110 @@ def aggregate_results(results, target):
         ## this is for internal use
         y_predict_proba_all.extend(value["y_predict_proba"])
         
-        tp_0_all += value["tp_0"]
-        tn_0_all += value["tn_0"]
-        fp_0_all += value["fp_0"]
-        fn_0_all += value["fn_0"]
-
         tp_1_all += value["tp_1"]
         tn_1_all += value["tn_1"]
         fp_1_all += value["fp_1"]
         fn_1_all += value["fn_1"]
 
-        if type_of_target(y_true_all) != "binary":
-            tp_2_all += value["tp_2"]
-            tn_2_all += value["tn_2"]
-            fp_2_all += value["fp_2"]
-            fn_2_all += value["fn_2"]
+        tp_2_all += value["tp_2"]
+        tn_2_all += value["tn_2"]
+        fp_2_all += value["fp_2"]
+        fn_2_all += value["fn_2"]
 
-            tp_3_all += value["tp_3"]
-            tn_3_all += value["tn_3"]
-            fp_3_all += value["fp_3"]
-            fn_3_all += value["fn_3"]
+        tp_3_all += value["tp_3"]
+        tn_3_all += value["tn_3"]
+        fp_3_all += value["fp_3"]
+        fn_3_all += value["fn_3"]
 
-    overall_f1_0 = f1_score(y_true_all, y_pred_all, average=None)[0]
-    overall_f1_1 = f1_score(y_true_all, y_pred_all, average=None)[1]
+        tp_4_all += value["tp_4"]
+        tn_4_all += value["tn_4"]
+        fp_4_all += value["fp_4"]
+        fn_4_all += value["fn_4"]
 
+        tp_5_all += value["tp_5"]
+        tn_5_all += value["tn_5"]
+        fp_5_all += value["fp_5"]
+        fn_5_all += value["fn_5"]
+
+    overall_f1_1 = f1_score(y_true_all, y_pred_all, average=None)[0]
+    overall_f1_2 = f1_score(y_true_all, y_pred_all, average=None)[1]
+    overall_f1_3 = f1_score(y_true_all, y_pred_all, average=None)[2]
+    overall_f1_4 = f1_score(y_true_all, y_pred_all, average=None)[3]
+    overall_f1_5 = f1_score(y_true_all, y_pred_all, average=None)[4]
+
+    overall_auc_1 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[1,2,3,4,5])[0]
+    overall_auc_2 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[1,2,3,4,5])[1]
+    overall_auc_3 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[1,2,3,4,5])[2]
+    overall_auc_4 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[1,2,3,4,5])[3]
+    overall_auc_5 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[1,2,3,4,5])[4]
+
+    overall_precision_1 = precision_score(y_true_all, y_pred_all, average=None)[0]
+    overall_precision_2 = precision_score(y_true_all, y_pred_all, average=None)[1]
+    overall_precision_3 = precision_score(y_true_all, y_pred_all, average=None)[2]
+    overall_precision_4 = precision_score(y_true_all, y_pred_all, average=None)[3]
+    overall_precision_5 = precision_score(y_true_all, y_pred_all, average=None)[4]
+
+    overall_recall_1 = recall_score(y_true_all, y_pred_all, average=None)[0]
+    overall_recall_2 = recall_score(y_true_all, y_pred_all, average=None)[1]
+    overall_recall_3 = recall_score(y_true_all, y_pred_all, average=None)[2]
+    overall_recall_4 = recall_score(y_true_all, y_pred_all, average=None)[3]
+    overall_recall_5 = recall_score(y_true_all, y_pred_all, average=None)[4]
     
-    overall_precision_0 = precision_score(y_true_all, y_pred_all, average=None)[0]
-    overall_precision_1 = precision_score(y_true_all, y_pred_all, average=None)[1]
-    overall_precision_2 = "-"
-    overall_precision_3 = "-"
-
-    overall_recall_0 = recall_score(y_true_all, y_pred_all, average=None)[0]
-    overall_recall_1 = recall_score(y_true_all, y_pred_all, average=None)[1]
-    overall_recall_2 = "-"
-    overall_recall_3 = "-"
-    
-    if type_of_target(y_true_all) != "binary":
-        overall_f1_2 = f1_score(y_true_all, y_pred_all, average=None)[2]
-        overall_f1_3 = f1_score(y_true_all, y_pred_all, average=None)[3]
-
-        overall_precision_2 = precision_score(y_true_all, y_pred_all, average=None)[2]
-        overall_precision_3 = precision_score(y_true_all, y_pred_all, average=None)[3]
-
-        overall_recall_2 = recall_score(y_true_all, y_pred_all, average=None)[2]
-        overall_recall_3 = recall_score(y_true_all, y_pred_all, average=None)[3]
-
     overall_f1_weighted = f1_score(y_true_all, y_pred_all, average="weighted")
-    overall_precsion_weighted = precision_score(y_true_all, y_pred_all, average="weighted")
+    overall_auc_weighted = roc_auc_score(y_true_all, y_predict_proba_all, average="weighted", multi_class="ovr", labels=[1,2,3,4,5])
+    overall_precision_weighted = precision_score(y_true_all, y_pred_all, average="weighted")
     overall_recall_weighted = recall_score(y_true_all, y_pred_all, average="weighted")
 
     overall_f1_macro = f1_score(y_true_all, y_pred_all, average="macro")
+    overall_auc_macro = roc_auc_score(y_true_all, y_predict_proba_all, average="macro", multi_class="ovr", labels=[1,2,3,4,5])
     overall_precision_macro = precision_score(y_true_all, y_pred_all, average="macro")
     overall_recall_macro = recall_score(y_true_all, y_pred_all, average="macro")
 
     ## get baseline f1 scores and class weights ##
-    baseline_f1_0, baseline_f1_1, baseline_f1_2, baseline_f1_3, class_0_weight, class_1_weight, class_2_weight, class_3_weight = getBestBaselineModel(target)
-    
+    baseline_f1_1, baseline_f1_2, baseline_f1_3, baseline_f1_4, baseline_f1_5, class_1_weight, class_2_weight, class_3_weight, class_4_weight, class_5_weight = getBestBaselineModel(target)
 
-    if type_of_target(y_true_all) == "binary":
-        y_predict_proba_all = np.array(y_predict_proba_all)
-        overall_auc_0 = roc_auc_score(y_true_all, y_predict_proba_all[:, 0])
-        overall_auc_1 = roc_auc_score(y_true_all, y_predict_proba_all[:, 1])
-        overall_auc_weighted = "-" ## not applicable for binary classification
-        overall_auc_macro = "-" ## not applicable for binary classification
-        f1_0_baseline_improved = 1 if overall_f1_0 > baseline_f1_0 else 0
-        f1_1_baseline_improved = 1 if overall_f1_1 > baseline_f1_1 else 0
-        
-        f1_2_baseline_improved = 0
-        f1_3_baseline_improved = 0
+    ## compare the improvement to the baseline ##
+    f1_1_improved_baseline = 1 if overall_f1_1 > baseline_f1_1 else 0
+    f1_2_improved_baseline = 1 if overall_f1_2 > baseline_f1_2 else 0
+    f1_3_improved_baseline = 1 if overall_f1_3 > baseline_f1_3 else 0
+    f1_4_improved_baseline = 1 if overall_f1_4 > baseline_f1_4 else 0
+    f1_5_improved_baseline = 1 if overall_f1_5 > baseline_f1_5 else 0
 
-        if baseline_f1_0 == 0:
-            RI_F1_0 = 0
-        else:
-            RI_F1_0 = (overall_f1_0 - baseline_f1_0) / baseline_f1_0
-        if baseline_f1_1 == 0:
-            RI_F1_1 = 0
-        else:
-            RI_F1_1 = (overall_f1_1 - baseline_f1_1) / baseline_f1_1
-        
-        RI_F1_2 = 0
-        RI_F1_3 = 0
+    f1_1_no_change_baseline = 1 if overall_f1_1 == baseline_f1_1 else 0
+    f1_2_no_change_baseline = 1 if overall_f1_2 == baseline_f1_2 else 0
+    f1_3_no_change_baseline = 1 if overall_f1_3 == baseline_f1_3 else 0
+    f1_4_no_change_baseline = 1 if overall_f1_4 == baseline_f1_4 else 0
+    f1_5_no_change_baseline = 1 if overall_f1_5 == baseline_f1_5 else 0
 
+    RI_F1_1 = (overall_f1_1 - baseline_f1_1) / baseline_f1_1
+    RI_F1_2 = (overall_f1_2 - baseline_f1_2) / baseline_f1_2
+    RI_F1_3 = (overall_f1_3 - baseline_f1_3) / baseline_f1_3
+    RI_F1_4 = (overall_f1_4 - baseline_f1_4) / baseline_f1_4
+    RI_F1_5 = (overall_f1_5 - baseline_f1_5) / baseline_f1_5
 
+    num_of_classes_improved_to_baseline = f1_1_improved_baseline + f1_2_improved_baseline + f1_3_improved_baseline + f1_4_improved_baseline + f1_5_improved_baseline
+    num_of_classes_degraded_to_baseline = 5 - num_of_classes_improved_to_baseline
+    num_of_classes_no_change_to_baseline = f1_1_no_change_baseline + f1_2_no_change_baseline + f1_3_no_change_baseline + f1_4_no_change_baseline + f1_5_no_change_baseline
+
+    ## weighted relative improvement
+    RI_F1_weighted = RI_F1_1 * class_1_weight + RI_F1_2 * class_2_weight + RI_F1_3 * class_3_weight + RI_F1_4 * class_4_weight + RI_F1_5 * class_5_weight
+
+    ## check the RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_4, RI_F1_5 and filter out the classes that improved ##
+    all_classes = [RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_4, RI_F1_5]
+    improved_classes = [x for x in all_classes if x > 0]
+    degraded_classes = [x for x in all_classes if x < 0]
+
+    ## take the average of the improved classes ##
+    if len(improved_classes) > 0:
+        avg_RI_Improvement = sum(improved_classes) / len(improved_classes)
     else:
-        overall_auc_0 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[0]
-        overall_auc_1 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[1]
-        overall_auc_2 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[2]
-        overall_auc_3 = roc_auc_score(y_true_all, y_predict_proba_all, average=None, multi_class="ovr", labels=[0,1,2,3])[3]
-        overall_auc_weighted = roc_auc_score(y_true_all, y_predict_proba_all, average="weighted", multi_class="ovr", labels=[0,1,2,3])
-        overall_auc_macro = roc_auc_score(y_true_all, y_predict_proba_all, average="macro", multi_class="ovr", labels=[0,1,2,3])
+        avg_RI_Improvement = 0
+    if len(degraded_classes) > 0:
+        avg_RI_Degradation = sum(degraded_classes) / len(degraded_classes)
+    else:
+        avg_RI_Degradation = 0    
 
-        f1_0_baseline_improved = 1 if overall_f1_0 > baseline_f1_0 else 0
-        f1_1_baseline_improved = 1 if overall_f1_1 > baseline_f1_1 else 0
-        f1_2_baseline_improved = 1 if overall_f1_2 > baseline_f1_2 else 0
-        f1_3_baseline_improved = 1 if overall_f1_3 > baseline_f1_3 else 0
-
-        if baseline_f1_0 == 0:
-            RI_F1_0 = 0
-        else:
-            RI_F1_0 = (overall_f1_0 - baseline_f1_0) / baseline_f1_0
-        if baseline_f1_1 == 0:
-            RI_F1_1 = 0
-        else:
-            RI_F1_1 = (overall_f1_1 - baseline_f1_1) / baseline_f1_1
-        if baseline_f1_2 == 0:
-            RI_F1_2 = 0
-        else:
-            RI_F1_2 = (overall_f1_2 - baseline_f1_2) / baseline_f1_2
-        if baseline_f1_3 == 0:
-            RI_F1_3 = 0
-        else:
-            RI_F1_3 = (overall_f1_3 - baseline_f1_3) / baseline_f1_3
-
-
-    num_of_classes_improved_to_baseline = f1_0_baseline_improved + f1_1_baseline_improved + f1_2_baseline_improved + f1_3_baseline_improved
-    num_of_classes_degreded_to_baseline = 4 - num_of_classes_improved_to_baseline
     
-    RI_F1_weighted = RI_F1_0 * class_0_weight + RI_F1_1 * class_1_weight + RI_F1_2 * class_2_weight + RI_F1_3 * class_3_weight
-
-    improved_classes = [RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3]
-    improved_classes = [x for x in improved_classes if x > 0]
-    degraded_classes = [x for x in improved_classes if x < 0]
-
-    avg_RI_Improvement = np.mean(improved_classes)
-    avg_RI_Degradation = np.mean(degraded_classes)
-
     num_instances = len(y_true_all)
 
     ## remove np.int64 from the array
@@ -828,7 +669,7 @@ def aggregate_results(results, target):
     y_true_all = [int(num) for num in y_true_all]
     y_pred_all = [int(num) for num in y_pred_all]
 
-    return overall_f1_0, overall_f1_1, overall_f1_2, overall_f1_3, overall_auc_0, overall_auc_1, overall_auc_2, overall_auc_3, overall_f1_weighted, overall_auc_weighted, overall_f1_macro, overall_auc_macro, overall_precision_0, overall_precision_1, overall_precision_2, overall_precision_3, overall_recall_0, overall_recall_1, overall_recall_2, overall_recall_3, overall_precsion_weighted, overall_recall_weighted, overall_precision_macro, overall_recall_macro, tp_0_all, tn_0_all, fp_0_all, fn_0_all, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, num_instances, y_index_all, y_true_all, y_pred_all, overall_f1_weighted, overall_f1_macro, overall_auc_weighted, overall_auc_macro, num_of_classes_improved_to_baseline, num_of_classes_degreded_to_baseline ,RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3, avg_RI_Improvement, avg_RI_Degradation, RI_F1_weighted, f1_0_baseline_improved, f1_1_baseline_improved, f1_2_baseline_improved, f1_3_baseline_improved
+    return overall_f1_weighted, overall_f1_macro, overall_precision_weighted, overall_precision_macro, overall_recall_weighted, overall_recall_macro, overall_f1_1, overall_f1_2, overall_f1_3, overall_f1_4, overall_f1_5, overall_precision_1, overall_precision_2, overall_precision_3, overall_precision_4, overall_precision_5, overall_recall_1, overall_recall_2, overall_recall_3, overall_recall_4, overall_recall_5, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, tp_4_all, tn_4_all, fp_4_all, fn_4_all, tp_5_all, tn_5_all, fp_5_all, fn_5_all, num_instances, y_index_all, y_true_all, y_pred_all, num_of_classes_improved_to_baseline, num_of_classes_degraded_to_baseline, num_of_classes_no_change_to_baseline, RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_4, RI_F1_5, avg_RI_Improvement, avg_RI_Degradation, RI_F1_weighted, f1_1_improved_baseline, f1_2_improved_baseline, f1_3_improved_baseline, f1_4_improved_baseline, f1_5_improved_baseline, f1_1_no_change_baseline, f1_2_no_change_baseline, f1_3_no_change_baseline, f1_4_no_change_baseline, f1_5_no_change_baseline, overall_auc_1, overall_auc_2, overall_auc_3, overall_auc_4, overall_auc_5, overall_auc_weighted, overall_auc_macro
 
 
 
@@ -845,7 +686,7 @@ def model_initialisation(model_name, parameters):
             # "solver": ["liblinear", "lbfgs"], ## liblinear is recommended for small datasets and lbfgs for multi-class problems
             # "max_iter": [8000],
             # "multi_class": ["auto"], ## ovr supports binary. multinomial is for multi-class. auto will pick based on the data
-            "random_state": [configs.RANDOM_SEED]
+            "random_state": [configs_DS3.RANDOM_SEED]
         }
         ## Pipeline requires the model name before the parameters
         param_grid = {f"{model_name}__{key}":value for key, value in param_grid.items()}
@@ -882,7 +723,7 @@ def model_initialisation(model_name, parameters):
             # "bootstrap": [True],
             # "min_samples_split": [10, 15],
             # "min_samples_leaf": [4, 5],
-            "random_state": [configs.RANDOM_SEED]
+            "random_state": [configs_DS3.RANDOM_SEED]
         }
         ## Pipeline requires the model name before the parameters  
         param_grid = {f"{model_name}__{key}":value for key, value in param_grid.items()} 
@@ -901,7 +742,7 @@ def model_initialisation(model_name, parameters):
             "coef0":[1.0],
             "probability": [True], ## to compute the roc_auc score,
             # "gamma":["auto", "scale"],
-            "random_state": [configs.RANDOM_SEED]
+            "random_state": [configs_DS3.RANDOM_SEED]
         }
 
         ## Pipeline requires the model name before the parameters  
@@ -921,7 +762,7 @@ def model_initialisation(model_name, parameters):
             "activation": ["logistic", "relu"], ## logistic is sigmoid (Italian paper)
             "solver": ["lbfgs", "adam", "sgd"],
             "max_iter":[500],  # Adjust based on validation
-            "random_state": [configs.RANDOM_SEED],
+            "random_state": [configs_DS3.RANDOM_SEED],
         }
         ## Pipeline requires the model name before the parameters  
         param_grid = {f"{model_name}__{key}":value for key, value in param_grid.items()} 
@@ -934,7 +775,7 @@ def model_initialisation(model_name, parameters):
     elif model_name == "bayes_network":
         ## https://coderzcolumn.com/tutorials/machine-learning/scikit-learn-sklearn-naive-bayes#3
         param_grid = {
-            # "var_smoothing": [1e-9, 1e-12]
+            # "var_smoothing": [],
         }
         ## Pipeline requires the model name before the parameters  
         param_grid = {f"{model_name}__{key}":value for key, value in param_grid.items()} 
@@ -946,29 +787,20 @@ def model_initialisation(model_name, parameters):
     
     return model, param_grid
 
-def dict_data_generator(model, iteration, hyperparameters, target, drop_duplicates, use_oversampling, dataset, K, fs_method, y_test_index, y_actual,y_pred, tp_0, tn_0, fp_0, fn_0, tp_1, tn_1, fp_1, fn_1, tp_2, tn_2, fp_2, fn_2, tp_3, tn_3, fp_3, fn_3, f1_0, f1_1, f1_2, f1_3, support_0, support_1, support_2, support_3, auc_0, auc_1, auc_2, auc_3, precision_0, precision_1, precision_2, precision_3, recall_0, recall_1, recall_2, recall_3, n_instances, presion_weighted, recall_weighted, f1_weighted, f1_macro, auc_weighted, experiment, precision_macro, recall_macro, auc_macro, f1_0_imporved_baseline, f1_1_imporved_baseline, f1_2_imporved_baseline, f1_3_imporved_baseline, num_of_classes_improved_to_baseline, num_of_classes_detegraded_to_baseline, RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_weighted, avg_RI_Improvement, avg_RI_Degradation): 
-    
+def dict_data_generator(model, iteration, hyperparameters, target, drop_duplicates, use_oversampling, dataset, K, fs_method, y_test_index, y_actual,y_pred, tp_1, tn_1, fp_1, fn_1, tp_2, tn_2, fp_2, fn_2, tp_3, tn_3, fp_3, fn_3, tp_4, tn_4, fp_4, fn_4, tp_5, tn_5, fp_5, fn_5,    f1_1, f1_2, f1_3, f1_4, f1_5, support_1, support_2, support_3, support_4, support_5, precision_1, precision_2, precision_3, precision_4, precision_5, recall_1, recall_2, recall_3, recall_4, recall_5, n_instances, precision_weighted, recall_weighted, f1_weighted, f1_macro,  experiment, precision_macro, recall_macro, f1_1_improved_baseline, f1_2_improved_baseline, f1_3_improved_baseline, f1_4_improved_baseline, f1_5_improved_baseline, num_of_classes_improved_to_baseline, num_of_classes_detegraded_to_baseline, num_of_classes_no_change_to_baseline ,RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_4, RI_F1_5, RI_F1_weighted, Avg_RI_Improvement, Avg_RI_Degradation, f1_1_no_change_baseline, f1_2_no_change_baseline, f1_3_no_change_baseline, f1_4_no_change_baseline, f1_5_no_change_baseline, auc_1, auc_2, auc_3, auc_4, auc_5, auc_weighted, auc_macro):
     csv_data_dict["model"] = model
     csv_data_dict["iteration"] = iteration
     csv_data_dict["hyperparameters"] = hyperparameters
     csv_data_dict["target"] = target
-    
     csv_data_dict["drop_duplicates"] = drop_duplicates
     csv_data_dict["use_oversampling"] = use_oversampling
     csv_data_dict["dataset"] = dataset
-    
     csv_data_dict["K"] = K
     csv_data_dict["fs_method"] = fs_method
     
     # csv_data_dict["y_test_index"] = str(y_test_index).replace(", ", " ").replace("\n", " ")
     # csv_data_dict["y_actual"] = str(y_actual).replace(", ", " ").replace("\n", " ").replace("[", "").replace("]", "")
     # csv_data_dict["y_pred"] = str(y_pred).replace(", ", " ").replace("\n", " ").replace("[", "").replace("]", "")
-
-    csv_data_dict["tp_0"] = tp_0
-    csv_data_dict["tn_0"] = tn_0
-    csv_data_dict["fp_0"] = fp_0
-    csv_data_dict["fn_0"] = fn_0
-    csv_data_dict["support_0"] = support_0
 
     csv_data_dict["tp_1"] = tp_1
     csv_data_dict["tn_1"] = tn_1
@@ -988,54 +820,79 @@ def dict_data_generator(model, iteration, hyperparameters, target, drop_duplicat
     csv_data_dict["fn_3"] = fn_3
     csv_data_dict["support_3"] = support_3
 
-    csv_data_dict["f1_0"] = f1_0
+    csv_data_dict["tp_4"] = tp_4
+    csv_data_dict["tn_4"] = tn_4
+    csv_data_dict["fp_4"] = fp_4
+    csv_data_dict["fn_4"] = fn_4
+    csv_data_dict["support_4"] = support_4
+
+    csv_data_dict["tp_5"] = tp_5
+    csv_data_dict["tn_5"] = tn_5
+    csv_data_dict["fp_5"] = fp_5
+    csv_data_dict["fn_5"] = fn_5    
+    csv_data_dict["support_5"] = support_5 
+
     csv_data_dict["f1_1"] = f1_1
     csv_data_dict["f1_2"] = f1_2
     csv_data_dict["f1_3"] = f1_3
+    csv_data_dict["f1_4"] = f1_4
+    csv_data_dict["f1_5"] = f1_5
 
-    csv_data_dict["auc_0"] = auc_0
     csv_data_dict["auc_1"] = auc_1
     csv_data_dict["auc_2"] = auc_2
     csv_data_dict["auc_3"] = auc_3
+    csv_data_dict["auc_4"] = auc_4
+    csv_data_dict["auc_5"] = auc_5
 
-    csv_data_dict["precision_0"] = precision_0
     csv_data_dict["precision_1"] = precision_1
     csv_data_dict["precision_2"] = precision_2
     csv_data_dict["precision_3"] = precision_3
+    csv_data_dict["precision_4"] = precision_4
+    csv_data_dict["precision_5"] = precision_5
 
-    csv_data_dict["recall_0"] = recall_0
     csv_data_dict["recall_1"] = recall_1
     csv_data_dict["recall_2"] = recall_2
     csv_data_dict["recall_3"] = recall_3
+    csv_data_dict["recall_4"] = recall_4
+    csv_data_dict["recall_5"] = recall_5
 
     csv_data_dict["n_instances"] = n_instances
 
     csv_data_dict["f1_weighted"] = f1_weighted
-    csv_data_dict["precision_weighted"] = presion_weighted
-    csv_data_dict["recall_weighted"] = recall_weighted
+    csv_data_dict["precision_weighted"] = precision_weighted
     csv_data_dict["auc_weighted"] = auc_weighted
+    csv_data_dict["recall_weighted"] = recall_weighted
 
     csv_data_dict["f1_macro"] = f1_macro
+    csv_data_dict["auc_macro"] = auc_macro
     csv_data_dict["precision_macro"] = precision_macro
     csv_data_dict["recall_macro"] = recall_macro
-    csv_data_dict["auc_macro"] = auc_macro
 
-    csv_data_dict["f1_0 > baseline"] = f1_0_imporved_baseline
-    csv_data_dict["f1_1 > baseline"] = f1_1_imporved_baseline
-    csv_data_dict["f1_2 > baseline"] = f1_2_imporved_baseline
-    csv_data_dict["f1_3 > baseline"] = f1_3_imporved_baseline
+    csv_data_dict["f1_1 > baseline"] = f1_1_improved_baseline
+    csv_data_dict["f1_2 > baseline"] = f1_2_improved_baseline
+    csv_data_dict["f1_3 > baseline"] = f1_3_improved_baseline
+    csv_data_dict["f1_4 > baseline"] = f1_4_improved_baseline
+    csv_data_dict["f1_5 > baseline"] = f1_5_improved_baseline
+
+    csv_data_dict["f1_1 = baseline"] = f1_1_no_change_baseline
+    csv_data_dict["f1_2 = baseline"] = f1_2_no_change_baseline
+    csv_data_dict["f1_3 = baseline"] = f1_3_no_change_baseline
+    csv_data_dict["f1_4 = baseline"] = f1_4_no_change_baseline
+    csv_data_dict["f1_5 = baseline"] = f1_5_no_change_baseline
 
     csv_data_dict["#_of_classes_improved_(f1>base)"] = num_of_classes_improved_to_baseline
     csv_data_dict["#_of_classes_degraded_(f1<base)"] = num_of_classes_detegraded_to_baseline
+    csv_data_dict["#_of_classes_no_change_(f1=base)"] = num_of_classes_no_change_to_baseline
 
-    csv_data_dict["RI_F1_0"] = RI_F1_0
     csv_data_dict["RI_F1_1"] = RI_F1_1
     csv_data_dict["RI_F1_2"] = RI_F1_2
     csv_data_dict["RI_F1_3"] = RI_F1_3
+    csv_data_dict["RI_F1_4"] = RI_F1_4
+    csv_data_dict["RI_F1_5"] = RI_F1_5
     csv_data_dict["RI_F1_weighted"] = RI_F1_weighted
 
-    csv_data_dict["Avg_RI_Improvement"] = avg_RI_Improvement
-    csv_data_dict["Avg_RI_Degradation"] = avg_RI_Degradation
+    csv_data_dict["Avg_RI_Improvement"] = Avg_RI_Improvement
+    csv_data_dict["Avg_RI_Degradation"] = Avg_RI_Degradation
 
     csv_data_dict["experiment"] = experiment
     
@@ -1055,22 +912,23 @@ def get_best_hyperparameters(best_param_score_dict):
 
 
 def main():
-    complete_df = pd.read_csv(configs.ROOT_PATH + "/" + configs.DATA_PATH)
-    output_file = "DS6_TAKS1.csv"
+    complete_df = pd.read_csv(configs_DS3.ROOT_PATH + "/" + configs_DS3.DATA_PATH)
+    output_file = "DS3_TASK1.csv"
     
     ## write header
-    with open(configs.ROOT_PATH + "/results/" + output_file, "w+") as csv_file:
+    with open(configs_DS3.ROOT_PATH + "/results/" + output_file, "w+") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=csv_data_dict.keys())
         writer.writeheader()
 
     ## read json file
-    with open("/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/ml-experiments/TASK1-AbsoluteTargets/Classifical-ML-Models/featureselection/experiments_DS6_filtered.jsonl") as jsonl_file:
+    with open(configs_DS3.ROOT_PATH + "/featureselection/experiments_DS3_filtered.jsonl") as jsonl_file:
         experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
 
-    outer_cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=configs.RANDOM_SEED)
-    inner_cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=configs.RANDOM_SEED)
+    outer_cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=configs_DS3.RANDOM_SEED)
+    inner_cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=configs_DS3.RANDOM_SEED)
+    # outer_cv = LeaveOneOut()
 
-    models = ["svc", "randomForest_classifier", "knn_classifier", "bayes_network", "mlp_classifier", "logisticregression"]
+    models = [ "bayes_network","knn_classifier", "logisticregression",  "mlp_classifier", "svc", "randomForest_classifier" ]
 
     for model_name in models:
         
@@ -1090,6 +948,9 @@ def main():
 
             feature_X = complete_df[feature_set]
             target_y = complete_df[target]
+            ## convert target values to integers
+            target_y = target_y.astype(int)
+        
 
             all_fold_results = {}
 
@@ -1115,34 +976,39 @@ def main():
                 )
 
                 model, param_grid = model_initialisation(model_name, parameters="")
-                pipeline = Pipeline(steps = [('scaler', StandardScaler()), (model_name, model)])
+                ## Why not StandardScaler? - because it is sensitive to outliers. Also we have one feature CR which all the values are constant. 
+                pipeline = Pipeline(steps = [('scaler', RobustScaler()), (model_name, model)])
                 
                 ## CONFIG 1 ## - apply over sampling
                 if use_oversampling: # if use RandomOverSampling
-                        ros = RandomOverSampler(random_state=configs.RANDOM_SEED)
+                        # ros = RandomOverSampler(random_state=configs_DS3.RANDOM_SEED)
+                        smo = SMOTE(random_state=configs_DS3.RANDOM_SEED)
                         pipeline = Pipeline(steps = [
-                        ('scaler', StandardScaler()),    
-                        ('ros', ros),
+                        ('scaler', RobustScaler()),    
+                        # ('ros', ros),
+                        ('smo', smo),
                         (model_name, model)])
 
                 ## CONFIG 2 ## - remove duplicates from training set
                 config = {"drop_duplicates": drop_duplicates}
                 
                 best_params, best_score_ = custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, inner_cv, config, target)
-                
                 LOGGER.info("Best param searching for fold {} for code features...".format(fold))
+                # gridSearchCV = GridSearchCV(pipeline, param_grid, cv=inner_cv, scoring="f1_macro", n_jobs=-1)
+                # gridSearchCV.fit(X_train, y_train.values.ravel())
+                # best_params = gridSearchCV.best_params_
+                
+                # best_params = {key.replace(model_name + "__", ""):value for key, value in best_params.items()} 
                 
                 ## since we are using a set, we need to convert the dict to a hashable type
                 best_hyperparams.add((frozenset(best_params)))
 
 
 
-            ##############################################
-            ## Train and Test with best hyperparameters ##
-            ##############################################
-            ## Split the complete set = features + warning features in to 10 folds using outer_cv
+            #############################################
+            # Train and Test with best hyperparameters ##
+            #############################################
             for best_hyper_params in best_hyperparams:
-                
                 for (fold, (train_index,test_index)) in enumerate(outer_cv.split(complete_df[feature_set], target_y)):
                     
                     ###################
@@ -1158,13 +1024,15 @@ def main():
                 
 
                     model, _ = model_initialisation(model_name, parameters=dict(best_hyper_params))
-                    pipeline = Pipeline(steps = [('scaler', StandardScaler()), (model_name, model)])
+                    pipeline = Pipeline(steps = [('scaler', RobustScaler()), (model_name, model)])
                     
                     if experiment['use_oversampling']:
-                        ros = RandomOverSampler(random_state=configs.RANDOM_SEED)
+                        # ros = RandomOverSampler(random_state=configs_DS3.RANDOM_SEED)
+                        smo = SMOTE(random_state=configs_DS3.RANDOM_SEED)
                         pipeline = Pipeline(steps = [
-                        ('scaler', StandardScaler()),    
-                        ('ros', ros),
+                        ('scaler', RobustScaler()),    
+                        # ('ros', ros),
+                        ('smo', smo),
                         (model_name, model)])
 
                     config ={"drop_duplicates": drop_duplicates}
@@ -1191,8 +1059,8 @@ def main():
                         model=model_name, 
                         iteration=fold, 
                         hyperparameters=best_hyper_params, 
-                        target=target, 
-                        drop_duplicates=drop_duplicates, 
+                        target=target,
+                        drop_duplicates=drop_duplicates,
                         use_oversampling=use_oversampling, 
                         dataset=experiment["dataset"], 
                         K=experiment["K %"], 
@@ -1200,116 +1068,115 @@ def main():
                         y_test_index=fold_results_["y_test_index"], 
                         y_actual=fold_results_["y_actual"],
                         y_pred=fold_results_["y_pred"], 
-                        
-                        tp_0=fold_results_["tp_0"], 
-                        tn_0=fold_results_["tn_0"], 
-                        fp_0=fold_results_["fp_0"],
-                        fn_0=fold_results_["fn_0"],
-                        support_0=fold_results_["support_0"],
-
                         tp_1=fold_results_["tp_1"],
                         tn_1=fold_results_["tn_1"],
-                        fp_1=fold_results_["fp_1"], 
-                        fn_1=fold_results_["fn_1"], 
+                        fp_1=fold_results_["fp_1"],
+                        fn_1=fold_results_["fn_1"],
                         support_1=fold_results_["support_1"],
-
-                        tp_2=fold_results_["tp_2"], 
+                        tp_2=fold_results_["tp_2"],
                         tn_2=fold_results_["tn_2"],
-                        fp_2=fold_results_["fp_2"], 
+                        fp_2=fold_results_["fp_2"],
                         fn_2=fold_results_["fn_2"],
                         support_2=fold_results_["support_2"],
-
                         tp_3=fold_results_["tp_3"],
                         tn_3=fold_results_["tn_3"],
                         fp_3=fold_results_["fp_3"],
                         fn_3=fold_results_["fn_3"],
                         support_3=fold_results_["support_3"],
-
-                        f1_0=fold_results_["f1_0"], 
-                        f1_1=fold_results_["f1_1"], 
-                        f1_2=fold_results_["f1_2"], 
+                        tp_4=fold_results_["tp_4"],
+                        tn_4=fold_results_["tn_4"],
+                        fp_4=fold_results_["fp_4"],
+                        fn_4=fold_results_["fn_4"],
+                        support_4=fold_results_["support_4"],
+                        tp_5=fold_results_["tp_5"],
+                        tn_5=fold_results_["tn_5"],
+                        fp_5=fold_results_["fp_5"],
+                        fn_5=fold_results_["fn_5"],
+                        support_5=fold_results_["support_5"],
+                        n_instances=fold_results_["n_instances"],
+                        f1_1=fold_results_["f1_1"],
+                        f1_2=fold_results_["f1_2"],
                         f1_3=fold_results_["f1_3"],
-
-                        auc_0=fold_results_["auc_0"],
+                        f1_4=fold_results_["f1_4"],
+                        f1_5=fold_results_["f1_5"],
                         auc_1=fold_results_["auc_1"],
                         auc_2=fold_results_["auc_2"],
                         auc_3=fold_results_["auc_3"],
-
-                        precision_0=fold_results_["precision_0"],
+                        auc_4=fold_results_["auc_4"],
+                        auc_5=fold_results_["auc_5"],
                         precision_1=fold_results_["precision_1"],
                         precision_2=fold_results_["precision_2"],
                         precision_3=fold_results_["precision_3"],
-
-                        recall_0=fold_results_["recall_0"],
+                        precision_4=fold_results_["precision_4"],
+                        precision_5=fold_results_["precision_5"],
                         recall_1=fold_results_["recall_1"],
                         recall_2=fold_results_["recall_2"],
                         recall_3=fold_results_["recall_3"],
-
-                        n_instances=fold_results_["n_instances"],
-
-                        presion_weighted=fold_results_["precision_weighted"],
+                        recall_4=fold_results_["recall_4"],
+                        recall_5=fold_results_["recall_5"],
+                        
+                        f1_weighted=fold_results_["f1_weighted"],
+                        precision_weighted=fold_results_["precision_weighted"],
+                        auc_weighted=fold_results_["auc_weighted"],
                         recall_weighted=fold_results_["recall_weighted"],
-                        f1_weighted=fold_results_["f1_weighted"], 
-                        auc_weighted=fold_results_["auc_weighted"], 
-
-                        precision_macro=fold_results_["precision_macro"],
                         f1_macro=fold_results_["f1_macro"],
-                        recall_macro=fold_results_["recall_macro"],
                         auc_macro=fold_results_["auc_macro"],
-
-                        f1_0_imporved_baseline=fold_results_["f1_0 > baseline"],
-                        f1_1_imporved_baseline=fold_results_["f1_1 > baseline"],
-                        f1_2_imporved_baseline=fold_results_["f1_2 > baseline"],
-                        f1_3_imporved_baseline=fold_results_["f1_3 > baseline"],
-
+                        precision_macro=fold_results_["precision_macro"],
+                        recall_macro=fold_results_["recall_macro"],
+                        f1_1_improved_baseline=fold_results_["f1_1 > baseline"],
+                        f1_2_improved_baseline=fold_results_["f1_2 > baseline"],
+                        f1_3_improved_baseline=fold_results_["f1_3 > baseline"],
+                        f1_4_improved_baseline=fold_results_["f1_4 > baseline"],
+                        f1_5_improved_baseline=fold_results_["f1_5 > baseline"],
+                        f1_1_no_change_baseline=fold_results_["f1_1 = baseline"],
+                        f1_2_no_change_baseline=fold_results_["f1_2 = baseline"],
+                        f1_3_no_change_baseline=fold_results_["f1_3 = baseline"],
+                        f1_4_no_change_baseline=fold_results_["f1_4 = baseline"],
+                        f1_5_no_change_baseline=fold_results_["f1_5 = baseline"],
                         num_of_classes_improved_to_baseline=fold_results_["#_of_classes_improved_(f1>base)"],
                         num_of_classes_detegraded_to_baseline=fold_results_["#_of_classes_degraded_(f1<base)"],
-
-                        RI_F1_0=fold_results_["RI_F1_0"],
+                        num_of_classes_no_change_to_baseline=fold_results_["#_of_classes_no_change_(f1=base)"],
                         RI_F1_1=fold_results_["RI_F1_1"],
                         RI_F1_2=fold_results_["RI_F1_2"],
                         RI_F1_3=fold_results_["RI_F1_3"],
+                        RI_F1_4=fold_results_["RI_F1_4"],
+                        RI_F1_5=fold_results_["RI_F1_5"],
                         RI_F1_weighted=fold_results_["RI_F1_weighted"],
+                        Avg_RI_Improvement=fold_results_["Avg_RI_Improvement"],
+                        Avg_RI_Degradation=fold_results_["Avg_RI_Degradation"],
+                        experiment=experiment["exp_id"])
 
-                        avg_RI_Improvement=fold_results_["Avg_RI_Improvement"],
-                        avg_RI_Degradation=fold_results_["Avg_RI_Degradation"],
-                        
-                        experiment=experiment["exp_id"]) 
-                    
+                    dict_to_csv(configs_DS3.ROOT_PATH + "/results/" + output_file, csv_data_dict1)
 
-                    dict_to_csv(configs.ROOT_PATH + "/results/" + output_file, csv_data_dict1)
 
+
+            
                 ## aggregate the results from all the folds
-                overall_f1_0, overall_f1_1, overall_f1_2, overall_f1_3, overall_auc_0, overall_auc_1, overall_auc_2, overall_auc_3, overall_f1_weighted, overall_auc_weighted, overall_f1_macro, overall_auc_macro, overall_precision_0, overall_precision_1, overall_precision_2, overall_precision_3, overall_recall_0, overall_recall_1, overall_recall_2, overall_recall_3, overall_precsion_weighted, overall_recall_weighted, overall_precision_macro, overall_recall_macro, tp_0_all, tn_0_all, fp_0_all, fn_0_all, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, num_instances, y_index_all, y_true_all, y_pred_all, overall_f1_weighted, overall_f1_macro, overall_auc_weighted, overall_auc_macro, num_of_classes_improved_to_baseline, num_of_classes_degreded_to_baseline ,RI_F1_0, RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_weighted, avg_RI_Improvement, avg_RI_Degradation ,f1_0_baseline_improved, f1_1_baseline_improved, f1_2_baseline_improved, f1_3_baseline_improved = aggregate_results(all_fold_results, target)
+                overall_f1_weighted, overall_f1_macro, overall_precision_weighted, overall_precision_macro, overall_recall_weighted, overall_recall_macro, overall_f1_1, overall_f1_2, overall_f1_3, overall_f1_4, overall_f1_5, overall_precision_1, overall_precision_2, overall_precision_3, overall_precision_4, overall_precision_5, overall_recall_1, overall_recall_2, overall_recall_3, overall_recall_4, overall_recall_5, tp_1_all, tn_1_all, fp_1_all, fn_1_all, tp_2_all, tn_2_all, fp_2_all, fn_2_all, tp_3_all, tn_3_all, fp_3_all, fn_3_all, tp_4_all, tn_4_all, fp_4_all, fn_4_all, tp_5_all, tn_5_all, fp_5_all, fn_5_all, num_instances, y_index_all, y_true_all, y_pred_all, num_of_classes_improved_to_baseline, num_of_classes_degraded_to_baseline, num_of_classes_no_change_to_baseline, RI_F1_1, RI_F1_2, RI_F1_3, RI_F1_4, RI_F1_5, Avg_RI_Improvement, Avg_RI_Degradation, RI_F1_weighted, f1_1_improved_baseline, f1_2_improved_baseline, f1_3_improved_baseline, f1_4_improved_baseline, f1_5_improved_baseline, f1_1_no_change_baseline, f1_2_no_change_baseline, f1_3_no_change_baseline, f1_4_no_change_baseline, f1_5_no_change_baseline, overall_auc_1, overall_auc_2, overall_auc_3, overall_auc_4, overall_auc_5, overall_auc_weighted, overall_auc_macro = aggregate_results(all_fold_results, target) 
+                
                 csv_data_dict2 = dict_data_generator(
                     model=model_name, 
                     iteration="Overall", 
                     hyperparameters=best_hyper_params, 
                     target=target, 
                     drop_duplicates=drop_duplicates, 
-                    use_oversampling=use_oversampling, 
+                    use_oversampling=use_oversampling,
                     dataset=experiment["dataset"], 
-                    K=experiment["K %"], 
-                    fs_method=experiment["feature_selection_method"], 
-                    y_test_index=y_index_all, 
+                    K=experiment["K %"],
+                    fs_method=experiment["feature_selection_method"],
+                    y_test_index=y_index_all,
                     y_actual=y_true_all,
-                    y_pred=y_pred_all, 
-
-                    tp_0=tp_0_all, 
-                    tn_0=tn_0_all, 
-                    fp_0=fp_0_all,
-                    fn_0=fn_0_all,
-                    support_0=tp_0_all + fn_0_all,
+                    y_pred=y_pred_all,
 
                     tp_1=tp_1_all,
                     tn_1=tn_1_all,
-                    fp_1=fp_1_all, 
-                    fn_1=fn_1_all, 
+                    fp_1=fp_1_all,
+                    fn_1=fn_1_all,
                     support_1=tp_1_all + fn_1_all,
 
-                    tp_2=tp_2_all, 
+                    tp_2=tp_2_all,
                     tn_2=tn_2_all,
-                    fp_2=fp_2_all, 
+                    fp_2=fp_2_all,
                     fn_2=fn_2_all,
                     support_2=tp_2_all + fn_2_all,
 
@@ -1319,59 +1186,85 @@ def main():
                     fn_3=fn_3_all,
                     support_3=tp_3_all + fn_3_all,
 
-                    f1_0=overall_f1_0, 
-                    f1_1=overall_f1_1, 
-                    f1_2=overall_f1_2, 
-                    f1_3=overall_f1_3,
+                    tp_4=tp_4_all,
+                    tn_4=tn_4_all,
+                    fp_4=fp_4_all,
+                    fn_4=fn_4_all,
+                    support_4=tp_4_all + fn_4_all,
 
-                    auc_0=overall_auc_0,
+                    tp_5=tp_5_all,
+                    tn_5=tn_5_all,
+                    fp_5=fp_5_all,
+                    fn_5=fn_5_all,
+                    support_5=tp_5_all + fn_5_all,
+
+                    f1_1=overall_f1_1,
+                    f1_2=overall_f1_2,
+                    f1_3=overall_f1_3,
+                    f1_4=overall_f1_4,
+                    f1_5=overall_f1_5,
+
                     auc_1=overall_auc_1,
                     auc_2=overall_auc_2,
                     auc_3=overall_auc_3,
+                    auc_4=overall_auc_4,
+                    auc_5=overall_auc_5,
 
-                    precision_0=overall_precision_0,
                     precision_1=overall_precision_1,
                     precision_2=overall_precision_2,
                     precision_3=overall_precision_3,
+                    precision_4=overall_precision_4,
+                    precision_5=overall_precision_5,
 
-                    recall_0=overall_recall_0,
                     recall_1=overall_recall_1,
                     recall_2=overall_recall_2,
                     recall_3=overall_recall_3,
+                    recall_4=overall_recall_4,
+                    recall_5=overall_recall_5,
 
                     n_instances=num_instances,
 
-                    presion_weighted=overall_precsion_weighted,
-                    recall_weighted=overall_recall_weighted,
                     f1_weighted=overall_f1_weighted,
-                    auc_weighted=overall_auc_weighted, 
+                    precision_weighted=overall_precision_weighted,
+                    auc_weighted=overall_auc_weighted,
+                    recall_weighted=overall_recall_weighted,
 
                     f1_macro=overall_f1_macro,
+                    auc_macro=overall_auc_macro,
                     precision_macro=overall_precision_macro,
                     recall_macro=overall_recall_macro,
-                    auc_macro=overall_auc_macro,
 
-                    f1_0_imporved_baseline=f1_0_baseline_improved,
-                    f1_1_imporved_baseline=f1_1_baseline_improved,
-                    f1_2_imporved_baseline=f1_2_baseline_improved,
-                    f1_3_imporved_baseline=f1_3_baseline_improved,
+                    f1_1_improved_baseline=f1_1_improved_baseline,
+                    f1_2_improved_baseline=f1_2_improved_baseline,
+                    f1_3_improved_baseline=f1_3_improved_baseline,
+                    f1_4_improved_baseline=f1_4_improved_baseline,
+                    f1_5_improved_baseline=f1_5_improved_baseline,
+
+                    f1_1_no_change_baseline=f1_1_no_change_baseline,
+                    f1_2_no_change_baseline=f1_2_no_change_baseline,
+                    f1_3_no_change_baseline=f1_3_no_change_baseline,
+                    f1_4_no_change_baseline=f1_4_no_change_baseline,
+                    f1_5_no_change_baseline=f1_5_no_change_baseline,
 
                     num_of_classes_improved_to_baseline=num_of_classes_improved_to_baseline,
-                    num_of_classes_detegraded_to_baseline=num_of_classes_degreded_to_baseline,
+                    num_of_classes_detegraded_to_baseline=num_of_classes_degraded_to_baseline,
+                    num_of_classes_no_change_to_baseline=num_of_classes_no_change_to_baseline,
 
-                    RI_F1_0=RI_F1_0,
                     RI_F1_1=RI_F1_1,
                     RI_F1_2=RI_F1_2,
                     RI_F1_3=RI_F1_3,
+                    RI_F1_4=RI_F1_4,
+                    RI_F1_5=RI_F1_5,
+
                     RI_F1_weighted=RI_F1_weighted,
 
-                    avg_RI_Improvement=avg_RI_Improvement,
-                    avg_RI_Degradation=avg_RI_Degradation,
+                    Avg_RI_Improvement=Avg_RI_Improvement,
+                    Avg_RI_Degradation=Avg_RI_Degradation,
 
-                    experiment=experiment["exp_id"]
-                    )
-                    
-                dict_to_csv(configs.ROOT_PATH + "/results/" + output_file, csv_data_dict2)
+
+                    experiment=experiment["exp_id"])
+   
+                dict_to_csv(configs_DS3.ROOT_PATH + "/results/" + output_file, csv_data_dict2)
 
 def dict_to_csv(output_file_path, dict_data):
     with open(output_file_path, "a") as csv_file:

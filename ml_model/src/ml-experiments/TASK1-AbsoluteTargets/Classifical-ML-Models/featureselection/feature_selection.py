@@ -1,7 +1,15 @@
 from sklearn.feature_selection import mutual_info_classif
 import sys
-sys.path.append('/Users/nadeeshan/Desktop/Verification-project/complexity-verification-project/ml_model/src/ml-experiments/TASK1-AbsoluteTargets/Classifical-ML-Models/')
-from utils import configs
+# from utils import configs
+
+####### Uncomment this to use config for DS3 ##
+from utils import configs_DS3 as configs
+####### 
+# from utils import configs_DS3 as configs
+
+sys.path.append(configs.ROOT_PATH)
+
+
 
 import pandas as pd
 import matplotlib.pyplot as plt
