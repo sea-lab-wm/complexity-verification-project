@@ -575,8 +575,9 @@ def model_initialisation(model_name, parameters):
             "learning_rate_init": [0.3],
             "momentum":[0.2, 0.9],
             "activation": ["logistic", "relu"], ## logistic is sigmoid (Italian paper)
-            "solver": ["lbfgs", "adam", "sgd"],
+            "solver": ["adam", "sgd"],
             "max_iter":[500],  # Adjust based on validation
+            "early_stopping": [True],
             "random_state": [configs.RANDOM_SEED],
         }
         ## Pipeline requires the model name before the parameters  
@@ -1058,7 +1059,7 @@ def main():
     with open(configs.ROOT_PATH + "/" + configs.FILTERED_EXPERIMENTS) as jsonl_file:
         experiments = [json.loads(jline) for jline in jsonl_file.read().splitlines()]
     
-    models = ["svc", "mlp_classifier", "bayes_network", "knn_classifier", "logisticregression", "randomForest_classifier"]
+    models = ["mlp_classifier", "bayes_network", "knn_classifier", "logisticregression", "randomForest_classifier"]
     
     for model_name in models:
         

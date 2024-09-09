@@ -760,8 +760,9 @@ def model_initialisation(model_name, parameters):
             "learning_rate_init": [0.3],
             "momentum":[0.2, 0.9],
             "activation": ["logistic", "relu"], ## logistic is sigmoid (Italian paper)
-            "solver": ["lbfgs", "adam", "sgd"],
+            "solver": ["adam", "sgd"],
             "max_iter":[500],  # Adjust based on validation
+            "early_stopping": [True],
             "random_state": [configs_DS3.RANDOM_SEED],
         }
         ## Pipeline requires the model name before the parameters  
@@ -913,7 +914,7 @@ def get_best_hyperparameters(best_param_score_dict):
 
 def main():
     complete_df = pd.read_csv(configs_DS3.ROOT_PATH + "/" + configs_DS3.DATA_PATH)
-    output_file = "DS3_TASK1.csv"
+    output_file = "DS3_TASK_MLP.csv"
     
     ## write header
     with open(configs_DS3.ROOT_PATH + "/results/" + output_file, "w+") as csv_file:
@@ -928,7 +929,7 @@ def main():
     inner_cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=configs_DS3.RANDOM_SEED)
     # outer_cv = LeaveOneOut()
 
-    models = [ "bayes_network","knn_classifier", "logisticregression",  "mlp_classifier", "svc", "randomForest_classifier" ]
+    models = [ "mlp_classifier" ]
 
     for model_name in models:
         

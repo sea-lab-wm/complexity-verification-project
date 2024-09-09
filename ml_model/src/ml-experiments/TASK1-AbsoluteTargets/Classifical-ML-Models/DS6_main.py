@@ -971,9 +971,10 @@ def model_initialisation(model_name, parameters):
             "learning_rate_init": [0.3],
             "momentum":[0.2, 0.9],
             "activation": ["logistic", "relu"], ## logistic is sigmoid (Italian paper)
-            "solver": ["lbfgs", "adam", "sgd"],
+            "solver": ["adam", "sgd"],
             "max_iter":[500],  # Adjust based on validation
-            "random_state": [configs.RANDOM_SEED],
+            "early_stopping": [True],
+            "random_state": [configs.RANDOM_SEED]
         }
         ## Pipeline requires the model name before the parameters  
         param_grid = {f"{model_name}__{key}":value for key, value in param_grid.items()} 
@@ -1114,7 +1115,7 @@ def get_best_hyperparameters(best_param_score_dict):
 
 def main():
     complete_df = pd.read_csv(configs.ROOT_PATH + "/" + configs.DATA_PATH)
-    output_file = "DS6_TAKS1.csv"
+    output_file = "DS6_TAKS1_MLP.csv"
     
     ## write header
     with open(configs.ROOT_PATH + "/results/" + output_file, "w+") as csv_file:
@@ -1128,7 +1129,7 @@ def main():
     outer_cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=configs.RANDOM_SEED)
     inner_cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=configs.RANDOM_SEED)
 
-    models = ["svc", "randomForest_classifier", "knn_classifier", "bayes_network", "mlp_classifier", "logisticregression"]
+    models = ["mlp_classifier"]
 
     for model_name in models:
         
