@@ -1,0 +1,3 @@
+TNPU["#statements", "Strings (Visual Y)", "Strings (Visual X)", "TC (max)", "IMSQ (max)", "PE gen", "developer_position"]
+TAU["PE spec (java)", "#operators (dft)", "Operators/keywords (area)", "IMSQ (max)", "MIDQ (min)", "PE gen", "developer_position"]
+AU["Cyclomatic complexity", "NM (max)", "Identifiers length (max)", "PE spec (java)", "#conditionals (dft)", "Operators/keywords (area)", "EAP (max)", "Identifiers length (avg)", "Line length (dft)", "PE gen", "developer_position"]

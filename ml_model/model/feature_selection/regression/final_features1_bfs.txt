@@ -1,0 +1,3 @@
+TNPU["PE spec (java)", "Readability", "#loops (dft)", "TC (max)", "developer_position"]
+TAU["#keywords (max)", "Operators/keywords (area)", "Identifiers length (avg)", "IMSQ (max)", "#nested blocks (avg)", "PE gen", "developer_position"]
+AU["NM (max)", "#parameters", "Identifiers length (max)", "TC (avg)", "MIDQ (avg)", "PE spec (java)", "IMSQ (avg)", "EAP (max)", "IMSQ (max)", "#conditionals (avg)", "NM (avg)", "PE gen", "developer_position"]
