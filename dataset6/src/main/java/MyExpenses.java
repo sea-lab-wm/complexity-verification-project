@@ -153,22 +153,6 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
     return t.buildSaveOperations(offset, parentOffset, true);
 }
 
-    private long extractMethodId(Dummy methodLabel) {
-        return 0;
-    }
-
-    private long extractTransferAccount(Dummy transferAccount, Dummy label) {
-        return 0;
-    }
-
-    private long extractCatId(Dummy label) {
-        return 0;
-    }
-
-    private Dummy getAccount() {
-        return null;
-    }
-
     // s43: org.totschnig.myexpenses.sync.SyncAdapter.mergeUpdate(org.totschnig.myexpenses.sync.json.TransactionChange,org.totschnig.myexpenses.sync.json.TransactionChange)
     //SNIPPET_STARTS
     private TransactionChange mergeUpdate(TransactionChange initial, TransactionChange change) {
@@ -266,10 +250,6 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         return newChunk;
     }
 
-    private Font getFont(int f) {
-        throw new Error();
-    }
-
     // s45: se.emilsjolander.stickylistheaders.StickyListHeadersListView.updateOrClearHeader(int)
     //SNIPPET_STARTS
     private void updateOrClearHeader(int firstVisiblePosition) {
@@ -304,6 +284,26 @@ private ArrayList<ContentProviderOperation> getContentProviderOperationsForCreat
         updateHeader(headerPosition);
     }
     //SNIPPETS_END
+
+    private Font getFont(int f) {
+        throw new Error();
+    }
+
+    private long extractMethodId(Dummy methodLabel) {
+        return 0;
+    }
+
+    private long extractTransferAccount(Dummy transferAccount, Dummy label) {
+        return 0;
+    }
+
+    private long extractCatId(Dummy label) {
+        return 0;
+    }
+
+    private Dummy getAccount() {
+        throw new Error();
+    }
 
     private void clearHeader() {
 

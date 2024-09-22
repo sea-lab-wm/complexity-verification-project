@@ -101,10 +101,6 @@ public class Phoenix {
 
     }
 
-    private PSchema loadSchema(Dummy env, byte[] key, ImmutableBytesPtr immutableBytesPtr, long clientTimeStamp, long clientTimeStamp1) {
-        throw new Error();
-    }
-
     // s22: org.apache.phoenix.expression.ModulusExpression.evaluate(org.apache.phoenix.schema.tuple.Tuple,org.apache.hadoop.hbase.io.ImmutableBytesWritable)
 
 //    @Override // removed to allow compilation
@@ -138,18 +134,6 @@ public class Phoenix {
         getDataType().getCodec().encodeLong(remainder, resultPtr, 0);
         ptr.set(resultPtr);
         return true;
-    }
-
-    private Expression getDataType() {
-        throw new Error();
-    }
-
-    private Expression getDivisorExpression() {
-        throw new Error();
-    }
-
-    private Expression getDividendExpression() {
-        throw new Error();
     }
 
     // s23: org.apache.phoenix.flume.serializer.BaseEventSerializer.configure(org.apache.flume.Context)
@@ -277,10 +261,6 @@ public class Phoenix {
         return status;
     }
 
-    private Channel getChannel() {
-        throw new Error();
-    }
-
     // s25: org.apache.phoenix.mapreduce.AbstractBulkLoadTool.parseOptions(java.lang.String[])
     /**
      * Parses the commandline arguments, throws IllegalStateException if mandatory arguments are
@@ -324,6 +304,26 @@ public class Phoenix {
         return cmdLine;
     }
     //SNIPPETS_END
+
+    private Channel getChannel() {
+        throw new Error();
+    }
+
+    private Expression getDataType() {
+        throw new Error();
+    }
+
+    private Expression getDivisorExpression() {
+        throw new Error();
+    }
+
+    private Expression getDividendExpression() {
+        throw new Error();
+    }
+
+    private PSchema loadSchema(Dummy env, byte[] key, ImmutableBytesPtr immutableBytesPtr, long clientTimeStamp, long clientTimeStamp1) {
+        throw new Error();
+    }
 
     private void doConfigure(Context context) {
 

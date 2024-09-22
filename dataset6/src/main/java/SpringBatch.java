@@ -173,10 +173,6 @@ public class SpringBatch {
 
     }
 
-    private <T> T mock(Class<T> connectionClass) {
-        return null;
-    }
-
     // s39: org.springframework.batch.item.file.FlatFileItemReaderTests.testCustomRecordSeparatorMultilineBlankLineAfterEnd()
 //    @Test // removed to allow compilation
     //SNIPPET_STARTS
@@ -252,12 +248,16 @@ public class SpringBatch {
     }
     //SNIPPETS_END
 
+    private <T> T mock(Class<T> connectionClass) {
+        throw new Error();
+    }
+
     private ItmWriter createItemWriter() {
-        return null;
+        throw new Error();
     }
 
     private Resource getInputResource(String s) {
-        return null;
+        throw new Error();
     }
 
     private void assertNotSame(String s, Connection con2, Connection con1) {
@@ -269,7 +269,7 @@ public class SpringBatch {
     }
 
     private Returner when(Connection connection) {
-        return null;
+        throw new Error();
     }
 
     private void assertEquals(String foo, Object poll) {
@@ -281,12 +281,12 @@ public class SpringBatch {
     }
 
     private JobExecution runJob(String jsrUniqueInstanceTests, Properties properties, long l) {
-        return null;
+        throw new Error();
     }
 
     private class JobExecution {
         public String getExitStatus() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -322,11 +322,11 @@ public class SpringBatch {
 
     private class Message {
         public Object getText() {
-            return null;
+            throw new Error();
         }
 
         public Object getJMSMessageID() {
-            return null;
+            throw new Error();
         }
     }
 
@@ -346,7 +346,7 @@ public class SpringBatch {
         }
 
         public Object poll(int i, TimeUnit seconds) {
-            return null;
+            throw new Error();
         }
 
         public void convertAndSend(String queue, String foo) {
@@ -381,7 +381,7 @@ public class SpringBatch {
         }
 
         public Connection getConnection() {
-            return null;
+            throw new Error();
         }
 
         public void startCloseSuppression(Connection con1) {

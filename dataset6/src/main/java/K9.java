@@ -138,16 +138,6 @@ public class K9 {
         server.verifyInteractionCompleted();
     }
 
-    private static class DualHashMap<T, T1> {
-        public T1 get(T uri) {
-            throw new Error();
-        }
-
-        public void put(T uri, T1 store) {
-
-        }
-    }
-
     //SNIPPET_STARTS
     public class StorageManager {
         private final Context context;
@@ -237,6 +227,16 @@ public class K9 {
                 + "</pre>", result);
     }
     //SNIPPETS_END
+
+    private static class DualHashMap<T, T1> {
+        public T1 get(T uri) {
+            throw new Error();
+        }
+
+        public void put(T uri, T1 store) {
+
+        }
+    }
 
     private void writeToFile(String result) {
 

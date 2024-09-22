@@ -83,12 +83,6 @@ public class CarReport {
         }
     }
 
-    private static class Utils {
-        public String getCacheDir() {
-            throw new Error();
-        }
-    }
-
     //SNIPPET_STARTS
     public class SetupWebDavSyncDialogActivity extends Activity {
         // s12: me.kuehle.carreport.gui.dialog.SetupWebDavSyncDialogActivity.onCreate(android.os.Bundle)
@@ -280,6 +274,12 @@ public class CarReport {
         }
     }
     //SNIPPETS_END
+
+    private static class Utils {
+        public String getCacheDir() {
+            throw new Error();
+        }
+    }
 
     private File getLocalFile() {
         throw new Error();

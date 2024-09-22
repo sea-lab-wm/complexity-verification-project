@@ -78,42 +78,6 @@ public class HibernateORM {
         return result;
     }
 
-    private static class CollectionPersister {
-        public char[] getRole() {
-            return new char[0];
-        }
-
-        public CollectionPersister getOwnerEntityPersister() {
-            throw new Error();
-        }
-
-        public Type getIdentifierType() {
-            throw new Error();
-        }
-    }
-
-    private static class PersistentCollection {
-        public Object getOwner() {
-            throw new Error();
-        }
-    }
-
-    private static class Type {
-        public Class<?> getReturnedClass() {
-            throw new Error();
-        }
-
-        public char[] toLoggableString(Serializable ownerKey, Object factory) {
-            return new char[0];
-        }
-    }
-
-    private static class EntityEntry {
-        public Serializable getId() {
-            throw new Error();
-        }
-    }
-
     //SNIPPET_STARTS
     public class TimesTenDialect extends Dialect {
         // s27: org.hibernate.dialect.TimesTenDialect.TimesTenDialect()
@@ -222,22 +186,6 @@ public class HibernateORM {
         }
     }
 
-    private void handleAddedParametersOnUpdate(PreparedStatement ps, SharedSessionContractImplementor session, int position) {
-
-    }
-
-    private int handlePrependedParametersOnIdSelection(PreparedStatement ps, SharedSessionContractImplementor session, int position) {
-        return 0;
-    }
-
-    private void prepareForUse(Object targetedPersister, SharedSessionContractImplementor session) {
-
-    }
-
-    private void releaseFromUse(Object targetedPersister, SharedSessionContractImplementor session) {
-
-    }
-
     // s29: org.hibernate.id.SequenceValueExtractor.extractSequenceValue(org.hibernate.engine.spi.SessionImplementor)
     //SNIPPET_STARTS
     public long extractSequenceValue(final SessionImplementor sessionImpl) {
@@ -321,6 +269,58 @@ public class HibernateORM {
         return s.toString();
     }
     //SNIPPETS_END
+
+    private void handleAddedParametersOnUpdate(PreparedStatement ps, SharedSessionContractImplementor session, int position) {
+
+    }
+
+    private int handlePrependedParametersOnIdSelection(PreparedStatement ps, SharedSessionContractImplementor session, int position) {
+        return 0;
+    }
+
+    private void prepareForUse(Object targetedPersister, SharedSessionContractImplementor session) {
+
+    }
+
+    private void releaseFromUse(Object targetedPersister, SharedSessionContractImplementor session) {
+
+    }
+
+    private static class CollectionPersister {
+        public char[] getRole() {
+            return new char[0];
+        }
+
+        public CollectionPersister getOwnerEntityPersister() {
+            throw new Error();
+        }
+
+        public Type getIdentifierType() {
+            throw new Error();
+        }
+    }
+
+    private static class PersistentCollection {
+        public Object getOwner() {
+            throw new Error();
+        }
+    }
+
+    private static class Type {
+        public Class<?> getReturnedClass() {
+            throw new Error();
+        }
+
+        public char[] toLoggableString(Serializable ownerKey, Object factory) {
+            return new char[0];
+        }
+    }
+
+    private static class EntityEntry {
+        public Serializable getId() {
+            throw new Error();
+        }
+    }
 
     private class Dialect {
     }
