@@ -563,13 +563,3 @@ dataset6/src/main/java/K9.java:172: warning: Cannot assign: cannot cast from Sha
                                        ^
  - NUMBER OF DUPLICATES: 2
 
-dataset9/src/main/java/CodeSnippets.java:1834: warning: Type of parameter [i] is Unknown, expected Primitive{int}}
-        public UImage get(int i) {
-                      ^
- - NUMBER OF DUPLICATES: 2
-
-dataset9/src/main/java/CodeSnippets.java:1713: warning: Parameter [o] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.lang.Object})
-        public boolean equals(Object o) {
-                       ^
- - NUMBER OF DUPLICATES: 2
-

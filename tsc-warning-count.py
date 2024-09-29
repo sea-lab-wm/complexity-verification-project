@@ -153,16 +153,17 @@ if __name__ == "__main__":
     print("dsf count {}".format(len(dsfFilteredWarnings)))
 
     with open("tsc-warning-count.txt", "w") as output:
-        for w in ds1FilteredWarnings:
-            output.write(repr(w) + "\n\n")
-        for w in ds3FilteredWarnings:
-            output.write(repr(w) + "\n\n")
+        # Only ds6 is being saved since it is the only dataset that is filtering the warnings that are outside of the actual snippets.
+        # for w in ds1FilteredWarnings:
+        #     output.write(repr(w) + "\n\n")
+        # for w in ds3FilteredWarnings:
+        #     output.write(repr(w) + "\n\n")
         for w in ds6FilteredWarnings:
             output.write(repr(w) + "\n\n")
-        for w in ds9FilteredWarnings:
-            output.write(repr(w) + "\n\n")
-        for w in dsfFilteredWarnings:
-            output.write(repr(w) + "\n\n")
+        # for w in ds9FilteredWarnings:
+        #     output.write(repr(w) + "\n\n")
+        # for w in dsfFilteredWarnings:
+        #     output.write(repr(w) + "\n\n")
 
     # for warning in ds6FilteredWarnings:
     #     print(warning)
