@@ -70,18 +70,18 @@ fMRI_Study_Classes/YesNo.java:6: verify: The prover cannot establish an assertio
 /home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/YesNo.java:6:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
-fMRI_Study_Classes/DumbSort.java:12: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.DumbSort.run(), Callee: java.io.PrintStream.print(java.lang.Object))
-        System.out.print(compute(a, b, c, d));
-                        ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/DumbSort.java:12:
-    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
-                   ^
 fMRI_Study_Classes/DumbSort.java:12: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method run: (Caller: fMRI_Study_Classes.DumbSort.run(), Callee: java.io.PrintStream.print(java.lang.Object))
         System.out.print(compute(a, b, c, d));
                         ^
 /home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: fMRI_Study_Classes/DumbSort.java:12:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
+fMRI_Study_Classes/DumbSort.java:12: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.DumbSort.run(), Callee: java.io.PrintStream.print(java.lang.Object))
+        System.out.print(compute(a, b, c, d));
+                        ^
+/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: fMRI_Study_Classes/DumbSort.java:12:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
 fMRI_Study_Classes/DumbSort.java:25: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /home/juan/openjml/specs/java/lang/Object.jml:206:) in method run
 }
 ^
@@ -211,10 +211,10 @@ fMRI_Study_Classes/RecursivePower.java:7: verify: The prover cannot establish an
 fMRI_Study_Classes/SquareRoot.java:16: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method compute
             if (numbers[i] == 0) {
                        ^
-fMRI_Study_Classes/SquareRoot.java:22: verify: The prover cannot establish an assertion (Precondition: /home/juan/openjml/specs/java/lang/Math.jml:264:) in method compute
-                result[i] = Math.sqrt(-1 * numbers[i]);
+fMRI_Study_Classes/SquareRoot.java:24: verify: The prover cannot establish an assertion (Precondition: /home/juan/openjml/specs/java/lang/Math.jml:264:) in method compute
+                result[i] = Math.sqrt(numbers[i]);
                                      ^
-/home/juan/openjml/specs/java/lang/Math.jml:264: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:22:
+/home/juan/openjml/specs/java/lang/Math.jml:264: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:24:
     public static /*@ pure @*/ double sqrt(double a);
                                       ^
 /home/juan/openjml/specs/java/lang/Math.jml:247: verify: Precondition conjunct is false: Double.isNaN(a) || a < 0.0
@@ -235,10 +235,10 @@ fMRI_Study_Classes/SquareRoot.java:22: verify: The prover cannot establish an as
 fMRI_Study_Classes/SquareRoot.java:22: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: int multiply overflow
                 result[i] = Math.sqrt(-1 * numbers[i]);
                                          ^
-fMRI_Study_Classes/SquareRoot.java:24: verify: The prover cannot establish an assertion (Precondition: /home/juan/openjml/specs/java/lang/Math.jml:264:) in method compute
-                result[i] = Math.sqrt(numbers[i]);
+fMRI_Study_Classes/SquareRoot.java:22: verify: The prover cannot establish an assertion (Precondition: /home/juan/openjml/specs/java/lang/Math.jml:264:) in method compute
+                result[i] = Math.sqrt(-1 * numbers[i]);
                                      ^
-/home/juan/openjml/specs/java/lang/Math.jml:264: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:24:
+/home/juan/openjml/specs/java/lang/Math.jml:264: verify: Associated declaration: fMRI_Study_Classes/SquareRoot.java:22:
     public static /*@ pure @*/ double sqrt(double a);
                                       ^
 /home/juan/openjml/specs/java/lang/Math.jml:247: verify: Precondition conjunct is false: Double.isNaN(a) || a < 0.0
@@ -286,10 +286,10 @@ fMRI_Study_Classes/ArrayAverage.java:19: verify: The prover cannot establish an 
 fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method compute
             number2 = number2 + numbers[number1];
                                        ^
-fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int sum
+fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
             number2 = number2 + numbers[number1];
                               ^
-fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: overflow in int sum
+fMRI_Study_Classes/ArrayAverage.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method compute: underflow in int sum
             number2 = number2 + numbers[number1];
                               ^
 fMRI_Study_Classes/ArrayAverage.java:6: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method run: (Caller: fMRI_Study_Classes.ArrayAverage.run(), Callee: java.io.PrintStream.print(float))

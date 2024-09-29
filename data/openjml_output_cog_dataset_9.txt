@@ -154,16 +154,28 @@ warning: A specification path directory does not exist: /home/juan/.gradle/cache
 /home/juan/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:1242:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
+./CodeSnippets.java:443: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED."); // changed to allow compilation
+                      ^
+/home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:443:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
 ./CodeSnippets.java:443: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
     System.out.println("SERIOUS PROBLEM OCCURRED."); // changed to allow compilation
                       ^
 /home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:443:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
-./CodeSnippets.java:443: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
-    System.out.println("SERIOUS PROBLEM OCCURRED."); // changed to allow compilation
+./CodeSnippets.java:447: verify: The prover cannot establish an assertion (InvariantEntrance: /home/juan/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
+    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
+                 ^
+/home/juan/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:447:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./CodeSnippets.java:444: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
                       ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:443:
+/home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:444:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
 ./CodeSnippets.java:444: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
@@ -172,18 +184,6 @@ warning: A specification path directory does not exist: /home/juan/.gradle/cache
 /home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:444:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
-./CodeSnippets.java:444: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
-    System.out.println(troubleTicket.toString());// changed to allow compilation
-                      ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:444:
-    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
-                          ^
-./CodeSnippets.java:447: verify: The prover cannot establish an assertion (InvariantEntrance: /home/juan/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS111: (Caller: CodeSnippets.logAndEmailSeriousProblemS111(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
-    setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
-                 ^
-/home/juan/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:447:
-	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
-	               ^
 ./CodeSnippets.java:466: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS112: (Caller: CodeSnippets.logAndEmailSeriousProblemS112(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
     System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
                       ^
@@ -214,22 +214,16 @@ warning: A specification path directory does not exist: /home/juan/.gradle/cache
 /home/juan/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:470:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./CodeSnippets.java:485: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
-    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
-                      ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:485:
-    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
-                   ^
 ./CodeSnippets.java:485: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
     System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
                       ^
 /home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:485:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
-./CodeSnippets.java:486: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
-    System.out.println(troubleTicket.toString());// changed to allow compilation
+./CodeSnippets.java:485: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
                       ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:486:
+/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:485:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
 ./CodeSnippets.java:486: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
@@ -238,6 +232,12 @@ warning: A specification path directory does not exist: /home/juan/.gradle/cache
 /home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:486:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
+./CodeSnippets.java:486: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:486:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
 ./CodeSnippets.java:488: verify: The prover cannot establish an assertion (InvariantEntrance: /home/juan/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS113: (Caller: CodeSnippets.logAndEmailSeriousProblemS113(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
     setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
                  ^
@@ -274,22 +274,16 @@ warning: A specification path directory does not exist: /home/juan/.gradle/cache
 /home/juan/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:512:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./CodeSnippets.java:531: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
-    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
-                      ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:531:
-    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
-                   ^
 ./CodeSnippets.java:531: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
     System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
                       ^
 /home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:531:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
-./CodeSnippets.java:532: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
-    System.out.println(troubleTicket.toString());// changed to allow compilation
+./CodeSnippets.java:531: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
                       ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:532:
+/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:531:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
 ./CodeSnippets.java:532: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
@@ -298,24 +292,30 @@ warning: A specification path directory does not exist: /home/juan/.gradle/cache
 /home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:532:
     //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
                           ^
+./CodeSnippets.java:532: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println(troubleTicket.toString());// changed to allow compilation
+                      ^
+/home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:532:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
 ./CodeSnippets.java:536: verify: The prover cannot establish an assertion (InvariantEntrance: /home/juan/openjml/specs/java/lang/CharSequence.jml:30:) in method logAndEmailSeriousProblemS122: (Caller: CodeSnippets.logAndEmailSeriousProblemS122(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: javax.servlet.ServletContext.setAttribute(java.lang.String,java.lang.Object))
     context.setAttribute(MOST_RECENT_TROUBLE_TICKET, troubleTicket);
                          ^
 /home/juan/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./CodeSnippets.java:536:
 	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
 	               ^
-./CodeSnippets.java:552: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
-    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
-                      ^
-/home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:552:
-    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
-                          ^
 ./CodeSnippets.java:552: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:42:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
     System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
                       ^
 /home/juan/openjml/specs/java/io/PrintStream.jml:42: verify: Associated declaration: ./CodeSnippets.java:552:
     //-RAC@ public invariant outputText != null && \invariant_for(outputText);
                    ^
+./CodeSnippets.java:552: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
+    System.out.println("SERIOUS PROBLEM OCCURRED.");// changed to allow compilation
+                      ^
+/home/juan/openjml/specs/java/io/PrintStream.jml:35: verify: Associated declaration: ./CodeSnippets.java:552:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
 ./CodeSnippets.java:553: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/juan/openjml/specs/java/io/PrintStream.jml:35:) in method logAndEmailSeriousProblemS123: (Caller: CodeSnippets.logAndEmailSeriousProblemS123(java.lang.Throwable,javax.servlet.http.HttpServletRequest), Callee: java.io.PrintStream.println(java.lang.String))
     System.out.println(troubleTicket.toString());// changed to allow compilation
                       ^

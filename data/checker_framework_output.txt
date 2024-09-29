@@ -44,12 +44,7 @@
                             ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:169: warning: [return] incompatible types in return.
-        return null;
-               ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Dummy
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:266: warning: [return] incompatible types in return.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:250: warning: [return] incompatible types in return.
         return newChunk;
                ^
   type of expression: @Initialized @NonNull MyExpenses.@Initialized @Nullable Chunk
@@ -86,34 +81,34 @@
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:599: warning: [initialization.field.uninitialized] the default constructor does not initialize field progress_dialog_printing
         public Dummy progress_dialog_printing;
                      ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:236: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:220: warning: [not.interned] attempting to use a non-@Interned comparison operand
                         if (currentFont != font) {
                             ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:236: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:220: warning: [not.interned] attempting to use a non-@Interned comparison operand
                         if (currentFont != font) {
                                            ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:253: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:237: warning: [not.interned] attempting to use a non-@Interned comparison operand
                         if (currentFont != font) {
                             ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:253: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:237: warning: [not.interned] attempting to use a non-@Interned comparison operand
                         if (currentFont != font) {
                                            ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:225: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:209: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
         char c = cc[k];
                     ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:225: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:209: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
         char c = cc[k];
                     ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("cc") or @LTLengthOf("cc") -- an integer less than cc's length
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:244: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:228: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                         sb.append(cc[++k]);
                                      ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:244: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/MyExpenses.java:228: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                         sb.append(cc[++k]);
                                      ^
   found   : @UpperBoundUnknown int
@@ -142,7 +137,7 @@
                                                      ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:24: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-365 or any of its aliases.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/OpenCMSCore.java:24: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-366 or any of its aliases.
         execute(new Reader() {
                 ^
   The type of object is: <anonymous java.io.Reader>.
@@ -222,17 +217,12 @@
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:33: warning: [initialization.field.uninitialized] the default constructor does not initialize field mDbxClient
     private View mDbxClient;
                  ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:88: warning: [return] incompatible types in return.
-            return null;
-                   ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:152: warning: [argument] incompatible argument for parameter date of suspendedSince.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:146: warning: [argument] incompatible argument for parameter date of suspendedSince.
         CarCursor car = new CarSelection().suspendedSince((Date) null).query(getContentResolver(),
                                                           ^
   found   : @FBCBottom @Nullable Date
   required: @Initialized @NonNull Date
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:240: warning: [assignment] incompatible types in assignment.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:234: warning: [assignment] incompatible types in assignment.
                 mFullScreenChartAnimator = null;
                                            ^
   found   : null (NullType)
@@ -350,42 +340,42 @@
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:647: warning: [initialization.field.uninitialized] the default constructor does not initialize field top
         public Object top;
                       ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:159: warning: [array.length.negative] Variable used in array creation could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:153: warning: [array.length.negative] Variable used in array creation could be negative.
             final long[] carIds = new long[car.getCount()];
                                                        ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:160: warning: [array.length.negative] Variable used in array creation could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:154: warning: [array.length.negative] Variable used in array creation could be negative.
             final String[] carNames = new String[car.getCount()];
                                                              ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:162: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:156: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                 carIds[car.getPosition()] = car.getId();
                                       ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:162: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:156: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                 carIds[car.getPosition()] = car.getId();
                                       ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("carIds") or @LTLengthOf("carIds") -- an integer less than carIds's length
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:163: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:157: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                 carNames[car.getPosition()] = car.getName();
                                         ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:163: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:157: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                 carNames[car.getPosition()] = car.getName();
                                         ^
   found   : @UpperBoundUnknown int
   required: @IndexFor("carNames") or @LTLengthOf("carNames") -- an integer less than carNames's length
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:170: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:164: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                             Intent intent = getDetailActivityIntent(edit, carIds[which], otherType);
                                                                                  ^
   found   : @LowerBoundUnknown int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:170: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/CarReport.java:164: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                             Intent intent = getDetailActivityIntent(edit, carIds[which], otherType);
                                                                                  ^
   found   : @UpperBoundUnknown int
@@ -483,66 +473,16 @@
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:24: warning: [initialization.field.uninitialized] the default constructor does not initialize field writer
     private ItmWriter writer;
                       ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:177: warning: [return] incompatible types in return.
-        return null;
-               ^
-  type of expression: null (NullType)
-  method return type: T extends @Initialized @Nullable Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:200: warning: [return] incompatible types in return.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:196: warning: [return] incompatible types in return.
                 return StringUtils.hasText(record) ? record : null;
                                                    ^
   type of expression: @Initialized @Nullable String
   method return type: @Initialized @NonNull String
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:213: warning: [argument] incompatible argument for parameter foo of assertEquals.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:209: warning: [argument] incompatible argument for parameter foo of assertEquals.
         assertEquals(null, reader.read());
                      ^
   found   : null (NullType)
   required: @Initialized @NonNull String
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:256: warning: [return] incompatible types in return.
-        return null;
-               ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull SpringBatch.@Initialized @NonNull ItmWriter
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:260: warning: [return] incompatible types in return.
-        return null;
-               ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Resource
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:272: warning: [return] incompatible types in return.
-        return null;
-               ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull SpringBatch.@Initialized @NonNull Returner
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:284: warning: [return] incompatible types in return.
-        return null;
-               ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull SpringBatch.@Initialized @NonNull JobExecution
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:289: warning: [return] incompatible types in return.
-            return null;
-                   ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull String
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:325: warning: [return] incompatible types in return.
-            return null;
-                   ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:329: warning: [return] incompatible types in return.
-            return null;
-                   ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:349: warning: [return] incompatible types in return.
-            return null;
-                   ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/SpringBatch.java:384: warning: [return] incompatible types in return.
-            return null;
-                   ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Connection
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:17: warning: [initialization.field.uninitialized] the default constructor does not initialize field log
     private Logger log;
                    ^
@@ -586,7 +526,7 @@
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#565 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#24 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -596,7 +536,7 @@
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#660 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#69 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -725,13 +665,13 @@
                 ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:254: warning: [dereference.of.nullable] dereference of possibly-null reference transaction
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:238: warning: [dereference.of.nullable] dereference of possibly-null reference transaction
             transaction.rollback();
             ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:265: warning: [dereference.of.nullable] dereference of possibly-null reference transaction
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:249: warning: [dereference.of.nullable] dereference of possibly-null reference transaction
             transaction.rollback();
             ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:305: warning: [dereference.of.nullable] dereference of possibly-null reference cmdLine
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:285: warning: [dereference.of.nullable] dereference of possibly-null reference cmdLine
         if (cmdLine.hasOption(HELP_OPT.getOpt())) {
             ^
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:351: warning: [assignment] incompatible types in assignment.
@@ -804,7 +744,7 @@
                                                                ^
   found   : null (NullType)
   required: @Initialized @NonNull Environment
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:137: warning: [array.length.negative] Variable used in array creation could be negative.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Phoenix.java:133: warning: [array.length.negative] Variable used in array creation could be negative.
         byte[] resultPtr=new byte[PLong.INSTANCE.getByteSize()];
                                                             ^
   found   : @LowerBoundUnknown int
@@ -830,7 +770,7 @@
 /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:13: warning: [initialization.field.uninitialized] the default constructor does not initialize field dialect
     private Object dialect;
                    ^
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:317: warning: [argument] incompatible argument for parameter ownerKey of toLoggableString.
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:265: warning: [argument] incompatible argument for parameter ownerKey of toLoggableString.
                     ownerKey, session.getFactory() ) );
                     ^
   found   : @Initialized @Nullable Serializable
@@ -855,17 +795,17 @@
                                                           ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:197: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:161: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                         if ( assignmentParameterSpecifications[i] != null ) {
                                                                ^
   found   : @LTLengthOf(value="this.updates", offset="0") int
   required: @IndexFor("this.assignmentParameterSpecifications") or @LTLengthOf("this.assignmentParameterSpecifications") -- an integer less than this.assignmentParameterSpecifications's length
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:199: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:163: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                             for ( int x = 0; x < assignmentParameterSpecifications[i].length; x++ ) {
                                                                                    ^
   found   : @LTLengthOf(value="this.updates", offset="0") int
   required: @IndexFor("this.assignmentParameterSpecifications") or @LTLengthOf("this.assignmentParameterSpecifications") -- an integer less than this.assignmentParameterSpecifications's length
-/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:200: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
+/home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/HibernateORM.java:164: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
                                 position += assignmentParameterSpecifications[i][x].bind( ps, queryParameters, session, position );
                                                                               ^
   found   : @LTLengthOf(value="this.updates", offset="0") int
@@ -932,7 +872,7 @@ Note: /home/juan/Repos/original-complexity-verification-project/dataset6/src/mai
 Note: Recompile with -Xlint:deprecation for details.
 Note: /home/juan/Repos/original-complexity-verification-project/dataset6/src/main/java/Pom.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-225 warnings
+213 warnings
 /home/juan/Repos/original-complexity-verification-project/dataset9/src/main/java/CodeSnippets.java:874: warning: [argument] incompatible argument for parameter cell of addCell.
     table.addCell(cell);
                   ^

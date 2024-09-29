@@ -1,7 +1,4 @@
 Snippet,Dangling Pointer Dereference,Divide By Zero,Null Dereference
 6 -- 28 -- HibernateORM,1.0,,
-6 -- 37 -- SpringBatch,,,1.0
-6 -- 38 -- SpringBatch,,,1.0
-6 -- 40 -- SpringBatch,,,1.0
 6 -- 7 -- Pom,,,1.0
 f -- 1 -- ArrayAverage,,1.0,
