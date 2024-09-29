@@ -1,0 +1,575 @@
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:91: warning: Cannot access [this.m_parent]
+        if (m_parent != null) {
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:74: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.String} | Null
+          for (String s : m_evaluationMetrics) {
+                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:69: warning: Cannot access [this]
+              ClassifierPerformanceEvaluatorCustomizer.this, true);
+                                                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:80: warning: Cannot access [this.m_parent]
+        if (m_parent != null) {
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:72: warning: Cannot access [this.m_evaluationMetrics]
+        if (m_evaluationMetrics.size() > 0) {
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:78: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+          m_cpe.setEvaluationMetricsToOutput(newList);
+                                             ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:67: warning: Cannot access [this.m_modifyListener]
+        if (m_modifyListener != null) {
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:75: warning: Cannot call append on null
+            b.append(s).append(",");
+                       ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ClassifierPerformanceEvaluatorCustomizer.java:78: warning: Cannot access [this.m_cpe]
+          m_cpe.setEvaluationMetricsToOutput(newList);
+          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:90: warning: Cannot assign because [this.m_framePoppedUp] is not accessible here
+              m_framePoppedUp = false;
+                              ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:89: warning: Cannot access [jf]
+              jf.dispose();
+              ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/weka/gui/beans/ModelPerformanceChart.java:90: warning: Cannot access [this.m_framePoppedUp]
+              m_framePoppedUp = false;
+              ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:212: warning: Cannot access [this.dialect]
+                if ( dialect instanceof DerbyDialect ) {
+                     ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:204: warning: Cannot assign because [this.value] is not accessible here
+                    value = resultSet.getLong( 1 );
+                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:196: warning: Cannot access [sessionImpl]
+                Session session = (Session) sessionImpl;
+                                            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:201: warning: Cannot access [this.queryString]
+                            .prepareStatement( queryString );
+                                               ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:102: warning: Cannot access [java.sql.Types.NUMERIC]
+            registerColumnType(Types.NUMERIC, "DECIMAL($p, $s)");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:92: warning: Cannot access [java.sql.Types.TINYINT]
+            registerColumnType(Types.TINYINT, "TINYINT");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:116: warning: Cannot access [HibernateORM.StandardBasicTypes.TIMESTAMP]
+            registerFunction("to_date", new StandardSQLFunction("to_date", StandardBasicTypes.TIMESTAMP));
+                                                                                             ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:94: warning: Cannot access [java.sql.Types.CHAR]
+            registerColumnType(Types.CHAR, "CHAR(1)");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:97: warning: Cannot access [java.sql.Types.DOUBLE]
+            registerColumnType(Types.DOUBLE, "DOUBLE");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:99: warning: Cannot access [java.sql.Types.TIME]
+            registerColumnType(Types.TIME, "TIME");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:98: warning: Cannot access [java.sql.Types.DATE]
+            registerColumnType(Types.DATE, "DATE");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:108: warning: Cannot access [HibernateORM.Environment.USE_STREAMS_FOR_BINARY]
+            getDefaultProperties().setProperty(Environment.USE_STREAMS_FOR_BINARY, "true");
+                                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:96: warning: Cannot access [java.sql.Types.FLOAT]
+            registerColumnType(Types.FLOAT, "FLOAT");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:89: warning: Cannot access [java.sql.Types.BIT]
+            registerColumnType(Types.BIT, "TINYINT");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:113: warning: Cannot access [HibernateORM.StandardBasicTypes.STRING]
+            registerFunction("concat", new StandardSQLFunction("concat", StandardBasicTypes.STRING));
+                                                                                           ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:101: warning: Cannot access [java.sql.Types.VARBINARY]
+            registerColumnType(Types.VARBINARY, "VARBINARY($l)");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:95: warning: Cannot access [java.sql.Types.VARCHAR]
+            registerColumnType(Types.VARCHAR, "VARCHAR($l)");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:93: warning: Cannot access [java.sql.Types.INTEGER]
+            registerColumnType(Types.INTEGER, "INTEGER");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:106: warning: Cannot access [java.sql.Types.CLOB]
+            registerColumnType(Types.CLOB, "VARCHAR(4000000)");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:117: warning: Cannot access [HibernateORM.StandardBasicTypes.TIMESTAMP]
+            registerFunction("sysdate", new NoArgSQLFunction("sysdate", StandardBasicTypes.TIMESTAMP, false));
+                                                                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:109: warning: Cannot access [this.DEFAULT_BATCH_SIZE]
+            getDefaultProperties().setProperty(Environment.STATEMENT_BATCH_SIZE, DEFAULT_BATCH_SIZE);
+                                                                                 ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:115: warning: Cannot access [HibernateORM.StandardBasicTypes.STRING]
+            registerFunction("to_char", new StandardSQLFunction("to_char", StandardBasicTypes.STRING));
+                                                                                             ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:91: warning: Cannot access [java.sql.Types.SMALLINT]
+            registerColumnType(Types.SMALLINT, "SMALLINT");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:105: warning: Cannot access [java.sql.Types.BLOB]
+            registerColumnType(Types.BLOB, "VARBINARY(4000000)");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:118: warning: Cannot access [HibernateORM.StandardBasicTypes.TIMESTAMP]
+            registerFunction("getdate", new NoArgSQLFunction("getdate", StandardBasicTypes.TIMESTAMP, false));
+                                                                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:109: warning: Cannot access [HibernateORM.Environment.STATEMENT_BATCH_SIZE]
+            getDefaultProperties().setProperty(Environment.STATEMENT_BATCH_SIZE, DEFAULT_BATCH_SIZE);
+                                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:100: warning: Cannot access [java.sql.Types.TIMESTAMP]
+            registerColumnType(Types.TIMESTAMP, "TIMESTAMP");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/HibernateORM.java:90: warning: Cannot access [java.sql.Types.BIGINT]
+            registerColumnType(Types.BIGINT, "BIGINT");
+                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/Antlr4Master.java:79: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.io.File} | Null
+            for (File grammarFile : grammarFiles) {
+                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/Antlr4Master.java:93: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                Collection<String> usages = findUsages(grammarFile.getName());
+                                                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/Antlr4Master.java:66: warning: Cannot access [this.sourceDirectory]
+            log.debug("Analysing grammar dependencies " + sourceDirectory);
+                                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/Antlr4Master.java:91: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.io.File} | Null
+            for (File grammarFile : importGrammarFiles) {
+                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/Antlr4Master.java:73: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.io.File} | Null
+            for (File grammarFile : grammarsAndTokens) {
+                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/Antlr4Master.java:75: warning: Cannot call endsWith on null
+                if (!grammarFile.getName().endsWith(".tokens"))
+                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/Antlr4Master.java:66: warning: Cannot access [this.log]
+            log.debug("Analysing grammar dependencies " + sourceDirectory);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/SpringBatch.java:237: warning: Cannot call createEndElement on null
+                    writer.add(factory.createEndElement("ns", "https://www.springframework.org/test", "group"));
+                                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/SpringBatch.java:237: warning: Incompatible parameter: cannot cast from Shared{javax.xml.stream.events.EndElement} | Null to Shared{javax.xml.stream.events.XMLEvent}
+                    writer.add(factory.createEndElement("ns", "https://www.springframework.org/test", "group"));
+                                                       ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/SpringBatch.java:223: warning: Cannot call createStartElement on null
+                    writer.add(factory.createStartElement("ns", "https://www.springframework.org/test", "group"));
+                                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/SpringBatch.java:223: warning: Incompatible parameter: cannot cast from Shared{javax.xml.stream.events.StartElement} | Null to Shared{javax.xml.stream.events.XMLEvent}
+                    writer.add(factory.createStartElement("ns", "https://www.springframework.org/test", "group"));
+                                                         ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/SpringBatch.java:196: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                return StringUtils.hasText(record) ? record : null;
+                ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/SpringBatch.java:189: warning: Cannot assign because [this.pair] is not accessible here
+                    pair = !pair;
+                         ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/SpringBatch.java:85: warning: Cannot access [this.recovered]
+                                recovered.add(((TextMessage) msg).getText());
+                                ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/SpringBatch.java:85: warning: Cannot access [msg]
+                                recovered.add(((TextMessage) msg).getText());
+                                                             ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/SpringBatch.java:73: warning: Cannot access [msg]
+                                processed.add(((TextMessage) msg).getText());
+                                                             ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/SpringBatch.java:73: warning: Cannot access [this.processed]
+                                processed.add(((TextMessage) msg).getText());
+                                ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/SpringBatch.java:93: warning: Cannot access [retryTemplate]
+                    retryTemplate.execute(callback, recoveryCallback, new DefaultRetryState(msg.getJMSMessageID()));
+                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:235: warning: Cannot access [this.mAppBarLayout]
+                mAppBarLayout.setVisibility(View.INVISIBLE);
+                ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:234: warning: Cannot assign because [this.mFullScreenChartAnimator] is not accessible here
+                mFullScreenChartAnimator = null;
+                                         ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:234: warning: Cannot access [this.mFullScreenChartAnimator]
+                mFullScreenChartAnimator = null;
+                ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:235: warning: Cannot access [CarReport.View.INVISIBLE]
+                mAppBarLayout.setVisibility(View.INVISIBLE);
+                                                ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:164: warning: Cannot access [edit]
+                            Intent intent = getDetailActivityIntent(edit, carIds[which], otherType);
+                                                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:164: warning: Cannot access [carIds]
+                            Intent intent = getDetailActivityIntent(edit, carIds[which], otherType);
+                                                                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:164: warning: Cannot access [otherType]
+                            Intent intent = getDetailActivityIntent(edit, carIds[which], otherType);
+                                                                                         ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:165: warning: Cannot access [CarReport.REQUEST_ADD_DATA]
+                            startActivityForResult(intent, REQUEST_ADD_DATA + edit);
+                                                           ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:133: warning: Cannot access [CarReport.Activity.RESULT_CANCELED]
+                    setResult(Activity.RESULT_CANCELED);
+                                      ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/CarReport.java:110: warning: Cannot access [CarReport.View.GONE]
+                    mChkTrustCertificate.setVisibility(View.GONE);
+                                                           ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/CarReport.java:108: warning: Cannot access [CarReport.View.GONE]
+                    mTxtTrustCertificate.setVisibility(View.GONE);
+                                                           ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/CarReport.java:107: warning: Cannot access [this.mTxtTrustCertificateDescription]
+                    mTxtTrustCertificateDescription.setVisibility(View.GONE);
+                    ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/CarReport.java:107: warning: Cannot access [CarReport.View.GONE]
+                    mTxtTrustCertificateDescription.setVisibility(View.GONE);
+                                                                      ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/CarReport.java:109: warning: Cannot access [this.mChkTrustCertificate]
+                    mChkTrustCertificate.setChecked(false);
+                    ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/CarReport.java:108: warning: Cannot access [this.mTxtTrustCertificate]
+                    mTxtTrustCertificate.setVisibility(View.GONE);
+                    ^
+ - NUMBER OF DUPLICATES: 3
+
+dataset6/src/main/java/CarReport.java:123: warning: Unsafe cast
+            mBtnOk = (Button) findViewById(R.id.btn_ok);
+                     ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:116: warning: Unsafe cast
+            mTxtTrustCertificate = (TextView) findViewById(R.id.txt_trust_certificate);
+                                   ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:117: warning: Unsafe cast
+            mChkTrustCertificate = (CheckBox) findViewById(R.id.chk_trust_certificate);
+                                   ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:114: warning: Unsafe cast
+            mEdtPassword = (EditText) findViewById(R.id.edt_password);
+                           ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:95: warning: Unsafe cast
+            mEdtUrl = (EditText) findViewById(R.id.edt_url);
+                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:115: warning: Unsafe cast
+            mTxtTrustCertificateDescription = (TextView) findViewById(R.id.txt_trust_certificate_description);
+                                              ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:113: warning: Unsafe cast
+            mEdtUserName = (EditText) findViewById(R.id.edt_user_name);
+                           ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:123: warning: Cannot assign because [this.mBtnOk] is not accessible here
+            mBtnOk = (Button) findViewById(R.id.btn_ok);
+                   ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:95: warning: Cannot access [this.mEdtUrl]
+            mEdtUrl = (EditText) findViewById(R.id.edt_url);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:116: warning: Cannot access [CarReport.R.id]
+            mTxtTrustCertificate = (TextView) findViewById(R.id.txt_trust_certificate);
+                                                            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:117: warning: Cannot assign because [this.mChkTrustCertificate] is not accessible here
+            mChkTrustCertificate = (CheckBox) findViewById(R.id.chk_trust_certificate);
+                                 ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:114: warning: Cannot assign because [this.mEdtPassword] is not accessible here
+            mEdtPassword = (EditText) findViewById(R.id.edt_password);
+                         ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:117: warning: Cannot access [this.mChkTrustCertificate]
+            mChkTrustCertificate = (CheckBox) findViewById(R.id.chk_trust_certificate);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:130: warning: Cannot access [CarReport.R.id]
+            findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+                          ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:115: warning: Cannot access [CarReport.R.id]
+            mTxtTrustCertificateDescription = (TextView) findViewById(R.id.txt_trust_certificate_description);
+                                                                       ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:115: warning: Cannot access [this.mTxtTrustCertificateDescription]
+            mTxtTrustCertificateDescription = (TextView) findViewById(R.id.txt_trust_certificate_description);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:120: warning: Cannot access [CarReport.View.GONE]
+            mTxtTrustCertificate.setVisibility(View.GONE);
+                                                   ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:115: warning: Cannot assign because [this.mTxtTrustCertificateDescription] is not accessible here
+            mTxtTrustCertificateDescription = (TextView) findViewById(R.id.txt_trust_certificate_description);
+                                            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:116: warning: Cannot assign because [this.mTxtTrustCertificate] is not accessible here
+            mTxtTrustCertificate = (TextView) findViewById(R.id.txt_trust_certificate);
+                                 ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:117: warning: Cannot access [CarReport.R.id]
+            mChkTrustCertificate = (CheckBox) findViewById(R.id.chk_trust_certificate);
+                                                            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:113: warning: Cannot access [this.mEdtUserName]
+            mEdtUserName = (EditText) findViewById(R.id.edt_user_name);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:114: warning: Cannot access [CarReport.R.id]
+            mEdtPassword = (EditText) findViewById(R.id.edt_password);
+                                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:123: warning: Cannot access [this.mBtnOk]
+            mBtnOk = (Button) findViewById(R.id.btn_ok);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:114: warning: Cannot access [this.mEdtPassword]
+            mEdtPassword = (EditText) findViewById(R.id.edt_password);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:92: warning: Cannot access [CarReport.R.layout]
+            setContentView(R.layout.activity_setup_webdav_sync);
+                            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:116: warning: Cannot access [this.mTxtTrustCertificate]
+            mTxtTrustCertificate = (TextView) findViewById(R.id.txt_trust_certificate);
+            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:123: warning: Cannot access [CarReport.R.id]
+            mBtnOk = (Button) findViewById(R.id.btn_ok);
+                                            ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:95: warning: Cannot assign because [this.mEdtUrl] is not accessible here
+            mEdtUrl = (EditText) findViewById(R.id.edt_url);
+                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:113: warning: Cannot assign because [this.mEdtUserName] is not accessible here
+            mEdtUserName = (EditText) findViewById(R.id.edt_user_name);
+                         ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:93: warning: Cannot access [CarReport.ViewGroup.LayoutParams.MATCH_PARENT]
+            getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                                        ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:113: warning: Cannot access [CarReport.R.id]
+            mEdtUserName = (EditText) findViewById(R.id.edt_user_name);
+                                                    ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:95: warning: Cannot access [CarReport.R.id]
+            mEdtUrl = (EditText) findViewById(R.id.edt_url);
+                                               ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:119: warning: Cannot access [CarReport.View.GONE]
+            mTxtTrustCertificateDescription.setVisibility(View.GONE);
+                                                              ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:121: warning: Cannot access [CarReport.View.GONE]
+            mChkTrustCertificate.setVisibility(View.GONE);
+                                                   ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:93: warning: Cannot access [CarReport.ViewGroup.LayoutParams.WRAP_CONTENT]
+            getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                                                                             ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:58: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.Object}
+                return !mOtherFuelTypeNames.contains(name);
+                                                     ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:63: warning: Cannot access [CarReport.R.string]
+                return R.string.validate_error_fuel_type_exists;
+                        ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:58: warning: Cannot access [this.mOtherFuelTypeNames]
+                return !mOtherFuelTypeNames.contains(name);
+                        ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/CarReport.java:57: warning: Cannot access [this.mEdtName]
+                String name = mEdtName.getText().toString();
+                              ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset6/src/main/java/K9.java:172: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{K9.StorageProvider} | Null
+            for (final StorageProvider provider : allProviders) {
+                                       ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset9/src/main/java/CodeSnippets.java:1834: warning: Type of parameter [i] is Unknown, expected Primitive{int}}
+        public UImage get(int i) {
+                      ^
+ - NUMBER OF DUPLICATES: 2
+
+dataset9/src/main/java/CodeSnippets.java:1713: warning: Parameter [o] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.lang.Object})
+        public boolean equals(Object o) {
+                       ^
+ - NUMBER OF DUPLICATES: 2
+
