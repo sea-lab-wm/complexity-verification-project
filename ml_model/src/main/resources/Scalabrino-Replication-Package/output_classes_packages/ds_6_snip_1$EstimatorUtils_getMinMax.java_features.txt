@@ -1,0 +1,111 @@
+[INFO] RiTa.WordNet.version [033]
+New Identifiers words AVG: 0.8309859154929577
+New Identifiers words MIN: 0.0
+New Abstractness words AVG: 4.316666666666666
+New Abstractness words MAX: 10.0
+New Abstractness words MIN: 0.0
+New Commented words AVG: 0.528169014084507
+New Commented words MAX: 2.0
+New Synonym commented words AVG: 3.264423076923077
+New Synonym commented words MAX: 20.0
+New Expression complexity AVG: 0.6829268292682927
+New Expression complexity MAX: 3.0
+New Expression complexity MIN: 0.0
+New Method chains AVG: 2.0
+New Method chains MAX: 2.0
+New Method chains MIN: 2.0
+New Comments readability: 98.89000000000001
+New Number of senses AVG: 3.9014084507042255
+New Number of senses MAX: 36.0
+New Semantic Text Coherence Standard: 18.0
+New Semantic Text Coherence Normalized: 0.6206896551724138
+New Text Coherence AVG: NaN
+New Text Coherence MIN: NaN
+New Text Coherence MAX: NaN
+BW Avg Assignment: 0.3023255813953488
+BW Avg blank lines: 0.037735849056603765
+BW Avg commas: 0.06976744186046512
+BW Avg comments: 0.19607843137254902
+BW Avg comparisons: 0.13953488372093023
+BW Avg Identifiers Length: 7.75
+BW Avg conditionals: 0.14634146341463414
+BW Avg indentation length: 9.170731707317072
+BW Avg keywords: 0.6097560975609756
+BW Avg line length: 34.53658536585366
+BW Avg loops: 0.07317073170731707
+BW Avg number of identifiers: 2.1463414634146343
+BW Avg numbers: 0.17073170731707318
+BW Avg operators: 0.09302325581395349
+BW Avg parenthesis: 0.9534883720930233
+BW Avg periods: 0.4634146341463415
+BW Avg spaces: 11.121951219512194
+BW Max Identifiers Length: 24.0
+BW Max indentation: 16.0
+BW Max keywords: 5.0
+BW Max line length: 80.0
+BW Max number of identifiers: 7.0
+BW Max numbers: 2.0
+BW Max char: 556.0
+BW Max words: 13.0
+Posnett entropy: 4.301512318153108
+Posnett volume: 1571.645394454165
+Posnett lines: 53.0
+Dorn DFT Assignments: 41.0
+Dorn DFT Commas: 43.0
+Dorn DFT Comments: 53.0
+Dorn DFT Comparisons: 43.0
+Dorn DFT Conditionals: 43.0
+Dorn DFT Indentations: 43.0
+Dorn DFT Keywords: 43.0
+Dorn DFT LineLengths: 38.0
+Dorn DFT Loops: 43.0
+Dorn DFT Identifiers: 43.0
+Dorn DFT Numbers: 43.0
+Dorn DFT Operators: 43.0
+Dorn DFT Parenthesis: 43.0
+Dorn DFT Periods: 43.0
+Dorn DFT Spaces: 43.0
+Dorn Visual X Comments: 80.86792452830188
+Dorn Visual Y Comments: 51.98780487804878
+Dorn Visual X Identifiers: 80.9245283018868
+Dorn Visual Y Identifiers: 51.8780487804878
+Dorn Visual X Keywords: 80.9245283018868
+Dorn Visual Y Keywords: 51.951219512195124
+Dorn Visual X Numbers: 80.73584905660377
+Dorn Visual Y Numbers: 51.792682926829265
+Dorn Visual X Strings: 81.0
+Dorn Visual Y Strings: 52.0
+Dorn Visual X Literals: 0.0
+Dorn Visual Y Literals: 0.0
+Dorn Visual X Operators: 80.69811320754717
+Dorn Visual Y Operators: 51.71951219512195
+Dorn Areas Comments: 0.23252032520325203
+Dorn Areas Identifiers: 0.35718157181571814
+Dorn Areas Keywords: 0.053116531165311655
+Dorn Areas Numbers: 0.001084010840108401
+Dorn Areas Strings: 0.023306233062330622
+Dorn Areas Literals: 0.0
+Dorn Areas Operators: 0.08563685636856369
+Dorn Areas Identifiers/Comments: 1.5361305361305362
+Dorn Areas Keywords/Comments: 0.22843822843822845
+Dorn Areas Numbers/Comments: 0.004662004662004662
+Dorn Areas Strings/Comments: 0.10023310023310024
+Dorn Areas Literals/Comments: 0.0
+Dorn Areas Operators/Comments: 0.3682983682983683
+Dorn Areas Keywords/Identifiers: 0.14871016691957512
+Dorn Areas Numbers/Identifiers: 0.0030349013657056147
+Dorn Areas Strings/Identifiers: 0.06525037936267071
+Dorn Areas Literals/Identifiers: 0.0
+Dorn Areas Operators/Identifiers: 0.23975720789074356
+Dorn Areas Numbers/Keywords: 0.02040816326530612
+Dorn Areas Strings/Keywords: 0.4387755102040816
+Dorn Areas Literals/Keywords: 0.0
+Dorn Areas Operators/Keywords: 1.6122448979591837
+Dorn Areas Strings/Numbers: 21.5
+Dorn Areas Literals/Numbers: 0.0
+Dorn Areas Operators/Numbers: 79.0
+Dorn Areas Literals/Strings: 0.0
+Dorn Areas Operators/Strings: 3.6744186046511627
+Dorn Areas Operators/Literals: NaN
+Dorn align blocks: 88.0
+Dorn align extent: 107.0

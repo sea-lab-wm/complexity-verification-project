@@ -1,0 +1,6 @@
+name: ml_model
+channels:
+  - defaults
+dependencies:
+  - pip:
+      - nltk==3.8.1
