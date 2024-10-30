@@ -182,11 +182,13 @@ def custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, cv
     best_hyperparameters_ = {} ## keep best hyperparameters for each fold and corresponding f1_weighted score
 
     # Process each fold in parallel
-    results=Parallel(n_jobs=30)(delayed(process_fold)(fold, train_index, test_index, candidate_params, drop_duplicates, model_name, pipeline, X_train, y_train, target)
+    # if every fold is executed in parallel, the number of jobs should be the number of folds
+    results = Parallel(n_jobs=30)(delayed(process_fold)(fold, train_index, test_index, candidate_params, drop_duplicates, model_name, pipeline, X_train, y_train, target)
                                   for fold, (train_index, test_index) in enumerate(cv.split(X_train, y_train)))
 
     # Collect results for each fold
     for (fold, best_param_, best_score_) in results:
+        #best_param_ = {C:x, anotherHP:value, anotherHP:value, ..}
         best_hyperparameters_[fold] = {"hyperparameters": best_param_ , "f1_weighted": best_score_}
 
     best_score_ = best_hyperparameters_[0]["f1_weighted"]
@@ -270,8 +272,10 @@ def train(model, X_train, y_train):
     return model
 
 def getBestBaselineModel(target):
+
+    #these numbers come from spreadsheet "DS3 - Task1 vs Task2" (sheet "lazy/random guessers")
     if target == "readability_level":
-        baseline_1_f1 = 0.0734711
+        baseline_1_f1 = 0.0734711 
         baseline_2_f1 = 0.2050413
         baseline_3_f1 = 0.2677686
         baseline_4_f1 = 0.2719008
@@ -361,6 +365,7 @@ def evaluate(model, X_test, y_test, target):
     fn_5 = prediction_report[4][1][0]
 
     ## compute the weighted scores ##
+    ## explain why we don't use the F1 weighted score from the classification report ##
     f1_weighted = f1_score(y_test, y_pred, average="weighted", labels=unique_labels(y_test), zero_division=0) ## zero_division=0 to avoid nan values to include in the average
     precision_weighted = classifi_report["weighted avg"]["precision"]
     recall_weighted = classifi_report["weighted avg"]["recall"]
@@ -963,8 +968,8 @@ def model_initialisation(model_name, parameters):
         ## https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
         param_grid = {
             "n_estimators": [100, 150, 200, 300],
-            "max_features": [None],
-            "min_impurity_decrease": [0.001, 0.01 ],
+            "max_features": [None], # why None? 
+            "min_impurity_decrease": [0.001, 0.01],
             "max_depth": [5, 10, 15],
             # "max_depth": [30, 50],
             # "bootstrap": [True],
@@ -985,7 +990,7 @@ def model_initialisation(model_name, parameters):
         param_grid = {
             "C": [1e-5, 1e-6, 1e-9],
             # "C": [1e-5],
-            "kernel": ["linear"],
+            "kernel": ["linear"],# why linear? why drop rbf and poly?
             # "tol": [1.0e-12, 1.0e-9, 1.0e-6],
             "tol": [1.0e-12, 1.0e-9, 1.0e-6],
             # "probability": [True],  # to compute the roc_auc score
@@ -1259,7 +1264,7 @@ def main():
                 )
 
                 model, param_grid = model_initialisation(model_name, parameters="")
-                ## Why not StandardScaler? - because it is sensitive to outliers. Also we have one feature CR which all the values are constant. 
+                
                 pipeline = Pipeline(steps = [ (model_name, model)])
                 
                 ## CONFIG 1 ## - apply over sampling
@@ -1275,6 +1280,7 @@ def main():
                 ## CONFIG 2 ## - remove duplicates from training set
                 config = {"drop_duplicates": drop_duplicates}
                 
+                ## find the best hyperparameters for the fold
                 best_params, best_score_ = custom_grid_search_cv(model_name, pipeline, param_grid, X_train, y_train, inner_cv, config, target)
                 LOGGER.info("Best param searching for fold {} for code features...".format(fold))
                 # gridSearchCV = GridSearchCV(pipeline, param_grid, cv=inner_cv, scoring="f1_macro", n_jobs=-1)
