@@ -195,3 +195,7 @@ infer-out/
 !dataset6/lib/*
 !dataset9/lib/*
 !dataset9/libs/*
+
+infer-linux64-v1.1.0
+jdk_versions
+python3-10

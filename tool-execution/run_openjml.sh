@@ -9,28 +9,39 @@ fi
 
 ./gradlew clean
 
+HOME="/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/"
+
 # run the fmri dataset. This one is pretty quick and can be run on a laptop
- cd simple-datasets/src/main/java && \
+cd ${HOME}simple-datasets/src/main/java && \
     "${OJ}" --esc -Xmaxerrs 10000 $(find fMRI_Study_Classes -name "*.java") &> ../../../../data/openjml_output_fMRI_dataset.txt
- 
+echo "Finished for FMRI dataset"
+
 # run dataset 1. This one is fairly fast, too, and can be run on a laptop.
-cd simple-datasets/src/main/java && \
+cd ${HOME}simple-datasets/src/main/java && \
     "${OJ}" --esc -Xmaxerrs 10000 $(find cog_complexity_validation_datasets/One/ -name "*.java") &> ../../../../data/openjml_output_cog_dataset_1.txt
+echo "Finished for DS1 dataset"
 
 # run dataset 3. This one is slow enough that you shouldn't try to run it on a laptop.
-cd simple-datasets/src/main/java && \
-    "${OJ}" --esc -Xmaxerrs 10000 $(find cog_complexity_validation_datasets/Three/ -name "*.java") &> ../../../../data/openjml_output_cog_dataset_3.txt
+cd ${HOME}simple-datasets/src/main/java && \
+    "${OJ}" --timeout 3600 --esc -Xmaxerrs 10000 $(find cog_complexity_validation_datasets/Three/ -name "*.java") &> ../../../../data/openjml_output_cog_dataset_3.txt
+echo "Finished for DS3 dataset"
 
+cd ${HOME}
 # the classpath for dataset 6
 DATASET6CP=$(./gradlew :dataset6:printClasspath -q)
 
 # run dataset 6. This one is slow enough that you shouldn't try to run it on a laptop.
-cd dataset6/src/main/java && \
-    "${OJ}" --esc -cp "${DATASET6CP}" -Xmaxerrs 10000 $(find . -name "*.java") &> ../../../../data/openjml_output_cog_dataset_6.txt
+cd ${HOME}dataset6/src/main/java && \
+    "${OJ}" --timeout 3600 --esc -cp "${DATASET6CP}" -Xmaxerrs 10000 $(find . -name "*.java") &> ../../../../data/openjml_output_cog_dataset_6.txt
+echo "Finished for DS6 dataset"
+
+cd ..
+cd ${HOME}
 
 # the classpath for dataset 9
 DATASET9CP=$(./gradlew :dataset9:printClasspath -q)
 
 # run dataset 9. This one is slow enough that you shouldn't try to run it on a laptop.
-cd dataset9/src/main/java && \
+cd ${HOME}dataset9/src/main/java && \
     "${OJ}" --esc -cp "${DATASET9CP}" -Xmaxerrs 10000 $(find . -name "*.java") &> ../../../../data/openjml_output_cog_dataset_9.txt
+echo "Finished for DS9 dataset"
