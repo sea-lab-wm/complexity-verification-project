@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # run experiments with timeout handing = max
-openjml_handle_types=("max")
+openjml_handle_types=("max" "remove" "zero")
 
 for str in ${openjml_handle_types[@]}; do
     source complexity_verification_project_venv/bin/activate
