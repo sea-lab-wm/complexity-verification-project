@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+void method73() {
+   int V1 = 2;
+
+   if (V1 = 1) {
+      printf("true\n");
+   } else {
+      printf("false\n");
+   }
+}
+
+int main() { method73(); return 0; }

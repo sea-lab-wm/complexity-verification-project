@@ -1,0 +1,72 @@
+CBMC version 6.7.1 (cbmc-6.7.1) 64-bit arm64 macos
+Type-checking method83
+Generating GOTO Program
+Adding CPROVER library (arm64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Starting Bounded Model Checking
+
+** Results:
+function __CPROVER__start
+[__CPROVER__start.memory-leak.1] dynamically allocated memory never freed in __CPROVER_memory_leak == NULL: SUCCESS
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdio.h function __sputc
+[__sputc.overflow.1] line 366 arithmetic overflow on signed - in _p->_w - 1: SUCCESS
+[__sputc.overflow.2] line 366 arithmetic overflow on signed type conversion in (char)_c: SUCCESS
+[__sputc.pointer_dereference.1] line 366 dereference failure: pointer NULL in _p->_w: SUCCESS
+[__sputc.pointer_dereference.2] line 366 dereference failure: pointer invalid in _p->_w: SUCCESS
+[__sputc.pointer_dereference.3] line 366 dereference failure: deallocated dynamic object in _p->_w: SUCCESS
+[__sputc.pointer_dereference.4] line 366 dereference failure: dead object in _p->_w: SUCCESS
+[__sputc.pointer_dereference.5] line 366 dereference failure: pointer outside object bounds in _p->_w: SUCCESS
+[__sputc.pointer_dereference.6] line 366 dereference failure: invalid integer address in _p->_w: SUCCESS
+[__sputc.pointer_dereference.7] line 366 dereference failure: pointer NULL in _p->_w: SUCCESS
+[__sputc.pointer_dereference.8] line 366 dereference failure: pointer invalid in _p->_w: SUCCESS
+[__sputc.pointer_dereference.9] line 366 dereference failure: deallocated dynamic object in _p->_w: SUCCESS
+[__sputc.pointer_dereference.10] line 366 dereference failure: dead object in _p->_w: SUCCESS
+[__sputc.pointer_dereference.11] line 366 dereference failure: pointer outside object bounds in _p->_w: SUCCESS
+[__sputc.pointer_dereference.12] line 366 dereference failure: invalid integer address in _p->_w: SUCCESS
+[__sputc.pointer_dereference.13] line 366 dereference failure: pointer NULL in _p->_w: SUCCESS
+[__sputc.pointer_dereference.14] line 366 dereference failure: pointer invalid in _p->_w: SUCCESS
+[__sputc.pointer_dereference.15] line 366 dereference failure: deallocated dynamic object in _p->_w: SUCCESS
+[__sputc.pointer_dereference.16] line 366 dereference failure: dead object in _p->_w: SUCCESS
+[__sputc.pointer_dereference.17] line 366 dereference failure: pointer outside object bounds in _p->_w: SUCCESS
+[__sputc.pointer_dereference.18] line 366 dereference failure: invalid integer address in _p->_w: SUCCESS
+[__sputc.pointer_dereference.19] line 366 dereference failure: pointer NULL in _p->_lbfsize: SUCCESS
+[__sputc.pointer_dereference.20] line 366 dereference failure: pointer invalid in _p->_lbfsize: SUCCESS
+[__sputc.pointer_dereference.21] line 366 dereference failure: deallocated dynamic object in _p->_lbfsize: SUCCESS
+[__sputc.pointer_dereference.22] line 366 dereference failure: dead object in _p->_lbfsize: SUCCESS
+[__sputc.pointer_dereference.23] line 366 dereference failure: pointer outside object bounds in _p->_lbfsize: SUCCESS
+[__sputc.pointer_dereference.24] line 366 dereference failure: invalid integer address in _p->_lbfsize: SUCCESS
+[__sputc.overflow.3] line 367 arithmetic overflow on signed * in 1l * (signed long int)1ul: SUCCESS
+[__sputc.overflow.4] line 367 arithmetic overflow on signed to unsigned type conversion in (unsigned char)_c: SUCCESS
+[__sputc.pointer_arithmetic.1] line 367 pointer arithmetic: pointer NULL in _p->_p + 1l: SUCCESS
+[__sputc.pointer_arithmetic.2] line 367 pointer arithmetic: pointer invalid in _p->_p + 1l: SUCCESS
+[__sputc.pointer_arithmetic.3] line 367 pointer arithmetic: deallocated dynamic object in _p->_p + 1l: SUCCESS
+[__sputc.pointer_arithmetic.4] line 367 pointer arithmetic: dead object in _p->_p + 1l: SUCCESS
+[__sputc.pointer_arithmetic.5] line 367 pointer arithmetic: pointer outside object bounds in _p->_p + 1l: SUCCESS
+[__sputc.pointer_arithmetic.6] line 367 pointer arithmetic: invalid integer address in _p->_p + 1l: SUCCESS
+[__sputc.pointer_dereference.25] line 367 dereference failure: pointer NULL in _p->_p: SUCCESS
+[__sputc.pointer_dereference.26] line 367 dereference failure: pointer invalid in _p->_p: SUCCESS
+[__sputc.pointer_dereference.27] line 367 dereference failure: deallocated dynamic object in _p->_p: SUCCESS
+[__sputc.pointer_dereference.28] line 367 dereference failure: dead object in _p->_p: SUCCESS
+[__sputc.pointer_dereference.29] line 367 dereference failure: pointer outside object bounds in _p->_p: SUCCESS
+[__sputc.pointer_dereference.30] line 367 dereference failure: invalid integer address in _p->_p: SUCCESS
+[__sputc.pointer_dereference.31] line 367 dereference failure: pointer NULL in _p->_p: SUCCESS
+[__sputc.pointer_dereference.32] line 367 dereference failure: pointer invalid in _p->_p: SUCCESS
+[__sputc.pointer_dereference.33] line 367 dereference failure: deallocated dynamic object in _p->_p: SUCCESS
+[__sputc.pointer_dereference.34] line 367 dereference failure: dead object in _p->_p: SUCCESS
+[__sputc.pointer_dereference.35] line 367 dereference failure: pointer outside object bounds in _p->_p: SUCCESS
+[__sputc.pointer_dereference.36] line 367 dereference failure: invalid integer address in _p->_p: SUCCESS
+[__sputc.pointer_dereference.37] line 367 dereference failure: pointer NULL in *tmp_post: SUCCESS
+[__sputc.pointer_dereference.38] line 367 dereference failure: pointer invalid in *tmp_post: SUCCESS
+[__sputc.pointer_dereference.39] line 367 dereference failure: deallocated dynamic object in *tmp_post: SUCCESS
+[__sputc.pointer_dereference.40] line 367 dereference failure: dead object in *tmp_post: SUCCESS
+[__sputc.pointer_dereference.41] line 367 dereference failure: pointer outside object bounds in *tmp_post: SUCCESS
+[__sputc.pointer_dereference.42] line 367 dereference failure: invalid integer address in *tmp_post: SUCCESS
+
+/Users/nadeeshan/Desktop/TOSEM/complexity-verification-project/dataset10/code/methods/method83.c function method83
+[method83.overflow.1] line 8 arithmetic overflow on signed + in V1 + 1: SUCCESS
+[method83.overflow.2] line 9 arithmetic overflow on signed + in V3 + 1: SUCCESS
+
+** 0 of 55 failed (1 iterations)
+VERIFICATION SUCCESSFUL

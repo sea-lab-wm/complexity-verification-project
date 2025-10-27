@@ -1,0 +1,816 @@
+
+dataset4/code/modified-Infer.c:5: error: Dead Store
+  The value written to &x (type int) is never used.
+  3.     // added to allow compilation
+  4.     int x,y;
+  5.     x=++y;
+         ^
+  6. }
+  7. // ID 2
+
+dataset4/code/modified-Infer.c:5: error: Dead Store
+  The value written to &y (type int) is never used.
+  3.     // added to allow compilation
+  4.     int x,y;
+  5.     x=++y;
+           ^
+  6. }
+  7. // ID 2
+
+dataset4/code/modified-Infer.c:5: error: Uninitialized Value
+  The value read from y was never initialized.
+  3.     // added to allow compilation
+  4.     int x,y;
+  5.     x=++y;
+           ^
+  6. }
+  7. // ID 2
+
+dataset4/code/modified-Infer.c:68: error: Dead Store
+  The value written to &i (type int) is never used.
+  66.     // added to allow compilation
+  67.     int x,i;
+  68.     if(i != -1){ x=i+1; i=i+2; }
+                              ^
+  69.     else x=i;
+  70. }
+
+dataset4/code/modified-Infer.c:68: error: Dead Store
+  The value written to &x (type int) is never used.
+  66.     // added to allow compilation
+  67.     int x,i;
+  68.     if(i != -1){ x=i+1; i=i+2; }
+                       ^
+  69.     else x=i;
+  70. }
+
+dataset4/code/modified-Infer.c:69: error: Dead Store
+  The value written to &x (type int) is never used.
+  67.     int x,i;
+  68.     if(i != -1){ x=i+1; i=i+2; }
+  69.     else x=i;
+               ^
+  70. }
+  71. // ID 11
+
+dataset4/code/modified-Infer.c:68: error: Uninitialized Value
+  The value read from i was never initialized.
+  66.     // added to allow compilation
+  67.     int x,i;
+  68.     if(i != -1){ x=i+1; i=i+2; }
+             ^
+  69.     else x=i;
+  70. }
+
+dataset4/code/modified-Infer.c:68: error: Uninitialized Value
+  The value read from i was never initialized.
+  66.     // added to allow compilation
+  67.     int x,i;
+  68.     if(i != -1){ x=i+1; i=i+2; }
+                       ^
+  69.     else x=i;
+  70. }
+
+dataset4/code/modified-Infer.c:68: error: Uninitialized Value
+  The value read from i was never initialized.
+  66.     // added to allow compilation
+  67.     int x,i;
+  68.     if(i != -1){ x=i+1; i=i+2; }
+                              ^
+  69.     else x=i;
+  70. }
+
+dataset4/code/modified-Infer.c:69: error: Uninitialized Value
+  The value read from i was never initialized.
+  67.     int x,i;
+  68.     if(i != -1){ x=i+1; i=i+2; }
+  69.     else x=i;
+               ^
+  70. }
+  71. // ID 11
+
+dataset4/code/modified-Infer.c:77: error: Dead Store
+  The value written to &i (type int) is never used.
+  75.     if(i>0) x=i+1;
+  76.     else x=i;
+  77.     i=x+1;
+          ^
+  78.     x=x+1;
+  79. }
+
+dataset4/code/modified-Infer.c:78: error: Dead Store
+  The value written to &x (type int) is never used.
+  76.     else x=i;
+  77.     i=x+1;
+  78.     x=x+1;
+          ^
+  79. }
+  80. // ID 12
+
+dataset4/code/modified-Infer.c:75: error: Uninitialized Value
+  The value read from i was never initialized.
+  73.     // added to allow compilation
+  74.     int x,i;
+  75.     if(i>0) x=i+1;
+             ^
+  76.     else x=i;
+  77.     i=x+1;
+
+dataset4/code/modified-Infer.c:75: error: Uninitialized Value
+  The value read from i was never initialized.
+  73.     // added to allow compilation
+  74.     int x,i;
+  75.     if(i>0) x=i+1;
+                  ^
+  76.     else x=i;
+  77.     i=x+1;
+
+dataset4/code/modified-Infer.c:76: error: Uninitialized Value
+  The value read from i was never initialized.
+  74.     int x,i;
+  75.     if(i>0) x=i+1;
+  76.     else x=i;
+               ^
+  77.     i=x+1;
+  78.     x=x+1;
+
+dataset4/code/modified-Infer.c:85: error: Dead Store
+  The value written to &i (type int) is never used.
+  83.     int x,i;
+  84.     x = -1;
+  85.     i = -2;
+          ^
+  86. }
+  87. // ID 13
+
+dataset4/code/modified-Infer.c:84: error: Dead Store
+  The value written to &x (type int) is never used.
+  82.     // added to allow compilation
+  83.     int x,i;
+  84.     x = -1;
+          ^
+  85.     i = -2;
+  86. }
+
+dataset4/code/modified-Infer.c:91: error: Uninitialized Value
+  The value read from a was never initialized.
+  89.     // added to allow compilation
+  90.     int x,y,a,b;
+  91.     y=a;
+          ^
+  92.     x=y++ +b;
+  93.     while ((++y<=4)&&(!(x%2==0))) // changed = = to ==
+
+dataset4/code/modified-Infer.c:92: error: Uninitialized Value
+  The value read from b was never initialized.
+  90.     int x,y,a,b;
+  91.     y=a;
+  92.     x=y++ +b;
+          ^
+  93.     while ((++y<=4)&&(!(x%2==0))) // changed = = to ==
+  94.     {
+
+dataset4/code/modified-Infer.c:105: error: Dead Store
+  The value written to &y (type int) is never used.
+  103.     for (i=a; i<5; i++)  
+  104.     {
+  105.         y=++i + a++;  
+               ^
+  106.         i++;
+  107.     }
+
+dataset4/code/modified-Infer.c:103: error: Uninitialized Value
+  The value read from a was never initialized.
+  101.     // added to allow compilation
+  102.     int x,y,a,b,i;
+  103.     for (i=a; i<5; i++)  
+                ^
+  104.     {
+  105.         y=++i + a++;  
+
+dataset4/code/modified-Infer.c:105: error: Uninitialized Value
+  The value read from a was never initialized.
+  103.     for (i=a; i<5; i++)  
+  104.     {
+  105.         y=++i + a++;  
+                       ^
+  106.         i++;
+  107.     }
+
+dataset4/code/modified-Infer.c:113: error: Uninitialized Value
+  The value read from a was never initialized.
+  111.     // added to allow compilation
+  112.     int x,y,a,b,j,m,n,i;
+  113.     for (i=a; i<n; i++)  
+                ^
+  114.     { 
+  115.         m=i-1;  
+
+dataset4/code/modified-Infer.c:117: error: Uninitialized Value
+  The value read from b was never initialized.
+  115.         m=i-1;  
+  116.         for (j=m; j<n; j++){ 
+  117.             if (!(j++==i) && (++b>1)) ++b;   // changed = = to ==
+                                     ^
+  118.             b++; 
+  119.         }  
+
+dataset4/code/modified-Infer.c:118: error: Uninitialized Value
+  The value read from b was never initialized.
+  116.         for (j=m; j<n; j++){ 
+  117.             if (!(j++==i) && (++b>1)) ++b;   // changed = = to ==
+  118.             b++; 
+                   ^
+  119.         }  
+  120.     }
+
+dataset4/code/modified-Infer.c:113: error: Uninitialized Value
+  The value read from n was never initialized.
+  111.     // added to allow compilation
+  112.     int x,y,a,b,j,m,n,i;
+  113.     for (i=a; i<n; i++)  
+                     ^
+  114.     { 
+  115.         m=i-1;  
+
+dataset4/code/modified-Infer.c:116: error: Uninitialized Value
+  The value read from n was never initialized.
+  114.     { 
+  115.         m=i-1;  
+  116.         for (j=m; j<n; j++){ 
+                         ^
+  117.             if (!(j++==i) && (++b>1)) ++b;   // changed = = to ==
+  118.             b++; 
+
+dataset4/code/modified-Infer.c:130: error: Dead Store
+  The value written to &a (type int) is never used.
+  128.         a = ++i+b; 
+  129.         if (!(++i%3==0)) ++a; // changed = = to ==
+  130.         if(a%2==0) ++a; // changed = = to ==
+                          ^
+  131.     }
+  132. }
+
+dataset4/code/modified-Infer.c:128: error: Uninitialized Value
+  The value read from b was never initialized.
+  126.     while (i <=7 ) 
+  127.     {
+  128.         a = ++i+b; 
+               ^
+  129.         if (!(++i%3==0)) ++a; // changed = = to ==
+  130.         if(a%2==0) ++a; // changed = = to ==
+
+dataset4/code/modified-Infer.c:126: error: Uninitialized Value
+  The value read from i was never initialized.
+  124.     // added to allow compilation
+  125.     int a,b,i;
+  126.     while (i <=7 ) 
+                  ^
+  127.     {
+  128.         a = ++i+b; 
+
+dataset4/code/modified-Infer.c:128: error: Uninitialized Value
+  The value read from i was never initialized.
+  126.     while (i <=7 ) 
+  127.     {
+  128.         a = ++i+b; 
+                   ^
+  129.         if (!(++i%3==0)) ++a; // changed = = to ==
+  130.         if(a%2==0) ++a; // changed = = to ==
+
+dataset4/code/modified-Infer.c:146: error: Dead Store
+  The value written to &y (type int) is never used.
+  144.         y=y+1;
+  145.     }
+  146.     y=y+1; // missing ; was added.
+           ^
+  147. }
+  148. // ID 18
+
+dataset4/code/modified-Infer.c:137: error: Uninitialized Value
+  The value read from a was never initialized.
+  135.     // added to allow compilation
+  136.     int x,y,a,b;
+  137.     x=a+b;
+           ^
+  138.     y=a+1;
+  139.     while( (y<=3)&&(!(x%2==0)) )
+
+dataset4/code/modified-Infer.c:138: error: Uninitialized Value
+  The value read from a was never initialized.
+  136.     int x,y,a,b;
+  137.     x=a+b;
+  138.     y=a+1;
+           ^
+  139.     while( (y<=3)&&(!(x%2==0)) )
+  140.     {
+
+dataset4/code/modified-Infer.c:137: error: Uninitialized Value
+  The value read from b was never initialized.
+  135.     // added to allow compilation
+  136.     int x,y,a,b;
+  137.     x=a+b;
+           ^
+  138.     y=a+1;
+  139.     while( (y<=3)&&(!(x%2==0)) )
+
+dataset4/code/modified-Infer.c:155: error: Dead Store
+  The value written to &y (type int) is never used.
+  153.     for(;i<5;)
+  154.     {
+  155.         y=i+a+1;
+               ^
+  156.         i=i+3;
+  157.         a=a+1;
+
+dataset4/code/modified-Infer.c:152: error: Uninitialized Value
+  The value read from a was never initialized.
+  150.     // added to allow compilation
+  151.     int x,y,a,b,i;
+  152.     i=a;
+           ^
+  153.     for(;i<5;)
+  154.     {
+
+dataset4/code/modified-Infer.c:155: error: Uninitialized Value
+  The value read from a was never initialized.
+  153.     for(;i<5;)
+  154.     {
+  155.         y=i+a+1;
+               ^
+  156.         i=i+3;
+  157.         a=a+1;
+
+dataset4/code/modified-Infer.c:157: error: Uninitialized Value
+  The value read from a was never initialized.
+  155.         y=i+a+1;
+  156.         i=i+3;
+  157.         a=a+1;
+               ^
+  158.     }
+  159. }
+
+dataset4/code/modified-Infer.c:164: error: Uninitialized Value
+  The value read from a was never initialized.
+  162.     // added to allow compilation
+  163.     int x,y,a,b,j,m,n,i;
+  164.     i=a;
+           ^
+  165.     for(;i<n;)
+  166.     {
+
+dataset4/code/modified-Infer.c:171: error: Uninitialized Value
+  The value read from b was never initialized.
+  169.         for(;j<n;)
+  170.         {
+  171.             if( !(j==i) && (b>0) ) b=b+2;
+                                   ^
+  172.             else if(!(j==i)) b=b+1;
+  173.             b=b+1;
+
+dataset4/code/modified-Infer.c:171: error: Uninitialized Value
+  The value read from b was never initialized.
+  169.         for(;j<n;)
+  170.         {
+  171.             if( !(j==i) && (b>0) ) b=b+2;
+                                          ^
+  172.             else if(!(j==i)) b=b+1;
+  173.             b=b+1;
+
+dataset4/code/modified-Infer.c:172: error: Uninitialized Value
+  The value read from b was never initialized.
+  170.         {
+  171.             if( !(j==i) && (b>0) ) b=b+2;
+  172.             else if(!(j==i)) b=b+1;
+                                    ^
+  173.             b=b+1;
+  174.             j=j+2;
+
+dataset4/code/modified-Infer.c:173: error: Uninitialized Value
+  The value read from b was never initialized.
+  171.             if( !(j==i) && (b>0) ) b=b+2;
+  172.             else if(!(j==i)) b=b+1;
+  173.             b=b+1;
+                   ^
+  174.             j=j+2;
+  175.         }
+
+dataset4/code/modified-Infer.c:165: error: Uninitialized Value
+  The value read from n was never initialized.
+  163.     int x,y,a,b,j,m,n,i;
+  164.     i=a;
+  165.     for(;i<n;)
+                ^
+  166.     {
+  167.         m=i-1;
+
+dataset4/code/modified-Infer.c:169: error: Uninitialized Value
+  The value read from n was never initialized.
+  167.         m=i-1;
+  168.         j=m;
+  169.         for(;j<n;)
+                    ^
+  170.         {
+  171.             if( !(j==i) && (b>0) ) b=b+2;
+
+dataset4/code/modified-Infer.c:11: error: Dead Store
+  The value written to &x (type int) is never used.
+   9.     // added to allow compilation
+  10.     int x,y;
+  11.     x=y++;
+          ^
+  12. }
+  13. // ID 3
+
+dataset4/code/modified-Infer.c:11: error: Dead Store
+  The value written to &y (type int) is never used.
+   9.     // added to allow compilation
+  10.     int x,y;
+  11.     x=y++;
+            ^
+  12. }
+  13. // ID 3
+
+dataset4/code/modified-Infer.c:11: error: Uninitialized Value
+  The value read from y was never initialized.
+   9.     // added to allow compilation
+  10.     int x,y;
+  11.     x=y++;
+            ^
+  12. }
+  13. // ID 3
+
+dataset4/code/modified-Infer.c:189: error: Dead Store
+  The value written to &a (type int) is never used.
+  187.         if( !((i+1)%3==0) ) a=a+1;
+  188.         i=i+1;
+  189.         if( a%2==0 ) a=a+1;
+                            ^
+  190.     }    
+  191. }
+
+dataset4/code/modified-Infer.c:185: error: Uninitialized Value
+  The value read from b was never initialized.
+  183.     while( i<=7 )
+  184.     {
+  185.         a=i+b+1;
+               ^
+  186.         i=i+1;
+  187.         if( !((i+1)%3==0) ) a=a+1;
+
+dataset4/code/modified-Infer.c:183: error: Uninitialized Value
+  The value read from i was never initialized.
+  181.     // added to allow compilation
+  182.     int a,b,i;
+  183.     while( i<=7 )
+                  ^
+  184.     {
+  185.         a=i+b+1;
+
+dataset4/code/modified-Infer.c:185: error: Uninitialized Value
+  The value read from i was never initialized.
+  183.     while( i<=7 )
+  184.     {
+  185.         a=i+b+1;
+               ^
+  186.         i=i+1;
+  187.         if( !((i+1)%3==0) ) a=a+1;
+
+dataset4/code/modified-Infer.c:186: error: Uninitialized Value
+  The value read from i was never initialized.
+  184.     {
+  185.         a=i+b+1;
+  186.         i=i+1;
+               ^
+  187.         if( !((i+1)%3==0) ) a=a+1;
+  188.         i=i+1;
+
+dataset4/code/modified-Infer.c:17: error: Dead Store
+  The value written to &p (type int) is never used.
+  15.     // added to allow compilation
+  16.     int x,y,z,p;
+  17.     if( x++ ==y && x-- == z ) p=1;
+                                    ^
+  18.     else p=2;
+  19. }
+
+dataset4/code/modified-Infer.c:18: error: Dead Store
+  The value written to &p (type int) is never used.
+  16.     int x,y,z,p;
+  17.     if( x++ ==y && x-- == z ) p=1;
+  18.     else p=2;
+               ^
+  19. }
+  20. // ID 4
+
+dataset4/code/modified-Infer.c:17: error: Dead Store
+  The value written to &x (type int) is never used.
+  15.     // added to allow compilation
+  16.     int x,y,z,p;
+  17.     if( x++ ==y && x-- == z ) p=1;
+                         ^
+  18.     else p=2;
+  19. }
+
+dataset4/code/modified-Infer.c:17: error: Uninitialized Value
+  The value read from x was never initialized.
+  15.     // added to allow compilation
+  16.     int x,y,z,p;
+  17.     if( x++ ==y && x-- == z ) p=1;
+              ^
+  18.     else p=2;
+  19. }
+
+dataset4/code/modified-Infer.c:17: error: Uninitialized Value
+  The value read from y was never initialized.
+  15.     // added to allow compilation
+  16.     int x,y,z,p;
+  17.     if( x++ ==y && x-- == z ) p=1;
+              ^
+  18.     else p=2;
+  19. }
+
+dataset4/code/modified-Infer.c:17: error: Uninitialized Value
+  The value read from z was never initialized.
+  15.     // added to allow compilation
+  16.     int x,y,z,p;
+  17.     if( x++ ==y && x-- == z ) p=1;
+                         ^
+  18.     else p=2;
+  19. }
+
+dataset4/code/modified-Infer.c:24: error: Dead Store
+  The value written to &i (type int) is never used.
+  22.     // added to allow compilation
+  23.     int x,i;
+  24.     if (++i!=0) x=i++;
+                        ^
+  25.     else x=--i;
+  26. }
+
+dataset4/code/modified-Infer.c:25: error: Dead Store
+  The value written to &i (type int) is never used.
+  23.     int x,i;
+  24.     if (++i!=0) x=i++;
+  25.     else x=--i;
+                 ^
+  26. }
+  27. // ID 5
+
+dataset4/code/modified-Infer.c:24: error: Dead Store
+  The value written to &x (type int) is never used.
+  22.     // added to allow compilation
+  23.     int x,i;
+  24.     if (++i!=0) x=i++;
+                      ^
+  25.     else x=--i;
+  26. }
+
+dataset4/code/modified-Infer.c:25: error: Dead Store
+  The value written to &x (type int) is never used.
+  23.     int x,i;
+  24.     if (++i!=0) x=i++;
+  25.     else x=--i;
+               ^
+  26. }
+  27. // ID 5
+
+dataset4/code/modified-Infer.c:24: error: Uninitialized Value
+  The value read from i was never initialized.
+  22.     // added to allow compilation
+  23.     int x,i;
+  24.     if (++i!=0) x=i++;
+              ^
+  25.     else x=--i;
+  26. }
+
+dataset4/code/modified-Infer.c:31: error: Dead Store
+  The value written to &i (type int) is never used.
+  29.     // added to allow compilation
+  30.     int x,i;
+  31.     if(i++>0) {x=i++;}
+                       ^
+  32.     else {x=--i;}
+  33.     i=++x;
+
+dataset4/code/modified-Infer.c:32: error: Dead Store
+  The value written to &i (type int) is never used.
+  30.     int x,i;
+  31.     if(i++>0) {x=i++;}
+  32.     else {x=--i;}
+                  ^
+  33.     i=++x;
+  34. }
+
+dataset4/code/modified-Infer.c:33: error: Dead Store
+  The value written to &i (type int) is never used.
+  31.     if(i++>0) {x=i++;}
+  32.     else {x=--i;}
+  33.     i=++x;
+          ^
+  34. }
+  35. // ID 6
+
+dataset4/code/modified-Infer.c:33: error: Dead Store
+  The value written to &x (type int) is never used.
+  31.     if(i++>0) {x=i++;}
+  32.     else {x=--i;}
+  33.     i=++x;
+            ^
+  34. }
+  35. // ID 6
+
+dataset4/code/modified-Infer.c:31: error: Uninitialized Value
+  The value read from i was never initialized.
+  29.     // added to allow compilation
+  30.     int x,i;
+  31.     if(i++>0) {x=i++;}
+             ^
+  32.     else {x=--i;}
+  33.     i=++x;
+
+dataset4/code/modified-Infer.c:41: error: Dead Store
+  The value written to &i (type int) is never used.
+  39.     if (i=0) i++; 
+  40.     else i--; 
+  41.     x=i--;
+            ^
+  42. }
+  43. // ID 7
+
+dataset4/code/modified-Infer.c:41: error: Dead Store
+  The value written to &x (type int) is never used.
+  39.     if (i=0) i++; 
+  40.     else i--; 
+  41.     x=i--;
+          ^
+  42. }
+  43. // ID 7
+
+dataset4/code/modified-Infer.c:47: error: Dead Store
+  The value written to &x (type int) is never used.
+  45.     // added to allow compilation
+  46.     int x,y;
+  47.     x=y+1;
+          ^
+  48.     y=y+1;
+  49. }
+
+dataset4/code/modified-Infer.c:48: error: Dead Store
+  The value written to &y (type int) is never used.
+  46.     int x,y;
+  47.     x=y+1;
+  48.     y=y+1;
+          ^
+  49. }
+  50. // ID 8
+
+dataset4/code/modified-Infer.c:47: error: Uninitialized Value
+  The value read from y was never initialized.
+  45.     // added to allow compilation
+  46.     int x,y;
+  47.     x=y+1;
+          ^
+  48.     y=y+1;
+  49. }
+
+dataset4/code/modified-Infer.c:48: error: Uninitialized Value
+  The value read from y was never initialized.
+  46.     int x,y;
+  47.     x=y+1;
+  48.     y=y+1;
+          ^
+  49. }
+  50. // ID 8
+
+dataset4/code/modified-Infer.c:54: error: Dead Store
+  The value written to &x (type int) is never used.
+  52.     // added to allow compilation
+  53.     int x,y,z;
+  54.     x=y;
+          ^
+  55.     y=y+1;
+  56. }
+
+dataset4/code/modified-Infer.c:55: error: Dead Store
+  The value written to &y (type int) is never used.
+  53.     int x,y,z;
+  54.     x=y;
+  55.     y=y+1;
+          ^
+  56. }
+  57. // ID 9
+
+dataset4/code/modified-Infer.c:54: error: Uninitialized Value
+  The value read from y was never initialized.
+  52.     // added to allow compilation
+  53.     int x,y,z;
+  54.     x=y;
+          ^
+  55.     y=y+1;
+  56. }
+
+dataset4/code/modified-Infer.c:55: error: Uninitialized Value
+  The value read from y was never initialized.
+  53.     int x,y,z;
+  54.     x=y;
+  55.     y=y+1;
+          ^
+  56. }
+  57. // ID 9
+
+dataset4/code/modified-Infer.c:61: error: Dead Store
+  The value written to &p (type int) is never used.
+  59.     // added to allow compilation
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+                               ^
+  62.     else if(x!=y) {x=x+1; p=2;}
+  63. }
+
+dataset4/code/modified-Infer.c:62: error: Dead Store
+  The value written to &p (type int) is never used.
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+  62.     else if(x!=y) {x=x+1; p=2;}
+                                ^
+  63. }
+  64. // ID 10
+
+dataset4/code/modified-Infer.c:62: error: Dead Store
+  The value written to &x (type int) is never used.
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+  62.     else if(x!=y) {x=x+1; p=2;}
+                         ^
+  63. }
+  64. // ID 10
+
+dataset4/code/modified-Infer.c:61: error: Uninitialized Value
+  The value read from x was never initialized.
+  59.     // added to allow compilation
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+              ^
+  62.     else if(x!=y) {x=x+1; p=2;}
+  63. }
+
+dataset4/code/modified-Infer.c:61: error: Uninitialized Value
+  The value read from x was never initialized.
+  59.     // added to allow compilation
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+                    ^
+  62.     else if(x!=y) {x=x+1; p=2;}
+  63. }
+
+dataset4/code/modified-Infer.c:62: error: Uninitialized Value
+  The value read from x was never initialized.
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+  62.     else if(x!=y) {x=x+1; p=2;}
+                  ^
+  63. }
+  64. // ID 10
+
+dataset4/code/modified-Infer.c:62: error: Uninitialized Value
+  The value read from x was never initialized.
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+  62.     else if(x!=y) {x=x+1; p=2;}
+                         ^
+  63. }
+  64. // ID 10
+
+dataset4/code/modified-Infer.c:61: error: Uninitialized Value
+  The value read from y was never initialized.
+  59.     // added to allow compilation
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+              ^
+  62.     else if(x!=y) {x=x+1; p=2;}
+  63. }
+
+dataset4/code/modified-Infer.c:62: error: Uninitialized Value
+  The value read from y was never initialized.
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+  62.     else if(x!=y) {x=x+1; p=2;}
+                  ^
+  63. }
+  64. // ID 10
+
+dataset4/code/modified-Infer.c:61: error: Uninitialized Value
+  The value read from z was never initialized.
+  59.     // added to allow compilation
+  60.     int x,y,z,p;
+  61.     if( x==y&&(x+1)==z ) p=1;
+                    ^
+  62.     else if(x!=y) {x=x+1; p=2;}
+  63. }
+
+
+Found 90 issues
+                Issue Type(ISSUED_TYPE_ID): #
+  Uninitialized Value(UNINITIALIZED_VALUE): 54
+                    Dead Store(DEAD_STORE): 36

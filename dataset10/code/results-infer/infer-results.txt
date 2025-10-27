@@ -1,0 +1,159 @@
+
+dataset10/code/modified-Infer.c:1092: error: Dead Store
+  The value written to &V2 (type int) is never used.
+  1090. void method121() {
+  1091.    int V1 = 0;
+  1092.    int V2 = 2;
+           ^
+  1093. 
+  1094.    if (V1) {}
+
+dataset10/code/modified-Infer.c:1102: error: Dead Store
+  The value written to &V2 (type int) is never used.
+  1100. void method122() {
+  1101.    int V1 = 0;
+  1102.    int V2 = 2;
+           ^
+  1103. 
+  1104.    if (V1) {}
+
+dataset10/code/modified-Infer.c:25: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  23. // ID 3
+  24. void method3() { 
+  25.    int V1 = 7; 
+         ^
+  26.    if (V1 = 8) 
+  27.       printf("true\n"); 
+
+dataset10/code/modified-Infer.c:34: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  32. void method4()
+  33. {
+  34.    int V1 = 7;
+         ^
+  35.    if ((V1 = 8) != 0)
+  36.       printf("true");
+
+dataset10/code/modified-Infer.c:382: error: Dead Store
+  The value written to &V2 (type int) is never used.
+  380. void method50() {
+  381.    int V1 = 4;
+  382.    int V2 = 3;
+          ^
+  383.    int V3;
+  384.   
+
+dataset10/code/modified-Infer.c:621: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  619. // ID 72
+  620. void method72() {
+  621.    int V1 = 1, V2 = 2;
+          ^
+  622.    #define M1 2
+  623.    #define M2 1
+
+dataset10/code/modified-Infer.c:621: error: Dead Store
+  The value written to &V2 (type int) is never used.
+  619. // ID 72
+  620. void method72() {
+  621.    int V1 = 1, V2 = 2;
+          ^
+  622.    #define M1 2
+  623.    #define M2 1
+
+dataset10/code/modified-Infer.c:629: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  627. // ID 73
+  628. void method73() {
+  629.    int V1 = 2;
+          ^
+  630. 
+  631.    if (V1 = 1) {
+
+dataset10/code/modified-Infer.c:639: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  637. // ID 74
+  638. void method74() {
+  639.    int V1 = 7;
+          ^
+  640.    V1 = 1;
+  641.    if (1) {
+
+dataset10/code/modified-Infer.c:640: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  638. void method74() {
+  639.    int V1 = 7;
+  640.    V1 = 1;
+          ^
+  641.    if (1) {
+  642.       printf("true\n");
+
+dataset10/code/modified-Infer.c:676: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  674.    while (!(V1 = 3)) {
+  675.       V2--;
+  676.       V1++;
+             ^
+  677.    }
+  678. 
+
+dataset10/code/modified-Infer.c:793: error: Uninitialized Value
+  The value read from V1[_] was never initialized.
+  791.    }
+  792. 
+  793.    printf("%d %d\n", V1[1], V2);
+          ^
+  794. }
+  795. // ID 87
+
+dataset10/code/modified-Infer.c:831: error: Uninitialized Value
+  The value read from V1 was never initialized.
+  829.       }
+  830.    }
+  831.    printf("%d\n", V1);
+          ^
+  832. }
+  833. // ID 90
+
+dataset10/code/modified-Infer.c:844: error: Uninitialized Value
+  The value read from V1 was never initialized.
+  842.       }
+  843.    }
+  844.    printf("%d\n", V1);
+          ^
+  845. }
+  846. // ID 91
+
+dataset10/code/modified-Infer.c:890: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  888. // ID 97
+  889. void method97() {
+  890.    int V1 = 1;
+          ^
+  891. 
+  892.    V1 = 3;
+
+dataset10/code/modified-Infer.c:892: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  890.    int V1 = 1;
+  891. 
+  892.    V1 = 3;
+          ^
+  893.    V1 = 2;
+  894. 
+
+dataset10/code/modified-Infer.c:899: error: Dead Store
+  The value written to &V1 (type int) is never used.
+  897. // ID 98
+  898. void method98() {
+  899.   int V1 = 1;
+         ^
+  900. 
+  901.   V1 = 2;
+
+
+Found 17 issues
+                Issue Type(ISSUED_TYPE_ID): #
+                    Dead Store(DEAD_STORE): 14
+  Uninitialized Value(UNINITIALIZED_VALUE): 3

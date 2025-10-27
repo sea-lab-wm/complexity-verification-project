@@ -186,12 +186,12 @@ def parseOpenJML(data, allSnippetNums, timeouts):
 
                 snippetNums = allSnippetNums[4][fileName]
 
-                addToI = computeDS6AddToI(fileName)
+                # addToI = computeDS6AddToI(fileName)
     
                 for i in range(len(snippetNums) - 1):
                     if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum: 
-                        openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1 + addToI)} -- {fileName}", line, timeouts)
-
+                        # openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1 + addToI)} -- {fileName}", line, timeouts)
+                        openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1)} -- {fileName}", line, timeouts)
                         break
             elif startSnippetCOG9 in line.split(".java:")[0] and endSnippet in line:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
@@ -304,11 +304,12 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
 
             snippetNums = allSnippetNums[4][fileName]
 
-            addToI = computeDS6AddToI(fileName)
+            # addToI = computeDS6AddToI(fileName)
  
             for i in range(len(snippetNums) - 1):
                 if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
-                    data["Snippet"].append(f"6 -- {str(i + 1 + addToI)} -- {fileName}")
+                    # data["Snippet"].append(f"6 -- {str(i + 1 + addToI)} -- {fileName}")
+                    data["Snippet"].append(f"6 -- {str(i + 1)} -- {fileName}")
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
 
                     break

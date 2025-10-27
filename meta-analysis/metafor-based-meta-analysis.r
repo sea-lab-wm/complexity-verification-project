@@ -12,7 +12,7 @@ rm(list = ls())
 
 #TODO: set the base path to the project
 #base_path = "~/Research/complexity-verification/complexity-verification-project/"
-base_path = "~/repositories/Projects/complexity-verification-project/"
+base_path = "/Users/nadeeshan/Desktop/TOSEM/complexity-verification-project/"
 
 # Load libraries
 library(readxl)

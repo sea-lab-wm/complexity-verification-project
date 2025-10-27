@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+void method88() {
+   int V3 = 0;
+
+   for (int V1 = 0; V1 < 2; V1++) {
+      for (int V2 = 0; V2 < 2; V2++) {
+         V3 = 4 * V1 + V2;
+         V1 = V2;
+      }
+   }
+
+   printf("%d\n", V3);
+}
+
+int main() { method88(); return 0; }

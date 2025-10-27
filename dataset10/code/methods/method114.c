@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+void method114() {
+   int V1 = 4;
+
+   for (int V2 = 0; V2 < 3; V2++) { V1++; } V1++;
+
+   printf("%d\n", V1);
+}
+
+int main() { method114(); return 0; }
