@@ -66,6 +66,21 @@ def getAllSnippets():
     cogDataset6SnippetNums["GeneratorPropertyIteratorPanel"] = getSnippetNames("dataset6/src/main/java/weka/gui/experiment/GeneratorPropertyIteratorPanel.java", "SNIPPET_STARTS", "SNIPPETS_END")
     allSnippetNums.append(cogDataset6SnippetNums)
 
+    # Dataset 63
+    dataset63SnippetNums = {}
+    dataset63SnippetNums["ArgoUML"] = getSnippetNames("dataset63/src/main/java/ArgoUML.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    dataset63SnippetNums["ATunes"] = getSnippetNames("dataset63/src/main/java/ATunes.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    dataset63SnippetNums["MegaMek"] = getSnippetNames("dataset63/src/main/java/MegaMek.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    dataset63SnippetNums["Siena"] = getSnippetNames("dataset63/src/main/java/Siena.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    dataset63SnippetNums["SweetHome3D"] = getSnippetNames("dataset63/src/main/java/SweetHome3D.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    
+    allSnippetNums.append(dataset63SnippetNums)
+
+    # Dataset 8
+    dataset8SnippetNums = {}
+    dataset8SnippetNums["Study"] = getSnippetNames("dataset8/src/main/java/Study.java", "SNIPPET_STARTS", "SNIPPETS_END")
+    allSnippetNums.append(dataset8SnippetNums)
+
     # COG Dataset 9
     allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS_1", "SNIPPET_END_1"))
     allSnippetNums.append(getSnippetNames("dataset9/src/main/java/CodeSnippets.java", "SNIPPET_STARTS_2", "SNIPPET_END_2"))
@@ -180,6 +195,7 @@ def parseOpenJML(data, allSnippetNums, timeouts):
                         openJMLWriteData(data, line.split(endSnippet)[1], f"3 -- {str(i + 1 + addToI)}", line, timeouts)
 
                         break
+            ## dataset6
             elif "./" in line[:2] and line.split(".java:")[0].rsplit("/", 1)[1] in allSnippetNums[4]:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
                 fileName = line.split(".java:")[0].rsplit("/", 1)[1]
@@ -193,17 +209,43 @@ def parseOpenJML(data, allSnippetNums, timeouts):
                         # openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1 + addToI)} -- {fileName}", line, timeouts)
                         openJMLWriteData(data, line.split(endSnippet)[1], f"6 -- {str(i + 1)} -- {fileName}", line, timeouts)
                         break
+            ## dataset63
+            elif "./" in line[:2] and line.split(".java:")[0].rsplit("/", 1)[1] in allSnippetNums[5]:
+                lineNum = int(line.split(".java:")[1].split(":")[0])
+                fileName = line.split(".java:")[0].rsplit("/", 1)[1]
+
+                snippetNums = allSnippetNums[5][fileName]
+
+    
+                for i in range(len(snippetNums) - 1):
+                    if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum: 
+                        openJMLWriteData(data, line.split(endSnippet)[1], f"63 -- {str(i + 1)} -- {fileName}", line, timeouts)
+                        break
+            ## dataset8
+            elif "./" in line[:2] and line.split(".java:")[0].rsplit("/", 1)[1] in allSnippetNums[6]:
+                lineNum = int(line.split(".java:")[1].split(":")[0])
+                fileName = line.split(".java:")[0].rsplit("/", 1)[1]
+
+                snippetNums = allSnippetNums[6][fileName]
+
+    
+                for i in range(len(snippetNums) - 1):
+                    if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum: 
+                        if endSnippet not in line: ## If the dataset would not have any "verify" warnings, skip it
+                            continue
+                        openJMLWriteData(data, line.split(endSnippet)[1], f"8 -- {str(i + 1)} -- {fileName}", line, timeouts)
+                        break        
             elif startSnippetCOG9 in line.split(".java:")[0] and endSnippet in line:
                 lineNum = int(line.split(".java:")[1].split(":")[0])
 
-                for i in range(0, len(allSnippetNums[5]) - 1, 2):
-                    if allSnippetNums[5][i] <= lineNum and allSnippetNums[5][i + 1] > lineNum:
+                for i in range(0, len(allSnippetNums[7]) - 1, 2):
+                    if allSnippetNums[7][i] <= lineNum and allSnippetNums[7][i + 1] > lineNum:
                         data["Snippet"].append(f"9_gc -- {str((i + 2) // 2)}")
                         warning = line.split(endSnippet)[1]
-                    elif allSnippetNums[6][i] <= lineNum and allSnippetNums[6][i + 1] > lineNum:
+                    elif allSnippetNums[8][i] <= lineNum and allSnippetNums[8][i + 1] > lineNum:
                         data["Snippet"].append(f"9_bc -- {str((i + 2) // 2)}")
                         warning = line.split(endSnippet)[1]
-                    elif allSnippetNums[7][i] <= lineNum and allSnippetNums[7][i + 1] > lineNum:
+                    elif allSnippetNums[9][i] <= lineNum and allSnippetNums[9][i + 1] > lineNum:
                         data["Snippet"].append(f"9_nc -- {str((i + 2) // 2)}")
                         warning = line.split(endSnippet)[1]
                     else:
@@ -233,6 +275,7 @@ def computeDS6AddToI(fileName):
 def openJMLWriteData(data, warning, message, line, timeouts):
     startWarning = "assertion"
     endWarning = "in method"
+    noModelWarning = "no model available" ## #1 = added because of this warning ==> ./MegaMek.java:349: verify: Validity is unknown - no model available method MegaMek.calcAttackValue -  (possible timeout): (error "line 64877 column 18: model is not available")
 
     if "timeout" in line:
         timeouts.append(message)
@@ -241,6 +284,10 @@ def openJMLWriteData(data, warning, message, line, timeouts):
 
     if startWarning in warning and endWarning in warning:
         warning = warning.split(endWarning)[0].split(startWarning)[1].strip()
+    
+    ## Added because of #1. So No Model available warnings are treated as timeouts.
+    if noModelWarning in warning:
+        warning = "Validity is unknown - time or memory limit reached: : Aborted proof: timeout"
 
     data["Warning Type"].append(warning.strip())
 
@@ -250,8 +297,11 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
     startSnippetfMRI = os.path.join(" ", "fMRI_Study_Classes", " ").strip()
     startSnippetCOG1 = os.path.join(" ", "cog_complexity_validation_datasets", "One", " ").strip()
     startSnippetCOG3 = os.path.join(" ", "cog_complexity_validation_datasets", "Three", " ").strip()
-    startSnippetCOG6 = "dataset6"
+    startSnippetCOG6 = "dataset6/"
     startSnippetCOG9 = "dataset9"
+    startSnippet63 = "dataset63/"
+    startSnippet8 = "dataset8"
+    
 
     for line in lines:
         if startSnippetfMRI in line and endSnippet in line:
@@ -313,15 +363,47 @@ def parseAll(data, lines, allSnippetNums, endSnippet):
                     data["Warning Type"].append(line.split(endSnippet)[1].strip())
 
                     break
+
+        elif startSnippet63 in line and endSnippet in line:
+            lineNum = int(line.split(".java:")[1].split(":")[0])
+            fileName = line.split(".java:")[0].rsplit("/", 1)[1]
+            if fileName not in allSnippetNums[5]:
+                continue
+
+            snippetNums = allSnippetNums[5][fileName]
+ 
+            for i in range(len(snippetNums) - 1):
+                if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
+                    data["Snippet"].append(f"63 -- {str(i + 1)} -- {fileName}")
+                    data["Warning Type"].append(line.split(endSnippet)[1].strip())
+
+                    break
+
+        elif startSnippet8 in line and endSnippet in line:
+            lineNum = int(line.split(".java:")[1].split(":")[0])
+            fileName = line.split(".java:")[0].rsplit("/", 1)[1]
+            if fileName not in allSnippetNums[6]:
+                continue
+
+            snippetNums = allSnippetNums[6][fileName]
+ 
+            for i in range(len(snippetNums) - 1):
+                if snippetNums[i] <= lineNum and snippetNums[i + 1] > lineNum:
+                    data["Snippet"].append(f"8 -- {str(i + 1)} -- {fileName}")
+                    data["Warning Type"].append(line.split(endSnippet)[1].strip())
+
+                    break
+
+
         elif startSnippetCOG9 in line and endSnippet in line:
             lineNum = int(line.split(".java:")[1].split(":")[0])
 
-            for i in range(0, len(allSnippetNums[5]) - 1, 2):
-                if allSnippetNums[5][i] <= lineNum and allSnippetNums[5][i + 1] > lineNum:
+            for i in range(0, len(allSnippetNums[7]) - 1, 2):
+                if allSnippetNums[7][i] <= lineNum and allSnippetNums[7][i + 1] > lineNum:
                     data["Snippet"].append(f"9_gc -- {str((i + 2) // 2)}")
-                elif allSnippetNums[6][i] <= lineNum and allSnippetNums[6][i + 1] > lineNum:
+                elif allSnippetNums[8][i] <= lineNum and allSnippetNums[8][i + 1] > lineNum:
                     data["Snippet"].append(f"9_bc -- {str((i + 2) // 2)}")
-                elif allSnippetNums[7][i] <= lineNum and allSnippetNums[7][i + 1] > lineNum:
+                elif allSnippetNums[9][i] <= lineNum and allSnippetNums[9][i + 1] > lineNum:
                     data["Snippet"].append(f"9_nc -- {str((i + 2) // 2)}")
                 else:
                     continue
@@ -396,7 +478,7 @@ def handleOpenJMLTimeouts(openJMLTimeouts, allAnalysisToolDFS, handleType):
 
         # for dataset, compute the max number of warnings, and create a dictionary with these max values
         # { "ds" : max_value}
-        maxNumWarnings = {"1": 0,"2": 0,"3": 0,"6": 0,"9_bc": 0,"9_gc": 0,"9_nc": 0,"f": 0}
+        maxNumWarnings = {"1": 0,"2": 0,"3": 0,"6": 0,"9_bc": 0,"9_gc": 0,"9_nc": 0,"f": 0, "63": 0, "8": 0}
         findMaxNumWarnings(openJMLDF, maxNumWarnings)
         print(f"maxNumWarnings: {maxNumWarnings}")
 

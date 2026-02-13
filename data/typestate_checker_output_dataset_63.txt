@@ -1,0 +1,1589 @@
+dataset63/src/main/java/ATunes.java:322: warning: Cannot call newInstance on null
+                return cls.getDeclaredConstructor().newInstance();
+                                                   ^
+dataset63/src/main/java/ATunes.java:277: warning: Cannot access [java.awt.Font.PLAIN]
+        public Font font = new Font("Arial", Font.PLAIN, 12);
+                                                 ^
+dataset63/src/main/java/ATunes.java:135: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Integer}
+                return -o1.getValue().compareTo(o2.getValue());
+                                                           ^
+dataset63/src/main/java/ATunes.java:135: warning: Cannot call compareTo on null
+                return -o1.getValue().compareTo(o2.getValue());
+                                     ^
+dataset63/src/main/java/ATunes.java:133: warning: Parameter [o1] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.util.Map.Entry})
+            public int compare(final Entry<T, Integer> o1,
+                       ^
+dataset63/src/main/java/ATunes.java:133: warning: Parameter [o2] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.util.Map.Entry})
+            public int compare(final Entry<T, Integer> o1,
+                       ^
+dataset63/src/main/java/ATunes.java:107: warning: Unsafe cast
+        Element element = (Element) xml.getElementsByTagName("latest").item(0);
+                          ^
+dataset63/src/main/java/ATunes.java:88: warning: Unsafe cast
+        FontSettings other = (FontSettings) obj;
+                             ^
+dataset63/src/main/java/ATunes.java:160: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{ATunes.AbstractActionOverSelectedTreeObjects} | Null
+            AbstractActionOverSelectedTreeObjects<IFolder> openFolder = getBeanFactory()
+                                                           ^
+dataset63/src/main/java/ATunes.java:51: warning: Cannot assign because [c.gridy] is not accessible here
+        c.gridy = 2;
+                ^
+dataset63/src/main/java/ATunes.java:152: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{ATunes.SetAsPlayListAction} | Null
+            SetAsPlayListAction setAsPlayListAction = getBeanFactory().getBean(
+                                ^
+dataset63/src/main/java/ATunes.java:42: warning: Cannot assign because [c.gridy] is not accessible here
+        c.gridy = 0;
+                ^
+dataset63/src/main/java/ATunes.java:162: warning: Cannot access [ATunes.OpenFolderFromNavigatorTreeAction.class]
+                            OpenFolderFromNavigatorTreeAction.class);
+                                                             ^
+dataset63/src/main/java/ATunes.java:186: warning: Cannot access [ATunes.FillDeviceWithRandomSongsAction.class]
+                    FillDeviceWithRandomSongsAction.class));
+                                                   ^
+dataset63/src/main/java/ATunes.java:135: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Integer}
+                return -o1.getValue().compareTo(o2.getValue());
+                                                           ^
+dataset63/src/main/java/ATunes.java:45: warning: Cannot assign because [c.fill] is not accessible here
+        c.fill = GridBagConstraints.HORIZONTAL;
+               ^
+dataset63/src/main/java/ATunes.java:172: warning: Cannot access [ATunes.EditTitlesAction.class]
+                            EditTitlesAction.class);
+                                            ^
+dataset63/src/main/java/ATunes.java:56: warning: Cannot assign because [c.weighty] is not accessible here
+        c.weighty = 1;
+                  ^
+dataset63/src/main/java/ATunes.java:43: warning: Cannot assign because [c.weightx] is not accessible here
+        c.weightx = 1;
+                  ^
+dataset63/src/main/java/ATunes.java:57: warning: Cannot assign because [c.gridwidth] is not accessible here
+        c.gridwidth = 1;
+                    ^
+dataset63/src/main/java/ATunes.java:69: warning: Cannot assign because [c.anchor] is not accessible here
+        c.anchor = GridBagConstraints.CENTER;
+                 ^
+dataset63/src/main/java/ATunes.java:43: warning: Cannot access [c.weightx]
+        c.weightx = 1;
+         ^
+dataset63/src/main/java/ATunes.java:148: warning: Cannot access [ATunes.AddToPlayListAction.class]
+                            AddToPlayListAction.class);
+                                               ^
+dataset63/src/main/java/ATunes.java:124: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                VersionType.FINAL, "", url, directDownloadURL, changes);
+                                       ^
+dataset63/src/main/java/ATunes.java:44: warning: Cannot access [c.gridwidth]
+        c.gridwidth = 2;
+         ^
+dataset63/src/main/java/ATunes.java:59: warning: Cannot assign because [c.insets] is not accessible here
+        c.insets = new Insets(5, 5, 5, 5);
+                 ^
+dataset63/src/main/java/ATunes.java:45: warning: Cannot access [c.fill]
+        c.fill = GridBagConstraints.HORIZONTAL;
+         ^
+dataset63/src/main/java/ATunes.java:281: warning: Cannot access [java.awt.Font.PLAIN]
+    public Font font = new Font("Arial", Font.PLAIN, 12);
+                                             ^
+dataset63/src/main/java/ATunes.java:41: warning: Cannot assign because [c.gridx] is not accessible here
+        c.gridx = 0;
+                ^
+dataset63/src/main/java/ATunes.java:48: warning: Cannot assign because [c.gridy] is not accessible here
+        c.gridy = 1;
+                ^
+dataset63/src/main/java/ATunes.java:53: warning: Cannot assign because [c.gridx] is not accessible here
+        c.gridx = 0;
+                ^
+dataset63/src/main/java/ATunes.java:67: warning: Cannot assign because [c.weighty] is not accessible here
+        c.weighty = 0;
+                  ^
+dataset63/src/main/java/ATunes.java:277: warning: Cannot access [java.awt.Font.PLAIN]
+        public Font font = new Font("Arial", Font.PLAIN, 12);
+                                                 ^
+dataset63/src/main/java/ATunes.java:190: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{javax.swing.Action}
+            this.deviceTreeMenu.add(getBeanFactory().getBean(
+                                                            ^
+dataset63/src/main/java/ATunes.java:66: warning: Cannot assign because [c.gridwidth] is not accessible here
+        c.gridwidth = 2;
+                    ^
+dataset63/src/main/java/ATunes.java:68: warning: Cannot access [java.awt.GridBagConstraints.NONE]
+        c.fill = GridBagConstraints.NONE;
+                                   ^
+dataset63/src/main/java/ATunes.java:99: warning: Cannot access [other.useFontSmoothingSettingsFromOs]
+        if (this.useFontSmoothingSettingsFromOs != other.useFontSmoothingSettingsFromOs) {
+                                                        ^
+dataset63/src/main/java/ATunes.java:146: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{ATunes.AbstractActionOverSelectedObjects} | Null
+            AbstractActionOverSelectedObjects<IAudioObject> addToPlayListAction = getBeanFactory()
+                                                            ^
+dataset63/src/main/java/ATunes.java:54: warning: Cannot assign because [c.gridy] is not accessible here
+        c.gridy = 3;
+                ^
+dataset63/src/main/java/ATunes.java:58: warning: Cannot assign because [c.fill] is not accessible here
+        c.fill = GridBagConstraints.BOTH;
+               ^
+dataset63/src/main/java/ATunes.java:170: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{ATunes.AbstractActionOverSelectedTreeObjects} | Null
+            AbstractActionOverSelectedTreeObjects<IAlbum> editTitles = getBeanFactory()
+                                                          ^
+dataset63/src/main/java/ATunes.java:58: warning: Cannot access [java.awt.GridBagConstraints.BOTH]
+        c.fill = GridBagConstraints.BOTH;
+                                   ^
+dataset63/src/main/java/ATunes.java:108: warning: Incompatible parameter: cannot cast from Shared{org.w3c.dom.Element} | Null to Shared{org.w3c.dom.Element}
+        String date = XMLUtils.getChildElementContent(element, "date");
+                                                      ^
+dataset63/src/main/java/ATunes.java:130: warning: Incompatible parameter: cannot cast from Shared{java.util.Set} | Null to Shared{java.util.Collection}
+                this.count.entrySet());
+                                   ^
+dataset63/src/main/java/ATunes.java:189: warning: Cannot access [ATunes.SearchArtistAction.class]
+                    SearchArtistAction.class));
+                                      ^
+dataset63/src/main/java/ATunes.java:49: warning: Cannot assign because [c.insets] is not accessible here
+        c.insets = new Insets(5, 30, 5, 30);
+                 ^
+dataset63/src/main/java/ATunes.java:90: warning: Cannot access [other.font]
+            if (other.font != null) {
+                     ^
+dataset63/src/main/java/ATunes.java:46: warning: Cannot assign because [c.insets] is not accessible here
+        c.insets = new Insets(10, 10, 10, 10);
+                 ^
+dataset63/src/main/java/ATunes.java:93: warning: Cannot access [other.font]
+        } else if (!this.font.equals(other.font)) {
+                                          ^
+dataset63/src/main/java/ATunes.java:107: warning: Cannot call item on null
+        Element element = (Element) xml.getElementsByTagName("latest").item(0);
+                                                                      ^
+dataset63/src/main/java/ATunes.java:68: warning: Cannot assign because [c.fill] is not accessible here
+        c.fill = GridBagConstraints.NONE;
+               ^
+dataset63/src/main/java/ATunes.java:181: warning: Cannot access [ATunes.CopyToRepositoryAction.class]
+                    .getBean(CopyToRepositoryAction.class);
+                                                   ^
+dataset63/src/main/java/ATunes.java:135: warning: Cannot call compareTo on null
+                return -o1.getValue().compareTo(o2.getValue());
+                                     ^
+dataset63/src/main/java/ATunes.java:188: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{javax.swing.Action}
+            this.deviceTreeMenu.add(getBeanFactory().getBean(
+                                                            ^
+dataset63/src/main/java/ATunes.java:64: warning: Cannot assign because [c.gridx] is not accessible here
+        c.gridx = 0;
+                ^
+dataset63/src/main/java/ATunes.java:185: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{javax.swing.Action}
+            this.deviceTreeMenu.add(getBeanFactory().getBean(
+                                                            ^
+dataset63/src/main/java/ATunes.java:44: warning: Cannot assign because [c.gridwidth] is not accessible here
+        c.gridwidth = 2;
+                    ^
+dataset63/src/main/java/ATunes.java:191: warning: Cannot access [ATunes.SearchArtistAtAction.class]
+                    SearchArtistAtAction.class));
+                                        ^
+dataset63/src/main/java/ATunes.java:56: warning: Cannot access [c.weighty]
+        c.weighty = 1;
+         ^
+dataset63/src/main/java/ATunes.java:69: warning: Cannot access [c.anchor]
+        c.anchor = GridBagConstraints.CENTER;
+         ^
+dataset63/src/main/java/ATunes.java:45: warning: Cannot access [java.awt.GridBagConstraints.HORIZONTAL]
+        c.fill = GridBagConstraints.HORIZONTAL;
+                                   ^
+dataset63/src/main/java/ATunes.java:145: warning: Cannot assign because [this.deviceTreeMenu] is not accessible here
+            this.deviceTreeMenu = new JPopupMenu();
+                                ^
+dataset63/src/main/java/ATunes.java:55: warning: Cannot assign because [c.weightx] is not accessible here
+        c.weightx = 0.7;
+                  ^
+dataset63/src/main/java/ATunes.java:177: warning: Cannot access [ATunes.RemoveFromDiskAction.class]
+                    RemoveFromDiskAction.class));
+                                        ^
+dataset63/src/main/java/ATunes.java:154: warning: Cannot access [ATunes.SetAsPlayListAction.class]
+                    SetAsPlayListAction.class);
+                                       ^
+dataset63/src/main/java/ATunes.java:180: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{ATunes.CopyToRepositoryAction} | Null
+            CopyToRepositoryAction copyToRepositoryAction = getBeanFactory()
+                                   ^
+dataset63/src/main/java/ATunes.java:70: warning: Cannot assign because [c.insets] is not accessible here
+        c.insets = new Insets(10, 10, 10, 10);
+                 ^
+dataset63/src/main/java/ATunes.java:96: warning: Cannot access [other.useFontSmoothing]
+        if (this.useFontSmoothing != other.useFontSmoothing) {
+                                          ^
+dataset63/src/main/java/ATunes.java:322: warning: Cannot call newInstance on null
+                return cls.getDeclaredConstructor().newInstance();
+                                                   ^
+dataset63/src/main/java/ATunes.java:46: warning: Cannot access [c.insets]
+        c.insets = new Insets(10, 10, 10, 10);
+         ^
+dataset63/src/main/java/ATunes.java:65: warning: Cannot assign because [c.gridy] is not accessible here
+        c.gridy = 4;
+                ^
+dataset63/src/main/java/ATunes.java:42: warning: Cannot access [c.gridy]
+        c.gridy = 0;
+         ^
+dataset63/src/main/java/ATunes.java:176: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{javax.swing.Action}
+            this.deviceTreeMenu.add(getBeanFactory().getBean(
+                                                            ^
+dataset63/src/main/java/ATunes.java:61: warning: Cannot assign because [c.gridx] is not accessible here
+        c.gridx = 1;
+                ^
+dataset63/src/main/java/ATunes.java:41: warning: Cannot access [c.gridx]
+        c.gridx = 0;
+         ^
+dataset63/src/main/java/ATunes.java:62: warning: Cannot assign because [c.weightx] is not accessible here
+        c.weightx = 0.3;
+                  ^
+dataset63/src/main/java/ATunes.java:69: warning: Cannot access [java.awt.GridBagConstraints.CENTER]
+        c.anchor = GridBagConstraints.CENTER;
+                                     ^
+dataset63/src/main/java/ATunes.java:78: warning: Parameter [obj] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.lang.Object})
+    public boolean equals(final Object obj) {
+                   ^
+dataset63/src/main/java/MegaMek.java:827: warning: Cannot access [MegaMek.Entity.ETYPE_CONV_FIGHTER]
+        int getEntityType() { return Entity.ETYPE_CONV_FIGHTER; }
+                                           ^
+dataset63/src/main/java/MegaMek.java:823: warning: Cannot assign because [this.HEAT_SINGLE] is not accessible here
+        static final int HEAT_SINGLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:824: warning: Cannot assign because [this.HEAT_DOUBLE] is not accessible here
+        static final int HEAT_DOUBLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:826: warning: Cannot access [MegaMek.Aero.HEAT_SINGLE]
+        int getHeatType() { return HEAT_SINGLE; }
+                                   ^
+dataset63/src/main/java/MegaMek.java:824: warning: The previous value of [this.HEAT_DOUBLE] did not complete its protocol (found: Unknown)
+        static final int HEAT_DOUBLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:823: warning: The previous value of [this.HEAT_SINGLE] did not complete its protocol (found: Unknown)
+        static final int HEAT_SINGLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:815: warning: Cannot assign because [this.RANGE_SHORT] is not accessible here
+        static final int RANGE_SHORT = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:815: warning: The previous value of [this.RANGE_SHORT] did not complete its protocol (found: Unknown)
+        static final int RANGE_SHORT = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:795: warning: Cannot assign because [this.M_CLUSTER] is not accessible here
+        static final int M_CLUSTER = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:801: warning: Cannot assign because [this.T_MML] is not accessible here
+        static final int T_MML = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:806: warning: Cannot assign because [this.F_AR10_WHITE_SHARK] is not accessible here
+        static final int F_AR10_WHITE_SHARK = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:804: warning: Cannot assign because [this.F_MML_LRM] is not accessible here
+        static final int F_MML_LRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:799: warning: Cannot assign because [this.T_SRM] is not accessible here
+        static final int T_SRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:794: warning: Cannot assign because [this.M_ARTEMIS_V_CAPABLE] is not accessible here
+        static final int M_ARTEMIS_V_CAPABLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:805: warning: Cannot assign because [this.F_AR10_KILLER_WHALE] is not accessible here
+        static final int F_AR10_KILLER_WHALE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:797: warning: Cannot assign because [this.M_HIGH_EXPLOSIVE] is not accessible here
+        static final int M_HIGH_EXPLOSIVE = 5;
+                         ^
+dataset63/src/main/java/MegaMek.java:793: warning: Cannot assign because [this.M_ARTEMIS_CAPABLE] is not accessible here
+        static final int M_ARTEMIS_CAPABLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:800: warning: Cannot assign because [this.T_ATM] is not accessible here
+        static final int T_ATM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:802: warning: Cannot assign because [this.T_AR10] is not accessible here
+        static final int T_AR10 = 4;
+                         ^
+dataset63/src/main/java/MegaMek.java:796: warning: Cannot assign because [this.M_EXTENDED_RANGE] is not accessible here
+        static final int M_EXTENDED_RANGE = 4;
+                         ^
+dataset63/src/main/java/MegaMek.java:795: warning: The previous value of [this.M_CLUSTER] did not complete its protocol (found: Unknown)
+        static final int M_CLUSTER = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:804: warning: The previous value of [this.F_MML_LRM] did not complete its protocol (found: Unknown)
+        static final int F_MML_LRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:793: warning: The previous value of [this.M_ARTEMIS_CAPABLE] did not complete its protocol (found: Unknown)
+        static final int M_ARTEMIS_CAPABLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:800: warning: The previous value of [this.T_ATM] did not complete its protocol (found: Unknown)
+        static final int T_ATM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:801: warning: The previous value of [this.T_MML] did not complete its protocol (found: Unknown)
+        static final int T_MML = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:806: warning: The previous value of [this.F_AR10_WHITE_SHARK] did not complete its protocol (found: Unknown)
+        static final int F_AR10_WHITE_SHARK = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:799: warning: The previous value of [this.T_SRM] did not complete its protocol (found: Unknown)
+        static final int T_SRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:794: warning: The previous value of [this.M_ARTEMIS_V_CAPABLE] did not complete its protocol (found: Unknown)
+        static final int M_ARTEMIS_V_CAPABLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:805: warning: The previous value of [this.F_AR10_KILLER_WHALE] did not complete its protocol (found: Unknown)
+        static final int F_AR10_KILLER_WHALE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:797: warning: The previous value of [this.M_HIGH_EXPLOSIVE] did not complete its protocol (found: Unknown)
+        static final int M_HIGH_EXPLOSIVE = 5;
+                         ^
+dataset63/src/main/java/MegaMek.java:802: warning: The previous value of [this.T_AR10] did not complete its protocol (found: Unknown)
+        static final int T_AR10 = 4;
+                         ^
+dataset63/src/main/java/MegaMek.java:796: warning: The previous value of [this.M_EXTENDED_RANGE] did not complete its protocol (found: Unknown)
+        static final int M_EXTENDED_RANGE = 4;
+                         ^
+dataset63/src/main/java/MegaMek.java:789: warning: Cannot assign because [this.F_ARTEMIS_V] is not accessible here
+        static final int F_ARTEMIS_V = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:788: warning: Cannot assign because [this.F_ARTEMIS] is not accessible here
+        static final int F_ARTEMIS = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:788: warning: The previous value of [this.F_ARTEMIS] did not complete its protocol (found: Unknown)
+        static final int F_ARTEMIS = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:789: warning: The previous value of [this.F_ARTEMIS_V] did not complete its protocol (found: Unknown)
+        static final int F_ARTEMIS_V = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:684: warning: Incompatible return value: cannot cast from Primitive{int} to Shared{java.lang.Object}
+        Object getObject(int index) { return index; }
+                                      ^
+dataset63/src/main/java/MegaMek.java:680: warning: Cannot assign because [this.COMMAND_CLOSE_CONNECTION] is not accessible here
+        static final int COMMAND_CLOSE_CONNECTION = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:679: warning: Cannot assign because [this.COMMAND_ENTITY_DEPLOY] is not accessible here
+        static final int COMMAND_ENTITY_DEPLOY = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:680: warning: The previous value of [this.COMMAND_CLOSE_CONNECTION] did not complete its protocol (found: Unknown)
+        static final int COMMAND_CLOSE_CONNECTION = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:679: warning: The previous value of [this.COMMAND_ENTITY_DEPLOY] did not complete its protocol (found: Unknown)
+        static final int COMMAND_ENTITY_DEPLOY = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:630: warning: Cannot assign because [this.QUIRK_NEG_NO_ARMS] is not accessible here
+        static final String QUIRK_NEG_NO_ARMS = "QUIRK_NEG_NO_ARMS";
+                            ^
+dataset63/src/main/java/MegaMek.java:630: warning: The previous value of [this.QUIRK_NEG_NO_ARMS] did not complete its protocol (found: Unknown)
+        static final String QUIRK_NEG_NO_ARMS = "QUIRK_NEG_NO_ARMS";
+                            ^
+dataset63/src/main/java/MegaMek.java:616: warning: Cannot assign because [this.ACTUATOR_HAND] is not accessible here
+        static final String ACTUATOR_HAND = "ACTUATOR_HAND";
+                            ^
+dataset63/src/main/java/MegaMek.java:618: warning: Cannot assign because [this.LOC_RARM] is not accessible here
+        static final int LOC_RARM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:619: warning: Cannot assign because [this.LOC_LARM] is not accessible here
+        static final int LOC_LARM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:615: warning: Cannot assign because [this.ACTUATOR_SHOULDER] is not accessible here
+        static final String ACTUATOR_SHOULDER = "ACTUATOR_SHOULDER";
+                            ^
+dataset63/src/main/java/MegaMek.java:619: warning: The previous value of [this.LOC_LARM] did not complete its protocol (found: Unknown)
+        static final int LOC_LARM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:615: warning: The previous value of [this.ACTUATOR_SHOULDER] did not complete its protocol (found: Unknown)
+        static final String ACTUATOR_SHOULDER = "ACTUATOR_SHOULDER";
+                            ^
+dataset63/src/main/java/MegaMek.java:616: warning: The previous value of [this.ACTUATOR_HAND] did not complete its protocol (found: Unknown)
+        static final String ACTUATOR_HAND = "ACTUATOR_HAND";
+                            ^
+dataset63/src/main/java/MegaMek.java:618: warning: The previous value of [this.LOC_RARM] did not complete its protocol (found: Unknown)
+        static final int LOC_RARM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:568: warning: Cannot assign because [this.NONE] is not accessible here
+        static final Entity NONE = new Entity();
+                            ^
+dataset63/src/main/java/MegaMek.java:569: warning: Cannot assign because [this.ETYPE_CONV_FIGHTER] is not accessible here
+        static final int ETYPE_CONV_FIGHTER = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:568: warning: The previous value of [this.NONE] did not complete its protocol (found: Unknown)
+        static final Entity NONE = new Entity();
+                            ^
+dataset63/src/main/java/MegaMek.java:569: warning: The previous value of [this.ETYPE_CONV_FIGHTER] did not complete its protocol (found: Unknown)
+        static final int ETYPE_CONV_FIGHTER = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:555: warning: Cannot assign because [this.PUBLIC] is not accessible here
+        static final int PUBLIC = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:555: warning: The previous value of [this.PUBLIC] did not complete its protocol (found: Unknown)
+        static final int PUBLIC = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:522: warning: Cannot assign because [this.MEDIUM] is not accessible here
+        static final int MEDIUM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:522: warning: The previous value of [this.MEDIUM] did not complete its protocol (found: Unknown)
+        static final int MEDIUM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:188: warning: Unsafe cast
+            || (!entity.hasWorkingSystem(Mech.ACTUATOR_HAND, Mech.LOC_LARM) && !((Mech) entity)
+                                                                                 ^
+dataset63/src/main/java/MegaMek.java:340: warning: Unsafe cast
+        double damage = ((InfantryWeapon)wtype).getInfantryDamage();
+                         ^
+dataset63/src/main/java/MegaMek.java:464: warning: Unsafe cast
+        IPlayer newPlayer = (IPlayer) c.getObject(1);
+                            ^
+dataset63/src/main/java/MegaMek.java:186: warning: Unsafe cast
+            || (!entity.hasWorkingSystem(Mech.ACTUATOR_HAND, Mech.LOC_RARM) && !((Mech) entity)
+                                                                                 ^
+dataset63/src/main/java/MegaMek.java:263: warning: Unsafe cast
+                ((KeyEvent) event).consume();
+                 ^
+dataset63/src/main/java/MegaMek.java:342: warning: Unsafe cast
+            damage = ((Infantry)ae).getDamagePerTrooper();
+                      ^
+dataset63/src/main/java/MegaMek.java:262: warning: Unsafe cast
+            if ((SwingUtilities.windowForComponent((Component) source) == _window)) {
+                                                   ^
+dataset63/src/main/java/MegaMek.java:320: warning: Cannot call getWeightArmor on null
+            armorWeight += armor[0].getWeightArmor(getTotalOArmor(),
+                                   ^
+dataset63/src/main/java/MegaMek.java:184: warning: Cannot access [MegaMek.Mech.ACTUATOR_SHOULDER]
+            || !entity.hasWorkingSystem(Mech.ACTUATOR_SHOULDER,
+                                            ^
+dataset63/src/main/java/MegaMek.java:285: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                int kickedId = Integer.parseInt(args[kickArg]);
+                                                    ^
+dataset63/src/main/java/MegaMek.java:390: warning: Cannot access [MegaMek.MiscType.F_ARTEMIS_V]
+                MiscType.F_ARTEMIS_V))
+                        ^
+dataset63/src/main/java/MegaMek.java:719: warning: Incompatible parameter: cannot cast from Null to Shared{java.awt.Frame}
+    public Window _window = new Window(null) {}; // dummy assignment
+                                       ^
+dataset63/src/main/java/MegaMek.java:378: warning: Cannot access [MegaMek.MiscType.F_ARTEMIS]
+                MiscType.F_ARTEMIS))
+                        ^
+dataset63/src/main/java/MegaMek.java:150: warning: Cannot access [MegaMek.Packet.COMMAND_ENTITY_DEPLOY]
+        send(new Packet(Packet.COMMAND_ENTITY_DEPLOY, data));
+                              ^
+dataset63/src/main/java/MegaMek.java:89: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+            IOption option = entity.getCrew().getOptions().getOption(curAdv);
+                                                                     ^
+dataset63/src/main/java/MegaMek.java:684: warning: Incompatible return value: cannot cast from Primitive{int} to Shared{java.lang.Object}
+        Object getObject(int index) { return index; }
+                                      ^
+dataset63/src/main/java/MegaMek.java:177: warning: Cannot access [MegaMek.Building.MEDIUM]
+            && (hex.terrainLevel(Terrains.RUBBLE) < Building.MEDIUM)
+                                                            ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call hasNext on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:183: warning: Cannot access [MegaMek.Mech.ACTUATOR_SHOULDER]
+        if (!entity.hasWorkingSystem(Mech.ACTUATOR_SHOULDER, Mech.LOC_RARM)
+                                         ^
+dataset63/src/main/java/MegaMek.java:795: warning: Cannot assign because [this.M_CLUSTER] is not accessible here
+        static final int M_CLUSTER = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:417: warning: Cannot access [MegaMek.AmmoType.F_AR10_KILLER_WHALE]
+            if (atype.hasFlag(AmmoType.F_AR10_KILLER_WHALE)) {
+                                      ^
+dataset63/src/main/java/MegaMek.java:619: warning: Cannot assign because [this.LOC_LARM] is not accessible here
+        static final int LOC_LARM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:804: warning: Cannot assign because [this.F_MML_LRM] is not accessible here
+        static final int F_MML_LRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:356: warning: Cannot access [MegaMek.MEK_HIT_LOC_LOG]
+        String name = store.getString(MEK_HIT_LOC_LOG);
+                                      ^
+dataset63/src/main/java/MegaMek.java:410: warning: Cannot access [MegaMek.AmmoType.T_MML]
+        } else if (atype.getAmmoType() == AmmoType.T_MML
+                                                  ^
+dataset63/src/main/java/MegaMek.java:827: warning: Cannot access [MegaMek.Entity.ETYPE_CONV_FIGHTER]
+        int getEntityType() { return Entity.ETYPE_CONV_FIGHTER; }
+                                           ^
+dataset63/src/main/java/MegaMek.java:788: warning: Cannot assign because [this.F_ARTEMIS] is not accessible here
+        static final int F_ARTEMIS = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:402: warning: Cannot access [MegaMek.AmmoType.M_EXTENDED_RANGE]
+            if (atype.getMunitionType() == AmmoType.M_EXTENDED_RANGE) {
+                                                   ^
+dataset63/src/main/java/MegaMek.java:630: warning: Cannot assign because [this.QUIRK_NEG_NO_ARMS] is not accessible here
+        static final String QUIRK_NEG_NO_ARMS = "QUIRK_NEG_NO_ARMS";
+                            ^
+dataset63/src/main/java/MegaMek.java:431: warning: Cannot access [MegaMek.Aero.HEAT_DOUBLE]
+                && (aero.getHeatType() != Aero.HEAT_DOUBLE)) {
+                                              ^
+dataset63/src/main/java/MegaMek.java:416: warning: Cannot access [MegaMek.AmmoType.T_AR10]
+        } else if (atype.getAmmoType() == AmmoType.T_AR10) {
+                                                  ^
+dataset63/src/main/java/MegaMek.java:824: warning: Cannot assign because [this.HEAT_DOUBLE] is not accessible here
+        static final int HEAT_DOUBLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:793: warning: Cannot assign because [this.M_ARTEMIS_CAPABLE] is not accessible here
+        static final int M_ARTEMIS_CAPABLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:329: warning: Cannot call getWeightArmor on null
+                armorWeight += armor[i].getWeightArmor(points,
+                                       ^
+dataset63/src/main/java/MegaMek.java:238: warning: Cannot assign because [this.troopers] is not accessible here
+        troopers = Entity.NONE.getId(); // Changed to allow compilation (added getId())
+                 ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call intValue on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:359: warning: Cannot assign because [this.mekHitLocLog] is not accessible here
+                mekHitLocLog = new PrintWriter(new BufferedWriter(
+                             ^
+dataset63/src/main/java/MegaMek.java:846: warning: Incompatible return value: cannot cast from Primitive{int} to Shared{java.lang.Object}
+        return id;
+        ^
+dataset63/src/main/java/MegaMek.java:615: warning: Cannot assign because [this.ACTUATOR_SHOULDER] is not accessible here
+        static final String ACTUATOR_SHOULDER = "ACTUATOR_SHOULDER";
+                            ^
+dataset63/src/main/java/MegaMek.java:826: warning: Cannot access [MegaMek.Aero.HEAT_SINGLE]
+        int getHeatType() { return HEAT_SINGLE; }
+                                   ^
+dataset63/src/main/java/MegaMek.java:433: warning: Cannot access [MegaMek.Aero.HEAT_SINGLE]
+                    + Aero.HEAT_SINGLE + " and " + Aero.HEAT_DOUBLE
+                          ^
+dataset63/src/main/java/MegaMek.java:800: warning: Cannot assign because [this.T_ATM] is not accessible here
+        static final int T_ATM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call iterator on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:35: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Integer} | Null
+        for (Integer killer : killsTeam.keySet()){
+                     ^
+dataset63/src/main/java/MegaMek.java:189: warning: Cannot access [MegaMek.Mech.LOC_LARM]
+                .hasClaw(Mech.LOC_LARM))) {
+                             ^
+dataset63/src/main/java/MegaMek.java:437: warning: Cannot access [MegaMek.Entity.ETYPE_CONV_FIGHTER]
+        if (aero.getEntityType() == Entity.ETYPE_CONV_FIGHTER){
+                                          ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call intValue on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:440: warning: Cannot access [MegaMek.Aero.HEAT_DOUBLE]
+            if (aero.getHeatType() == Aero.HEAT_DOUBLE){
+                                          ^
+dataset63/src/main/java/MegaMek.java:413: warning: Cannot access [MegaMek.WeaponType.RANGE_SHORT]
+            if (range > WeaponType.RANGE_SHORT) {
+                                  ^
+dataset63/src/main/java/MegaMek.java:279: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                && (args.length < 3 || !server.isPassword(args[1]))) {
+                                                              ^
+dataset63/src/main/java/MegaMek.java:522: warning: Cannot assign because [this.MEDIUM] is not accessible here
+        static final int MEDIUM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:188: warning: Cannot access [MegaMek.Mech.LOC_LARM]
+            || (!entity.hasWorkingSystem(Mech.ACTUATOR_HAND, Mech.LOC_LARM) && !((Mech) entity)
+                                                                 ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call iterator on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:85: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                curParameter = Integer.parseInt(curParam);
+                                                ^
+dataset63/src/main/java/MegaMek.java:406: warning: Cannot access [MegaMek.WeaponType.RANGE_SHORT]
+                if (range > WeaponType.RANGE_SHORT) {
+                                      ^
+dataset63/src/main/java/MegaMek.java:80: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                    curAdv, ":");
+                    ^
+dataset63/src/main/java/MegaMek.java:391: warning: Cannot access [MegaMek.AmmoType.M_ARTEMIS_V_CAPABLE]
+                && (atype.getMunitionType() == AmmoType.M_ARTEMIS_V_CAPABLE)) {
+                                                       ^
+dataset63/src/main/java/MegaMek.java:693: warning: Cannot access [MegaMek.IGame.class]
+    public IGame game = IGame.class.cast(new Object()); // dummy assignment
+                             ^
+dataset63/src/main/java/MegaMek.java:42: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Integer} | Null
+        for (Integer killer : killsPlayer.keySet()){
+                     ^
+dataset63/src/main/java/MegaMek.java:616: warning: Cannot assign because [this.ACTUATOR_HAND] is not accessible here
+        static final String ACTUATOR_HAND = "ACTUATOR_HAND";
+                            ^
+dataset63/src/main/java/MegaMek.java:238: warning: Cannot access [MegaMek.Entity.NONE]
+        troopers = Entity.NONE.getId(); // Changed to allow compilation (added getId())
+                         ^
+dataset63/src/main/java/MegaMek.java:246: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{MegaMek.IPlayer} | Null
+            IPlayer other = f.nextElement();
+                    ^
+dataset63/src/main/java/MegaMek.java:789: warning: Cannot assign because [this.F_ARTEMIS_V] is not accessible here
+        static final int F_ARTEMIS_V = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:618: warning: Cannot assign because [this.LOC_RARM] is not accessible here
+        static final int LOC_RARM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:680: warning: Cannot assign because [this.COMMAND_CLOSE_CONNECTION] is not accessible here
+        static final int COMMAND_CLOSE_CONNECTION = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:146: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{MegaMek.Entity} | Null
+        for (Entity ent : loadedUnits) {
+                    ^
+dataset63/src/main/java/MegaMek.java:208: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{MegaMek.IPlayer} | Null
+            final IPlayer player = i.nextElement();
+                          ^
+dataset63/src/main/java/MegaMek.java:801: warning: Cannot assign because [this.T_MML] is not accessible here
+        static final int T_MML = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:806: warning: Cannot assign because [this.F_AR10_WHITE_SHARK] is not accessible here
+        static final int F_AR10_WHITE_SHARK = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:187: warning: Cannot access [MegaMek.Mech.LOC_RARM]
+                .hasClaw(Mech.LOC_RARM))
+                             ^
+dataset63/src/main/java/MegaMek.java:799: warning: Cannot assign because [this.T_SRM] is not accessible here
+        static final int T_SRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:433: warning: Cannot access [MegaMek.Aero.HEAT_DOUBLE]
+                    + Aero.HEAT_SINGLE + " and " + Aero.HEAT_DOUBLE
+                                                       ^
+dataset63/src/main/java/MegaMek.java:794: warning: Cannot assign because [this.M_ARTEMIS_V_CAPABLE] is not accessible here
+        static final int M_ARTEMIS_V_CAPABLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:805: warning: Cannot assign because [this.F_AR10_KILLER_WHALE] is not accessible here
+        static final int F_AR10_KILLER_WHALE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:296: warning: Cannot access [MegaMek.Packet.COMMAND_CLOSE_CONNECTION]
+                server.send(kickedId, new Packet(Packet.COMMAND_CLOSE_CONNECTION));
+                                                       ^
+dataset63/src/main/java/MegaMek.java:399: warning: Cannot access [MegaMek.AmmoType.M_CLUSTER]
+        if (atype.getMunitionType() == AmmoType.M_CLUSTER) {
+                                               ^
+dataset63/src/main/java/MegaMek.java:693: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{MegaMek.IGame}
+    public IGame game = IGame.class.cast(new Object()); // dummy assignment
+                 ^
+dataset63/src/main/java/MegaMek.java:186: warning: Cannot access [MegaMek.Mech.ACTUATOR_HAND]
+            || (!entity.hasWorkingSystem(Mech.ACTUATOR_HAND, Mech.LOC_RARM) && !((Mech) entity)
+                                             ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call hasNext on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:763: warning: Cannot assign because [this.MEK_HIT_LOC_LOG] is not accessible here
+    public static final String MEK_HIT_LOC_LOG = "mekHitLocLog";
+                               ^
+dataset63/src/main/java/MegaMek.java:404: warning: Cannot access [MegaMek.AmmoType.M_HIGH_EXPLOSIVE]
+            } else if (atype.getMunitionType() == AmmoType.M_HIGH_EXPLOSIVE) {
+                                                          ^
+dataset63/src/main/java/MegaMek.java:555: warning: Cannot assign because [this.PUBLIC] is not accessible here
+        static final int PUBLIC = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:401: warning: Cannot access [MegaMek.AmmoType.T_ATM]
+        } else if (AmmoType.T_ATM == atype.getAmmoType()) {
+                           ^
+dataset63/src/main/java/MegaMek.java:381: warning: Cannot access [MegaMek.AmmoType.T_SRM]
+            if (atype.getAmmoType() == AmmoType.T_SRM) {
+                                               ^
+dataset63/src/main/java/MegaMek.java:823: warning: Cannot assign because [this.HEAT_SINGLE] is not accessible here
+        static final int HEAT_SINGLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:188: warning: Cannot access [MegaMek.Mech.ACTUATOR_HAND]
+            || (!entity.hasWorkingSystem(Mech.ACTUATOR_HAND, Mech.LOC_LARM) && !((Mech) entity)
+                                             ^
+dataset63/src/main/java/MegaMek.java:568: warning: Cannot assign because [this.NONE] is not accessible here
+        static final Entity NONE = new Entity();
+                            ^
+dataset63/src/main/java/MegaMek.java:797: warning: Cannot assign because [this.M_HIGH_EXPLOSIVE] is not accessible here
+        static final int M_HIGH_EXPLOSIVE = 5;
+                         ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call intValue on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:679: warning: Cannot assign because [this.COMMAND_ENTITY_DEPLOY] is not accessible here
+        static final int COMMAND_ENTITY_DEPLOY = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:411: warning: Cannot access [MegaMek.AmmoType.F_MML_LRM]
+                && !atype.hasFlag(AmmoType.F_MML_LRM)) {
+                                          ^
+dataset63/src/main/java/MegaMek.java:419: warning: Cannot access [MegaMek.AmmoType.F_AR10_WHITE_SHARK]
+            } else if (atype.hasFlag(AmmoType.F_AR10_WHITE_SHARK)) {
+                                             ^
+dataset63/src/main/java/MegaMek.java:815: warning: Cannot assign because [this.RANGE_SHORT] is not accessible here
+        static final int RANGE_SHORT = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:1: warning: Incompatible parameter: cannot cast from Shared{java.lang.Integer} | Null to Shared{java.lang.Object}
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:379: warning: Cannot access [MegaMek.AmmoType.M_ARTEMIS_CAPABLE]
+                && atype.getMunitionType() == AmmoType.M_ARTEMIS_CAPABLE) {
+                                                      ^
+dataset63/src/main/java/MegaMek.java:1: warning: Cannot call intValue on null
+import java.awt.AWTEvent;
+^
+dataset63/src/main/java/MegaMek.java:569: warning: Cannot assign because [this.ETYPE_CONV_FIGHTER] is not accessible here
+        static final int ETYPE_CONV_FIGHTER = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:802: warning: Cannot assign because [this.T_AR10] is not accessible here
+        static final int T_AR10 = 4;
+                         ^
+dataset63/src/main/java/MegaMek.java:186: warning: Cannot access [MegaMek.Mech.LOC_RARM]
+            || (!entity.hasWorkingSystem(Mech.ACTUATOR_HAND, Mech.LOC_RARM) && !((Mech) entity)
+                                                                 ^
+dataset63/src/main/java/MegaMek.java:796: warning: Cannot assign because [this.M_EXTENDED_RANGE] is not accessible here
+        static final int M_EXTENDED_RANGE = 4;
+                         ^
+dataset63/src/main/java/MegaMek.java:183: warning: Cannot access [MegaMek.Mech.LOC_RARM]
+        if (!entity.hasWorkingSystem(Mech.ACTUATOR_SHOULDER, Mech.LOC_RARM)
+                                                                 ^
+dataset63/src/main/java/MegaMek.java:262: warning: Incompatible parameter: cannot cast from Shared{java.awt.Component} | Null to Shared{java.awt.Component}
+            if ((SwingUtilities.windowForComponent((Component) source) == _window)) {
+                                                               ^
+dataset63/src/main/java/MegaMek.java:51: warning: Cannot access [MegaMek.Report.PUBLIC]
+            Report r = new Report(7106, Report.PUBLIC);
+                                              ^
+dataset63/src/main/java/MegaMek.java:430: warning: Cannot access [MegaMek.Aero.HEAT_SINGLE]
+        if ((aero.getHeatType() != Aero.HEAT_SINGLE) 
+                                       ^
+dataset63/src/main/java/MegaMek.java:185: warning: Cannot access [MegaMek.Mech.LOC_LARM]
+                                        Mech.LOC_LARM)
+                                            ^
+dataset63/src/main/java/MegaMek.java:394: warning: Cannot access [MegaMek.AmmoType.T_SRM]
+            if (atype.getAmmoType() == AmmoType.T_SRM) {
+                                               ^
+dataset63/src/main/java/MegaMek.java:193: warning: Cannot access [MegaMek.OptionsConstants.QUIRK_NEG_NO_ARMS]
+        if (entity.hasQuirk(OptionsConstants.QUIRK_NEG_NO_ARMS)) {
+                                            ^
+dataset63/src/main/java/MegaMek.java:795: warning: The previous value of [this.M_CLUSTER] did not complete its protocol (found: Unknown)
+        static final int M_CLUSTER = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:619: warning: The previous value of [this.LOC_LARM] did not complete its protocol (found: Unknown)
+        static final int LOC_LARM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:804: warning: The previous value of [this.F_MML_LRM] did not complete its protocol (found: Unknown)
+        static final int F_MML_LRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:788: warning: The previous value of [this.F_ARTEMIS] did not complete its protocol (found: Unknown)
+        static final int F_ARTEMIS = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:630: warning: The previous value of [this.QUIRK_NEG_NO_ARMS] did not complete its protocol (found: Unknown)
+        static final String QUIRK_NEG_NO_ARMS = "QUIRK_NEG_NO_ARMS";
+                            ^
+dataset63/src/main/java/MegaMek.java:824: warning: The previous value of [this.HEAT_DOUBLE] did not complete its protocol (found: Unknown)
+        static final int HEAT_DOUBLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:800: warning: The previous value of [this.T_ATM] did not complete its protocol (found: Unknown)
+        static final int T_ATM = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:522: warning: The previous value of [this.MEDIUM] did not complete its protocol (found: Unknown)
+        static final int MEDIUM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:801: warning: The previous value of [this.T_MML] did not complete its protocol (found: Unknown)
+        static final int T_MML = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:555: warning: The previous value of [this.PUBLIC] did not complete its protocol (found: Unknown)
+        static final int PUBLIC = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:823: warning: The previous value of [this.HEAT_SINGLE] did not complete its protocol (found: Unknown)
+        static final int HEAT_SINGLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:568: warning: The previous value of [this.NONE] did not complete its protocol (found: Unknown)
+        static final Entity NONE = new Entity();
+                            ^
+dataset63/src/main/java/MegaMek.java:679: warning: The previous value of [this.COMMAND_ENTITY_DEPLOY] did not complete its protocol (found: Unknown)
+        static final int COMMAND_ENTITY_DEPLOY = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:569: warning: The previous value of [this.ETYPE_CONV_FIGHTER] did not complete its protocol (found: Unknown)
+        static final int ETYPE_CONV_FIGHTER = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:793: warning: The previous value of [this.M_ARTEMIS_CAPABLE] did not complete its protocol (found: Unknown)
+        static final int M_ARTEMIS_CAPABLE = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:615: warning: The previous value of [this.ACTUATOR_SHOULDER] did not complete its protocol (found: Unknown)
+        static final String ACTUATOR_SHOULDER = "ACTUATOR_SHOULDER";
+                            ^
+dataset63/src/main/java/MegaMek.java:616: warning: The previous value of [this.ACTUATOR_HAND] did not complete its protocol (found: Unknown)
+        static final String ACTUATOR_HAND = "ACTUATOR_HAND";
+                            ^
+dataset63/src/main/java/MegaMek.java:789: warning: The previous value of [this.F_ARTEMIS_V] did not complete its protocol (found: Unknown)
+        static final int F_ARTEMIS_V = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:618: warning: The previous value of [this.LOC_RARM] did not complete its protocol (found: Unknown)
+        static final int LOC_RARM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:680: warning: The previous value of [this.COMMAND_CLOSE_CONNECTION] did not complete its protocol (found: Unknown)
+        static final int COMMAND_CLOSE_CONNECTION = 0;
+                         ^
+dataset63/src/main/java/MegaMek.java:806: warning: The previous value of [this.F_AR10_WHITE_SHARK] did not complete its protocol (found: Unknown)
+        static final int F_AR10_WHITE_SHARK = 3;
+                         ^
+dataset63/src/main/java/MegaMek.java:799: warning: The previous value of [this.T_SRM] did not complete its protocol (found: Unknown)
+        static final int T_SRM = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:794: warning: The previous value of [this.M_ARTEMIS_V_CAPABLE] did not complete its protocol (found: Unknown)
+        static final int M_ARTEMIS_V_CAPABLE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:805: warning: The previous value of [this.F_AR10_KILLER_WHALE] did not complete its protocol (found: Unknown)
+        static final int F_AR10_KILLER_WHALE = 2;
+                         ^
+dataset63/src/main/java/MegaMek.java:763: warning: The previous value of [this.MEK_HIT_LOC_LOG] did not complete its protocol (found: Unknown)
+    public static final String MEK_HIT_LOC_LOG = "mekHitLocLog";
+                               ^
+dataset63/src/main/java/MegaMek.java:797: warning: The previous value of [this.M_HIGH_EXPLOSIVE] did not complete its protocol (found: Unknown)
+        static final int M_HIGH_EXPLOSIVE = 5;
+                         ^
+dataset63/src/main/java/MegaMek.java:815: warning: The previous value of [this.RANGE_SHORT] did not complete its protocol (found: Unknown)
+        static final int RANGE_SHORT = 1;
+                         ^
+dataset63/src/main/java/MegaMek.java:802: warning: The previous value of [this.T_AR10] did not complete its protocol (found: Unknown)
+        static final int T_AR10 = 4;
+                         ^
+dataset63/src/main/java/MegaMek.java:796: warning: The previous value of [this.M_EXTENDED_RANGE] did not complete its protocol (found: Unknown)
+        static final int M_EXTENDED_RANGE = 4;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:633: warning: Cannot assign because [this.PUSH] is not accessible here
+        static final int PUSH = 3;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:631: warning: Cannot assign because [this.DROP_DOWN] is not accessible here
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:632: warning: Cannot assign because [this.CASCADE] is not accessible here
+        static final int CASCADE = 2;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:634: warning: Cannot assign because [this.SEPARATOR] is not accessible here
+        static final int SEPARATOR = 4;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:632: warning: The previous value of [this.CASCADE] did not complete its protocol (found: Unknown)
+        static final int CASCADE = 2;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:634: warning: The previous value of [this.SEPARATOR] did not complete its protocol (found: Unknown)
+        static final int SEPARATOR = 4;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:633: warning: The previous value of [this.PUSH] did not complete its protocol (found: Unknown)
+        static final int PUSH = 3;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:631: warning: The previous value of [this.DROP_DOWN] did not complete its protocol (found: Unknown)
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:608: warning: Cannot assign because [this.SEPARATOR] is not accessible here
+        public static final int SEPARATOR = 4;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:607: warning: Cannot assign because [this.PUSH] is not accessible here
+        public static final int PUSH = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:606: warning: Cannot assign because [this.CASCADE] is not accessible here
+        public static final int CASCADE = 1;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:608: warning: The previous value of [this.SEPARATOR] did not complete its protocol (found: Unknown)
+        public static final int SEPARATOR = 4;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:607: warning: The previous value of [this.PUSH] did not complete its protocol (found: Unknown)
+        public static final int PUSH = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:606: warning: The previous value of [this.CASCADE] did not complete its protocol (found: Unknown)
+        public static final int CASCADE = 1;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:601: warning: Cannot assign because [this.DROP_DOWN] is not accessible here
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:601: warning: The previous value of [this.DROP_DOWN] did not complete its protocol (found: Unknown)
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:585: warning: Incompatible return value: cannot cast from Primitive{int} to Primitive{double}
+            return 0;
+            ^
+dataset63/src/main/java/SweetHome3D.java:570: warning: Cannot assign because [this.REQUIRED] is not accessible here
+        public static final int REQUIRED = 1;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:571: warning: Cannot assign because [this.PREFERRED] is not accessible here
+        public static final int PREFERRED = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:571: warning: The previous value of [this.PREFERRED] did not complete its protocol (found: Unknown)
+        public static final int PREFERRED = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:570: warning: The previous value of [this.REQUIRED] did not complete its protocol (found: Unknown)
+        public static final int REQUIRED = 1;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:406: warning: Incompatible return value: cannot cast from Shared{java.util.Enumeration} | Null to Shared{java.util.Enumeration}
+            return Collections.emptyEnumeration();
+            ^
+dataset63/src/main/java/SweetHome3D.java:379: warning: Cannot assign because [this.serialVersionUID] is not accessible here
+        public static final long serialVersionUID = 1L;
+                                 ^
+dataset63/src/main/java/SweetHome3D.java:379: warning: The previous value of [this.serialVersionUID] did not complete its protocol (found: Unknown)
+        public static final long serialVersionUID = 1L;
+                                 ^
+dataset63/src/main/java/SweetHome3D.java:267: warning: Parameter [document1] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{SweetHome3D.HelpDocument})
+            public int compare(HelpDocument document1, HelpDocument document2) {
+                       ^
+dataset63/src/main/java/SweetHome3D.java:267: warning: Parameter [document2] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{SweetHome3D.HelpDocument})
+            public int compare(HelpDocument document1, HelpDocument document2) {
+                       ^
+dataset63/src/main/java/SweetHome3D.java:85: warning: Unsafe cast
+            computeBounds((Node)enumeration.nextElement(), bounds, parentTransformations, transformShapeGeometry);
+                          ^
+dataset63/src/main/java/SweetHome3D.java:44: warning: Unsafe cast
+            String savedName = (String)JOptionPane.showInputDialog(SwingUtilities.getRootPane((JComponent)parentView), 
+                               ^
+dataset63/src/main/java/SweetHome3D.java:309: warning: Unsafe cast
+            setBackFaceNormalFlip((Node)enumeration.nextElement(), backFaceNormalFlip);
+                                  ^
+dataset63/src/main/java/SweetHome3D.java:231: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+dataset63/src/main/java/SweetHome3D.java:256: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{SweetHome3D.URL} | Null
+            for (URL url : helpDocument.getReferencedDocuments()) {
+                     ^
+dataset63/src/main/java/SweetHome3D.java:53: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+            if (this.recorder.exists(savedName)
+                                     ^
+dataset63/src/main/java/SweetHome3D.java:633: warning: Cannot assign because [this.PUSH] is not accessible here
+        static final int PUSH = 3;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:127: warning: Cannot call [#helpers.arrayAccess] on Shared{float[]} | Null
+        xMax = Math.max(xMax, this.points [i][0]);
+                                             ^
+dataset63/src/main/java/SweetHome3D.java:203: warning: Incompatible parameter: cannot cast from Shared{SweetHome3D.AbstractMenuItem} | Null to Shared{SweetHome3D.AbstractMenuItem}
+                createSwtMenu(shell, preferences, currentMenu, subMenuItem);
+                                                               ^
+dataset63/src/main/java/SweetHome3D.java:45: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object[]}
+                message, getFileDialogTitle(true), JOptionPane.QUESTION_MESSAGE, null, null, name);
+                                                                                       ^
+dataset63/src/main/java/SweetHome3D.java:45: warning: Cannot access [javax.swing.JOptionPane.QUESTION_MESSAGE]
+                message, getFileDialogTitle(true), JOptionPane.QUESTION_MESSAGE, null, null, name);
+                                                              ^
+dataset63/src/main/java/SweetHome3D.java:155: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Object} | Null
+                    && currentPathPoints.get(0) [1] == previousRoomPoint [1]) {
+                                                ^
+dataset63/src/main/java/SweetHome3D.java:297: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Float}
+                setYEnd(null);
+                        ^
+dataset63/src/main/java/SweetHome3D.java:215: warning: Cannot access [SweetHome3D.SWT.SEPARATOR]
+            new MenuItem(menuBar, SWT.SEPARATOR);
+                                     ^
+dataset63/src/main/java/SweetHome3D.java:123: warning: Cannot call [#helpers.arrayAccess] on Shared{float[]} | Null
+        float xMin = this.points [0][0]; 
+                                    ^
+dataset63/src/main/java/SweetHome3D.java:154: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.Object} | Null
+                if (currentPathPoints.get(0) [0] == previousRoomPoint [0] 
+                                             ^
+dataset63/src/main/java/SweetHome3D.java:631: warning: Cannot assign because [this.DROP_DOWN] is not accessible here
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:85: warning: Incompatible parameter: cannot cast from Shared{SweetHome3D.Node} | Null to Shared{SweetHome3D.Node}
+            computeBounds((Node)enumeration.nextElement(), bounds, parentTransformations, transformShapeGeometry);
+                                                       ^
+dataset63/src/main/java/SweetHome3D.java:206: warning: Cannot access [SweetHome3D.SWT.PUSH]
+            menuHeader = new MenuItem(menuBar, SWT.PUSH);
+                                                  ^
+dataset63/src/main/java/SweetHome3D.java:124: warning: Cannot call [#helpers.arrayAccess] on Shared{float[]} | Null
+        float xMax = this.points [0][0]; 
+                                    ^
+dataset63/src/main/java/SweetHome3D.java:601: warning: Cannot assign because [this.DROP_DOWN] is not accessible here
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:632: warning: Cannot assign because [this.CASCADE] is not accessible here
+        static final int CASCADE = 2;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:354: warning: Cannot access [getPreferredSize(this.ceilingLightEnabledCheckBox).height]
+                + this.ceilingLightEnabledCheckBox.getPreferredSize().height;
+                                                                     ^
+dataset63/src/main/java/SweetHome3D.java:608: warning: Cannot assign because [this.SEPARATOR] is not accessible here
+        public static final int SEPARATOR = 4;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:160: warning: Incompatible parameter: cannot cast from Shared{float[][]} to Shared{java.lang.Object[]}
+                    currentPathPoints.toArray(new float [currentPathPoints.size()][]);
+                                              ^
+dataset63/src/main/java/SweetHome3D.java:353: warning: Cannot access [getPreferredSize(this.dateSpinner).height]
+                + this.dateSpinner.getPreferredSize().height + 5
+                                                     ^
+dataset63/src/main/java/SweetHome3D.java:114: warning: Cannot access [SweetHome3D.GraphicsConfigTemplate.REQUIRED]
+            template.setStereo(GraphicsConfigTemplate.REQUIRED);
+                                                     ^
+dataset63/src/main/java/SweetHome3D.java:352: warning: Cannot access [getPreferredSize(this.advancedComponentsSeparator).height]
+            int componentsHeight = this.advancedComponentsSeparator.getPreferredSize().height + 6
+                                                                                      ^
+dataset63/src/main/java/SweetHome3D.java:200: warning: Cannot access [SweetHome3D.SWT.CASCADE]
+            menuHeader = new MenuItem(menuBar, SWT.CASCADE);
+                                                  ^
+dataset63/src/main/java/SweetHome3D.java:155: warning: Cannot call [#helpers.arrayAccess] on Shared{float[]} | Null
+                    && currentPathPoints.get(0) [1] == previousRoomPoint [1]) {
+                                                                         ^
+dataset63/src/main/java/SweetHome3D.java:148: warning: Cannot call [#helpers.arrayAccess] on Shared{float[]} | Null
+                    || roomPoint [1] != previousRoomPoint [1]) {
+                                                          ^
+dataset63/src/main/java/SweetHome3D.java:278: warning: Cannot assign because [this.length] is not accessible here
+            this.length = length;
+                        ^
+dataset63/src/main/java/SweetHome3D.java:607: warning: Cannot assign because [this.PUSH] is not accessible here
+        public static final int PUSH = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:279: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+            this.propertyChangeSupport.firePropertyChange(Property.LENGTH.name(), oldLength, length);
+                                                                              ^
+dataset63/src/main/java/SweetHome3D.java:379: warning: Cannot assign because [this.serialVersionUID] is not accessible here
+        public static final long serialVersionUID = 1L;
+                                 ^
+dataset63/src/main/java/SweetHome3D.java:406: warning: Incompatible return value: cannot cast from Shared{java.util.Enumeration} | Null to Shared{java.util.Enumeration}
+            return Collections.emptyEnumeration();
+            ^
+dataset63/src/main/java/SweetHome3D.java:534: warning: Cannot assign: cannot cast from Shared{java.lang.Float} | Null to Shared{java.lang.Float}
+    public Float length = 0f;
+                 ^
+dataset63/src/main/java/SweetHome3D.java:109: warning: Cannot access [SweetHome3D.GraphicsConfigTemplate3D.PREFERRED]
+        template.setSceneAntialiasing(GraphicsConfigTemplate3D.PREFERRED);
+                                                              ^
+dataset63/src/main/java/SweetHome3D.java:126: warning: Cannot call [#helpers.arrayAccess] on Shared{float[]} | Null
+        xMin = Math.min(xMin, this.points [i][0]);
+                                             ^
+dataset63/src/main/java/SweetHome3D.java:585: warning: Incompatible return value: cannot cast from Primitive{int} to Primitive{double}
+            return 0;
+            ^
+dataset63/src/main/java/SweetHome3D.java:336: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{SweetHome3D.TexturesCategory} | Null
+        category = this.categories.get(index);
+                 ^
+dataset63/src/main/java/SweetHome3D.java:248: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{SweetHome3D.URL} | Null
+            URL helpDocumentUrl = parsedDocuments.get(i);
+                ^
+dataset63/src/main/java/SweetHome3D.java:54: warning: Incompatible parameter: cannot cast from Shared{javax.swing.JComponent} to Shared{SweetHome3D.View}
+                && !confirmOverwrite(parentView, savedName)) {
+                                     ^
+dataset63/src/main/java/SweetHome3D.java:159: warning: Cannot assign: cannot cast from Shared{java.lang.Object[]} | Null to Shared{float[][]} | Null
+                float [][] pathPoints = 
+                           ^
+dataset63/src/main/java/SweetHome3D.java:141: warning: Incompatible parameter: cannot cast from Null to Shared{java.awt.geom.AffineTransform}
+        for (PathIterator it = area.getPathIterator(null, 1); !it.isDone(); it.next()) {
+                                                    ^
+dataset63/src/main/java/SweetHome3D.java:199: warning: Cannot access [SweetHome3D.SWT.DROP_DOWN]
+            Menu currentMenu = new Menu(shell, SWT.DROP_DOWN);
+                                                  ^
+dataset63/src/main/java/SweetHome3D.java:606: warning: Cannot assign because [this.CASCADE] is not accessible here
+        public static final int CASCADE = 1;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:309: warning: Incompatible parameter: cannot cast from Shared{SweetHome3D.Node} | Null to Shared{SweetHome3D.Node}
+            setBackFaceNormalFlip((Node)enumeration.nextElement(), backFaceNormalFlip);
+                                                               ^
+dataset63/src/main/java/SweetHome3D.java:141: warning: Cannot call isDone on null
+        for (PathIterator it = area.getPathIterator(null, 1); !it.isDone(); it.next()) {
+                                                                 ^
+dataset63/src/main/java/SweetHome3D.java:634: warning: Cannot assign because [this.SEPARATOR] is not accessible here
+        static final int SEPARATOR = 4;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:116: warning: Cannot access [SweetHome3D.GraphicsConfigTemplate.PREFERRED]
+            template.setStereo(GraphicsConfigTemplate.PREFERRED);
+                                                     ^
+dataset63/src/main/java/SweetHome3D.java:43: warning: Cannot access [SweetHome3D.AppletContentManager.class]
+                AppletContentManager.class, "showSaveDialog.message");
+                                    ^
+dataset63/src/main/java/SweetHome3D.java:1: warning: Incompatible parameter: cannot cast from Shared{java.lang.Integer} | Null to Shared{java.lang.Object}
+dataset63/src/main/java/SweetHome3D.java:169: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.util.List} | Null
+                    List<float [][]> holes = areaHoles.get(i);
+                                     ^
+dataset63/src/main/java/SweetHome3D.java:154: warning: Cannot call [#helpers.arrayAccess] on Shared{float[]} | Null
+                if (currentPathPoints.get(0) [0] == previousRoomPoint [0] 
+                                                                      ^
+dataset63/src/main/java/SweetHome3D.java:47: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.String}
+            return null;
+            ^
+dataset63/src/main/java/SweetHome3D.java:1: warning: Incompatible parameter: cannot cast from Shared{java.lang.Float} | Null to Shared{java.lang.Float}
+dataset63/src/main/java/SweetHome3D.java:1: warning: Incompatible parameter: cannot cast from Shared{java.lang.Float} | Null to Shared{java.lang.Float}
+dataset63/src/main/java/SweetHome3D.java:58: warning: Incompatible parameter: cannot cast from Shared{javax.swing.JComponent} to Shared{SweetHome3D.View}
+                return showSaveDialog(parentView, dialogTitle, contentType, savedName);
+                                      ^
+dataset63/src/main/java/SweetHome3D.java:55: warning: Incompatible parameter: cannot cast from Shared{javax.swing.JComponent} to Shared{SweetHome3D.View}
+                return showSaveDialog(parentView, dialogTitle, contentType, savedName);
+                                      ^
+dataset63/src/main/java/SweetHome3D.java:570: warning: Cannot assign because [this.REQUIRED] is not accessible here
+        public static final int REQUIRED = 1;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:296: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Float}
+                setXEnd(null);
+                        ^
+dataset63/src/main/java/SweetHome3D.java:571: warning: Cannot assign because [this.PREFERRED] is not accessible here
+        public static final int PREFERRED = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:601: warning: The previous value of [this.DROP_DOWN] did not complete its protocol (found: Unknown)
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:632: warning: The previous value of [this.CASCADE] did not complete its protocol (found: Unknown)
+        static final int CASCADE = 2;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:379: warning: The previous value of [this.serialVersionUID] did not complete its protocol (found: Unknown)
+        public static final long serialVersionUID = 1L;
+                                 ^
+dataset63/src/main/java/SweetHome3D.java:634: warning: The previous value of [this.SEPARATOR] did not complete its protocol (found: Unknown)
+        static final int SEPARATOR = 4;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:571: warning: The previous value of [this.PREFERRED] did not complete its protocol (found: Unknown)
+        public static final int PREFERRED = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:633: warning: The previous value of [this.PUSH] did not complete its protocol (found: Unknown)
+        static final int PUSH = 3;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:631: warning: The previous value of [this.DROP_DOWN] did not complete its protocol (found: Unknown)
+        static final int DROP_DOWN = 1;
+                         ^
+dataset63/src/main/java/SweetHome3D.java:608: warning: The previous value of [this.SEPARATOR] did not complete its protocol (found: Unknown)
+        public static final int SEPARATOR = 4;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:607: warning: The previous value of [this.PUSH] did not complete its protocol (found: Unknown)
+        public static final int PUSH = 2;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:606: warning: The previous value of [this.CASCADE] did not complete its protocol (found: Unknown)
+        public static final int CASCADE = 1;
+                                ^
+dataset63/src/main/java/SweetHome3D.java:570: warning: The previous value of [this.REQUIRED] did not complete its protocol (found: Unknown)
+        public static final int REQUIRED = 1;
+                                ^
+dataset63/src/main/java/ArgoUML.java:620: warning: Parameter [value] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{ArgoUML.ModuleStatus})
+            public ModuleStatus setValue(ModuleStatus value) {
+                                ^
+dataset63/src/main/java/ArgoUML.java:378: warning: Unsafe cast
+            List oldOwned = (List) pce.getOldValue();
+                            ^
+dataset63/src/main/java/ArgoUML.java:235: warning: Cannot access [ArgoUML.NO_PROBLEM]
+                return NO_PROBLEM;
+                       ^
+dataset63/src/main/java/ArgoUML.java:420: warning: Incompatible return value: cannot cast from Null to Shared{java.lang.Object}
+        return null;
+        ^
+dataset63/src/main/java/ArgoUML.java:1: warning: Cannot call hasNext on null
+import java.awt.Dimension;
+^
+dataset63/src/main/java/ArgoUML.java:513: warning: Cannot assign because [this.PROBLEM_FOUND] is not accessible here
+    public static final boolean PROBLEM_FOUND = true;
+                                ^
+dataset63/src/main/java/ArgoUML.java:251: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+        writer.write(xmi.toString());
+                                 ^
+dataset63/src/main/java/ArgoUML.java:1: warning: Cannot call hasNext on null
+import java.awt.Dimension;
+^
+dataset63/src/main/java/ArgoUML.java:313: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                Model.getPump().removeModelEventListener(listener, lis[0],
+                                                                      ^
+dataset63/src/main/java/ArgoUML.java:194: warning: Cannot access [ArgoUML.NO_PROBLEM]
+            return NO_PROBLEM;
+                   ^
+dataset63/src/main/java/ArgoUML.java:41: warning: Cannot assign because [this.loadedFromFile] is not accessible here
+                loadedFromFile = toFile;
+                               ^
+dataset63/src/main/java/ArgoUML.java:393: warning: Cannot access [ArgoUML.LOG]
+            LOG.debug("model added " + me);
+            ^
+dataset63/src/main/java/ArgoUML.java:1: warning: Cannot call hasNext on null
+import java.awt.Dimension;
+^
+dataset63/src/main/java/ArgoUML.java:276: warning: Cannot access [nameMin.width]
+        getNameFig().setBounds(x, y, nameMin.width + 10, nameMin.height + 4);
+                                            ^
+dataset63/src/main/java/ArgoUML.java:369: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{ArgoUML.Interaction} | Null
+            macroCommand = undoStack.peek();
+                         ^
+dataset63/src/main/java/ArgoUML.java:427: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+            port = Integer.parseInt(hostPort.getText());
+                                                    ^
+dataset63/src/main/java/ArgoUML.java:234: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            if (Model.getFacade().isNavigable(otherends.next())) {
+                                                            ^
+dataset63/src/main/java/ArgoUML.java:279: warning: Cannot assign because [this._w] is not accessible here
+        _x = x; _y = y; _w = w; _h = h;
+                           ^
+dataset63/src/main/java/ArgoUML.java:228: warning: Cannot call hasNext on null
+        while (ends.hasNext()) {
+                   ^
+dataset63/src/main/java/ArgoUML.java:259: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                profilesDirectory.getAbsolutePath());
+                                                 ^
+dataset63/src/main/java/ArgoUML.java:199: warning: Cannot access [ArgoUML.NO_PROBLEM]
+            return NO_PROBLEM;
+                   ^
+dataset63/src/main/java/ArgoUML.java:381: warning: Cannot call contains on null
+            if (oldOwned.contains(eo)) {
+                        ^
+dataset63/src/main/java/ArgoUML.java:207: warning: Cannot access [ArgoUML.NO_PROBLEM]
+            return NO_PROBLEM;
+                   ^
+dataset63/src/main/java/ArgoUML.java:310: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                Model.getPump().removeModelEventListener(listener, lis[0],
+                                                                      ^
+dataset63/src/main/java/ArgoUML.java:221: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            if (!Model.getFacade().isStatic(iter.next())) {
+                                                     ^
+dataset63/src/main/java/ArgoUML.java:328: warning: Cannot access [ArgoUML.LOG]
+            LOG.error("Profile not found");
+            ^
+dataset63/src/main/java/ArgoUML.java:276: warning: Cannot access [nameMin.height]
+        getNameFig().setBounds(x, y, nameMin.width + 10, nameMin.height + 4);
+                                                                ^
+dataset63/src/main/java/ArgoUML.java:449: warning: Cannot assign because [this.LOG] is not accessible here
+    public static final Logger LOG = new Logger();
+                               ^
+dataset63/src/main/java/ArgoUML.java:94: warning: Cannot access [ArgoUML.LOG]
+            LOG.error("Edge rejected. Its ends are not attached to anything");
+            ^
+dataset63/src/main/java/ArgoUML.java:512: warning: Cannot assign because [this.NO_PROBLEM] is not accessible here
+    public static final boolean NO_PROBLEM = false;
+                                ^
+dataset63/src/main/java/ArgoUML.java:1: warning: Incompatible parameter: cannot cast from Shared{java.lang.Integer} | Null to Shared{java.lang.Object}
+import java.awt.Dimension;
+^
+dataset63/src/main/java/ArgoUML.java:190: warning: Cannot access [ArgoUML.NO_PROBLEM]
+            return NO_PROBLEM;
+                   ^
+dataset63/src/main/java/ArgoUML.java:100: warning: Cannot access [ArgoUML.LOG]
+            LOG.error("Edge rejected. Its source end is attached to "
+            ^
+dataset63/src/main/java/ArgoUML.java:166: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            if (canAddEdge(specialization)) {
+                           ^
+dataset63/src/main/java/ArgoUML.java:215: warning: Cannot access [ArgoUML.NO_PROBLEM]
+            return NO_PROBLEM;
+                   ^
+dataset63/src/main/java/ArgoUML.java:279: warning: Cannot assign because [this._y] is not accessible here
+        _x = x; _y = y; _w = w; _h = h;
+                   ^
+dataset63/src/main/java/ArgoUML.java:289: warning: Cannot access [ArgoUML.LOG]
+        LOG.debug("adding class edge!!!!!!");
+        ^
+dataset63/src/main/java/ArgoUML.java:305: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object[]} | Null
+        for (Object[] lis : listeners) {
+                      ^
+dataset63/src/main/java/ArgoUML.java:356: warning: Cannot assign because [this.newInteraction] is not accessible here
+            newInteraction = true;
+                           ^
+dataset63/src/main/java/ArgoUML.java:253: warning: Cannot access [ArgoUML.LOG]
+        LOG.info("Wrote user defined profile \"" + profileFile 
+        ^
+dataset63/src/main/java/ArgoUML.java:362: warning: Cannot assign because [this.newInteraction] is not accessible here
+            newInteraction = false;
+                           ^
+dataset63/src/main/java/ArgoUML.java:177: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            if (canAddEdge(dependency)) {
+                           ^
+dataset63/src/main/java/ArgoUML.java:203: warning: Cannot access [ArgoUML.NO_PROBLEM]
+            return NO_PROBLEM;
+                   ^
+dataset63/src/main/java/ArgoUML.java:150: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            if (canAddEdge(Model.getFacade().getAssociation(end))) {
+                                                            ^
+dataset63/src/main/java/ArgoUML.java:159: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            if (canAddEdge(generalization)) {
+                           ^
+dataset63/src/main/java/ArgoUML.java:233: warning: Cannot call hasNext on null
+            while (otherends.hasNext()) {
+                            ^
+dataset63/src/main/java/ArgoUML.java:220: warning: Cannot call hasNext on null
+        while (iter.hasNext()) {
+                   ^
+dataset63/src/main/java/ArgoUML.java:222: warning: Cannot access [ArgoUML.NO_PROBLEM]
+                return NO_PROBLEM;
+                       ^
+dataset63/src/main/java/ArgoUML.java:279: warning: Cannot assign because [this._h] is not accessible here
+        _x = x; _y = y; _w = w; _h = h;
+                                   ^
+dataset63/src/main/java/ArgoUML.java:380: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            Object me = Model.getFacade().getModelElement(eo);
+                                                          ^
+dataset63/src/main/java/ArgoUML.java:434: warning: Incompatible parameter: cannot cast from Shared{java.net.Socket} | Null to Shared{java.net.Socket}
+            conn = ConnectionFactory.getInstance().createServerConnection(s, 0);
+                                                                          ^
+dataset63/src/main/java/ArgoUML.java:231: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                .getOtherAssociationEnds(ends.next()).iterator();
+                                                  ^
+dataset63/src/main/java/ArgoUML.java:211: warning: Cannot access [ArgoUML.NO_PROBLEM]
+            return NO_PROBLEM;
+                   ^
+dataset63/src/main/java/ArgoUML.java:240: warning: Cannot access [ArgoUML.PROBLEM_FOUND]
+        return PROBLEM_FOUND;
+               ^
+dataset63/src/main/java/ArgoUML.java:107: warning: Cannot access [ArgoUML.LOG]
+            LOG.error("Edge rejected. Its destination end is attached to "
+            ^
+dataset63/src/main/java/ArgoUML.java:418: warning: Cannot call execute on null
+            it.next().execute();
+                     ^
+dataset63/src/main/java/ArgoUML.java:438: warning: Cannot assign because [this.board] is not accessible here
+            board = new Board();
+                  ^
+dataset63/src/main/java/ArgoUML.java:1: warning: Cannot call hasNext on null
+import java.awt.Dimension;
+^
+dataset63/src/main/java/ArgoUML.java:382: warning: Cannot access [ArgoUML.LOG]
+            LOG.debug("model removed " + me);
+            ^
+dataset63/src/main/java/ArgoUML.java:1: warning: Cannot call hasNext on null
+import java.awt.Dimension;
+^
+dataset63/src/main/java/ArgoUML.java:403: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{ArgoUML.ModuleStatus} | Null
+            ModuleStatus status = entry.getValue();
+                         ^
+dataset63/src/main/java/ArgoUML.java:279: warning: Cannot assign because [this._x] is not accessible here
+        _x = x; _y = y; _w = w; _h = h;
+           ^
+dataset63/src/main/java/ArgoUML.java:308: warning: Incompatible parameter: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+                Model.getPump().removeModelEventListener(listener, lis[0]);
+                                                                      ^
+dataset63/src/main/java/ArgoUML.java:434: warning: Cannot assign because [this.conn] is not accessible here
+            conn = ConnectionFactory.getInstance().createServerConnection(s, 0);
+                 ^
+dataset63/src/main/java/ArgoUML.java:513: warning: The previous value of [this.PROBLEM_FOUND] did not complete its protocol (found: Unknown)
+    public static final boolean PROBLEM_FOUND = true;
+                                ^
+dataset63/src/main/java/ArgoUML.java:449: warning: The previous value of [this.LOG] did not complete its protocol (found: Unknown)
+    public static final Logger LOG = new Logger();
+                               ^
+dataset63/src/main/java/ArgoUML.java:512: warning: The previous value of [this.NO_PROBLEM] did not complete its protocol (found: Unknown)
+    public static final boolean NO_PROBLEM = false;
+                                ^
+dataset63/src/main/java/Siena.java:615: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                return val != null ? val.toString() : "";
+                ^
+dataset63/src/main/java/Siena.java:585: warning: Cannot assign because [this.ID] is not accessible here
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:585: warning: The previous value of [this.ID] did not complete its protocol (found: Unknown)
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:580: warning: Cannot assign because [this.ID] is not accessible here
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:580: warning: The previous value of [this.ID] did not complete its protocol (found: Unknown)
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:575: warning: Cannot access [java.lang.Object.class]
+        Class<?> getQueriedClass() { return Object.class; }
+                                                  ^
+dataset63/src/main/java/Siena.java:505: warning: Cannot assign because [this.NO_OPTIONS] is not accessible here
+        static final int NO_OPTIONS = 0;
+                         ^
+dataset63/src/main/java/Siena.java:505: warning: The previous value of [this.NO_OPTIONS] did not complete its protocol (found: Unknown)
+        static final int NO_OPTIONS = 0;
+                         ^
+dataset63/src/main/java/Siena.java:258: warning: Unsafe cast
+                    fillRequestElement((Model) value, f, true);
+                                       ^
+dataset63/src/main/java/Siena.java:324: warning: Unsafe cast
+        QueryOptionGaeContext gaeCtx = (QueryOptionGaeContext)query.option(QueryOptionGaeContext.ID);
+                                       ^
+dataset63/src/main/java/Siena.java:323: warning: Unsafe cast
+        QueryOptionPage pag = (QueryOptionPage)query.option(QueryOptionPage.ID);
+                              ^
+dataset63/src/main/java/Siena.java:575: warning: Cannot access [java.lang.Object.class]
+        Class<?> getQueriedClass() { return Object.class; }
+                                                  ^
+dataset63/src/main/java/Siena.java:476: warning: Cannot assign: cannot cast from Shared{java.lang.annotation.Annotation} | Null to Shared{Siena.ColumnAnno} | Null
+        ColumnAnno annotation = field.getAnnotation(ColumnAnno.class);
+                   ^
+dataset63/src/main/java/Siena.java:37: warning: Incompatible parameter: cannot cast from Shared{java.lang.reflect.Field} | Null to Shared{java.lang.reflect.Field}
+            String[] columns = ClassInfo.getColumnNames(field);
+                                                        ^
+dataset63/src/main/java/Siena.java:1: warning: Cannot call iterator on null
+import java.nio.ByteBuffer;
+^
+dataset63/src/main/java/Siena.java:256: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                f.addAttribute("name", field.getName());
+                                                    ^
+dataset63/src/main/java/Siena.java:1: warning: Cannot access field [length] of null
+import java.nio.ByteBuffer;
+^
+dataset63/src/main/java/Siena.java:215: warning: Cannot access [info.tableName]
+                    entity = new Entity(info.tableName);
+                                            ^
+dataset63/src/main/java/Siena.java:585: warning: Cannot assign because [this.ID] is not accessible here
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:306: warning: Cannot assign because [this.cursorIdx] is not accessible here
+            cursors.add(++cursorIdx, cursor);
+                        ^
+dataset63/src/main/java/Siena.java:162: warning: Cannot call getClass on null
+            Class<?> clazz = obj.getClass();
+                                ^
+dataset63/src/main/java/Siena.java:279: warning: Cannot call getClass on null
+                clazz = obj.getClass();
+                           ^
+dataset63/src/main/java/Siena.java:82: warning: Cannot access [info.updateFields]
+        for (Field field : info.updateFields) {
+                               ^
+dataset63/src/main/java/Siena.java:214: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+                if(Long.TYPE == type || Long.class.isAssignableFrom(type)){
+                                                                    ^
+dataset63/src/main/java/Siena.java:343: warning: Incompatible parameter: cannot cast from Shared{java.lang.reflect.Field} | Null to Shared{java.lang.reflect.Field}
+            String propValue = SdbMappingUtils.objectFieldToString(embeddedObj, f);
+                                                                                ^
+dataset63/src/main/java/Siena.java:262: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                f.addAttribute("name", field.getName());
+                                                    ^
+dataset63/src/main/java/Siena.java:41: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+            if(!ClassInfo.isModel(type) || (ClassInfo.isModel(type) && ClassInfo.isEmbedded(field))) {
+                                  ^
+dataset63/src/main/java/Siena.java:83: warning: Cannot call getAnnotation on null
+            Index index = field.getAnnotation(Index.class);
+                               ^
+dataset63/src/main/java/Siena.java:365: warning: Cannot access [item.name]
+        parameters.put("ItemName", item.name);
+                                       ^
+dataset63/src/main/java/Siena.java:101: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.Object}
+                    UniqueIndex i = uniques.get(name);
+                                                ^
+dataset63/src/main/java/Siena.java:280: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+                info = ClassInfo.getClassInfo(clazz);               
+                                              ^
+dataset63/src/main/java/Siena.java:338: warning: Cannot access [java.util.Collection.class]
+        if(clazz.isArray() || Collection.class.isAssignableFrom(clazz)){
+                                        ^
+dataset63/src/main/java/Siena.java:580: warning: Cannot assign because [this.ID] is not accessible here
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:163: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+            ClassInfo info = ClassInfo.getClassInfo(clazz);
+                                                    ^
+dataset63/src/main/java/Siena.java:323: warning: Cannot access [Siena.QueryOptionPage.ID]
+        QueryOptionPage pag = (QueryOptionPage)query.option(QueryOptionPage.ID);
+                                                                           ^
+dataset63/src/main/java/Siena.java:370: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.String} | Null
+            for (String value : values) {
+                        ^
+dataset63/src/main/java/Siena.java:240: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+        element.addAttribute("class", clazz.getName());
+                                                   ^
+dataset63/src/main/java/Siena.java:342: warning: Cannot access [getClassInfo(clazz).updateFields]
+        for (Field f : ClassInfo.getClassInfo(clazz).updateFields) {
+                                                    ^
+dataset63/src/main/java/Siena.java:1: warning: Cannot call hasNext on null
+import java.nio.ByteBuffer;
+^
+dataset63/src/main/java/Siena.java:222: warning: Cannot access [info.tableName]
+                    entity = new Entity(info.tableName, keyStringVal);
+                                            ^
+dataset63/src/main/java/Siena.java:615: warning: Incompatible return value: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                return val != null ? val.toString() : "";
+                ^
+dataset63/src/main/java/Siena.java:329: warning: Cannot assign because [gaeCtx.noMoreDataAfter] is not accessible here
+                gaeCtx.noMoreDataAfter = false;
+                                       ^
+dataset63/src/main/java/Siena.java:226: warning: Cannot access [info.tableName]
+                entity = new Entity(info.tableName, UUID.randomUUID().toString());
+                                        ^
+dataset63/src/main/java/Siena.java:1: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.reflect.Field[]} | Null
+import java.nio.ByteBuffer;
+^
+dataset63/src/main/java/Siena.java:42: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                Column column = createColumn(clazz, field, columns[0]);
+                                                                  ^
+dataset63/src/main/java/Siena.java:56: warning: Cannot assign: cannot cast from Shared{java.lang.annotation.Annotation} | Null to Shared{Siena.Id} | Null
+                Id id = field.getAnnotation(Id.class);
+                   ^
+dataset63/src/main/java/Siena.java:505: warning: Cannot assign because [this.NO_OPTIONS] is not accessible here
+        static final int NO_OPTIONS = 0;
+                         ^
+dataset63/src/main/java/Siena.java:128: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+                ClassInfo ci = getClassInfo(field.getType());
+                                                         ^
+dataset63/src/main/java/Siena.java:71: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.reflect.Field} | Null
+                    Field f = keys.get(i);
+                          ^
+dataset63/src/main/java/Siena.java:72: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                    Column column = createColumn(clazz, f, columns[i]);
+                                                                  ^
+dataset63/src/main/java/Siena.java:303: warning: Cannot assign because [this.cursorIdx] is not accessible here
+            cursors.set(++cursorIdx, cursor);
+                        ^
+dataset63/src/main/java/Siena.java:199: warning: Cannot assign: cannot cast from Shared{java.lang.annotation.Annotation} | Null to Shared{Siena.Id} | Null
+        Id id = idField.getAnnotation(Id.class);
+           ^
+dataset63/src/main/java/Siena.java:338: warning: Cannot call isArray on null
+        if(clazz.isArray() || Collection.class.isAssignableFrom(clazz)){
+                ^
+dataset63/src/main/java/Siena.java:244: warning: Cannot call getType on null
+            if(field.getType() == Class.class) continue;
+                    ^
+dataset63/src/main/java/Siena.java:83: warning: Cannot assign: cannot cast from Shared{java.lang.annotation.Annotation} | Null to Shared{Siena.Index} | Null
+            Index index = field.getAnnotation(Index.class);
+                  ^
+dataset63/src/main/java/Siena.java:97: warning: Cannot assign: cannot cast from Shared{java.lang.annotation.Annotation} | Null to Shared{Siena.Unique} | Null
+            Unique unique = field.getAnnotation(Unique.class);
+                   ^
+dataset63/src/main/java/Siena.java:254: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+            if(ClassInfo.isModel(type)) {
+                                 ^
+dataset63/src/main/java/Siena.java:214: warning: Cannot access [java.lang.Long.class]
+                if(Long.TYPE == type || Long.class.isAssignableFrom(type)){
+                                            ^
+dataset63/src/main/java/Siena.java:368: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.util.Map.Entry} | Null
+        for (Map.Entry<String, List<String>> entry : item.attributes.entrySet()) {
+                                             ^
+dataset63/src/main/java/Siena.java:329: warning: Cannot access [gaeCtx.noMoreDataAfter]
+                gaeCtx.noMoreDataAfter = false;
+                      ^
+dataset63/src/main/java/Siena.java:119: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.reflect.Field} | Null
+        for(Field field: this.updateFields){
+                  ^
+dataset63/src/main/java/Siena.java:186: warning: Incompatible return value: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.Object}
+            return field.get(object);
+            ^
+dataset63/src/main/java/Siena.java:210: warning: Cannot access [info.tableName]
+                entity = new Entity(info.tableName, keyVal);
+                                        ^
+dataset63/src/main/java/Siena.java:226: warning: Cannot call toString on null
+                entity = new Entity(info.tableName, UUID.randomUUID().toString());
+                                                                     ^
+dataset63/src/main/java/Siena.java:36: warning: Cannot access [info.allFields]
+        for (Field field : info.allFields) {
+                               ^
+dataset63/src/main/java/Siena.java:369: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.util.List} | Null
+            List<String> values = entry.getValue();
+                         ^
+dataset63/src/main/java/Siena.java:327: warning: Cannot access [gaeCtx.noMoreDataAfter]
+                gaeCtx.noMoreDataAfter = true;
+                      ^
+dataset63/src/main/java/Siena.java:327: warning: Cannot assign because [gaeCtx.noMoreDataAfter] is not accessible here
+                gaeCtx.noMoreDataAfter = true;
+                                       ^
+dataset63/src/main/java/Siena.java:284: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{Siena.Item} | Null
+            for(Item item:items){
+                     ^
+dataset63/src/main/java/Siena.java:214: warning: Cannot access [java.lang.Long.TYPE]
+                if(Long.TYPE == type || Long.class.isAssignableFrom(type)){
+                       ^
+dataset63/src/main/java/Siena.java:127: warning: Incompatible parameter: cannot cast from Shared{java.lang.Class} | Null to Shared{java.lang.Class}
+            else if(isModel(field.getType())) {
+                                         ^
+dataset63/src/main/java/Siena.java:129: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{java.lang.reflect.Field} | Null
+                for (Field key : ci.keys) {
+                           ^
+dataset63/src/main/java/Siena.java:292: warning: Incompatible parameter: cannot cast from Shared{Siena.ClassInfo} | Null to Shared{Siena.ClassInfo}
+                fillModel(theItem, clazz, info, obj);
+                                          ^
+dataset63/src/main/java/Siena.java:87: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{Siena.NonUniqueIndex} | Null
+                    NonUniqueIndex i = indexes.get(name);
+                                   ^
+dataset63/src/main/java/Siena.java:29: warning: Cannot access [info.tableName]
+        table.setName(info.tableName);
+                          ^
+dataset63/src/main/java/Siena.java:226: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.String}
+                entity = new Entity(info.tableName, UUID.randomUUID().toString());
+                                                                              ^
+dataset63/src/main/java/Siena.java:476: warning: Cannot access [Siena.ColumnAnno.class]
+        ColumnAnno annotation = field.getAnnotation(ColumnAnno.class);
+                                                              ^
+dataset63/src/main/java/Siena.java:199: warning: Cannot access [Siena.Id.class]
+        Id id = idField.getAnnotation(Id.class);
+                                        ^
+dataset63/src/main/java/Siena.java:87: warning: Incompatible parameter: cannot cast from Shared{java.lang.String} | Null to Shared{java.lang.Object}
+                    NonUniqueIndex i = indexes.get(name);
+                                                   ^
+dataset63/src/main/java/Siena.java:101: warning: Cannot assign: cannot cast from Shared{java.lang.Object} | Null to Shared{Siena.UniqueIndex} | Null
+                    UniqueIndex i = uniques.get(name);
+                                ^
+dataset63/src/main/java/Siena.java:25: warning: Incompatible return value: cannot cast from Null to Shared{Siena.Table}
+            return null;
+            ^
+dataset63/src/main/java/Siena.java:324: warning: Cannot access [Siena.QueryOptionGaeContext.ID]
+        QueryOptionGaeContext gaeCtx = (QueryOptionGaeContext)query.option(QueryOptionGaeContext.ID);
+                                                                                                ^
+dataset63/src/main/java/Siena.java:121: warning: Cannot assign: cannot cast from Shared{java.lang.annotation.Annotation} | Null to Shared{Siena.ColumnAnno} | Null
+            ColumnAnno c = field.getAnnotation(ColumnAnno.class);
+                       ^
+dataset63/src/main/java/Siena.java:1: warning: Cannot call hasNext on null
+import java.nio.ByteBuffer;
+^
+dataset63/src/main/java/Siena.java:240: warning: Cannot call getName on null
+        element.addAttribute("class", clazz.getName());
+                                           ^
+dataset63/src/main/java/Siena.java:1: warning: Cannot call hasNext on null
+import java.nio.ByteBuffer;
+^
+dataset63/src/main/java/Siena.java:368: warning: Cannot access [item.attributes]
+        for (Map.Entry<String, List<String>> entry : item.attributes.entrySet()) {
+                                                         ^
+dataset63/src/main/java/Siena.java:580: warning: The previous value of [this.ID] did not complete its protocol (found: Unknown)
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:585: warning: The previous value of [this.ID] did not complete its protocol (found: Unknown)
+        static final Object ID = new Object();
+                            ^
+dataset63/src/main/java/Siena.java:505: warning: The previous value of [this.NO_OPTIONS] did not complete its protocol (found: Unknown)
+        static final int NO_OPTIONS = 0;
+                         ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+530 warnings

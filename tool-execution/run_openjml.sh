@@ -35,6 +35,26 @@ cd ${HOME}dataset6/src/main/java && \
     "${OJ}" --timeout 3600 --esc -cp "${DATASET6CP}" -Xmaxerrs 10000 $(find . -name "*.java") &> ../../../../data/openjml_output_cog_dataset_6.txt
 echo "Finished for DS6 dataset"
 
+
+# dataset 63
+cd ..
+cd ${HOME}
+# the classpath for dataset 63
+DATASET63=$(./gradlew :dataset63:printClasspath -q)
+cd ${HOME}dataset63/src/main/java && \
+    "${OJ}" --timeout 3600 --esc -cp "${DATASET63}" -Xmaxerrs 10000 $(find . -name "*.java") &> ../../../../data/openjml_output_dataset_63.txt
+echo "Finished for DS63 dataset"
+
+# dataset 8
+cd ..
+cd ${HOME}
+# the classpath for dataset 8
+DATASET8=$(./gradlew :dataset8:printClasspath -q)
+cd ${HOME}dataset8/src/main/java && \
+    "${OJ}" --timeout 3600 --esc -cp "${DATASET8}" -Xmaxerrs 10000 $(find . -name "*.java") &> ../../../../data/openjml_output_dataset_8.txt
+echo "Finished for DS8 dataset"
+
+
 cd ..
 cd ${HOME}
 

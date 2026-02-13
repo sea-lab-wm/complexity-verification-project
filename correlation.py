@@ -4,6 +4,7 @@ import sys
 import pandas as pd
 import scipy.stats as scpy
 
+
 ###############################################
 #   Interact with correlation_analysis.xlsx   #
 ###############################################
@@ -134,6 +135,21 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     dfDictCorrelationDatapoints[("binary_understandability", 6)] = cogDataset6Datapoints[1]
     dfDictCorrelationDatapoints[("time_to_understand", 6)] = cogDataset6Datapoints[2]
 
+    # Compile datapoints for Dataset 63 Study
+    dataset63Datapoints = setCogDataset63Datapoints(warningsPerSnippetPerDataset["63"], copy.deepcopy(data))
+    dfDictCorrelationDatapoints[("adjusted_gaze_sig", 63)] = dataset63Datapoints[0]
+    dfDictCorrelationDatapoints[("adjusted_gaze_non_sig", 63)] = dataset63Datapoints[1]
+    dfDictCorrelationDatapoints[("adjusted_fix_sig", 63)] = dataset63Datapoints[2]
+    dfDictCorrelationDatapoints[("adjusted_fix_non_sig", 63)] = dataset63Datapoints[3]
+    dfDictCorrelationDatapoints[("adjusted_gaze_flow", 63)] = dataset63Datapoints[4]
+    dfDictCorrelationDatapoints[("adjusted_gaze_non_flow", 63)] = dataset63Datapoints[5]
+    dfDictCorrelationDatapoints[("adjusted_fix_flow", 63)] = dataset63Datapoints[6]
+    dfDictCorrelationDatapoints[("adjusted_fix_non_flow", 63)] = dataset63Datapoints[7]
+    dfDictCorrelationDatapoints[("adjusted_gaze_call", 63)] = dataset63Datapoints[8]
+    dfDictCorrelationDatapoints[("adjusted_gaze_non_call", 63)] = dataset63Datapoints[9]
+    dfDictCorrelationDatapoints[("adjusted_fix_call", 63)] = dataset63Datapoints[10]
+    dfDictCorrelationDatapoints[("adjusted_fix_non_call", 63)] = dataset63Datapoints[11]
+
     # Compile datapoints for the COG Dataset 9 Study
     cogDataset9Datapoints = setCogDataset9Datapoints(warningsPerSnippetPerDataset, copy.deepcopy(data))
     dfDictCorrelationDatapoints[("gap_accuracy", "9_gc")] = cogDataset9Datapoints["9_gc"][0]
@@ -158,6 +174,9 @@ def setupCorrelationData(warningsPerSnippetPerDataset):
     dfDictCorrelationDatapoints[("brain_deact_32", "f")] = fmriDatapoints[2]
     dfDictCorrelationDatapoints[("complexity_level", "f")] = fmriDatapoints[3]
     dfDictCorrelationDatapoints[("time_to_understand", "f")] = fmriDatapoints[4]
+
+
+
 
     return dfDictCorrelationDatapoints
 
@@ -293,6 +312,51 @@ def setFMRIStudyDatapoints(warningsPerSnippet, data):
     dataTime["Warning Count"] = warningsPerSnippet
 
     return (pd.DataFrame(dataCorrectness), pd.DataFrame(dataBA31), pd.DataFrame(dataBA32), pd.DataFrame(dataSubjComplexity), pd.DataFrame(dataTime))
+
+def setCogDataset63Datapoints(warningsPerSnippet, data):
+
+    dataAdGazeSig = copy.deepcopy(data)
+    dataAdGazeNonSig = copy.deepcopy(data)
+    dataAdFixSig = copy.deepcopy(data)
+    dataAdFixNonSig = copy.deepcopy(data)
+    dataAdGazeFlow = copy.deepcopy(data)
+    dataAdGazeNonFlow = copy.deepcopy(data)
+    dataAdFixFlow = copy.deepcopy(data)
+    dataAdFixNonFlow = copy.deepcopy(data)
+    dataAdGazeCall = copy.deepcopy(data)
+    dataAdGazeNonCall = copy.deepcopy(data)
+    dataAdFixCall = copy.deepcopy(data)
+    dataAdFixNonCall = copy.deepcopy(data)
+
+    metrics = readCOGDataset63StudyMetrics()
+
+    dataAdGazeSig["Metric"] = metrics[0]
+    dataAdGazeSig["Warning Count"] = warningsPerSnippet
+    dataAdGazeNonSig["Metric"] = metrics[1]
+    dataAdGazeNonSig["Warning Count"] = warningsPerSnippet
+    dataAdFixSig["Metric"] = metrics[2]
+    dataAdFixSig["Warning Count"] = warningsPerSnippet
+    dataAdFixNonSig["Metric"] = metrics[3]
+    dataAdFixNonSig["Warning Count"] = warningsPerSnippet
+    dataAdGazeFlow["Metric"] = metrics[4]
+    dataAdGazeFlow["Warning Count"] = warningsPerSnippet
+    dataAdGazeNonFlow["Metric"] = metrics[5]
+    dataAdGazeNonFlow["Warning Count"] = warningsPerSnippet
+    dataAdFixFlow["Metric"] = metrics[6]
+    dataAdFixFlow["Warning Count"] = warningsPerSnippet
+    dataAdFixNonFlow["Metric"] = metrics[7]
+    dataAdFixNonFlow["Warning Count"] = warningsPerSnippet
+    dataAdGazeCall["Metric"] = metrics[8]
+    dataAdGazeCall["Warning Count"] = warningsPerSnippet
+    dataAdGazeNonCall["Metric"] = metrics[9]
+    dataAdGazeNonCall["Warning Count"] = warningsPerSnippet
+    dataAdFixCall["Metric"] = metrics[10]
+    dataAdFixCall["Warning Count"] = warningsPerSnippet
+    dataAdFixNonCall["Metric"] = metrics[11]
+    dataAdFixNonCall["Warning Count"] = warningsPerSnippet
+
+    return (pd.DataFrame(dataAdGazeSig), pd.DataFrame(dataAdGazeNonSig), pd.DataFrame(dataAdFixSig), pd.DataFrame(dataAdFixNonSig), pd.DataFrame(dataAdGazeFlow), pd.DataFrame(dataAdGazeNonFlow), pd.DataFrame(dataAdFixFlow), pd.DataFrame(dataAdFixNonFlow), pd.DataFrame(dataAdGazeCall), pd.DataFrame(dataAdGazeNonCall), pd.DataFrame(dataAdFixCall), pd.DataFrame(dataAdFixNonCall))
+
 
 def removeSnippetsWithTimeouts(dfDictCorrelationDatapoints):
     """Removes any snippets from the correlation datapoints (only OpenJML) that recieved a timeout before conducting the correlation analysis."""
@@ -431,6 +495,160 @@ def readCOGDataset6StudyMetrics():
         raise Exception
 
     return (correctness, rating, times)
+
+def readCOGDataset63StudyMetrics():
+
+    adjusted_Gaze_sig = []
+    adjusted_Gaze_non_sig = []
+    adjusted_fix_sig = []
+    adjusted_fix_non_sig =[]
+
+    adjusted_gaze_flow = []
+    adjusted_gaze_non_flow = []
+    adjusted_fix_flow = []
+    adjusted_fix_non_flow = []
+
+    adjusted_gaze_call = []
+    adjusted_gaze_non_call = []
+    adjusted_fix_call = []
+    adjusted_fix_non_call = []
+
+    df_call = pd.read_excel("data/dataset_63_adjusted_call_all.xlsx")
+    df_flow = pd.read_excel("data/dataset_63_adjusted_flow_all.xlsx")
+    df_sig = pd.read_excel("data/dataset_63_adjusted_sig_all.xlsx")
+
+    ## TODO: Simplify the logic of taking the averages for 3 dataframes.
+    participantsPerSnippet = 0
+    lastSnippet = ""
+
+    sumADGazeSig = 0
+    sumADGazeNonSig = 0
+    sumADFixSig = 0
+    sumADFixNonSig = 0
+
+    sumADGazeFlow = 0
+    sumADGazeNonFlow = 0
+    sumADFixFlow = 0
+    sumADFixNonFlow = 0
+
+    sumADGazeCall = 0
+    sumADGazeNonCall = 0
+    sumADFixCall = 0
+    sumADFixNonCall = 0
+
+    ## Signature vs Non-Signature Snippets.
+    for row in df_sig.itertuples():
+        if row[1] != lastSnippet and row[0] != 0:
+            # Moved onto new snippet. Get averages for previous snippet.
+            adjusted_Gaze_sig.append(sumADGazeSig / participantsPerSnippet)
+            adjusted_Gaze_non_sig.append(sumADGazeNonSig / participantsPerSnippet)
+            adjusted_fix_sig.append(sumADFixSig / participantsPerSnippet)
+            adjusted_fix_non_sig.append(sumADFixNonSig / participantsPerSnippet)
+
+            sumADGazeSig = 0
+            sumADGazeNonSig = 0
+            sumADFixSig = 0
+            sumADFixNonSig = 0
+            participantsPerSnippet = 0
+        
+        # Still on same snippet, on first snippet, or starting new snippet after getting the averages for the previous one.
+        participantsPerSnippet += 1
+
+        sumADGazeSig += row[5]
+        sumADGazeNonSig += row[6]
+        sumADFixSig += row[7]
+        sumADFixNonSig += row[8]
+
+        lastSnippet = row[1]
+    
+     # Get averages for last snippet
+    adjusted_Gaze_sig.append(sumADGazeSig / participantsPerSnippet)
+    adjusted_Gaze_non_sig.append(sumADGazeNonSig / participantsPerSnippet)
+    adjusted_fix_sig.append(sumADFixSig / participantsPerSnippet)
+    adjusted_fix_non_sig.append(sumADFixNonSig / participantsPerSnippet)
+
+    
+    ## Flow vs Non-Flow Snippets
+    participantsPerSnippet = 0
+    lastSnippet = ""
+    for row in df_flow.itertuples():
+        if row[1] != lastSnippet and row[0] != 0:
+            # Moved onto new snippet. Get averages for previous snippet.
+            adjusted_gaze_flow.append(sumADGazeFlow / participantsPerSnippet)
+            adjusted_gaze_non_flow.append(sumADGazeNonFlow / participantsPerSnippet)
+            adjusted_fix_flow.append(sumADFixFlow / participantsPerSnippet)
+            adjusted_fix_non_flow.append(sumADFixNonFlow / participantsPerSnippet)
+
+            sumADGazeFlow = 0
+            sumADGazeNonFlow = 0
+            sumADFixFlow = 0
+            sumADFixNonFlow = 0
+            participantsPerSnippet = 0
+        
+        # Still on same snippet, on first snippet, or starting new snippet after getting the averages for the previous one.
+        participantsPerSnippet += 1
+
+        sumADGazeFlow += row[5]
+        sumADGazeNonFlow += row[6]
+        sumADFixFlow += row[7]
+        sumADFixNonFlow += row[8]
+
+        lastSnippet = row[1]
+
+    # Get averages for last snippet
+    adjusted_gaze_flow.append(sumADGazeFlow / participantsPerSnippet)
+    adjusted_gaze_non_flow.append(sumADGazeNonFlow / participantsPerSnippet)
+    adjusted_fix_flow.append(sumADFixFlow / participantsPerSnippet)
+    adjusted_fix_non_flow.append(sumADFixNonFlow / participantsPerSnippet)
+    
+    ## Call vs Non-Call Snippets
+    participantsPerSnippet = 0
+    lastSnippet = ""
+    for row in df_call.itertuples():
+        if row[1] != lastSnippet and row[0] != 0:
+            # Moved onto new snippet. Get averages for previous snippet.
+            adjusted_gaze_call.append(sumADGazeCall / participantsPerSnippet)
+            adjusted_gaze_non_call.append(sumADGazeNonCall / participantsPerSnippet)
+            adjusted_fix_call.append(sumADFixCall / participantsPerSnippet)
+            adjusted_fix_non_call.append(sumADFixNonCall / participantsPerSnippet)
+
+            sumADGazeCall = 0
+            sumADGazeNonCall = 0
+            sumADFixCall = 0
+            sumADFixNonCall = 0
+            participantsPerSnippet = 0
+        
+        # Still on same snippet, on first snippet, or starting new snippet after getting the averages for the previous one.
+        participantsPerSnippet += 1
+
+        sumADGazeCall += row[5]
+        sumADGazeNonCall += row[6]
+        sumADFixCall += row[7]
+        sumADFixNonCall += row[8]
+
+        lastSnippet = row[1]
+    
+    # Get averages for last snippet
+    adjusted_gaze_call.append(sumADGazeCall / participantsPerSnippet)
+    adjusted_gaze_non_call.append(sumADGazeNonCall / participantsPerSnippet)
+    adjusted_fix_call.append(sumADFixCall / participantsPerSnippet)
+    adjusted_fix_non_call.append(sumADFixNonCall / participantsPerSnippet)
+
+    ## add 0 to last of the lists match the legth to 64
+    adjusted_Gaze_sig.extend([0] * (64 - len(adjusted_Gaze_sig)))
+    adjusted_Gaze_non_sig.extend([0] * (64 - len(adjusted_Gaze_non_sig)))
+    adjusted_fix_sig.extend([0] * (64 - len(adjusted_fix_sig)))
+    adjusted_fix_non_sig.extend([0] * (64 - len(adjusted_fix_non_sig)))
+    adjusted_gaze_flow.extend([0] * (64 - len(adjusted_gaze_flow)))
+    adjusted_gaze_non_flow.extend([0] * (64 - len(adjusted_gaze_non_flow)))
+    adjusted_fix_flow.extend([0] * (64 - len(adjusted_fix_flow)))
+    adjusted_fix_non_flow.extend([0] * (64 - len(adjusted_fix_non_flow)))
+    adjusted_gaze_call.extend([0] * (64 - len(adjusted_gaze_call)))
+    adjusted_gaze_non_call.extend([0] * (64 - len(adjusted_gaze_non_call)))
+    adjusted_fix_call.extend([0] * (64 - len(adjusted_fix_call)))
+    adjusted_fix_non_call.extend([0] * (64 - len(adjusted_fix_non_call)))
+
+    return (adjusted_Gaze_sig, adjusted_Gaze_non_sig, adjusted_fix_sig, adjusted_fix_non_sig, adjusted_gaze_flow, adjusted_gaze_non_flow, adjusted_fix_flow, adjusted_fix_non_flow, adjusted_gaze_call, adjusted_gaze_non_call, adjusted_fix_call, adjusted_fix_non_call)
 
 # Reads the results of the cog data set 9 study. It contains 104 participants and 30 unique snippets (5 snippets each with varying quality of comments).
 # Correlation data is split into 3 categories of 10 snippets each: Good comments, bad comments, and no comments. Then further split into the metrics:
@@ -620,7 +838,7 @@ def sortUniqueSnippetsByDataset(datasets, uniqueSnippets):
         snippet = snippet.split("--")[0].strip() # Name of snippets in "uniqueSnippets" format example: 1 - 12
                                                 #                                             format: Dataset ID - Snippet #
         for key in countSnippetsPerDataset:
-            if snippet in key:
+            if snippet == key: ## changed because of counting twise when 6 in 63
                 countSnippetsPerDataset[key] += 1
 
     return countSnippetsPerDataset
@@ -700,7 +918,7 @@ def kendallTau(dfDictCorrelationDatapoints):
         x = df.iloc[:, 0]
         y = df.iloc[:, 1]
 
-        corr, pValue = scpy.kendalltau(x, y)
+        corr, pValue = scpy.kendalltau(x, y, nan_policy="omit")
 
         kendallTauVals[key] = (corr, pValue)
 

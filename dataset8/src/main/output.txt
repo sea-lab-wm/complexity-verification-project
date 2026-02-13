@@ -1,0 +1,96 @@
+dataset - 8, FileName - Study.java snippet# - 5
+dataset8/src/main/java/Study.java:115: warning: Parameter [file] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.nio.file.Path})
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                                   ^
+
+dataset8/src/main/java/Study.java:115: warning: Parameter [file] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.nio.file.Path})
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                                   ^
+
+dataset8/src/main/java/Study.java:120: warning: Parameter [dir] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.nio.file.Path})
+            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                                   ^
+
+dataset8/src/main/java/Study.java:120: warning: Parameter [dir] should require a supertype of Shared{java.lang.Object} | Null (found: Shared{java.nio.file.Path})
+            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                                   ^
+
+
+dataset - 8, FileName - Study.java snippet# - 1
+dataset8/src/main/java/Study.java:26: warning: Cannot access [Study.MAX_NAME_LENGTH]
+        if ((name.length() < 1) || (name.length() > MAX_NAME_LENGTH)) {
+                                                    ^
+
+
+dataset - 8, FileName - Study.java snippet# - Unknown
+dataset8/src/main/java/Study.java:1: warning: Cannot call [#helpers.arrayAccess] on Shared{java.lang.reflect.Field[]} | Null
+
+dataset8/src/main/java/Study.java:1: warning: Cannot access field [length] of null
+
+dataset8/src/main/java/Study.java:1: warning: Incompatible parameter: cannot cast from Shared{java.lang.Character} | Null to Shared{java.lang.Object}
+
+
+dataset - 8, FileName - Study.java snippet# - 8
+dataset8/src/main/java/Study.java:199: warning: Cannot access [Study.HALF_PI]
+            return x - HALF_PI;
+                       ^
+
+dataset8/src/main/java/Study.java:212: warning: Cannot access [Study.VALID_NAME_SET]
+        VALID_NAME_SET.add('_');
+        ^
+
+dataset8/src/main/java/Study.java:194: warning: Cannot access [Study.PI]
+            if (y >= 0) return atanUnchecked(n) + PI;
+                                                  ^
+
+dataset8/src/main/java/Study.java:195: warning: Cannot access [Study.PI]
+            return atanUnchecked(n) - PI;
+                                      ^
+
+dataset8/src/main/java/Study.java:197: warning: Cannot access [Study.HALF_PI]
+            return x + HALF_PI;
+                       ^
+
+
+dataset - 8, FileName - Study.java snippet# - 4
+dataset8/src/main/java/Study.java:94: warning: Cannot access [Study.INDEX_NOT_FOUND]
+            return INDEX_NOT_FOUND;
+                   ^
+
+dataset8/src/main/java/Study.java:86: warning: Cannot access [Study.INDEX_NOT_FOUND]
+            return INDEX_NOT_FOUND;
+                   ^
+
+dataset8/src/main/java/Study.java:104: warning: Cannot access [Study.INDEX_NOT_FOUND]
+        return INDEX_NOT_FOUND;
+               ^
+
+
+dataset - 8, FileName - Study.java snippet# - 7
+dataset8/src/main/java/Study.java:178: warning: Cannot access [java.lang.Float.NaN]
+        return Float.NaN;
+                    ^
+
+dataset8/src/main/java/Study.java:163: warning: Cannot access [java.lang.Float.NaN]
+        if (det < 0) return Float.NaN;
+                                 ^
+
+
+dataset - 8, FileName - Study.java snippet# - 3
+dataset8/src/main/java/Study.java:66: warning: Cannot call isSynthetic on null
+            if (!field.isSynthetic()) {
+                      ^
+
+dataset8/src/main/java/Study.java:70: warning: Incompatible parameter: cannot cast from Null to Shared{java.lang.Object}
+                        if (field.getShort(null) == type) {
+                                           ^
+
+dataset8/src/main/java/Study.java:65: warning: Cannot access [Study.CoffMachineType.class]
+        for (Field field : CoffMachineType.class.getDeclaredFields()) {
+                                          ^
+
+dataset8/src/main/java/Study.java:61: warning: Cannot access [Study.IMAGE_FILE_MACHINE_UNKNOWN]
+        if (type == IMAGE_FILE_MACHINE_UNKNOWN) {
+                    ^
+
+

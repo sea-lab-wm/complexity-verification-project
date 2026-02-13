@@ -1,0 +1,24 @@
+warning: A specification path directory does not exist: /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/build/classes/java/main (/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java)
+warning: A specification path directory does not exist: /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/build/resources/main (/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java)
+./Study.java:114: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+./Study.java:119: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+./Study.java:113: error: incompatible types: <anonymous SimpleFileVisitor<T>> cannot be converted to FileVisitor<? super Path>
+        Files.walkFileTree(root, new SimpleFileVisitor<>() {
+                                 ^
+  where T is a type-variable:
+    T extends Object declared in class SimpleFileVisitor
+NAN 0x7FC00000
+NAN 0x7FC00000
+/home/kgdesilva/openjml/specs/java/nio/file/Path.jml:25: warning: A non-pure method is being called where it is not permitted: java.nio.file.Path.isAbsolute()
+    //@   requires path.isAbsolute() && path.canonicalPath.length != 0;
+                                  ^
+/home/kgdesilva/openjml/specs/java/nio/file/Path.jml:28: warning: A non-pure method is being called where it is not permitted: java.nio.file.Path.isAbsolute()
+    //@   requires !path.isAbsolute() && path.canonicalPath.length != 0;
+                                   ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors
+4 warnings
