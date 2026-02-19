@@ -17,6 +17,7 @@ import javax.swing.SwingUtilities;
 
 public class MegaMek {
     
+    /*************   Method 32   *************/
     //SNIPPET_STARTS
     public Victory.Result victory(IGame game, HashMap<String, Object> ctx) {
         boolean victory = false;
@@ -67,7 +68,7 @@ public class MegaMek {
         return new SimpleNoResult();
     }
     
-
+    /*************   Method 33   *************/ 
     //SNIPPET_STARTS
     private void parseAdvantages(Entity entity, String adv) {
         StringTokenizer st = new StringTokenizer(adv);
@@ -105,7 +106,7 @@ public class MegaMek {
         }
     }
     
-
+    /*************   Method 34   *************/
     //SNIPPET_STARTS
     private void roll(int connId, int dice, int sides) {
         StringBuffer diceBuffer = new StringBuffer();
@@ -132,7 +133,7 @@ public class MegaMek {
                 + ", using " + dice + "d" + sides);
     }
     
-
+    /*************   Method 35   *************/
     //SNIPPET_STARTS
     public void deploy(int id, Coords c, int nFacing, int elevation,
                     List<Entity> loadedUnits, boolean assaultDrop) {
@@ -154,7 +155,7 @@ public class MegaMek {
         flushConn();
     }
     
-
+    /*************   Method 36   *************/
     //SNIPPET_STARTS
     public static boolean canMechFindClub(IGame game, int entityId) {
         final Entity entity = game.getEntity(entityId);
@@ -205,7 +206,7 @@ public class MegaMek {
         return true;
     }
     
-
+    /*************   Method 37   *************/
     //SNIPPET_STARTS
     private void checkReady() {
 
@@ -233,7 +234,7 @@ public class MegaMek {
         }
     }
     
-
+    /*************   Method 38   *************/
     //SNIPPET_STARTS
     public final boolean unload(Entity unit) {
         Entity trooper = game.getEntity(troopers);
@@ -245,7 +246,7 @@ public class MegaMek {
         return true;
     }
     
-
+    /*************   Method 39   *************/
     //SNIPPET_STARTS
     public int getEnemyInitialBV(IGame game, IPlayer player) {
         int ret = 0;
@@ -260,7 +261,7 @@ public class MegaMek {
         return ret;
     }
     
-
+    /*************   Method 49   *************/
     //SNIPPET_STARTS
     public void eventDispatched(AWTEvent event) {
         Object source = event.getSource();
@@ -273,9 +274,9 @@ public class MegaMek {
         }
     }
     
-
-    //SNIPPET_STARTS 
-    // @Override // removed to allow compilation
+    // @Override // Removed to allow compilation
+    /*************   Method 52   *************/ 
+    //SNIPPET_STARTS
     public void run(int connId, String[] args) {
         int kickArg = server.isPassworded() ? 2 : 1;
 
@@ -317,7 +318,7 @@ public class MegaMek {
             }
     }
     
-
+    /*************   Method 53   *************/
     //SNIPPET_STARTS
     public float getWeightArmor() {
         return (float) getEntity().getLabArmorTonnage();
@@ -343,7 +344,7 @@ public class MegaMek {
         return armorWeight;
     }
     
-
+    /*************   Method 54   *************/
     //SNIPPET_STARTS
     protected int calcAttackValue() {
         int av = 0;
@@ -362,7 +363,7 @@ public class MegaMek {
         return av;
     }
     
-
+    /*************   Method 55   *************/
     //SNIPPET_STARTS
     protected void setMekHitLocLog() {
         String name = store.getString(MEK_HIT_LOC_LOG);
@@ -378,7 +379,7 @@ public class MegaMek {
         }
     }
     
-
+    /*************   Method 56   *************/
     //SNIPPET_STARTS
     protected double updateAVforAmmo(double current_av, AmmoType atype,
         WeaponType bayWType, int range, int wId) {
@@ -438,7 +439,7 @@ public class MegaMek {
         return current_av;
     }
     
-
+    /*************   Method 57   *************/ 
     //SNIPPET_STARTS
     public boolean correctHeatSinks(StringBuffer buff) {
         if ((aero.getHeatType() != Aero.HEAT_SINGLE) 

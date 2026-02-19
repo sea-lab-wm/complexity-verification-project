@@ -7,7 +7,7 @@ dataset6/src/main/java/Pom.java:137: error: Null Dereference
   138.                           reloadQueue.add(this);
   139.                           reloadQueue.notify();
 
-dataset63/src/main/java/Siena.java:36: error: Null Dereference
+dataset63/src/main/java/Siena/Siena2.java:36: error: Null Dereference
   object `info.allFields` initialized automatically could be null and is dereferenced at line 36.
   34.           Map<String, NonUniqueIndex> indexes = new HashMap<String, NonUniqueIndex>();
   35.           
@@ -15,22 +15,22 @@ dataset63/src/main/java/Siena.java:36: error: Null Dereference
   37.               String[] columns = ClassInfo.getColumnNames(field);
   38.               boolean notNull = field.getAnnotation(NotNull.class) != null;
 
-dataset63/src/main/java/ArgoUML.java:250: error: Resource Leak
-  resource of type `java.io.FileOutputStream` acquired by call to `FileOutputStream(...)` at line 248 is not released after line 250.
-  248.           OutputStreamWriter writer = new OutputStreamWriter(
-  249.                   new FileOutputStream(profileFile), 
-  250. >                 Argo.getEncoding());
-  251.           writer.write(xmi.toString());
-  252.           writer.close();
+dataset63/src/main/java/ArgoUML.java:257: error: Resource Leak
+  resource of type `java.io.FileOutputStream` acquired by call to `FileOutputStream(...)` at line 255 is not released after line 257.
+  255.           OutputStreamWriter writer = new OutputStreamWriter(
+  256.                   new FileOutputStream(profileFile), 
+  257. >                 Argo.getEncoding());
+  258.           writer.write(xmi.toString());
+  259.           writer.close();
 
-dataset63/src/main/java/ArgoUML.java:261: error: Resource Leak
-  resource of type `java.io.OutputStreamWriter` acquired to `writer` by call to `OutputStreamWriter(...)` at line 250 is not released after line 261.
-**Note**: potential exception at line 251
-  259.                   profilesDirectory.getAbsolutePath());
-  260.           }
-  261. >     }
-  262.   
-  263.       //SNIPPET_STARTS
+dataset63/src/main/java/ArgoUML.java:268: error: Resource Leak
+  resource of type `java.io.OutputStreamWriter` acquired to `writer` by call to `OutputStreamWriter(...)` at line 257 is not released after line 268.
+**Note**: potential exception at line 258
+  266.                   profilesDirectory.getAbsolutePath());
+  267.           }
+  268. >     }
+  269.       
+  270.       // @Override // Removed to allow compilation
 
 simple-datasets/src/main/java/fMRI_Study_Classes/ArrayAverage.java:19: error: Divide By Zero
   Expression `number1` could be zero at line 19.
@@ -40,13 +40,13 @@ simple-datasets/src/main/java/fMRI_Study_Classes/ArrayAverage.java:19: error: Di
   20.           return result;
   21.       }
 
-dataset63/src/main/java/Siena.java:342: error: Null Dereference
-  object `getClassInfo(clazz).updateFields` could be null and is dereferenced at line 342.
-  340.           }
-  341.           
-  342. >         for (Field f : ClassInfo.getClassInfo(clazz).updateFields) {
-  343.               String propValue = SdbMappingUtils.objectFieldToString(embeddedObj, f);
-  344.               if(propValue != null){
+dataset63/src/main/java/Siena/Siena2.java:327: error: Null Dereference
+  object `getClassInfo(clazz).updateFields` could be null and is dereferenced at line 327.
+  325.           }
+  326.           
+  327. >         for (Field f : ClassInfo.getClassInfo(clazz).updateFields) {
+  328.               String propValue = SdbMappingUtils.objectFieldToString(embeddedObj, f);
+  329.               if(propValue != null){
 
 dataset6/src/main/java/HibernateORM.java:186: error: Dangling Pointer Dereference
   uninitialized object `e` could be dangling and is dereferenced or freed at line 186.

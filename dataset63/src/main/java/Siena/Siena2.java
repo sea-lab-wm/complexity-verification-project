@@ -1,9 +1,8 @@
+package Siena;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.UUID;
@@ -17,8 +16,9 @@ import java.util.HashMap;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-class Siena<T> {
+class Siena2<T> {
     
+    /*************   Method 27   *************/
     //SNIPPET_STARTS
     public Table addTable(Class<?> clazz) {
         if(Modifier.isAbstract(clazz.getModifiers())){
@@ -113,32 +113,7 @@ class Siena<T> {
         return table;
     }
     
-
-    //SNIPPET_STARTS
-    public List<String> getUpdateFieldsColumnNames() {
-        List<String> strs = new ArrayList<String>(this.updateFields.size());
-        for(Field field: this.updateFields){
-            //Column c = field.getAnnotation(Column.class); // changed to allow compilation
-            ColumnAnno c = field.getAnnotation(ColumnAnno.class);
-            // Column c = new Column(cn != null && cn.value().length > 0 ? cn.value()[0] : field.getName());
-            if(c != null && c.value().length > 0) {
-                strs.add(c.value()[0]);
-            }
-
-            else if(isModel(field.getType())) {
-                ClassInfo ci = getClassInfo(field.getType());
-                for (Field key : ci.keys) {
-                    Collections.addAll(strs, getColumnNames(key));
-                }
-            }
-            else {
-                strs.add(field.getName());
-            }
-        }
-        return strs;
-    }
-    
-
+    /*************   Method 29   *************/ 
     //SNIPPET_STARTS
     public static void encode( ByteBuffer raw, CharBuffer encoded ){
         byte[] raw3 = new byte[3];
@@ -153,10 +128,10 @@ class Siena<T> {
             }
         }   
     }
-    
 
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 30   *************/ 
+    //SNIPPET_STARTS
     public int save(Iterable<?> objects) {
         List<Object> entities2Insert = new ArrayList<Object>();
         List<Object> entities2Update = new ArrayList<Object>();
@@ -178,7 +153,7 @@ class Siena<T> {
         return insert(entities2Insert) + update(entities2Update);
     }
     
-
+    /*************   Method 31   *************/
     //SNIPPET_STARTS
     public static Object readField(Object object, Field field) {
         boolean wasAccess = true;
@@ -197,7 +172,7 @@ class Siena<T> {
         }
     }
     
-
+    /*************   Method 40   *************/
     //SNIPPET_STARTS
     public static Entity createEntityInstance(Field idField, ClassInfo info, Object obj){
         Entity entity = null;
@@ -239,7 +214,7 @@ class Siena<T> {
         return entity;
     }
     
-
+    /*************   Method 41   *************/
     //SNIPPET_STARTS
     public static void fillRequestElement(Object obj, Element element, boolean ids) {
         Class<?> clazz = obj.getClass();
@@ -273,7 +248,7 @@ class Siena<T> {
         }
     }
     
-
+    /*************   Method 42   *************/
     //SNIPPET_STARTS
     public static <T> int mapSelectResult(SelectResult res, Iterable<T> objects) {
         List<Item> items = res.getItems();
@@ -303,7 +278,7 @@ class Siena<T> {
         return nb;
     }
     
-
+    /*************   Method 43   *************/ 
     //SNIPPET_STARTS
     public void addAndMoveCursor(String cursor){
             
@@ -315,7 +290,7 @@ class Siena<T> {
         }
     }
     
-
+    /*************   Method 44   *************/ 
     //SNIPPET_STARTS 
     public List<T> get() {
         List<T> results;
@@ -341,7 +316,7 @@ class Siena<T> {
         return results;
     }
     
-
+    /*************   Method 45   *************/ 
     //SNIPPET_STARTS
     public static void embed(ReplaceableItem item, String embeddingColumnName, Object embeddedObj){
         Class<?> clazz = embeddedObj.getClass();
@@ -367,7 +342,7 @@ class Siena<T> {
         }
     }
     
-
+    /*************   Method 46   *************/ 
     //SNIPPET_STARTS
     public Response putAttributes(String domain, Item item) {
         TreeMap<String, String> parameters = new TreeMap<String, String>();

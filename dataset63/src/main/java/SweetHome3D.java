@@ -31,9 +31,10 @@ class SweetHome3DBase  extends JComponent{
 }
 
 public class SweetHome3D extends SweetHome3DBase {
-
-    //SNIPPET_STARTS
+    
     // @Override // Removed to allow compilation
+    /*************   Method 20   *************/ 
+    //SNIPPET_STARTS
     public String showSaveDialog(View        parentView,
                                 String      dialogTitle,
                                 ContentType contentType,
@@ -69,7 +70,7 @@ public class SweetHome3D extends SweetHome3DBase {
         }
     }
     
-
+    /*************   Method 21   *************/ 
     //SNIPPET_STARTS
     private void computeBounds(Node node, BoundingBox bounds, 
                                 Transform3D parentTransformations, boolean transformShapeGeometry) {
@@ -100,7 +101,7 @@ public class SweetHome3D extends SweetHome3DBase {
         }
     }
     
-
+    /*************   Method 22   *************/ 
     //SNIPPET_STARTS
     private GraphicsConfigTemplate3D createGraphicsConfigurationTemplate3D() {
         if (System.getProperty("j3d.implicitAntialiasing") == null) {
@@ -120,7 +121,7 @@ public class SweetHome3D extends SweetHome3DBase {
         return template;
     }
     
-
+    /*************   Method 23   *************/ 
     //SNIPPET_STARTS
     public float getXCenter() {
         float xMin = this.points [0][0]; 
@@ -132,7 +133,7 @@ public class SweetHome3D extends SweetHome3DBase {
         return (xMin + xMax) / 2;
     }
     
-
+    /*************   Method 24   *************/ 
     //SNIPPET_STARTS
     private void getAreaPoints(Area area, 
                                 boolean reversed, 
@@ -192,7 +193,7 @@ public class SweetHome3D extends SweetHome3DBase {
         }
     }
     
-    
+    /*************   Method 25   *************/
     //SNIPPET_STARTS
     private void createSwtMenu(Shell shell, UserPreferences preferences,
                                 Menu menuBar, AbstractMenuItem menuItem) {
@@ -221,7 +222,7 @@ public class SweetHome3D extends SweetHome3DBase {
         }
     }
     
-
+    /*************   Method 26   *************/
     //SNIPPET_STARTS
     private String getOptionalString(UserPreferences preferences, 
                                     Class<?> resourceClass, 
@@ -241,7 +242,7 @@ public class SweetHome3D extends SweetHome3DBase {
         }
     }
     
-    
+    /*************   Method 60   *************/
     //SNIPPET_STARTS
     private List<HelpDocument> searchInHelpDocuments(URL helpIndex, String [] searchedWords) {
         List<URL> parsedDocuments = new ArrayList<URL>(); 
@@ -278,7 +279,7 @@ public class SweetHome3D extends SweetHome3DBase {
         return helpDocuments;
     }
     
-
+    /*************   Method 61   *************/ 
     //SNIPPET_STARTS
     private void setLength(Float length, boolean updateEndPoint) {
         if (length != this.length) {
@@ -308,7 +309,7 @@ public class SweetHome3D extends SweetHome3DBase {
         }
     }
     
-
+    /*************   Method 62   *************/
     //SNIPPET_STARTS
     private void setBackFaceNormalFlip(Node node, boolean backFaceNormalFlip) {
         if (node instanceof Group) {
@@ -334,7 +335,7 @@ public class SweetHome3D extends SweetHome3DBase {
         }
     }
     
-
+    /*************   Method 63   *************/
     //SNIPPET_STARTS  
     public void add(TexturesCategory category, CatalogTexture texture) {
         int index = this.categories.indexOf(category);
@@ -352,7 +353,7 @@ public class SweetHome3D extends SweetHome3DBase {
             category.getIndexOfTexture(texture), CollectionEvent.Type.ADD);
     }
     
-
+    /*************   Method 64   *************/
     //SNIPPET_STARTS
     private void updateAdvancedComponents() {
         Component root = SwingUtilities.getRoot(this);

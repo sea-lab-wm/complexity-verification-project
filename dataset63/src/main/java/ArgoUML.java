@@ -31,7 +31,8 @@ class StubSuperClass {
 }
 
 public class ArgoUML extends StubSuperClass {
-
+    
+    /*************   Method 2   *************/ 
     //SNIPPET_STARTS
     public final boolean saveDefault(boolean force) {
         if (force) {
@@ -55,9 +56,9 @@ public class ArgoUML extends StubSuperClass {
         return false;
     }
     
-
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 1   *************/ 
+    //SNIPPET_STARTS
     public boolean canAddEdge(Object edge)  {
         if (edge == null) {
             return false;
@@ -114,7 +115,7 @@ public class ArgoUML extends StubSuperClass {
         return true;
     }
     
-
+    /*************   Method 3   *************/ 
     //SNIPPET_STARTS
     public Iterator childIterator(Object parent) {
         List res = new ArrayList();
@@ -133,7 +134,7 @@ public class ArgoUML extends StubSuperClass {
         return res.iterator();
     }
     
-
+    /*************   Method 4   *************/ 
     //SNIPPET_STARTS
     public void init() {
         Object classCls = Model.getMetaTypes().getUMLClass();
@@ -142,9 +143,9 @@ public class ArgoUML extends StubSuperClass {
         Agency.register(crSingletonViolatedOPC, classCls);
     }
     
-
-    //SNIPPET_STARTS 
     // @Override // Removed to allow compilation
+    /*************   Method 5   *************/ 
+    //SNIPPET_STARTS
     public void addNodeRelatedEdges(Object node) {
         super.addNodeRelatedEdges(node);
 
@@ -186,9 +187,9 @@ public class ArgoUML extends StubSuperClass {
         }
     }
     
-
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 14   *************/ 
+    //SNIPPET_STARTS
     public boolean predicate2(Object dm, Designer dsgr) {
 
         if (!(Model.getFacade().isAClass(dm))) {
@@ -245,7 +246,7 @@ public class ArgoUML extends StubSuperClass {
         return PROBLEM_FOUND;
     }
     
-
+    /*************   Method 15   *************/
     //SNIPPET_STARTS
     private void addUserDefinedProfile(String fileName, StringBuffer xmi,
             ProfileManager profileManager) throws IOException {
@@ -266,9 +267,9 @@ public class ArgoUML extends StubSuperClass {
         }
     }
     
-
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 16   *************/
+    //SNIPPET_STARTS
     protected void setStandardBounds(int x, int y, int w, int h) {
         if (getNameFig() == null) {
             return;
@@ -290,9 +291,9 @@ public class ArgoUML extends StubSuperClass {
         updateEdges();
     }
     
-
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 17   *************/
+    //SNIPPET_STARTS
     public void addEdge(Object edge) {
         LOG.debug("adding class edge!!!!!!");
         if (!canAddEdge(edge)) {
@@ -307,10 +308,10 @@ public class ArgoUML extends StubSuperClass {
         fireEdgeAdded(edge);
     }
     
-
+    /*************   Method 18   *************/
     //SNIPPET_STARTS
     protected final void removeAllElementListeners(
-            java.beans.PropertyChangeListener listener) { // Changed to allow compilation
+            PropertyChangeListener listener) {
         for (Object[] lis : listeners) {
             Object property = lis[1]; // Changed (lilisteners --> lis) to allow compilation
             if (property == null) {
@@ -329,7 +330,7 @@ public class ArgoUML extends StubSuperClass {
         listeners.clear();
     }
     
-
+    /*************   Method 19   *************/ 
     //SNIPPET_STARTS
     public Collection loadModel(ProfileReference reference) 
         throws ProfileException {
@@ -341,7 +342,7 @@ public class ArgoUML extends StubSuperClass {
         
         try {
             XmiReader xmiReader = Model.getXmiReader();
-            InputSource inputSource = new InputSource(reader); // fixed to allow compilation (added 'new')
+            InputSource inputSource = new InputSource(reader);
             inputSource.setSystemId(reference.getPath());
             inputSource.setPublicId(
                     reference.getPublicReference().toString());
@@ -352,7 +353,7 @@ public class ArgoUML extends StubSuperClass {
         }
     }
     
-
+    /*************   Method 47   *************/ 
     //SNIPPET_STARTS
     public synchronized void addCommand(Command command) {
 
@@ -382,7 +383,7 @@ public class ArgoUML extends StubSuperClass {
         macroCommand.addCommand(command);
     }
     
-
+    /*************   Method 48   *************/ 
     //SNIPPET_STARTS
     public void vetoableChange(PropertyChangeEvent pce) {
         
@@ -407,7 +408,7 @@ public class ArgoUML extends StubSuperClass {
         }
     }
     
-
+    /*************   Method 50   *************/
     //SNIPPET_STARTS
     private boolean isSelectedInternal(String name) {
         Map.Entry<ModuleInterface, ModuleStatus> entry = findModule(name);
@@ -424,7 +425,7 @@ public class ArgoUML extends StubSuperClass {
         return false;
     }
     
-
+    /*************   Method 51   *************/ 
     //SNIPPET_STARTS
     public Object execute() {
         final Iterator<Command> it = commands.iterator();
@@ -434,7 +435,7 @@ public class ArgoUML extends StubSuperClass {
         return null;
     }
     
-
+    /*************   Method 58   *************/
     //SNIPPET_STARTS
     public void run() {
         int port = 0;

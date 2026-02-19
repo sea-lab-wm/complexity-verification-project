@@ -31,6 +31,7 @@ import javax.swing.JSeparator;
 
 public class ATunes<T> {
     
+    /*************   Method 6   *************/ 
     //SNIPPET_STARTS
     private void arrangeDialog(final JTextArea textArea,
             final JPanel patternPreviewPanel,
@@ -73,9 +74,9 @@ public class ATunes<T> {
         getRootPane().setDefaultButton(okButton);
     }
     
-
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 7   *************/
+    //SNIPPET_STARTS
     public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
@@ -103,7 +104,7 @@ public class ATunes<T> {
         return true;
     }
     
-
+    /*************   Method 8   *************/
     //SNIPPET_STARTS
     ApplicationVersion getApplicationVersionFromXml(final Document xml) {
         Element element = (Element) xml.getElementsByTagName("latest").item(0);
@@ -126,7 +127,7 @@ public class ATunes<T> {
                 VersionType.FINAL, "", url, directDownloadURL, changes);
     }
     
-
+    /*************   Method 9   *************/
     //SNIPPET_STARTS
     private List<Entry<T, Integer>> getElementsSorted() {
         List<Entry<T, Integer>> list = new ArrayList<Map.Entry<T, Integer>>(
@@ -141,9 +142,9 @@ public class ATunes<T> {
         return list;
     }
     
-
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 10   *************/
+    //SNIPPET_STARTS
     public JPopupMenu getTreePopupMenu() {
         if (this.deviceTreeMenu == null) {
             this.deviceTreeMenu = new JPopupMenu();
@@ -197,7 +198,7 @@ public class ATunes<T> {
         return this.deviceTreeMenu;
     }
     
-
+    /*************   Method 11   *************/
     //SNIPPET_STARTS
     private void moveToBottom(final IPlayList playList, final int[] rows) {
         int j = 0;
@@ -218,7 +219,7 @@ public class ATunes<T> {
         }
     }
     
-
+    /*************   Method 12   *************/ 
     //SNIPPET_STARTS
     private void fillCdInfo() {
         CDInfo info = this.cdda2wav.getCDInfo();
@@ -239,9 +240,9 @@ public class ATunes<T> {
         info.setComposers(this.composers);
     }
     
-
-    //SNIPPET_STARTS
     // @Override // Removed to allow compilation
+    /*************   Method 13   *************/
+    //SNIPPET_STARTS
     public int hashCode() {
         final int prime = 31;
         int result = 1;

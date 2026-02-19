@@ -4,8 +4,8 @@ Snippet,Dangling Pointer Dereference,Divide By Zero,Null Dereference,Resource Le
 6 -- 3 -- HibernateORM,1.0,,,
 6 -- 3 -- SpringBatch,,,1.0,
 6 -- 5 -- SpringBatch,,,1.0,
-63 -- 1 -- Siena,,,1.0,
-63 -- 10 -- Siena,,,1.0,
+63 -- 1 -- Siena2,,,1.0,
+63 -- 10 -- Siena2,,,1.0,
 63 -- 7 -- ArgoUML,,,,2.0
 8 -- 2 -- Study,,,1.0,
 f -- 1 -- ArrayAverage,,1.0,,

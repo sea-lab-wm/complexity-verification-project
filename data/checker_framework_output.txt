@@ -495,7 +495,7 @@
 /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#87 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#749 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:152: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -505,7 +505,7 @@
 /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter c of process.
             process(lexer, parserClass, parser, charStream);
                            ^
-  found   : @Initialized @Nullable Class<capture#116 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
+  found   : @Initialized @Nullable Class<capture#268 extends @Initialized @NonNull Antlr4Master.@Initialized @NonNull Parser>
   required: @Initialized @NonNull Class</*INFERENCE FAILED for:*/ ? extends @Initialized @NonNull Object>
 /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset6/src/main/java/Antlr4Master.java:167: warning: [argument] incompatible argument for parameter p of process.
             process(lexer, parserClass, parser, charStream);
@@ -928,258 +928,258 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset6/src/main/java/Pom.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 224 warnings
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java:25: warning: [return] incompatible types in return.
-            return null;
-                   ^
-  type of expression: null (NullType)
-  method return type: @Initialized @NonNull Siena<T extends @Initialized @Nullable Object>.@Initialized @NonNull Table
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java:162: warning: [dereference.of.nullable] dereference of possibly-null reference obj
-            Class<?> clazz = obj.getClass();
-                             ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java:186: warning: [return] incompatible types in return.
-            return field.get(object);
-                            ^
-  type of expression: @Initialized @Nullable Object
-  method return type: @Initialized @NonNull Object
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java:279: warning: [dereference.of.nullable] dereference of possibly-null reference obj
-                clazz = obj.getClass();
-                        ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java:292: warning: [argument] incompatible argument for parameter info of fillModel.
-                fillModel(theItem, clazz, info, obj);
-                                          ^
-  found   : @Initialized @Nullable ClassInfo
-  required: @Initialized @NonNull ClassInfo
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java:42: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
-                Column column = createColumn(clazz, field, columns[0]);
-                                                                   ^
-  found   : @UnknownVal String @UnknownVal []
-  required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java:124: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena1.java:17: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
                 strs.add(c.value()[0]);
                                    ^
   found   : @UnknownVal String @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:371: warning: [dereference.of.nullable] dereference of possibly-null reference macroCommand
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena2.java:25: warning: [return] incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Siena2<T extends @Initialized @Nullable Object>.@Initialized @NonNull Table
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena2.java:140: warning: [dereference.of.nullable] dereference of possibly-null reference obj
+            Class<?> clazz = obj.getClass();
+                             ^
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena2.java:165: warning: [return] incompatible types in return.
+            return field.get(object);
+                            ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena2.java:261: warning: [dereference.of.nullable] dereference of possibly-null reference obj
+                clazz = obj.getClass();
+                        ^
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena2.java:274: warning: [argument] incompatible argument for parameter info of fillModel.
+                fillModel(theItem, clazz, info, obj);
+                                          ^
+  found   : @Initialized @Nullable ClassInfo
+  required: @Initialized @NonNull ClassInfo
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena2.java:42: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+                Column column = createColumn(clazz, field, columns[0]);
+                                                                   ^
+  found   : @UnknownVal String @UnknownVal []
+  required: @MinLen(1) -- an array guaranteed to have at least 1 elements
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:383: warning: [dereference.of.nullable] dereference of possibly-null reference macroCommand
         macroCommand.addCommand(command);
         ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:420: warning: [return] incompatible types in return.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:435: warning: [return] incompatible types in return.
         return null;
                ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull Object
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:249: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-338 or any of its aliases.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:256: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-347 or any of its aliases.
                 new FileOutputStream(profileFile), 
                 ^
   The type of object is: java.io.FileOutputStream.
   Reason for going out of scope: possible exceptional exit due to writer.write(xmi.toString()) with exception type java.io.IOException
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:428: warning: [required.method.not.called] @MustCall method close may not have been invoked on serverSocket or any of its aliases.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:444: warning: [required.method.not.called] @MustCall method close may not have been invoked on serverSocket or any of its aliases.
             ServerSocket serverSocket = new ServerSocket(port);
                          ^
   The type of object is: java.net.ServerSocket.
   Reason for going out of scope: possible exceptional exit due to serverSocket.accept() with exception type java.io.IOException
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:429: warning: [required.method.not.called] @MustCall method close may not have been invoked on s or any of its aliases.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:445: warning: [required.method.not.called] @MustCall method close may not have been invoked on s or any of its aliases.
             Socket s = serverSocket.accept();
                    ^
   The type of object is: java.net.Socket.
   Reason for going out of scope: possible exceptional exit due to serverSocket.close() with exception type java.io.IOException
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:306: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:316: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
             Object property = lis[1]; // Changed (lilisteners --> lis) to allow compilation
                                   ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:308: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:318: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
                 Model.getPump().removeModelEventListener(listener, lis[0]);
                                                                        ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:310: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:320: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
                 Model.getPump().removeModelEventListener(listener, lis[0],
                                                                        ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:313: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ArgoUML.java:323: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
                 Model.getPump().removeModelEventListener(listener, lis[0],
                                                                        ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:45: warning: [argument] incompatible argument for parameter selectionValues of showInputDialog.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:46: warning: [argument] incompatible argument for parameter selectionValues of showInputDialog.
                 message, getFileDialogTitle(true), JOptionPane.QUESTION_MESSAGE, null, null, name);
                                                                                        ^
   found   : null (NullType)
   required: @Initialized @Nullable Object @Initialized @NonNull []
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:47: warning: [return] incompatible types in return.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:48: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:65: warning: [return] incompatible types in return.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:66: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:85: warning: [argument] incompatible argument for parameter node of computeBounds.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:87: warning: [argument] incompatible argument for parameter node of computeBounds.
             computeBounds((Node)enumeration.nextElement(), bounds, parentTransformations, transformShapeGeometry);
                           ^
   found   : @Initialized @NonNull SweetHome3D.@Initialized @Nullable Node
   required: @Initialized @NonNull SweetHome3D.@Initialized @NonNull Node
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:141: warning: [argument] incompatible argument for parameter at of getPathIterator.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:146: warning: [argument] incompatible argument for parameter at of getPathIterator.
         for (PathIterator it = area.getPathIterator(null, 1); !it.isDone(); it.next()) {
                                                     ^
   found   : null (NullType)
   required: @Initialized @NonNull AffineTransform
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:154: warning: [accessing.nullable] accessing a possibly-null array previousRoomPoint
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:159: warning: [accessing.nullable] accessing a possibly-null array previousRoomPoint
                 if (currentPathPoints.get(0) [0] == previousRoomPoint [0] 
                                                     ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:231: warning: [return] incompatible types in return.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:238: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:234: warning: [return] incompatible types in return.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:241: warning: [return] incompatible types in return.
             return null;
                    ^
   type of expression: null (NullType)
   method return type: @Initialized @NonNull String
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:296: warning: [argument] incompatible argument for parameter xEnd of setXEnd.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:305: warning: [argument] incompatible argument for parameter xEnd of setXEnd.
                 setXEnd(null);
                         ^
   found   : null (NullType)
   required: @Initialized @NonNull Float
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:297: warning: [argument] incompatible argument for parameter yEnd of setYEnd.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:306: warning: [argument] incompatible argument for parameter yEnd of setYEnd.
                 setYEnd(null);
                         ^
   found   : null (NullType)
   required: @Initialized @NonNull Float
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:309: warning: [argument] incompatible argument for parameter node of setBackFaceNormalFlip.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:319: warning: [argument] incompatible argument for parameter node of setBackFaceNormalFlip.
             setBackFaceNormalFlip((Node)enumeration.nextElement(), backFaceNormalFlip);
                                   ^
   found   : @Initialized @NonNull SweetHome3D.@Initialized @Nullable Node
   required: @Initialized @NonNull SweetHome3D.@Initialized @NonNull Node
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:276: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:285: warning: [not.interned] attempting to use a non-@Interned comparison operand
         if (length != this.length) {
             ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:276: warning: [not.interned] attempting to use a non-@Interned comparison operand
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:285: warning: [not.interned] attempting to use a non-@Interned comparison operand
         if (length != this.length) {
                           ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:123: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:127: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         float xMin = this.points [0][0]; 
                                   ^
   found   : @UnknownVal float @UnknownVal [] @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:123: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:127: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         float xMin = this.points [0][0]; 
                                      ^
   found   : @UnknownVal float @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:124: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:128: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         float xMax = this.points [0][0]; 
                                   ^
   found   : @UnknownVal float @UnknownVal [] @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:124: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:128: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         float xMax = this.points [0][0]; 
                                      ^
   found   : @UnknownVal float @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:126: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:130: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         xMin = Math.min(xMin, this.points [i][0]);
                                               ^
   found   : @UnknownVal float @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:127: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:131: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         xMax = Math.max(xMax, this.points [i][0]);
                                               ^
   found   : @UnknownVal float @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:154: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:159: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
                 if (currentPathPoints.get(0) [0] == previousRoomPoint [0] 
                                               ^
   found   : @UnknownVal float @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:155: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/SweetHome3D.java:160: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
                     && currentPathPoints.get(0) [1] == previousRoomPoint [1]) {
                                                  ^
   found   : @UnknownVal float @UnknownVal []
   required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:139: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:143: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
         data[index++] = new Integer(id);
                         ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:141: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:145: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
         data[index++] = new Integer(nFacing);
                         ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:142: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:146: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
         data[index++] = new Integer(elevation);
                         ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:143: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:147: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
         data[index++] = new Integer(loadedUnits.size());
                         ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:144: warning: [removal] Boolean(boolean) in Boolean has been deprecated and marked for removal
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:148: warning: [removal] Boolean(boolean) in Boolean has been deprecated and marked for removal
         data[index++] = new Boolean(assaultDrop);
                         ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:147: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:151: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
             data[index++] = new Integer(ent.getId());
                             ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:43: warning: [unboxing.of.nullable] unboxing a possibly-null reference killsTeam.get(killer)
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:44: warning: [unboxing.of.nullable] unboxing a possibly-null reference killsTeam.get(killer)
             if (killsTeam.get(killer) > killCount){
                              ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:364: warning: [assignment] incompatible types in assignment.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:377: warning: [assignment] incompatible types in assignment.
                 mekHitLocLog = null;
                                ^
   found   : null (NullType)
   required: @Initialized @NonNull PrintWriter
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:360: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-792 or any of its aliases.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:373: warning: [required.method.not.called] @MustCall method close may not have been invoked on temp-var-801 or any of its aliases.
                         new FileWriter(name)));
                         ^
   The type of object is: java.io.FileWriter.
   Reason for going out of scope: regular method exit
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:139: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:143: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         data[index++] = new Integer(id);
                   ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:140: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:144: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
         data[index++] = c;
                   ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:141: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 2 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:145: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 2 could be larger than the array's bound
         data[index++] = new Integer(nFacing);
                   ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(3) -- an array guaranteed to have at least 3 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:142: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 3 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:146: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 3 could be larger than the array's bound
         data[index++] = new Integer(elevation);
                   ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(4) -- an array guaranteed to have at least 4 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:143: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 4 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:147: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 4 could be larger than the array's bound
         data[index++] = new Integer(loadedUnits.size());
                   ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(5) -- an array guaranteed to have at least 5 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:144: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 5 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:148: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 5 could be larger than the array's bound
         data[index++] = new Boolean(assaultDrop);
                   ^
   found   : @UnknownVal Object @UnknownVal []
   required: @MinLen(6) -- an array guaranteed to have at least 6 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:147: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:151: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
             data[index++] = new Integer(ent.getId());
                       ^
   index type found: @IntRange(from=-2147483648) int
   array type found: @UnknownVal Object @UnknownVal []
   required        : index of type @IndexFor("data") or @LTLengthOf("data"), or array of type @MinLen(-9223372036854775808)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:285: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:295: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
                 int kickedId = Integer.parseInt(args[kickArg]);
                                                      ^
   index type found: @IntVal({2, 1}) int
   array type found: @UnknownVal String @UnknownVal []
   required        : index of type @IndexFor("args") or @LTLengthOf("args"), or array of type @MinLen(3)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:320: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/MegaMek.java:331: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
             armorWeight += armor[0].getWeightArmor(getTotalOArmor(),
                                  ^
   found   : @UnknownVal Armor @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:78: warning: [override.param] Incompatible parameter type for obj.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:80: warning: [override.param] Incompatible parameter type for obj.
     public boolean equals(final Object obj) {
                                        ^
   found   : @Initialized @NonNull Object
@@ -1188,32 +1188,32 @@ Note: Recompile with -Xlint:unchecked for details.
     @Initialized @NonNull boolean equals(@Initialized @NonNull ATunes<T extends @Initialized @Nullable Object> this, @Initialized @NonNull Object p0)
   cannot override method in @Initialized @NonNull Object
     @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:108: warning: [argument] incompatible argument for parameter element of getChildElementContent.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:111: warning: [argument] incompatible argument for parameter element of getChildElementContent.
         String date = XMLUtils.getChildElementContent(element, "date");
                                                       ^
   found   : @Initialized @Nullable Element
   required: @Initialized @NonNull Element
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:204: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:210: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
         if (rows[rows.length - 1] < playList.getCurrentAudioObjectIndex()) {
                              ^
   found   : @GTENegativeOne int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:207: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:213: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 0 could be larger than the array's bound
         } else if (rows[0] <= playList.getCurrentAudioObjectIndex()
                         ^
   found   : @UnknownVal int @UnknownVal []
   required: @MinLen(1) -- an array guaranteed to have at least 1 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:208: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:214: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                 && playList.getCurrentAudioObjectIndex() <= rows[rows.length - 1]) {
                                                                              ^
   found   : @GTENegativeOne int
   required: an integer >= 0 (@NonNegative or @Positive)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:212: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/ATunes.java:218: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
                     - rows[rows.length - 1] - 1);
                                        ^
   found   : @GTENegativeOne int
   required: an integer >= 0 (@NonNegative or @Positive)
-Note: /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena.java uses or overrides a deprecated API.
+Note: /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset63/src/main/java/Siena/Siena2.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
@@ -1223,16 +1223,16 @@ Note: Recompile with -Xlint:unchecked for details.
                                            ^
   found   : null (NullType)
   required: @Initialized @NonNull Object
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:241: warning: [cast.unsafe] cast from "@IntVal(34404) int" to "@IntVal(-31132) short" cannot be statically verified
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:242: warning: [cast.unsafe] cast from "@IntVal(34404) int" to "@IntVal(-31132) short" cannot be statically verified
         public static final short IMAGE_FILE_MACHINE_AMD64 = (short) 0x8664;
                                                              ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:242: warning: [cast.unsafe] cast from "@IntVal(43620) int" to "@IntVal(-21916) short" cannot be statically verified
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:243: warning: [cast.unsafe] cast from "@IntVal(43620) int" to "@IntVal(-21916) short" cannot be statically verified
         public static final short IMAGE_FILE_MACHINE_ARM64 = (short) 0xAA64;
                                                              ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:241: warning: [cast.unsafe] cast from "@IntVal(34404) int" to "@IntVal(-31132) short" cannot be statically verified
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:242: warning: [cast.unsafe] cast from "@IntVal(34404) int" to "@IntVal(-31132) short" cannot be statically verified
         public static final short IMAGE_FILE_MACHINE_AMD64 = (short) 0x8664;
                                                              ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:242: warning: [cast.unsafe] cast from "@IntVal(43620) int" to "@IntVal(-21916) short" cannot be statically verified
+/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/dataset8/src/main/java/Study.java:243: warning: [cast.unsafe] cast from "@IntVal(43620) int" to "@IntVal(-21916) short" cannot be statically verified
         public static final short IMAGE_FILE_MACHINE_ARM64 = (short) 0xAA64;
                                                              ^
 5 warnings
@@ -1562,168 +1562,6 @@ Note: Recompile with -Xlint:unchecked for details.
                                                                       ^
   found   : @UpperBoundUnknown int
   required: @LTLengthOf(offset={"0 - 1", "this.len - this.bufpos - 1 - 1"}, value={"this.buffer", "this.ret"}) int
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/CountchildrenSemanticNormal.java:21: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            int personAge = Integer.parseInt(numbers[children]);
-                                                     ^
-  found   : @UpperBoundUnknown int
-  required: @IndexFor("numbers") or @LTLengthOf("numbers") -- an integer less than numbers's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/SumscoresSemanticNormal.java:24: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
-                games[lastIndex] += Integer.parseInt(roll);
-                      ^
-  found   : @GTENegativeOne int
-  required: an integer >= 0 (@NonNegative or @Positive)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/SumscoresSemanticNormal.java:24: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
-                games[lastIndex] += Integer.parseInt(roll);
-                      ^
-  index type found: @IntRange(from=-1, to=2147483646) int
-  array type found: @UnknownVal String @UnknownVal []
-  required        : index of type @IndexFor("games") or @LTLengthOf("games"), or array of type @MinLen(2147483647)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/HistogramSemanticNormal.java:23: warning: [unboxing.of.nullable] unboxing a possibly-null reference frequencies.get(character)
-	    frequencies.put(character, frequencies.get(character)+1);            
-	                                              ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ReadiniSemanticNormal.java:25: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
-            String property = setting[1];
-                                      ^
-  found   : @UnknownVal String @ArrayLenRange(from=1) []
-  required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/PasswordgeneratorSemanticNormal.java:24: warning: [array.length.negative] Variable used in array creation could be negative.
-        char[] passphrase = new char[strength];
-                                     ^
-  found   : @LowerBoundUnknown int
-  required: an integer >= 0 (@NonNegative or @Positive)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/PasswordgeneratorSemanticNormal.java:28: warning: [argument] incompatible argument for parameter index of charAt.
-            char character = alphabet.charAt(index);
-                                             ^
-  found   : @LTLengthOf(value="passphrase", offset="0") int
-  required: @LTLengthOf("alphabet") int
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ConcatListsSemanticNormal.java:23: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            int second = end[index];
-                             ^
-  found   : @LTLengthOf(value="start", offset="0") int
-  required: @IndexFor("end") or @LTLengthOf("end") -- an integer less than end's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ConcatListsSemanticNormal.java:25: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            result[index] = first;
-                   ^
-  found   : @LTLengthOf(value="start", offset="0") int
-  required: @IndexFor("result") or @LTLengthOf("result") -- an integer less than result's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ConcatListsSemanticNormal.java:26: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            result[index + 1] = second;
-                         ^
-  found   : @LTEqLengthOf("start") int
-  required: @IndexFor("result") or @LTLengthOf("result") -- an integer less than result's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/MergelistsSemanticNormal.java:27: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            int second = right[index];
-                               ^
-  found   : @LTLengthOf(value="left", offset="0") int
-  required: @IndexFor("right") or @LTLengthOf("right") -- an integer less than right's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ReplaceSemanticNormal.java:22: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            if (target[index] == exclude)
-                       ^
-  found   : @UpperBoundUnknown int
-  required: @IndexFor("target") or @LTLengthOf("target") -- an integer less than target's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ReplaceSemanticNormal.java:24: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
-                replace = target[index];
-                                 ^
-  index type found: @IntRange(from=-2147483648) int
-  array type found: @UnknownVal int @UnknownVal []
-  required        : index of type @IndexFor("target") or @LTLengthOf("target"), or array of type @MinLen(-9223372036854775808)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ReplaceSemanticNormal.java:26: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
-            target[index] = replace;
-                   ^
-  index type found: @IntRange(from=-2147483648) int
-  array type found: @UnknownVal int @UnknownVal []
-  required        : index of type @IndexFor("target") or @LTLengthOf("target"), or array of type @MinLen(-9223372036854775808)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:101: warning: [unboxing.of.nullable] unboxing a possibly-null reference frequencies.get(character)
-            frequencies.put(character, frequencies.get(character)+1);
-                                                      ^
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:51: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            int second = end[index];
-                             ^
-  found   : @LTLengthOf(value="start", offset="0") int
-  required: @IndexFor("end") or @LTLengthOf("end") -- an integer less than end's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:53: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            result[index] = first;
-                   ^
-  found   : @LTLengthOf(value="start", offset="0") int
-  required: @IndexFor("result") or @LTLengthOf("result") -- an integer less than result's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:54: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            result[index + 1] = second;
-                         ^
-  found   : @LTEqLengthOf("start") int
-  required: @IndexFor("result") or @LTLengthOf("result") -- an integer less than result's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:75: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            int personAge = Integer.parseInt(numbers[children]);
-                                                     ^
-  found   : @UpperBoundUnknown int
-  required: @IndexFor("numbers") or @LTLengthOf("numbers") -- an integer less than numbers's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:123: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            int second = right[index];
-                               ^
-  found   : @LTLengthOf(value="left", offset="0") int
-  required: @IndexFor("right") or @LTLengthOf("right") -- an integer less than right's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:151: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
-            String parameterValue = parts[1];
-                                          ^
-  found   : @UnknownVal String @ArrayLenRange(from=1) []
-  required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:176: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
-            String property = setting[1];
-                                      ^
-  found   : @UnknownVal String @ArrayLenRange(from=1) []
-  required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:199: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            if (target[index] == exclude)
-                       ^
-  found   : @UpperBoundUnknown int
-  required: @IndexFor("target") or @LTLengthOf("target") -- an integer less than target's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:201: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
-                replace = target[index];
-                                 ^
-  index type found: @IntRange(from=-2147483648) int
-  array type found: @UnknownVal int @UnknownVal []
-  required        : index of type @IndexFor("target") or @LTLengthOf("target"), or array of type @MinLen(-9223372036854775808)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:203: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
-            target[index] = replace;
-                   ^
-  index type found: @IntRange(from=-2147483648) int
-  array type found: @UnknownVal int @UnknownVal []
-  required        : index of type @IndexFor("target") or @LTLengthOf("target"), or array of type @MinLen(-9223372036854775808)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:223: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
-            result[left] = array[auxiliary];
-                                 ^
-  found   : @LowerBoundUnknown int
-  required: an integer >= 0 (@NonNegative or @Positive)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:223: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            result[left] = array[auxiliary];
-                                 ^
-  found   : @UpperBoundUnknown int
-  required: @IndexFor("array") or @LTLengthOf("array") -- an integer less than array's length
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:249: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
-                games[lastIndex] += Integer.parseInt(roll);//IDK ab this
-                      ^
-  found   : @GTENegativeOne int
-  required: an integer >= 0 (@NonNegative or @Positive)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/semanticNormal.java:249: warning: [array.access.unsafe.high.range] Potentially unsafe array access: the index could be larger than the array's bound
-                games[lastIndex] += Integer.parseInt(roll);//IDK ab this
-                      ^
-  index type found: @IntRange(from=-1, to=2147483646) int
-  array type found: @UnknownVal String @UnknownVal []
-  required        : index of type @IndexFor("games") or @LTLengthOf("games"), or array of type @MinLen(2147483647)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ParsequerystringSemanticNormal.java:25: warning: [array.access.unsafe.high.constant] Potentially unsafe array access: the constant index 1 could be larger than the array's bound
-            String parameterValue = parts[1];
-                                          ^
-  found   : @UnknownVal String @ArrayLenRange(from=1) []
-  required: @MinLen(2) -- an array guaranteed to have at least 2 elements
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ReverseSemanticNormal.java:20: warning: [array.access.unsafe.low] Potentially unsafe array access: the index could be negative.
-            result[left] = array[auxiliary];
-                                 ^
-  found   : @LowerBoundUnknown int
-  required: an integer >= 0 (@NonNegative or @Positive)
-/home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/dataset7/ReverseSemanticNormal.java:20: warning: [array.access.unsafe.high] Potentially unsafe array access: the index could be larger than the array's bound
-            result[left] = array[auxiliary];
-                                 ^
-  found   : @UpperBoundUnknown int
-  required: @IndexFor("array") or @LTLengthOf("array") -- an integer less than array's length
 /home/kgdesilva/Desktop/TOSEM/complexity-verification-project/simple-datasets/src/main/java/cog_complexity_validation_datasets/One/Tasks.java:221: warning: [argument] incompatible argument for parameter index of charAt.
             if (word.charAt(i) != word.charAt(j)) {
                                               ^
@@ -1761,4 +1599,4 @@ Note: Recompile with -Xlint:unchecked for details.
   required: @LTEqLengthOf("words[i]") int
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-93 warnings
+61 warnings
